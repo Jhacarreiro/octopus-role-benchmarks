@@ -1,0 +1,6150 @@
+{
+  "schemaVersion": 2,
+  "methodologyVersion": 2,
+  "date": "2026-08-24",
+  "generatedAt": "2026-08-24T16:55:26.933Z",
+  "sources": {
+    "commandCodeMax": {
+      "url": "https://commandcode.ai/docs/plans/max",
+      "rows": 59
+    },
+    "artificialAnalysis": {
+      "url": "https://artificialanalysis.ai/",
+      "scoredFamilies": 51
+    }
+  },
+  "coveragePolicy": 1,
+  "coverage": {
+    "gdpval": {
+      "field": "gdpvalNormalized",
+      "total": 51,
+      "present": 51,
+      "ratio": 1,
+      "missing": []
+    },
+    "lcr": {
+      "field": "lcr",
+      "total": 51,
+      "present": 51,
+      "ratio": 1,
+      "missing": []
+    },
+    "gpqa": {
+      "field": "gpqa",
+      "total": 51,
+      "present": 51,
+      "ratio": 1,
+      "missing": []
+    },
+    "hle": {
+      "field": "hle",
+      "total": 51,
+      "present": 51,
+      "ratio": 1,
+      "missing": []
+    },
+    "omniscienceAccuracy": {
+      "field": "omniscienceAccuracy",
+      "total": 51,
+      "present": 51,
+      "ratio": 1,
+      "missing": []
+    },
+    "omniscienceReliability": {
+      "field": "omniscienceReliability",
+      "total": 51,
+      "present": 51,
+      "ratio": 1,
+      "missing": []
+    },
+    "scicode": {
+      "field": "scicode",
+      "total": 51,
+      "present": 51,
+      "ratio": 1,
+      "missing": []
+    }
+  },
+  "counts": {
+    "commandCodeRows": 59,
+    "scoredRows": 54,
+    "unscoredRows": 5,
+    "scoredFamilies": 51
+  },
+  "benchmarks": {
+    "gdpval": {
+      "sourceField": "gdpvalNormalized",
+      "label": "GDPval-AA v2 (normalized)",
+      "scale": "0-100",
+      "description": "Real-world professional deliverables across 44 occupations and 9 industries."
+    },
+    "scicode": {
+      "sourceField": "scicode",
+      "label": "SciCode",
+      "scale": "0-100",
+      "description": "Scientific coding problems requiring knowledge, reasoning and code synthesis."
+    },
+    "hle": {
+      "sourceField": "hle",
+      "label": "Humanity's Last Exam",
+      "scale": "0-100",
+      "description": "Frontier expert-level academic reasoning across disciplines."
+    },
+    "gpqa": {
+      "sourceField": "gpqa",
+      "label": "GPQA Diamond",
+      "scale": "0-100",
+      "description": "Graduate-level scientific reasoning designed to resist simple web lookup."
+    },
+    "lcr": {
+      "sourceField": "lcr",
+      "label": "AA-LCR",
+      "scale": "0-100",
+      "description": "Long-context extraction, reasoning and synthesis across 10k-100k token documents."
+    },
+    "omniscienceAccuracy": {
+      "sourceField": "omniscienceAccuracy",
+      "label": "AA-Omniscience Accuracy",
+      "scale": "0-100",
+      "description": "Factual answer accuracy across economically relevant domains."
+    },
+    "omniscienceReliability": {
+      "sourceField": "omniscienceReliability",
+      "label": "AA-Omniscience Reliability",
+      "scale": "0-100",
+      "description": "Derived as 1 - AA-Omniscience hallucination rate; higher is more reliable."
+    }
+  },
+  "roles": [
+    {
+      "id": "architect",
+      "label": "Architect",
+      "purpose": "Architecture, decomposition, design trade-offs and high-level technical judgment.",
+      "weights": {
+        "gdpval": 0.4,
+        "lcr": 0.25,
+        "gpqa": 0.2,
+        "hle": 0.15
+      },
+      "note": "Prioritizes professional deliverables, long-context synthesis and hard reasoning."
+    },
+    {
+      "id": "strategist",
+      "label": "Strategist",
+      "purpose": "Arbitration, product/architecture trade-offs and decision quality under ambiguity.",
+      "weights": {
+        "gdpval": 0.4,
+        "lcr": 0.2,
+        "omniscienceAccuracy": 0.2,
+        "omniscienceReliability": 0.1,
+        "gpqa": 0.1
+      },
+      "note": "Balances professional judgment with factuality and long-context reasoning."
+    },
+    {
+      "id": "security-reviewer",
+      "label": "Security Reviewer",
+      "purpose": "Adversarial review of implementation risks, unsafe assumptions and failure modes.",
+      "weights": {
+        "scicode": 0.3,
+        "gpqa": 0.25,
+        "hle": 0.2,
+        "omniscienceReliability": 0.15,
+        "lcr": 0.1
+      },
+      "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only."
+    },
+    {
+      "id": "code-reviewer",
+      "label": "Code Reviewer",
+      "purpose": "Independent review of code, edge cases, regressions and implementation quality.",
+      "weights": {
+        "scicode": 0.45,
+        "gpqa": 0.2,
+        "lcr": 0.15,
+        "omniscienceReliability": 0.1,
+        "hle": 0.1
+      },
+      "note": "SciCode is the dominant coding signal; reasoning and context support review quality."
+    },
+    {
+      "id": "implementer",
+      "label": "Implementer",
+      "purpose": "Normal coding implementation and iterative patch/test work.",
+      "weights": {
+        "scicode": 0.6,
+        "gpqa": 0.15,
+        "lcr": 0.15,
+        "hle": 0.1
+      },
+      "note": "Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe."
+    },
+    {
+      "id": "implementer-heavy",
+      "label": "Implementer Heavy",
+      "purpose": "Greenfield builds, large refactors and complex implementation work.",
+      "weights": {
+        "scicode": 0.45,
+        "gdpval": 0.25,
+        "lcr": 0.2,
+        "gpqa": 0.1
+      },
+      "note": "Adds professional-deliverable and long-context weight to coding for larger project work."
+    },
+    {
+      "id": "synthesizer",
+      "label": "Synthesizer",
+      "purpose": "Aggregate many inputs into a coherent, faithful final output.",
+      "weights": {
+        "lcr": 0.45,
+        "omniscienceAccuracy": 0.2,
+        "omniscienceReliability": 0.2,
+        "gdpval": 0.15
+      },
+      "note": "Long-context synthesis and factual reliability dominate."
+    },
+    {
+      "id": "researcher",
+      "label": "Researcher",
+      "purpose": "Broad research, evidence synthesis and difficult question answering.",
+      "weights": {
+        "lcr": 0.3,
+        "gdpval": 0.25,
+        "omniscienceAccuracy": 0.2,
+        "gpqa": 0.15,
+        "hle": 0.1
+      },
+      "note": "Focuses on synthesis, professional research output, factual accuracy and hard reasoning."
+    }
+  ],
+  "models": [
+    {
+      "name": "Ox Alpha",
+      "rawName": "Ox AlphaFREE",
+      "context": "1M",
+      "inputPerM": 0,
+      "outputPerM": 0,
+      "cacheReadPerM": 0,
+      "cacheWritePerM": null,
+      "inputListPerM": null,
+      "outputListPerM": null,
+      "cacheReadListPerM": null,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": true,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "unscored",
+        "reason": "Stealth/anonymous model; no verified AA identity."
+      },
+      "costs": {
+        "input": 0,
+        "output": 0,
+        "blended50": 0
+      },
+      "benchmarks": {},
+      "roleScores": {},
+      "aaModel": null
+    },
+    {
+      "name": "Laguna S 2.1",
+      "rawName": "Laguna S 2.1FREE",
+      "context": "256K",
+      "inputPerM": 0,
+      "outputPerM": 0,
+      "cacheReadPerM": 0,
+      "cacheWritePerM": null,
+      "inputListPerM": null,
+      "outputListPerM": null,
+      "cacheReadListPerM": null,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": true,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "unscored",
+        "reason": "Stealth/anonymous model; no verified AA identity."
+      },
+      "costs": {
+        "input": 0,
+        "output": 0,
+        "blended50": 0
+      },
+      "benchmarks": {},
+      "roleScores": {},
+      "aaModel": null
+    },
+    {
+      "name": "Tencent Hy3",
+      "rawName": "Tencent Hy3",
+      "context": "262K",
+      "inputPerM": 0.14,
+      "outputPerM": 0.58,
+      "cacheReadPerM": 0.035,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.14,
+      "outputListPerM": 0.58,
+      "cacheReadListPerM": 0.035,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "hy3",
+        "reason": "CommandCode vendor-prefixed display name; AA canonical family is Hy3."
+      },
+      "costs": {
+        "input": 0.14,
+        "output": 0.58,
+        "blended50": 0.36
+      },
+      "benchmarks": {
+        "gdpval": 35.7185,
+        "lcr": 74.6667,
+        "gpqa": 89.697,
+        "hle": 33.4569,
+        "omniscienceAccuracy": 31.9667,
+        "omniscienceReliability": 25.8697,
+        "scicode": 47.5694
+      },
+      "roleScores": {
+        "architect": {
+          "score": 55.912,
+          "value": {
+            "input": 399.371,
+            "output": 96.4,
+            "blended50": 155.311
+          }
+        },
+        "strategist": {
+          "score": 47.171,
+          "value": {
+            "input": 336.936,
+            "output": 81.329,
+            "blended50": 131.031
+          }
+        },
+        "security-reviewer": {
+          "score": 54.734,
+          "value": {
+            "input": 390.957,
+            "output": 94.369,
+            "blended50": 152.039
+          }
+        },
+        "code-reviewer": {
+          "score": 56.478,
+          "value": {
+            "input": 403.414,
+            "output": 97.376,
+            "blended50": 156.883
+          }
+        },
+        "implementer": {
+          "score": 56.542,
+          "value": {
+            "input": 403.871,
+            "output": 97.486,
+            "blended50": 157.061
+          }
+        },
+        "implementer-heavy": {
+          "score": 54.239,
+          "value": {
+            "input": 387.421,
+            "output": 93.516,
+            "blended50": 150.664
+          }
+        },
+        "synthesizer": {
+          "score": 50.525,
+          "value": {
+            "input": 360.893,
+            "output": 87.112,
+            "blended50": 140.347
+          }
+        },
+        "researcher": {
+          "score": 54.523,
+          "value": {
+            "input": 389.45,
+            "output": 94.005,
+            "blended50": 151.453
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "hy3",
+        "sourceUrl": "https://artificialanalysis.ai/models/hy3"
+      }
+    },
+    {
+      "name": "Kimi K3",
+      "rawName": "Kimi K3",
+      "context": "1M",
+      "inputPerM": 3,
+      "outputPerM": 15,
+      "cacheReadPerM": 0.3,
+      "cacheWritePerM": null,
+      "inputListPerM": 3,
+      "outputListPerM": 15,
+      "cacheReadListPerM": 0.3,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "kimi-k3",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 3,
+        "output": 15,
+        "blended50": 9
+      },
+      "benchmarks": {
+        "gdpval": 58.8465,
+        "lcr": 38.3333,
+        "gpqa": 93.5354,
+        "hle": 46.8953,
+        "omniscienceAccuracy": 47.5833,
+        "omniscienceReliability": 46.8045,
+        "scicode": 58.6806
+      },
+      "roleScores": {
+        "architect": {
+          "score": 58.863,
+          "value": {
+            "input": 19.621,
+            "output": 3.924,
+            "blended50": 6.54
+          }
+        },
+        "strategist": {
+          "score": 54.756,
+          "value": {
+            "input": 18.252,
+            "output": 3.65,
+            "blended50": 6.084
+          }
+        },
+        "security-reviewer": {
+          "score": 61.221,
+          "value": {
+            "input": 20.407,
+            "output": 4.081,
+            "blended50": 6.802
+          }
+        },
+        "code-reviewer": {
+          "score": 60.233,
+          "value": {
+            "input": 20.078,
+            "output": 4.016,
+            "blended50": 6.693
+          }
+        },
+        "implementer": {
+          "score": 59.678,
+          "value": {
+            "input": 19.893,
+            "output": 3.979,
+            "blended50": 6.631
+          }
+        },
+        "implementer-heavy": {
+          "score": 58.138,
+          "value": {
+            "input": 19.379,
+            "output": 3.876,
+            "blended50": 6.46
+          }
+        },
+        "synthesizer": {
+          "score": 44.955,
+          "value": {
+            "input": 14.985,
+            "output": 2.997,
+            "blended50": 4.995
+          }
+        },
+        "researcher": {
+          "score": 54.448,
+          "value": {
+            "input": 18.149,
+            "output": 3.63,
+            "blended50": 6.05
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "kimi-k3",
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k3"
+      }
+    },
+    {
+      "name": "Kimi K2.7 Code",
+      "rawName": "Kimi K2.7 Code",
+      "context": "256K",
+      "inputPerM": 0.95,
+      "outputPerM": 4,
+      "cacheReadPerM": 0.19,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.95,
+      "outputListPerM": 4,
+      "cacheReadListPerM": 0.19,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "kimi-k2-7-code",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.95,
+        "output": 4,
+        "blended50": 2.475
+      },
+      "benchmarks": {
+        "gdpval": 34.4945,
+        "lcr": 16.1111,
+        "gpqa": 89.596,
+        "hle": 35.0324,
+        "omniscienceAccuracy": 39.5667,
+        "omniscienceReliability": 17.6227,
+        "scicode": 47.4537
+      },
+      "roleScores": {
+        "architect": {
+          "score": 41,
+          "value": {
+            "input": 43.158,
+            "output": 10.25,
+            "blended50": 16.566
+          }
+        },
+        "strategist": {
+          "score": 35.655,
+          "value": {
+            "input": 37.532,
+            "output": 8.914,
+            "blended50": 14.406
+          }
+        },
+        "security-reviewer": {
+          "score": 47.896,
+          "value": {
+            "input": 50.417,
+            "output": 11.974,
+            "blended50": 19.352
+          }
+        },
+        "code-reviewer": {
+          "score": 46.956,
+          "value": {
+            "input": 49.427,
+            "output": 11.739,
+            "blended50": 18.972
+          }
+        },
+        "implementer": {
+          "score": 47.832,
+          "value": {
+            "input": 50.349,
+            "output": 11.958,
+            "blended50": 19.326
+          }
+        },
+        "implementer-heavy": {
+          "score": 42.16,
+          "value": {
+            "input": 44.379,
+            "output": 10.54,
+            "blended50": 17.034
+          }
+        },
+        "synthesizer": {
+          "score": 23.862,
+          "value": {
+            "input": 25.118,
+            "output": 5.966,
+            "blended50": 9.641
+          }
+        },
+        "researcher": {
+          "score": 38.313,
+          "value": {
+            "input": 40.329,
+            "output": 9.578,
+            "blended50": 15.48
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "kimi-k2-7-code",
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code"
+      }
+    },
+    {
+      "name": "Kimi K2.7 Code HighSpeed",
+      "rawName": "Kimi K2.7 Code HighSpeed",
+      "context": "262K",
+      "inputPerM": 1.9,
+      "outputPerM": 8,
+      "cacheReadPerM": 0.38,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.9,
+      "outputListPerM": 8,
+      "cacheReadListPerM": 0.38,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "commercial_variant",
+        "slug": "kimi-k2-7-code",
+        "reason": "HighSpeed is a CommandCode commercial variant of the same underlying model."
+      },
+      "costs": {
+        "input": 1.9,
+        "output": 8,
+        "blended50": 4.95
+      },
+      "benchmarks": {
+        "gdpval": 34.4945,
+        "lcr": 16.1111,
+        "gpqa": 89.596,
+        "hle": 35.0324,
+        "omniscienceAccuracy": 39.5667,
+        "omniscienceReliability": 17.6227,
+        "scicode": 47.4537
+      },
+      "roleScores": {
+        "architect": {
+          "score": 41,
+          "value": {
+            "input": 21.579,
+            "output": 5.125,
+            "blended50": 8.283
+          }
+        },
+        "strategist": {
+          "score": 35.655,
+          "value": {
+            "input": 18.766,
+            "output": 4.457,
+            "blended50": 7.203
+          }
+        },
+        "security-reviewer": {
+          "score": 47.896,
+          "value": {
+            "input": 25.208,
+            "output": 5.987,
+            "blended50": 9.676
+          }
+        },
+        "code-reviewer": {
+          "score": 46.956,
+          "value": {
+            "input": 24.714,
+            "output": 5.87,
+            "blended50": 9.486
+          }
+        },
+        "implementer": {
+          "score": 47.832,
+          "value": {
+            "input": 25.175,
+            "output": 5.979,
+            "blended50": 9.663
+          }
+        },
+        "implementer-heavy": {
+          "score": 42.16,
+          "value": {
+            "input": 22.189,
+            "output": 5.27,
+            "blended50": 8.517
+          }
+        },
+        "synthesizer": {
+          "score": 23.862,
+          "value": {
+            "input": 12.559,
+            "output": 2.983,
+            "blended50": 4.821
+          }
+        },
+        "researcher": {
+          "score": 38.313,
+          "value": {
+            "input": 20.165,
+            "output": 4.789,
+            "blended50": 7.74
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "kimi-k2-7-code",
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code"
+      }
+    },
+    {
+      "name": "Kimi K2.6",
+      "rawName": "Kimi K2.6",
+      "context": "256K",
+      "inputPerM": 0.95,
+      "outputPerM": 4,
+      "cacheReadPerM": 0.16,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.95,
+      "outputListPerM": 4,
+      "cacheReadListPerM": 0.16,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "kimi-k2-6",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.95,
+        "output": 4,
+        "blended50": 2.475
+      },
+      "benchmarks": {
+        "gdpval": 34.583,
+        "lcr": 76.6667,
+        "gpqa": 91.1111,
+        "hle": 37.4884,
+        "omniscienceAccuracy": 32.6,
+        "omniscienceReliability": 59.4955,
+        "scicode": 53.4722
+      },
+      "roleScores": {
+        "architect": {
+          "score": 56.845,
+          "value": {
+            "input": 59.837,
+            "output": 14.211,
+            "blended50": 22.968
+          }
+        },
+        "strategist": {
+          "score": 50.747,
+          "value": {
+            "input": 53.418,
+            "output": 12.687,
+            "blended50": 20.504
+          }
+        },
+        "security-reviewer": {
+          "score": 62.908,
+          "value": {
+            "input": 66.219,
+            "output": 15.727,
+            "blended50": 25.417
+          }
+        },
+        "code-reviewer": {
+          "score": 63.483,
+          "value": {
+            "input": 66.824,
+            "output": 15.871,
+            "blended50": 25.65
+          }
+        },
+        "implementer": {
+          "score": 60.999,
+          "value": {
+            "input": 64.209,
+            "output": 15.25,
+            "blended50": 24.646
+          }
+        },
+        "implementer-heavy": {
+          "score": 57.153,
+          "value": {
+            "input": 60.161,
+            "output": 14.288,
+            "blended50": 23.092
+          }
+        },
+        "synthesizer": {
+          "score": 58.107,
+          "value": {
+            "input": 61.165,
+            "output": 14.527,
+            "blended50": 23.478
+          }
+        },
+        "researcher": {
+          "score": 55.581,
+          "value": {
+            "input": 58.506,
+            "output": 13.895,
+            "blended50": 22.457
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "kimi-k2-6",
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-6"
+      }
+    },
+    {
+      "name": "Kimi K2.5",
+      "rawName": "Kimi K2.5",
+      "context": "256K",
+      "inputPerM": 0.6,
+      "outputPerM": 3,
+      "cacheReadPerM": 0.1,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.6,
+      "outputListPerM": 3,
+      "cacheReadListPerM": 0.1,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "kimi-k2-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.6,
+        "output": 3,
+        "blended50": 1.8
+      },
+      "benchmarks": {
+        "gdpval": 25.3065,
+        "lcr": 73,
+        "gpqa": 87.8788,
+        "hle": 30.7229,
+        "omniscienceAccuracy": 35.2167,
+        "omniscienceReliability": 34.3195,
+        "scicode": 48.9583
+      },
+      "roleScores": {
+        "architect": {
+          "score": 50.557,
+          "value": {
+            "input": 84.262,
+            "output": 16.852,
+            "blended50": 28.087
+          }
+        },
+        "strategist": {
+          "score": 43.986,
+          "value": {
+            "input": 73.31,
+            "output": 14.662,
+            "blended50": 24.437
+          }
+        },
+        "security-reviewer": {
+          "score": 55.25,
+          "value": {
+            "input": 92.083,
+            "output": 18.417,
+            "blended50": 30.694
+          }
+        },
+        "code-reviewer": {
+          "score": 57.061,
+          "value": {
+            "input": 95.102,
+            "output": 19.02,
+            "blended50": 31.701
+          }
+        },
+        "implementer": {
+          "score": 56.579,
+          "value": {
+            "input": 94.298,
+            "output": 18.86,
+            "blended50": 31.433
+          }
+        },
+        "implementer-heavy": {
+          "score": 51.746,
+          "value": {
+            "input": 86.243,
+            "output": 17.249,
+            "blended50": 28.748
+          }
+        },
+        "synthesizer": {
+          "score": 50.553,
+          "value": {
+            "input": 84.255,
+            "output": 16.851,
+            "blended50": 28.085
+          }
+        },
+        "researcher": {
+          "score": 51.524,
+          "value": {
+            "input": 85.873,
+            "output": 17.175,
+            "blended50": 28.624
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "kimi-k2-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-5"
+      }
+    },
+    {
+      "name": "GLM-5.3",
+      "rawName": "GLM-5.3",
+      "context": "1M",
+      "inputPerM": 1.4,
+      "outputPerM": 4.4,
+      "cacheReadPerM": 0.26,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.4,
+      "outputListPerM": 4.4,
+      "cacheReadListPerM": 0.26,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "glm-5-3",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1.4,
+        "output": 4.4,
+        "blended50": 2.9
+      },
+      "benchmarks": {
+        "gdpval": 63.45,
+        "lcr": 76.3333,
+        "gpqa": 91.7172,
+        "hle": 42.2614,
+        "omniscienceAccuracy": 33.85,
+        "omniscienceReliability": 70.446,
+        "scicode": 56.4815
+      },
+      "roleScores": {
+        "architect": {
+          "score": 69.146,
+          "value": {
+            "input": 49.39,
+            "output": 15.715,
+            "blended50": 23.843
+          }
+        },
+        "strategist": {
+          "score": 63.633,
+          "value": {
+            "input": 45.452,
+            "output": 14.462,
+            "blended50": 21.942
+          }
+        },
+        "security-reviewer": {
+          "score": 66.526,
+          "value": {
+            "input": 47.519,
+            "output": 15.12,
+            "blended50": 22.94
+          }
+        },
+        "code-reviewer": {
+          "score": 66.481,
+          "value": {
+            "input": 47.486,
+            "output": 15.109,
+            "blended50": 22.924
+          }
+        },
+        "implementer": {
+          "score": 63.323,
+          "value": {
+            "input": 45.231,
+            "output": 14.392,
+            "blended50": 21.836
+          }
+        },
+        "implementer-heavy": {
+          "score": 65.718,
+          "value": {
+            "input": 46.941,
+            "output": 14.936,
+            "blended50": 22.661
+          }
+        },
+        "synthesizer": {
+          "score": 64.727,
+          "value": {
+            "input": 46.234,
+            "output": 14.711,
+            "blended50": 22.32
+          }
+        },
+        "researcher": {
+          "score": 63.516,
+          "value": {
+            "input": 45.369,
+            "output": 14.435,
+            "blended50": 21.902
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "glm-5-3",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3"
+      }
+    },
+    {
+      "name": "GLM-5.2",
+      "rawName": "GLM-5.2",
+      "context": "1M",
+      "inputPerM": 1.4,
+      "outputPerM": 4.4,
+      "cacheReadPerM": 0.26,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.4,
+      "outputListPerM": 4.4,
+      "cacheReadListPerM": 0.26,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "glm-5-2",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1.4,
+        "output": 4.4,
+        "blended50": 2.9
+      },
+      "benchmarks": {
+        "gdpval": 50.258,
+        "lcr": 7.2222,
+        "gpqa": 89.4949,
+        "hle": 41.1492,
+        "omniscienceAccuracy": 24.3333,
+        "omniscienceReliability": 73.7004,
+        "scicode": 50.463
+      },
+      "roleScores": {
+        "architect": {
+          "score": 45.98,
+          "value": {
+            "input": 32.843,
+            "output": 10.45,
+            "blended50": 15.855
+          }
+        },
+        "strategist": {
+          "score": 42.734,
+          "value": {
+            "input": 30.524,
+            "output": 9.712,
+            "blended50": 14.736
+          }
+        },
+        "security-reviewer": {
+          "score": 57.52,
+          "value": {
+            "input": 41.086,
+            "output": 13.073,
+            "blended50": 19.834
+          }
+        },
+        "code-reviewer": {
+          "score": 53.176,
+          "value": {
+            "input": 37.983,
+            "output": 12.085,
+            "blended50": 18.337
+          }
+        },
+        "implementer": {
+          "score": 48.9,
+          "value": {
+            "input": 34.929,
+            "output": 11.114,
+            "blended50": 16.862
+          }
+        },
+        "implementer-heavy": {
+          "score": 45.667,
+          "value": {
+            "input": 32.619,
+            "output": 10.379,
+            "blended50": 15.747
+          }
+        },
+        "synthesizer": {
+          "score": 30.395,
+          "value": {
+            "input": 21.711,
+            "output": 6.908,
+            "blended50": 10.481
+          }
+        },
+        "researcher": {
+          "score": 37.137,
+          "value": {
+            "input": 26.526,
+            "output": 8.44,
+            "blended50": 12.806
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "glm-5-2",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2"
+      }
+    },
+    {
+      "name": "GLM-5.2 Fast",
+      "rawName": "GLM-5.2 Fast",
+      "context": "1M",
+      "inputPerM": 3,
+      "outputPerM": 10.25,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": null,
+      "inputListPerM": 3,
+      "outputListPerM": 10.25,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "commercial_variant",
+        "slug": "glm-5-2",
+        "reason": "Fast is a CommandCode commercial variant of GLM-5.2."
+      },
+      "costs": {
+        "input": 3,
+        "output": 10.25,
+        "blended50": 6.625
+      },
+      "benchmarks": {
+        "gdpval": 50.258,
+        "lcr": 7.2222,
+        "gpqa": 89.4949,
+        "hle": 41.1492,
+        "omniscienceAccuracy": 24.3333,
+        "omniscienceReliability": 73.7004,
+        "scicode": 50.463
+      },
+      "roleScores": {
+        "architect": {
+          "score": 45.98,
+          "value": {
+            "input": 15.327,
+            "output": 4.486,
+            "blended50": 6.94
+          }
+        },
+        "strategist": {
+          "score": 42.734,
+          "value": {
+            "input": 14.245,
+            "output": 4.169,
+            "blended50": 6.45
+          }
+        },
+        "security-reviewer": {
+          "score": 57.52,
+          "value": {
+            "input": 19.173,
+            "output": 5.612,
+            "blended50": 8.682
+          }
+        },
+        "code-reviewer": {
+          "score": 53.176,
+          "value": {
+            "input": 17.725,
+            "output": 5.188,
+            "blended50": 8.027
+          }
+        },
+        "implementer": {
+          "score": 48.9,
+          "value": {
+            "input": 16.3,
+            "output": 4.771,
+            "blended50": 7.381
+          }
+        },
+        "implementer-heavy": {
+          "score": 45.667,
+          "value": {
+            "input": 15.222,
+            "output": 4.455,
+            "blended50": 6.893
+          }
+        },
+        "synthesizer": {
+          "score": 30.395,
+          "value": {
+            "input": 10.132,
+            "output": 2.965,
+            "blended50": 4.588
+          }
+        },
+        "researcher": {
+          "score": 37.137,
+          "value": {
+            "input": 12.379,
+            "output": 3.623,
+            "blended50": 5.606
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "glm-5-2",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2"
+      }
+    },
+    {
+      "name": "GLM-5.1",
+      "rawName": "GLM-5.1",
+      "context": "—",
+      "inputPerM": 1.4,
+      "outputPerM": 4.4,
+      "cacheReadPerM": 0.26,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.4,
+      "outputListPerM": 4.4,
+      "cacheReadListPerM": 0.26,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "glm-5-1",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1.4,
+        "output": 4.4,
+        "blended50": 2.9
+      },
+      "benchmarks": {
+        "gdpval": 37.891,
+        "lcr": 68,
+        "gpqa": 86.7677,
+        "hle": 30.0741,
+        "omniscienceAccuracy": 23.7,
+        "omniscienceReliability": 70.0524,
+        "scicode": 43.75
+      },
+      "roleScores": {
+        "architect": {
+          "score": 54.021,
+          "value": {
+            "input": 38.586,
+            "output": 12.278,
+            "blended50": 18.628
+          }
+        },
+        "strategist": {
+          "score": 49.178,
+          "value": {
+            "input": 35.127,
+            "output": 11.177,
+            "blended50": 16.958
+          }
+        },
+        "security-reviewer": {
+          "score": 58.14,
+          "value": {
+            "input": 41.529,
+            "output": 13.214,
+            "blended50": 20.048
+          }
+        },
+        "code-reviewer": {
+          "score": 57.254,
+          "value": {
+            "input": 40.896,
+            "output": 13.012,
+            "blended50": 19.743
+          }
+        },
+        "implementer": {
+          "score": 52.473,
+          "value": {
+            "input": 37.481,
+            "output": 11.926,
+            "blended50": 18.094
+          }
+        },
+        "implementer-heavy": {
+          "score": 51.437,
+          "value": {
+            "input": 36.741,
+            "output": 11.69,
+            "blended50": 17.737
+          }
+        },
+        "synthesizer": {
+          "score": 55.034,
+          "value": {
+            "input": 39.31,
+            "output": 12.508,
+            "blended50": 18.977
+          }
+        },
+        "researcher": {
+          "score": 50.635,
+          "value": {
+            "input": 36.168,
+            "output": 11.508,
+            "blended50": 17.46
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "glm-5-1",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-1"
+      }
+    },
+    {
+      "name": "GLM-5",
+      "rawName": "GLM-5",
+      "context": "200K",
+      "inputPerM": 1,
+      "outputPerM": 3.2,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": null,
+      "inputListPerM": 1,
+      "outputListPerM": 3.2,
+      "cacheReadListPerM": 0.2,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "glm-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1,
+        "output": 3.2,
+        "blended50": 2.1
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 70.6667,
+        "gpqa": 82.0202,
+        "hle": 29.2864,
+        "omniscienceAccuracy": 26.3,
+        "omniscienceReliability": 64.6766,
+        "scicode": 46.1806
+      },
+      "roleScores": {
+        "architect": {
+          "score": 55.331,
+          "value": {
+            "input": 55.331,
+            "output": 17.291,
+            "blended50": 26.348
+          }
+        },
+        "strategist": {
+          "score": 50.931,
+          "value": {
+            "input": 50.931,
+            "output": 15.916,
+            "blended50": 24.253
+          }
+        },
+        "security-reviewer": {
+          "score": 56.985,
+          "value": {
+            "input": 56.985,
+            "output": 17.808,
+            "blended50": 27.136
+          }
+        },
+        "code-reviewer": {
+          "score": 57.182,
+          "value": {
+            "input": 57.182,
+            "output": 17.869,
+            "blended50": 27.23
+          }
+        },
+        "implementer": {
+          "score": 53.54,
+          "value": {
+            "input": 53.54,
+            "output": 16.731,
+            "blended50": 25.495
+          }
+        },
+        "implementer-heavy": {
+          "score": 53.659,
+          "value": {
+            "input": 53.659,
+            "output": 16.768,
+            "blended50": 25.552
+          }
+        },
+        "synthesizer": {
+          "score": 56.321,
+          "value": {
+            "input": 56.321,
+            "output": 17.6,
+            "blended50": 26.82
+          }
+        },
+        "researcher": {
+          "score": 52.234,
+          "value": {
+            "input": 52.234,
+            "output": 16.323,
+            "blended50": 24.873
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "glm-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5"
+      }
+    },
+    {
+      "name": "MiniMax M3",
+      "rawName": "MiniMax M3-50%",
+      "context": "1M",
+      "inputPerM": 0.3,
+      "outputPerM": 1.2,
+      "cacheReadPerM": 0.06,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.6,
+      "outputListPerM": 2.4,
+      "cacheReadListPerM": 0.12,
+      "cacheWriteListPerM": null,
+      "discountPercent": 50,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "minimax-m3",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.3,
+        "output": 1.2,
+        "blended50": 0.75
+      },
+      "benchmarks": {
+        "gdpval": 44.3465,
+        "lcr": 17.2222,
+        "gpqa": 92.9293,
+        "hle": 38.9713,
+        "omniscienceAccuracy": 16.7,
+        "omniscienceReliability": 81.5726,
+        "scicode": 45.3704
+      },
+      "roleScores": {
+        "architect": {
+          "score": 46.476,
+          "value": {
+            "input": 154.92,
+            "output": 38.73,
+            "blended50": 61.968
+          }
+        },
+        "strategist": {
+          "score": 41.973,
+          "value": {
+            "input": 139.91,
+            "output": 34.978,
+            "blended50": 55.964
+          }
+        },
+        "security-reviewer": {
+          "score": 58.596,
+          "value": {
+            "input": 195.32,
+            "output": 48.83,
+            "blended50": 78.128
+          }
+        },
+        "code-reviewer": {
+          "score": 53.64,
+          "value": {
+            "input": 178.8,
+            "output": 44.7,
+            "blended50": 71.52
+          }
+        },
+        "implementer": {
+          "score": 47.642,
+          "value": {
+            "input": 158.807,
+            "output": 39.702,
+            "blended50": 63.523
+          }
+        },
+        "implementer-heavy": {
+          "score": 44.241,
+          "value": {
+            "input": 147.47,
+            "output": 36.868,
+            "blended50": 58.988
+          }
+        },
+        "synthesizer": {
+          "score": 34.056,
+          "value": {
+            "input": 113.52,
+            "output": 28.38,
+            "blended50": 45.408
+          }
+        },
+        "researcher": {
+          "score": 37.43,
+          "value": {
+            "input": 124.767,
+            "output": 31.192,
+            "blended50": 49.907
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "minimax-m3",
+        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m3"
+      }
+    },
+    {
+      "name": "MiniMax M2.7",
+      "rawName": "MiniMax M2.7",
+      "context": "—",
+      "inputPerM": 0.3,
+      "outputPerM": 1.2,
+      "cacheReadPerM": 0.06,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.3,
+      "outputListPerM": 1.2,
+      "cacheReadListPerM": 0.06,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "minimax-m2-7",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.3,
+        "output": 1.2,
+        "blended50": 0.75
+      },
+      "benchmarks": {
+        "gdpval": 32.9895,
+        "lcr": 3.3333,
+        "gpqa": 87.3737,
+        "hle": 29.6108,
+        "omniscienceAccuracy": 26.8,
+        "omniscienceReliability": 64.4353,
+        "scicode": 46.9907
+      },
+      "roleScores": {
+        "architect": {
+          "score": 35.945,
+          "value": {
+            "input": 119.817,
+            "output": 29.954,
+            "blended50": 47.927
+          }
+        },
+        "strategist": {
+          "score": 34.403,
+          "value": {
+            "input": 114.677,
+            "output": 28.669,
+            "blended50": 45.871
+          }
+        },
+        "security-reviewer": {
+          "score": 51.861,
+          "value": {
+            "input": 172.87,
+            "output": 43.218,
+            "blended50": 69.148
+          }
+        },
+        "code-reviewer": {
+          "score": 48.525,
+          "value": {
+            "input": 161.75,
+            "output": 40.438,
+            "blended50": 64.7
+          }
+        },
+        "implementer": {
+          "score": 44.762,
+          "value": {
+            "input": 149.207,
+            "output": 37.302,
+            "blended50": 59.683
+          }
+        },
+        "implementer-heavy": {
+          "score": 38.797,
+          "value": {
+            "input": 129.323,
+            "output": 32.331,
+            "blended50": 51.729
+          }
+        },
+        "synthesizer": {
+          "score": 24.695,
+          "value": {
+            "input": 82.317,
+            "output": 20.579,
+            "blended50": 32.927
+          }
+        },
+        "researcher": {
+          "score": 30.675,
+          "value": {
+            "input": 102.25,
+            "output": 25.563,
+            "blended50": 40.9
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "minimax-m2-7",
+        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-7"
+      }
+    },
+    {
+      "name": "MiniMax M2.5",
+      "rawName": "MiniMax M2.5",
+      "context": "200K",
+      "inputPerM": 0.3,
+      "outputPerM": 1.2,
+      "cacheReadPerM": 0.03,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.3,
+      "outputListPerM": 1.2,
+      "cacheReadListPerM": 0.03,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "minimax-m2-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.3,
+        "output": 1.2,
+        "blended50": 0.75
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 72,
+        "gpqa": 84.8485,
+        "hle": 20.5283,
+        "omniscienceAccuracy": 26.1833,
+        "omniscienceReliability": 11.8763,
+        "scicode": 42.5926
+      },
+      "roleScores": {
+        "architect": {
+          "score": 54.917,
+          "value": {
+            "input": 183.057,
+            "output": 45.764,
+            "blended50": 73.223
+          }
+        },
+        "strategist": {
+          "score": 46.177,
+          "value": {
+            "input": 153.923,
+            "output": 38.481,
+            "blended50": 61.569
+          }
+        },
+        "security-reviewer": {
+          "score": 47.077,
+          "value": {
+            "input": 156.923,
+            "output": 39.231,
+            "blended50": 62.769
+          }
+        },
+        "code-reviewer": {
+          "score": 50.177,
+          "value": {
+            "input": 167.257,
+            "output": 41.814,
+            "blended50": 66.903
+          }
+        },
+        "implementer": {
+          "score": 51.136,
+          "value": {
+            "input": 170.453,
+            "output": 42.613,
+            "blended50": 68.181
+          }
+        },
+        "implementer-heavy": {
+          "score": 52.594,
+          "value": {
+            "input": 175.313,
+            "output": 43.828,
+            "blended50": 70.125
+          }
+        },
+        "synthesizer": {
+          "score": 46.337,
+          "value": {
+            "input": 154.457,
+            "output": 38.614,
+            "blended50": 61.783
+          }
+        },
+        "researcher": {
+          "score": 52.159,
+          "value": {
+            "input": 173.863,
+            "output": 43.466,
+            "blended50": 69.545
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "minimax-m2-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-5"
+      }
+    },
+    {
+      "name": "DeepSeek V4 Pro (latest)",
+      "rawName": "DeepSeek V4 Pro (latest)",
+      "context": "1M",
+      "inputPerM": 0.66,
+      "outputPerM": 1.98,
+      "cacheReadPerM": 0.022,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.66,
+      "outputListPerM": 1.98,
+      "cacheReadListPerM": 0.022,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "deepseek-v4-pro",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.66,
+        "output": 1.98,
+        "blended50": 1.32
+      },
+      "benchmarks": {
+        "gdpval": 54.519,
+        "lcr": 17.7778,
+        "gpqa": 92.8283,
+        "hle": 41.0102,
+        "omniscienceAccuracy": 49.1,
+        "omniscienceReliability": 5.1735,
+        "scicode": 49.1898
+      },
+      "roleScores": {
+        "architect": {
+          "score": 50.969,
+          "value": {
+            "input": 77.226,
+            "output": 25.742,
+            "blended50": 38.613
+          }
+        },
+        "strategist": {
+          "score": 44.983,
+          "value": {
+            "input": 68.156,
+            "output": 22.719,
+            "blended50": 34.078
+          }
+        },
+        "security-reviewer": {
+          "score": 48.72,
+          "value": {
+            "input": 73.818,
+            "output": 24.606,
+            "blended50": 36.909
+          }
+        },
+        "code-reviewer": {
+          "score": 47.986,
+          "value": {
+            "input": 72.706,
+            "output": 24.235,
+            "blended50": 36.353
+          }
+        },
+        "implementer": {
+          "score": 50.206,
+          "value": {
+            "input": 76.07,
+            "output": 25.357,
+            "blended50": 38.035
+          }
+        },
+        "implementer-heavy": {
+          "score": 48.604,
+          "value": {
+            "input": 73.642,
+            "output": 24.547,
+            "blended50": 36.821
+          }
+        },
+        "synthesizer": {
+          "score": 27.033,
+          "value": {
+            "input": 40.959,
+            "output": 13.653,
+            "blended50": 20.48
+          }
+        },
+        "researcher": {
+          "score": 46.808,
+          "value": {
+            "input": 70.921,
+            "output": 23.64,
+            "blended50": 35.461
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "deepseek-v4-pro",
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro"
+      }
+    },
+    {
+      "name": "DeepSeek V4 Flash (latest)",
+      "rawName": "DeepSeek V4 Flash (latest)",
+      "context": "1M",
+      "inputPerM": 0.22,
+      "outputPerM": 0.66,
+      "cacheReadPerM": 0.007,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.22,
+      "outputListPerM": 0.66,
+      "cacheReadListPerM": 0.007,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "deepseek-v4-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.22,
+        "output": 0.66,
+        "blended50": 0.44
+      },
+      "benchmarks": {
+        "gdpval": 52.9435,
+        "lcr": 13.3333,
+        "gpqa": 90.8081,
+        "hle": 38.5542,
+        "omniscienceAccuracy": 40.3833,
+        "omniscienceReliability": 8.303,
+        "scicode": 49.8843
+      },
+      "roleScores": {
+        "architect": {
+          "score": 48.455,
+          "value": {
+            "input": 220.25,
+            "output": 73.417,
+            "blended50": 110.125
+          }
+        },
+        "strategist": {
+          "score": 41.832,
+          "value": {
+            "input": 190.145,
+            "output": 63.382,
+            "blended50": 95.073
+          }
+        },
+        "security-reviewer": {
+          "score": 47.957,
+          "value": {
+            "input": 217.986,
+            "output": 72.662,
+            "blended50": 108.993
+          }
+        },
+        "code-reviewer": {
+          "score": 47.295,
+          "value": {
+            "input": 214.977,
+            "output": 71.659,
+            "blended50": 107.489
+          }
+        },
+        "implementer": {
+          "score": 49.407,
+          "value": {
+            "input": 224.577,
+            "output": 74.859,
+            "blended50": 112.289
+          }
+        },
+        "implementer-heavy": {
+          "score": 47.431,
+          "value": {
+            "input": 215.595,
+            "output": 71.865,
+            "blended50": 107.798
+          }
+        },
+        "synthesizer": {
+          "score": 23.679,
+          "value": {
+            "input": 107.632,
+            "output": 35.877,
+            "blended50": 53.816
+          }
+        },
+        "researcher": {
+          "score": 42.789,
+          "value": {
+            "input": 194.495,
+            "output": 64.832,
+            "blended50": 97.248
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "deepseek-v4-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash"
+      }
+    },
+    {
+      "name": "DeepSeek V4 Flash Vision (exp)",
+      "rawName": "DeepSeek V4 Flash Vision (exp)",
+      "context": "1M",
+      "inputPerM": 0.22,
+      "outputPerM": 0.66,
+      "cacheReadPerM": 0.01,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.22,
+      "outputListPerM": 0.66,
+      "cacheReadListPerM": 0.01,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified AA identity for the experimental vision variant; not proxied to text-only Flash."
+      },
+      "costs": {
+        "input": 0.22,
+        "output": 0.66,
+        "blended50": 0.44
+      },
+      "benchmarks": {},
+      "roleScores": {},
+      "aaModel": null
+    },
+    {
+      "name": "Qwen 3.8 Max",
+      "rawName": "Qwen 3.8 Max",
+      "context": "1M",
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "cacheReadPerM": 0.25,
+      "cacheWritePerM": 2.5,
+      "inputListPerM": 2,
+      "outputListPerM": 6,
+      "cacheReadListPerM": 0.25,
+      "cacheWriteListPerM": 2.5,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "qwen3-8-max",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2,
+        "output": 6,
+        "blended50": 4
+      },
+      "benchmarks": {
+        "gdpval": 61.7595,
+        "lcr": 19.4444,
+        "gpqa": 92.7273,
+        "hle": 43.0491,
+        "omniscienceAccuracy": 31.85,
+        "omniscienceReliability": 58.2539,
+        "scicode": 52.8935
+      },
+      "roleScores": {
+        "architect": {
+          "score": 54.568,
+          "value": {
+            "input": 27.284,
+            "output": 9.095,
+            "blended50": 13.642
+          }
+        },
+        "strategist": {
+          "score": 50.061,
+          "value": {
+            "input": 25.031,
+            "output": 8.344,
+            "blended50": 12.515
+          }
+        },
+        "security-reviewer": {
+          "score": 58.342,
+          "value": {
+            "input": 29.171,
+            "output": 9.724,
+            "blended50": 14.586
+          }
+        },
+        "code-reviewer": {
+          "score": 55.394,
+          "value": {
+            "input": 27.697,
+            "output": 9.232,
+            "blended50": 13.849
+          }
+        },
+        "implementer": {
+          "score": 52.867,
+          "value": {
+            "input": 26.434,
+            "output": 8.811,
+            "blended50": 13.217
+          }
+        },
+        "implementer-heavy": {
+          "score": 52.404,
+          "value": {
+            "input": 26.202,
+            "output": 8.734,
+            "blended50": 13.101
+          }
+        },
+        "synthesizer": {
+          "score": 36.035,
+          "value": {
+            "input": 18.018,
+            "output": 6.006,
+            "blended50": 9.009
+          }
+        },
+        "researcher": {
+          "score": 45.857,
+          "value": {
+            "input": 22.929,
+            "output": 7.643,
+            "blended50": 11.464
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "qwen3-8-max",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max"
+      }
+    },
+    {
+      "name": "Qwen 3.8 27B",
+      "rawName": "Qwen 3.8 27B",
+      "context": "262K",
+      "inputPerM": 0.4,
+      "outputPerM": 3,
+      "cacheReadPerM": 0.04,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.4,
+      "outputListPerM": 3,
+      "cacheReadListPerM": 0.04,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "qwen3-8-27b",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.4,
+        "output": 3,
+        "blended50": 1.7
+      },
+      "benchmarks": {
+        "gdpval": 52.2955,
+        "lcr": 77.3333,
+        "gpqa": 90.5051,
+        "hle": 33.9203,
+        "omniscienceAccuracy": 15.5833,
+        "omniscienceReliability": 69.7137,
+        "scicode": 44.6759
+      },
+      "roleScores": {
+        "architect": {
+          "score": 63.441,
+          "value": {
+            "input": 158.603,
+            "output": 21.147,
+            "blended50": 37.318
+          }
+        },
+        "strategist": {
+          "score": 55.523,
+          "value": {
+            "input": 138.808,
+            "output": 18.508,
+            "blended50": 32.661
+          }
+        },
+        "security-reviewer": {
+          "score": 61.003,
+          "value": {
+            "input": 152.508,
+            "output": 20.334,
+            "blended50": 35.884
+          }
+        },
+        "code-reviewer": {
+          "score": 60.169,
+          "value": {
+            "input": 150.422,
+            "output": 20.056,
+            "blended50": 35.394
+          }
+        },
+        "implementer": {
+          "score": 55.373,
+          "value": {
+            "input": 138.432,
+            "output": 18.458,
+            "blended50": 32.572
+          }
+        },
+        "implementer-heavy": {
+          "score": 57.695,
+          "value": {
+            "input": 144.237,
+            "output": 19.232,
+            "blended50": 33.938
+          }
+        },
+        "synthesizer": {
+          "score": 59.704,
+          "value": {
+            "input": 149.26,
+            "output": 19.901,
+            "blended50": 35.12
+          }
+        },
+        "researcher": {
+          "score": 56.358,
+          "value": {
+            "input": 140.895,
+            "output": 18.786,
+            "blended50": 33.152
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "qwen3-8-27b",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-27b"
+      }
+    },
+    {
+      "name": "Qwen 3.6 Max Preview",
+      "rawName": "Qwen 3.6 Max Preview",
+      "context": "—",
+      "inputPerM": 1.3,
+      "outputPerM": 7.8,
+      "cacheReadPerM": 0.26,
+      "cacheWritePerM": 1.63,
+      "inputListPerM": 1.3,
+      "outputListPerM": 7.8,
+      "cacheReadListPerM": 0.26,
+      "cacheWriteListPerM": 1.63,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "qwen3-max-preview",
+        "reason": "AA canonical slug omits the CommandCode 3.6 display qualifier."
+      },
+      "costs": {
+        "input": 1.3,
+        "output": 7.8,
+        "blended50": 4.55
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 42.3333,
+        "gpqa": 76.3636,
+        "hle": 10.1483,
+        "omniscienceAccuracy": 24.2,
+        "omniscienceReliability": 11.6315,
+        "scicode": 37.037
+      },
+      "roleScores": {
+        "architect": {
+          "score": 44.246,
+          "value": {
+            "input": 34.035,
+            "output": 5.673,
+            "blended50": 9.724
+          }
+        },
+        "strategist": {
+          "score": 38.974,
+          "value": {
+            "input": 29.98,
+            "output": 4.997,
+            "blended50": 8.566
+          }
+        },
+        "security-reviewer": {
+          "score": 38.21,
+          "value": {
+            "input": 29.392,
+            "output": 4.899,
+            "blended50": 8.398
+          }
+        },
+        "code-reviewer": {
+          "score": 40.467,
+          "value": {
+            "input": 31.128,
+            "output": 5.188,
+            "blended50": 8.894
+          }
+        },
+        "implementer": {
+          "score": 41.042,
+          "value": {
+            "input": 31.571,
+            "output": 5.262,
+            "blended50": 9.02
+          }
+        },
+        "implementer-heavy": {
+          "score": 43.312,
+          "value": {
+            "input": 33.317,
+            "output": 5.553,
+            "blended50": 9.519
+          }
+        },
+        "synthesizer": {
+          "score": 32.542,
+          "value": {
+            "input": 25.032,
+            "output": 4.172,
+            "blended50": 7.152
+          }
+        },
+        "researcher": {
+          "score": 40.552,
+          "value": {
+            "input": 31.194,
+            "output": 5.199,
+            "blended50": 8.913
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "qwen3-max-preview",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-max-preview"
+      }
+    },
+    {
+      "name": "Qwen 3.6 Plus",
+      "rawName": "Qwen 3.6 Plus",
+      "context": "—",
+      "inputPerM": 0.5,
+      "outputPerM": 3,
+      "cacheReadPerM": 0.1,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.5,
+      "outputListPerM": 3,
+      "cacheReadListPerM": 0.1,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "qwen3-6-plus",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.5,
+        "output": 3,
+        "blended50": 1.75
+      },
+      "benchmarks": {
+        "gdpval": 32.0045,
+        "lcr": 72.3333,
+        "gpqa": 88.1818,
+        "hle": 27.8499,
+        "omniscienceAccuracy": 26.3833,
+        "omniscienceReliability": 65.3611,
+        "scicode": 40.7407
+      },
+      "roleScores": {
+        "architect": {
+          "score": 52.699,
+          "value": {
+            "input": 105.398,
+            "output": 17.566,
+            "blended50": 30.114
+          }
+        },
+        "strategist": {
+          "score": 47.899,
+          "value": {
+            "input": 95.798,
+            "output": 15.966,
+            "blended50": 27.371
+          }
+        },
+        "security-reviewer": {
+          "score": 56.875,
+          "value": {
+            "input": 113.75,
+            "output": 18.958,
+            "blended50": 32.5
+          }
+        },
+        "code-reviewer": {
+          "score": 56.141,
+          "value": {
+            "input": 112.282,
+            "output": 18.714,
+            "blended50": 32.081
+          }
+        },
+        "implementer": {
+          "score": 51.307,
+          "value": {
+            "input": 102.614,
+            "output": 17.102,
+            "blended50": 29.318
+          }
+        },
+        "implementer-heavy": {
+          "score": 49.619,
+          "value": {
+            "input": 99.238,
+            "output": 16.54,
+            "blended50": 28.354
+          }
+        },
+        "synthesizer": {
+          "score": 55.7,
+          "value": {
+            "input": 111.4,
+            "output": 18.567,
+            "blended50": 31.829
+          }
+        },
+        "researcher": {
+          "score": 50.99,
+          "value": {
+            "input": 101.98,
+            "output": 16.997,
+            "blended50": 29.137
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "qwen3-6-plus",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-6-plus"
+      }
+    },
+    {
+      "name": "Qwen 3.7 Max",
+      "rawName": "Qwen 3.7 Max",
+      "context": "1M",
+      "inputPerM": 2.5,
+      "outputPerM": 7.5,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": 3.13,
+      "inputListPerM": 2.5,
+      "outputListPerM": 7.5,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": 3.13,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "qwen3-7-max",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2.5,
+        "output": 7.5,
+        "blended50": 5
+      },
+      "benchmarks": {
+        "gdpval": 38.55,
+        "lcr": 74.6667,
+        "gpqa": 92.3232,
+        "hle": 40.5005,
+        "omniscienceAccuracy": 31.1333,
+        "omniscienceReliability": 74.3708,
+        "scicode": 48.8426
+      },
+      "roleScores": {
+        "architect": {
+          "score": 58.626,
+          "value": {
+            "input": 23.45,
+            "output": 7.817,
+            "blended50": 11.725
+          }
+        },
+        "strategist": {
+          "score": 53.249,
+          "value": {
+            "input": 21.3,
+            "output": 7.1,
+            "blended50": 10.65
+          }
+        },
+        "security-reviewer": {
+          "score": 64.456,
+          "value": {
+            "input": 25.782,
+            "output": 8.594,
+            "blended50": 12.891
+          }
+        },
+        "code-reviewer": {
+          "score": 63.131,
+          "value": {
+            "input": 25.252,
+            "output": 8.417,
+            "blended50": 12.626
+          }
+        },
+        "implementer": {
+          "score": 58.404,
+          "value": {
+            "input": 23.362,
+            "output": 7.787,
+            "blended50": 11.681
+          }
+        },
+        "implementer-heavy": {
+          "score": 55.782,
+          "value": {
+            "input": 22.313,
+            "output": 7.438,
+            "blended50": 11.156
+          }
+        },
+        "synthesizer": {
+          "score": 60.483,
+          "value": {
+            "input": 24.193,
+            "output": 8.064,
+            "blended50": 12.097
+          }
+        },
+        "researcher": {
+          "score": 56.163,
+          "value": {
+            "input": 22.465,
+            "output": 7.488,
+            "blended50": 11.233
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "qwen3-7-max",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-max"
+      }
+    },
+    {
+      "name": "Qwen 3.7 Plus",
+      "rawName": "Qwen 3.7 Plus",
+      "context": "1M",
+      "inputPerM": 0.4,
+      "outputPerM": 1.6,
+      "cacheReadPerM": 0.08,
+      "cacheWritePerM": 0.5,
+      "inputListPerM": 0.4,
+      "outputListPerM": 1.6,
+      "cacheReadListPerM": 0.08,
+      "cacheWriteListPerM": 0.5,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "qwen3-7-plus",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.4,
+        "output": 1.6,
+        "blended50": 1
+      },
+      "benchmarks": {
+        "gdpval": 22.2485,
+        "lcr": 9.4444,
+        "gpqa": 90,
+        "hle": 35.6348,
+        "omniscienceAccuracy": 22.5167,
+        "omniscienceReliability": 72.3381,
+        "scicode": 45.4861
+      },
+      "roleScores": {
+        "architect": {
+          "score": 34.606,
+          "value": {
+            "input": 86.515,
+            "output": 21.629,
+            "blended50": 34.606
+          }
+        },
+        "strategist": {
+          "score": 31.525,
+          "value": {
+            "input": 78.812,
+            "output": 19.703,
+            "blended50": 31.525
+          }
+        },
+        "security-reviewer": {
+          "score": 55.068,
+          "value": {
+            "input": 137.67,
+            "output": 34.418,
+            "blended50": 55.068
+          }
+        },
+        "code-reviewer": {
+          "score": 50.683,
+          "value": {
+            "input": 126.708,
+            "output": 31.677,
+            "blended50": 50.683
+          }
+        },
+        "implementer": {
+          "score": 45.772,
+          "value": {
+            "input": 114.43,
+            "output": 28.607,
+            "blended50": 45.772
+          }
+        },
+        "implementer-heavy": {
+          "score": 36.92,
+          "value": {
+            "input": 92.3,
+            "output": 23.075,
+            "blended50": 36.92
+          }
+        },
+        "synthesizer": {
+          "score": 26.558,
+          "value": {
+            "input": 66.395,
+            "output": 16.599,
+            "blended50": 26.558
+          }
+        },
+        "researcher": {
+          "score": 29.962,
+          "value": {
+            "input": 74.905,
+            "output": 18.726,
+            "blended50": 29.962
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "qwen3-7-plus",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-plus"
+      }
+    },
+    {
+      "name": "Qwen 3.7 Flash",
+      "rawName": "Qwen 3.7 Flash",
+      "context": "1M",
+      "inputPerM": 0.03,
+      "outputPerM": 0.13,
+      "cacheReadPerM": 0.006,
+      "cacheWritePerM": 0.038,
+      "inputListPerM": 0.03,
+      "outputListPerM": 0.13,
+      "cacheReadListPerM": 0.006,
+      "cacheWriteListPerM": 0.038,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified matching AA model family at publication time."
+      },
+      "costs": {
+        "input": 0.03,
+        "output": 0.13,
+        "blended50": 0.08
+      },
+      "benchmarks": {},
+      "roleScores": {},
+      "aaModel": null
+    },
+    {
+      "name": "Step 3.7 Flash",
+      "rawName": "Step 3.7 Flash",
+      "context": "256K",
+      "inputPerM": 0.2,
+      "outputPerM": 1.15,
+      "cacheReadPerM": 0.04,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.2,
+      "outputListPerM": 1.15,
+      "cacheReadListPerM": 0.04,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "step-3-7-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.2,
+        "output": 1.15,
+        "blended50": 0.675
+      },
+      "benchmarks": {
+        "gdpval": 25.884,
+        "lcr": 69.6667,
+        "gpqa": 80.9091,
+        "hle": 21.4087,
+        "omniscienceAccuracy": 25.7833,
+        "omniscienceReliability": 15.0236,
+        "scicode": 40.0463
+      },
+      "roleScores": {
+        "architect": {
+          "score": 47.163,
+          "value": {
+            "input": 235.815,
+            "output": 41.011,
+            "blended50": 69.871
+          }
+        },
+        "strategist": {
+          "score": 39.037,
+          "value": {
+            "input": 195.185,
+            "output": 33.945,
+            "blended50": 57.833
+          }
+        },
+        "security-reviewer": {
+          "score": 45.743,
+          "value": {
+            "input": 228.715,
+            "output": 39.777,
+            "blended50": 67.767
+          }
+        },
+        "code-reviewer": {
+          "score": 48.296,
+          "value": {
+            "input": 241.48,
+            "output": 41.997,
+            "blended50": 71.55
+          }
+        },
+        "implementer": {
+          "score": 48.755,
+          "value": {
+            "input": 243.775,
+            "output": 42.396,
+            "blended50": 72.23
+          }
+        },
+        "implementer-heavy": {
+          "score": 46.516,
+          "value": {
+            "input": 232.58,
+            "output": 40.449,
+            "blended50": 68.913
+          }
+        },
+        "synthesizer": {
+          "score": 43.394,
+          "value": {
+            "input": 216.97,
+            "output": 37.734,
+            "blended50": 64.287
+          }
+        },
+        "researcher": {
+          "score": 46.805,
+          "value": {
+            "input": 234.025,
+            "output": 40.7,
+            "blended50": 69.341
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "step-3-7-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/step-3-7-flash"
+      }
+    },
+    {
+      "name": "Step 3.5 Flash",
+      "rawName": "Step 3.5 Flash",
+      "context": "1M",
+      "inputPerM": 0.1,
+      "outputPerM": 0.3,
+      "cacheReadPerM": 0.02,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.1,
+      "outputListPerM": 0.3,
+      "cacheReadListPerM": 0.02,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "step-3-5-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.1,
+        "output": 0.3,
+        "blended50": 0.2
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 60.3333,
+        "gpqa": 82.6263,
+        "hle": 24.4671,
+        "omniscienceAccuracy": 24.6167,
+        "omniscienceReliability": 8.6889,
+        "scicode": 38.5417
+      },
+      "roleScores": {
+        "architect": {
+          "score": 52.146,
+          "value": {
+            "input": 521.46,
+            "output": 173.82,
+            "blended50": 260.73
+          }
+        },
+        "strategist": {
+          "score": 42.989,
+          "value": {
+            "input": 429.89,
+            "output": 143.297,
+            "blended50": 214.945
+          }
+        },
+        "security-reviewer": {
+          "score": 44.449,
+          "value": {
+            "input": 444.49,
+            "output": 148.163,
+            "blended50": 222.245
+          }
+        },
+        "code-reviewer": {
+          "score": 46.235,
+          "value": {
+            "input": 462.35,
+            "output": 154.117,
+            "blended50": 231.175
+          }
+        },
+        "implementer": {
+          "score": 47.016,
+          "value": {
+            "input": 470.16,
+            "output": 156.72,
+            "blended50": 235.08
+          }
+        },
+        "implementer-heavy": {
+          "score": 48.215,
+          "value": {
+            "input": 482.15,
+            "output": 160.717,
+            "blended50": 241.075
+          }
+        },
+        "synthesizer": {
+          "score": 40.136,
+          "value": {
+            "input": 401.36,
+            "output": 133.787,
+            "blended50": 200.68
+          }
+        },
+        "researcher": {
+          "score": 48.406,
+          "value": {
+            "input": 484.06,
+            "output": 161.353,
+            "blended50": 242.03
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "step-3-5-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/step-3-5-flash"
+      }
+    },
+    {
+      "name": "MiMo V2.5 Pro",
+      "rawName": "MiMo V2.5 Pro-99%",
+      "context": "1M",
+      "inputPerM": 0.435,
+      "outputPerM": 0.87,
+      "cacheReadPerM": 0.0036,
+      "cacheWritePerM": null,
+      "inputListPerM": 2,
+      "outputListPerM": 6,
+      "cacheReadListPerM": 0.4,
+      "cacheWriteListPerM": null,
+      "discountPercent": 99,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "mimo-v2-5-pro",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.435,
+        "output": 0.87,
+        "blended50": 0.6525
+      },
+      "benchmarks": {
+        "gdpval": 38.2925,
+        "lcr": 9.4444,
+        "gpqa": 86.5657,
+        "hle": 35.6812,
+        "omniscienceAccuracy": 22.4167,
+        "omniscienceReliability": 75.2954,
+        "scicode": 50.2315
+      },
+      "roleScores": {
+        "architect": {
+          "score": 40.343,
+          "value": {
+            "input": 92.743,
+            "output": 46.371,
+            "blended50": 61.828
+          }
+        },
+        "strategist": {
+          "score": 37.875,
+          "value": {
+            "input": 87.069,
+            "output": 43.534,
+            "blended50": 58.046
+          }
+        },
+        "security-reviewer": {
+          "score": 56.086,
+          "value": {
+            "input": 128.933,
+            "output": 64.467,
+            "blended50": 85.956
+          }
+        },
+        "code-reviewer": {
+          "score": 52.432,
+          "value": {
+            "input": 120.533,
+            "output": 60.267,
+            "blended50": 80.356
+          }
+        },
+        "implementer": {
+          "score": 48.109,
+          "value": {
+            "input": 110.595,
+            "output": 55.298,
+            "blended50": 73.73
+          }
+        },
+        "implementer-heavy": {
+          "score": 42.723,
+          "value": {
+            "input": 98.214,
+            "output": 49.107,
+            "blended50": 65.476
+          }
+        },
+        "synthesizer": {
+          "score": 29.536,
+          "value": {
+            "input": 67.899,
+            "output": 33.949,
+            "blended50": 45.266
+          }
+        },
+        "researcher": {
+          "score": 33.443,
+          "value": {
+            "input": 76.88,
+            "output": 38.44,
+            "blended50": 51.254
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "mimo-v2-5-pro",
+        "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro"
+      }
+    },
+    {
+      "name": "MiMo V2.5",
+      "rawName": "MiMo V2.5-98%",
+      "context": "1M",
+      "inputPerM": 0.14,
+      "outputPerM": 0.28,
+      "cacheReadPerM": 0.0028,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.8,
+      "outputListPerM": 4,
+      "cacheReadListPerM": 0.16,
+      "cacheWriteListPerM": null,
+      "discountPercent": 98,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "mimo-v2-5-0424",
+        "reason": "AA canonical MiMo-V2.5 release currently uses the 0424 slug."
+      },
+      "costs": {
+        "input": 0.14,
+        "output": 0.28,
+        "blended50": 0.21
+      },
+      "benchmarks": {
+        "gdpval": 32.52,
+        "lcr": 68.3333,
+        "gpqa": 84.9495,
+        "hle": 27.2011,
+        "omniscienceAccuracy": 16.75,
+        "omniscienceReliability": 68.0681,
+        "scicode": 43.0556
+      },
+      "roleScores": {
+        "architect": {
+          "score": 51.161,
+          "value": {
+            "input": 365.436,
+            "output": 182.718,
+            "blended50": 243.624
+          }
+        },
+        "strategist": {
+          "score": 45.326,
+          "value": {
+            "input": 323.757,
+            "output": 161.879,
+            "blended50": 215.838
+          }
+        },
+        "security-reviewer": {
+          "score": 56.638,
+          "value": {
+            "input": 404.557,
+            "output": 202.279,
+            "blended50": 269.705
+          }
+        },
+        "code-reviewer": {
+          "score": 56.142,
+          "value": {
+            "input": 401.014,
+            "output": 200.507,
+            "blended50": 267.343
+          }
+        },
+        "implementer": {
+          "score": 51.546,
+          "value": {
+            "input": 368.186,
+            "output": 184.093,
+            "blended50": 245.457
+          }
+        },
+        "implementer-heavy": {
+          "score": 49.667,
+          "value": {
+            "input": 354.764,
+            "output": 177.382,
+            "blended50": 236.51
+          }
+        },
+        "synthesizer": {
+          "score": 52.592,
+          "value": {
+            "input": 375.657,
+            "output": 187.829,
+            "blended50": 250.438
+          }
+        },
+        "researcher": {
+          "score": 47.443,
+          "value": {
+            "input": 338.879,
+            "output": 169.439,
+            "blended50": 225.919
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "mimo-v2-5-0424",
+        "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-0424"
+      }
+    },
+    {
+      "name": "Nemotron 3 Ultra",
+      "rawName": "Nemotron 3 Ultra",
+      "context": "1M",
+      "inputPerM": 0.6,
+      "outputPerM": 2.4,
+      "cacheReadPerM": 0.12,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.6,
+      "outputListPerM": 2.4,
+      "cacheReadListPerM": 0.12,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+        "reason": "AA canonical family includes NVIDIA and parameterization in the slug."
+      },
+      "costs": {
+        "input": 0.6,
+        "output": 2.4,
+        "blended50": 1.5
+      },
+      "benchmarks": {
+        "gdpval": 33.1475,
+        "lcr": 11.1111,
+        "gpqa": 86.6667,
+        "hle": 28.4059,
+        "omniscienceAccuracy": 22.5833,
+        "omniscienceReliability": 70.3122,
+        "scicode": 39.9306
+      },
+      "roleScores": {
+        "architect": {
+          "score": 37.631,
+          "value": {
+            "input": 62.718,
+            "output": 15.68,
+            "blended50": 25.087
+          }
+        },
+        "strategist": {
+          "score": 35.696,
+          "value": {
+            "input": 59.493,
+            "output": 14.873,
+            "blended50": 23.797
+          }
+        },
+        "security-reviewer": {
+          "score": 50.985,
+          "value": {
+            "input": 84.975,
+            "output": 21.244,
+            "blended50": 33.99
+          }
+        },
+        "code-reviewer": {
+          "score": 46.841,
+          "value": {
+            "input": 78.068,
+            "output": 19.517,
+            "blended50": 31.227
+          }
+        },
+        "implementer": {
+          "score": 41.466,
+          "value": {
+            "input": 69.11,
+            "output": 17.278,
+            "blended50": 27.644
+          }
+        },
+        "implementer-heavy": {
+          "score": 37.145,
+          "value": {
+            "input": 61.908,
+            "output": 15.477,
+            "blended50": 24.763
+          }
+        },
+        "synthesizer": {
+          "score": 28.551,
+          "value": {
+            "input": 47.585,
+            "output": 11.896,
+            "blended50": 19.034
+          }
+        },
+        "researcher": {
+          "score": 31.977,
+          "value": {
+            "input": 53.295,
+            "output": 13.324,
+            "blended50": 21.318
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+        "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b"
+      }
+    },
+    {
+      "name": "Claude Fable 5",
+      "rawName": "Claude Fable 5",
+      "context": "1M",
+      "inputPerM": 10,
+      "outputPerM": 50,
+      "cacheReadPerM": 1,
+      "cacheWritePerM": 12.5,
+      "inputListPerM": 10,
+      "outputListPerM": 50,
+      "cacheReadListPerM": 1,
+      "cacheWriteListPerM": 12.5,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-fable-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 10,
+        "output": 50,
+        "blended50": 30
+      },
+      "benchmarks": {
+        "gdpval": 61.8855,
+        "lcr": 64.4444,
+        "gpqa": 92.6263,
+        "hle": 55.468,
+        "omniscienceAccuracy": 65.35,
+        "omniscienceReliability": 36.3636,
+        "scicode": 60.1852
+      },
+      "roleScores": {
+        "architect": {
+          "score": 67.711,
+          "value": {
+            "input": 6.771,
+            "output": 1.354,
+            "blended50": 2.257
+          }
+        },
+        "strategist": {
+          "score": 63.612,
+          "value": {
+            "input": 6.361,
+            "output": 1.272,
+            "blended50": 2.12
+          }
+        },
+        "security-reviewer": {
+          "score": 64.205,
+          "value": {
+            "input": 6.421,
+            "output": 1.284,
+            "blended50": 2.14
+          }
+        },
+        "code-reviewer": {
+          "score": 64.458,
+          "value": {
+            "input": 6.446,
+            "output": 1.289,
+            "blended50": 2.149
+          }
+        },
+        "implementer": {
+          "score": 65.219,
+          "value": {
+            "input": 6.522,
+            "output": 1.304,
+            "blended50": 2.174
+          }
+        },
+        "implementer-heavy": {
+          "score": 64.706,
+          "value": {
+            "input": 6.471,
+            "output": 1.294,
+            "blended50": 2.157
+          }
+        },
+        "synthesizer": {
+          "score": 58.626,
+          "value": {
+            "input": 5.863,
+            "output": 1.173,
+            "blended50": 1.954
+          }
+        },
+        "researcher": {
+          "score": 67.315,
+          "value": {
+            "input": 6.732,
+            "output": 1.346,
+            "blended50": 2.244
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-fable-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5"
+      }
+    },
+    {
+      "name": "Claude Opus 5",
+      "rawName": "Claude Opus 5",
+      "context": "1M",
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": 6.25,
+      "inputListPerM": 5,
+      "outputListPerM": 25,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": 6.25,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-opus-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 5,
+        "output": 25,
+        "blended50": 15
+      },
+      "benchmarks": {
+        "gdpval": 67.2335,
+        "lcr": 55.5556,
+        "gpqa": 93.2323,
+        "hle": 54.8656,
+        "omniscienceAccuracy": 60.8667,
+        "omniscienceReliability": 39.1823,
+        "scicode": 55.6713
+      },
+      "roleScores": {
+        "architect": {
+          "score": 67.659,
+          "value": {
+            "input": 13.532,
+            "output": 2.706,
+            "blended50": 4.511
+          }
+        },
+        "strategist": {
+          "score": 63.419,
+          "value": {
+            "input": 12.684,
+            "output": 2.537,
+            "blended50": 4.228
+          }
+        },
+        "security-reviewer": {
+          "score": 62.415,
+          "value": {
+            "input": 12.483,
+            "output": 2.497,
+            "blended50": 4.161
+          }
+        },
+        "code-reviewer": {
+          "score": 61.437,
+          "value": {
+            "input": 12.287,
+            "output": 2.457,
+            "blended50": 4.096
+          }
+        },
+        "implementer": {
+          "score": 61.208,
+          "value": {
+            "input": 12.242,
+            "output": 2.448,
+            "blended50": 4.081
+          }
+        },
+        "implementer-heavy": {
+          "score": 62.295,
+          "value": {
+            "input": 12.459,
+            "output": 2.492,
+            "blended50": 4.153
+          }
+        },
+        "synthesizer": {
+          "score": 55.095,
+          "value": {
+            "input": 11.019,
+            "output": 2.204,
+            "blended50": 3.673
+          }
+        },
+        "researcher": {
+          "score": 65.12,
+          "value": {
+            "input": 13.024,
+            "output": 2.605,
+            "blended50": 4.341
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-opus-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-5"
+      }
+    },
+    {
+      "name": "Claude Opus 4.8",
+      "rawName": "Claude Opus 4.8",
+      "context": "1M",
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": 6.25,
+      "inputListPerM": 5,
+      "outputListPerM": 25,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": 6.25,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-opus-4-8",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 5,
+        "output": 25,
+        "blended50": 15
+      },
+      "benchmarks": {
+        "gdpval": 54.187,
+        "lcr": 45.5556,
+        "gpqa": 92.0202,
+        "hle": 48.6562,
+        "omniscienceAccuracy": 48.8333,
+        "omniscienceReliability": 60.7492,
+        "scicode": 53.4722
+      },
+      "roleScores": {
+        "architect": {
+          "score": 58.766,
+          "value": {
+            "input": 11.753,
+            "output": 2.351,
+            "blended50": 3.918
+          }
+        },
+        "strategist": {
+          "score": 55.83,
+          "value": {
+            "input": 11.166,
+            "output": 2.233,
+            "blended50": 3.722
+          }
+        },
+        "security-reviewer": {
+          "score": 62.446,
+          "value": {
+            "input": 12.489,
+            "output": 2.498,
+            "blended50": 4.163
+          }
+        },
+        "code-reviewer": {
+          "score": 60.24,
+          "value": {
+            "input": 12.048,
+            "output": 2.41,
+            "blended50": 4.016
+          }
+        },
+        "implementer": {
+          "score": 57.585,
+          "value": {
+            "input": 11.517,
+            "output": 2.303,
+            "blended50": 3.839
+          }
+        },
+        "implementer-heavy": {
+          "score": 55.922,
+          "value": {
+            "input": 11.184,
+            "output": 2.237,
+            "blended50": 3.728
+          }
+        },
+        "synthesizer": {
+          "score": 50.545,
+          "value": {
+            "input": 10.109,
+            "output": 2.022,
+            "blended50": 3.37
+          }
+        },
+        "researcher": {
+          "score": 55.649,
+          "value": {
+            "input": 11.13,
+            "output": 2.226,
+            "blended50": 3.71
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-opus-4-8",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-8"
+      }
+    },
+    {
+      "name": "Claude Opus 4.7",
+      "rawName": "Claude Opus 4.7",
+      "context": "1M",
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": 6.25,
+      "inputListPerM": 5,
+      "outputListPerM": 25,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": 6.25,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-opus-4-7",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 5,
+        "output": 25,
+        "blended50": 15
+      },
+      "benchmarks": {
+        "gdpval": 49.475,
+        "lcr": 75.3333,
+        "gpqa": 91.4141,
+        "hle": 42.3077,
+        "omniscienceAccuracy": 48.8833,
+        "omniscienceReliability": 57.7111,
+        "scicode": 54.5139
+      },
+      "roleScores": {
+        "architect": {
+          "score": 63.252,
+          "value": {
+            "input": 12.65,
+            "output": 2.53,
+            "blended50": 4.217
+          }
+        },
+        "strategist": {
+          "score": 59.546,
+          "value": {
+            "input": 11.909,
+            "output": 2.382,
+            "blended50": 3.97
+          }
+        },
+        "security-reviewer": {
+          "score": 63.859,
+          "value": {
+            "input": 12.772,
+            "output": 2.554,
+            "blended50": 4.257
+          }
+        },
+        "code-reviewer": {
+          "score": 64.116,
+          "value": {
+            "input": 12.823,
+            "output": 2.565,
+            "blended50": 4.274
+          }
+        },
+        "implementer": {
+          "score": 61.951,
+          "value": {
+            "input": 12.39,
+            "output": 2.478,
+            "blended50": 4.13
+          }
+        },
+        "implementer-heavy": {
+          "score": 61.108,
+          "value": {
+            "input": 12.222,
+            "output": 2.444,
+            "blended50": 4.074
+          }
+        },
+        "synthesizer": {
+          "score": 62.64,
+          "value": {
+            "input": 12.528,
+            "output": 2.506,
+            "blended50": 4.176
+          }
+        },
+        "researcher": {
+          "score": 62.688,
+          "value": {
+            "input": 12.538,
+            "output": 2.508,
+            "blended50": 4.179
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-opus-4-7",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-7"
+      }
+    },
+    {
+      "name": "Claude Opus 4.6",
+      "rawName": "Claude Opus 4.6",
+      "context": "1M",
+      "inputPerM": 5,
+      "outputPerM": 25,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": 6.25,
+      "inputListPerM": 5,
+      "outputListPerM": 25,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": 6.25,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-opus-4-6",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 5,
+        "output": 25,
+        "blended50": 15
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 62.3333,
+        "gpqa": 84.0404,
+        "hle": 19.0918,
+        "omniscienceAccuracy": 45.7833,
+        "omniscienceReliability": 19.9201,
+        "scicode": 45.7176
+      },
+      "roleScores": {
+        "architect": {
+          "score": 52.123,
+          "value": {
+            "input": 10.425,
+            "output": 2.085,
+            "blended50": 3.475
+          }
+        },
+        "strategist": {
+          "score": 48.887,
+          "value": {
+            "input": 9.777,
+            "output": 1.955,
+            "blended50": 3.259
+          }
+        },
+        "security-reviewer": {
+          "score": 47.765,
+          "value": {
+            "input": 9.553,
+            "output": 1.911,
+            "blended50": 3.184
+          }
+        },
+        "code-reviewer": {
+          "score": 50.632,
+          "value": {
+            "input": 10.126,
+            "output": 2.025,
+            "blended50": 3.375
+          }
+        },
+        "implementer": {
+          "score": 51.296,
+          "value": {
+            "input": 10.259,
+            "output": 2.052,
+            "blended50": 3.42
+          }
+        },
+        "implementer-heavy": {
+          "score": 51.986,
+          "value": {
+            "input": 10.397,
+            "output": 2.079,
+            "blended50": 3.466
+          }
+        },
+        "synthesizer": {
+          "score": 47.516,
+          "value": {
+            "input": 9.503,
+            "output": 1.901,
+            "blended50": 3.168
+          }
+        },
+        "researcher": {
+          "score": 52.914,
+          "value": {
+            "input": 10.583,
+            "output": 2.117,
+            "blended50": 3.528
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-opus-4-6",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-6"
+      }
+    },
+    {
+      "name": "Claude Sonnet 5",
+      "rawName": "Claude Sonnet 5",
+      "context": "1M",
+      "inputPerM": 2,
+      "outputPerM": 10,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": 2.5,
+      "inputListPerM": 2,
+      "outputListPerM": 10,
+      "cacheReadListPerM": 0.2,
+      "cacheWriteListPerM": 2.5,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-sonnet-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2,
+        "output": 10,
+        "blended50": 6
+      },
+      "benchmarks": {
+        "gdpval": 54.7745,
+        "lcr": 55,
+        "gpqa": 91.1111,
+        "hle": 41.2882,
+        "omniscienceAccuracy": 40.05,
+        "omniscienceReliability": 60.6339,
+        "scicode": 53.588
+      },
+      "roleScores": {
+        "architect": {
+          "score": 60.075,
+          "value": {
+            "input": 30.038,
+            "output": 6.008,
+            "blended50": 10.013
+          }
+        },
+        "strategist": {
+          "score": 56.094,
+          "value": {
+            "input": 28.047,
+            "output": 5.609,
+            "blended50": 9.349
+          }
+        },
+        "security-reviewer": {
+          "score": 61.707,
+          "value": {
+            "input": 30.854,
+            "output": 6.171,
+            "blended50": 10.285
+          }
+        },
+        "code-reviewer": {
+          "score": 60.779,
+          "value": {
+            "input": 30.39,
+            "output": 6.078,
+            "blended50": 10.13
+          }
+        },
+        "implementer": {
+          "score": 58.198,
+          "value": {
+            "input": 29.099,
+            "output": 5.82,
+            "blended50": 9.7
+          }
+        },
+        "implementer-heavy": {
+          "score": 57.919,
+          "value": {
+            "input": 28.96,
+            "output": 5.792,
+            "blended50": 9.653
+          }
+        },
+        "synthesizer": {
+          "score": 53.103,
+          "value": {
+            "input": 26.552,
+            "output": 5.31,
+            "blended50": 8.851
+          }
+        },
+        "researcher": {
+          "score": 55.999,
+          "value": {
+            "input": 28,
+            "output": 5.6,
+            "blended50": 9.333
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-sonnet-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-5"
+      }
+    },
+    {
+      "name": "Claude Sonnet 4.6",
+      "rawName": "Claude Sonnet 4.6",
+      "context": "1M",
+      "inputPerM": 3,
+      "outputPerM": 15,
+      "cacheReadPerM": 0.3,
+      "cacheWritePerM": 3.75,
+      "inputListPerM": 3,
+      "outputListPerM": 15,
+      "cacheReadListPerM": 0.3,
+      "cacheWriteListPerM": 3.75,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-sonnet-4-6",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 3,
+        "output": 15,
+        "blended50": 9
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 20,
+        "gpqa": 79.899,
+        "hle": 13.3457,
+        "omniscienceAccuracy": 38.55,
+        "omniscienceReliability": 31.489,
+        "scicode": 46.875
+      },
+      "roleScores": {
+        "architect": {
+          "score": 39.849,
+          "value": {
+            "input": 13.283,
+            "output": 2.657,
+            "blended50": 4.428
+          }
+        },
+        "strategist": {
+          "score": 39.716,
+          "value": {
+            "input": 13.239,
+            "output": 2.648,
+            "blended50": 4.413
+          }
+        },
+        "security-reviewer": {
+          "score": 43.43,
+          "value": {
+            "input": 14.477,
+            "output": 2.895,
+            "blended50": 4.826
+          }
+        },
+        "code-reviewer": {
+          "score": 44.557,
+          "value": {
+            "input": 14.852,
+            "output": 2.97,
+            "blended50": 4.951
+          }
+        },
+        "implementer": {
+          "score": 44.444,
+          "value": {
+            "input": 14.815,
+            "output": 2.963,
+            "blended50": 4.938
+          }
+        },
+        "implementer-heavy": {
+          "score": 43.626,
+          "value": {
+            "input": 14.542,
+            "output": 2.908,
+            "blended50": 4.847
+          }
+        },
+        "synthesizer": {
+          "score": 29.333,
+          "value": {
+            "input": 9.778,
+            "output": 1.956,
+            "blended50": 3.259
+          }
+        },
+        "researcher": {
+          "score": 37.572,
+          "value": {
+            "input": 12.524,
+            "output": 2.505,
+            "blended50": 4.175
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-sonnet-4-6",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6"
+      }
+    },
+    {
+      "name": "Claude Haiku 4.5",
+      "rawName": "Claude Haiku 4.5",
+      "context": "200K",
+      "inputPerM": 1,
+      "outputPerM": 5,
+      "cacheReadPerM": 0.1,
+      "cacheWritePerM": 1.25,
+      "inputListPerM": 1,
+      "outputListPerM": 5,
+      "cacheReadListPerM": 0.1,
+      "cacheWriteListPerM": 1.25,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "claude-4-5-haiku",
+        "reason": "AA canonical word order differs from CommandCode display name."
+      },
+      "costs": {
+        "input": 1,
+        "output": 5,
+        "blended50": 3
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 4.4444,
+        "gpqa": 64.6465,
+        "hle": 4.2169,
+        "omniscienceAccuracy": 14.4333,
+        "omniscienceReliability": 74.2891,
+        "scicode": 34.375
+      },
+      "roleScores": {
+        "architect": {
+          "score": 31.541,
+          "value": {
+            "input": 31.541,
+            "output": 6.308,
+            "blended50": 10.514
+          }
+        },
+        "strategist": {
+          "score": 34.537,
+          "value": {
+            "input": 34.537,
+            "output": 6.907,
+            "blended50": 11.512
+          }
+        },
+        "security-reviewer": {
+          "score": 38.905,
+          "value": {
+            "input": 38.905,
+            "output": 7.781,
+            "blended50": 12.968
+          }
+        },
+        "code-reviewer": {
+          "score": 36.915,
+          "value": {
+            "input": 36.915,
+            "output": 7.383,
+            "blended50": 12.305
+          }
+        },
+        "implementer": {
+          "score": 31.41,
+          "value": {
+            "input": 31.41,
+            "output": 6.282,
+            "blended50": 10.47
+          }
+        },
+        "implementer-heavy": {
+          "score": 33.365,
+          "value": {
+            "input": 33.365,
+            "output": 6.673,
+            "blended50": 11.122
+          }
+        },
+        "synthesizer": {
+          "score": 26.07,
+          "value": {
+            "input": 26.07,
+            "output": 5.214,
+            "blended50": 8.69
+          }
+        },
+        "researcher": {
+          "score": 24.881,
+          "value": {
+            "input": 24.881,
+            "output": 4.976,
+            "blended50": 8.294
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "claude-4-5-haiku",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-4-5-haiku"
+      }
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "rawName": "GPT-5.6 Sol",
+      "context": "1.1M",
+      "inputPerM": 5,
+      "outputPerM": 30,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": 6.25,
+      "inputListPerM": 5,
+      "outputListPerM": 30,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": 6.25,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gpt-5-6-sol",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 5,
+        "output": 30,
+        "blended50": 17.5
+      },
+      "benchmarks": {
+        "gdpval": 61.148,
+        "lcr": 26.1111,
+        "gpqa": 94.1414,
+        "hle": 49.4903,
+        "omniscienceAccuracy": 59.4,
+        "omniscienceReliability": 7.7997,
+        "scicode": 56.1343
+      },
+      "roleScores": {
+        "architect": {
+          "score": 57.239,
+          "value": {
+            "input": 11.448,
+            "output": 1.908,
+            "blended50": 3.271
+          }
+        },
+        "strategist": {
+          "score": 51.756,
+          "value": {
+            "input": 10.351,
+            "output": 1.725,
+            "blended50": 2.957
+          }
+        },
+        "security-reviewer": {
+          "score": 54.055,
+          "value": {
+            "input": 10.811,
+            "output": 1.802,
+            "blended50": 3.089
+          }
+        },
+        "code-reviewer": {
+          "score": 53.734,
+          "value": {
+            "input": 10.747,
+            "output": 1.791,
+            "blended50": 3.071
+          }
+        },
+        "implementer": {
+          "score": 56.667,
+          "value": {
+            "input": 11.333,
+            "output": 1.889,
+            "blended50": 3.238
+          }
+        },
+        "implementer-heavy": {
+          "score": 55.184,
+          "value": {
+            "input": 11.037,
+            "output": 1.839,
+            "blended50": 3.153
+          }
+        },
+        "synthesizer": {
+          "score": 34.362,
+          "value": {
+            "input": 6.872,
+            "output": 1.145,
+            "blended50": 1.964
+          }
+        },
+        "researcher": {
+          "score": 54.071,
+          "value": {
+            "input": 10.814,
+            "output": 1.802,
+            "blended50": 3.09
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gpt-5-6-sol",
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol"
+      }
+    },
+    {
+      "name": "GPT-5.6 Terra",
+      "rawName": "GPT-5.6 Terra",
+      "context": "1.1M",
+      "inputPerM": 2,
+      "outputPerM": 12,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": 2.5,
+      "inputListPerM": 2,
+      "outputListPerM": 12,
+      "cacheReadListPerM": 0.2,
+      "cacheWriteListPerM": 2.5,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gpt-5-6-terra",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2,
+        "output": 12,
+        "blended50": 7
+      },
+      "benchmarks": {
+        "gdpval": 53.815,
+        "lcr": 31.6667,
+        "gpqa": 92.5253,
+        "hle": 42.9101,
+        "omniscienceAccuracy": 46.8,
+        "omniscienceReliability": 12.1241,
+        "scicode": 53.9352
+      },
+      "roleScores": {
+        "architect": {
+          "score": 54.384,
+          "value": {
+            "input": 27.192,
+            "output": 4.532,
+            "blended50": 7.769
+          }
+        },
+        "strategist": {
+          "score": 47.684,
+          "value": {
+            "input": 23.842,
+            "output": 3.974,
+            "blended50": 6.812
+          }
+        },
+        "security-reviewer": {
+          "score": 52.879,
+          "value": {
+            "input": 26.44,
+            "output": 4.407,
+            "blended50": 7.554
+          }
+        },
+        "code-reviewer": {
+          "score": 53.029,
+          "value": {
+            "input": 26.515,
+            "output": 4.419,
+            "blended50": 7.576
+          }
+        },
+        "implementer": {
+          "score": 55.281,
+          "value": {
+            "input": 27.641,
+            "output": 4.607,
+            "blended50": 7.897
+          }
+        },
+        "implementer-heavy": {
+          "score": 53.31,
+          "value": {
+            "input": 26.655,
+            "output": 4.443,
+            "blended50": 7.616
+          }
+        },
+        "synthesizer": {
+          "score": 34.107,
+          "value": {
+            "input": 17.054,
+            "output": 2.842,
+            "blended50": 4.872
+          }
+        },
+        "researcher": {
+          "score": 50.484,
+          "value": {
+            "input": 25.242,
+            "output": 4.207,
+            "blended50": 7.212
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gpt-5-6-terra",
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra"
+      }
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "rawName": "GPT-5.6 Luna",
+      "context": "1.1M",
+      "inputPerM": 0.2,
+      "outputPerM": 1.2,
+      "cacheReadPerM": 0.02,
+      "cacheWritePerM": 0.25,
+      "inputListPerM": 0.2,
+      "outputListPerM": 1.2,
+      "cacheReadListPerM": 0.02,
+      "cacheWriteListPerM": 0.25,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gpt-5-6-luna",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.2,
+        "output": 1.2,
+        "blended50": 0.7
+      },
+      "benchmarks": {
+        "gdpval": 53.915,
+        "lcr": 19.4444,
+        "gpqa": 91.1111,
+        "hle": 39.481,
+        "omniscienceAccuracy": 42.7333,
+        "omniscienceReliability": 7.4214,
+        "scicode": 52.5463
+      },
+      "roleScores": {
+        "architect": {
+          "score": 50.571,
+          "value": {
+            "input": 252.855,
+            "output": 42.143,
+            "blended50": 72.244
+          }
+        },
+        "strategist": {
+          "score": 43.855,
+          "value": {
+            "input": 219.275,
+            "output": 36.546,
+            "blended50": 62.65
+          }
+        },
+        "security-reviewer": {
+          "score": 49.496,
+          "value": {
+            "input": 247.48,
+            "output": 41.247,
+            "blended50": 70.709
+          }
+        },
+        "code-reviewer": {
+          "score": 49.475,
+          "value": {
+            "input": 247.375,
+            "output": 41.229,
+            "blended50": 70.679
+          }
+        },
+        "implementer": {
+          "score": 52.059,
+          "value": {
+            "input": 260.295,
+            "output": 43.383,
+            "blended50": 74.37
+          }
+        },
+        "implementer-heavy": {
+          "score": 50.125,
+          "value": {
+            "input": 250.625,
+            "output": 41.771,
+            "blended50": 71.607
+          }
+        },
+        "synthesizer": {
+          "score": 26.868,
+          "value": {
+            "input": 134.34,
+            "output": 22.39,
+            "blended50": 38.383
+          }
+        },
+        "researcher": {
+          "score": 45.473,
+          "value": {
+            "input": 227.365,
+            "output": 37.894,
+            "blended50": 64.961
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gpt-5-6-luna",
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna"
+      }
+    },
+    {
+      "name": "GPT-5.5",
+      "rawName": "GPT-5.5",
+      "context": "400K",
+      "inputPerM": 5,
+      "outputPerM": 30,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": null,
+      "inputListPerM": 5,
+      "outputListPerM": 30,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gpt-5-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 5,
+        "output": 30,
+        "blended50": 17.5
+      },
+      "benchmarks": {
+        "gdpval": 49.511,
+        "lcr": 17.7778,
+        "gpqa": 93.5354,
+        "hle": 45.7831,
+        "omniscienceAccuracy": 57.95,
+        "omniscienceReliability": 10.979,
+        "scicode": 56.1343
+      },
+      "roleScores": {
+        "architect": {
+          "score": 49.823,
+          "value": {
+            "input": 9.965,
+            "output": 1.661,
+            "blended50": 2.847
+          }
+        },
+        "strategist": {
+          "score": 45.401,
+          "value": {
+            "input": 9.08,
+            "output": 1.513,
+            "blended50": 2.594
+          }
+        },
+        "security-reviewer": {
+          "score": 52.805,
+          "value": {
+            "input": 10.561,
+            "output": 1.76,
+            "blended50": 3.017
+          }
+        },
+        "code-reviewer": {
+          "score": 52.31,
+          "value": {
+            "input": 10.462,
+            "output": 1.744,
+            "blended50": 2.989
+          }
+        },
+        "implementer": {
+          "score": 54.956,
+          "value": {
+            "input": 10.991,
+            "output": 1.832,
+            "blended50": 3.14
+          }
+        },
+        "implementer-heavy": {
+          "score": 50.547,
+          "value": {
+            "input": 10.109,
+            "output": 1.685,
+            "blended50": 2.888
+          }
+        },
+        "synthesizer": {
+          "score": 29.212,
+          "value": {
+            "input": 5.842,
+            "output": 0.974,
+            "blended50": 1.669
+          }
+        },
+        "researcher": {
+          "score": 47.91,
+          "value": {
+            "input": 9.582,
+            "output": 1.597,
+            "blended50": 2.738
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gpt-5-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-5"
+      }
+    },
+    {
+      "name": "GPT-5.4",
+      "rawName": "GPT-5.4",
+      "context": "400K",
+      "inputPerM": 2.5,
+      "outputPerM": 15,
+      "cacheReadPerM": 0.25,
+      "cacheWritePerM": null,
+      "inputListPerM": 2.5,
+      "outputListPerM": 15,
+      "cacheReadListPerM": 0.25,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gpt-5-4",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2.5,
+        "output": 15,
+        "blended50": 8.75
+      },
+      "benchmarks": {
+        "gdpval": 44.7015,
+        "lcr": 77.6667,
+        "gpqa": 92.0202,
+        "hle": 43.7442,
+        "omniscienceAccuracy": 50.85,
+        "omniscienceReliability": 8.3079,
+        "scicode": 56.5972
+      },
+      "roleScores": {
+        "architect": {
+          "score": 62.263,
+          "value": {
+            "input": 24.905,
+            "output": 4.151,
+            "blended50": 7.116
+          }
+        },
+        "strategist": {
+          "score": 53.617,
+          "value": {
+            "input": 21.447,
+            "output": 3.574,
+            "blended50": 6.128
+          }
+        },
+        "security-reviewer": {
+          "score": 57.746,
+          "value": {
+            "input": 23.098,
+            "output": 3.85,
+            "blended50": 6.6
+          }
+        },
+        "code-reviewer": {
+          "score": 60.728,
+          "value": {
+            "input": 24.291,
+            "output": 4.049,
+            "blended50": 6.94
+          }
+        },
+        "implementer": {
+          "score": 63.786,
+          "value": {
+            "input": 25.514,
+            "output": 4.252,
+            "blended50": 7.29
+          }
+        },
+        "implementer-heavy": {
+          "score": 61.379,
+          "value": {
+            "input": 24.552,
+            "output": 4.092,
+            "blended50": 7.015
+          }
+        },
+        "synthesizer": {
+          "score": 53.487,
+          "value": {
+            "input": 21.395,
+            "output": 3.566,
+            "blended50": 6.113
+          }
+        },
+        "researcher": {
+          "score": 62.823,
+          "value": {
+            "input": 25.129,
+            "output": 4.188,
+            "blended50": 7.18
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gpt-5-4",
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4"
+      }
+    },
+    {
+      "name": "GPT-5.4 Mini",
+      "rawName": "GPT-5.4 Mini",
+      "context": "400K",
+      "inputPerM": 0.75,
+      "outputPerM": 4.5,
+      "cacheReadPerM": 0.075,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.75,
+      "outputListPerM": 4.5,
+      "cacheReadListPerM": 0.075,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gpt-5-4-mini",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.75,
+        "output": 4.5,
+        "blended50": 2.625
+      },
+      "benchmarks": {
+        "gdpval": 33.5875,
+        "lcr": 3.8889,
+        "gpqa": 87.4747,
+        "hle": 28.1279,
+        "omniscienceAccuracy": 37.4667,
+        "omniscienceReliability": 9.8348,
+        "scicode": 49.8843
+      },
+      "roleScores": {
+        "architect": {
+          "score": 36.121,
+          "value": {
+            "input": 48.161,
+            "output": 8.027,
+            "blended50": 13.76
+          }
+        },
+        "strategist": {
+          "score": 31.437,
+          "value": {
+            "input": 41.916,
+            "output": 6.986,
+            "blended50": 11.976
+          }
+        },
+        "security-reviewer": {
+          "score": 44.324,
+          "value": {
+            "input": 59.099,
+            "output": 9.85,
+            "blended50": 16.885
+          }
+        },
+        "code-reviewer": {
+          "score": 44.322,
+          "value": {
+            "input": 59.096,
+            "output": 9.849,
+            "blended50": 16.885
+          }
+        },
+        "implementer": {
+          "score": 46.448,
+          "value": {
+            "input": 61.931,
+            "output": 10.322,
+            "blended50": 17.694
+          }
+        },
+        "implementer-heavy": {
+          "score": 40.37,
+          "value": {
+            "input": 53.827,
+            "output": 8.971,
+            "blended50": 15.379
+          }
+        },
+        "synthesizer": {
+          "score": 16.248,
+          "value": {
+            "input": 21.664,
+            "output": 3.611,
+            "blended50": 6.19
+          }
+        },
+        "researcher": {
+          "score": 32.991,
+          "value": {
+            "input": 43.988,
+            "output": 7.331,
+            "blended50": 12.568
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gpt-5-4-mini",
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini"
+      }
+    },
+    {
+      "name": "GPT-5.3 Codex",
+      "rawName": "GPT-5.3 Codex",
+      "context": "400K",
+      "inputPerM": 2,
+      "outputPerM": 8,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": null,
+      "inputListPerM": 2,
+      "outputListPerM": 8,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gpt-5-3-codex",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2,
+        "output": 8,
+        "blended50": 5
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 78.3333,
+        "gpqa": 91.5152,
+        "hle": 42.493,
+        "omniscienceAccuracy": 52.8833,
+        "omniscienceReliability": 10.8242,
+        "scicode": 53.2407
+      },
+      "roleScores": {
+        "architect": {
+          "score": 61.128,
+          "value": {
+            "input": 30.564,
+            "output": 7.641,
+            "blended50": 12.226
+          }
+        },
+        "strategist": {
+          "score": 53.345,
+          "value": {
+            "input": 26.673,
+            "output": 6.668,
+            "blended50": 10.669
+          }
+        },
+        "security-reviewer": {
+          "score": 56.807,
+          "value": {
+            "input": 28.404,
+            "output": 7.101,
+            "blended50": 11.361
+          }
+        },
+        "code-reviewer": {
+          "score": 59.343,
+          "value": {
+            "input": 29.672,
+            "output": 7.418,
+            "blended50": 11.869
+          }
+        },
+        "implementer": {
+          "score": 61.671,
+          "value": {
+            "input": 30.836,
+            "output": 7.709,
+            "blended50": 12.334
+          }
+        },
+        "implementer-heavy": {
+          "score": 59.319,
+          "value": {
+            "input": 29.66,
+            "output": 7.415,
+            "blended50": 11.864
+          }
+        },
+        "synthesizer": {
+          "score": 54.317,
+          "value": {
+            "input": 27.159,
+            "output": 6.79,
+            "blended50": 10.863
+          }
+        },
+        "researcher": {
+          "score": 62.595,
+          "value": {
+            "input": 31.298,
+            "output": 7.824,
+            "blended50": 12.519
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gpt-5-3-codex",
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-3-codex"
+      }
+    },
+    {
+      "name": "Gemini 3.7 Flash",
+      "rawName": "Gemini 3.7 Flash-50%",
+      "context": "1M",
+      "inputPerM": 0.75,
+      "outputPerM": 3.75,
+      "cacheReadPerM": 0.075,
+      "cacheWritePerM": 0.04167,
+      "inputListPerM": 1.5,
+      "outputListPerM": 7.5,
+      "cacheReadListPerM": 0.15,
+      "cacheWriteListPerM": 0.04167,
+      "discountPercent": 50,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gemini-3-7-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.75,
+        "output": 3.75,
+        "blended50": 2.25
+      },
+      "benchmarks": {
+        "gdpval": 51.5775,
+        "lcr": 15,
+        "gpqa": 94.5455,
+        "hle": 47.8684,
+        "omniscienceAccuracy": 55.3167,
+        "omniscienceReliability": 35.4718,
+        "scicode": 56.8287
+      },
+      "roleScores": {
+        "architect": {
+          "score": 50.47,
+          "value": {
+            "input": 67.293,
+            "output": 13.459,
+            "blended50": 22.431
+          }
+        },
+        "strategist": {
+          "score": 47.696,
+          "value": {
+            "input": 63.595,
+            "output": 12.719,
+            "blended50": 21.198
+          }
+        },
+        "security-reviewer": {
+          "score": 57.079,
+          "value": {
+            "input": 76.105,
+            "output": 15.221,
+            "blended50": 25.368
+          }
+        },
+        "code-reviewer": {
+          "score": 55.066,
+          "value": {
+            "input": 73.421,
+            "output": 14.684,
+            "blended50": 24.474
+          }
+        },
+        "implementer": {
+          "score": 55.316,
+          "value": {
+            "input": 73.755,
+            "output": 14.751,
+            "blended50": 24.585
+          }
+        },
+        "implementer-heavy": {
+          "score": 50.922,
+          "value": {
+            "input": 67.896,
+            "output": 13.579,
+            "blended50": 22.632
+          }
+        },
+        "synthesizer": {
+          "score": 32.644,
+          "value": {
+            "input": 43.525,
+            "output": 8.705,
+            "blended50": 14.508
+          }
+        },
+        "researcher": {
+          "score": 47.426,
+          "value": {
+            "input": 63.235,
+            "output": 12.647,
+            "blended50": 21.078
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gemini-3-7-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash"
+      }
+    },
+    {
+      "name": "Gemini 3.6 Flash",
+      "rawName": "Gemini 3.6 Flash",
+      "context": "1M",
+      "inputPerM": 1.5,
+      "outputPerM": 7.5,
+      "cacheReadPerM": 0.15,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.5,
+      "outputListPerM": 7.5,
+      "cacheReadListPerM": 0.15,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gemini-3-6-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1.5,
+        "output": 7.5,
+        "blended50": 4.5
+      },
+      "benchmarks": {
+        "gdpval": 46.1105,
+        "lcr": 14.4444,
+        "gpqa": 92.8283,
+        "hle": 40.8248,
+        "omniscienceAccuracy": 49.9667,
+        "omniscienceReliability": 44.3704,
+        "scicode": 52.662
+      },
+      "roleScores": {
+        "architect": {
+          "score": 46.745,
+          "value": {
+            "input": 31.163,
+            "output": 6.233,
+            "blended50": 10.388
+          }
+        },
+        "strategist": {
+          "score": 45.046,
+          "value": {
+            "input": 30.031,
+            "output": 6.006,
+            "blended50": 10.01
+          }
+        },
+        "security-reviewer": {
+          "score": 55.271,
+          "value": {
+            "input": 36.847,
+            "output": 7.369,
+            "blended50": 12.282
+          }
+        },
+        "code-reviewer": {
+          "score": 52.95,
+          "value": {
+            "input": 35.3,
+            "output": 7.06,
+            "blended50": 11.767
+          }
+        },
+        "implementer": {
+          "score": 51.771,
+          "value": {
+            "input": 34.514,
+            "output": 6.903,
+            "blended50": 11.505
+          }
+        },
+        "implementer-heavy": {
+          "score": 47.397,
+          "value": {
+            "input": 31.598,
+            "output": 6.32,
+            "blended50": 10.533
+          }
+        },
+        "synthesizer": {
+          "score": 32.284,
+          "value": {
+            "input": 21.523,
+            "output": 4.305,
+            "blended50": 7.174
+          }
+        },
+        "researcher": {
+          "score": 43.861,
+          "value": {
+            "input": 29.241,
+            "output": 5.848,
+            "blended50": 9.747
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gemini-3-6-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash"
+      }
+    },
+    {
+      "name": "Gemini 3.5 Flash",
+      "rawName": "Gemini 3.5 Flash",
+      "context": "1M",
+      "inputPerM": 1.5,
+      "outputPerM": 9,
+      "cacheReadPerM": 0.15,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.5,
+      "outputListPerM": 9,
+      "cacheReadListPerM": 0.15,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gemini-3-5-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1.5,
+        "output": 9,
+        "blended50": 5.25
+      },
+      "benchmarks": {
+        "gdpval": 42.169,
+        "lcr": 18.3333,
+        "gpqa": 92.2222,
+        "hle": 42.6784,
+        "omniscienceAccuracy": 51.4,
+        "omniscienceReliability": 37.8258,
+        "scicode": 53.125
+      },
+      "roleScores": {
+        "architect": {
+          "score": 46.297,
+          "value": {
+            "input": 30.865,
+            "output": 5.144,
+            "blended50": 8.818
+          }
+        },
+        "strategist": {
+          "score": 43.819,
+          "value": {
+            "input": 29.213,
+            "output": 4.869,
+            "blended50": 8.346
+          }
+        },
+        "security-reviewer": {
+          "score": 55.036,
+          "value": {
+            "input": 36.691,
+            "output": 6.115,
+            "blended50": 10.483
+          }
+        },
+        "code-reviewer": {
+          "score": 53.151,
+          "value": {
+            "input": 35.434,
+            "output": 5.906,
+            "blended50": 10.124
+          }
+        },
+        "implementer": {
+          "score": 52.726,
+          "value": {
+            "input": 35.151,
+            "output": 5.858,
+            "blended50": 10.043
+          }
+        },
+        "implementer-heavy": {
+          "score": 47.337,
+          "value": {
+            "input": 31.558,
+            "output": 5.26,
+            "blended50": 9.017
+          }
+        },
+        "synthesizer": {
+          "score": 32.42,
+          "value": {
+            "input": 21.613,
+            "output": 3.602,
+            "blended50": 6.175
+          }
+        },
+        "researcher": {
+          "score": 44.423,
+          "value": {
+            "input": 29.615,
+            "output": 4.936,
+            "blended50": 8.462
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gemini-3-5-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash"
+      }
+    },
+    {
+      "name": "Gemini 3.5 Flash Lite",
+      "rawName": "Gemini 3.5 Flash Lite",
+      "context": "1M",
+      "inputPerM": 0.3,
+      "outputPerM": 2.5,
+      "cacheReadPerM": 0.03,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.3,
+      "outputListPerM": 2.5,
+      "cacheReadListPerM": 0.03,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gemini-3-5-flash-lite",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.3,
+        "output": 2.5,
+        "blended50": 1.4
+      },
+      "benchmarks": {
+        "gdpval": 31.9965,
+        "lcr": 74.6667,
+        "gpqa": 83.8384,
+        "hle": 18.8137,
+        "omniscienceAccuracy": 29.4667,
+        "omniscienceReliability": 65.6427,
+        "scicode": 40.8565
+      },
+      "roleScores": {
+        "architect": {
+          "score": 51.055,
+          "value": {
+            "input": 170.183,
+            "output": 20.422,
+            "blended50": 36.468
+          }
+        },
+        "strategist": {
+          "score": 48.573,
+          "value": {
+            "input": 161.91,
+            "output": 19.429,
+            "blended50": 34.695
+          }
+        },
+        "security-reviewer": {
+          "score": 54.292,
+          "value": {
+            "input": 180.973,
+            "output": 21.717,
+            "blended50": 38.78
+          }
+        },
+        "code-reviewer": {
+          "score": 54.799,
+          "value": {
+            "input": 182.663,
+            "output": 21.92,
+            "blended50": 39.142
+          }
+        },
+        "implementer": {
+          "score": 50.171,
+          "value": {
+            "input": 167.237,
+            "output": 20.068,
+            "blended50": 35.836
+          }
+        },
+        "implementer-heavy": {
+          "score": 49.702,
+          "value": {
+            "input": 165.673,
+            "output": 19.881,
+            "blended50": 35.501
+          }
+        },
+        "synthesizer": {
+          "score": 57.421,
+          "value": {
+            "input": 191.403,
+            "output": 22.968,
+            "blended50": 41.015
+          }
+        },
+        "researcher": {
+          "score": 50.75,
+          "value": {
+            "input": 169.167,
+            "output": 20.3,
+            "blended50": 36.25
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gemini-3-5-flash-lite",
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite"
+      }
+    },
+    {
+      "name": "Gemini 3.1 Flash Lite",
+      "rawName": "Gemini 3.1 Flash Lite",
+      "context": "1M",
+      "inputPerM": 0.25,
+      "outputPerM": 1.5,
+      "cacheReadPerM": 0.03,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.25,
+      "outputListPerM": 1.5,
+      "cacheReadListPerM": 0.03,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "gemini-3-1-flash-lite-preview",
+        "reason": "AA canonical page is the preview release for this model."
+      },
+      "costs": {
+        "input": 0.25,
+        "output": 1.5,
+        "blended50": 0.875
+      },
+      "benchmarks": {
+        "gdpval": 7.414,
+        "lcr": 6.1111,
+        "gpqa": 82.2222,
+        "hle": 17.1918,
+        "omniscienceAccuracy": 36.2667,
+        "omniscienceReliability": 17.3379,
+        "scicode": 41.8981
+      },
+      "roleScores": {
+        "architect": {
+          "score": 23.517,
+          "value": {
+            "input": 94.068,
+            "output": 15.678,
+            "blended50": 26.877
+          }
+        },
+        "strategist": {
+          "score": 21.397,
+          "value": {
+            "input": 85.588,
+            "output": 14.265,
+            "blended50": 24.454
+          }
+        },
+        "security-reviewer": {
+          "score": 39.775,
+          "value": {
+            "input": 159.1,
+            "output": 26.517,
+            "blended50": 45.457
+          }
+        },
+        "code-reviewer": {
+          "score": 39.668,
+          "value": {
+            "input": 158.672,
+            "output": 26.445,
+            "blended50": 45.335
+          }
+        },
+        "implementer": {
+          "score": 40.108,
+          "value": {
+            "input": 160.432,
+            "output": 26.739,
+            "blended50": 45.838
+          }
+        },
+        "implementer-heavy": {
+          "score": 30.152,
+          "value": {
+            "input": 120.608,
+            "output": 20.101,
+            "blended50": 34.459
+          }
+        },
+        "synthesizer": {
+          "score": 14.583,
+          "value": {
+            "input": 58.332,
+            "output": 9.722,
+            "blended50": 16.666
+          }
+        },
+        "researcher": {
+          "score": 24.993,
+          "value": {
+            "input": 99.972,
+            "output": 16.662,
+            "blended50": 28.563
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "gemini-3-1-flash-lite-preview",
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview"
+      }
+    },
+    {
+      "name": "Fugu Ultra",
+      "rawName": "Fugu Ultra",
+      "context": "1M",
+      "inputPerM": 5,
+      "outputPerM": 30,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": null,
+      "inputListPerM": 5,
+      "outputListPerM": 30,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified matching AA model family at publication time."
+      },
+      "costs": {
+        "input": 5,
+        "output": 30,
+        "blended50": 17.5
+      },
+      "benchmarks": {},
+      "roleScores": {},
+      "aaModel": null
+    },
+    {
+      "name": "Muse Spark 1.2",
+      "rawName": "Muse Spark 1.2",
+      "context": "1M",
+      "inputPerM": 1.25,
+      "outputPerM": 4.25,
+      "cacheReadPerM": 0.15,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.25,
+      "outputListPerM": 4.25,
+      "cacheReadListPerM": 0.15,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "muse-spark-1-2",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1.25,
+        "output": 4.25,
+        "blended50": 2.75
+      },
+      "benchmarks": {
+        "gdpval": 56.4,
+        "lcr": 83.3333,
+        "gpqa": 90.404,
+        "hle": 45.4588,
+        "omniscienceAccuracy": 45.3833,
+        "omniscienceReliability": 66.7074,
+        "scicode": 56.3657
+      },
+      "roleScores": {
+        "architect": {
+          "score": 68.293,
+          "value": {
+            "input": 54.634,
+            "output": 16.069,
+            "blended50": 24.834
+          }
+        },
+        "strategist": {
+          "score": 64.014,
+          "value": {
+            "input": 51.211,
+            "output": 15.062,
+            "blended50": 23.278
+          }
+        },
+        "security-reviewer": {
+          "score": 66.942,
+          "value": {
+            "input": 53.554,
+            "output": 15.751,
+            "blended50": 24.343
+          }
+        },
+        "code-reviewer": {
+          "score": 67.162,
+          "value": {
+            "input": 53.73,
+            "output": 15.803,
+            "blended50": 24.423
+          }
+        },
+        "implementer": {
+          "score": 64.426,
+          "value": {
+            "input": 51.541,
+            "output": 15.159,
+            "blended50": 23.428
+          }
+        },
+        "implementer-heavy": {
+          "score": 65.172,
+          "value": {
+            "input": 52.138,
+            "output": 15.335,
+            "blended50": 23.699
+          }
+        },
+        "synthesizer": {
+          "score": 68.378,
+          "value": {
+            "input": 54.702,
+            "output": 16.089,
+            "blended50": 24.865
+          }
+        },
+        "researcher": {
+          "score": 66.283,
+          "value": {
+            "input": 53.026,
+            "output": 15.596,
+            "blended50": 24.103
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "muse-spark-1-2",
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
+      }
+    },
+    {
+      "name": "Muse Spark 1.2 Contributor",
+      "rawName": "Muse Spark 1.2 Contributor",
+      "context": "1M",
+      "inputPerM": 0.1,
+      "outputPerM": 0.2,
+      "cacheReadPerM": 0.002,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.1,
+      "outputListPerM": 0.2,
+      "cacheReadListPerM": 0.002,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": true,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "commercial_variant",
+        "slug": "muse-spark-1-2",
+        "reason": "Contributor is a CommandCode data-sharing commercial variant of Muse Spark 1.2."
+      },
+      "costs": {
+        "input": 0.1,
+        "output": 0.2,
+        "blended50": 0.15
+      },
+      "benchmarks": {
+        "gdpval": 56.4,
+        "lcr": 83.3333,
+        "gpqa": 90.404,
+        "hle": 45.4588,
+        "omniscienceAccuracy": 45.3833,
+        "omniscienceReliability": 66.7074,
+        "scicode": 56.3657
+      },
+      "roleScores": {
+        "architect": {
+          "score": 68.293,
+          "value": {
+            "input": 682.93,
+            "output": 341.465,
+            "blended50": 455.287
+          }
+        },
+        "strategist": {
+          "score": 64.014,
+          "value": {
+            "input": 640.14,
+            "output": 320.07,
+            "blended50": 426.76
+          }
+        },
+        "security-reviewer": {
+          "score": 66.942,
+          "value": {
+            "input": 669.42,
+            "output": 334.71,
+            "blended50": 446.28
+          }
+        },
+        "code-reviewer": {
+          "score": 67.162,
+          "value": {
+            "input": 671.62,
+            "output": 335.81,
+            "blended50": 447.747
+          }
+        },
+        "implementer": {
+          "score": 64.426,
+          "value": {
+            "input": 644.26,
+            "output": 322.13,
+            "blended50": 429.507
+          }
+        },
+        "implementer-heavy": {
+          "score": 65.172,
+          "value": {
+            "input": 651.72,
+            "output": 325.86,
+            "blended50": 434.48
+          }
+        },
+        "synthesizer": {
+          "score": 68.378,
+          "value": {
+            "input": 683.78,
+            "output": 341.89,
+            "blended50": 455.853
+          }
+        },
+        "researcher": {
+          "score": 66.283,
+          "value": {
+            "input": 662.83,
+            "output": 331.415,
+            "blended50": 441.887
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "muse-spark-1-2",
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
+      }
+    },
+    {
+      "name": "Muse Spark 1.1",
+      "rawName": "Muse Spark 1.1",
+      "context": "1M",
+      "inputPerM": 1.25,
+      "outputPerM": 4.25,
+      "cacheReadPerM": 0.15,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.25,
+      "outputListPerM": 4.25,
+      "cacheReadListPerM": 0.15,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "muse-spark-1-1",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1.25,
+        "output": 4.25,
+        "blended50": 2.75
+      },
+      "benchmarks": {
+        "gdpval": 43.711,
+        "lcr": 81.3333,
+        "gpqa": 89.798,
+        "hle": 46.2002,
+        "omniscienceAccuracy": 52.05,
+        "omniscienceReliability": 50.0174,
+        "scicode": 58.2176
+      },
+      "roleScores": {
+        "architect": {
+          "score": 62.707,
+          "value": {
+            "input": 50.166,
+            "output": 14.755,
+            "blended50": 22.803
+          }
+        },
+        "strategist": {
+          "score": 58.143,
+          "value": {
+            "input": 46.514,
+            "output": 13.681,
+            "blended50": 21.143
+          }
+        },
+        "security-reviewer": {
+          "score": 64.791,
+          "value": {
+            "input": 51.833,
+            "output": 15.245,
+            "blended50": 23.56
+          }
+        },
+        "code-reviewer": {
+          "score": 65.979,
+          "value": {
+            "input": 52.783,
+            "output": 15.524,
+            "blended50": 23.992
+          }
+        },
+        "implementer": {
+          "score": 65.22,
+          "value": {
+            "input": 52.176,
+            "output": 15.346,
+            "blended50": 23.716
+          }
+        },
+        "implementer-heavy": {
+          "score": 62.372,
+          "value": {
+            "input": 49.898,
+            "output": 14.676,
+            "blended50": 22.681
+          }
+        },
+        "synthesizer": {
+          "score": 63.57,
+          "value": {
+            "input": 50.856,
+            "output": 14.958,
+            "blended50": 23.116
+          }
+        },
+        "researcher": {
+          "score": 63.827,
+          "value": {
+            "input": 51.062,
+            "output": 15.018,
+            "blended50": 23.21
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "muse-spark-1-1",
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-1"
+      }
+    },
+    {
+      "name": "Grok 4.6",
+      "rawName": "Grok 4.6",
+      "context": "500K",
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": null,
+      "inputListPerM": 2,
+      "outputListPerM": 6,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "grok-4-6",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2,
+        "output": 6,
+        "blended50": 4
+      },
+      "benchmarks": {
+        "gdpval": 62.3725,
+        "lcr": 12.2222,
+        "gpqa": 94.9495,
+        "hle": 42.9101,
+        "omniscienceAccuracy": 48.2333,
+        "omniscienceReliability": 65.7115,
+        "scicode": 53.588
+      },
+      "roleScores": {
+        "architect": {
+          "score": 53.431,
+          "value": {
+            "input": 26.716,
+            "output": 8.905,
+            "blended50": 13.358
+          }
+        },
+        "strategist": {
+          "score": 53.106,
+          "value": {
+            "input": 26.553,
+            "output": 8.851,
+            "blended50": 13.277
+          }
+        },
+        "security-reviewer": {
+          "score": 59.475,
+          "value": {
+            "input": 29.738,
+            "output": 9.913,
+            "blended50": 14.869
+          }
+        },
+        "code-reviewer": {
+          "score": 55.8,
+          "value": {
+            "input": 27.9,
+            "output": 9.3,
+            "blended50": 13.95
+          }
+        },
+        "implementer": {
+          "score": 52.52,
+          "value": {
+            "input": 26.26,
+            "output": 8.753,
+            "blended50": 13.13
+          }
+        },
+        "implementer-heavy": {
+          "score": 51.647,
+          "value": {
+            "input": 25.824,
+            "output": 8.608,
+            "blended50": 12.912
+          }
+        },
+        "synthesizer": {
+          "score": 37.645,
+          "value": {
+            "input": 18.823,
+            "output": 6.274,
+            "blended50": 9.411
+          }
+        },
+        "researcher": {
+          "score": 47.44,
+          "value": {
+            "input": 23.72,
+            "output": 7.907,
+            "blended50": 11.86
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "grok-4-6",
+        "sourceUrl": "https://artificialanalysis.ai/models/grok-4-6"
+      }
+    },
+    {
+      "name": "Grok 4.5",
+      "rawName": "Grok 4.5",
+      "context": "500K",
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "cacheReadPerM": 0.5,
+      "cacheWritePerM": null,
+      "inputListPerM": 2,
+      "outputListPerM": 6,
+      "cacheReadListPerM": 0.5,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "grok-4-5",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 2,
+        "output": 6,
+        "blended50": 4
+      },
+      "benchmarks": {
+        "gdpval": 51.218,
+        "lcr": 15,
+        "gpqa": 93.1313,
+        "hle": 42.6784,
+        "omniscienceAccuracy": 51.55,
+        "omniscienceReliability": 45.8548,
+        "scicode": 54.0509
+      },
+      "roleScores": {
+        "architect": {
+          "score": 49.265,
+          "value": {
+            "input": 24.633,
+            "output": 8.211,
+            "blended50": 12.316
+          }
+        },
+        "strategist": {
+          "score": 47.696,
+          "value": {
+            "input": 23.848,
+            "output": 7.949,
+            "blended50": 11.924
+          }
+        },
+        "security-reviewer": {
+          "score": 56.412,
+          "value": {
+            "input": 28.206,
+            "output": 9.402,
+            "blended50": 14.103
+          }
+        },
+        "code-reviewer": {
+          "score": 54.052,
+          "value": {
+            "input": 27.026,
+            "output": 9.009,
+            "blended50": 13.513
+          }
+        },
+        "implementer": {
+          "score": 52.918,
+          "value": {
+            "input": 26.459,
+            "output": 8.82,
+            "blended50": 13.23
+          }
+        },
+        "implementer-heavy": {
+          "score": 49.441,
+          "value": {
+            "input": 24.721,
+            "output": 8.24,
+            "blended50": 12.36
+          }
+        },
+        "synthesizer": {
+          "score": 33.914,
+          "value": {
+            "input": 16.957,
+            "output": 5.652,
+            "blended50": 8.479
+          }
+        },
+        "researcher": {
+          "score": 45.852,
+          "value": {
+            "input": 22.926,
+            "output": 7.642,
+            "blended50": 11.463
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "grok-4-5",
+        "sourceUrl": "https://artificialanalysis.ai/models/grok-4-5"
+      }
+    },
+    {
+      "name": "Inkling",
+      "rawName": "Inkling",
+      "context": "256K",
+      "inputPerM": 1,
+      "outputPerM": 4.05,
+      "cacheReadPerM": 0.17,
+      "cacheWritePerM": null,
+      "inputListPerM": 1,
+      "outputListPerM": 4.05,
+      "cacheReadListPerM": 0.17,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "inkling",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 1,
+        "output": 4.05,
+        "blended50": 2.525
+      },
+      "benchmarks": {
+        "gdpval": 36.9335,
+        "lcr": 12.2222,
+        "gpqa": 87.1717,
+        "hle": 31.8814,
+        "omniscienceAccuracy": 41.55,
+        "omniscienceReliability": 32.3353,
+        "scicode": 46.0648
+      },
+      "roleScores": {
+        "architect": {
+          "score": 40.046,
+          "value": {
+            "input": 40.046,
+            "output": 9.888,
+            "blended50": 15.86
+          }
+        },
+        "strategist": {
+          "score": 37.479,
+          "value": {
+            "input": 37.479,
+            "output": 9.254,
+            "blended50": 14.843
+          }
+        },
+        "security-reviewer": {
+          "score": 48.061,
+          "value": {
+            "input": 48.061,
+            "output": 11.867,
+            "blended50": 19.034
+          }
+        },
+        "code-reviewer": {
+          "score": 46.419,
+          "value": {
+            "input": 46.419,
+            "output": 11.461,
+            "blended50": 18.384
+          }
+        },
+        "implementer": {
+          "score": 45.736,
+          "value": {
+            "input": 45.736,
+            "output": 11.293,
+            "blended50": 18.113
+          }
+        },
+        "implementer-heavy": {
+          "score": 41.124,
+          "value": {
+            "input": 41.124,
+            "output": 10.154,
+            "blended50": 16.287
+          }
+        },
+        "synthesizer": {
+          "score": 25.817,
+          "value": {
+            "input": 25.817,
+            "output": 6.375,
+            "blended50": 10.225
+          }
+        },
+        "researcher": {
+          "score": 37.474,
+          "value": {
+            "input": 37.474,
+            "output": 9.253,
+            "blended50": 14.841
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "inkling",
+        "sourceUrl": "https://artificialanalysis.ai/models/inkling"
+      }
+    },
+    {
+      "name": "Inkling Small",
+      "rawName": "Inkling Small",
+      "context": "1M",
+      "inputPerM": 0.5,
+      "outputPerM": 1.2,
+      "cacheReadPerM": 0.1,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.5,
+      "outputListPerM": 1.2,
+      "cacheReadListPerM": 0.1,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "inkling-small",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "costs": {
+        "input": 0.5,
+        "output": 1.2,
+        "blended50": 0.85
+      },
+      "benchmarks": {
+        "gdpval": 38.411,
+        "lcr": 69.3333,
+        "gpqa": 89.4949,
+        "hle": 33.3179,
+        "omniscienceAccuracy": 33.1667,
+        "omniscienceReliability": 37.0075,
+        "scicode": 48.7269
+      },
+      "roleScores": {
+        "architect": {
+          "score": 55.594,
+          "value": {
+            "input": 111.188,
+            "output": 46.328,
+            "blended50": 65.405
+          }
+        },
+        "strategist": {
+          "score": 48.515,
+          "value": {
+            "input": 97.03,
+            "output": 40.429,
+            "blended50": 57.076
+          }
+        },
+        "security-reviewer": {
+          "score": 56.14,
+          "value": {
+            "input": 112.28,
+            "output": 46.783,
+            "blended50": 66.047
+          }
+        },
+        "code-reviewer": {
+          "score": 57.259,
+          "value": {
+            "input": 114.518,
+            "output": 47.716,
+            "blended50": 67.364
+          }
+        },
+        "implementer": {
+          "score": 56.392,
+          "value": {
+            "input": 112.784,
+            "output": 46.993,
+            "blended50": 66.344
+          }
+        },
+        "implementer-heavy": {
+          "score": 54.346,
+          "value": {
+            "input": 108.692,
+            "output": 45.288,
+            "blended50": 63.936
+          }
+        },
+        "synthesizer": {
+          "score": 50.996,
+          "value": {
+            "input": 101.992,
+            "output": 42.497,
+            "blended50": 59.995
+          }
+        },
+        "researcher": {
+          "score": 53.792,
+          "value": {
+            "input": 107.584,
+            "output": 44.827,
+            "blended50": 63.285
+          }
+        }
+      },
+      "aaModel": {
+        "slug": "inkling-small",
+        "sourceUrl": "https://artificialanalysis.ai/models/inkling-small"
+      }
+    }
+  ]
+}

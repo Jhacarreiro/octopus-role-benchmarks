@@ -4,7 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "install-adapters": "node scripts/install-opencli-adapters.mjs",
+    "update": "node scripts/update.mjs",
     "check": "node scripts/validate.mjs",
     "test": "node scripts/validate.mjs"
+  },
+  "dependencies": {
+    "@jackwener/opencli": "1.8.6",
+    "cheerio": "1.1.2"
   }
 }

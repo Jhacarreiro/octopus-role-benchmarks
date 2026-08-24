@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "aliases": {
+    "Tencent Hy3": {
+      "status": "exact_alias",
+      "slug": "hy3",
+      "reason": "CommandCode vendor-prefixed display name; AA canonical family is Hy3."
+    },
+    "Kimi K2.7 Code HighSpeed": {
+      "status": "commercial_variant",
+      "slug": "kimi-k2-7-code",
+      "reason": "HighSpeed is a CommandCode commercial variant of the same underlying model."
+    },
+    "GLM-5.2 Fast": {
+      "status": "commercial_variant",
+      "slug": "glm-5-2",
+      "reason": "Fast is a CommandCode commercial variant of GLM-5.2."
+    },
+    "Qwen 3.6 Max Preview": {
+      "status": "exact_alias",
+      "slug": "qwen3-max-preview",
+      "reason": "AA canonical slug omits the CommandCode 3.6 display qualifier."
+    },
+    "Nemotron 3 Ultra": {
+      "status": "exact_alias",
+      "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+      "reason": "AA canonical family includes NVIDIA and parameterization in the slug."
+    },
+    "Claude Haiku 4.5": {
+      "status": "exact_alias",
+      "slug": "claude-4-5-haiku",
+      "reason": "AA canonical word order differs from CommandCode display name."
+    },
+    "Gemini 3.1 Flash Lite": {
+      "status": "exact_alias",
+      "slug": "gemini-3-1-flash-lite-preview",
+      "reason": "AA canonical page is the preview release for this model."
+    },
+    "Muse Spark 1.2 Contributor": {
+      "status": "commercial_variant",
+      "slug": "muse-spark-1-2",
+      "reason": "Contributor is a CommandCode data-sharing commercial variant of Muse Spark 1.2."
+    },
+    "Ox Alpha": {
+      "status": "unscored",
+      "reason": "Stealth/anonymous model; no verified AA identity."
+    },
+    "Laguna S 2.1": {
+      "status": "unscored",
+      "reason": "Stealth/anonymous model; no verified AA identity."
+    },
+    "DeepSeek V4 Flash Vision (exp)": {
+      "status": "unscored",
+      "reason": "No verified AA identity for the experimental vision variant; not proxied to text-only Flash."
+    },
+    "Qwen 3.7 Flash": {
+      "status": "unscored",
+      "reason": "No verified matching AA model family at publication time."
+    },
+    "Fugu Ultra": {
+      "status": "unscored",
+      "reason": "No verified matching AA model family at publication time."
+    },
+    "MiMo V2.5": {
+      "status": "exact_alias",
+      "slug": "mimo-v2-5-0424",
+      "reason": "AA canonical MiMo-V2.5 release currently uses the 0424 slug."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const home = process.env.OPENCLI_HOME ? path.resolve(process.env.OPENCLI_HOME) : path.join(root, '.opencli-home');
+const src = path.join(root, 'opencli', 'clis');
+const dst = path.join(home, '.opencli', 'clis');
+fs.rmSync(dst, {recursive:true, force:true});
+fs.mkdirSync(dst, {recursive:true});
+fs.cpSync(src, dst, {recursive:true});
+console.log(dst);
