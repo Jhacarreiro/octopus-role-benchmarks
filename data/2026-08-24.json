@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "methodologyVersion": 2,
   "date": "2026-08-24",
-  "generatedAt": "2026-08-24T16:55:26.933Z",
+  "generatedAt": "2026-08-24T17:05:39.169Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
@@ -1996,11 +1996,11 @@
       "context": "1M",
       "inputPerM": 0.22,
       "outputPerM": 0.66,
-      "cacheReadPerM": 0.01,
+      "cacheReadPerM": 0.007,
       "cacheWritePerM": null,
       "inputListPerM": 0.22,
       "outputListPerM": 0.66,
-      "cacheReadListPerM": 0.01,
+      "cacheReadListPerM": 0.007,
       "cacheWriteListPerM": null,
       "discountPercent": null,
       "free": false,
