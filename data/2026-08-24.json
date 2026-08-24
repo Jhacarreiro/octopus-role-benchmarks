@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "methodologyVersion": 3,
   "date": "2026-08-24",
-  "generatedAt": "2026-08-24T18:50:37.903Z",
+  "generatedAt": "2026-08-24T19:00:25.455Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
@@ -77,18 +77,15 @@
   },
   "codingAgentCoverage": {
     "total": 51,
-    "present": 16,
-    "ratio": 0.313725,
+    "present": 22,
+    "ratio": 0.431373,
     "missing": [
       "claude-4-5-haiku",
       "claude-opus-4-6",
       "claude-sonnet-5",
-      "deepseek-v4-flash",
-      "deepseek-v4-pro",
       "gemini-3-1-flash-lite-preview",
       "gemini-3-5-flash",
       "gemini-3-5-flash-lite",
-      "gemini-3-7-flash",
       "glm-5",
       "glm-5-3",
       "gpt-5-3-codex",
@@ -105,13 +102,10 @@
       "minimax-m2-5",
       "minimax-m2-7",
       "minimax-m3",
-      "muse-spark-1-1",
-      "muse-spark-1-2",
       "nvidia-nemotron-3-ultra-550b-a55b",
       "qwen3-6-plus",
       "qwen3-7-max",
       "qwen3-8-27b",
-      "qwen3-8-max",
       "qwen3-max-preview",
       "step-3-5-flash",
       "step-3-7-flash"
@@ -122,7 +116,7 @@
     "scoredRows": 54,
     "unscoredRows": 5,
     "scoredFamilies": 51,
-    "codingAgentFamilies": 16
+    "codingAgentFamilies": 22
   },
   "benchmarks": {
     "gdpval": {
@@ -2417,7 +2411,39 @@
           }
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "deepseek_deepseek-v4-pro-1m",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - DeepSeek V4 Pro (high)",
+        "indexScore": 32.828,
+        "evaluations": {
+          "deep-swe": 8.555,
+          "swe-atlas-qna": 19.892,
+          "terminal-bench-v2.1": 70.037
+        },
+        "tokensPerTask": {
+          "reward": 0.0855457227138643,
+          "costUsd": 0.2547256318476481,
+          "wallTimeSec": 1072.5318353783243,
+          "steps": 128.1457055214724,
+          "inputTokens": 8912558.292035399,
+          "cacheWriteTokens": 0,
+          "outputTokens": 62187.78466076696,
+          "cacheTokens": 4718944.850715744,
+          "cacheHitRate": 0.8541357545221666,
+          "totalTokens": 9942165.528629865
+        },
+        "totalTokensPerTask": 9942165.528629865,
+        "timePerTaskSec": 1072.5318353783243,
+        "aaCostPerTaskUsd": 0.2547256318476481,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 128.876
+      },
       "aaModel": {
         "slug": "deepseek-v4-pro",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro"
@@ -2545,7 +2571,39 @@
           }
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "deepseek_deepseek-v4-flash-0731",
+        "agent": "Codex",
+        "displayLabel": "Codex - DeepSeek V4 Flash 0731 (max)",
+        "indexScore": 49.758,
+        "evaluations": {
+          "deep-swe": 42.773,
+          "swe-atlas-qna": 38.71,
+          "terminal-bench-v2.1": 67.79
+        },
+        "tokensPerTask": {
+          "reward": 0.427728613569322,
+          "costUsd": 0.05949917044417178,
+          "wallTimeSec": 868.3750143149272,
+          "steps": 105.93149284253577,
+          "inputTokens": 18789280.92920354,
+          "cacheWriteTokens": null,
+          "outputTokens": 105058.45132743364,
+          "cacheTokens": 10342245.038854798,
+          "cacheHitRate": 0.980762166136423,
+          "totalTokens": 20844227.993865013
+        },
+        "totalTokensPerTask": 20844227.993865013,
+        "timePerTaskSec": 868.3750143149272,
+        "aaCostPerTaskUsd": 0.05949917044417178,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 836.281
+      },
       "aaModel": {
         "slug": "deepseek-v4-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash"
@@ -2705,7 +2763,39 @@
           }
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "alibaba_cloud_qwen3-8-max-public",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Qwen3.8 Max",
+        "indexScore": 61.31,
+        "evaluations": {
+          "deep-swe": 51.917,
+          "swe-atlas-qna": 48.118,
+          "terminal-bench-v2.1": 83.895
+        },
+        "tokensPerTask": {
+          "reward": 0.519174041297935,
+          "costUsd": 3.2306109660020477,
+          "wallTimeSec": 1792.1471809815948,
+          "steps": 159.5848670756646,
+          "inputTokens": 11507847.05899705,
+          "cacheWriteTokens": 247713.88790560473,
+          "outputTokens": 103997.9174041298,
+          "cacheTokens": 5809875.082822086,
+          "cacheHitRate": 0.8998815214008221,
+          "totalTokens": 12503741.564417152
+        },
+        "totalTokensPerTask": 12503741.564417152,
+        "timePerTaskSec": 1792.1471809815948,
+        "aaCostPerTaskUsd": 3.2306109660020477,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 18.978
+      },
       "aaModel": {
         "slug": "qwen3-8-max",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max"
@@ -6385,7 +6475,39 @@
           }
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "google_andwise_ai-studio",
+        "agent": "Opencode",
+        "displayLabel": "Opencode - Gemini 3.7 Flash (high)",
+        "indexScore": 59.628,
+        "evaluations": {
+          "deep-swe": 57.227,
+          "swe-atlas-qna": 30.645,
+          "terminal-bench-v2.1": 91.011
+        },
+        "tokensPerTask": {
+          "reward": 0.572271386430678,
+          "costUsd": 1.2679325688650298,
+          "wallTimeSec": 527.0915644171779,
+          "steps": 83.44887525562373,
+          "inputTokens": 18609812.979351033,
+          "cacheWriteTokens": 0,
+          "outputTokens": 85504.38938053098,
+          "cacheTokens": 8946811.470347656,
+          "cacheHitRate": 0.8634331167917659,
+          "totalTokens": 18493123.37423313
+        },
+        "totalTokensPerTask": 18493123.37423313,
+        "timePerTaskSec": 527.0915644171779,
+        "aaCostPerTaskUsd": 1.2679325688650298,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 47.028
+      },
       "aaModel": {
         "slug": "gemini-3-7-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash"
@@ -7089,7 +7211,39 @@
           }
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "meta_spiffy-blimp350-tbh-r708-1",
+        "agent": "Muse Code",
+        "displayLabel": "Muse Code - Muse Spark 1.2 (xhigh)",
+        "indexScore": 61.64,
+        "evaluations": {
+          "deep-swe": 58.112,
+          "swe-atlas-qna": 45.161,
+          "terminal-bench-v2.1": 81.648
+        },
+        "tokensPerTask": {
+          "reward": 0.581120943952802,
+          "costUsd": 2.0728230519427373,
+          "wallTimeSec": 2448.643313905929,
+          "steps": 151.43456032719837,
+          "inputTokens": 20134689.07079646,
+          "cacheWriteTokens": 0,
+          "outputTokens": 100399.46017699115,
+          "cacheTokens": 9811071.80674846,
+          "cacheHitRate": 0.9538301727874866,
+          "totalTokens": 19963139.084867075
+        },
+        "totalTokensPerTask": 19963139.084867075,
+        "timePerTaskSec": 2448.643313905929,
+        "aaCostPerTaskUsd": 2.0728230519427373,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 29.737
+      },
       "aaModel": {
         "slug": "muse-spark-1-2",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
@@ -7217,7 +7371,39 @@
           }
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "meta_spiffy-blimp350-tbh-r708-1",
+        "agent": "Muse Code",
+        "displayLabel": "Muse Code - Muse Spark 1.2 (xhigh)",
+        "indexScore": 61.64,
+        "evaluations": {
+          "deep-swe": 58.112,
+          "swe-atlas-qna": 45.161,
+          "terminal-bench-v2.1": 81.648
+        },
+        "tokensPerTask": {
+          "reward": 0.581120943952802,
+          "costUsd": 2.0728230519427373,
+          "wallTimeSec": 2448.643313905929,
+          "steps": 151.43456032719837,
+          "inputTokens": 20134689.07079646,
+          "cacheWriteTokens": 0,
+          "outputTokens": 100399.46017699115,
+          "cacheTokens": 9811071.80674846,
+          "cacheHitRate": 0.9538301727874866,
+          "totalTokens": 19963139.084867075
+        },
+        "totalTokensPerTask": 19963139.084867075,
+        "timePerTaskSec": 2448.643313905929,
+        "aaCostPerTaskUsd": 2.0728230519427373,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 29.737
+      },
       "aaModel": {
         "slug": "muse-spark-1-2",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
@@ -7345,7 +7531,39 @@
           }
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "meta_super-nova",
+        "agent": "Opencode",
+        "displayLabel": "Opencode - Muse Spark 1.1 (xhigh)",
+        "indexScore": 54.921,
+        "evaluations": {
+          "deep-swe": 54.277,
+          "swe-atlas-qna": 33.333,
+          "terminal-bench-v2.1": 77.154
+        },
+        "tokensPerTask": {
+          "reward": 0.542772861356932,
+          "costUsd": 1.435218435173823,
+          "wallTimeSec": 761.3780071574632,
+          "steps": 55.51329243353784,
+          "inputTokens": 13967690.943952803,
+          "cacheWriteTokens": 0,
+          "outputTokens": 66078.67256637168,
+          "cacheTokens": 5970369.145194287,
+          "cacheHitRate": 0.9500000000000018,
+          "totalTokens": 12289527.214723915
+        },
+        "totalTokensPerTask": 12289527.214723915,
+        "timePerTaskSec": 761.3780071574632,
+        "aaCostPerTaskUsd": 1.435218435173823,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 38.267
+      },
       "aaModel": {
         "slug": "muse-spark-1-1",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-1"

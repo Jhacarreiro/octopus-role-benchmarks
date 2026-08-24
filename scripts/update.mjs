@@ -25,7 +25,17 @@ function repriceTask(tokens,row){
   const cacheRead=row.cacheReadPerM??input, cacheWrite=row.cacheWritePerM??input;
   return round((tokens.nonCacheInput*input+tokens.cacheRead*cacheRead+tokens.cacheWrite*cacheWrite+tokens.output*output)/1e6,6);
 }
+const codingHostAliases={
+  'alibaba_cloud_qwen3-8-max-public':'qwen3-8-max',
+  'deepseek_deepseek-v4-flash-0731':'deepseek-v4-flash',
+  'deepseek_deepseek-v4-pro-1m':'deepseek-v4-pro',
+  'google_andwise_ai-studio':'gemini-3-7-flash',
+  'meta_spiffy-blimp350':'muse-spark-1-2',
+  'meta_spiffy-blimp350-tbh-r708-1':'muse-spark-1-2',
+  'meta_super-nova':'muse-spark-1-1'
+};
 function codingHostBase(host){
+  if(codingHostAliases[host]) return codingHostAliases[host];
   let s=host;
   for(const p of ['alibaba_cloud_','anthropic_','deepseek_','friendliai_','google_','moonshot_','novita_','openai_','xai_']) if(s.startsWith(p)){s=s.slice(p.length);break}
   for(const suffix of ['_ai-studio','_fp8','_api-key']) if(s.endsWith(suffix)) s=s.slice(0,-suffix.length);
