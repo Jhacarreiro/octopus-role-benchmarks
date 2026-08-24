@@ -1,0 +1,10 @@
+{
+  "name": "octopus-role-benchmarks",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/validate.mjs",
+    "test": "node scripts/validate.mjs"
+  }
+}

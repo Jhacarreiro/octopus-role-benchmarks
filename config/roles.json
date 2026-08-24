@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "coveragePolicy": 1.0,
+  "roles": [
+    {"id":"architect","label":"Architect","dimensions":["professional_reasoning","long_context","hard_reasoning","agentic_coding"]},
+    {"id":"strategist","label":"Strategist","dimensions":["professional_reasoning","agentic_reasoning","factuality","long_context"]},
+    {"id":"security-reviewer","label":"Security Reviewer","dimensions":["agentic_coding","scientific_reasoning","hard_reasoning","factuality"]},
+    {"id":"code-reviewer","label":"Code Reviewer","dimensions":["agentic_coding","scientific_reasoning","hard_reasoning","long_context"]},
+    {"id":"implementer","label":"Implementer","dimensions":["agentic_coding","scientific_reasoning","professional_reasoning","long_context"]},
+    {"id":"implementer-heavy","label":"Implementer Heavy","dimensions":["agentic_coding","scientific_reasoning","professional_reasoning","long_context"]},
+    {"id":"synthesizer","label":"Synthesizer","dimensions":["long_context","factuality","professional_reasoning"]},
+    {"id":"researcher","label":"Researcher","dimensions":["professional_reasoning","agentic_reasoning","long_context","factuality"]}
+  ],
+  "note": "Exact benchmark-to-dimension mappings and weights are committed only after 100% coverage validation against the scored model-family universe."
+}
