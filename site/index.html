@@ -4,57 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Octopus Role Benchmarks</title>
-  <meta name="description" content="Transparent benchmark-per-dollar comparisons for Claude Octopus roles.">
+  <meta name="description" content="Transparent benchmark-per-task-dollar comparisons for Claude Octopus roles.">
   <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-<main>
-  <header>
-    <div>
-      <h1>Octopus Role Benchmarks</h1>
-      <p>Role-specific Artificial Analysis benchmarks vs current CommandCode Max pricing.</p>
-    </div>
-    <a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">Methodology & source</a>
-  </header>
-
-  <div id="status" class="status">Loading current snapshot…</div>
-  <nav id="roles" class="roles" aria-label="Octopus roles"></nav>
-
-  <section class="controls" aria-label="Table controls">
-    <label>Cost basis
-      <select id="costBasis">
-        <option value="blended50">50/50 input-output</option>
-        <option value="input">Input</option>
-        <option value="output">Output</option>
-      </select>
-    </label>
-    <label>Role score ≥
-      <input id="minScore" type="number" min="0" max="100" step="0.1" inputmode="decimal">
-    </label>
-    <label>Search
-      <input id="search" type="search" placeholder="Model name">
-    </label>
-    <label class="check"><input id="showUnscored" type="checkbox"> Show unscored</label>
-  </section>
-
-  <section class="table-wrap">
-    <table>
-      <thead><tr>
-        <th data-sort="name">Model</th>
-        <th data-sort="score" class="num">Role score</th>
-        <th data-sort="input" class="num">Input / M</th>
-        <th data-sort="output" class="num">Output / M</th>
-        <th data-sort="cost" class="num">Cost basis</th>
-        <th data-sort="value" class="num">Score / $</th>
-        <th>Notes</th>
-      </tr></thead>
-      <tbody id="rows"></tbody>
-    </table>
-    <div id="empty" class="empty" hidden>No models match the current filters.</div>
-  </section>
-
-  <section id="methodology" class="methodology"></section>
-</main>
-<script src="./app.js" defer></script>
-</body>
-</html>
+<body><main>
+<header><div><h1>Octopus Role Benchmarks</h1><p>Role-specific Artificial Analysis benchmarks vs current CommandCode Max cost per task.</p></div><a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">Methodology & source</a></header>
+<div id="status" class="status">Loading current snapshot…</div>
+<nav id="roles" class="roles" aria-label="Octopus roles"></nav>
+<section class="controls" aria-label="Table controls">
+  <label>Value basis<select id="costBasis"><option value="task">Cost per task</option><option value="input">Input / M</option><option value="output">Output / M</option><option value="blended50">50/50 input-output / M</option></select></label>
+  <label>Role score ≥<input id="minScore" type="number" min="0" max="100" step="0.1" inputmode="decimal"></label>
+  <label>Search<input id="search" type="search" placeholder="Model name"></label>
+  <label class="check"><input id="showUnscored" type="checkbox"> Show unscored</label>
+</section>
+<section class="table-wrap"><table><thead id="head"></thead><tbody id="rows"></tbody></table><div id="empty" class="empty" hidden>No models match the current filters.</div></section>
+<section id="methodology" class="methodology"></section>
+</main><script src="./app.js" defer></script></body></html>

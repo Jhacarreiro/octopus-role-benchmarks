@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 2,
-  "methodologyVersion": 2,
+  "schemaVersion": 3,
+  "methodologyVersion": 3,
   "date": "2026-08-24",
-  "generatedAt": "2026-08-24T17:05:39.169Z",
+  "generatedAt": "2026-08-24T18:41:17.479Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
@@ -11,6 +11,10 @@
     "artificialAnalysis": {
       "url": "https://artificialanalysis.ai/",
       "scoredFamilies": 51
+    },
+    "codingAgentIndex": {
+      "url": "https://artificialanalysis.ai/agents/coding-agents",
+      "variants": 55
     }
   },
   "coveragePolicy": 1,
@@ -65,11 +69,60 @@
       "missing": []
     }
   },
+  "efficiencyCoverage": {
+    "total": 51,
+    "present": 51,
+    "ratio": 1,
+    "missing": []
+  },
+  "codingAgentCoverage": {
+    "total": 51,
+    "present": 16,
+    "ratio": 0.313725,
+    "missing": [
+      "claude-4-5-haiku",
+      "claude-opus-4-6",
+      "claude-sonnet-5",
+      "deepseek-v4-flash",
+      "deepseek-v4-pro",
+      "gemini-3-1-flash-lite-preview",
+      "gemini-3-5-flash",
+      "gemini-3-5-flash-lite",
+      "gemini-3-7-flash",
+      "glm-5",
+      "glm-5-3",
+      "gpt-5-3-codex",
+      "gpt-5-4",
+      "gpt-5-4-mini",
+      "grok-4-6",
+      "hy3",
+      "inkling",
+      "inkling-small",
+      "kimi-k2-5",
+      "kimi-k2-7-code",
+      "mimo-v2-5-0424",
+      "mimo-v2-5-pro",
+      "minimax-m2-5",
+      "minimax-m2-7",
+      "minimax-m3",
+      "muse-spark-1-1",
+      "muse-spark-1-2",
+      "nvidia-nemotron-3-ultra-550b-a55b",
+      "qwen3-6-plus",
+      "qwen3-7-max",
+      "qwen3-8-27b",
+      "qwen3-8-max",
+      "qwen3-max-preview",
+      "step-3-5-flash",
+      "step-3-7-flash"
+    ]
+  },
   "counts": {
     "commandCodeRows": 59,
     "scoredRows": 54,
     "unscoredRows": 5,
-    "scoredFamilies": 51
+    "scoredFamilies": 51,
+    "codingAgentFamilies": 16
   },
   "benchmarks": {
     "gdpval": {
@@ -126,7 +179,8 @@
         "gpqa": 0.2,
         "hle": 0.15
       },
-      "note": "Prioritizes professional deliverables, long-context synthesis and hard reasoning."
+      "note": "Prioritizes professional deliverables, long-context synthesis and hard reasoning.",
+      "codingAgentEvidence": false
     },
     {
       "id": "strategist",
@@ -139,7 +193,8 @@
         "omniscienceReliability": 0.1,
         "gpqa": 0.1
       },
-      "note": "Balances professional judgment with factuality and long-context reasoning."
+      "note": "Balances professional judgment with factuality and long-context reasoning.",
+      "codingAgentEvidence": false
     },
     {
       "id": "security-reviewer",
@@ -152,7 +207,8 @@
         "omniscienceReliability": 0.15,
         "lcr": 0.1
       },
-      "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only."
+      "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only.",
+      "codingAgentEvidence": false
     },
     {
       "id": "code-reviewer",
@@ -165,7 +221,8 @@
         "omniscienceReliability": 0.1,
         "hle": 0.1
       },
-      "note": "SciCode is the dominant coding signal; reasoning and context support review quality."
+      "note": "SciCode is the dominant coding signal; reasoning and context support review quality.",
+      "codingAgentEvidence": true
     },
     {
       "id": "implementer",
@@ -177,7 +234,8 @@
         "lcr": 0.15,
         "hle": 0.1
       },
-      "note": "Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe."
+      "note": "Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe.",
+      "codingAgentEvidence": true
     },
     {
       "id": "implementer-heavy",
@@ -189,7 +247,8 @@
         "lcr": 0.2,
         "gpqa": 0.1
       },
-      "note": "Adds professional-deliverable and long-context weight to coding for larger project work."
+      "note": "Adds professional-deliverable and long-context weight to coding for larger project work.",
+      "codingAgentEvidence": true
     },
     {
       "id": "synthesizer",
@@ -201,7 +260,8 @@
         "omniscienceReliability": 0.2,
         "gdpval": 0.15
       },
-      "note": "Long-context synthesis and factual reliability dominate."
+      "note": "Long-context synthesis and factual reliability dominate.",
+      "codingAgentEvidence": false
     },
     {
       "id": "researcher",
@@ -214,7 +274,8 @@
         "gpqa": 0.15,
         "hle": 0.1
       },
-      "note": "Focuses on synthesis, professional research output, factual accuracy and hard reasoning."
+      "note": "Focuses on synthesis, professional research output, factual accuracy and hard reasoning.",
+      "codingAgentEvidence": false
     }
   ],
   "models": [
@@ -239,13 +300,15 @@
         "status": "unscored",
         "reason": "Stealth/anonymous model; no verified AA identity."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0,
         "output": 0,
         "blended50": 0
       },
+      "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "codingAgent": null,
       "aaModel": null
     },
     {
@@ -269,13 +332,15 @@
         "status": "unscored",
         "reason": "Stealth/anonymous model; no verified AA identity."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0,
         "output": 0,
         "blended50": 0
       },
+      "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "codingAgent": null,
       "aaModel": null
     },
     {
@@ -300,10 +365,22 @@
         "slug": "hy3",
         "reason": "CommandCode vendor-prefixed display name; AA canonical family is Hy3."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.14,
         "output": 0.58,
         "blended50": 0.36
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.037097,
+        "aaCostPerTaskUsd": 0.03574070875754976,
+        "tokens": {
+          "nonCacheInput": 6340.7545724050515,
+          "cacheRead": 355826.85761424137,
+          "cacheWrite": 39383.85534659603,
+          "reasoning": 23935.301235740695,
+          "answer": 7516.050117474833,
+          "output": 31451.351353215527
+        }
       },
       "benchmarks": {
         "gdpval": 35.7185,
@@ -318,6 +395,7 @@
         "architect": {
           "score": 55.912,
           "value": {
+            "task": 1507.184,
             "input": 399.371,
             "output": 96.4,
             "blended50": 155.311
@@ -326,6 +404,7 @@
         "strategist": {
           "score": 47.171,
           "value": {
+            "task": 1271.558,
             "input": 336.936,
             "output": 81.329,
             "blended50": 131.031
@@ -334,6 +413,7 @@
         "security-reviewer": {
           "score": 54.734,
           "value": {
+            "task": 1475.429,
             "input": 390.957,
             "output": 94.369,
             "blended50": 152.039
@@ -342,6 +422,7 @@
         "code-reviewer": {
           "score": 56.478,
           "value": {
+            "task": 1522.441,
             "input": 403.414,
             "output": 97.376,
             "blended50": 156.883
@@ -350,6 +431,7 @@
         "implementer": {
           "score": 56.542,
           "value": {
+            "task": 1524.166,
             "input": 403.871,
             "output": 97.486,
             "blended50": 157.061
@@ -358,6 +440,7 @@
         "implementer-heavy": {
           "score": 54.239,
           "value": {
+            "task": 1462.086,
             "input": 387.421,
             "output": 93.516,
             "blended50": 150.664
@@ -366,6 +449,7 @@
         "synthesizer": {
           "score": 50.525,
           "value": {
+            "task": 1361.97,
             "input": 360.893,
             "output": 87.112,
             "blended50": 140.347
@@ -374,12 +458,14 @@
         "researcher": {
           "score": 54.523,
           "value": {
+            "task": 1469.741,
             "input": 389.45,
             "output": 94.005,
             "blended50": 151.453
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "hy3",
         "sourceUrl": "https://artificialanalysis.ai/models/hy3"
@@ -407,10 +493,22 @@
         "slug": "kimi-k3",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 3,
         "output": 15,
         "blended50": 9
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.837457,
+        "aaCostPerTaskUsd": 0.8374574917584584,
+        "tokens": {
+          "nonCacheInput": 6266.99002763341,
+          "cacheRead": 840887.2879798643,
+          "cacheWrite": 61425.08713781333,
+          "reasoning": 18691.75514575945,
+          "answer": 6782.583112117804,
+          "output": 25474.338257877254
+        }
       },
       "benchmarks": {
         "gdpval": 58.8465,
@@ -425,6 +523,7 @@
         "architect": {
           "score": 58.863,
           "value": {
+            "task": 70.288,
             "input": 19.621,
             "output": 3.924,
             "blended50": 6.54
@@ -433,6 +532,7 @@
         "strategist": {
           "score": 54.756,
           "value": {
+            "task": 65.384,
             "input": 18.252,
             "output": 3.65,
             "blended50": 6.084
@@ -441,6 +541,7 @@
         "security-reviewer": {
           "score": 61.221,
           "value": {
+            "task": 73.103,
             "input": 20.407,
             "output": 4.081,
             "blended50": 6.802
@@ -449,6 +550,7 @@
         "code-reviewer": {
           "score": 60.233,
           "value": {
+            "task": 71.924,
             "input": 20.078,
             "output": 4.016,
             "blended50": 6.693
@@ -457,6 +559,7 @@
         "implementer": {
           "score": 59.678,
           "value": {
+            "task": 71.261,
             "input": 19.893,
             "output": 3.979,
             "blended50": 6.631
@@ -465,6 +568,7 @@
         "implementer-heavy": {
           "score": 58.138,
           "value": {
+            "task": 69.422,
             "input": 19.379,
             "output": 3.876,
             "blended50": 6.46
@@ -473,6 +577,7 @@
         "synthesizer": {
           "score": 44.955,
           "value": {
+            "task": 53.68,
             "input": 14.985,
             "output": 2.997,
             "blended50": 4.995
@@ -481,11 +586,45 @@
         "researcher": {
           "score": 54.448,
           "value": {
+            "task": 65.016,
             "input": 18.149,
             "output": 3.63,
             "blended50": 6.05
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "moonshot_kimi-k3",
+        "agent": "Kimi Code CLI",
+        "displayLabel": "Kimi Code CLI - Kimi K3",
+        "indexScore": 62.639,
+        "evaluations": {
+          "deep-swe": 63.717,
+          "swe-atlas-qna": 36.559,
+          "terminal-bench-v2.1": 87.64
+        },
+        "tokensPerTask": {
+          "reward": 0.63716814159292,
+          "costUsd": 3.0816355416104315,
+          "wallTimeSec": 1447.3730531697347,
+          "steps": 122.94989775051124,
+          "inputTokens": 9190580.569321534,
+          "cacheWriteTokens": 0,
+          "outputTokens": 82651.89675516225,
+          "cacheTokens": 5031930.1468813885,
+          "cacheHitRate": 0.9500000000000018,
+          "totalTokens": 10383196.737883452
+        },
+        "totalTokensPerTask": 10383196.737883452,
+        "timePerTaskSec": 1447.3730531697347,
+        "aaCostPerTaskUsd": 3.0816355416104315,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 20.327
       },
       "aaModel": {
         "slug": "kimi-k3",
@@ -514,10 +653,22 @@
         "slug": "kimi-k2-7-code",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.95,
         "output": 4,
         "blended50": 2.475
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.221975,
+        "aaCostPerTaskUsd": 0.22197474982635537,
+        "tokens": {
+          "nonCacheInput": 6223.801195218515,
+          "cacheRead": 553014.9742454175,
+          "cacheWrite": 40016.28840540453,
+          "reasoning": 12702.680823594308,
+          "answer": 5540.774076189237,
+          "output": 18243.454899783545
+        }
       },
       "benchmarks": {
         "gdpval": 34.4945,
@@ -532,6 +683,7 @@
         "architect": {
           "score": 41,
           "value": {
+            "task": 184.705,
             "input": 43.158,
             "output": 10.25,
             "blended50": 16.566
@@ -540,6 +692,7 @@
         "strategist": {
           "score": 35.655,
           "value": {
+            "task": 160.626,
             "input": 37.532,
             "output": 8.914,
             "blended50": 14.406
@@ -548,6 +701,7 @@
         "security-reviewer": {
           "score": 47.896,
           "value": {
+            "task": 215.772,
             "input": 50.417,
             "output": 11.974,
             "blended50": 19.352
@@ -556,6 +710,7 @@
         "code-reviewer": {
           "score": 46.956,
           "value": {
+            "task": 211.537,
             "input": 49.427,
             "output": 11.739,
             "blended50": 18.972
@@ -564,6 +719,7 @@
         "implementer": {
           "score": 47.832,
           "value": {
+            "task": 215.484,
             "input": 50.349,
             "output": 11.958,
             "blended50": 19.326
@@ -572,6 +728,7 @@
         "implementer-heavy": {
           "score": 42.16,
           "value": {
+            "task": 189.931,
             "input": 44.379,
             "output": 10.54,
             "blended50": 17.034
@@ -580,6 +737,7 @@
         "synthesizer": {
           "score": 23.862,
           "value": {
+            "task": 107.499,
             "input": 25.118,
             "output": 5.966,
             "blended50": 9.641
@@ -588,12 +746,14 @@
         "researcher": {
           "score": 38.313,
           "value": {
+            "task": 172.601,
             "input": 40.329,
             "output": 9.578,
             "blended50": 15.48
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "kimi-k2-7-code",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code"
@@ -621,10 +781,22 @@
         "slug": "kimi-k2-7-code",
         "reason": "HighSpeed is a CommandCode commercial variant of the same underlying model."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.9,
         "output": 8,
         "blended50": 4.95
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.443949,
+        "aaCostPerTaskUsd": 0.22197474982635537,
+        "tokens": {
+          "nonCacheInput": 6223.801195218515,
+          "cacheRead": 553014.9742454175,
+          "cacheWrite": 40016.28840540453,
+          "reasoning": 12702.680823594308,
+          "answer": 5540.774076189237,
+          "output": 18243.454899783545
+        }
       },
       "benchmarks": {
         "gdpval": 34.4945,
@@ -639,6 +811,7 @@
         "architect": {
           "score": 41,
           "value": {
+            "task": 92.353,
             "input": 21.579,
             "output": 5.125,
             "blended50": 8.283
@@ -647,6 +820,7 @@
         "strategist": {
           "score": 35.655,
           "value": {
+            "task": 80.313,
             "input": 18.766,
             "output": 4.457,
             "blended50": 7.203
@@ -655,6 +829,7 @@
         "security-reviewer": {
           "score": 47.896,
           "value": {
+            "task": 107.886,
             "input": 25.208,
             "output": 5.987,
             "blended50": 9.676
@@ -663,6 +838,7 @@
         "code-reviewer": {
           "score": 46.956,
           "value": {
+            "task": 105.769,
             "input": 24.714,
             "output": 5.87,
             "blended50": 9.486
@@ -671,6 +847,7 @@
         "implementer": {
           "score": 47.832,
           "value": {
+            "task": 107.742,
             "input": 25.175,
             "output": 5.979,
             "blended50": 9.663
@@ -679,6 +856,7 @@
         "implementer-heavy": {
           "score": 42.16,
           "value": {
+            "task": 94.966,
             "input": 22.189,
             "output": 5.27,
             "blended50": 8.517
@@ -687,6 +865,7 @@
         "synthesizer": {
           "score": 23.862,
           "value": {
+            "task": 53.749,
             "input": 12.559,
             "output": 2.983,
             "blended50": 4.821
@@ -695,12 +874,14 @@
         "researcher": {
           "score": 38.313,
           "value": {
+            "task": 86.3,
             "input": 20.165,
             "output": 4.789,
             "blended50": 7.74
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "kimi-k2-7-code",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code"
@@ -728,10 +909,22 @@
         "slug": "kimi-k2-6",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.95,
         "output": 4,
         "blended50": 2.475
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.365321,
+        "aaCostPerTaskUsd": 0.3653205286462706,
+        "tokens": {
+          "nonCacheInput": 6030.869988617405,
+          "cacheRead": 497850.7079798132,
+          "cacheWrite": 133487.08307733538,
+          "reasoning": 32410.628884939328,
+          "answer": 5869.961104272016,
+          "output": 38280.589989211345
+        }
       },
       "benchmarks": {
         "gdpval": 34.583,
@@ -746,6 +939,7 @@
         "architect": {
           "score": 56.845,
           "value": {
+            "task": 155.603,
             "input": 59.837,
             "output": 14.211,
             "blended50": 22.968
@@ -754,6 +948,7 @@
         "strategist": {
           "score": 50.747,
           "value": {
+            "task": 138.911,
             "input": 53.418,
             "output": 12.687,
             "blended50": 20.504
@@ -762,6 +957,7 @@
         "security-reviewer": {
           "score": 62.908,
           "value": {
+            "task": 172.199,
             "input": 66.219,
             "output": 15.727,
             "blended50": 25.417
@@ -770,6 +966,7 @@
         "code-reviewer": {
           "score": 63.483,
           "value": {
+            "task": 173.773,
             "input": 66.824,
             "output": 15.871,
             "blended50": 25.65
@@ -778,6 +975,7 @@
         "implementer": {
           "score": 60.999,
           "value": {
+            "task": 166.974,
             "input": 64.209,
             "output": 15.25,
             "blended50": 24.646
@@ -786,6 +984,7 @@
         "implementer-heavy": {
           "score": 57.153,
           "value": {
+            "task": 156.446,
             "input": 60.161,
             "output": 14.288,
             "blended50": 23.092
@@ -794,6 +993,7 @@
         "synthesizer": {
           "score": 58.107,
           "value": {
+            "task": 159.057,
             "input": 61.165,
             "output": 14.527,
             "blended50": 23.478
@@ -802,11 +1002,45 @@
         "researcher": {
           "score": 55.581,
           "value": {
+            "task": 152.143,
             "input": 58.506,
             "output": 13.895,
             "blended50": 22.457
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "moonshot_kimi-k2-6",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Kimi K2.6",
+        "indexScore": 33.889,
+        "evaluations": {
+          "deep-swe": 16.519,
+          "swe-atlas-qna": 15.86,
+          "terminal-bench-v2.1": 69.288
+        },
+        "tokensPerTask": {
+          "reward": 0.165191740412979,
+          "costUsd": 1.2171000741104296,
+          "wallTimeSec": 2443.3850674846617,
+          "steps": 133.76754107608772,
+          "inputTokens": 10905739.256637169,
+          "cacheWriteTokens": 0,
+          "outputTokens": 61150.30088495575,
+          "cacheTokens": 5731631.260736199,
+          "cacheHitRate": 0.9554328157869918,
+          "totalTokens": 11660527.815950915
+        },
+        "totalTokensPerTask": 11660527.815950915,
+        "timePerTaskSec": 2443.3850674846617,
+        "aaCostPerTaskUsd": 1.2171000741104296,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 27.844
       },
       "aaModel": {
         "slug": "kimi-k2-6",
@@ -835,10 +1069,22 @@
         "slug": "kimi-k2-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.6,
         "output": 3,
         "blended50": 1.8
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.096384,
+        "aaCostPerTaskUsd": 0.09638405919581741,
+        "tokens": {
+          "nonCacheInput": 6269.168421671233,
+          "cacheRead": 330042.3485838728,
+          "cacheWrite": 27539.32103608449,
+          "reasoning": 8734.708070450934,
+          "answer": 5630.202150474637,
+          "output": 14364.91022092557
+        }
       },
       "benchmarks": {
         "gdpval": 25.3065,
@@ -853,6 +1099,7 @@
         "architect": {
           "score": 50.557,
           "value": {
+            "task": 524.537,
             "input": 84.262,
             "output": 16.852,
             "blended50": 28.087
@@ -861,6 +1108,7 @@
         "strategist": {
           "score": 43.986,
           "value": {
+            "task": 456.362,
             "input": 73.31,
             "output": 14.662,
             "blended50": 24.437
@@ -869,6 +1117,7 @@
         "security-reviewer": {
           "score": 55.25,
           "value": {
+            "task": 573.228,
             "input": 92.083,
             "output": 18.417,
             "blended50": 30.694
@@ -877,6 +1126,7 @@
         "code-reviewer": {
           "score": 57.061,
           "value": {
+            "task": 592.017,
             "input": 95.102,
             "output": 19.02,
             "blended50": 31.701
@@ -885,6 +1135,7 @@
         "implementer": {
           "score": 56.579,
           "value": {
+            "task": 587.017,
             "input": 94.298,
             "output": 18.86,
             "blended50": 31.433
@@ -893,6 +1144,7 @@
         "implementer-heavy": {
           "score": 51.746,
           "value": {
+            "task": 536.873,
             "input": 86.243,
             "output": 17.249,
             "blended50": 28.748
@@ -901,6 +1153,7 @@
         "synthesizer": {
           "score": 50.553,
           "value": {
+            "task": 524.496,
             "input": 84.255,
             "output": 16.851,
             "blended50": 28.085
@@ -909,12 +1162,14 @@
         "researcher": {
           "score": 51.524,
           "value": {
+            "task": 534.57,
             "input": 85.873,
             "output": 17.175,
             "blended50": 28.624
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "kimi-k2-5",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-5"
@@ -942,10 +1197,22 @@
         "slug": "glm-5-3",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
         "blended50": 2.9
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.682931,
+        "aaCostPerTaskUsd": 0.6829307999945118,
+        "tokens": {
+          "nonCacheInput": 6723.442397869974,
+          "cacheRead": 1592248.7455353574,
+          "cacheWrite": 56188.32705249272,
+          "reasoning": 29416.58800182984,
+          "answer": 11690.15039017262,
+          "output": 41106.73839200246
+        }
       },
       "benchmarks": {
         "gdpval": 63.45,
@@ -960,6 +1227,7 @@
         "architect": {
           "score": 69.146,
           "value": {
+            "task": 101.249,
             "input": 49.39,
             "output": 15.715,
             "blended50": 23.843
@@ -968,6 +1236,7 @@
         "strategist": {
           "score": 63.633,
           "value": {
+            "task": 93.176,
             "input": 45.452,
             "output": 14.462,
             "blended50": 21.942
@@ -976,6 +1245,7 @@
         "security-reviewer": {
           "score": 66.526,
           "value": {
+            "task": 97.412,
             "input": 47.519,
             "output": 15.12,
             "blended50": 22.94
@@ -984,6 +1254,7 @@
         "code-reviewer": {
           "score": 66.481,
           "value": {
+            "task": 97.347,
             "input": 47.486,
             "output": 15.109,
             "blended50": 22.924
@@ -992,6 +1263,7 @@
         "implementer": {
           "score": 63.323,
           "value": {
+            "task": 92.722,
             "input": 45.231,
             "output": 14.392,
             "blended50": 21.836
@@ -1000,6 +1272,7 @@
         "implementer-heavy": {
           "score": 65.718,
           "value": {
+            "task": 96.229,
             "input": 46.941,
             "output": 14.936,
             "blended50": 22.661
@@ -1008,6 +1281,7 @@
         "synthesizer": {
           "score": 64.727,
           "value": {
+            "task": 94.778,
             "input": 46.234,
             "output": 14.711,
             "blended50": 22.32
@@ -1016,12 +1290,14 @@
         "researcher": {
           "score": 63.516,
           "value": {
+            "task": 93.005,
             "input": 45.369,
             "output": 14.435,
             "blended50": 21.902
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "glm-5-3",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3"
@@ -1049,10 +1325,22 @@
         "slug": "glm-5-2",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
         "blended50": 2.9
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.444531,
+        "aaCostPerTaskUsd": 0.4445310520749471,
+        "tokens": {
+          "nonCacheInput": 6710.75917874305,
+          "cacheRead": 537063.8454249339,
+          "cacheWrite": 67490.02075936944,
+          "reasoning": 38828.25919969603,
+          "answer": 6856.595425555498,
+          "output": 45684.85462525153
+        }
       },
       "benchmarks": {
         "gdpval": 50.258,
@@ -1067,6 +1355,7 @@
         "architect": {
           "score": 45.98,
           "value": {
+            "task": 103.435,
             "input": 32.843,
             "output": 10.45,
             "blended50": 15.855
@@ -1075,6 +1364,7 @@
         "strategist": {
           "score": 42.734,
           "value": {
+            "task": 96.133,
             "input": 30.524,
             "output": 9.712,
             "blended50": 14.736
@@ -1083,6 +1373,7 @@
         "security-reviewer": {
           "score": 57.52,
           "value": {
+            "task": 129.395,
             "input": 41.086,
             "output": 13.073,
             "blended50": 19.834
@@ -1091,6 +1382,7 @@
         "code-reviewer": {
           "score": 53.176,
           "value": {
+            "task": 119.623,
             "input": 37.983,
             "output": 12.085,
             "blended50": 18.337
@@ -1099,6 +1391,7 @@
         "implementer": {
           "score": 48.9,
           "value": {
+            "task": 110.004,
             "input": 34.929,
             "output": 11.114,
             "blended50": 16.862
@@ -1107,6 +1400,7 @@
         "implementer-heavy": {
           "score": 45.667,
           "value": {
+            "task": 102.731,
             "input": 32.619,
             "output": 10.379,
             "blended50": 15.747
@@ -1115,6 +1409,7 @@
         "synthesizer": {
           "score": 30.395,
           "value": {
+            "task": 68.375,
             "input": 21.711,
             "output": 6.908,
             "blended50": 10.481
@@ -1123,11 +1418,45 @@
         "researcher": {
           "score": 37.137,
           "value": {
+            "task": 83.542,
             "input": 26.526,
             "output": 8.44,
             "blended50": 12.806
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "novita_glm-5-2_fp8",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - GLM-5.2",
+        "indexScore": 43.31,
+        "evaluations": {
+          "deep-swe": 28.614,
+          "swe-atlas-qna": 29.032,
+          "terminal-bench-v2.1": 72.285
+        },
+        "tokensPerTask": {
+          "reward": 0.286135693215339,
+          "costUsd": 6.657531358159519,
+          "wallTimeSec": 1507.044470347651,
+          "steps": 127.40368795315116,
+          "inputTokens": 11036538.348082596,
+          "cacheWriteTokens": 0,
+          "outputTokens": 48407.589970501474,
+          "cacheTokens": 1061225.7852760723,
+          "cacheHitRate": 0.3295602231414034,
+          "totalTokens": 6619529.539877302
+        },
+        "totalTokensPerTask": 6619529.539877302,
+        "timePerTaskSec": 1507.044470347651,
+        "aaCostPerTaskUsd": 6.657531358159519,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 6.505
       },
       "aaModel": {
         "slug": "glm-5-2",
@@ -1156,10 +1485,22 @@
         "slug": "glm-5-2",
         "reason": "Fast is a CommandCode commercial variant of GLM-5.2."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 3,
         "output": 10.25,
         "blended50": 6.625
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.959404,
+        "aaCostPerTaskUsd": 0.4445310520749471,
+        "tokens": {
+          "nonCacheInput": 6710.75917874305,
+          "cacheRead": 537063.8454249339,
+          "cacheWrite": 67490.02075936944,
+          "reasoning": 38828.25919969603,
+          "answer": 6856.595425555498,
+          "output": 45684.85462525153
+        }
       },
       "benchmarks": {
         "gdpval": 50.258,
@@ -1174,6 +1515,7 @@
         "architect": {
           "score": 45.98,
           "value": {
+            "task": 47.926,
             "input": 15.327,
             "output": 4.486,
             "blended50": 6.94
@@ -1182,6 +1524,7 @@
         "strategist": {
           "score": 42.734,
           "value": {
+            "task": 44.542,
             "input": 14.245,
             "output": 4.169,
             "blended50": 6.45
@@ -1190,6 +1533,7 @@
         "security-reviewer": {
           "score": 57.52,
           "value": {
+            "task": 59.954,
             "input": 19.173,
             "output": 5.612,
             "blended50": 8.682
@@ -1198,6 +1542,7 @@
         "code-reviewer": {
           "score": 53.176,
           "value": {
+            "task": 55.426,
             "input": 17.725,
             "output": 5.188,
             "blended50": 8.027
@@ -1206,6 +1551,7 @@
         "implementer": {
           "score": 48.9,
           "value": {
+            "task": 50.969,
             "input": 16.3,
             "output": 4.771,
             "blended50": 7.381
@@ -1214,6 +1560,7 @@
         "implementer-heavy": {
           "score": 45.667,
           "value": {
+            "task": 47.599,
             "input": 15.222,
             "output": 4.455,
             "blended50": 6.893
@@ -1222,6 +1569,7 @@
         "synthesizer": {
           "score": 30.395,
           "value": {
+            "task": 31.681,
             "input": 10.132,
             "output": 2.965,
             "blended50": 4.588
@@ -1230,11 +1578,45 @@
         "researcher": {
           "score": 37.137,
           "value": {
+            "task": 38.708,
             "input": 12.379,
             "output": 3.623,
             "blended50": 5.606
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "novita_glm-5-2_fp8",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - GLM-5.2",
+        "indexScore": 43.31,
+        "evaluations": {
+          "deep-swe": 28.614,
+          "swe-atlas-qna": 29.032,
+          "terminal-bench-v2.1": 72.285
+        },
+        "tokensPerTask": {
+          "reward": 0.286135693215339,
+          "costUsd": 6.657531358159519,
+          "wallTimeSec": 1507.044470347651,
+          "steps": 127.40368795315116,
+          "inputTokens": 11036538.348082596,
+          "cacheWriteTokens": 0,
+          "outputTokens": 48407.589970501474,
+          "cacheTokens": 1061225.7852760723,
+          "cacheHitRate": 0.3295602231414034,
+          "totalTokens": 6619529.539877302
+        },
+        "totalTokensPerTask": 6619529.539877302,
+        "timePerTaskSec": 1507.044470347651,
+        "aaCostPerTaskUsd": 6.657531358159519,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 6.505
       },
       "aaModel": {
         "slug": "glm-5-2",
@@ -1263,10 +1645,22 @@
         "slug": "glm-5-1",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
         "blended50": 2.9
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.305117,
+        "aaCostPerTaskUsd": 0.3042416609054816,
+        "tokens": {
+          "nonCacheInput": 6035.4241339818145,
+          "cacheRead": 243875.36068842665,
+          "cacheWrite": 81538.49015074233,
+          "reasoning": 16856.582401882275,
+          "answer": 10213.037205100474,
+          "output": 27069.61960698275
+        }
       },
       "benchmarks": {
         "gdpval": 37.891,
@@ -1281,6 +1675,7 @@
         "architect": {
           "score": 54.021,
           "value": {
+            "task": 177.05,
             "input": 38.586,
             "output": 12.278,
             "blended50": 18.628
@@ -1289,6 +1684,7 @@
         "strategist": {
           "score": 49.178,
           "value": {
+            "task": 161.178,
             "input": 35.127,
             "output": 11.177,
             "blended50": 16.958
@@ -1297,6 +1693,7 @@
         "security-reviewer": {
           "score": 58.14,
           "value": {
+            "task": 190.55,
             "input": 41.529,
             "output": 13.214,
             "blended50": 20.048
@@ -1305,6 +1702,7 @@
         "code-reviewer": {
           "score": 57.254,
           "value": {
+            "task": 187.646,
             "input": 40.896,
             "output": 13.012,
             "blended50": 19.743
@@ -1313,6 +1711,7 @@
         "implementer": {
           "score": 52.473,
           "value": {
+            "task": 171.977,
             "input": 37.481,
             "output": 11.926,
             "blended50": 18.094
@@ -1321,6 +1720,7 @@
         "implementer-heavy": {
           "score": 51.437,
           "value": {
+            "task": 168.581,
             "input": 36.741,
             "output": 11.69,
             "blended50": 17.737
@@ -1329,6 +1729,7 @@
         "synthesizer": {
           "score": 55.034,
           "value": {
+            "task": 180.37,
             "input": 39.31,
             "output": 12.508,
             "blended50": 18.977
@@ -1337,11 +1738,45 @@
         "researcher": {
           "score": 50.635,
           "value": {
+            "task": 165.953,
             "input": 36.168,
             "output": 11.508,
             "blended50": 17.46
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "friendliai_glm-5-1",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - GLM-5.1",
+        "indexScore": 36.91,
+        "evaluations": {
+          "deep-swe": 18.584,
+          "swe-atlas-qna": 24.731,
+          "terminal-bench-v2.1": 67.416
+        },
+        "tokensPerTask": {
+          "reward": 0.185840707964602,
+          "costUsd": 4.282000252842536,
+          "wallTimeSec": 1140.250613496931,
+          "steps": 174.23670756646217,
+          "inputTokens": 30011169.017699115,
+          "cacheWriteTokens": 0,
+          "outputTokens": 78135.85840707965,
+          "cacheTokens": 12572554.732106362,
+          "cacheHitRate": 0.888922540999181,
+          "totalTokens": 25761884.929447833
+        },
+        "totalTokensPerTask": 25761884.929447833,
+        "timePerTaskSec": 1140.250613496931,
+        "aaCostPerTaskUsd": 4.282000252842536,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 8.62
       },
       "aaModel": {
         "slug": "glm-5-1",
@@ -1370,10 +1805,22 @@
         "slug": "glm-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1,
         "output": 3.2,
         "blended50": 2.1
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.512288,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 10461.760095655429,
+          "cacheRead": 750336.9903318953,
+          "cacheWrite": 251840.64495724085,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -1388,6 +1835,7 @@
         "architect": {
           "score": 55.331,
           "value": {
+            "task": 108.008,
             "input": 55.331,
             "output": 17.291,
             "blended50": 26.348
@@ -1396,6 +1844,7 @@
         "strategist": {
           "score": 50.931,
           "value": {
+            "task": 99.419,
             "input": 50.931,
             "output": 15.916,
             "blended50": 24.253
@@ -1404,6 +1853,7 @@
         "security-reviewer": {
           "score": 56.985,
           "value": {
+            "task": 111.236,
             "input": 56.985,
             "output": 17.808,
             "blended50": 27.136
@@ -1412,6 +1862,7 @@
         "code-reviewer": {
           "score": 57.182,
           "value": {
+            "task": 111.621,
             "input": 57.182,
             "output": 17.869,
             "blended50": 27.23
@@ -1420,6 +1871,7 @@
         "implementer": {
           "score": 53.54,
           "value": {
+            "task": 104.512,
             "input": 53.54,
             "output": 16.731,
             "blended50": 25.495
@@ -1428,6 +1880,7 @@
         "implementer-heavy": {
           "score": 53.659,
           "value": {
+            "task": 104.744,
             "input": 53.659,
             "output": 16.768,
             "blended50": 25.552
@@ -1436,6 +1889,7 @@
         "synthesizer": {
           "score": 56.321,
           "value": {
+            "task": 109.94,
             "input": 56.321,
             "output": 17.6,
             "blended50": 26.82
@@ -1444,12 +1898,14 @@
         "researcher": {
           "score": 52.234,
           "value": {
+            "task": 101.962,
             "input": 52.234,
             "output": 16.323,
             "blended50": 24.873
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "glm-5",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5"
@@ -1477,10 +1933,22 @@
         "slug": "minimax-m3",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
         "blended50": 0.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.133382,
+        "aaCostPerTaskUsd": 0.13870974901890812,
+        "tokens": {
+          "nonCacheInput": 7789.254117093481,
+          "cacheRead": 1323541.782204283,
+          "cacheWrite": 71042.16274690873,
+          "reasoning": 12697.787619591758,
+          "answer": 12568.591398268514,
+          "output": 25266.379017860272
+        }
       },
       "benchmarks": {
         "gdpval": 44.3465,
@@ -1495,6 +1963,7 @@
         "architect": {
           "score": 46.476,
           "value": {
+            "task": 348.443,
             "input": 154.92,
             "output": 38.73,
             "blended50": 61.968
@@ -1503,6 +1972,7 @@
         "strategist": {
           "score": 41.973,
           "value": {
+            "task": 314.683,
             "input": 139.91,
             "output": 34.978,
             "blended50": 55.964
@@ -1511,6 +1981,7 @@
         "security-reviewer": {
           "score": 58.596,
           "value": {
+            "task": 439.31,
             "input": 195.32,
             "output": 48.83,
             "blended50": 78.128
@@ -1519,6 +1990,7 @@
         "code-reviewer": {
           "score": 53.64,
           "value": {
+            "task": 402.153,
             "input": 178.8,
             "output": 44.7,
             "blended50": 71.52
@@ -1527,6 +1999,7 @@
         "implementer": {
           "score": 47.642,
           "value": {
+            "task": 357.185,
             "input": 158.807,
             "output": 39.702,
             "blended50": 63.523
@@ -1535,6 +2008,7 @@
         "implementer-heavy": {
           "score": 44.241,
           "value": {
+            "task": 331.686,
             "input": 147.47,
             "output": 36.868,
             "blended50": 58.988
@@ -1543,6 +2017,7 @@
         "synthesizer": {
           "score": 34.056,
           "value": {
+            "task": 255.327,
             "input": 113.52,
             "output": 28.38,
             "blended50": 45.408
@@ -1551,12 +2026,14 @@
         "researcher": {
           "score": 37.43,
           "value": {
+            "task": 280.623,
             "input": 124.767,
             "output": 31.192,
             "blended50": 49.907
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "minimax-m3",
         "sourceUrl": "https://artificialanalysis.ai/models/minimax-m3"
@@ -1584,10 +2061,22 @@
         "slug": "minimax-m2-7",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
         "blended50": 0.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.072365,
+        "aaCostPerTaskUsd": 0.07772914284734003,
+        "tokens": {
+          "nonCacheInput": 6068.179780970702,
+          "cacheRead": 437021.3418619582,
+          "cacheWrite": 71519.33352866756,
+          "reasoning": 10545.185126283564,
+          "answer": 8511.196813783927,
+          "output": 19056.38194006749
+        }
       },
       "benchmarks": {
         "gdpval": 32.9895,
@@ -1602,6 +2091,7 @@
         "architect": {
           "score": 35.945,
           "value": {
+            "task": 496.718,
             "input": 119.817,
             "output": 29.954,
             "blended50": 47.927
@@ -1610,6 +2100,7 @@
         "strategist": {
           "score": 34.403,
           "value": {
+            "task": 475.409,
             "input": 114.677,
             "output": 28.669,
             "blended50": 45.871
@@ -1618,6 +2109,7 @@
         "security-reviewer": {
           "score": 51.861,
           "value": {
+            "task": 716.659,
             "input": 172.87,
             "output": 43.218,
             "blended50": 69.148
@@ -1626,6 +2118,7 @@
         "code-reviewer": {
           "score": 48.525,
           "value": {
+            "task": 670.559,
             "input": 161.75,
             "output": 40.438,
             "blended50": 64.7
@@ -1634,6 +2127,7 @@
         "implementer": {
           "score": 44.762,
           "value": {
+            "task": 618.559,
             "input": 149.207,
             "output": 37.302,
             "blended50": 59.683
@@ -1642,6 +2136,7 @@
         "implementer-heavy": {
           "score": 38.797,
           "value": {
+            "task": 536.129,
             "input": 129.323,
             "output": 32.331,
             "blended50": 51.729
@@ -1650,6 +2145,7 @@
         "synthesizer": {
           "score": 24.695,
           "value": {
+            "task": 341.256,
             "input": 82.317,
             "output": 20.579,
             "blended50": 32.927
@@ -1658,12 +2154,14 @@
         "researcher": {
           "score": 30.675,
           "value": {
+            "task": 423.893,
             "input": 102.25,
             "output": 25.563,
             "blended50": 40.9
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "minimax-m2-7",
         "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-7"
@@ -1691,10 +2189,22 @@
         "slug": "minimax-m2-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
         "blended50": 0.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.399471,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 34872.533652184764,
+          "cacheRead": 5002246.602212636,
+          "cacheWrite": 671575.0532193088,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -1709,6 +2219,7 @@
         "architect": {
           "score": 54.917,
           "value": {
+            "task": 137.474,
             "input": 183.057,
             "output": 45.764,
             "blended50": 73.223
@@ -1717,6 +2228,7 @@
         "strategist": {
           "score": 46.177,
           "value": {
+            "task": 115.595,
             "input": 153.923,
             "output": 38.481,
             "blended50": 61.569
@@ -1725,6 +2237,7 @@
         "security-reviewer": {
           "score": 47.077,
           "value": {
+            "task": 117.848,
             "input": 156.923,
             "output": 39.231,
             "blended50": 62.769
@@ -1733,6 +2246,7 @@
         "code-reviewer": {
           "score": 50.177,
           "value": {
+            "task": 125.609,
             "input": 167.257,
             "output": 41.814,
             "blended50": 66.903
@@ -1741,6 +2255,7 @@
         "implementer": {
           "score": 51.136,
           "value": {
+            "task": 128.009,
             "input": 170.453,
             "output": 42.613,
             "blended50": 68.181
@@ -1749,6 +2264,7 @@
         "implementer-heavy": {
           "score": 52.594,
           "value": {
+            "task": 131.659,
             "input": 175.313,
             "output": 43.828,
             "blended50": 70.125
@@ -1757,6 +2273,7 @@
         "synthesizer": {
           "score": 46.337,
           "value": {
+            "task": 115.996,
             "input": 154.457,
             "output": 38.614,
             "blended50": 61.783
@@ -1765,12 +2282,14 @@
         "researcher": {
           "score": 52.159,
           "value": {
+            "task": 130.57,
             "input": 173.863,
             "output": 43.466,
             "blended50": 69.545
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "minimax-m2-5",
         "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-5"
@@ -1798,10 +2317,22 @@
         "slug": "deepseek-v4-pro",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.66,
         "output": 1.98,
         "blended50": 1.32
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.126036,
+        "aaCostPerTaskUsd": 0.2520714190687621,
+        "tokens": {
+          "nonCacheInput": 6920.372702054251,
+          "cacheRead": 925221.6036268863,
+          "cacheWrite": 36560.41229141876,
+          "reasoning": 31170.27970821456,
+          "answer": 7710.284008400282,
+          "output": 38880.56371661484
+        }
       },
       "benchmarks": {
         "gdpval": 54.519,
@@ -1816,6 +2347,7 @@
         "architect": {
           "score": 50.969,
           "value": {
+            "task": 404.4,
             "input": 77.226,
             "output": 25.742,
             "blended50": 38.613
@@ -1824,6 +2356,7 @@
         "strategist": {
           "score": 44.983,
           "value": {
+            "task": 356.906,
             "input": 68.156,
             "output": 22.719,
             "blended50": 34.078
@@ -1832,6 +2365,7 @@
         "security-reviewer": {
           "score": 48.72,
           "value": {
+            "task": 386.556,
             "input": 73.818,
             "output": 24.606,
             "blended50": 36.909
@@ -1840,6 +2374,7 @@
         "code-reviewer": {
           "score": 47.986,
           "value": {
+            "task": 380.732,
             "input": 72.706,
             "output": 24.235,
             "blended50": 36.353
@@ -1848,6 +2383,7 @@
         "implementer": {
           "score": 50.206,
           "value": {
+            "task": 398.347,
             "input": 76.07,
             "output": 25.357,
             "blended50": 38.035
@@ -1856,6 +2392,7 @@
         "implementer-heavy": {
           "score": 48.604,
           "value": {
+            "task": 385.636,
             "input": 73.642,
             "output": 24.547,
             "blended50": 36.821
@@ -1864,6 +2401,7 @@
         "synthesizer": {
           "score": 27.033,
           "value": {
+            "task": 214.486,
             "input": 40.959,
             "output": 13.653,
             "blended50": 20.48
@@ -1872,12 +2410,14 @@
         "researcher": {
           "score": 46.808,
           "value": {
+            "task": 371.386,
             "input": 70.921,
             "output": 23.64,
             "blended50": 35.461
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "deepseek-v4-pro",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro"
@@ -1905,10 +2445,22 @@
         "slug": "deepseek-v4-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.22,
         "output": 0.66,
         "blended50": 0.44
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.056079,
+        "aaCostPerTaskUsd": 0.11215889736791404,
+        "tokens": {
+          "nonCacheInput": 6157.164944834896,
+          "cacheRead": 1246708.047303648,
+          "cacheWrite": 70026.34222385235,
+          "reasoning": 37087.45804796433,
+          "answer": 9264.24009706643,
+          "output": 46351.69814503076
+        }
       },
       "benchmarks": {
         "gdpval": 52.9435,
@@ -1923,6 +2475,7 @@
         "architect": {
           "score": 48.455,
           "value": {
+            "task": 864.049,
             "input": 220.25,
             "output": 73.417,
             "blended50": 110.125
@@ -1931,6 +2484,7 @@
         "strategist": {
           "score": 41.832,
           "value": {
+            "task": 745.948,
             "input": 190.145,
             "output": 63.382,
             "blended50": 95.073
@@ -1939,6 +2493,7 @@
         "security-reviewer": {
           "score": 47.957,
           "value": {
+            "task": 855.169,
             "input": 217.986,
             "output": 72.662,
             "blended50": 108.993
@@ -1947,6 +2502,7 @@
         "code-reviewer": {
           "score": 47.295,
           "value": {
+            "task": 843.364,
             "input": 214.977,
             "output": 71.659,
             "blended50": 107.489
@@ -1955,6 +2511,7 @@
         "implementer": {
           "score": 49.407,
           "value": {
+            "task": 881.025,
             "input": 224.577,
             "output": 74.859,
             "blended50": 112.289
@@ -1963,6 +2520,7 @@
         "implementer-heavy": {
           "score": 47.431,
           "value": {
+            "task": 845.789,
             "input": 215.595,
             "output": 71.865,
             "blended50": 107.798
@@ -1971,6 +2529,7 @@
         "synthesizer": {
           "score": 23.679,
           "value": {
+            "task": 422.244,
             "input": 107.632,
             "output": 35.877,
             "blended50": 53.816
@@ -1979,12 +2538,14 @@
         "researcher": {
           "score": 42.789,
           "value": {
+            "task": 763.013,
             "input": 194.495,
             "output": 64.832,
             "blended50": 97.248
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "deepseek-v4-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash"
@@ -2011,13 +2572,15 @@
         "status": "unscored",
         "reason": "No verified AA identity for the experimental vision variant; not proxied to text-only Flash."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.22,
         "output": 0.66,
         "blended50": 0.44
       },
+      "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "codingAgent": null,
       "aaModel": null
     },
     {
@@ -2042,10 +2605,22 @@
         "slug": "qwen3-8-max",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2,
         "output": 6,
         "blended50": 4
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.267261,
+        "aaCostPerTaskUsd": 1.1320379078897653,
+        "tokens": {
+          "nonCacheInput": 7078.432908817686,
+          "cacheRead": 1389062.3569911462,
+          "cacheWrite": 270445.45692964416,
+          "reasoning": 27254.154869674137,
+          "answer": 11033.26829116842,
+          "output": 38287.42316084256
+        }
       },
       "benchmarks": {
         "gdpval": 61.7595,
@@ -2060,6 +2635,7 @@
         "architect": {
           "score": 54.568,
           "value": {
+            "task": 43.06,
             "input": 27.284,
             "output": 9.095,
             "blended50": 13.642
@@ -2068,6 +2644,7 @@
         "strategist": {
           "score": 50.061,
           "value": {
+            "task": 39.503,
             "input": 25.031,
             "output": 8.344,
             "blended50": 12.515
@@ -2076,6 +2653,7 @@
         "security-reviewer": {
           "score": 58.342,
           "value": {
+            "task": 46.038,
             "input": 29.171,
             "output": 9.724,
             "blended50": 14.586
@@ -2084,6 +2662,7 @@
         "code-reviewer": {
           "score": 55.394,
           "value": {
+            "task": 43.712,
             "input": 27.697,
             "output": 9.232,
             "blended50": 13.849
@@ -2092,6 +2671,7 @@
         "implementer": {
           "score": 52.867,
           "value": {
+            "task": 41.718,
             "input": 26.434,
             "output": 8.811,
             "blended50": 13.217
@@ -2100,6 +2680,7 @@
         "implementer-heavy": {
           "score": 52.404,
           "value": {
+            "task": 41.352,
             "input": 26.202,
             "output": 8.734,
             "blended50": 13.101
@@ -2108,6 +2689,7 @@
         "synthesizer": {
           "score": 36.035,
           "value": {
+            "task": 28.435,
             "input": 18.018,
             "output": 6.006,
             "blended50": 9.009
@@ -2116,12 +2698,14 @@
         "researcher": {
           "score": 45.857,
           "value": {
+            "task": 36.186,
             "input": 22.929,
             "output": 7.643,
             "blended50": 11.464
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-8-max",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max"
@@ -2149,10 +2733,22 @@
         "slug": "qwen3-8-27b",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.4,
         "output": 3,
         "blended50": 1.7
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.231022,
+        "aaCostPerTaskUsd": 0.25340327612903635,
+        "tokens": {
+          "nonCacheInput": 7102.2232513967965,
+          "cacheRead": 1511352.1053417649,
+          "cacheWrite": 65572.69921864306,
+          "reasoning": 37213.6504131602,
+          "answer": 9952.419462482525,
+          "output": 47166.06987564272
+        }
       },
       "benchmarks": {
         "gdpval": 52.2955,
@@ -2167,6 +2763,7 @@
         "architect": {
           "score": 63.441,
           "value": {
+            "task": 274.61,
             "input": 158.603,
             "output": 21.147,
             "blended50": 37.318
@@ -2175,6 +2772,7 @@
         "strategist": {
           "score": 55.523,
           "value": {
+            "task": 240.336,
             "input": 138.808,
             "output": 18.508,
             "blended50": 32.661
@@ -2183,6 +2781,7 @@
         "security-reviewer": {
           "score": 61.003,
           "value": {
+            "task": 264.057,
             "input": 152.508,
             "output": 20.334,
             "blended50": 35.884
@@ -2191,6 +2790,7 @@
         "code-reviewer": {
           "score": 60.169,
           "value": {
+            "task": 260.447,
             "input": 150.422,
             "output": 20.056,
             "blended50": 35.394
@@ -2199,6 +2799,7 @@
         "implementer": {
           "score": 55.373,
           "value": {
+            "task": 239.687,
             "input": 138.432,
             "output": 18.458,
             "blended50": 32.572
@@ -2207,6 +2808,7 @@
         "implementer-heavy": {
           "score": 57.695,
           "value": {
+            "task": 249.738,
             "input": 144.237,
             "output": 19.232,
             "blended50": 33.938
@@ -2215,6 +2817,7 @@
         "synthesizer": {
           "score": 59.704,
           "value": {
+            "task": 258.434,
             "input": 149.26,
             "output": 19.901,
             "blended50": 35.12
@@ -2223,12 +2826,14 @@
         "researcher": {
           "score": 56.358,
           "value": {
+            "task": 243.951,
             "input": 140.895,
             "output": 18.786,
             "blended50": 33.152
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-8-27b",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-27b"
@@ -2256,10 +2861,22 @@
         "slug": "qwen3-max-preview",
         "reason": "AA canonical slug omits the CommandCode 3.6 display qualifier."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.3,
         "output": 7.8,
         "blended50": 4.55
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.629482,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 8718.133413046191,
+          "cacheRead": 125056.16505531588,
+          "cacheWrite": 209867.20413103406,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -2274,6 +2891,7 @@
         "architect": {
           "score": 44.246,
           "value": {
+            "task": 70.29,
             "input": 34.035,
             "output": 5.673,
             "blended50": 9.724
@@ -2282,6 +2900,7 @@
         "strategist": {
           "score": 38.974,
           "value": {
+            "task": 61.914,
             "input": 29.98,
             "output": 4.997,
             "blended50": 8.566
@@ -2290,6 +2909,7 @@
         "security-reviewer": {
           "score": 38.21,
           "value": {
+            "task": 60.701,
             "input": 29.392,
             "output": 4.899,
             "blended50": 8.398
@@ -2298,6 +2918,7 @@
         "code-reviewer": {
           "score": 40.467,
           "value": {
+            "task": 64.286,
             "input": 31.128,
             "output": 5.188,
             "blended50": 8.894
@@ -2306,6 +2927,7 @@
         "implementer": {
           "score": 41.042,
           "value": {
+            "task": 65.2,
             "input": 31.571,
             "output": 5.262,
             "blended50": 9.02
@@ -2314,6 +2936,7 @@
         "implementer-heavy": {
           "score": 43.312,
           "value": {
+            "task": 68.806,
             "input": 33.317,
             "output": 5.553,
             "blended50": 9.519
@@ -2322,6 +2945,7 @@
         "synthesizer": {
           "score": 32.542,
           "value": {
+            "task": 51.696,
             "input": 25.032,
             "output": 4.172,
             "blended50": 7.152
@@ -2330,12 +2954,14 @@
         "researcher": {
           "score": 40.552,
           "value": {
+            "task": 64.421,
             "input": 31.194,
             "output": 5.199,
             "blended50": 8.913
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-max-preview",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-max-preview"
@@ -2363,10 +2989,22 @@
         "slug": "qwen3-6-plus",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.5,
         "output": 3,
         "blended50": 1.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.305136,
+        "aaCostPerTaskUsd": 0.3568972800744663,
+        "tokens": {
+          "nonCacheInput": 6217.187279294841,
+          "cacheRead": 89313.45526645308,
+          "cacheWrite": 449815.3903434161,
+          "reasoning": 13782.884857714935,
+          "answer": 8946.580044572123,
+          "output": 22729.464902287058
+        }
       },
       "benchmarks": {
         "gdpval": 32.0045,
@@ -2381,6 +3019,7 @@
         "architect": {
           "score": 52.699,
           "value": {
+            "task": 172.707,
             "input": 105.398,
             "output": 17.566,
             "blended50": 30.114
@@ -2389,6 +3028,7 @@
         "strategist": {
           "score": 47.899,
           "value": {
+            "task": 156.976,
             "input": 95.798,
             "output": 15.966,
             "blended50": 27.371
@@ -2397,6 +3037,7 @@
         "security-reviewer": {
           "score": 56.875,
           "value": {
+            "task": 186.392,
             "input": 113.75,
             "output": 18.958,
             "blended50": 32.5
@@ -2405,6 +3046,7 @@
         "code-reviewer": {
           "score": 56.141,
           "value": {
+            "task": 183.987,
             "input": 112.282,
             "output": 18.714,
             "blended50": 32.081
@@ -2413,6 +3055,7 @@
         "implementer": {
           "score": 51.307,
           "value": {
+            "task": 168.145,
             "input": 102.614,
             "output": 17.102,
             "blended50": 29.318
@@ -2421,6 +3064,7 @@
         "implementer-heavy": {
           "score": 49.619,
           "value": {
+            "task": 162.613,
             "input": 99.238,
             "output": 16.54,
             "blended50": 28.354
@@ -2429,6 +3073,7 @@
         "synthesizer": {
           "score": 55.7,
           "value": {
+            "task": 182.542,
             "input": 111.4,
             "output": 18.567,
             "blended50": 31.829
@@ -2437,12 +3082,14 @@
         "researcher": {
           "score": 50.99,
           "value": {
+            "task": 167.106,
             "input": 101.98,
             "output": 16.997,
             "blended50": 29.137
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-6-plus",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-6-plus"
@@ -2470,10 +3117,22 @@
         "slug": "qwen3-7-max",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2.5,
         "output": 7.5,
         "blended50": 5
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.588387,
+        "aaCostPerTaskUsd": 0.5413305226923919,
+        "tokens": {
+          "nonCacheInput": 6917.741679968224,
+          "cacheRead": 327442.3727467475,
+          "cacheWrite": 74693.24895928535,
+          "reasoning": 17887.875807604243,
+          "answer": 5256.372155180304,
+          "output": 23144.247962784546
+        }
       },
       "benchmarks": {
         "gdpval": 38.55,
@@ -2488,6 +3147,7 @@
         "architect": {
           "score": 58.626,
           "value": {
+            "task": 99.639,
             "input": 23.45,
             "output": 7.817,
             "blended50": 11.725
@@ -2496,6 +3156,7 @@
         "strategist": {
           "score": 53.249,
           "value": {
+            "task": 90.5,
             "input": 21.3,
             "output": 7.1,
             "blended50": 10.65
@@ -2504,6 +3165,7 @@
         "security-reviewer": {
           "score": 64.456,
           "value": {
+            "task": 109.547,
             "input": 25.782,
             "output": 8.594,
             "blended50": 12.891
@@ -2512,6 +3174,7 @@
         "code-reviewer": {
           "score": 63.131,
           "value": {
+            "task": 107.295,
             "input": 25.252,
             "output": 8.417,
             "blended50": 12.626
@@ -2520,6 +3183,7 @@
         "implementer": {
           "score": 58.404,
           "value": {
+            "task": 99.261,
             "input": 23.362,
             "output": 7.787,
             "blended50": 11.681
@@ -2528,6 +3192,7 @@
         "implementer-heavy": {
           "score": 55.782,
           "value": {
+            "task": 94.805,
             "input": 22.313,
             "output": 7.438,
             "blended50": 11.156
@@ -2536,6 +3201,7 @@
         "synthesizer": {
           "score": 60.483,
           "value": {
+            "task": 102.795,
             "input": 24.193,
             "output": 8.064,
             "blended50": 12.097
@@ -2544,12 +3210,14 @@
         "researcher": {
           "score": 56.163,
           "value": {
+            "task": 95.452,
             "input": 22.465,
             "output": 7.488,
             "blended50": 11.233
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-7-max",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-max"
@@ -2577,10 +3245,22 @@
         "slug": "qwen3-7-plus",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.4,
         "output": 1.6,
         "blended50": 1
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.245221,
+        "aaCostPerTaskUsd": 0.2424146847014958,
+        "tokens": {
+          "nonCacheInput": 6990.946052984096,
+          "cacheRead": 70155.85022995448,
+          "cacheWrite": 401301.9476577492,
+          "reasoning": 18528.42543765705,
+          "answer": 4072.2610887363285,
+          "output": 22600.68652639338
+        }
       },
       "benchmarks": {
         "gdpval": 22.2485,
@@ -2595,6 +3275,7 @@
         "architect": {
           "score": 34.606,
           "value": {
+            "task": 141.122,
             "input": 86.515,
             "output": 21.629,
             "blended50": 34.606
@@ -2603,6 +3284,7 @@
         "strategist": {
           "score": 31.525,
           "value": {
+            "task": 128.558,
             "input": 78.812,
             "output": 19.703,
             "blended50": 31.525
@@ -2611,6 +3293,7 @@
         "security-reviewer": {
           "score": 55.068,
           "value": {
+            "task": 224.565,
             "input": 137.67,
             "output": 34.418,
             "blended50": 55.068
@@ -2619,6 +3302,7 @@
         "code-reviewer": {
           "score": 50.683,
           "value": {
+            "task": 206.683,
             "input": 126.708,
             "output": 31.677,
             "blended50": 50.683
@@ -2627,6 +3311,7 @@
         "implementer": {
           "score": 45.772,
           "value": {
+            "task": 186.656,
             "input": 114.43,
             "output": 28.607,
             "blended50": 45.772
@@ -2635,6 +3320,7 @@
         "implementer-heavy": {
           "score": 36.92,
           "value": {
+            "task": 150.558,
             "input": 92.3,
             "output": 23.075,
             "blended50": 36.92
@@ -2643,6 +3329,7 @@
         "synthesizer": {
           "score": 26.558,
           "value": {
+            "task": 108.302,
             "input": 66.395,
             "output": 16.599,
             "blended50": 26.558
@@ -2651,11 +3338,45 @@
         "researcher": {
           "score": 29.962,
           "value": {
+            "task": 122.184,
             "input": 74.905,
             "output": 18.726,
             "blended50": 29.962
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "alibaba_cloud_qwen3-7-plus",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Qwen3.7 Plus (thinking)",
+        "indexScore": 38.122,
+        "evaluations": {
+          "deep-swe": 19.174,
+          "swe-atlas-qna": 23.656,
+          "terminal-bench-v2.1": 71.536
+        },
+        "tokensPerTask": {
+          "reward": 0.191740412979351,
+          "costUsd": 6.3006588057259885,
+          "wallTimeSec": 643.9465817995912,
+          "steps": 145.96625766871165,
+          "inputTokens": 8634688.79941003,
+          "cacheWriteTokens": 0,
+          "outputTokens": 47864.54277286136,
+          "cacheTokens": 4036775.525562371,
+          "cacheHitRate": 0.8105104948122446,
+          "totalTokens": 8784635.035787323
+        },
+        "totalTokensPerTask": 8784635.035787323,
+        "timePerTaskSec": 643.9465817995912,
+        "aaCostPerTaskUsd": 6.3006588057259885,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 6.05
       },
       "aaModel": {
         "slug": "qwen3-7-plus",
@@ -2683,13 +3404,15 @@
         "status": "unscored",
         "reason": "No verified matching AA model family at publication time."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.03,
         "output": 0.13,
         "blended50": 0.08
       },
+      "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "codingAgent": null,
       "aaModel": null
     },
     {
@@ -2714,10 +3437,22 @@
         "slug": "step-3-7-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.2,
         "output": 1.15,
         "blended50": 0.675
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.091274,
+        "aaCostPerTaskUsd": 0.09127417307652269,
+        "tokens": {
+          "nonCacheInput": 6083.088442720278,
+          "cacheRead": 625318.1909185325,
+          "cacheWrite": 38749.997624584284,
+          "reasoning": 40232.36589775655,
+          "answer": 9589.223864261268,
+          "output": 49821.589762017815
+        }
       },
       "benchmarks": {
         "gdpval": 25.884,
@@ -2732,6 +3467,7 @@
         "architect": {
           "score": 47.163,
           "value": {
+            "task": 516.719,
             "input": 235.815,
             "output": 41.011,
             "blended50": 69.871
@@ -2740,6 +3476,7 @@
         "strategist": {
           "score": 39.037,
           "value": {
+            "task": 427.69,
             "input": 195.185,
             "output": 33.945,
             "blended50": 57.833
@@ -2748,6 +3485,7 @@
         "security-reviewer": {
           "score": 45.743,
           "value": {
+            "task": 501.161,
             "input": 228.715,
             "output": 39.777,
             "blended50": 67.767
@@ -2756,6 +3494,7 @@
         "code-reviewer": {
           "score": 48.296,
           "value": {
+            "task": 529.132,
             "input": 241.48,
             "output": 41.997,
             "blended50": 71.55
@@ -2764,6 +3503,7 @@
         "implementer": {
           "score": 48.755,
           "value": {
+            "task": 534.161,
             "input": 243.775,
             "output": 42.396,
             "blended50": 72.23
@@ -2772,6 +3512,7 @@
         "implementer-heavy": {
           "score": 46.516,
           "value": {
+            "task": 509.63,
             "input": 232.58,
             "output": 40.449,
             "blended50": 68.913
@@ -2780,6 +3521,7 @@
         "synthesizer": {
           "score": 43.394,
           "value": {
+            "task": 475.426,
             "input": 216.97,
             "output": 37.734,
             "blended50": 64.287
@@ -2788,12 +3530,14 @@
         "researcher": {
           "score": 46.805,
           "value": {
+            "task": 512.797,
             "input": 234.025,
             "output": 40.7,
             "blended50": 69.341
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "step-3-7-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/step-3-7-flash"
@@ -2821,10 +3565,22 @@
         "slug": "step-3-5-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.1,
         "output": 0.3,
         "blended50": 0.2
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.421737,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 104617.60095655429,
+          "cacheRead": 7503369.903318953,
+          "cacheWrite": 2518406.449572408,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -2839,6 +3595,7 @@
         "architect": {
           "score": 52.146,
           "value": {
+            "task": 123.646,
             "input": 521.46,
             "output": 173.82,
             "blended50": 260.73
@@ -2847,6 +3604,7 @@
         "strategist": {
           "score": 42.989,
           "value": {
+            "task": 101.933,
             "input": 429.89,
             "output": 143.297,
             "blended50": 214.945
@@ -2855,6 +3613,7 @@
         "security-reviewer": {
           "score": 44.449,
           "value": {
+            "task": 105.395,
             "input": 444.49,
             "output": 148.163,
             "blended50": 222.245
@@ -2863,6 +3622,7 @@
         "code-reviewer": {
           "score": 46.235,
           "value": {
+            "task": 109.63,
             "input": 462.35,
             "output": 154.117,
             "blended50": 231.175
@@ -2871,6 +3631,7 @@
         "implementer": {
           "score": 47.016,
           "value": {
+            "task": 111.482,
             "input": 470.16,
             "output": 156.72,
             "blended50": 235.08
@@ -2879,6 +3640,7 @@
         "implementer-heavy": {
           "score": 48.215,
           "value": {
+            "task": 114.325,
             "input": 482.15,
             "output": 160.717,
             "blended50": 241.075
@@ -2887,6 +3649,7 @@
         "synthesizer": {
           "score": 40.136,
           "value": {
+            "task": 95.168,
             "input": 401.36,
             "output": 133.787,
             "blended50": 200.68
@@ -2895,12 +3658,14 @@
         "researcher": {
           "score": 48.406,
           "value": {
+            "task": 114.778,
             "input": 484.06,
             "output": 161.353,
             "blended50": 242.03
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "step-3-5-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/step-3-5-flash"
@@ -2928,10 +3693,22 @@
         "slug": "mimo-v2-5-pro",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.435,
         "output": 0.87,
         "blended50": 0.6525
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.033908,
+        "aaCostPerTaskUsd": 0.03390845289072561,
+        "tokens": {
+          "nonCacheInput": 7425.020767290299,
+          "cacheRead": 405165.5571242538,
+          "cacheWrite": 25215.176185666944,
+          "reasoning": 14991.682914319177,
+          "answer": 5986.9046840048395,
+          "output": 20978.58759832402
+        }
       },
       "benchmarks": {
         "gdpval": 38.2925,
@@ -2946,6 +3723,7 @@
         "architect": {
           "score": 40.343,
           "value": {
+            "task": 1189.778,
             "input": 92.743,
             "output": 46.371,
             "blended50": 61.828
@@ -2954,6 +3732,7 @@
         "strategist": {
           "score": 37.875,
           "value": {
+            "task": 1116.993,
             "input": 87.069,
             "output": 43.534,
             "blended50": 58.046
@@ -2962,6 +3741,7 @@
         "security-reviewer": {
           "score": 56.086,
           "value": {
+            "task": 1654.064,
             "input": 128.933,
             "output": 64.467,
             "blended50": 85.956
@@ -2970,6 +3750,7 @@
         "code-reviewer": {
           "score": 52.432,
           "value": {
+            "task": 1546.302,
             "input": 120.533,
             "output": 60.267,
             "blended50": 80.356
@@ -2978,6 +3759,7 @@
         "implementer": {
           "score": 48.109,
           "value": {
+            "task": 1418.81,
             "input": 110.595,
             "output": 55.298,
             "blended50": 73.73
@@ -2986,6 +3768,7 @@
         "implementer-heavy": {
           "score": 42.723,
           "value": {
+            "task": 1259.968,
             "input": 98.214,
             "output": 49.107,
             "blended50": 65.476
@@ -2994,6 +3777,7 @@
         "synthesizer": {
           "score": 29.536,
           "value": {
+            "task": 871.063,
             "input": 67.899,
             "output": 33.949,
             "blended50": 45.266
@@ -3002,12 +3786,14 @@
         "researcher": {
           "score": 33.443,
           "value": {
+            "task": 986.286,
             "input": 76.88,
             "output": 38.44,
             "blended50": 51.254
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "mimo-v2-5-pro",
         "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro"
@@ -3035,10 +3821,22 @@
         "slug": "mimo-v2-5-0424",
         "reason": "AA canonical MiMo-V2.5 release currently uses the 0424 slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.14,
         "output": 0.28,
         "blended50": 0.21
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.010359,
+        "aaCostPerTaskUsd": 0.010359306953646182,
+        "tokens": {
+          "nonCacheInput": 7217.190465838526,
+          "cacheRead": 404018.4102114045,
+          "cacheWrite": 23542.29326331732,
+          "reasoning": 12437.010341008501,
+          "answer": 5140.58852675018,
+          "output": 17577.59886775868
+        }
       },
       "benchmarks": {
         "gdpval": 32.52,
@@ -3053,6 +3851,7 @@
         "architect": {
           "score": 51.161,
           "value": {
+            "task": 4938.797,
             "input": 365.436,
             "output": 182.718,
             "blended50": 243.624
@@ -3061,6 +3860,7 @@
         "strategist": {
           "score": 45.326,
           "value": {
+            "task": 4375.519,
             "input": 323.757,
             "output": 161.879,
             "blended50": 215.838
@@ -3069,6 +3869,7 @@
         "security-reviewer": {
           "score": 56.638,
           "value": {
+            "task": 5467.516,
             "input": 404.557,
             "output": 202.279,
             "blended50": 269.705
@@ -3077,6 +3878,7 @@
         "code-reviewer": {
           "score": 56.142,
           "value": {
+            "task": 5419.635,
             "input": 401.014,
             "output": 200.507,
             "blended50": 267.343
@@ -3085,6 +3887,7 @@
         "implementer": {
           "score": 51.546,
           "value": {
+            "task": 4975.963,
             "input": 368.186,
             "output": 184.093,
             "blended50": 245.457
@@ -3093,6 +3896,7 @@
         "implementer-heavy": {
           "score": 49.667,
           "value": {
+            "task": 4794.575,
             "input": 354.764,
             "output": 177.382,
             "blended50": 236.51
@@ -3101,6 +3905,7 @@
         "synthesizer": {
           "score": 52.592,
           "value": {
+            "task": 5076.938,
             "input": 375.657,
             "output": 187.829,
             "blended50": 250.438
@@ -3109,12 +3914,14 @@
         "researcher": {
           "score": 47.443,
           "value": {
+            "task": 4579.882,
             "input": 338.879,
             "output": 169.439,
             "blended50": 225.919
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "mimo-v2-5-0424",
         "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-0424"
@@ -3142,10 +3949,22 @@
         "slug": "nvidia-nemotron-3-ultra-550b-a55b",
         "reason": "AA canonical family includes NVIDIA and parameterization in the slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.6,
         "output": 2.4,
         "blended50": 1.5
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.374379,
+        "aaCostPerTaskUsd": 0.38266237297499145,
+        "tokens": {
+          "nonCacheInput": 6928.821652466916,
+          "cacheRead": 0,
+          "cacheWrite": 522364.4580190179,
+          "reasoning": 15027.672711410163,
+          "answer": 8640.110987535494,
+          "output": 23667.783698945655
+        }
       },
       "benchmarks": {
         "gdpval": 33.1475,
@@ -3160,6 +3979,7 @@
         "architect": {
           "score": 37.631,
           "value": {
+            "task": 100.516,
             "input": 62.718,
             "output": 15.68,
             "blended50": 25.087
@@ -3168,6 +3988,7 @@
         "strategist": {
           "score": 35.696,
           "value": {
+            "task": 95.347,
             "input": 59.493,
             "output": 14.873,
             "blended50": 23.797
@@ -3176,6 +3997,7 @@
         "security-reviewer": {
           "score": 50.985,
           "value": {
+            "task": 136.186,
             "input": 84.975,
             "output": 21.244,
             "blended50": 33.99
@@ -3184,6 +4006,7 @@
         "code-reviewer": {
           "score": 46.841,
           "value": {
+            "task": 125.117,
             "input": 78.068,
             "output": 19.517,
             "blended50": 31.227
@@ -3192,6 +4015,7 @@
         "implementer": {
           "score": 41.466,
           "value": {
+            "task": 110.759,
             "input": 69.11,
             "output": 17.278,
             "blended50": 27.644
@@ -3200,6 +4024,7 @@
         "implementer-heavy": {
           "score": 37.145,
           "value": {
+            "task": 99.218,
             "input": 61.908,
             "output": 15.477,
             "blended50": 24.763
@@ -3208,6 +4033,7 @@
         "synthesizer": {
           "score": 28.551,
           "value": {
+            "task": 76.262,
             "input": 47.585,
             "output": 11.896,
             "blended50": 19.034
@@ -3216,12 +4042,14 @@
         "researcher": {
           "score": 31.977,
           "value": {
+            "task": 85.413,
             "input": 53.295,
             "output": 13.324,
             "blended50": 21.318
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "nvidia-nemotron-3-ultra-550b-a55b",
         "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b"
@@ -3249,10 +4077,22 @@
         "slug": "claude-fable-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 10,
         "output": 50,
         "blended50": 30
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 3.243464,
+        "aaCostPerTaskUsd": 3.139584292089737,
+        "tokens": {
+          "nonCacheInput": 9130.96017962358,
+          "cacheRead": 781063.8346331251,
+          "cacheWrite": 47426.13174325022,
+          "reasoning": 26666.62588199352,
+          "answer": 8898.652961610953,
+          "output": 35565.27884360447
+        }
       },
       "benchmarks": {
         "gdpval": 61.8855,
@@ -3267,6 +4107,7 @@
         "architect": {
           "score": 67.711,
           "value": {
+            "task": 20.876,
             "input": 6.771,
             "output": 1.354,
             "blended50": 2.257
@@ -3275,6 +4116,7 @@
         "strategist": {
           "score": 63.612,
           "value": {
+            "task": 19.612,
             "input": 6.361,
             "output": 1.272,
             "blended50": 2.12
@@ -3283,6 +4125,7 @@
         "security-reviewer": {
           "score": 64.205,
           "value": {
+            "task": 19.795,
             "input": 6.421,
             "output": 1.284,
             "blended50": 2.14
@@ -3291,6 +4134,7 @@
         "code-reviewer": {
           "score": 64.458,
           "value": {
+            "task": 19.873,
             "input": 6.446,
             "output": 1.289,
             "blended50": 2.149
@@ -3299,6 +4143,7 @@
         "implementer": {
           "score": 65.219,
           "value": {
+            "task": 20.108,
             "input": 6.522,
             "output": 1.304,
             "blended50": 2.174
@@ -3307,6 +4152,7 @@
         "implementer-heavy": {
           "score": 64.706,
           "value": {
+            "task": 19.95,
             "input": 6.471,
             "output": 1.294,
             "blended50": 2.157
@@ -3315,6 +4161,7 @@
         "synthesizer": {
           "score": 58.626,
           "value": {
+            "task": 18.075,
             "input": 5.863,
             "output": 1.173,
             "blended50": 1.954
@@ -3323,11 +4170,45 @@
         "researcher": {
           "score": 67.315,
           "value": {
+            "task": 20.754,
             "input": 6.732,
             "output": 1.346,
             "blended50": 2.244
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "anthropic_claude-fable-5",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Fable 5 (max) (with fallback)",
+        "indexScore": 67.173,
+        "evaluations": {
+          "deep-swe": 66.077,
+          "swe-atlas-qna": 48.925,
+          "terminal-bench-v2.1": 86.517
+        },
+        "tokensPerTask": {
+          "reward": 0.660766961651917,
+          "costUsd": 11.687407620910031,
+          "wallTimeSec": 1407.3063016359897,
+          "steps": 137.007744236847,
+          "inputTokens": 13437258.132743362,
+          "cacheWriteTokens": 245125.98525073746,
+          "outputTokens": 117577.40117994101,
+          "cacheTokens": 6741270.2402863065,
+          "cacheHitRate": 0.9619283373252908,
+          "totalTokens": 13868659.998977497
+        },
+        "totalTokensPerTask": 13868659.998977497,
+        "timePerTaskSec": 1407.3063016359897,
+        "aaCostPerTaskUsd": 11.687407620910031,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 5.747
       },
       "aaModel": {
         "slug": "claude-fable-5",
@@ -3356,10 +4237,22 @@
         "slug": "claude-opus-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 5,
         "output": 25,
         "blended50": 15
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 2.336859,
+        "aaCostPerTaskUsd": 2.3368592081245625,
+        "tokens": {
+          "nonCacheInput": 9359.26317656579,
+          "cacheRead": 1747657.3433796535,
+          "cacheWrite": 65599.63973734996,
+          "reasoning": 25683.902732284092,
+          "answer": 14565.556155454682,
+          "output": 40249.45888773877
+        }
       },
       "benchmarks": {
         "gdpval": 67.2335,
@@ -3374,6 +4267,7 @@
         "architect": {
           "score": 67.659,
           "value": {
+            "task": 28.953,
             "input": 13.532,
             "output": 2.706,
             "blended50": 4.511
@@ -3382,6 +4276,7 @@
         "strategist": {
           "score": 63.419,
           "value": {
+            "task": 27.139,
             "input": 12.684,
             "output": 2.537,
             "blended50": 4.228
@@ -3390,6 +4285,7 @@
         "security-reviewer": {
           "score": 62.415,
           "value": {
+            "task": 26.709,
             "input": 12.483,
             "output": 2.497,
             "blended50": 4.161
@@ -3398,6 +4294,7 @@
         "code-reviewer": {
           "score": 61.437,
           "value": {
+            "task": 26.29,
             "input": 12.287,
             "output": 2.457,
             "blended50": 4.096
@@ -3406,6 +4303,7 @@
         "implementer": {
           "score": 61.208,
           "value": {
+            "task": 26.192,
             "input": 12.242,
             "output": 2.448,
             "blended50": 4.081
@@ -3414,6 +4312,7 @@
         "implementer-heavy": {
           "score": 62.295,
           "value": {
+            "task": 26.658,
             "input": 12.459,
             "output": 2.492,
             "blended50": 4.153
@@ -3422,6 +4321,7 @@
         "synthesizer": {
           "score": 55.095,
           "value": {
+            "task": 23.577,
             "input": 11.019,
             "output": 2.204,
             "blended50": 3.673
@@ -3430,11 +4330,45 @@
         "researcher": {
           "score": 65.12,
           "value": {
+            "task": 27.866,
             "input": 13.024,
             "output": 2.605,
             "blended50": 4.341
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "anthropic_claude-opus-5",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Opus 5 (xhigh)",
+        "indexScore": 68.15,
+        "evaluations": {
+          "deep-swe": 60.472,
+          "swe-atlas-qna": 54.839,
+          "terminal-bench-v2.1": 89.139
+        },
+        "tokensPerTask": {
+          "reward": 0.604719764011799,
+          "costUsd": 8.170783921523503,
+          "wallTimeSec": 1421.8799826175893,
+          "steps": 152.07719836400818,
+          "inputTokens": 20679357.135693215,
+          "cacheWriteTokens": 238241.63421828908,
+          "outputTokens": 114890.17109144543,
+          "cacheTokens": 10578912.742331289,
+          "cacheHitRate": 0.9740249879523308,
+          "totalTokens": 21565879.138036806
+        },
+        "totalTokensPerTask": 21565879.138036806,
+        "timePerTaskSec": 1421.8799826175893,
+        "aaCostPerTaskUsd": 8.170783921523503,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 8.341
       },
       "aaModel": {
         "slug": "claude-opus-5",
@@ -3463,10 +4397,22 @@
         "slug": "claude-opus-4-8",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 5,
         "output": 25,
         "blended50": 15
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 2.031502,
+        "aaCostPerTaskUsd": 2.0315015630110187,
+        "tokens": {
+          "nonCacheInput": 9105.505765213073,
+          "cacheRead": 991853.6113915595,
+          "cacheWrite": 59657.593279944165,
+          "reasoning": 35033.90708237587,
+          "answer": 9653.583737205046,
+          "output": 44687.49081958091
+        }
       },
       "benchmarks": {
         "gdpval": 54.187,
@@ -3481,6 +4427,7 @@
         "architect": {
           "score": 58.766,
           "value": {
+            "task": 28.927,
             "input": 11.753,
             "output": 2.351,
             "blended50": 3.918
@@ -3489,6 +4436,7 @@
         "strategist": {
           "score": 55.83,
           "value": {
+            "task": 27.482,
             "input": 11.166,
             "output": 2.233,
             "blended50": 3.722
@@ -3497,6 +4445,7 @@
         "security-reviewer": {
           "score": 62.446,
           "value": {
+            "task": 30.739,
             "input": 12.489,
             "output": 2.498,
             "blended50": 4.163
@@ -3505,6 +4454,7 @@
         "code-reviewer": {
           "score": 60.24,
           "value": {
+            "task": 29.653,
             "input": 12.048,
             "output": 2.41,
             "blended50": 4.016
@@ -3513,6 +4463,7 @@
         "implementer": {
           "score": 57.585,
           "value": {
+            "task": 28.346,
             "input": 11.517,
             "output": 2.303,
             "blended50": 3.839
@@ -3521,6 +4472,7 @@
         "implementer-heavy": {
           "score": 55.922,
           "value": {
+            "task": 27.527,
             "input": 11.184,
             "output": 2.237,
             "blended50": 3.728
@@ -3529,6 +4481,7 @@
         "synthesizer": {
           "score": 50.545,
           "value": {
+            "task": 24.881,
             "input": 10.109,
             "output": 2.022,
             "blended50": 3.37
@@ -3537,11 +4490,45 @@
         "researcher": {
           "score": 55.649,
           "value": {
+            "task": 27.393,
             "input": 11.13,
             "output": 2.226,
             "blended50": 3.71
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "anthropic_claude-opus-4-8",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Opus 4.8 (max)",
+        "indexScore": 62.141,
+        "evaluations": {
+          "deep-swe": 55.752,
+          "swe-atlas-qna": 46.774,
+          "terminal-bench-v2.1": 83.895
+        },
+        "tokensPerTask": {
+          "reward": 0.557522123893805,
+          "costUsd": 7.7247257970092145,
+          "wallTimeSec": 1386.6877980572617,
+          "steps": 165.01758453417034,
+          "inputTokens": 18153203.522123896,
+          "cacheWriteTokens": 301517.69911504426,
+          "outputTokens": 148269.50147492625,
+          "cacheTokens": 8733088.679447845,
+          "cacheHitRate": 0.9657541826994763,
+          "totalTokens": 17920579.42791411
+        },
+        "totalTokensPerTask": 17920579.42791411,
+        "timePerTaskSec": 1386.6877980572617,
+        "aaCostPerTaskUsd": 7.7247257970092145,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 8.044
       },
       "aaModel": {
         "slug": "claude-opus-4-8",
@@ -3570,10 +4557,22 @@
         "slug": "claude-opus-4-7",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 5,
         "output": 25,
         "blended50": 15
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 2.228527,
+        "aaCostPerTaskUsd": 2.228527139241646,
+        "tokens": {
+          "nonCacheInput": 9067.85393205822,
+          "cacheRead": 1320122.277429589,
+          "cacheWrite": 109472.27703920407,
+          "reasoning": 22288.405361690562,
+          "answer": 11268.59461317082,
+          "output": 33556.999974861385
+        }
       },
       "benchmarks": {
         "gdpval": 49.475,
@@ -3588,6 +4587,7 @@
         "architect": {
           "score": 63.252,
           "value": {
+            "task": 28.383,
             "input": 12.65,
             "output": 2.53,
             "blended50": 4.217
@@ -3596,6 +4596,7 @@
         "strategist": {
           "score": 59.546,
           "value": {
+            "task": 26.72,
             "input": 11.909,
             "output": 2.382,
             "blended50": 3.97
@@ -3604,6 +4605,7 @@
         "security-reviewer": {
           "score": 63.859,
           "value": {
+            "task": 28.655,
             "input": 12.772,
             "output": 2.554,
             "blended50": 4.257
@@ -3612,6 +4614,7 @@
         "code-reviewer": {
           "score": 64.116,
           "value": {
+            "task": 28.771,
             "input": 12.823,
             "output": 2.565,
             "blended50": 4.274
@@ -3620,6 +4623,7 @@
         "implementer": {
           "score": 61.951,
           "value": {
+            "task": 27.799,
             "input": 12.39,
             "output": 2.478,
             "blended50": 4.13
@@ -3628,6 +4632,7 @@
         "implementer-heavy": {
           "score": 61.108,
           "value": {
+            "task": 27.421,
             "input": 12.222,
             "output": 2.444,
             "blended50": 4.074
@@ -3636,6 +4641,7 @@
         "synthesizer": {
           "score": 62.64,
           "value": {
+            "task": 28.108,
             "input": 12.528,
             "output": 2.506,
             "blended50": 4.176
@@ -3644,11 +4650,45 @@
         "researcher": {
           "score": 62.688,
           "value": {
+            "task": 28.13,
             "input": 12.538,
             "output": 2.508,
             "blended50": 4.179
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "anthropic_claude-opus-4-7",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Opus 4.7 (max)",
+        "indexScore": 51.581,
+        "evaluations": {
+          "deep-swe": 40.118,
+          "swe-atlas-qna": 37.097,
+          "terminal-bench-v2.1": 77.528
+        },
+        "tokensPerTask": {
+          "reward": 0.40117994100295,
+          "costUsd": 5.915424259100202,
+          "wallTimeSec": 950.3123588957067,
+          "steps": 107.99932608291505,
+          "inputTokens": 14256507.348082596,
+          "cacheWriteTokens": 186574.30088495577,
+          "outputTokens": 74954.85840707965,
+          "cacheTokens": 7876338.34867077,
+          "cacheHitRate": 0.9665216325317721,
+          "totalTokens": 16129723.114519438
+        },
+        "totalTokensPerTask": 16129723.114519438,
+        "timePerTaskSec": 950.3123588957067,
+        "aaCostPerTaskUsd": 5.915424259100202,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 8.72
       },
       "aaModel": {
         "slug": "claude-opus-4-7",
@@ -3677,10 +4717,22 @@
         "slug": "claude-opus-4-6",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 5,
         "output": 25,
         "blended50": 15
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.19298,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 2092.3520191310854,
+          "cacheRead": 300134.79613275814,
+          "cacheWrite": 40294.50319315853,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -3695,6 +4747,7 @@
         "architect": {
           "score": 52.123,
           "value": {
+            "task": 43.691,
             "input": 10.425,
             "output": 2.085,
             "blended50": 3.475
@@ -3703,6 +4756,7 @@
         "strategist": {
           "score": 48.887,
           "value": {
+            "task": 40.979,
             "input": 9.777,
             "output": 1.955,
             "blended50": 3.259
@@ -3711,6 +4765,7 @@
         "security-reviewer": {
           "score": 47.765,
           "value": {
+            "task": 40.038,
             "input": 9.553,
             "output": 1.911,
             "blended50": 3.184
@@ -3719,6 +4774,7 @@
         "code-reviewer": {
           "score": 50.632,
           "value": {
+            "task": 42.442,
             "input": 10.126,
             "output": 2.025,
             "blended50": 3.375
@@ -3727,6 +4783,7 @@
         "implementer": {
           "score": 51.296,
           "value": {
+            "task": 42.998,
             "input": 10.259,
             "output": 2.052,
             "blended50": 3.42
@@ -3735,6 +4792,7 @@
         "implementer-heavy": {
           "score": 51.986,
           "value": {
+            "task": 43.577,
             "input": 10.397,
             "output": 2.079,
             "blended50": 3.466
@@ -3743,6 +4801,7 @@
         "synthesizer": {
           "score": 47.516,
           "value": {
+            "task": 39.83,
             "input": 9.503,
             "output": 1.901,
             "blended50": 3.168
@@ -3751,12 +4810,14 @@
         "researcher": {
           "score": 52.914,
           "value": {
+            "task": 44.354,
             "input": 10.583,
             "output": 2.117,
             "blended50": 3.528
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "claude-opus-4-6",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-6"
@@ -3784,10 +4845,22 @@
         "slug": "claude-sonnet-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2,
         "output": 10,
         "blended50": 6
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.717267,
+        "aaCostPerTaskUsd": 1.717266743264445,
+        "tokens": {
+          "nonCacheInput": 9322.988291517611,
+          "cacheRead": 3452041.68448729,
+          "cacheWrite": 113917.20347012533,
+          "reasoning": 57824.01339101895,
+          "answer": 14517.928719844878,
+          "output": 72341.94211086382
+        }
       },
       "benchmarks": {
         "gdpval": 54.7745,
@@ -3802,6 +4875,7 @@
         "architect": {
           "score": 60.075,
           "value": {
+            "task": 34.983,
             "input": 30.038,
             "output": 6.008,
             "blended50": 10.013
@@ -3810,6 +4884,7 @@
         "strategist": {
           "score": 56.094,
           "value": {
+            "task": 32.665,
             "input": 28.047,
             "output": 5.609,
             "blended50": 9.349
@@ -3818,6 +4893,7 @@
         "security-reviewer": {
           "score": 61.707,
           "value": {
+            "task": 35.933,
             "input": 30.854,
             "output": 6.171,
             "blended50": 10.285
@@ -3826,6 +4902,7 @@
         "code-reviewer": {
           "score": 60.779,
           "value": {
+            "task": 35.393,
             "input": 30.39,
             "output": 6.078,
             "blended50": 10.13
@@ -3834,6 +4911,7 @@
         "implementer": {
           "score": 58.198,
           "value": {
+            "task": 33.89,
             "input": 29.099,
             "output": 5.82,
             "blended50": 9.7
@@ -3842,6 +4920,7 @@
         "implementer-heavy": {
           "score": 57.919,
           "value": {
+            "task": 33.727,
             "input": 28.96,
             "output": 5.792,
             "blended50": 9.653
@@ -3850,6 +4929,7 @@
         "synthesizer": {
           "score": 53.103,
           "value": {
+            "task": 30.923,
             "input": 26.552,
             "output": 5.31,
             "blended50": 8.851
@@ -3858,12 +4938,14 @@
         "researcher": {
           "score": 55.999,
           "value": {
+            "task": 32.609,
             "input": 28,
             "output": 5.6,
             "blended50": 9.333
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "claude-sonnet-5",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-5"
@@ -3891,10 +4973,22 @@
         "slug": "claude-sonnet-4-6",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 3,
         "output": 15,
         "blended50": 9
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.880736,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 3487.253365218476,
+          "cacheRead": 500224.66022126353,
+          "cacheWrite": 67157.50532193089,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -3909,6 +5003,7 @@
         "architect": {
           "score": 39.849,
           "value": {
+            "task": 45.245,
             "input": 13.283,
             "output": 2.657,
             "blended50": 4.428
@@ -3917,6 +5012,7 @@
         "strategist": {
           "score": 39.716,
           "value": {
+            "task": 45.094,
             "input": 13.239,
             "output": 2.648,
             "blended50": 4.413
@@ -3925,6 +5021,7 @@
         "security-reviewer": {
           "score": 43.43,
           "value": {
+            "task": 49.311,
             "input": 14.477,
             "output": 2.895,
             "blended50": 4.826
@@ -3933,6 +5030,7 @@
         "code-reviewer": {
           "score": 44.557,
           "value": {
+            "task": 50.591,
             "input": 14.852,
             "output": 2.97,
             "blended50": 4.951
@@ -3941,6 +5039,7 @@
         "implementer": {
           "score": 44.444,
           "value": {
+            "task": 50.462,
             "input": 14.815,
             "output": 2.963,
             "blended50": 4.938
@@ -3949,6 +5048,7 @@
         "implementer-heavy": {
           "score": 43.626,
           "value": {
+            "task": 49.534,
             "input": 14.542,
             "output": 2.908,
             "blended50": 4.847
@@ -3957,6 +5057,7 @@
         "synthesizer": {
           "score": 29.333,
           "value": {
+            "task": 33.305,
             "input": 9.778,
             "output": 1.956,
             "blended50": 3.259
@@ -3965,11 +5066,45 @@
         "researcher": {
           "score": 37.572,
           "value": {
+            "task": 42.66,
             "input": 12.524,
             "output": 2.505,
             "blended50": 4.175
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "anthropic_claude-sonnet-4-6",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Sonnet 4.6 (medium)",
+        "indexScore": 38.649,
+        "evaluations": {
+          "deep-swe": 28.909,
+          "swe-atlas-qna": 19.624,
+          "terminal-bench-v2.1": 67.416
+        },
+        "tokensPerTask": {
+          "reward": 0.289085545722714,
+          "costUsd": 2.0415130214723938,
+          "wallTimeSec": 827.6555807770972,
+          "steps": 67.4176891615542,
+          "inputTokens": 8347776.569321534,
+          "cacheWriteTokens": 172390.57817109145,
+          "outputTokens": 67150.87315634219,
+          "cacheTokens": 4083419.110429447,
+          "cacheHitRate": 0.9487221679807681,
+          "totalTokens": 8444053.035787314
+        },
+        "totalTokensPerTask": 8444053.035787314,
+        "timePerTaskSec": 827.6555807770972,
+        "aaCostPerTaskUsd": 2.0415130214723938,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 18.932
       },
       "aaModel": {
         "slug": "claude-sonnet-4-6",
@@ -3998,10 +5133,22 @@
         "slug": "claude-4-5-haiku",
         "reason": "AA canonical word order differs from CommandCode display name."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1,
         "output": 5,
         "blended50": 3
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.568492,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 10461.760095655429,
+          "cacheRead": 1500673.9806637906,
+          "cacheWrite": 201472.5159657927,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -4016,6 +5163,7 @@
         "architect": {
           "score": 31.541,
           "value": {
+            "task": 55.482,
             "input": 31.541,
             "output": 6.308,
             "blended50": 10.514
@@ -4024,6 +5172,7 @@
         "strategist": {
           "score": 34.537,
           "value": {
+            "task": 60.752,
             "input": 34.537,
             "output": 6.907,
             "blended50": 11.512
@@ -4032,6 +5181,7 @@
         "security-reviewer": {
           "score": 38.905,
           "value": {
+            "task": 68.435,
             "input": 38.905,
             "output": 7.781,
             "blended50": 12.968
@@ -4040,6 +5190,7 @@
         "code-reviewer": {
           "score": 36.915,
           "value": {
+            "task": 64.935,
             "input": 36.915,
             "output": 7.383,
             "blended50": 12.305
@@ -4048,6 +5199,7 @@
         "implementer": {
           "score": 31.41,
           "value": {
+            "task": 55.251,
             "input": 31.41,
             "output": 6.282,
             "blended50": 10.47
@@ -4056,6 +5208,7 @@
         "implementer-heavy": {
           "score": 33.365,
           "value": {
+            "task": 58.69,
             "input": 33.365,
             "output": 6.673,
             "blended50": 11.122
@@ -4064,6 +5217,7 @@
         "synthesizer": {
           "score": 26.07,
           "value": {
+            "task": 45.858,
             "input": 26.07,
             "output": 5.214,
             "blended50": 8.69
@@ -4072,12 +5226,14 @@
         "researcher": {
           "score": 24.881,
           "value": {
+            "task": 43.767,
             "input": 24.881,
             "output": 4.976,
             "blended50": 8.294
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "claude-4-5-haiku",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-4-5-haiku"
@@ -4105,10 +5261,22 @@
         "slug": "gpt-5-6-sol",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 5,
         "output": 30,
         "blended50": 17.5
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.231211,
+        "aaCostPerTaskUsd": 1.2312110558767355,
+        "tokens": {
+          "nonCacheInput": 6154.883542565092,
+          "cacheRead": 958393.0516908291,
+          "cacheWrite": 34380.20220173964,
+          "reasoning": 10765.805718031059,
+          "answer": 6112.989233889698,
+          "output": 16878.794951920758
+        }
       },
       "benchmarks": {
         "gdpval": 61.148,
@@ -4123,6 +5291,7 @@
         "architect": {
           "score": 57.239,
           "value": {
+            "task": 46.49,
             "input": 11.448,
             "output": 1.908,
             "blended50": 3.271
@@ -4131,6 +5300,7 @@
         "strategist": {
           "score": 51.756,
           "value": {
+            "task": 42.037,
             "input": 10.351,
             "output": 1.725,
             "blended50": 2.957
@@ -4139,6 +5309,7 @@
         "security-reviewer": {
           "score": 54.055,
           "value": {
+            "task": 43.904,
             "input": 10.811,
             "output": 1.802,
             "blended50": 3.089
@@ -4147,6 +5318,7 @@
         "code-reviewer": {
           "score": 53.734,
           "value": {
+            "task": 43.643,
             "input": 10.747,
             "output": 1.791,
             "blended50": 3.071
@@ -4155,6 +5327,7 @@
         "implementer": {
           "score": 56.667,
           "value": {
+            "task": 46.025,
             "input": 11.333,
             "output": 1.889,
             "blended50": 3.238
@@ -4163,6 +5336,7 @@
         "implementer-heavy": {
           "score": 55.184,
           "value": {
+            "task": 44.821,
             "input": 11.037,
             "output": 1.839,
             "blended50": 3.153
@@ -4171,6 +5345,7 @@
         "synthesizer": {
           "score": 34.362,
           "value": {
+            "task": 27.909,
             "input": 6.872,
             "output": 1.145,
             "blended50": 1.964
@@ -4179,11 +5354,45 @@
         "researcher": {
           "score": 54.071,
           "value": {
+            "task": 43.917,
             "input": 10.814,
             "output": 1.802,
             "blended50": 3.09
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "openai_gpt-5-6-sol",
+        "agent": "Codex",
+        "displayLabel": "Codex - GPT-5.6 Sol (max)",
+        "indexScore": 65.052,
+        "evaluations": {
+          "deep-swe": 68.732,
+          "swe-atlas-qna": 43.28,
+          "terminal-bench-v2.1": 83.146
+        },
+        "tokensPerTask": {
+          "reward": 0.687315634218289,
+          "costUsd": 6.420249160020451,
+          "wallTimeSec": 613.70177198364,
+          "steps": 112.26891615541923,
+          "inputTokens": 9770635.345132744,
+          "cacheWriteTokens": null,
+          "outputTokens": 55315.890855457226,
+          "cacheTokens": 6347957.384458077,
+          "cacheHitRate": 0.902597320865973,
+          "totalTokens": 13169248.796012262
+        },
+        "totalTokensPerTask": 13169248.796012262,
+        "timePerTaskSec": 613.70177198364,
+        "aaCostPerTaskUsd": 6.420249160020451,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 10.132
       },
       "aaModel": {
         "slug": "gpt-5-6-sol",
@@ -4212,10 +5421,22 @@
         "slug": "gpt-5-6-terra",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2,
         "output": 12,
         "blended50": 7
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.508019,
+        "aaCostPerTaskUsd": 0.5080188911299259,
+        "tokens": {
+          "nonCacheInput": 6885.499206762742,
+          "cacheRead": 814122.246253208,
+          "cacheWrite": 32549.306502707423,
+          "reasoning": 14922.844369990895,
+          "answer": 5914.670397424957,
+          "output": 20837.51476741585
+        }
       },
       "benchmarks": {
         "gdpval": 53.815,
@@ -4230,6 +5451,7 @@
         "architect": {
           "score": 54.384,
           "value": {
+            "task": 107.051,
             "input": 27.192,
             "output": 4.532,
             "blended50": 7.769
@@ -4238,6 +5460,7 @@
         "strategist": {
           "score": 47.684,
           "value": {
+            "task": 93.863,
             "input": 23.842,
             "output": 3.974,
             "blended50": 6.812
@@ -4246,6 +5469,7 @@
         "security-reviewer": {
           "score": 52.879,
           "value": {
+            "task": 104.089,
             "input": 26.44,
             "output": 4.407,
             "blended50": 7.554
@@ -4254,6 +5478,7 @@
         "code-reviewer": {
           "score": 53.029,
           "value": {
+            "task": 104.384,
             "input": 26.515,
             "output": 4.419,
             "blended50": 7.576
@@ -4262,6 +5487,7 @@
         "implementer": {
           "score": 55.281,
           "value": {
+            "task": 108.817,
             "input": 27.641,
             "output": 4.607,
             "blended50": 7.897
@@ -4270,6 +5496,7 @@
         "implementer-heavy": {
           "score": 53.31,
           "value": {
+            "task": 104.937,
             "input": 26.655,
             "output": 4.443,
             "blended50": 7.616
@@ -4278,6 +5505,7 @@
         "synthesizer": {
           "score": 34.107,
           "value": {
+            "task": 67.137,
             "input": 17.054,
             "output": 2.842,
             "blended50": 4.872
@@ -4286,11 +5514,45 @@
         "researcher": {
           "score": 50.484,
           "value": {
+            "task": 99.374,
             "input": 25.242,
             "output": 4.207,
             "blended50": 7.212
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "openai_gpt-5-6-terra",
+        "agent": "Codex",
+        "displayLabel": "Codex - GPT-5.6 Terra (max)",
+        "indexScore": 60.42,
+        "evaluations": {
+          "deep-swe": 66.962,
+          "swe-atlas-qna": 36.022,
+          "terminal-bench-v2.1": 78.277
+        },
+        "tokensPerTask": {
+          "reward": 0.669616519174041,
+          "costUsd": 2.695350269529651,
+          "wallTimeSec": 491.0206543967283,
+          "steps": 95.80674846625767,
+          "inputTokens": 7011344.04719764,
+          "cacheWriteTokens": null,
+          "outputTokens": 58797.35103244838,
+          "cacheTokens": 4659332.293456035,
+          "cacheHitRate": 0.9184675548550253,
+          "totalTokens": 9630511.582822077
+        },
+        "totalTokensPerTask": 9630511.582822077,
+        "timePerTaskSec": 491.0206543967283,
+        "aaCostPerTaskUsd": 2.695350269529651,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 22.416
       },
       "aaModel": {
         "slug": "gpt-5-6-terra",
@@ -4319,10 +5581,22 @@
         "slug": "gpt-5-6-luna",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.2,
         "output": 1.2,
         "blended50": 0.7
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.047128,
+        "aaCostPerTaskUsd": 0.047127533600050245,
+        "tokens": {
+          "nonCacheInput": 7251.129685606495,
+          "cacheRead": 751734.4906656109,
+          "cacheWrite": 26350.528405606354,
+          "reasoning": 14393.315543699287,
+          "answer": 5652.505913146663,
+          "output": 20045.82145684595
+        }
       },
       "benchmarks": {
         "gdpval": 53.915,
@@ -4337,6 +5611,7 @@
         "architect": {
           "score": 50.571,
           "value": {
+            "task": 1073.056,
             "input": 252.855,
             "output": 42.143,
             "blended50": 72.244
@@ -4345,6 +5620,7 @@
         "strategist": {
           "score": 43.855,
           "value": {
+            "task": 930.551,
             "input": 219.275,
             "output": 36.546,
             "blended50": 62.65
@@ -4353,6 +5629,7 @@
         "security-reviewer": {
           "score": 49.496,
           "value": {
+            "task": 1050.246,
             "input": 247.48,
             "output": 41.247,
             "blended50": 70.709
@@ -4361,6 +5638,7 @@
         "code-reviewer": {
           "score": 49.475,
           "value": {
+            "task": 1049.801,
             "input": 247.375,
             "output": 41.229,
             "blended50": 70.679
@@ -4369,6 +5647,7 @@
         "implementer": {
           "score": 52.059,
           "value": {
+            "task": 1104.63,
             "input": 260.295,
             "output": 43.383,
             "blended50": 74.37
@@ -4377,6 +5656,7 @@
         "implementer-heavy": {
           "score": 50.125,
           "value": {
+            "task": 1063.593,
             "input": 250.625,
             "output": 41.771,
             "blended50": 71.607
@@ -4385,6 +5665,7 @@
         "synthesizer": {
           "score": 26.868,
           "value": {
+            "task": 570.107,
             "input": 134.34,
             "output": 22.39,
             "blended50": 38.383
@@ -4393,11 +5674,45 @@
         "researcher": {
           "score": 45.473,
           "value": {
+            "task": 964.883,
             "input": 227.365,
             "output": 37.894,
             "blended50": 64.961
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "openai_gpt-5-6-luna",
+        "agent": "Codex",
+        "displayLabel": "Codex - GPT-5.6 Luna (max)",
+        "indexScore": 57.166,
+        "evaluations": {
+          "deep-swe": 63.422,
+          "swe-atlas-qna": 32.796,
+          "terminal-bench-v2.1": 75.281
+        },
+        "tokensPerTask": {
+          "reward": 0.634218289085546,
+          "costUsd": 1.508396035337423,
+          "wallTimeSec": 482.0907147239265,
+          "steps": 114.62883435582822,
+          "inputTokens": 13054325.640117994,
+          "cacheWriteTokens": null,
+          "outputTokens": 67927.49852507375,
+          "cacheTokens": 7751235.793456022,
+          "cacheHitRate": 0.9181831202060821,
+          "totalTokens": 15963259.28016359
+        },
+        "totalTokensPerTask": 15963259.28016359,
+        "timePerTaskSec": 482.0907147239265,
+        "aaCostPerTaskUsd": 1.508396035337423,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 37.899
       },
       "aaModel": {
         "slug": "gpt-5-6-luna",
@@ -4426,10 +5741,22 @@
         "slug": "gpt-5-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 5,
         "output": 30,
         "blended50": 17.5
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.174707,
+        "aaCostPerTaskUsd": 1.1747069315889214,
+        "tokens": {
+          "nonCacheInput": 6112.556811445688,
+          "cacheRead": 309624.2742021448,
+          "cacheWrite": 96506.28792057667,
+          "reasoning": 12856.081757977827,
+          "answer": 4037.2706029467436,
+          "output": 16893.35236092457
+        }
       },
       "benchmarks": {
         "gdpval": 49.511,
@@ -4444,6 +5771,7 @@
         "architect": {
           "score": 49.823,
           "value": {
+            "task": 42.413,
             "input": 9.965,
             "output": 1.661,
             "blended50": 2.847
@@ -4452,6 +5780,7 @@
         "strategist": {
           "score": 45.401,
           "value": {
+            "task": 38.649,
             "input": 9.08,
             "output": 1.513,
             "blended50": 2.594
@@ -4460,6 +5789,7 @@
         "security-reviewer": {
           "score": 52.805,
           "value": {
+            "task": 44.952,
             "input": 10.561,
             "output": 1.76,
             "blended50": 3.017
@@ -4468,6 +5798,7 @@
         "code-reviewer": {
           "score": 52.31,
           "value": {
+            "task": 44.53,
             "input": 10.462,
             "output": 1.744,
             "blended50": 2.989
@@ -4476,6 +5807,7 @@
         "implementer": {
           "score": 54.956,
           "value": {
+            "task": 46.783,
             "input": 10.991,
             "output": 1.832,
             "blended50": 3.14
@@ -4484,6 +5816,7 @@
         "implementer-heavy": {
           "score": 50.547,
           "value": {
+            "task": 43.029,
             "input": 10.109,
             "output": 1.685,
             "blended50": 2.888
@@ -4492,6 +5825,7 @@
         "synthesizer": {
           "score": 29.212,
           "value": {
+            "task": 24.867,
             "input": 5.842,
             "output": 0.974,
             "blended50": 1.669
@@ -4500,11 +5834,45 @@
         "researcher": {
           "score": 47.91,
           "value": {
+            "task": 40.785,
             "input": 9.582,
             "output": 1.597,
             "blended50": 2.738
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "openai_gpt-5-5",
+        "agent": "Codex",
+        "displayLabel": "Codex - GPT-5.5 (xhigh)",
+        "indexScore": 61.033,
+        "evaluations": {
+          "deep-swe": 64.307,
+          "swe-atlas-qna": 36.022,
+          "terminal-bench-v2.1": 82.772
+        },
+        "tokensPerTask": {
+          "reward": 0.64306784660767,
+          "costUsd": 4.7523700715746395,
+          "wallTimeSec": 614.9898987730064,
+          "steps": 107.1319018404908,
+          "inputTokens": 9686260.805309735,
+          "cacheWriteTokens": null,
+          "outputTokens": 39818.52802359882,
+          "cacheTokens": 5961477.627811859,
+          "cacheHitRate": 0.9341674523911518,
+          "totalTokens": 12150851.179959083
+        },
+        "totalTokensPerTask": 12150851.179959083,
+        "timePerTaskSec": 614.9898987730064,
+        "aaCostPerTaskUsd": 4.7523700715746395,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 12.843
       },
       "aaModel": {
         "slug": "gpt-5-5",
@@ -4533,10 +5901,22 @@
         "slug": "gpt-5-4",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2.5,
         "output": 15,
         "blended50": 8.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.103797,
+        "aaCostPerTaskUsd": 1.103797371493454,
+        "tokens": {
+          "nonCacheInput": 6087.584264016439,
+          "cacheRead": 661871.3248989995,
+          "cacheWrite": 162726.24707671738,
+          "reasoning": 28961.65676312917,
+          "answer": 5458.007364662127,
+          "output": 34419.66412779129
+        }
       },
       "benchmarks": {
         "gdpval": 44.7015,
@@ -4551,6 +5931,7 @@
         "architect": {
           "score": 62.263,
           "value": {
+            "task": 56.408,
             "input": 24.905,
             "output": 4.151,
             "blended50": 7.116
@@ -4559,6 +5940,7 @@
         "strategist": {
           "score": 53.617,
           "value": {
+            "task": 48.575,
             "input": 21.447,
             "output": 3.574,
             "blended50": 6.128
@@ -4567,6 +5949,7 @@
         "security-reviewer": {
           "score": 57.746,
           "value": {
+            "task": 52.316,
             "input": 23.098,
             "output": 3.85,
             "blended50": 6.6
@@ -4575,6 +5958,7 @@
         "code-reviewer": {
           "score": 60.728,
           "value": {
+            "task": 55.017,
             "input": 24.291,
             "output": 4.049,
             "blended50": 6.94
@@ -4583,6 +5967,7 @@
         "implementer": {
           "score": 63.786,
           "value": {
+            "task": 57.788,
             "input": 25.514,
             "output": 4.252,
             "blended50": 7.29
@@ -4591,6 +5976,7 @@
         "implementer-heavy": {
           "score": 61.379,
           "value": {
+            "task": 55.607,
             "input": 24.552,
             "output": 4.092,
             "blended50": 7.015
@@ -4599,6 +5985,7 @@
         "synthesizer": {
           "score": 53.487,
           "value": {
+            "task": 48.457,
             "input": 21.395,
             "output": 3.566,
             "blended50": 6.113
@@ -4607,12 +5994,14 @@
         "researcher": {
           "score": 62.823,
           "value": {
+            "task": 56.915,
             "input": 25.129,
             "output": 4.188,
             "blended50": 7.18
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "gpt-5-4",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4"
@@ -4640,10 +6029,22 @@
         "slug": "gpt-5-4-mini",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.75,
         "output": 4.5,
         "blended50": 2.625
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.49476,
+        "aaCostPerTaskUsd": 0.49475962823531655,
+        "tokens": {
+          "nonCacheInput": 6054.671867764765,
+          "cacheRead": 692490.256226935,
+          "cacheWrite": 104749.21962597626,
+          "reasoning": 74716.37729705716,
+          "answer": 5221.387235829649,
+          "output": 79937.76453288681
+        }
       },
       "benchmarks": {
         "gdpval": 33.5875,
@@ -4658,6 +6059,7 @@
         "architect": {
           "score": 36.121,
           "value": {
+            "task": 73.007,
             "input": 48.161,
             "output": 8.027,
             "blended50": 13.76
@@ -4666,6 +6068,7 @@
         "strategist": {
           "score": 31.437,
           "value": {
+            "task": 63.54,
             "input": 41.916,
             "output": 6.986,
             "blended50": 11.976
@@ -4674,6 +6077,7 @@
         "security-reviewer": {
           "score": 44.324,
           "value": {
+            "task": 89.587,
             "input": 59.099,
             "output": 9.85,
             "blended50": 16.885
@@ -4682,6 +6086,7 @@
         "code-reviewer": {
           "score": 44.322,
           "value": {
+            "task": 89.583,
             "input": 59.096,
             "output": 9.849,
             "blended50": 16.885
@@ -4690,6 +6095,7 @@
         "implementer": {
           "score": 46.448,
           "value": {
+            "task": 93.88,
             "input": 61.931,
             "output": 10.322,
             "blended50": 17.694
@@ -4698,6 +6104,7 @@
         "implementer-heavy": {
           "score": 40.37,
           "value": {
+            "task": 81.595,
             "input": 53.827,
             "output": 8.971,
             "blended50": 15.379
@@ -4706,6 +6113,7 @@
         "synthesizer": {
           "score": 16.248,
           "value": {
+            "task": 32.84,
             "input": 21.664,
             "output": 3.611,
             "blended50": 6.19
@@ -4714,12 +6122,14 @@
         "researcher": {
           "score": 32.991,
           "value": {
+            "task": 66.681,
             "input": 43.988,
             "output": 7.331,
             "blended50": 12.568
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "gpt-5-4-mini",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini"
@@ -4747,10 +6157,22 @@
         "slug": "gpt-5-3-codex",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2,
         "output": 8,
         "blended50": 5
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.978333,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 5978.148626088816,
+          "cacheRead": 857527.9889507375,
+          "cacheWrite": 143908.9399755662,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -4765,6 +6187,7 @@
         "architect": {
           "score": 61.128,
           "value": {
+            "task": 62.482,
             "input": 30.564,
             "output": 7.641,
             "blended50": 12.226
@@ -4773,6 +6196,7 @@
         "strategist": {
           "score": 53.345,
           "value": {
+            "task": 54.526,
             "input": 26.673,
             "output": 6.668,
             "blended50": 10.669
@@ -4781,6 +6205,7 @@
         "security-reviewer": {
           "score": 56.807,
           "value": {
+            "task": 58.065,
             "input": 28.404,
             "output": 7.101,
             "blended50": 11.361
@@ -4789,6 +6214,7 @@
         "code-reviewer": {
           "score": 59.343,
           "value": {
+            "task": 60.657,
             "input": 29.672,
             "output": 7.418,
             "blended50": 11.869
@@ -4797,6 +6223,7 @@
         "implementer": {
           "score": 61.671,
           "value": {
+            "task": 63.037,
             "input": 30.836,
             "output": 7.709,
             "blended50": 12.334
@@ -4805,6 +6232,7 @@
         "implementer-heavy": {
           "score": 59.319,
           "value": {
+            "task": 60.633,
             "input": 29.66,
             "output": 7.415,
             "blended50": 11.864
@@ -4813,6 +6241,7 @@
         "synthesizer": {
           "score": 54.317,
           "value": {
+            "task": 55.52,
             "input": 27.159,
             "output": 6.79,
             "blended50": 10.863
@@ -4821,12 +6250,14 @@
         "researcher": {
           "score": 62.595,
           "value": {
+            "task": 63.981,
             "input": 31.298,
             "output": 7.824,
             "blended50": 12.519
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "gpt-5-3-codex",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-3-codex"
@@ -4854,10 +6285,22 @@
         "slug": "gemini-3-7-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.75,
         "output": 3.75,
         "blended50": 2.25
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.250695,
+        "aaCostPerTaskUsd": 0.40216581818386,
+        "tokens": {
+          "nonCacheInput": 6961.869869175055,
+          "cacheRead": 1311818.4845193734,
+          "cacheWrite": 213842.46387473796,
+          "reasoning": 14047.642165504409,
+          "answer": 22799.339577688206,
+          "output": 36846.98174319261
+        }
       },
       "benchmarks": {
         "gdpval": 51.5775,
@@ -4872,6 +6315,7 @@
         "architect": {
           "score": 50.47,
           "value": {
+            "task": 201.32,
             "input": 67.293,
             "output": 13.459,
             "blended50": 22.431
@@ -4880,6 +6324,7 @@
         "strategist": {
           "score": 47.696,
           "value": {
+            "task": 190.255,
             "input": 63.595,
             "output": 12.719,
             "blended50": 21.198
@@ -4888,6 +6333,7 @@
         "security-reviewer": {
           "score": 57.079,
           "value": {
+            "task": 227.683,
             "input": 76.105,
             "output": 15.221,
             "blended50": 25.368
@@ -4896,6 +6342,7 @@
         "code-reviewer": {
           "score": 55.066,
           "value": {
+            "task": 219.653,
             "input": 73.421,
             "output": 14.684,
             "blended50": 24.474
@@ -4904,6 +6351,7 @@
         "implementer": {
           "score": 55.316,
           "value": {
+            "task": 220.651,
             "input": 73.755,
             "output": 14.751,
             "blended50": 24.585
@@ -4912,6 +6360,7 @@
         "implementer-heavy": {
           "score": 50.922,
           "value": {
+            "task": 203.123,
             "input": 67.896,
             "output": 13.579,
             "blended50": 22.632
@@ -4920,6 +6369,7 @@
         "synthesizer": {
           "score": 32.644,
           "value": {
+            "task": 130.214,
             "input": 43.525,
             "output": 8.705,
             "blended50": 14.508
@@ -4928,12 +6378,14 @@
         "researcher": {
           "score": 47.426,
           "value": {
+            "task": 189.178,
             "input": 63.235,
             "output": 12.647,
             "blended50": 21.078
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-7-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash"
@@ -4961,10 +6413,22 @@
         "slug": "gemini-3-6-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.5,
         "output": 7.5,
         "blended50": 4.5
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.557324,
+        "aaCostPerTaskUsd": 0.3441738148343059,
+        "tokens": {
+          "nonCacheInput": 6960.504524087745,
+          "cacheRead": 873490.1011613491,
+          "cacheWrite": 148644.78933358073,
+          "reasoning": 13795.00290600384,
+          "answer": 11924.01823182343,
+          "output": 25719.02113782727
+        }
       },
       "benchmarks": {
         "gdpval": 46.1105,
@@ -4979,6 +6443,7 @@
         "architect": {
           "score": 46.745,
           "value": {
+            "task": 83.874,
             "input": 31.163,
             "output": 6.233,
             "blended50": 10.388
@@ -4987,6 +6452,7 @@
         "strategist": {
           "score": 45.046,
           "value": {
+            "task": 80.826,
             "input": 30.031,
             "output": 6.006,
             "blended50": 10.01
@@ -4995,6 +6461,7 @@
         "security-reviewer": {
           "score": 55.271,
           "value": {
+            "task": 99.172,
             "input": 36.847,
             "output": 7.369,
             "blended50": 12.282
@@ -5003,6 +6470,7 @@
         "code-reviewer": {
           "score": 52.95,
           "value": {
+            "task": 95.008,
             "input": 35.3,
             "output": 7.06,
             "blended50": 11.767
@@ -5011,6 +6479,7 @@
         "implementer": {
           "score": 51.771,
           "value": {
+            "task": 92.892,
             "input": 34.514,
             "output": 6.903,
             "blended50": 11.505
@@ -5019,6 +6488,7 @@
         "implementer-heavy": {
           "score": 47.397,
           "value": {
+            "task": 85.044,
             "input": 31.598,
             "output": 6.32,
             "blended50": 10.533
@@ -5027,6 +6497,7 @@
         "synthesizer": {
           "score": 32.284,
           "value": {
+            "task": 57.927,
             "input": 21.523,
             "output": 4.305,
             "blended50": 7.174
@@ -5035,11 +6506,45 @@
         "researcher": {
           "score": 43.861,
           "value": {
+            "task": 78.699,
             "input": 29.241,
             "output": 5.848,
             "blended50": 9.747
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "google_gemini-3-6-flash_ai-studio",
+        "agent": "Opencode",
+        "displayLabel": "Opencode - Gemini 3.6 Flash (high)",
+        "indexScore": 47.241,
+        "evaluations": {
+          "deep-swe": 41.298,
+          "swe-atlas-qna": 21.774,
+          "terminal-bench-v2.1": 78.652
+        },
+        "tokensPerTask": {
+          "reward": 0.412979351032448,
+          "costUsd": 2.0838901547546023,
+          "wallTimeSec": 626.0057290388548,
+          "steps": 65.01533742331287,
+          "inputTokens": 14211105.967551623,
+          "cacheWriteTokens": 0,
+          "outputTokens": 74638.99705014749,
+          "cacheTokens": 6211554.129856843,
+          "cacheHitRate": 0.837777048552074,
+          "totalTokens": 13020159.542944789
+        },
+        "totalTokensPerTask": 13020159.542944789,
+        "timePerTaskSec": 626.0057290388548,
+        "aaCostPerTaskUsd": 2.0838901547546023,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 22.67
       },
       "aaModel": {
         "slug": "gemini-3-6-flash",
@@ -5068,10 +6573,22 @@
         "slug": "gemini-3-5-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.5,
         "output": 9,
         "blended50": 5.25
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.693389,
+        "aaCostPerTaskUsd": 0.6933894858433166,
+        "tokens": {
+          "nonCacheInput": 6974.506730436952,
+          "cacheRead": 1000449.3204425271,
+          "cacheWrite": 167893.7633048272,
+          "reasoning": 19857.722217950202,
+          "answer": 11366.686973609942,
+          "output": 31224.409191560146
+        }
       },
       "benchmarks": {
         "gdpval": 42.169,
@@ -5086,6 +6603,7 @@
         "architect": {
           "score": 46.297,
           "value": {
+            "task": 66.769,
             "input": 30.865,
             "output": 5.144,
             "blended50": 8.818
@@ -5094,6 +6612,7 @@
         "strategist": {
           "score": 43.819,
           "value": {
+            "task": 63.195,
             "input": 29.213,
             "output": 4.869,
             "blended50": 8.346
@@ -5102,6 +6621,7 @@
         "security-reviewer": {
           "score": 55.036,
           "value": {
+            "task": 79.372,
             "input": 36.691,
             "output": 6.115,
             "blended50": 10.483
@@ -5110,6 +6630,7 @@
         "code-reviewer": {
           "score": 53.151,
           "value": {
+            "task": 76.654,
             "input": 35.434,
             "output": 5.906,
             "blended50": 10.124
@@ -5118,6 +6639,7 @@
         "implementer": {
           "score": 52.726,
           "value": {
+            "task": 76.041,
             "input": 35.151,
             "output": 5.858,
             "blended50": 10.043
@@ -5126,6 +6648,7 @@
         "implementer-heavy": {
           "score": 47.337,
           "value": {
+            "task": 68.269,
             "input": 31.558,
             "output": 5.26,
             "blended50": 9.017
@@ -5134,6 +6657,7 @@
         "synthesizer": {
           "score": 32.42,
           "value": {
+            "task": 46.756,
             "input": 21.613,
             "output": 3.602,
             "blended50": 6.175
@@ -5142,12 +6666,14 @@
         "researcher": {
           "score": 44.423,
           "value": {
+            "task": 64.066,
             "input": 29.615,
             "output": 4.936,
             "blended50": 8.462
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-5-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash"
@@ -5175,10 +6701,22 @@
         "slug": "gemini-3-5-flash-lite",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.3,
         "output": 2.5,
         "blended50": 1.4
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.096525,
+        "aaCostPerTaskUsd": 0.09652503867210623,
+        "tokens": {
+          "nonCacheInput": 6919.448190754412,
+          "cacheRead": 542890.5195631435,
+          "cacheWrite": 145628.08395696437,
+          "reasoning": 8509.892044157868,
+          "answer": 5279.73333220065,
+          "output": 13789.62537635852
+        }
       },
       "benchmarks": {
         "gdpval": 31.9965,
@@ -5193,6 +6731,7 @@
         "architect": {
           "score": 51.055,
           "value": {
+            "task": 528.93,
             "input": 170.183,
             "output": 20.422,
             "blended50": 36.468
@@ -5201,6 +6740,7 @@
         "strategist": {
           "score": 48.573,
           "value": {
+            "task": 503.217,
             "input": 161.91,
             "output": 19.429,
             "blended50": 34.695
@@ -5209,6 +6749,7 @@
         "security-reviewer": {
           "score": 54.292,
           "value": {
+            "task": 562.466,
             "input": 180.973,
             "output": 21.717,
             "blended50": 38.78
@@ -5217,6 +6758,7 @@
         "code-reviewer": {
           "score": 54.799,
           "value": {
+            "task": 567.718,
             "input": 182.663,
             "output": 21.92,
             "blended50": 39.142
@@ -5225,6 +6767,7 @@
         "implementer": {
           "score": 50.171,
           "value": {
+            "task": 519.772,
             "input": 167.237,
             "output": 20.068,
             "blended50": 35.836
@@ -5233,6 +6776,7 @@
         "implementer-heavy": {
           "score": 49.702,
           "value": {
+            "task": 514.913,
             "input": 165.673,
             "output": 19.881,
             "blended50": 35.501
@@ -5241,6 +6785,7 @@
         "synthesizer": {
           "score": 57.421,
           "value": {
+            "task": 594.882,
             "input": 191.403,
             "output": 22.968,
             "blended50": 41.015
@@ -5249,12 +6794,14 @@
         "researcher": {
           "score": 50.75,
           "value": {
+            "task": 525.771,
             "input": 169.167,
             "output": 20.3,
             "blended50": 36.25
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-5-flash-lite",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite"
@@ -5282,10 +6829,22 @@
         "slug": "gemini-3-1-flash-lite-preview",
         "reason": "AA canonical page is the preview release for this model."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.25,
         "output": 1.5,
         "blended50": 0.875
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.043793,
+        "aaCostPerTaskUsd": 0.04324611147116286,
+        "tokens": {
+          "nonCacheInput": 6060.0093590853585,
+          "cacheRead": 109448.938627652,
+          "cacheWrite": 35646.70412763163,
+          "reasoning": 17894.833567250014,
+          "answer": 2160.6395219448527,
+          "output": 20055.473089194867
+        }
       },
       "benchmarks": {
         "gdpval": 7.414,
@@ -5300,6 +6859,7 @@
         "architect": {
           "score": 23.517,
           "value": {
+            "task": 537.004,
             "input": 94.068,
             "output": 15.678,
             "blended50": 26.877
@@ -5308,6 +6868,7 @@
         "strategist": {
           "score": 21.397,
           "value": {
+            "task": 488.594,
             "input": 85.588,
             "output": 14.265,
             "blended50": 24.454
@@ -5316,6 +6877,7 @@
         "security-reviewer": {
           "score": 39.775,
           "value": {
+            "task": 908.25,
             "input": 159.1,
             "output": 26.517,
             "blended50": 45.457
@@ -5324,6 +6886,7 @@
         "code-reviewer": {
           "score": 39.668,
           "value": {
+            "task": 905.807,
             "input": 158.672,
             "output": 26.445,
             "blended50": 45.335
@@ -5332,6 +6895,7 @@
         "implementer": {
           "score": 40.108,
           "value": {
+            "task": 915.854,
             "input": 160.432,
             "output": 26.739,
             "blended50": 45.838
@@ -5340,6 +6904,7 @@
         "implementer-heavy": {
           "score": 30.152,
           "value": {
+            "task": 688.512,
             "input": 120.608,
             "output": 20.101,
             "blended50": 34.459
@@ -5348,6 +6913,7 @@
         "synthesizer": {
           "score": 14.583,
           "value": {
+            "task": 332.998,
             "input": 58.332,
             "output": 9.722,
             "blended50": 16.666
@@ -5356,12 +6922,14 @@
         "researcher": {
           "score": 24.993,
           "value": {
+            "task": 570.708,
             "input": 99.972,
             "output": 16.662,
             "blended50": 28.563
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-1-flash-lite-preview",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview"
@@ -5388,13 +6956,15 @@
         "status": "unscored",
         "reason": "No verified matching AA model family at publication time."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 5,
         "output": 30,
         "blended50": 17.5
       },
+      "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "codingAgent": null,
       "aaModel": null
     },
     {
@@ -5419,10 +6989,22 @@
         "slug": "muse-spark-1-2",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.25,
         "output": 4.25,
         "blended50": 2.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.3992,
+        "aaCostPerTaskUsd": 0.3992003044679802,
+        "tokens": {
+          "nonCacheInput": 6375.8874384303235,
+          "cacheRead": 1089003.1191154185,
+          "cacheWrite": 78841.3457209914,
+          "reasoning": 17556.607621764688,
+          "answer": 12873.579472680092,
+          "output": 30430.18709444478
+        }
       },
       "benchmarks": {
         "gdpval": 56.4,
@@ -5437,6 +7019,7 @@
         "architect": {
           "score": 68.293,
           "value": {
+            "task": 171.075,
             "input": 54.634,
             "output": 16.069,
             "blended50": 24.834
@@ -5445,6 +7028,7 @@
         "strategist": {
           "score": 64.014,
           "value": {
+            "task": 160.356,
             "input": 51.211,
             "output": 15.062,
             "blended50": 23.278
@@ -5453,6 +7037,7 @@
         "security-reviewer": {
           "score": 66.942,
           "value": {
+            "task": 167.69,
             "input": 53.554,
             "output": 15.751,
             "blended50": 24.343
@@ -5461,6 +7046,7 @@
         "code-reviewer": {
           "score": 67.162,
           "value": {
+            "task": 168.241,
             "input": 53.73,
             "output": 15.803,
             "blended50": 24.423
@@ -5469,6 +7055,7 @@
         "implementer": {
           "score": 64.426,
           "value": {
+            "task": 161.388,
             "input": 51.541,
             "output": 15.159,
             "blended50": 23.428
@@ -5477,6 +7064,7 @@
         "implementer-heavy": {
           "score": 65.172,
           "value": {
+            "task": 163.257,
             "input": 52.138,
             "output": 15.335,
             "blended50": 23.699
@@ -5485,6 +7073,7 @@
         "synthesizer": {
           "score": 68.378,
           "value": {
+            "task": 171.288,
             "input": 54.702,
             "output": 16.089,
             "blended50": 24.865
@@ -5493,12 +7082,14 @@
         "researcher": {
           "score": 66.283,
           "value": {
+            "task": 166.04,
             "input": 53.026,
             "output": 15.596,
             "blended50": 24.103
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "muse-spark-1-2",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
@@ -5526,10 +7117,22 @@
         "slug": "muse-spark-1-2",
         "reason": "Contributor is a CommandCode data-sharing commercial variant of Muse Spark 1.2."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.1,
         "output": 0.2,
         "blended50": 0.15
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.016786,
+        "aaCostPerTaskUsd": 0.3992003044679802,
+        "tokens": {
+          "nonCacheInput": 6375.8874384303235,
+          "cacheRead": 1089003.1191154185,
+          "cacheWrite": 78841.3457209914,
+          "reasoning": 17556.607621764688,
+          "answer": 12873.579472680092,
+          "output": 30430.18709444478
+        }
       },
       "benchmarks": {
         "gdpval": 56.4,
@@ -5544,6 +7147,7 @@
         "architect": {
           "score": 68.293,
           "value": {
+            "task": 4068.45,
             "input": 682.93,
             "output": 341.465,
             "blended50": 455.287
@@ -5552,6 +7156,7 @@
         "strategist": {
           "score": 64.014,
           "value": {
+            "task": 3813.535,
             "input": 640.14,
             "output": 320.07,
             "blended50": 426.76
@@ -5560,6 +7165,7 @@
         "security-reviewer": {
           "score": 66.942,
           "value": {
+            "task": 3987.966,
             "input": 669.42,
             "output": 334.71,
             "blended50": 446.28
@@ -5568,6 +7174,7 @@
         "code-reviewer": {
           "score": 67.162,
           "value": {
+            "task": 4001.072,
             "input": 671.62,
             "output": 335.81,
             "blended50": 447.747
@@ -5576,6 +7183,7 @@
         "implementer": {
           "score": 64.426,
           "value": {
+            "task": 3838.079,
             "input": 644.26,
             "output": 322.13,
             "blended50": 429.507
@@ -5584,6 +7192,7 @@
         "implementer-heavy": {
           "score": 65.172,
           "value": {
+            "task": 3882.521,
             "input": 651.72,
             "output": 325.86,
             "blended50": 434.48
@@ -5592,6 +7201,7 @@
         "synthesizer": {
           "score": 68.378,
           "value": {
+            "task": 4073.514,
             "input": 683.78,
             "output": 341.89,
             "blended50": 455.853
@@ -5600,12 +7210,14 @@
         "researcher": {
           "score": 66.283,
           "value": {
+            "task": 3948.707,
             "input": 662.83,
             "output": 331.415,
             "blended50": 441.887
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "muse-spark-1-2",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
@@ -5633,10 +7245,22 @@
         "slug": "muse-spark-1-1",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1.25,
         "output": 4.25,
         "blended50": 2.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.292337,
+        "aaCostPerTaskUsd": 0.2923366107461809,
+        "tokens": {
+          "nonCacheInput": 6384.260487975024,
+          "cacheRead": 689372.5974276139,
+          "cacheWrite": 68615.27788424441,
+          "reasoning": 15158.481094874012,
+          "answer": 7237.118473776448,
+          "output": 22395.59956865046
+        }
       },
       "benchmarks": {
         "gdpval": 43.711,
@@ -5651,6 +7275,7 @@
         "architect": {
           "score": 62.707,
           "value": {
+            "task": 214.502,
             "input": 50.166,
             "output": 14.755,
             "blended50": 22.803
@@ -5659,6 +7284,7 @@
         "strategist": {
           "score": 58.143,
           "value": {
+            "task": 198.89,
             "input": 46.514,
             "output": 13.681,
             "blended50": 21.143
@@ -5667,6 +7293,7 @@
         "security-reviewer": {
           "score": 64.791,
           "value": {
+            "task": 221.631,
             "input": 51.833,
             "output": 15.245,
             "blended50": 23.56
@@ -5675,6 +7302,7 @@
         "code-reviewer": {
           "score": 65.979,
           "value": {
+            "task": 225.695,
             "input": 52.783,
             "output": 15.524,
             "blended50": 23.992
@@ -5683,6 +7311,7 @@
         "implementer": {
           "score": 65.22,
           "value": {
+            "task": 223.099,
             "input": 52.176,
             "output": 15.346,
             "blended50": 23.716
@@ -5691,6 +7320,7 @@
         "implementer-heavy": {
           "score": 62.372,
           "value": {
+            "task": 213.357,
             "input": 49.898,
             "output": 14.676,
             "blended50": 22.681
@@ -5699,6 +7329,7 @@
         "synthesizer": {
           "score": 63.57,
           "value": {
+            "task": 217.455,
             "input": 50.856,
             "output": 14.958,
             "blended50": 23.116
@@ -5707,12 +7338,14 @@
         "researcher": {
           "score": 63.827,
           "value": {
+            "task": 218.334,
             "input": 51.062,
             "output": 15.018,
             "blended50": 23.21
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "muse-spark-1-1",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-1"
@@ -5740,10 +7373,22 @@
         "slug": "grok-4-6",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2,
         "output": 6,
         "blended50": 4
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.836671,
+        "aaCostPerTaskUsd": 0.8366707813404866,
+        "tokens": {
+          "nonCacheInput": 6102.838360024687,
+          "cacheRead": 807153.553452597,
+          "cacheWrite": 145240.0366282766,
+          "reasoning": 12765.417288934888,
+          "answer": 8969.291817329324,
+          "output": 21734.709106264214
+        }
       },
       "benchmarks": {
         "gdpval": 62.3725,
@@ -5758,6 +7403,7 @@
         "architect": {
           "score": 53.431,
           "value": {
+            "task": 63.861,
             "input": 26.716,
             "output": 8.905,
             "blended50": 13.358
@@ -5766,6 +7412,7 @@
         "strategist": {
           "score": 53.106,
           "value": {
+            "task": 63.473,
             "input": 26.553,
             "output": 8.851,
             "blended50": 13.277
@@ -5774,6 +7421,7 @@
         "security-reviewer": {
           "score": 59.475,
           "value": {
+            "task": 71.085,
             "input": 29.738,
             "output": 9.913,
             "blended50": 14.869
@@ -5782,6 +7430,7 @@
         "code-reviewer": {
           "score": 55.8,
           "value": {
+            "task": 66.693,
             "input": 27.9,
             "output": 9.3,
             "blended50": 13.95
@@ -5790,6 +7439,7 @@
         "implementer": {
           "score": 52.52,
           "value": {
+            "task": 62.773,
             "input": 26.26,
             "output": 8.753,
             "blended50": 13.13
@@ -5798,6 +7448,7 @@
         "implementer-heavy": {
           "score": 51.647,
           "value": {
+            "task": 61.729,
             "input": 25.824,
             "output": 8.608,
             "blended50": 12.912
@@ -5806,6 +7457,7 @@
         "synthesizer": {
           "score": 37.645,
           "value": {
+            "task": 44.994,
             "input": 18.823,
             "output": 6.274,
             "blended50": 9.411
@@ -5814,12 +7466,14 @@
         "researcher": {
           "score": 47.44,
           "value": {
+            "task": 56.701,
             "input": 23.72,
             "output": 7.907,
             "blended50": 11.86
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "grok-4-6",
         "sourceUrl": "https://artificialanalysis.ai/models/grok-4-6"
@@ -5847,10 +7501,22 @@
         "slug": "grok-4-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 2,
         "output": 6,
         "blended50": 4
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.434908,
+        "aaCostPerTaskUsd": 0.3600867355990034,
+        "tokens": {
+          "nonCacheInput": 6121.250124316139,
+          "cacheRead": 374105.09972282214,
+          "cacheWrite": 73420.6837932842,
+          "reasoning": 7571.241935421061,
+          "answer": 7223.981039071624,
+          "output": 14795.222974492684
+        }
       },
       "benchmarks": {
         "gdpval": 51.218,
@@ -5865,6 +7531,7 @@
         "architect": {
           "score": 49.265,
           "value": {
+            "task": 113.277,
             "input": 24.633,
             "output": 8.211,
             "blended50": 12.316
@@ -5873,6 +7540,7 @@
         "strategist": {
           "score": 47.696,
           "value": {
+            "task": 109.669,
             "input": 23.848,
             "output": 7.949,
             "blended50": 11.924
@@ -5881,6 +7549,7 @@
         "security-reviewer": {
           "score": 56.412,
           "value": {
+            "task": 129.71,
             "input": 28.206,
             "output": 9.402,
             "blended50": 14.103
@@ -5889,6 +7558,7 @@
         "code-reviewer": {
           "score": 54.052,
           "value": {
+            "task": 124.284,
             "input": 27.026,
             "output": 9.009,
             "blended50": 13.513
@@ -5897,6 +7567,7 @@
         "implementer": {
           "score": 52.918,
           "value": {
+            "task": 121.676,
             "input": 26.459,
             "output": 8.82,
             "blended50": 13.23
@@ -5905,6 +7576,7 @@
         "implementer-heavy": {
           "score": 49.441,
           "value": {
+            "task": 113.682,
             "input": 24.721,
             "output": 8.24,
             "blended50": 12.36
@@ -5913,6 +7585,7 @@
         "synthesizer": {
           "score": 33.914,
           "value": {
+            "task": 77.98,
             "input": 16.957,
             "output": 5.652,
             "blended50": 8.479
@@ -5921,11 +7594,45 @@
         "researcher": {
           "score": 45.852,
           "value": {
+            "task": 105.429,
             "input": 22.926,
             "output": 7.642,
             "blended50": 11.463
           }
         }
+      },
+      "codingAgent": {
+        "hostModelSlug": "xai_grok-4-5",
+        "agent": "Grok Build",
+        "displayLabel": "Grok Build - Grok 4.5 (high)",
+        "indexScore": 64.09,
+        "evaluations": {
+          "deep-swe": 59.882,
+          "swe-atlas-qna": 48.118,
+          "terminal-bench-v2.1": 84.27
+        },
+        "tokensPerTask": {
+          "reward": 0.59882005899705,
+          "costUsd": 2.4389824437627774,
+          "wallTimeSec": 929.1851094069541,
+          "steps": 60.744376278118615,
+          "inputTokens": 3247519.280235988,
+          "cacheWriteTokens": null,
+          "outputTokens": 43048.22418879056,
+          "cacheTokens": 1735633.0143149286,
+          "cacheHitRate": 0.9238990226060748,
+          "totalTokens": 3598867.582822087
+        },
+        "totalTokensPerTask": 3598867.582822087,
+        "timePerTaskSec": 929.1851094069541,
+        "aaCostPerTaskUsd": 2.4389824437627774,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 26.277
       },
       "aaModel": {
         "slug": "grok-4-5",
@@ -5954,10 +7661,22 @@
         "slug": "inkling",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 1,
         "output": 4.05,
         "blended50": 2.525
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.338885,
+        "aaCostPerTaskUsd": 0.3388848141344296,
+        "tokens": {
+          "nonCacheInput": 6136.735618531401,
+          "cacheRead": 1029480.7894410909,
+          "cacheWrite": 52805.60982736106,
+          "reasoning": 19623.99583620003,
+          "answer": 6284.827493072011,
+          "output": 25908.82332927204
+        }
       },
       "benchmarks": {
         "gdpval": 36.9335,
@@ -5972,6 +7691,7 @@
         "architect": {
           "score": 40.046,
           "value": {
+            "task": 118.17,
             "input": 40.046,
             "output": 9.888,
             "blended50": 15.86
@@ -5980,6 +7700,7 @@
         "strategist": {
           "score": 37.479,
           "value": {
+            "task": 110.595,
             "input": 37.479,
             "output": 9.254,
             "blended50": 14.843
@@ -5988,6 +7709,7 @@
         "security-reviewer": {
           "score": 48.061,
           "value": {
+            "task": 141.821,
             "input": 48.061,
             "output": 11.867,
             "blended50": 19.034
@@ -5996,6 +7718,7 @@
         "code-reviewer": {
           "score": 46.419,
           "value": {
+            "task": 136.976,
             "input": 46.419,
             "output": 11.461,
             "blended50": 18.384
@@ -6004,6 +7727,7 @@
         "implementer": {
           "score": 45.736,
           "value": {
+            "task": 134.96,
             "input": 45.736,
             "output": 11.293,
             "blended50": 18.113
@@ -6012,6 +7736,7 @@
         "implementer-heavy": {
           "score": 41.124,
           "value": {
+            "task": 121.351,
             "input": 41.124,
             "output": 10.154,
             "blended50": 16.287
@@ -6020,6 +7745,7 @@
         "synthesizer": {
           "score": 25.817,
           "value": {
+            "task": 76.182,
             "input": 25.817,
             "output": 6.375,
             "blended50": 10.225
@@ -6028,12 +7754,14 @@
         "researcher": {
           "score": 37.474,
           "value": {
+            "task": 110.58,
             "input": 37.474,
             "output": 9.253,
             "blended50": 14.841
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "inkling",
         "sourceUrl": "https://artificialanalysis.ai/models/inkling"
@@ -6061,10 +7789,22 @@
         "slug": "inkling-small",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "costs": {
+      "tokenPrices": {
         "input": 0.5,
         "output": 1.2,
         "blended50": 0.85
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.102808,
+        "aaCostPerTaskUsd": 0.07353375676315574,
+        "tokens": {
+          "nonCacheInput": 6148.480293134577,
+          "cacheRead": 530424.7323629331,
+          "cacheWrite": 34139.66899801803,
+          "reasoning": 19765.06169174001,
+          "answer": 4919.795003288304,
+          "output": 24684.856695028313
+        }
       },
       "benchmarks": {
         "gdpval": 38.411,
@@ -6079,6 +7819,7 @@
         "architect": {
           "score": 55.594,
           "value": {
+            "task": 540.756,
             "input": 111.188,
             "output": 46.328,
             "blended50": 65.405
@@ -6087,6 +7828,7 @@
         "strategist": {
           "score": 48.515,
           "value": {
+            "task": 471.899,
             "input": 97.03,
             "output": 40.429,
             "blended50": 57.076
@@ -6095,6 +7837,7 @@
         "security-reviewer": {
           "score": 56.14,
           "value": {
+            "task": 546.066,
             "input": 112.28,
             "output": 46.783,
             "blended50": 66.047
@@ -6103,6 +7846,7 @@
         "code-reviewer": {
           "score": 57.259,
           "value": {
+            "task": 556.951,
             "input": 114.518,
             "output": 47.716,
             "blended50": 67.364
@@ -6111,6 +7855,7 @@
         "implementer": {
           "score": 56.392,
           "value": {
+            "task": 548.518,
             "input": 112.784,
             "output": 46.993,
             "blended50": 66.344
@@ -6119,6 +7864,7 @@
         "implementer-heavy": {
           "score": 54.346,
           "value": {
+            "task": 528.616,
             "input": 108.692,
             "output": 45.288,
             "blended50": 63.936
@@ -6127,6 +7873,7 @@
         "synthesizer": {
           "score": 50.996,
           "value": {
+            "task": 496.031,
             "input": 101.992,
             "output": 42.497,
             "blended50": 59.995
@@ -6135,12 +7882,14 @@
         "researcher": {
           "score": 53.792,
           "value": {
+            "task": 523.228,
             "input": 107.584,
             "output": 44.827,
             "blended50": 63.285
           }
         }
       },
+      "codingAgent": null,
       "aaModel": {
         "slug": "inkling-small",
         "sourceUrl": "https://artificialanalysis.ai/models/inkling-small"

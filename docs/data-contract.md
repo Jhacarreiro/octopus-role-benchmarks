@@ -1,22 +1,27 @@
 # Data contract
 
-Each dated snapshot is immutable and records source timestamps, raw identity references and derived values.
-
-Minimum top-level shape:
+Current snapshot schema: **3**.
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 3,
   "date": "YYYY-MM-DD",
-  "sources": {
-    "commandCodeMax": {"retrievedAt": "ISO-8601"},
-    "artificialAnalysis": {"retrievedAt": "ISO-8601"}
-  },
+  "coverage": {},
+  "efficiencyCoverage": {},
+  "codingAgentCoverage": {},
   "models": [],
-  "roles": {}
+  "roles": []
 }
 ```
 
-Each model row must keep the CommandCode commercial identity separate from the benchmark-family identity. This is required so discounted/Fast/Contributor variants can share quality scores while preserving their own effective cost.
+Each scored model row keeps separate:
 
-Stealth or unresolved models use `mapping.status = "unscored"` and must not contain fabricated benchmark values.
+- CommandCode commercial identity and effective prices;
+- Artificial Analysis benchmark-family identity;
+- `taskEfficiency` with AA-measured token mix and CommandCode-repriced cost/task;
+- role scores and value ratios;
+- optional `codingAgent` evidence with AA Coding Agent Index, component scores, API cost/task, tokens/task, time/task and selected harness.
+
+Commercial variants may share the underlying benchmark family while retaining distinct CommandCode prices and policy flags.
+
+Rows with `mapping.status = "unscored"` must not contain role scores or fabricated benchmark values.

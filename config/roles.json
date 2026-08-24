@@ -1,29 +1,177 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "coveragePolicy": 1.0,
   "costBasis": {
-    "default": "blended50",
-    "blended50": {"label":"50/50 input-output, per 1M tokens","formula":"(input_per_m + output_per_m) / 2"},
-    "input": {"label":"Input, per 1M tokens","formula":"input_per_m"},
-    "output": {"label":"Output, per 1M tokens","formula":"output_per_m"}
+    "default": "task",
+    "task": {
+      "label": "CommandCode cost per Intelligence Index task",
+      "formula": "AA measured token mix per task repriced with effective CommandCode prices"
+    },
+    "input": {
+      "label": "Input, per 1M tokens",
+      "formula": "input_per_m"
+    },
+    "output": {
+      "label": "Output, per 1M tokens",
+      "formula": "output_per_m"
+    },
+    "blended50": {
+      "label": "50/50 input-output, per 1M tokens",
+      "formula": "(input_per_m + output_per_m) / 2"
+    }
   },
   "benchmarks": {
-    "gdpval": {"sourceField":"gdpvalNormalized","label":"GDPval-AA v2 (normalized)","scale":"0-100","description":"Real-world professional deliverables across 44 occupations and 9 industries."},
-    "scicode": {"sourceField":"scicode","label":"SciCode","scale":"0-100","description":"Scientific coding problems requiring knowledge, reasoning and code synthesis."},
-    "hle": {"sourceField":"hle","label":"Humanity's Last Exam","scale":"0-100","description":"Frontier expert-level academic reasoning across disciplines."},
-    "gpqa": {"sourceField":"gpqa","label":"GPQA Diamond","scale":"0-100","description":"Graduate-level scientific reasoning designed to resist simple web lookup."},
-    "lcr": {"sourceField":"lcr","label":"AA-LCR","scale":"0-100","description":"Long-context extraction, reasoning and synthesis across 10k-100k token documents."},
-    "omniscienceAccuracy": {"sourceField":"omniscienceAccuracy","label":"AA-Omniscience Accuracy","scale":"0-100","description":"Factual answer accuracy across economically relevant domains."},
-    "omniscienceReliability": {"sourceField":"omniscienceReliability","label":"AA-Omniscience Reliability","scale":"0-100","description":"Derived as 1 - AA-Omniscience hallucination rate; higher is more reliable."}
+    "gdpval": {
+      "sourceField": "gdpvalNormalized",
+      "label": "GDPval-AA v2 (normalized)",
+      "scale": "0-100",
+      "description": "Real-world professional deliverables across 44 occupations and 9 industries."
+    },
+    "scicode": {
+      "sourceField": "scicode",
+      "label": "SciCode",
+      "scale": "0-100",
+      "description": "Scientific coding problems requiring knowledge, reasoning and code synthesis."
+    },
+    "hle": {
+      "sourceField": "hle",
+      "label": "Humanity's Last Exam",
+      "scale": "0-100",
+      "description": "Frontier expert-level academic reasoning across disciplines."
+    },
+    "gpqa": {
+      "sourceField": "gpqa",
+      "label": "GPQA Diamond",
+      "scale": "0-100",
+      "description": "Graduate-level scientific reasoning designed to resist simple web lookup."
+    },
+    "lcr": {
+      "sourceField": "lcr",
+      "label": "AA-LCR",
+      "scale": "0-100",
+      "description": "Long-context extraction, reasoning and synthesis across 10k-100k token documents."
+    },
+    "omniscienceAccuracy": {
+      "sourceField": "omniscienceAccuracy",
+      "label": "AA-Omniscience Accuracy",
+      "scale": "0-100",
+      "description": "Factual answer accuracy across economically relevant domains."
+    },
+    "omniscienceReliability": {
+      "sourceField": "omniscienceReliability",
+      "label": "AA-Omniscience Reliability",
+      "scale": "0-100",
+      "description": "Derived as 1 - AA-Omniscience hallucination rate; higher is more reliable."
+    }
   },
   "roles": [
-    {"id":"architect","label":"Architect","purpose":"Architecture, decomposition, design trade-offs and high-level technical judgment.","weights":{"gdpval":0.40,"lcr":0.25,"gpqa":0.20,"hle":0.15},"note":"Prioritizes professional deliverables, long-context synthesis and hard reasoning."},
-    {"id":"strategist","label":"Strategist","purpose":"Arbitration, product/architecture trade-offs and decision quality under ambiguity.","weights":{"gdpval":0.40,"lcr":0.20,"omniscienceAccuracy":0.20,"omniscienceReliability":0.10,"gpqa":0.10},"note":"Balances professional judgment with factuality and long-context reasoning."},
-    {"id":"security-reviewer","label":"Security Reviewer","purpose":"Adversarial review of implementation risks, unsafe assumptions and failure modes.","weights":{"scicode":0.30,"gpqa":0.25,"hle":0.20,"omniscienceReliability":0.15,"lcr":0.10},"note":"Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only."},
-    {"id":"code-reviewer","label":"Code Reviewer","purpose":"Independent review of code, edge cases, regressions and implementation quality.","weights":{"scicode":0.45,"gpqa":0.20,"lcr":0.15,"omniscienceReliability":0.10,"hle":0.10},"note":"SciCode is the dominant coding signal; reasoning and context support review quality."},
-    {"id":"implementer","label":"Implementer","purpose":"Normal coding implementation and iterative patch/test work.","weights":{"scicode":0.60,"gpqa":0.15,"lcr":0.15,"hle":0.10},"note":"Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe."},
-    {"id":"implementer-heavy","label":"Implementer Heavy","purpose":"Greenfield builds, large refactors and complex implementation work.","weights":{"scicode":0.45,"gdpval":0.25,"lcr":0.20,"gpqa":0.10},"note":"Adds professional-deliverable and long-context weight to coding for larger project work."},
-    {"id":"synthesizer","label":"Synthesizer","purpose":"Aggregate many inputs into a coherent, faithful final output.","weights":{"lcr":0.45,"omniscienceAccuracy":0.20,"omniscienceReliability":0.20,"gdpval":0.15},"note":"Long-context synthesis and factual reliability dominate."},
-    {"id":"researcher","label":"Researcher","purpose":"Broad research, evidence synthesis and difficult question answering.","weights":{"lcr":0.30,"gdpval":0.25,"omniscienceAccuracy":0.20,"gpqa":0.15,"hle":0.10},"note":"Focuses on synthesis, professional research output, factual accuracy and hard reasoning."}
+    {
+      "id": "architect",
+      "label": "Architect",
+      "purpose": "Architecture, decomposition, design trade-offs and high-level technical judgment.",
+      "weights": {
+        "gdpval": 0.4,
+        "lcr": 0.25,
+        "gpqa": 0.2,
+        "hle": 0.15
+      },
+      "note": "Prioritizes professional deliverables, long-context synthesis and hard reasoning.",
+      "codingAgentEvidence": false
+    },
+    {
+      "id": "strategist",
+      "label": "Strategist",
+      "purpose": "Arbitration, product/architecture trade-offs and decision quality under ambiguity.",
+      "weights": {
+        "gdpval": 0.4,
+        "lcr": 0.2,
+        "omniscienceAccuracy": 0.2,
+        "omniscienceReliability": 0.1,
+        "gpqa": 0.1
+      },
+      "note": "Balances professional judgment with factuality and long-context reasoning.",
+      "codingAgentEvidence": false
+    },
+    {
+      "id": "security-reviewer",
+      "label": "Security Reviewer",
+      "purpose": "Adversarial review of implementation risks, unsafe assumptions and failure modes.",
+      "weights": {
+        "scicode": 0.3,
+        "gpqa": 0.25,
+        "hle": 0.2,
+        "omniscienceReliability": 0.15,
+        "lcr": 0.1
+      },
+      "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only.",
+      "codingAgentEvidence": false
+    },
+    {
+      "id": "code-reviewer",
+      "label": "Code Reviewer",
+      "purpose": "Independent review of code, edge cases, regressions and implementation quality.",
+      "weights": {
+        "scicode": 0.45,
+        "gpqa": 0.2,
+        "lcr": 0.15,
+        "omniscienceReliability": 0.1,
+        "hle": 0.1
+      },
+      "note": "SciCode is the dominant coding signal; reasoning and context support review quality.",
+      "codingAgentEvidence": true
+    },
+    {
+      "id": "implementer",
+      "label": "Implementer",
+      "purpose": "Normal coding implementation and iterative patch/test work.",
+      "weights": {
+        "scicode": 0.6,
+        "gpqa": 0.15,
+        "lcr": 0.15,
+        "hle": 0.1
+      },
+      "note": "Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe.",
+      "codingAgentEvidence": true
+    },
+    {
+      "id": "implementer-heavy",
+      "label": "Implementer Heavy",
+      "purpose": "Greenfield builds, large refactors and complex implementation work.",
+      "weights": {
+        "scicode": 0.45,
+        "gdpval": 0.25,
+        "lcr": 0.2,
+        "gpqa": 0.1
+      },
+      "note": "Adds professional-deliverable and long-context weight to coding for larger project work.",
+      "codingAgentEvidence": true
+    },
+    {
+      "id": "synthesizer",
+      "label": "Synthesizer",
+      "purpose": "Aggregate many inputs into a coherent, faithful final output.",
+      "weights": {
+        "lcr": 0.45,
+        "omniscienceAccuracy": 0.2,
+        "omniscienceReliability": 0.2,
+        "gdpval": 0.15
+      },
+      "note": "Long-context synthesis and factual reliability dominate.",
+      "codingAgentEvidence": false
+    },
+    {
+      "id": "researcher",
+      "label": "Researcher",
+      "purpose": "Broad research, evidence synthesis and difficult question answering.",
+      "weights": {
+        "lcr": 0.3,
+        "gdpval": 0.25,
+        "omniscienceAccuracy": 0.2,
+        "gpqa": 0.15,
+        "hle": 0.1
+      },
+      "note": "Focuses on synthesis, professional research output, factual accuracy and hard reasoning.",
+      "codingAgentEvidence": false
+    }
   ]
 }

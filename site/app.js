@@ -1,64 +1,24 @@
 const DATA_REMOTE='https://raw.githubusercontent.com/Jhacarreiro/octopus-role-benchmarks/main/data/latest.json';
-const state={data:null,role:'implementer',basis:'blended50',query:'',minScore:null,showUnscored:false,sort:'value',dir:-1};
+const state={data:null,role:'implementer',basis:'task',query:'',minScore:null,showUnscored:false,sort:'value',dir:-1};
 const $=s=>document.querySelector(s);
-const fmt=n=>n==null?'—':Number(n).toLocaleString(undefined,{maximumFractionDigits:3});
-const money=n=>n==null?'—':'$'+Number(n).toLocaleString(undefined,{maximumFractionDigits:4});
-async function load(){
-  const urls=[DATA_REMOTE,'./data/latest.json']; let err;
-  for(const url of urls){try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(`${r.status}`);state.data=await r.json();break}catch(e){err=e}}
-  if(!state.data){$('#status').textContent='Unable to load current data: '+err;return}
-  renderRoles(); setDefaultThreshold(); render();
-}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=(n,d=3)=>n==null?'—':Number(n).toLocaleString(undefined,{maximumFractionDigits:d});
+const compact=n=>n==null?'—':Intl.NumberFormat(undefined,{notation:'compact',maximumFractionDigits:2}).format(n);
+const money=n=>n==null?'—':'$'+Number(n).toLocaleString(undefined,{maximumFractionDigits:n<0.1?5:3});
+async function load(){let err;for(const url of [DATA_REMOTE,'./data/latest.json']){try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(`${r.status}`);state.data=await r.json();break}catch(e){err=e}}if(!state.data){$('#status').textContent='Unable to load current data: '+err;return}renderRoles();setDefaultThreshold();render()}
 function role(){return state.data.roles.find(r=>r.id===state.role)||state.data.roles[0]}
-function renderRoles(){
-  $('#roles').innerHTML=state.data.roles.map(r=>`<button data-role="${r.id}">${r.label}</button>`).join('');
-  $('#roles').addEventListener('click',e=>{const b=e.target.closest('button[data-role]');if(!b)return;state.role=b.dataset.role;setDefaultThreshold();render()});
-}
-function setDefaultThreshold(){
-  const scores=state.data.models.map(m=>m.roleScores?.[state.role]?.score).filter(Number.isFinite);const max=Math.max(...scores);
-  state.minScore=Number((max*.9).toFixed(1)); $('#minScore').value=state.minScore;
-}
-function noteHtml(m){
-  const notes=[];
-  if(m.discountPercent)notes.push(`<span class="badge promo">-${m.discountPercent}%</span>`);
-  if(m.dataTraining)notes.push('<span class="badge warn">DATA USED FOR TRAINING</span>');
-  if(m.mapping?.status==='unscored')notes.push('<span class="badge">UNSCORED</span>');
-  if(m.offPeakShown)notes.push('<span class="badge">off-peak</span>');
-  return notes.join(' ');
-}
-function priceHtml(effective,list){return list!=null&&effective!=null&&list!==effective?`<span class="struck">${money(list)}</span>${money(effective)}`:money(effective)}
-function rows(){
-  const q=state.query.toLowerCase();
-  return state.data.models.filter(m=>{
-    if(q&&!m.name.toLowerCase().includes(q))return false;
-    const score=m.roleScores?.[state.role]?.score;
-    if(score==null)return state.showUnscored;
-    return score>=state.minScore;
-  }).sort((a,b)=>{
-    const ra=a.roleScores?.[state.role],rb=b.roleScores?.[state.role];
-    const va={name:a.name,score:ra?.score??-Infinity,input:a.inputPerM??Infinity,output:a.outputPerM??Infinity,cost:a.costs?.[state.basis]??Infinity,value:ra?.value?.[state.basis]??-Infinity};
-    const vb={name:b.name,score:rb?.score??-Infinity,input:b.inputPerM??Infinity,output:b.outputPerM??Infinity,cost:b.costs?.[state.basis]??Infinity,value:rb?.value?.[state.basis]??-Infinity};
-    if(state.sort==='name')return state.dir*va.name.localeCompare(vb.name);
-    return state.dir*(va[state.sort]-vb[state.sort]);
-  });
-}
-function render(){
-  document.querySelectorAll('#roles button').forEach(b=>b.classList.toggle('active',b.dataset.role===state.role));
-  const d=state.data,r=role();
-  $('#status').innerHTML=`Snapshot <strong>${d.date}</strong> · ${d.counts.scoredRows}/${d.counts.commandCodeRows} priced rows scored · ${d.counts.scoredFamilies} benchmark families · <span class="coverage">active components 100% covered</span>`;
-  const rs=rows(); $('#empty').hidden=rs.length>0;
-  $('#rows').innerHTML=rs.map(m=>{const rr=m.roleScores?.[state.role];const un=!rr;return `<tr class="${un?'unscored':''}"><td><span class="model">${m.name}</span><span class="sub">${m.aaModel?.slug||m.mapping?.reason||''}</span></td><td class="num">${un?'—':fmt(rr.score)}</td><td class="num">${priceHtml(m.inputPerM,m.inputListPerM)}</td><td class="num">${priceHtml(m.outputPerM,m.outputListPerM)}</td><td class="num">${money(m.costs?.[state.basis])}</td><td class="num">${un?'—':fmt(rr.value?.[state.basis])}</td><td>${noteHtml(m)}</td></tr>`}).join('');
-  renderMethodology(r);
-}
-function renderMethodology(r){
-  const d=state.data;
-  const weights=Object.entries(r.weights).map(([k,w])=>`<span class="weight">${d.benchmarks[k].label} <strong>${Math.round(w*100)}%</strong></span>`).join('');
-  const details=Object.keys(r.weights).map(k=>`<li><strong>${d.benchmarks[k].label}</strong> — ${d.benchmarks[k].description} Coverage: ${d.coverage[k].present}/${d.coverage[k].total}.</li>`).join('');
-  $('#methodology').innerHTML=`<h2>${r.label} methodology</h2><p>${r.purpose}</p><div class="weights">${weights}</div><p>${r.note}</p><p><strong>Role score</strong> is the weighted mean of the components above, each normalized to 0–100. <strong>Score/$</strong> divides that role score by the selected effective CommandCode Max cost basis. Active discounts are used.</p><details><summary>Benchmark definitions and coverage</summary><ul>${details}</ul></details><details><summary>Coverage and identity rules</summary><p>Every active component must cover 100% of the scored AA model-family universe. Missing values are never imputed and weights are never renormalized. Stealth or unresolved CommandCode models remain visible as UNSCORED. Commercial variants share a verified underlying AA benchmark but retain their own CommandCode price and policy flags.</p></details>`;
-}
-$('#costBasis').addEventListener('change',e=>{state.basis=e.target.value;render()});
-$('#minScore').addEventListener('input',e=>{state.minScore=Number(e.target.value)||0;render()});
-$('#search').addEventListener('input',e=>{state.query=e.target.value;render()});
-$('#showUnscored').addEventListener('change',e=>{state.showUnscored=e.target.checked;render()});
-document.querySelector('thead').addEventListener('click',e=>{const th=e.target.closest('th[data-sort]');if(!th)return;const s=th.dataset.sort;if(state.sort===s)state.dir*=-1;else{state.sort=s;state.dir=s==='cost'||s==='input'||s==='output'?1:-1}render()});
-load();
+function codingRole(){return !!role().codingAgentEvidence}
+function renderRoles(){$('#roles').innerHTML=state.data.roles.map(r=>`<button data-role="${esc(r.id)}">${esc(r.label)}</button>`).join('');$('#roles').addEventListener('click',e=>{const b=e.target.closest('button[data-role]');if(!b)return;state.role=b.dataset.role;state.sort='value';state.dir=-1;setDefaultThreshold();render()})}
+function setDefaultThreshold(){const scores=state.data.models.map(m=>m.roleScores?.[state.role]?.score).filter(Number.isFinite);state.minScore=Number((Math.max(...scores)*.9).toFixed(1));$('#minScore').value=state.minScore}
+function basisCost(m){if(state.basis==='task')return m.taskEfficiency?.commandCodeCostPerTaskUsd;return m.tokenPrices?.[state.basis]}
+function basisValue(m){return m.roleScores?.[state.role]?.value?.[state.basis]}
+function costLabel(){return state.basis==='task'?'CC cost / task':state.basis==='input'?'Input / M':state.basis==='output'?'Output / M':'50/50 / M'}
+function valueLabel(){return state.basis==='task'?'Role score / $task':'Role score / $'}
+function noteHtml(m){const a=[];if(m.discountPercent)a.push(`<span class="badge promo">-${m.discountPercent}%</span>`);if(m.dataTraining)a.push('<span class="badge warn">DATA USED FOR TRAINING</span>');if(m.mapping?.status==='unscored')a.push('<span class="badge">UNSCORED</span>');if(m.offPeakShown)a.push('<span class="badge">off-peak</span>');return a.join(' ')}
+function sortValue(m,key){const rr=m.roleScores?.[state.role];const c=m.codingAgent;return{name:m.name,score:rr?.score??-Infinity,cost:basisCost(m)??Infinity,value:basisValue(m)??-Infinity,outputTokens:m.taskEfficiency?.tokens?.output??Infinity,codingScore:c?.indexScore??-Infinity,codingCost:c?.aaCostPerTaskUsd??Infinity,codingValue:c?.aaValuePerDollar??-Infinity,codingTokens:c?.totalTokensPerTask??Infinity,codingTime:c?.timePerTaskSec??Infinity}[key]}
+function filteredRows(){const q=state.query.toLowerCase();return state.data.models.filter(m=>{if(q&&!m.name.toLowerCase().includes(q))return false;const score=m.roleScores?.[state.role]?.score;if(score==null)return state.showUnscored;return score>=state.minScore}).sort((a,b)=>{const A=sortValue(a,state.sort),B=sortValue(b,state.sort);if(state.sort==='name')return state.dir*String(A).localeCompare(String(B));return state.dir*(A-B)})}
+function renderHead(){let h=`<tr><th data-sort="name">Model</th><th data-sort="score" class="num">Role score</th><th data-sort="cost" class="num">${costLabel()}</th><th data-sort="value" class="num">${valueLabel()}</th><th data-sort="outputTokens" class="num">Output tok / task</th>`;if(codingRole())h+=`<th data-sort="codingScore" class="num">Coding Agent Index</th><th data-sort="codingCost" class="num">Coding $ / task <span class="sub">AA API</span></th><th data-sort="codingValue" class="num">CAI / $ <span class="sub">AA API</span></th><th>Agent / harness</th>`;h+='<th>Notes</th></tr>';$('#head').innerHTML=h}
+function renderRows(){const rs=filteredRows();$('#empty').hidden=rs.length>0;$('#rows').innerHTML=rs.map(m=>{const rr=m.roleScores?.[state.role],c=m.codingAgent,un=!rr;let cells=`<td><span class="model">${esc(m.name)}</span><span class="sub">${esc(m.aaModel?.slug||m.mapping?.reason||'')}</span></td><td class="num">${un?'—':fmt(rr.score)}</td><td class="num">${money(basisCost(m))}</td><td class="num">${un?'—':fmt(basisValue(m))}</td><td class="num">${compact(m.taskEfficiency?.tokens?.output)}</td>`;if(codingRole()){cells+=`<td class="num">${fmt(c?.indexScore)}</td><td class="num">${money(c?.aaCostPerTaskUsd)}</td><td class="num">${fmt(c?.aaValuePerDollar)}</td><td>${c?`<span class="model">${esc(c.displayLabel)}</span><span class="sub">${compact(c.totalTokensPerTask)} tok · ${fmt(c.timePerTaskSec,0)}s · DeepSWE ${fmt(c.evaluations?.['deep-swe'])} · TB ${fmt(c.evaluations?.['terminal-bench-v2.1'])} · Atlas ${fmt(c.evaluations?.['swe-atlas-qna'])}</span>`:'—'}</td>`}cells+=`<td>${noteHtml(m)}</td>`;return `<tr class="${un?'unscored':''}">${cells}</tr>`}).join('')}
+function renderMethodology(r){const d=state.data;const weights=Object.entries(r.weights).map(([k,w])=>`<span class="weight">${esc(d.benchmarks[k].label)} <strong>${Math.round(w*100)}%</strong></span>`).join('');const defs=Object.keys(r.weights).map(k=>`<li><strong>${esc(d.benchmarks[k].label)}</strong> — ${esc(d.benchmarks[k].description)} Coverage: ${d.coverage[k].present}/${d.coverage[k].total}.</li>`).join('');let coding='';if(r.codingAgentEvidence)coding=`<details open><summary>Coding Agent evidence — partial coverage, not in role score</summary><p>The current AA Coding Agent Index is shown for ${d.codingAgentCoverage.present}/${d.codingAgentCoverage.total} benchmarked families. It combines DeepSWE, Terminal-Bench v2.1 and SWE-Atlas-QnA. Because coverage is not 100%, it is not mixed into the role score. The table shows AA's published API cost/task, token usage, execution time and selected agent/harness variant.</p></details>`;$('#methodology').innerHTML=`<h2>${esc(r.label)} methodology</h2><p>${esc(r.purpose)}</p><div class="weights">${weights}</div><p>${esc(r.note)}</p><p><strong>Primary value:</strong> role score divided by <strong>CommandCode-repriced cost per Intelligence Index task</strong>. Artificial Analysis' measured non-cached input, cache-read, cache-write and output token mix is repriced using today's effective CommandCode Max prices. Coverage: ${d.efficiencyCoverage.present}/${d.efficiencyCoverage.total} families.</p>${coding}<details><summary>Benchmark definitions and coverage</summary><ul>${defs}</ul></details><details><summary>Coverage and identity rules</summary><p>Every active role-score component and the primary task-cost denominator must cover 100% of the scored AA family universe. Missing values are never imputed. Stealth/unresolved models remain UNSCORED. Commercial variants share a verified underlying benchmark but retain their own CommandCode price and policy flags.</p></details>`}
+function render(){document.querySelectorAll('#roles button').forEach(b=>b.classList.toggle('active',b.dataset.role===state.role));const d=state.data;$('#status').innerHTML=`Snapshot <strong>${d.date}</strong> · ${d.counts.scoredRows}/${d.counts.commandCodeRows} priced rows scored · task efficiency <span class="coverage">${d.efficiencyCoverage.present}/${d.efficiencyCoverage.total}</span> · Coding Agent ${d.codingAgentCoverage.present}/${d.codingAgentCoverage.total}`;renderHead();renderRows();renderMethodology(role())}
+$('#costBasis').addEventListener('change',e=>{state.basis=e.target.value;state.sort='value';state.dir=-1;render()});$('#minScore').addEventListener('input',e=>{state.minScore=Number(e.target.value)||0;render()});$('#search').addEventListener('input',e=>{state.query=e.target.value;render()});$('#showUnscored').addEventListener('change',e=>{state.showUnscored=e.target.checked;render()});$('#head').addEventListener('click',e=>{const th=e.target.closest('th[data-sort]');if(!th)return;const s=th.dataset.sort;if(state.sort===s)state.dir*=-1;else{state.sort=s;state.dir=['cost','codingCost','codingTokens','codingTime'].includes(s)?1:-1}render()});load();

@@ -2,48 +2,36 @@
 
 ## Objective
 
-Produce a daily, auditable comparison of **role-relevant benchmark quality versus effective CommandCode Max cost**.
+Daily, auditable **role benchmark quality vs effective CommandCode Max cost per task**.
 
-## Extraction
+## Sources via OpenCLI
 
-OpenCLI is the extraction interface. Each source gets a read-only adapter and follows OpenCLI's preferred strategy hierarchy: public structured source first, then progressively heavier mechanisms only when required.
+- `commandcode max`: current Max rows, effective promotional prices, cache prices and commercial flags.
+- `artificial-analysis models`: canonical model identity, role benchmark components and Intelligence Index per-task token/cost telemetry.
+- `artificial-analysis coding-agents`: Coding Agent variants, DeepSWE / Terminal-Bench v2.1 / SWE-Atlas-QnA, pooled tokens, API cost, execution time and harness identity.
 
-### CommandCode Max
+All current adapters use public structured/server-rendered data and require no login, cookies or browser profile.
 
-The adapter returns the current Max model rows including:
+## Identity
 
-- display name;
-- provider/model identity when exposed;
-- input, output, cache-read and cache-write prices;
-- effective promotional price;
-- promotion metadata;
-- commercial-variant markers such as Contributor, Fast or HighSpeed.
+A CommandCode row is `exact`, `exact_alias`, `commercial_variant`, or `unscored`. No fuzzy match alone is sufficient to publish a benchmark mapping.
 
-### Artificial Analysis
+Coding Agent host IDs are normalized conservatively: provider/endpoint wrappers are removed only when the remaining identifier exactly matches a scored AA family.
 
-The adapter returns benchmarked model families and the benchmark components required by the active role methodology. Identity must be based on canonical model identifiers/URLs where possible, never fuzzy name matching alone.
+## Daily run
 
-## Identity mapping
+```text
+GitHub Actions
+ -> OpenCLI extraction
+ -> verified identity mapping
+ -> 100% role-component coverage gate
+ -> 100% universal task-efficiency coverage gate
+ -> CommandCode repricing of measured task token mix
+ -> role scores and score/$task
+ -> optional partial Coding Agent evidence
+ -> immutable dated snapshot + latest.json
+```
 
-A CommandCode row maps to one of:
+## Fail closed
 
-- `exact`: direct underlying-model identity confirmed;
-- `commercial_variant`: same benchmarked underlying model, different CommandCode commercial row/price;
-- `unscored`: stealth or identity/benchmark not verifiable.
-
-`unscored` rows remain visible in output but never receive proxy benchmark values.
-
-## Daily update
-
-The scheduler is intentionally separate from OpenCLI. A daily job invokes the adapters, validates the data, writes a dated snapshot and rebuilds the static site. OpenCLI extracts; the scheduler schedules.
-
-## Failure behavior
-
-A run fails closed if:
-
-- a required source cannot be read;
-- a benchmark component selected for scoring is below 100% coverage;
-- a scored CommandCode row lacks a verified underlying benchmark family;
-- prices or benchmark values cannot be parsed deterministically.
-
-The last known-good public snapshot remains available.
+The daily run fails if a required source cannot be read, an active role component falls below 100%, task-efficiency coverage falls below 100%, or a scored CommandCode row loses verified identity. Partial Coding Agent coverage does not fail the universal snapshot because that evidence is never mixed into the universal role score.
