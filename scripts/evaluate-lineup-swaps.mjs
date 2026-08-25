@@ -73,6 +73,11 @@ for(const modeId of ['quality','balanced','budget']){
   for(const role of roles){
     const currentName=current[role];
     const currentModel=modelByName.get(currentName); if(!currentModel) fail(`${modeId}/${role}: current model missing`);
+    const policyLockReason=policy.swapEvaluation?.lockedRoles?.[role]||null;
+    if(policyLockReason){
+      lockedRoles.push({role,model:currentName,classification:'review-only',reason:policyLockReason});
+      continue;
+    }
     if(mode.externalOverrides?.[role]){
       lockedRoles.push({role,model:currentName,classification:'review-only',reason:'external-evidence override'});
       continue;

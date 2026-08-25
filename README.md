@@ -77,11 +77,12 @@ The top-page recommendations are a **portfolio assignment**, not eight independe
 Current policy highlights:
 
 - the same exact model may occupy two seats when useful; commercial rows sharing the same `aaModel.slug` may also coexist; diversity is enforced at the **family** level, not the model/benchmark-identity level;
-- each lineup must span **5–8 distinct model families**; 7 or 8 are fully acceptable and are not penalized versus 6;
+- each lineup must span **5–8 distinct model families**; 6, 7 or 8 are all acceptable and no manual lineup is forced toward a particular target;
 - a family may occupy at most **2 seats**;
 - Balanced requires Claude Opus 5, GPT-5.6 Luna and GPT-5.6 Sol somewhere in the eight-seat portfolio; their roles are policy decisions, not permanent model identities;
 - GPT-5.6 Sol is forbidden for normal `implementer`; routine implementation is intentionally assigned to a cheaper high-quality model, while Sol is reserved for `implementer-heavy` / escalation-class work;
 - Claude Sonnet 5 remains eligible for portfolio selection but is not mandatory;
+- Security Reviewer cards use an explicit tier policy because current public cybersecurity benchmarks do not provide sufficiently broad, comparable coverage across this model universe: Quality → Claude Fable 5, Balanced → Claude Opus 5, Budget → Muse Spark 1.2 Contributor; GPT-5.6 Sol is the code-heavy/critical escalation option;
 - Budget scored picks must retain at least 80% of the best role quality;
 - free unresolved rows may enter only through an explicit external-evidence override and remain excluded from the scored Quality/Balanced tables.
 

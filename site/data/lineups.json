@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 6,
   "snapshotDate": "2026-08-25",
   "generatedAt": "2026-08-25T07:10:43.541Z",
   "policy": {
@@ -11,11 +11,11 @@
   },
   "modes": {
     "quality": {
-      "description": "Price-free portfolio optimized for role quality while spanning 5–8 model families, with no exact model repeated.",
+      "description": "Price-free portfolio optimized for capability, with a deliberate premium-security override: Claude Fable 5 is the primary Security Reviewer. The portfolio spans six model families.",
       "qualityFloorFraction": null,
       "mandatoryModels": [],
       "forbiddenAssignments": [],
-      "familyCount": 7,
+      "familyCount": 6,
       "selections": {
         "architect": {
           "model": "Claude Opus 5",
@@ -46,6 +46,20 @@
           "evidenceUrls": []
         },
         "security-reviewer": {
+          "model": "Claude Fable 5",
+          "family": "Claude 5",
+          "benchmarkIdentity": "aa:claude-fable-5",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 64.205,
+          "balancedScore": 19.795,
+          "costPerTaskUsd": 3.243464,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "code-reviewer": {
           "model": "Muse Spark 1.2",
           "family": "Muse 1.2",
           "benchmarkIdentity": "aa:muse-spark-1-2",
@@ -53,23 +67,9 @@
           "badges": [],
           "free": false,
           "mappingStatus": "exact",
-          "quality": 61.72,
-          "balancedScore": 154.609,
+          "quality": 60.099,
+          "balancedScore": 150.549,
           "costPerTaskUsd": 0.3992,
-          "reason": null,
-          "evidenceUrls": []
-        },
-        "code-reviewer": {
-          "model": "Grok 4.6",
-          "family": "Grok 4.6",
-          "benchmarkIdentity": "aa:grok-4-6",
-          "source": "scored",
-          "badges": [],
-          "free": false,
-          "mappingStatus": "exact",
-          "quality": 57.894,
-          "balancedScore": 69.196,
-          "costPerTaskUsd": 0.836671,
           "reason": null,
           "evidenceUrls": []
         },
@@ -116,23 +116,23 @@
           "evidenceUrls": []
         },
         "researcher": {
-          "model": "Claude Fable 5",
-          "family": "Claude 5",
-          "benchmarkIdentity": "aa:claude-fable-5",
+          "model": "Qwen 3.8 27B",
+          "family": "Qwen 3.8",
+          "benchmarkIdentity": "aa:qwen3-8-27b",
           "source": "scored",
           "badges": [],
           "free": false,
           "mappingStatus": "exact",
-          "quality": 67.229,
-          "balancedScore": 20.728,
-          "costPerTaskUsd": 3.243464,
+          "quality": 56.3,
+          "balancedScore": 243.7,
+          "costPerTaskUsd": 0.231022,
           "reason": null,
           "evidenceUrls": []
         }
       }
     },
     "balanced": {
-      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. The portfolio must span 5–8 model families; Opus 5, Luna and Sol are mandatory, with routine implementation assigned to a cheaper high-quality model and Sol reserved for heavy work.",
+      "description": "Portfolio balancing role fit, quality and cost, with a deliberate premium-security override: Claude Opus 5 handles Security Reviewer. Routine implementation stays on Muse; Sol remains heavy/escalation. The portfolio spans six model families.",
       "qualityFloorFraction": null,
       "mandatoryModels": [
         "Claude Opus 5",
@@ -145,7 +145,7 @@
           "model": "GPT-5.6 Sol"
         }
       ],
-      "familyCount": 7,
+      "familyCount": 6,
       "selections": {
         "architect": {
           "model": "Claude Opus 5",
@@ -176,16 +176,16 @@
           "evidenceUrls": []
         },
         "security-reviewer": {
-          "model": "MiMo V2.5",
-          "family": "MiMo V2.5",
-          "benchmarkIdentity": "aa:mimo-v2-5-0424",
+          "model": "Claude Opus 5",
+          "family": "Claude 5",
+          "benchmarkIdentity": "aa:claude-opus-5",
           "source": "scored",
           "badges": [],
           "free": false,
-          "mappingStatus": "exact_alias",
-          "quality": 56.638,
-          "balancedScore": 5467.516,
-          "costPerTaskUsd": 0.010359,
+          "mappingStatus": "exact",
+          "quality": 62.415,
+          "balancedScore": 26.709,
+          "costPerTaskUsd": 2.336859,
           "reason": null,
           "evidenceUrls": []
         },
@@ -262,7 +262,7 @@
       }
     },
     "budget": {
-      "description": "Low-cost portfolio spanning 5–8 model families. The same model may occupy two seats when useful, subject to the two-seat-per-family cap. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "description": "Low-cost six-family portfolio. Muse Spark 1.2 Contributor is reused for Strategist and Security Reviewer; GPT-5.6 Luna is reused for Implementer and Implementer Heavy. Scored picks remain above the 80% role-quality floor; free unresolved models require explicit external-evidence overrides.",
       "qualityFloorFraction": 0.8,
       "mandatoryModels": [],
       "forbiddenAssignments": [
@@ -271,7 +271,7 @@
           "model": "GPT-5.6 Sol"
         }
       ],
-      "familyCount": 7,
+      "familyCount": 6,
       "selections": {
         "architect": {
           "model": "Tencent Hy3",
@@ -302,16 +302,16 @@
           "evidenceUrls": []
         },
         "security-reviewer": {
-          "model": "Inkling Small",
-          "family": "Inkling",
-          "benchmarkIdentity": "aa:inkling-small",
+          "model": "Muse Spark 1.2 Contributor",
+          "family": "Muse 1.2",
+          "benchmarkIdentity": "aa:muse-spark-1-2",
           "source": "scored",
           "badges": [],
           "free": false,
-          "mappingStatus": "exact",
-          "quality": 56.14,
-          "balancedScore": 546.066,
-          "costPerTaskUsd": 0.102808,
+          "mappingStatus": "commercial_variant",
+          "quality": 61.72,
+          "balancedScore": 3676.874,
+          "costPerTaskUsd": 0.016786,
           "reason": null,
           "evidenceUrls": []
         },
@@ -349,16 +349,16 @@
           "evidenceUrls": []
         },
         "implementer-heavy": {
-          "model": "Muse Spark 1.2 Contributor",
-          "family": "Muse 1.2",
-          "benchmarkIdentity": "aa:muse-spark-1-2",
+          "model": "GPT-5.6 Luna",
+          "family": "GPT-5.6",
+          "benchmarkIdentity": "aa:gpt-5-6-luna",
           "source": "scored",
           "badges": [],
           "free": false,
-          "mappingStatus": "commercial_variant",
-          "quality": 56.987,
-          "balancedScore": 3394.912,
-          "costPerTaskUsd": 0.016786,
+          "mappingStatus": "exact",
+          "quality": 52.464,
+          "balancedScore": 1113.224,
+          "costPerTaskUsd": 0.047128,
           "reason": null,
           "evidenceUrls": []
         },

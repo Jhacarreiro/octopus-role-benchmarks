@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 6,
   "familyByModel": {
     "Claude Fable 5": "Claude 5",
     "Claude Opus 5": "Claude 5",
@@ -22,20 +22,20 @@
   },
   "modes": {
     "quality": {
-      "description": "Price-free portfolio optimized for role quality while spanning 5–8 model families, with no exact model repeated.",
+      "description": "Price-free portfolio optimized for capability, with a deliberate premium-security override: Claude Fable 5 is the primary Security Reviewer. The portfolio spans six model families.",
       "selections": {
         "architect": "Claude Opus 5",
         "strategist": "GLM-5.3",
-        "security-reviewer": "Muse Spark 1.2",
-        "code-reviewer": "Grok 4.6",
+        "security-reviewer": "Claude Fable 5",
+        "code-reviewer": "Muse Spark 1.2",
         "implementer": "Kimi K3",
         "implementer-heavy": "GPT-5.6 Sol",
         "synthesizer": "Qwen 3.8 27B",
-        "researcher": "Claude Fable 5"
+        "researcher": "Qwen 3.8 27B"
       }
     },
     "balanced": {
-      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. The portfolio must span 5–8 model families; Opus 5, Luna and Sol are mandatory, with routine implementation assigned to a cheaper high-quality model and Sol reserved for heavy work.",
+      "description": "Portfolio balancing role fit, quality and cost, with a deliberate premium-security override: Claude Opus 5 handles Security Reviewer. Routine implementation stays on Muse; Sol remains heavy/escalation. The portfolio spans six model families.",
       "mandatoryModels": [
         "Claude Opus 5",
         "GPT-5.6 Luna",
@@ -50,7 +50,7 @@
       "selections": {
         "architect": "Claude Opus 5",
         "strategist": "Qwen 3.8 27B",
-        "security-reviewer": "MiMo V2.5",
+        "security-reviewer": "Claude Opus 5",
         "code-reviewer": "GPT-5.6 Luna",
         "implementer": "Muse Spark 1.2 Contributor",
         "implementer-heavy": "GPT-5.6 Sol",
@@ -59,7 +59,7 @@
       }
     },
     "budget": {
-      "description": "Low-cost portfolio spanning 5–8 model families. The same model may occupy two seats when useful, subject to the two-seat-per-family cap. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "description": "Low-cost six-family portfolio. Muse Spark 1.2 Contributor is reused for Strategist and Security Reviewer; GPT-5.6 Luna is reused for Implementer and Implementer Heavy. Scored picks remain above the 80% role-quality floor; free unresolved models require explicit external-evidence overrides.",
       "qualityFloorFraction": 0.8,
       "forbiddenAssignments": [
         {
@@ -70,10 +70,10 @@
       "selections": {
         "architect": "Tencent Hy3",
         "strategist": "Muse Spark 1.2 Contributor",
-        "security-reviewer": "Inkling Small",
+        "security-reviewer": "Muse Spark 1.2 Contributor",
         "code-reviewer": "Laguna S 2.1",
         "implementer": "GPT-5.6 Luna",
-        "implementer-heavy": "Muse Spark 1.2 Contributor",
+        "implementer-heavy": "GPT-5.6 Luna",
         "synthesizer": "MiMo V2.5",
         "researcher": "Ox Alpha"
       },
@@ -126,8 +126,18 @@
     },
     "externalOverrideRoles": "review-only",
     "multiSeatRotations": "review-only",
-    "diversityRule": "auto-safe candidates must preserve or increase the current distinct-family count"
+    "diversityRule": "auto-safe candidates must preserve or increase the current distinct-family count",
+    "lockedRoles": {
+      "security-reviewer": "security-tier policy anchor; changes require explicit human review"
+    }
   },
   "allowRepeatedModel": true,
-  "allowRepeatedBenchmarkIdentity": true
+  "allowRepeatedBenchmarkIdentity": true,
+  "securityTiering": {
+    "rationale": "Current public cybersecurity benchmarks do not have sufficient comparable coverage across the benchmark universe, so security routing uses an explicit capability-tier policy rather than a synthetic Security* score.",
+    "quality": "Claude Fable 5",
+    "balanced": "Claude Opus 5",
+    "budget": "Muse Spark 1.2 Contributor",
+    "escalation": "GPT-5.6 Sol for code-heavy or critical second-opinion security work"
+  }
 }
