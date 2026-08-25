@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "install-adapters": "node scripts/install-opencli-adapters.mjs",
-    "update": "node scripts/update.mjs",
+    "update": "node scripts/update.mjs && node scripts/reverse-validate-cai.mjs",
     "check": "node scripts/validate.mjs",
     "test": "node scripts/validate.mjs"
   },

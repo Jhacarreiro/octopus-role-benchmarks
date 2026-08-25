@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-08-25",
+  "observedFamilies": 22,
+  "method": "50% ridge + 50% inverse-distance 5NN",
+  "vendorHoldout": {
+    "n": 22,
+    "groups": 9,
+    "ridge": {
+      "mae": 6.0239,
+      "rmse": 7.6959,
+      "spearman": 0.7346,
+      "pairwiseAccuracy": 0.7576
+    },
+    "knn": {
+      "mae": 5.3138,
+      "rmse": 7.9756,
+      "spearman": 0.7617,
+      "pairwiseAccuracy": 0.7879
+    },
+    "ensemble": {
+      "mae": 5.0598,
+      "rmse": 7.1226,
+      "spearman": 0.8396,
+      "pairwiseAccuracy": 0.8095
+    }
+  },
+  "randomHoldout": {
+    "repetitions": 500,
+    "testFraction": 0.3,
+    "mae": {
+      "median": 4.9105,
+      "p90": 7.569
+    },
+    "spearman": {
+      "median": 0.8214,
+      "p10": 0.6071
+    },
+    "pairwiseAccuracy": {
+      "median": 0.8571
+    }
+  },
+  "finalRanking": {
+    "implementer": {
+      "mae": 7.2587,
+      "rmse": 15.3737,
+      "spearman": 0.9955,
+      "pairwiseAccuracy": 0.987,
+      "top5Hit": 1,
+      "qualityMae": 1.6866
+    },
+    "implementer-heavy": {
+      "mae": 7.2587,
+      "rmse": 15.3737,
+      "spearman": 0.9989,
+      "pairwiseAccuracy": 0.9957,
+      "top5Hit": 1,
+      "qualityMae": 1.6866
+    },
+    "code-reviewer": {
+      "mae": 7.2587,
+      "rmse": 15.3737,
+      "spearman": 0.9989,
+      "pairwiseAccuracy": 0.9957,
+      "top5Hit": 1,
+      "qualityMae": 1.6866
+    }
+  },
+  "guardrails": {
+    "ensembleMaeMax": 8,
+    "ensembleSpearmanMin": 0.7,
+    "finalRankingSpearmanMin": 0.95,
+    "finalRankingTop5HitMin": 0.8
+  }
+}

@@ -2,32 +2,44 @@
 
 ## Objective
 
-Compare **role-relevant benchmark quality against the effective cost of completing benchmark work**. The project does not publish a universal "best model".
+Produce one transparent **Ranking Value** for every scored CommandCode Max row and every Octopus role.
+
+The ranking is not a claim that one model is universally best. It is a reproducible role-specific estimate of benchmark quality per effective cost of completing comparable work.
 
 ## Universe and identity
 
-The daily universe is the current CommandCode **Max** table. Commercial rows remain distinct because price and policy can differ even when the underlying model is identical.
+The daily universe is the current CommandCode **Max** table. Commercial variants remain distinct because price and policy can differ even when the underlying model family is the same.
 
-Each CommandCode row maps to Artificial Analysis as `exact`, `exact_alias`, `commercial_variant`, or `unscored`. Stealth, anonymous or unresolved models receive no proxy benchmark.
+Each CommandCode row maps to Artificial Analysis as `exact`, `exact_alias`, `commercial_variant`, or `unscored`. Stealth, anonymous or unresolved models receive no fabricated benchmark values.
 
-## Role-score coverage rule
+## Universal Role Score
 
-Every component inside a role score must cover **100% of the scored underlying AA model-family universe** for that snapshot. There is no imputation, zero filling or weight renormalization around missing data.
+Each role has a weighted score built only from benchmark components with **100% coverage** of the scored model-family universe.
 
-Active universal components are GDPval-AA v2, SciCode, Humanity's Last Exam, GPQA Diamond, AA-LCR, AA-Omniscience Accuracy and AA-Omniscience Non-Hallucination. Terminal-Bench v2.1 and Agentic Index are not inserted into universal role weights while coverage is incomplete.
+Current components:
 
-## Primary cost metric: CommandCode Cost per Task
+- GDPval-AA v2;
+- SciCode;
+- Humanity's Last Exam;
+- GPQA Diamond;
+- AA-LCR;
+- AA-Omniscience Accuracy;
+- AA-Omniscience Non-Hallucination.
 
-Price per million tokens is not the primary denominator because models can consume very different token volumes for the same benchmark task.
+Weights are machine-readable in [`config/roles.json`](../config/roles.json). Missing values are never imputed inside the Universal Role Score and weights are never renormalized around missing data.
+
+## CommandCode Cost per Task
+
+Price per million tokens is not the primary denominator because different models can consume very different token volumes for the same benchmark task.
 
 Artificial Analysis publishes measured Intelligence Index per-task usage. The pipeline derives:
 
 - non-cached input tokens;
 - cache-read tokens;
 - cache-write tokens;
-- output tokens, including reasoning where billed as output.
+- output tokens, including reasoning when billed as output.
 
-Those volumes are repriced using current effective CommandCode Max prices:
+The same measured token mix is repriced using current effective CommandCode Max rates:
 
 ```text
 CC task cost =
@@ -37,19 +49,86 @@ CC task cost =
 + output_tokens           × CC_output_price
 ```
 
-Rates are per million tokens. If CommandCode exposes no separate cache-read or cache-write rate, normal input price is used rather than assuming caching is free.
+Rates are converted from per-million-token prices. If CommandCode exposes no separate cache rate, normal input price is used rather than assuming cache usage is free.
 
-The task-cost denominator has the same **100% coverage requirement** as the role score.
+The task-cost denominator must have **100% coverage** of the scored model-family universe.
+
+## Ranking formula
+
+For non-coding roles:
 
 ```text
-Role value = Role score / CommandCode Cost per Task
+Ranking Value = Universal Role Score / CommandCode Cost per Task
 ```
 
-Input/output/50-50 price-per-million ratios remain available only as diagnostic views.
+For `implementer`, `implementer-heavy` and `code-reviewer`:
+
+```text
+Coding Quality = 2/3 Universal Role Score + 1/3 CAI*
+Ranking Value  = Coding Quality / CommandCode Cost per Task
+```
+
+The 1/3 CAI weight was reverse-validated against observed Coding Agent families. It materially adds agentic-coding information while leaving the final ranking robust to estimation error.
+
+## CAI*: observed when available, estimated otherwise
+
+Artificial Analysis Coding Agent coverage does not yet span the complete Max universe. To avoid discarding this signal, the project defines `CAI*`:
+
+```text
+CAI* = observed CAI, if available
+CAI* = estimated CAI, otherwise
+```
+
+The estimator is:
+
+```text
+Estimated CAI = 50% Ridge + 50% inverse-distance 5NN
+```
+
+### Ridge
+
+Ridge regression uses λ=1 and standardized features:
+
+- SciCode;
+- GPQA Diamond;
+- Humanity's Last Exam;
+- AA-LCR;
+- GDPval-AA v2;
+- AA-Omniscience Accuracy;
+- AA-Omniscience Reliability;
+- log(Output Tokens per Intelligence Index Task).
+
+### 5-nearest-neighbours
+
+5NN uses standardized:
+
+- SciCode;
+- GPQA Diamond;
+- Humanity's Last Exam;
+- AA-LCR.
+
+Distance is Euclidean and neighbour weights are `1 / distance`.
+
+Only unique model families with observed CAI are training examples. CommandCode price variants such as Fast, HighSpeed or Contributor never create duplicate training rows.
+
+A simple previous-generation/lineage proxy was considered but rejected during experimentation because reverse validation was materially worse than the global+local ensemble.
+
+## Reverse validation
+
+The estimator is validated every daily run. See [`cai-estimation-validation.md`](cai-estimation-validation.md) for the current generated report.
+
+The hardest check is **leave-one-vendor-out**: an entire vendor/family group is removed before prediction. The pipeline also runs 500 deterministic random 30% holdouts and measures the impact of estimated CAI on the final coding-role ranking.
+
+Current fail-closed guardrails:
+
+- leave-one-vendor-out ensemble MAE ≤ 8 CAI points;
+- estimator Spearman ≥ 0.70;
+- final coding-role ranking Spearman ≥ 0.95;
+- final Top-5 recovery ≥ 80%.
+
+If these fail, the daily update does not publish a new snapshot.
 
 ## Role weights
-
-All active components are represented on a 0–100 scale. Machine-readable weights live in [`config/roles.json`](../config/roles.json).
 
 ### Architect
 GDPval-AA v2 40% · AA-LCR 25% · GPQA Diamond 20% · Humanity's Last Exam 15%.
@@ -60,16 +139,14 @@ GDPval-AA v2 40% · AA-LCR 20% · AA-Omniscience Accuracy 20% · AA-Omniscience 
 ### Security Reviewer
 SciCode 30% · GPQA Diamond 25% · Humanity's Last Exam 20% · AA-Omniscience Non-Hallucination 15% · AA-LCR 10%.
 
-This remains an explicit proxy methodology because no dedicated security benchmark currently satisfies the project's universal coverage rule.
-
 ### Code Reviewer
-SciCode 45% · GPQA Diamond 20% · AA-LCR 15% · AA-Omniscience Non-Hallucination 10% · Humanity's Last Exam 10%.
+SciCode 45% · GPQA Diamond 20% · AA-LCR 15% · AA-Omniscience Non-Hallucination 10% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.
 
 ### Implementer
-SciCode 60% · GPQA Diamond 15% · AA-LCR 15% · Humanity's Last Exam 10%.
+SciCode 60% · GPQA Diamond 15% · AA-LCR 15% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.
 
 ### Implementer Heavy
-SciCode 45% · GDPval-AA v2 25% · AA-LCR 20% · GPQA Diamond 10%.
+SciCode 45% · GDPval-AA v2 25% · AA-LCR 20% · GPQA Diamond 10%, then blended 2/3 with 1/3 CAI*.
 
 ### Synthesizer
 AA-LCR 45% · AA-Omniscience Accuracy 20% · AA-Omniscience Non-Hallucination 20% · GDPval-AA v2 15%.
@@ -77,36 +154,16 @@ AA-LCR 45% · AA-Omniscience Accuracy 20% · AA-Omniscience Non-Hallucination 20
 ### Researcher
 AA-LCR 30% · GDPval-AA v2 25% · AA-Omniscience Accuracy 20% · GPQA Diamond 15% · Humanity's Last Exam 10%.
 
-## Coding Agent evidence
+## Transparency
 
-For `implementer`, `implementer-heavy` and `code-reviewer`, the site additionally displays the Artificial Analysis Coding Agent Index when a safe model mapping exists.
+The public snapshot preserves, for every scored model row:
 
-The current Coding Agent Index v1.4 combines:
+- source model-family identity;
+- Universal Role Score;
+- CommandCode Cost per Task;
+- `CAI*` value and whether it was observed or estimated;
+- Ridge and 5NN component estimates for estimated rows;
+- final coding-adjusted quality;
+- final Ranking Value.
 
-- DeepSWE — long-horizon software engineering;
-- Terminal-Bench v2.1 — agentic terminal execution;
-- SWE-Atlas-QnA — repository question answering.
-
-The site also displays AA's pooled API cost/task, tokens/task, execution time and selected agent/harness variant.
-
-### Why it is not inside the role score
-
-Coding Agent coverage is lower than the project's 100% threshold for the full scored Max universe. Mixing it into the role score would violate the comparability rule. It therefore appears as **partial evidence**, clearly separated from the universal role score and CC Cost/Task ratio.
-
-### Variant selection
-
-When multiple Coding Agent rows map to the same underlying model, the deterministic order is:
-
-1. AA `highlighted` variant;
-2. AA `default` variant;
-3. highest published Coding Agent Index score.
-
-The selected agent/harness label is always shown.
-
-### Why Coding Agent cost is not repriced to CommandCode
-
-AA's public coding telemetry exposes input/cache/output aggregates, but those fields cannot currently be recombined with sufficient confidence to reproduce published coding `costUsd` across providers without risking double counting. Until that is possible, coding-specific cost shown is AA's own published pay-per-token API cost/task. It is labelled as such and is not the primary value denominator.
-
-## Reproducibility
-
-OpenCLI adapters extract all public source data. A scheduled GitHub Action runs daily, validates coverage, writes an immutable dated snapshot and updates `data/latest.json` only after all required checks pass.
+The homepage intentionally displays only the final Ranking Value. The intermediate values remain public in JSON and in this methodology so the ranking can be audited without cluttering the main view.

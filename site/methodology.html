@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Methodology · Octopus Role Benchmarks</title>
+  <meta name="description" content="Transparent methodology and reverse validation for Octopus Role Benchmarks.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body><main>
+<header><div><h1>Methodology</h1><p>How one Ranking Value is produced for every Octopus role.</p></div><div class="header-links"><a class="repo" href="./">Ranking</a><a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">GitHub</a></div></header>
+<div id="methodStatus" class="status">Loading methodology…</div>
+<section class="methodology prose">
+  <h2>One ranking value</h2>
+  <p>Every scored CommandCode Max row receives one value. Higher is better.</p>
+  <div class="formula"><strong>Non-coding roles</strong><code>Ranking Value = Universal Role Score / CommandCode Cost per Task</code></div>
+  <div class="formula"><strong>Coding roles</strong><code>Ranking Value = (⅔ Universal Role Score + ⅓ CAI*) / CommandCode Cost per Task</code></div>
+  <p>The coding adjustment applies only to <strong>Implementer</strong>, <strong>Implementer Heavy</strong> and <strong>Code Reviewer</strong>.</p>
+</section>
+<section id="coverage" class="methodology"></section>
+<section class="methodology prose">
+  <h2>CommandCode Cost per Task</h2>
+  <p>Price per million tokens is not used as the primary denominator. Artificial Analysis measures the token mix consumed per Intelligence Index task. Those measured non-cached input, cache-read, cache-write and output tokens are repriced with the current effective CommandCode Max rates.</p>
+  <code class="formula-code">task cost = input tokens × CC input + cache-read × CC cache-read + cache-write × CC cache-write + output × CC output</code>
+  <p>If CommandCode exposes no separate cache rate, normal input price is used. Active CommandCode promotions are retained.</p>
+</section>
+<section class="methodology prose">
+  <h2>CAI*: observed when possible, estimated otherwise</h2>
+  <p id="caiCounts"></p>
+  <p>For missing Coding Agent Index values, the estimate is deliberately simple:</p>
+  <code class="formula-code">CAI* = 50% Ridge prediction + 50% inverse-distance 5NN prediction</code>
+  <p><strong>Ridge (λ=1)</strong> uses SciCode, GPQA, HLE, LCR, GDPval, Omniscience Accuracy, Omniscience Reliability and log(Output Tokens/Task). <strong>5NN</strong> uses SciCode, GPQA, HLE and LCR, standardized across the observed CAI training set, with Euclidean distance and inverse-distance weighting over the five nearest models.</p>
+  <p>The estimator is trained only on unique model families with observed AA Coding Agent results. Commercial CommandCode variants never count as extra training examples.</p>
+</section>
+<section id="validation" class="methodology"></section>
+<section id="rolesMethod" class="methodology"></section>
+<section class="methodology prose">
+  <h2>Coverage and failure rules</h2>
+  <p>All components of the Universal Role Score, CommandCode Cost per Task and final CAI* must cover 100% of the scored model-family universe. Stealth/unresolved rows remain visible as UNSCORED. The daily job also reruns reverse validation and fails closed if estimator/ranking guardrails are breached.</p>
+  <p>Raw model mappings, observed/estimated CAI*, Ridge/5NN components, role scores, task costs and final Ranking Values are all preserved in the public JSON snapshot.</p>
+</section>
+</main><script src="./methodology.js" defer></script></body></html>

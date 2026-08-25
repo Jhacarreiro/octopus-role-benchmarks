@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { fitCaiEstimator, predictCai, rowFromModelFamily, RIDGE_FEATURES, KNN_FEATURES, RIDGE_LAMBDA, KNN_K, CAI_BLEND, CODING_ROLE_CAI_WEIGHT } from './cai-estimator.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');
@@ -77,13 +78,48 @@ const codingBySlug=new Map();
 for(const row of codingRows){const base=codingHostBase(row.hostModelSlug);if(!slugSet.has(base))continue;codingBySlug.set(base,betterCoding(codingBySlug.get(base),row))}
 const codingCoverage={total:slugs.length,present:codingBySlug.size,ratio:round(codingBySlug.size/slugs.length,6),missing:slugs.filter(s=>!codingBySlug.has(s))};
 
+function benchmarksForSource(source){
+  const out={};
+  for(const key of activeBenchmarks) out[key]=scaleBenchmark(key,source);
+  return out;
+}
+const familyRows=slugs.map(slug=>{
+  const source=aa.get(slug);
+  const benchmarks=benchmarksForSource(source);
+  const observed=codingBySlug.get(slug);
+  return rowFromModelFamily(slug,benchmarks,source.intelligenceTask.tokens.output,observed?round(observed.indexScore*100,3):null);
+});
+const observedCaiRows=familyRows.filter(r=>r.cai!=null);
+const caiEstimator=fitCaiEstimator(observedCaiRows);
+const caiBySlug=new Map();
+for(const row of familyRows){
+  if(row.cai!=null){
+    caiBySlug.set(row.slug,{value:round(row.cai,3),source:'observed'});
+  }else{
+    const pred=predictCai(caiEstimator,row);
+    caiBySlug.set(row.slug,{value:round(pred.estimate,3),source:'estimated',ridge:round(pred.ridge,3),knn:round(pred.knn,3)});
+  }
+}
+const caiStarCoverage={total:slugs.length,present:caiBySlug.size,ratio:round(caiBySlug.size/slugs.length,6),observed:observedCaiRows.length,estimated:slugs.length-observedCaiRows.length};
+if(caiStarCoverage.present!==caiStarCoverage.total) throw new Error(`CAI* coverage failure: ${caiStarCoverage.present}/${caiStarCoverage.total}`);
+
 const models=mapped.map(row=>{
   const source=row.mapping.slug?aa.get(row.mapping.slug):null;
-  const benchmarks={};if(source)for(const key of activeBenchmarks)benchmarks[key]=scaleBenchmark(key,source);
+  const benchmarks=source?benchmarksForSource(source):{};
   const tokenPrices=tokenPriceBases(row);
   const taskCostUsd=source?repriceTask(source.intelligenceTask?.tokens,row):null;
+  const caiStar=source?caiBySlug.get(source.slug):null;
   const roleScores={};
-  if(source){for(const role of roles.roles){let score=0;for(const [key,w] of Object.entries(role.weights))score+=benchmarks[key]*w;score=round(score,3);roleScores[role.id]={score,value:{task:taskCostUsd===0||taskCostUsd==null?null:round(score/taskCostUsd,3),input:tokenPrices.input===0||tokenPrices.input==null?null:round(score/tokenPrices.input,3),output:tokenPrices.output===0||tokenPrices.output==null?null:round(score/tokenPrices.output,3),blended50:tokenPrices.blended50===0||tokenPrices.blended50==null?null:round(score/tokenPrices.blended50,3)}}}}
+  if(source){
+    for(const role of roles.roles){
+      let score=0;
+      for(const [key,w] of Object.entries(role.weights)) score+=benchmarks[key]*w;
+      score=round(score,3);
+      const rankingQuality=role.codingAdjusted?round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*caiStar.value,3):score;
+      const rankingValue=taskCostUsd===0||taskCostUsd==null?null:round(rankingQuality/taskCostUsd,3);
+      roleScores[role.id]={score,rankingQuality,rankingValue};
+    }
+  }
   const c=source?codingBySlug.get(source.slug):null;
   const codingAgent=c?{
     hostModelSlug:c.hostModelSlug,agent:c.agent,displayLabel:c.displayLabel,indexScore:round(c.indexScore*100,3),
@@ -93,13 +129,13 @@ const models=mapped.map(row=>{
     selection:{isHighlighted:c.isHighlighted,isDefault:c.isDefault,rule:'highlighted > default > highest index score'}
   }:null;
   if(codingAgent?.aaCostPerTaskUsd>0)codingAgent.aaValuePerDollar=round(codingAgent.indexScore/codingAgent.aaCostPerTaskUsd,3);
-  return{...row,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,aaCostPerTaskUsd:source.intelligenceTask?.aaCostUsd?.total??null,tokens:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,codingAgent,aaModel:source?{slug:source.slug,sourceUrl:source.sourceUrl}:null};
+  return{...row,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,aaCostPerTaskUsd:source.intelligenceTask?.aaCostUsd?.total??null,tokens:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:source?{slug:source.slug,sourceUrl:source.sourceUrl}:null};
 });
 const unexpectedUnscored=models.filter(x=>!x.aaModel&&!aliases[x.name]);if(unexpectedUnscored.length)throw new Error(`Unexpected unscored models: ${unexpectedUnscored.map(x=>x.name).join(', ')}`);
 const missingTaskRows=models.filter(x=>x.aaModel&&x.taskEfficiency?.commandCodeCostPerTaskUsd==null);if(missingTaskRows.length)throw new Error(`CommandCode task repricing failed: ${missingTaskRows.map(x=>x.name).join(', ')}`);
 
 const now=new Date(),date=now.toISOString().slice(0,10);
-const snapshot={schemaVersion:3,methodologyVersion:roles.schemaVersion,date,generatedAt:now.toISOString(),sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length},artificialAnalysis:{url:'https://artificialanalysis.ai/',scoredFamilies:slugs.length},codingAgentIndex:{url:'https://artificialanalysis.ai/agents/coding-agents',variants:codingRows.length}},coveragePolicy:roles.coveragePolicy,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,counts:{commandCodeRows:maxRows.length,scoredRows:models.filter(x=>x.aaModel).length,unscoredRows:models.filter(x=>!x.aaModel).length,scoredFamilies:slugs.length,codingAgentFamilies:codingBySlug.size},benchmarks:roles.benchmarks,roles:roles.roles,models};
+const snapshot={schemaVersion:4,methodologyVersion:roles.schemaVersion,date,generatedAt:now.toISOString(),sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length},artificialAnalysis:{url:'https://artificialanalysis.ai/',scoredFamilies:slugs.length},codingAgentIndex:{url:'https://artificialanalysis.ai/agents/coding-agents',variants:codingRows.length}},coveragePolicy:roles.coveragePolicy,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,estimatedFamilies:slugs.length-observedCaiRows.length},counts:{commandCodeRows:maxRows.length,scoredRows:models.filter(x=>x.aaModel).length,unscoredRows:models.filter(x=>!x.aaModel).length,scoredFamilies:slugs.length,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiEstimatedFamilies:slugs.length-observedCaiRows.length},benchmarks:roles.benchmarks,roles:roles.roles,models};
 for(const dir of [path.join(root,'data'),path.join(root,'site','data')])fs.mkdirSync(dir,{recursive:true});
 const json=JSON.stringify(snapshot,null,2)+'\n';fs.writeFileSync(path.join(root,'data',`${date}.json`),json);fs.writeFileSync(path.join(root,'data','latest.json'),json);fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
-console.log(JSON.stringify({date,...snapshot.counts,taskCoverage:`${efficiencyCoverage.present}/${efficiencyCoverage.total}`,codingAgentCoverage:`${codingCoverage.present}/${codingCoverage.total}`,coverage:Object.fromEntries(Object.entries(coverage).map(([k,v])=>[k,`${v.present}/${v.total}`])),unscored:models.filter(x=>!x.aaModel).map(x=>x.name)},null,2));
+console.log(JSON.stringify({date,...snapshot.counts,taskCoverage:`${efficiencyCoverage.present}/${efficiencyCoverage.total}`,codingAgentCoverage:`${codingCoverage.present}/${codingCoverage.total}`,caiStarCoverage:`${caiStarCoverage.present}/${caiStarCoverage.total}`,coverage:Object.fromEntries(Object.entries(coverage).map(([k,v])=>[k,`${v.present}/${v.total}`])),unscored:models.filter(x=>!x.aaModel).map(x=>x.name)},null,2));

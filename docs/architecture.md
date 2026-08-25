@@ -2,36 +2,48 @@
 
 ## Objective
 
-Daily, auditable **role benchmark quality vs effective CommandCode Max cost per task**.
+Generate one daily, auditable **Ranking Value** per CommandCode Max row and Octopus role.
 
-## Sources via OpenCLI
+## Extraction via OpenCLI
 
-- `commandcode max`: current Max rows, effective promotional prices, cache prices and commercial flags.
-- `artificial-analysis models`: canonical model identity, role benchmark components and Intelligence Index per-task token/cost telemetry.
-- `artificial-analysis coding-agents`: Coding Agent variants, DeepSWE / Terminal-Bench v2.1 / SWE-Atlas-QnA, pooled tokens, API cost, execution time and harness identity.
+- `commandcode max` — current Max catalogue, effective promotional prices, cache prices and commercial flags.
+- `artificial-analysis models` — canonical model identity, universal benchmark components and Intelligence Index per-task efficiency telemetry.
+- `artificial-analysis coding-agents` — observed Coding Agent Index variants and harness metadata.
 
 All current adapters use public structured/server-rendered data and require no login, cookies or browser profile.
 
 ## Identity
 
-A CommandCode row is `exact`, `exact_alias`, `commercial_variant`, or `unscored`. No fuzzy match alone is sufficient to publish a benchmark mapping.
+A CommandCode row is `exact`, `exact_alias`, `commercial_variant`, or `unscored`. Fuzzy matching alone is never sufficient to publish a benchmark identity.
 
-Coding Agent host IDs are normalized conservatively: provider/endpoint wrappers are removed only when the remaining identifier exactly matches a scored AA family.
+Coding Agent host IDs use explicit aliases or conservative provider-wrapper normalization. Commercial variants share benchmark-family quality/telemetry only after identity is verified, while retaining their own CommandCode price and policy flags.
 
-## Daily run
+## Ranking pipeline
 
 ```text
-GitHub Actions
- -> OpenCLI extraction
- -> verified identity mapping
- -> 100% role-component coverage gate
- -> 100% universal task-efficiency coverage gate
- -> CommandCode repricing of measured task token mix
- -> role scores and score/$task
- -> optional partial Coding Agent evidence
- -> immutable dated snapshot + latest.json
+OpenCLI sources
+ -> verified model-family mapping
+ -> 100% universal benchmark coverage gate
+ -> 100% task-efficiency coverage gate
+ -> CommandCode Cost-per-Task repricing
+ -> observed Coding Agent mapping
+ -> fit CAI estimator on unique observed families
+ -> CAI* observed/estimated to 100% coverage
+ -> reverse validation + guardrails
+ -> role quality blend
+ -> one Ranking Value
+ -> immutable dated snapshot + site data
 ```
 
-## Fail closed
+## Failure behavior
 
-The daily run fails if a required source cannot be read, an active role component falls below 100%, task-efficiency coverage falls below 100%, or a scored CommandCode row loses verified identity. Partial Coding Agent coverage does not fail the universal snapshot because that evidence is never mixed into the universal role score.
+The daily job fails closed if:
+
+- a required public source cannot be read;
+- a universal role-score component falls below 100% coverage;
+- task-efficiency coverage falls below 100%;
+- a scored CommandCode row loses verified AA identity;
+- CAI* cannot be produced for every scored family;
+- reverse-validation estimator/ranking guardrails fail.
+
+The last known-good snapshot remains public.

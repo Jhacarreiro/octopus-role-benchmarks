@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "coveragePolicy": 1.0,
   "costBasis": {
     "default": "task",
@@ -76,7 +76,8 @@
         "hle": 0.15
       },
       "note": "Prioritizes professional deliverables, long-context synthesis and hard reasoning.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "strategist",
@@ -90,7 +91,8 @@
         "gpqa": 0.1
       },
       "note": "Balances professional judgment with factuality and long-context reasoning.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "security-reviewer",
@@ -104,7 +106,8 @@
         "lcr": 0.1
       },
       "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "code-reviewer",
@@ -118,7 +121,8 @@
         "hle": 0.1
       },
       "note": "SciCode is the dominant coding signal; reasoning and context support review quality.",
-      "codingAgentEvidence": true
+      "codingAgentEvidence": true,
+      "codingAdjusted": true
     },
     {
       "id": "implementer",
@@ -131,7 +135,8 @@
         "hle": 0.1
       },
       "note": "Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe.",
-      "codingAgentEvidence": true
+      "codingAgentEvidence": true,
+      "codingAdjusted": true
     },
     {
       "id": "implementer-heavy",
@@ -144,7 +149,8 @@
         "gpqa": 0.1
       },
       "note": "Adds professional-deliverable and long-context weight to coding for larger project work.",
-      "codingAgentEvidence": true
+      "codingAgentEvidence": true,
+      "codingAdjusted": true
     },
     {
       "id": "synthesizer",
@@ -157,7 +163,8 @@
         "gdpval": 0.15
       },
       "note": "Long-context synthesis and factual reliability dominate.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "researcher",
@@ -171,7 +178,39 @@
         "hle": 0.1
       },
       "note": "Focuses on synthesis, professional research output, factual accuracy and hard reasoning.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     }
-  ]
+  ],
+  "ranking": {
+    "denominator": "commandCodeCostPerTaskUsd",
+    "codingRoles": [
+      "code-reviewer",
+      "implementer",
+      "implementer-heavy"
+    ],
+    "baseRoleWeight": 0.6666666666666666,
+    "codingAgentWeight": 0.3333333333333333,
+    "codingAgentEstimate": {
+      "method": "50% ridge + 50% inverse-distance 5NN",
+      "ridgeLambda": 1,
+      "ridgeFeatures": [
+        "scicode",
+        "gpqa",
+        "hle",
+        "lcr",
+        "gdpval",
+        "omniscienceAccuracy",
+        "omniscienceReliability",
+        "logOutputTokens"
+      ],
+      "knnK": 5,
+      "knnFeatures": [
+        "scicode",
+        "gpqa",
+        "hle",
+        "lcr"
+      ]
+    }
+  }
 }

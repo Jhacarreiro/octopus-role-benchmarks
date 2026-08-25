@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 3,
-  "methodologyVersion": 3,
-  "date": "2026-08-24",
-  "generatedAt": "2026-08-24T19:00:25.455Z",
+  "schemaVersion": 4,
+  "methodologyVersion": 4,
+  "date": "2026-08-25",
+  "generatedAt": "2026-08-25T06:09:05.556Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
@@ -14,7 +14,7 @@
     },
     "codingAgentIndex": {
       "url": "https://artificialanalysis.ai/agents/coding-agents",
-      "variants": 55
+      "variants": 56
     }
   },
   "coveragePolicy": 1,
@@ -111,12 +111,53 @@
       "step-3-7-flash"
     ]
   },
+  "caiStarCoverage": {
+    "total": 51,
+    "present": 51,
+    "ratio": 1,
+    "observed": 22,
+    "estimated": 29
+  },
+  "caiEstimator": {
+    "method": "50% ridge + 50% inverse-distance 5NN",
+    "ridge": {
+      "lambda": 1,
+      "features": [
+        "scicode",
+        "gpqa",
+        "hle",
+        "lcr",
+        "gdpval",
+        "omniscienceAccuracy",
+        "omniscienceReliability",
+        "logOutputTokens"
+      ]
+    },
+    "knn": {
+      "k": 5,
+      "features": [
+        "scicode",
+        "gpqa",
+        "hle",
+        "lcr"
+      ]
+    },
+    "blend": {
+      "ridge": 0.5,
+      "knn": 0.5
+    },
+    "codingRoleWeight": 0.3333333333333333,
+    "observedFamilies": 22,
+    "estimatedFamilies": 29
+  },
   "counts": {
     "commandCodeRows": 59,
     "scoredRows": 54,
     "unscoredRows": 5,
     "scoredFamilies": 51,
-    "codingAgentFamilies": 22
+    "codingAgentFamilies": 22,
+    "caiObservedFamilies": 22,
+    "caiEstimatedFamilies": 29
   },
   "benchmarks": {
     "gdpval": {
@@ -174,7 +215,8 @@
         "hle": 0.15
       },
       "note": "Prioritizes professional deliverables, long-context synthesis and hard reasoning.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "strategist",
@@ -188,7 +230,8 @@
         "gpqa": 0.1
       },
       "note": "Balances professional judgment with factuality and long-context reasoning.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "security-reviewer",
@@ -202,7 +245,8 @@
         "lcr": 0.1
       },
       "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "code-reviewer",
@@ -216,7 +260,8 @@
         "hle": 0.1
       },
       "note": "SciCode is the dominant coding signal; reasoning and context support review quality.",
-      "codingAgentEvidence": true
+      "codingAgentEvidence": true,
+      "codingAdjusted": true
     },
     {
       "id": "implementer",
@@ -229,7 +274,8 @@
         "hle": 0.1
       },
       "note": "Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe.",
-      "codingAgentEvidence": true
+      "codingAgentEvidence": true,
+      "codingAdjusted": true
     },
     {
       "id": "implementer-heavy",
@@ -242,7 +288,8 @@
         "gpqa": 0.1
       },
       "note": "Adds professional-deliverable and long-context weight to coding for larger project work.",
-      "codingAgentEvidence": true
+      "codingAgentEvidence": true,
+      "codingAdjusted": true
     },
     {
       "id": "synthesizer",
@@ -255,7 +302,8 @@
         "gdpval": 0.15
       },
       "note": "Long-context synthesis and factual reliability dominate.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     },
     {
       "id": "researcher",
@@ -269,7 +317,8 @@
         "hle": 0.1
       },
       "note": "Focuses on synthesis, professional research output, factual accuracy and hard reasoning.",
-      "codingAgentEvidence": false
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
     }
   ],
   "models": [
@@ -302,6 +351,7 @@
       "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "caiStar": null,
       "codingAgent": null,
       "aaModel": null
     },
@@ -334,6 +384,7 @@
       "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "caiStar": null,
       "codingAgent": null,
       "aaModel": null
     },
@@ -377,7 +428,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 35.7185,
+        "gdpval": 35.671,
         "lcr": 74.6667,
         "gpqa": 89.697,
         "hle": 33.4569,
@@ -387,77 +438,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.912,
-          "value": {
-            "task": 1507.184,
-            "input": 399.371,
-            "output": 96.4,
-            "blended50": 155.311
-          }
+          "score": 55.893,
+          "rankingQuality": 55.893,
+          "rankingValue": 1506.672
         },
         "strategist": {
-          "score": 47.171,
-          "value": {
-            "task": 1271.558,
-            "input": 336.936,
-            "output": 81.329,
-            "blended50": 131.031
-          }
+          "score": 47.152,
+          "rankingQuality": 47.152,
+          "rankingValue": 1271.046
         },
         "security-reviewer": {
           "score": 54.734,
-          "value": {
-            "task": 1475.429,
-            "input": 390.957,
-            "output": 94.369,
-            "blended50": 152.039
-          }
+          "rankingQuality": 54.734,
+          "rankingValue": 1475.429
         },
         "code-reviewer": {
           "score": 56.478,
-          "value": {
-            "task": 1522.441,
-            "input": 403.414,
-            "output": 97.376,
-            "blended50": 156.883
-          }
+          "rankingQuality": 50.41,
+          "rankingValue": 1358.87
         },
         "implementer": {
           "score": 56.542,
-          "value": {
-            "task": 1524.166,
-            "input": 403.871,
-            "output": 97.486,
-            "blended50": 157.061
-          }
+          "rankingQuality": 50.453,
+          "rankingValue": 1360.029
         },
         "implementer-heavy": {
-          "score": 54.239,
-          "value": {
-            "task": 1462.086,
-            "input": 387.421,
-            "output": 93.516,
-            "blended50": 150.664
-          }
+          "score": 54.227,
+          "rankingQuality": 48.909,
+          "rankingValue": 1318.408
         },
         "synthesizer": {
-          "score": 50.525,
-          "value": {
-            "task": 1361.97,
-            "input": 360.893,
-            "output": 87.112,
-            "blended50": 140.347
-          }
+          "score": 50.518,
+          "rankingQuality": 50.518,
+          "rankingValue": 1361.781
         },
         "researcher": {
-          "score": 54.523,
-          "value": {
-            "task": 1469.741,
-            "input": 389.45,
-            "output": 94.005,
-            "blended50": 151.453
-          }
+          "score": 54.511,
+          "rankingQuality": 54.511,
+          "rankingValue": 1469.418
         }
+      },
+      "caiStar": {
+        "value": 38.274,
+        "source": "estimated",
+        "ridge": 32.119,
+        "knn": 44.43
       },
       "codingAgent": null,
       "aaModel": {
@@ -505,7 +530,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 58.8465,
+        "gdpval": 58.761,
         "lcr": 38.3333,
         "gpqa": 93.5354,
         "hle": 46.8953,
@@ -515,77 +540,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 58.863,
-          "value": {
-            "task": 70.288,
-            "input": 19.621,
-            "output": 3.924,
-            "blended50": 6.54
-          }
+          "score": 58.829,
+          "rankingQuality": 58.829,
+          "rankingValue": 70.247
         },
         "strategist": {
-          "score": 54.756,
-          "value": {
-            "task": 65.384,
-            "input": 18.252,
-            "output": 3.65,
-            "blended50": 6.084
-          }
+          "score": 54.722,
+          "rankingQuality": 54.722,
+          "rankingValue": 65.343
         },
         "security-reviewer": {
           "score": 61.221,
-          "value": {
-            "task": 73.103,
-            "input": 20.407,
-            "output": 4.081,
-            "blended50": 6.802
-          }
+          "rankingQuality": 61.221,
+          "rankingValue": 73.103
         },
         "code-reviewer": {
           "score": 60.233,
-          "value": {
-            "task": 71.924,
-            "input": 20.078,
-            "output": 4.016,
-            "blended50": 6.693
-          }
+          "rankingQuality": 61.035,
+          "rankingValue": 72.881
         },
         "implementer": {
           "score": 59.678,
-          "value": {
-            "task": 71.261,
-            "input": 19.893,
-            "output": 3.979,
-            "blended50": 6.631
-          }
+          "rankingQuality": 60.665,
+          "rankingValue": 72.44
         },
         "implementer-heavy": {
-          "score": 58.138,
-          "value": {
-            "task": 69.422,
-            "input": 19.379,
-            "output": 3.876,
-            "blended50": 6.46
-          }
+          "score": 58.117,
+          "rankingQuality": 59.624,
+          "rankingValue": 71.196
         },
         "synthesizer": {
-          "score": 44.955,
-          "value": {
-            "task": 53.68,
-            "input": 14.985,
-            "output": 2.997,
-            "blended50": 4.995
-          }
+          "score": 44.942,
+          "rankingQuality": 44.942,
+          "rankingValue": 53.665
         },
         "researcher": {
-          "score": 54.448,
-          "value": {
-            "task": 65.016,
-            "input": 18.149,
-            "output": 3.63,
-            "blended50": 6.05
-          }
+          "score": 54.427,
+          "rankingQuality": 54.427,
+          "rankingValue": 64.991
         }
+      },
+      "caiStar": {
+        "value": 62.639,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "moonshot_kimi-k3",
@@ -605,7 +602,7 @@
           "inputTokens": 9190580.569321534,
           "cacheWriteTokens": 0,
           "outputTokens": 82651.89675516225,
-          "cacheTokens": 5031930.1468813885,
+          "cacheTokens": 5031930.14688139,
           "cacheHitRate": 0.9500000000000018,
           "totalTokens": 10383196.737883452
         },
@@ -665,7 +662,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 34.4945,
+        "gdpval": 34.426,
         "lcr": 16.1111,
         "gpqa": 89.596,
         "hle": 35.0324,
@@ -675,77 +672,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 41,
-          "value": {
-            "task": 184.705,
-            "input": 43.158,
-            "output": 10.25,
-            "blended50": 16.566
-          }
+          "score": 40.972,
+          "rankingQuality": 40.972,
+          "rankingValue": 184.579
         },
         "strategist": {
-          "score": 35.655,
-          "value": {
-            "task": 160.626,
-            "input": 37.532,
-            "output": 8.914,
-            "blended50": 14.406
-          }
+          "score": 35.628,
+          "rankingQuality": 35.628,
+          "rankingValue": 160.505
         },
         "security-reviewer": {
           "score": 47.896,
-          "value": {
-            "task": 215.772,
-            "input": 50.417,
-            "output": 11.974,
-            "blended50": 19.352
-          }
+          "rankingQuality": 47.896,
+          "rankingValue": 215.772
         },
         "code-reviewer": {
           "score": 46.956,
-          "value": {
-            "task": 211.537,
-            "input": 49.427,
-            "output": 11.739,
-            "blended50": 18.972
-          }
+          "rankingQuality": 45.451,
+          "rankingValue": 204.757
         },
         "implementer": {
           "score": 47.832,
-          "value": {
-            "task": 215.484,
-            "input": 50.349,
-            "output": 11.958,
-            "blended50": 19.326
-          }
+          "rankingQuality": 46.035,
+          "rankingValue": 207.388
         },
         "implementer-heavy": {
-          "score": 42.16,
-          "value": {
-            "task": 189.931,
-            "input": 44.379,
-            "output": 10.54,
-            "blended50": 17.034
-          }
+          "score": 42.142,
+          "rankingQuality": 42.241,
+          "rankingValue": 190.296
         },
         "synthesizer": {
-          "score": 23.862,
-          "value": {
-            "task": 107.499,
-            "input": 25.118,
-            "output": 5.966,
-            "blended50": 9.641
-          }
+          "score": 23.852,
+          "rankingQuality": 23.852,
+          "rankingValue": 107.454
         },
         "researcher": {
-          "score": 38.313,
-          "value": {
-            "task": 172.601,
-            "input": 40.329,
-            "output": 9.578,
-            "blended50": 15.48
-          }
+          "score": 38.296,
+          "rankingQuality": 38.296,
+          "rankingValue": 172.524
         }
+      },
+      "caiStar": {
+        "value": 42.44,
+        "source": "estimated",
+        "ridge": 41.467,
+        "knn": 43.414
       },
       "codingAgent": null,
       "aaModel": {
@@ -793,7 +764,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 34.4945,
+        "gdpval": 34.426,
         "lcr": 16.1111,
         "gpqa": 89.596,
         "hle": 35.0324,
@@ -803,77 +774,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 41,
-          "value": {
-            "task": 92.353,
-            "input": 21.579,
-            "output": 5.125,
-            "blended50": 8.283
-          }
+          "score": 40.972,
+          "rankingQuality": 40.972,
+          "rankingValue": 92.29
         },
         "strategist": {
-          "score": 35.655,
-          "value": {
-            "task": 80.313,
-            "input": 18.766,
-            "output": 4.457,
-            "blended50": 7.203
-          }
+          "score": 35.628,
+          "rankingQuality": 35.628,
+          "rankingValue": 80.252
         },
         "security-reviewer": {
           "score": 47.896,
-          "value": {
-            "task": 107.886,
-            "input": 25.208,
-            "output": 5.987,
-            "blended50": 9.676
-          }
+          "rankingQuality": 47.896,
+          "rankingValue": 107.886
         },
         "code-reviewer": {
           "score": 46.956,
-          "value": {
-            "task": 105.769,
-            "input": 24.714,
-            "output": 5.87,
-            "blended50": 9.486
-          }
+          "rankingQuality": 45.451,
+          "rankingValue": 102.379
         },
         "implementer": {
           "score": 47.832,
-          "value": {
-            "task": 107.742,
-            "input": 25.175,
-            "output": 5.979,
-            "blended50": 9.663
-          }
+          "rankingQuality": 46.035,
+          "rankingValue": 103.694
         },
         "implementer-heavy": {
-          "score": 42.16,
-          "value": {
-            "task": 94.966,
-            "input": 22.189,
-            "output": 5.27,
-            "blended50": 8.517
-          }
+          "score": 42.142,
+          "rankingQuality": 42.241,
+          "rankingValue": 95.148
         },
         "synthesizer": {
-          "score": 23.862,
-          "value": {
-            "task": 53.749,
-            "input": 12.559,
-            "output": 2.983,
-            "blended50": 4.821
-          }
+          "score": 23.852,
+          "rankingQuality": 23.852,
+          "rankingValue": 53.727
         },
         "researcher": {
-          "score": 38.313,
-          "value": {
-            "task": 86.3,
-            "input": 20.165,
-            "output": 4.789,
-            "blended50": 7.74
-          }
+          "score": 38.296,
+          "rankingQuality": 38.296,
+          "rankingValue": 86.262
         }
+      },
+      "caiStar": {
+        "value": 42.44,
+        "source": "estimated",
+        "ridge": 41.467,
+        "knn": 43.414
       },
       "codingAgent": null,
       "aaModel": {
@@ -921,7 +866,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 34.583,
+        "gdpval": 34.571,
         "lcr": 76.6667,
         "gpqa": 91.1111,
         "hle": 37.4884,
@@ -931,77 +876,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 56.845,
-          "value": {
-            "task": 155.603,
-            "input": 59.837,
-            "output": 14.211,
-            "blended50": 22.968
-          }
+          "score": 56.841,
+          "rankingQuality": 56.841,
+          "rankingValue": 155.592
         },
         "strategist": {
-          "score": 50.747,
-          "value": {
-            "task": 138.911,
-            "input": 53.418,
-            "output": 12.687,
-            "blended50": 20.504
-          }
+          "score": 50.742,
+          "rankingQuality": 50.742,
+          "rankingValue": 138.897
         },
         "security-reviewer": {
           "score": 62.908,
-          "value": {
-            "task": 172.199,
-            "input": 66.219,
-            "output": 15.727,
-            "blended50": 25.417
-          }
+          "rankingQuality": 62.908,
+          "rankingValue": 172.199
         },
         "code-reviewer": {
           "score": 63.483,
-          "value": {
-            "task": 173.773,
-            "input": 66.824,
-            "output": 15.871,
-            "blended50": 25.65
-          }
+          "rankingQuality": 53.618,
+          "rankingValue": 146.77
         },
         "implementer": {
           "score": 60.999,
-          "value": {
-            "task": 166.974,
-            "input": 64.209,
-            "output": 15.25,
-            "blended50": 24.646
-          }
+          "rankingQuality": 51.962,
+          "rankingValue": 142.237
         },
         "implementer-heavy": {
-          "score": 57.153,
-          "value": {
-            "task": 156.446,
-            "input": 60.161,
-            "output": 14.288,
-            "blended50": 23.092
-          }
+          "score": 57.15,
+          "rankingQuality": 49.396,
+          "rankingValue": 135.213
         },
         "synthesizer": {
-          "score": 58.107,
-          "value": {
-            "task": 159.057,
-            "input": 61.165,
-            "output": 14.527,
-            "blended50": 23.478
-          }
+          "score": 58.105,
+          "rankingQuality": 58.105,
+          "rankingValue": 159.052
         },
         "researcher": {
-          "score": 55.581,
-          "value": {
-            "task": 152.143,
-            "input": 58.506,
-            "output": 13.895,
-            "blended50": 22.457
-          }
+          "score": 55.578,
+          "rankingQuality": 55.578,
+          "rankingValue": 152.135
         }
+      },
+      "caiStar": {
+        "value": 33.889,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "moonshot_kimi-k2-6",
@@ -1015,19 +932,19 @@
         },
         "tokensPerTask": {
           "reward": 0.165191740412979,
-          "costUsd": 1.2171000741104296,
+          "costUsd": 1.2171000741104299,
           "wallTimeSec": 2443.3850674846617,
           "steps": 133.76754107608772,
           "inputTokens": 10905739.256637169,
           "cacheWriteTokens": 0,
           "outputTokens": 61150.30088495575,
           "cacheTokens": 5731631.260736199,
-          "cacheHitRate": 0.9554328157869918,
+          "cacheHitRate": 0.9554328157869921,
           "totalTokens": 11660527.815950915
         },
         "totalTokensPerTask": 11660527.815950915,
         "timePerTaskSec": 2443.3850674846617,
-        "aaCostPerTaskUsd": 1.2171000741104296,
+        "aaCostPerTaskUsd": 1.2171000741104299,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -1081,7 +998,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 25.3065,
+        "gdpval": 25.3825,
         "lcr": 73,
         "gpqa": 87.8788,
         "hle": 30.7229,
@@ -1091,77 +1008,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.557,
-          "value": {
-            "task": 524.537,
-            "input": 84.262,
-            "output": 16.852,
-            "blended50": 28.087
-          }
+          "score": 50.587,
+          "rankingQuality": 50.587,
+          "rankingValue": 524.849
         },
         "strategist": {
-          "score": 43.986,
-          "value": {
-            "task": 456.362,
-            "input": 73.31,
-            "output": 14.662,
-            "blended50": 24.437
-          }
+          "score": 44.016,
+          "rankingQuality": 44.016,
+          "rankingValue": 456.673
         },
         "security-reviewer": {
           "score": 55.25,
-          "value": {
-            "task": 573.228,
-            "input": 92.083,
-            "output": 18.417,
-            "blended50": 30.694
-          }
+          "rankingQuality": 55.25,
+          "rankingValue": 573.228
         },
         "code-reviewer": {
           "score": 57.061,
-          "value": {
-            "task": 592.017,
-            "input": 95.102,
-            "output": 19.02,
-            "blended50": 31.701
-          }
+          "rankingQuality": 51.42,
+          "rankingValue": 533.491
         },
         "implementer": {
           "score": 56.579,
-          "value": {
-            "task": 587.017,
-            "input": 94.298,
-            "output": 18.86,
-            "blended50": 31.433
-          }
+          "rankingQuality": 51.099,
+          "rankingValue": 530.161
         },
         "implementer-heavy": {
-          "score": 51.746,
-          "value": {
-            "task": 536.873,
-            "input": 86.243,
-            "output": 17.249,
-            "blended50": 28.748
-          }
+          "score": 51.765,
+          "rankingQuality": 47.89,
+          "rankingValue": 496.867
         },
         "synthesizer": {
-          "score": 50.553,
-          "value": {
-            "task": 524.496,
-            "input": 84.255,
-            "output": 16.851,
-            "blended50": 28.085
-          }
+          "score": 50.565,
+          "rankingQuality": 50.565,
+          "rankingValue": 524.62
         },
         "researcher": {
-          "score": 51.524,
-          "value": {
-            "task": 534.57,
-            "input": 85.873,
-            "output": 17.175,
-            "blended50": 28.624
-          }
+          "score": 51.543,
+          "rankingQuality": 51.543,
+          "rankingValue": 534.767
         }
+      },
+      "caiStar": {
+        "value": 40.139,
+        "source": "estimated",
+        "ridge": 36.734,
+        "knn": 43.545
       },
       "codingAgent": null,
       "aaModel": {
@@ -1209,8 +1100,8 @@
         }
       },
       "benchmarks": {
-        "gdpval": 63.45,
-        "lcr": 76.3333,
+        "gdpval": 63.293,
+        "lcr": 48.3333,
         "gpqa": 91.7172,
         "hle": 42.2614,
         "omniscienceAccuracy": 33.85,
@@ -1219,77 +1110,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 69.146,
-          "value": {
-            "task": 101.249,
-            "input": 49.39,
-            "output": 15.715,
-            "blended50": 23.843
-          }
+          "score": 62.083,
+          "rankingQuality": 62.083,
+          "rankingValue": 90.907
         },
         "strategist": {
-          "score": 63.633,
-          "value": {
-            "task": 93.176,
-            "input": 45.452,
-            "output": 14.462,
-            "blended50": 21.942
-          }
+          "score": 57.97,
+          "rankingQuality": 57.97,
+          "rankingValue": 84.884
         },
         "security-reviewer": {
-          "score": 66.526,
-          "value": {
-            "task": 97.412,
-            "input": 47.519,
-            "output": 15.12,
-            "blended50": 22.94
-          }
+          "score": 63.726,
+          "rankingQuality": 63.726,
+          "rankingValue": 93.313
         },
         "code-reviewer": {
-          "score": 66.481,
-          "value": {
-            "task": 97.347,
-            "input": 47.486,
-            "output": 15.109,
-            "blended50": 22.924
-          }
+          "score": 62.281,
+          "rankingQuality": 61.486,
+          "rankingValue": 90.033
         },
         "implementer": {
-          "score": 63.323,
-          "value": {
-            "task": 92.722,
-            "input": 45.231,
-            "output": 14.392,
-            "blended50": 21.836
-          }
+          "score": 59.123,
+          "rankingQuality": 59.38,
+          "rankingValue": 86.949
         },
         "implementer-heavy": {
-          "score": 65.718,
-          "value": {
-            "task": 96.229,
-            "input": 46.941,
-            "output": 14.936,
-            "blended50": 22.661
-          }
+          "score": 60.078,
+          "rankingQuality": 60.017,
+          "rankingValue": 87.881
         },
         "synthesizer": {
-          "score": 64.727,
-          "value": {
-            "task": 94.778,
-            "input": 46.234,
-            "output": 14.711,
-            "blended50": 22.32
-          }
+          "score": 52.103,
+          "rankingQuality": 52.103,
+          "rankingValue": 76.293
         },
         "researcher": {
-          "score": 63.516,
-          "value": {
-            "task": 93.005,
-            "input": 45.369,
-            "output": 14.435,
-            "blended50": 21.902
-          }
+          "score": 55.077,
+          "rankingQuality": 55.077,
+          "rankingValue": 80.648
         }
+      },
+      "caiStar": {
+        "value": 59.895,
+        "source": "estimated",
+        "ridge": 59.809,
+        "knn": 59.981
       },
       "codingAgent": null,
       "aaModel": {
@@ -1337,7 +1202,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 50.258,
+        "gdpval": 50.256,
         "lcr": 7.2222,
         "gpqa": 89.4949,
         "hle": 41.1492,
@@ -1347,77 +1212,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 45.98,
-          "value": {
-            "task": 103.435,
-            "input": 32.843,
-            "output": 10.45,
-            "blended50": 15.855
-          }
+          "score": 45.979,
+          "rankingQuality": 45.979,
+          "rankingValue": 103.433
         },
         "strategist": {
-          "score": 42.734,
-          "value": {
-            "task": 96.133,
-            "input": 30.524,
-            "output": 9.712,
-            "blended50": 14.736
-          }
+          "score": 42.733,
+          "rankingQuality": 42.733,
+          "rankingValue": 96.131
         },
         "security-reviewer": {
           "score": 57.52,
-          "value": {
-            "task": 129.395,
-            "input": 41.086,
-            "output": 13.073,
-            "blended50": 19.834
-          }
+          "rankingQuality": 57.52,
+          "rankingValue": 129.395
         },
         "code-reviewer": {
           "score": 53.176,
-          "value": {
-            "task": 119.623,
-            "input": 37.983,
-            "output": 12.085,
-            "blended50": 18.337
-          }
+          "rankingQuality": 49.887,
+          "rankingValue": 112.224
         },
         "implementer": {
           "score": 48.9,
-          "value": {
-            "task": 110.004,
-            "input": 34.929,
-            "output": 11.114,
-            "blended50": 16.862
-          }
+          "rankingQuality": 47.037,
+          "rankingValue": 105.813
         },
         "implementer-heavy": {
-          "score": 45.667,
-          "value": {
-            "task": 102.731,
-            "input": 32.619,
-            "output": 10.379,
-            "blended50": 15.747
-          }
+          "score": 45.666,
+          "rankingQuality": 44.881,
+          "rankingValue": 100.963
         },
         "synthesizer": {
           "score": 30.395,
-          "value": {
-            "task": 68.375,
-            "input": 21.711,
-            "output": 6.908,
-            "blended50": 10.481
-          }
+          "rankingQuality": 30.395,
+          "rankingValue": 68.375
         },
         "researcher": {
-          "score": 37.137,
-          "value": {
-            "task": 83.542,
-            "input": 26.526,
-            "output": 8.44,
-            "blended50": 12.806
-          }
+          "score": 37.136,
+          "rankingQuality": 37.136,
+          "rankingValue": 83.54
         }
+      },
+      "caiStar": {
+        "value": 43.31,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "novita_glm-5-2_fp8",
@@ -1431,7 +1268,7 @@
         },
         "tokensPerTask": {
           "reward": 0.286135693215339,
-          "costUsd": 6.657531358159519,
+          "costUsd": 6.657531358159516,
           "wallTimeSec": 1507.044470347651,
           "steps": 127.40368795315116,
           "inputTokens": 11036538.348082596,
@@ -1443,7 +1280,7 @@
         },
         "totalTokensPerTask": 6619529.539877302,
         "timePerTaskSec": 1507.044470347651,
-        "aaCostPerTaskUsd": 6.657531358159519,
+        "aaCostPerTaskUsd": 6.657531358159516,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": true,
@@ -1497,7 +1334,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 50.258,
+        "gdpval": 50.256,
         "lcr": 7.2222,
         "gpqa": 89.4949,
         "hle": 41.1492,
@@ -1507,77 +1344,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 45.98,
-          "value": {
-            "task": 47.926,
-            "input": 15.327,
-            "output": 4.486,
-            "blended50": 6.94
-          }
+          "score": 45.979,
+          "rankingQuality": 45.979,
+          "rankingValue": 47.925
         },
         "strategist": {
-          "score": 42.734,
-          "value": {
-            "task": 44.542,
-            "input": 14.245,
-            "output": 4.169,
-            "blended50": 6.45
-          }
+          "score": 42.733,
+          "rankingQuality": 42.733,
+          "rankingValue": 44.541
         },
         "security-reviewer": {
           "score": 57.52,
-          "value": {
-            "task": 59.954,
-            "input": 19.173,
-            "output": 5.612,
-            "blended50": 8.682
-          }
+          "rankingQuality": 57.52,
+          "rankingValue": 59.954
         },
         "code-reviewer": {
           "score": 53.176,
-          "value": {
-            "task": 55.426,
-            "input": 17.725,
-            "output": 5.188,
-            "blended50": 8.027
-          }
+          "rankingQuality": 49.887,
+          "rankingValue": 51.998
         },
         "implementer": {
           "score": 48.9,
-          "value": {
-            "task": 50.969,
-            "input": 16.3,
-            "output": 4.771,
-            "blended50": 7.381
-          }
+          "rankingQuality": 47.037,
+          "rankingValue": 49.027
         },
         "implementer-heavy": {
-          "score": 45.667,
-          "value": {
-            "task": 47.599,
-            "input": 15.222,
-            "output": 4.455,
-            "blended50": 6.893
-          }
+          "score": 45.666,
+          "rankingQuality": 44.881,
+          "rankingValue": 46.78
         },
         "synthesizer": {
           "score": 30.395,
-          "value": {
-            "task": 31.681,
-            "input": 10.132,
-            "output": 2.965,
-            "blended50": 4.588
-          }
+          "rankingQuality": 30.395,
+          "rankingValue": 31.681
         },
         "researcher": {
-          "score": 37.137,
-          "value": {
-            "task": 38.708,
-            "input": 12.379,
-            "output": 3.623,
-            "blended50": 5.606
-          }
+          "score": 37.136,
+          "rankingQuality": 37.136,
+          "rankingValue": 38.707
         }
+      },
+      "caiStar": {
+        "value": 43.31,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "novita_glm-5-2_fp8",
@@ -1591,7 +1400,7 @@
         },
         "tokensPerTask": {
           "reward": 0.286135693215339,
-          "costUsd": 6.657531358159519,
+          "costUsd": 6.657531358159516,
           "wallTimeSec": 1507.044470347651,
           "steps": 127.40368795315116,
           "inputTokens": 11036538.348082596,
@@ -1603,7 +1412,7 @@
         },
         "totalTokensPerTask": 6619529.539877302,
         "timePerTaskSec": 1507.044470347651,
-        "aaCostPerTaskUsd": 6.657531358159519,
+        "aaCostPerTaskUsd": 6.657531358159516,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": true,
@@ -1657,7 +1466,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 37.891,
+        "gdpval": 37.85,
         "lcr": 68,
         "gpqa": 86.7677,
         "hle": 30.0741,
@@ -1667,77 +1476,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.021,
-          "value": {
-            "task": 177.05,
-            "input": 38.586,
-            "output": 12.278,
-            "blended50": 18.628
-          }
+          "score": 54.005,
+          "rankingQuality": 54.005,
+          "rankingValue": 176.998
         },
         "strategist": {
-          "score": 49.178,
-          "value": {
-            "task": 161.178,
-            "input": 35.127,
-            "output": 11.177,
-            "blended50": 16.958
-          }
+          "score": 49.162,
+          "rankingQuality": 49.162,
+          "rankingValue": 161.125
         },
         "security-reviewer": {
           "score": 58.14,
-          "value": {
-            "task": 190.55,
-            "input": 41.529,
-            "output": 13.214,
-            "blended50": 20.048
-          }
+          "rankingQuality": 58.14,
+          "rankingValue": 190.55
         },
         "code-reviewer": {
           "score": 57.254,
-          "value": {
-            "task": 187.646,
-            "input": 40.896,
-            "output": 13.012,
-            "blended50": 19.743
-          }
+          "rankingQuality": 50.473,
+          "rankingValue": 165.422
         },
         "implementer": {
           "score": 52.473,
-          "value": {
-            "task": 171.977,
-            "input": 37.481,
-            "output": 11.926,
-            "blended50": 18.094
-          }
+          "rankingQuality": 47.285,
+          "rankingValue": 154.973
         },
         "implementer-heavy": {
-          "score": 51.437,
-          "value": {
-            "task": 168.581,
-            "input": 36.741,
-            "output": 11.69,
-            "blended50": 17.737
-          }
+          "score": 51.427,
+          "rankingQuality": 46.588,
+          "rankingValue": 152.689
         },
         "synthesizer": {
-          "score": 55.034,
-          "value": {
-            "task": 180.37,
-            "input": 39.31,
-            "output": 12.508,
-            "blended50": 18.977
-          }
+          "score": 55.028,
+          "rankingQuality": 55.028,
+          "rankingValue": 180.35
         },
         "researcher": {
-          "score": 50.635,
-          "value": {
-            "task": 165.953,
-            "input": 36.168,
-            "output": 11.508,
-            "blended50": 17.46
-          }
+          "score": 50.625,
+          "rankingQuality": 50.625,
+          "rankingValue": 165.92
         }
+      },
+      "caiStar": {
+        "value": 36.91,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "friendliai_glm-5-1",
@@ -1757,11 +1538,11 @@
           "inputTokens": 30011169.017699115,
           "cacheWriteTokens": 0,
           "outputTokens": 78135.85840707965,
-          "cacheTokens": 12572554.732106362,
-          "cacheHitRate": 0.888922540999181,
-          "totalTokens": 25761884.929447833
+          "cacheTokens": 12572554.732106363,
+          "cacheHitRate": 0.8889225409991813,
+          "totalTokens": 25761884.92944787
         },
-        "totalTokensPerTask": 25761884.929447833,
+        "totalTokensPerTask": 25761884.92944787,
         "timePerTaskSec": 1140.250613496931,
         "aaCostPerTaskUsd": 4.282000252842536,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
@@ -1817,7 +1598,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 70.6667,
         "gpqa": 82.0202,
         "hle": 29.2864,
@@ -1827,77 +1608,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.331,
-          "value": {
-            "task": 108.008,
-            "input": 55.331,
-            "output": 17.291,
-            "blended50": 26.348
-          }
+          "score": 55.29,
+          "rankingQuality": 55.29,
+          "rankingValue": 107.928
         },
         "strategist": {
-          "score": 50.931,
-          "value": {
-            "task": 99.419,
-            "input": 50.931,
-            "output": 15.916,
-            "blended50": 24.253
-          }
+          "score": 50.89,
+          "rankingQuality": 50.89,
+          "rankingValue": 99.339
         },
         "security-reviewer": {
           "score": 56.985,
-          "value": {
-            "task": 111.236,
-            "input": 56.985,
-            "output": 17.808,
-            "blended50": 27.136
-          }
+          "rankingQuality": 56.985,
+          "rankingValue": 111.236
         },
         "code-reviewer": {
           "score": 57.182,
-          "value": {
-            "task": 111.621,
-            "input": 57.182,
-            "output": 17.869,
-            "blended50": 27.23
-          }
+          "rankingQuality": 51.533,
+          "rankingValue": 100.594
         },
         "implementer": {
           "score": 53.54,
-          "value": {
-            "task": 104.512,
-            "input": 53.54,
-            "output": 16.731,
-            "blended50": 25.495
-          }
+          "rankingQuality": 49.105,
+          "rankingValue": 95.854
         },
         "implementer-heavy": {
-          "score": 53.659,
-          "value": {
-            "task": 104.744,
-            "input": 53.659,
-            "output": 16.768,
-            "blended50": 25.552
-          }
+          "score": 53.633,
+          "rankingQuality": 49.167,
+          "rankingValue": 95.975
         },
         "synthesizer": {
-          "score": 56.321,
-          "value": {
-            "task": 109.94,
-            "input": 56.321,
-            "output": 17.6,
-            "blended50": 26.82
-          }
+          "score": 56.305,
+          "rankingQuality": 56.305,
+          "rankingValue": 109.909
         },
         "researcher": {
-          "score": 52.234,
-          "value": {
-            "task": 101.962,
-            "input": 52.234,
-            "output": 16.323,
-            "blended50": 24.873
-          }
+          "score": 52.208,
+          "rankingQuality": 52.208,
+          "rankingValue": 101.911
         }
+      },
+      "caiStar": {
+        "value": 40.234,
+        "source": "estimated",
+        "ridge": 41.394,
+        "knn": 39.074
       },
       "codingAgent": null,
       "aaModel": {
@@ -1945,7 +1700,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 44.3465,
+        "gdpval": 44.216,
         "lcr": 17.2222,
         "gpqa": 92.9293,
         "hle": 38.9713,
@@ -1955,77 +1710,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 46.476,
-          "value": {
-            "task": 348.443,
-            "input": 154.92,
-            "output": 38.73,
-            "blended50": 61.968
-          }
+          "score": 46.424,
+          "rankingQuality": 46.424,
+          "rankingValue": 348.053
         },
         "strategist": {
-          "score": 41.973,
-          "value": {
-            "task": 314.683,
-            "input": 139.91,
-            "output": 34.978,
-            "blended50": 55.964
-          }
+          "score": 41.921,
+          "rankingQuality": 41.921,
+          "rankingValue": 314.293
         },
         "security-reviewer": {
           "score": 58.596,
-          "value": {
-            "task": 439.31,
-            "input": 195.32,
-            "output": 48.83,
-            "blended50": 78.128
-          }
+          "rankingQuality": 58.596,
+          "rankingValue": 439.31
         },
         "code-reviewer": {
           "score": 53.64,
-          "value": {
-            "task": 402.153,
-            "input": 178.8,
-            "output": 44.7,
-            "blended50": 71.52
-          }
+          "rankingQuality": 50.18,
+          "rankingValue": 376.213
         },
         "implementer": {
           "score": 47.642,
-          "value": {
-            "task": 357.185,
-            "input": 158.807,
-            "output": 39.702,
-            "blended50": 63.523
-          }
+          "rankingQuality": 46.182,
+          "rankingValue": 346.239
         },
         "implementer-heavy": {
-          "score": 44.241,
-          "value": {
-            "task": 331.686,
-            "input": 147.47,
-            "output": 36.868,
-            "blended50": 58.988
-          }
+          "score": 44.208,
+          "rankingQuality": 43.892,
+          "rankingValue": 329.07
         },
         "synthesizer": {
-          "score": 34.056,
-          "value": {
-            "task": 255.327,
-            "input": 113.52,
-            "output": 28.38,
-            "blended50": 45.408
-          }
+          "score": 34.037,
+          "rankingQuality": 34.037,
+          "rankingValue": 255.184
         },
         "researcher": {
-          "score": 37.43,
-          "value": {
-            "task": 280.623,
-            "input": 124.767,
-            "output": 31.192,
-            "blended50": 49.907
-          }
+          "score": 37.397,
+          "rankingQuality": 37.397,
+          "rankingValue": 280.375
         }
+      },
+      "caiStar": {
+        "value": 43.261,
+        "source": "estimated",
+        "ridge": 45.435,
+        "knn": 41.088
       },
       "codingAgent": null,
       "aaModel": {
@@ -2073,7 +1802,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 32.9895,
+        "gdpval": 32.96,
         "lcr": 3.3333,
         "gpqa": 87.3737,
         "hle": 29.6108,
@@ -2083,77 +1812,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 35.945,
-          "value": {
-            "task": 496.718,
-            "input": 119.817,
-            "output": 29.954,
-            "blended50": 47.927
-          }
+          "score": 35.934,
+          "rankingQuality": 35.934,
+          "rankingValue": 496.566
         },
         "strategist": {
-          "score": 34.403,
-          "value": {
-            "task": 475.409,
-            "input": 114.677,
-            "output": 28.669,
-            "blended50": 45.871
-          }
+          "score": 34.392,
+          "rankingQuality": 34.392,
+          "rankingValue": 475.257
         },
         "security-reviewer": {
           "score": 51.861,
-          "value": {
-            "task": 716.659,
-            "input": 172.87,
-            "output": 43.218,
-            "blended50": 69.148
-          }
+          "rankingQuality": 51.861,
+          "rankingValue": 716.659
         },
         "code-reviewer": {
           "score": 48.525,
-          "value": {
-            "task": 670.559,
-            "input": 161.75,
-            "output": 40.438,
-            "blended50": 64.7
-          }
+          "rankingQuality": 46.784,
+          "rankingValue": 646.5
         },
         "implementer": {
           "score": 44.762,
-          "value": {
-            "task": 618.559,
-            "input": 149.207,
-            "output": 37.302,
-            "blended50": 59.683
-          }
+          "rankingQuality": 44.276,
+          "rankingValue": 611.843
         },
         "implementer-heavy": {
-          "score": 38.797,
-          "value": {
-            "task": 536.129,
-            "input": 129.323,
-            "output": 32.331,
-            "blended50": 51.729
-          }
+          "score": 38.79,
+          "rankingQuality": 40.294,
+          "rankingValue": 556.816
         },
         "synthesizer": {
-          "score": 24.695,
-          "value": {
-            "task": 341.256,
-            "input": 82.317,
-            "output": 20.579,
-            "blended50": 32.927
-          }
+          "score": 24.691,
+          "rankingQuality": 24.691,
+          "rankingValue": 341.201
         },
         "researcher": {
-          "score": 30.675,
-          "value": {
-            "task": 423.893,
-            "input": 102.25,
-            "output": 25.563,
-            "blended50": 40.9
-          }
+          "score": 30.667,
+          "rankingQuality": 30.667,
+          "rankingValue": 423.782
         }
+      },
+      "caiStar": {
+        "value": 43.303,
+        "source": "estimated",
+        "ridge": 42.91,
+        "knn": 43.696
       },
       "codingAgent": null,
       "aaModel": {
@@ -2201,7 +1904,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 72,
         "gpqa": 84.8485,
         "hle": 20.5283,
@@ -2211,77 +1914,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.917,
-          "value": {
-            "task": 137.474,
-            "input": 183.057,
-            "output": 45.764,
-            "blended50": 73.223
-          }
+          "score": 54.876,
+          "rankingQuality": 54.876,
+          "rankingValue": 137.372
         },
         "strategist": {
-          "score": 46.177,
-          "value": {
-            "task": 115.595,
-            "input": 153.923,
-            "output": 38.481,
-            "blended50": 61.569
-          }
+          "score": 46.136,
+          "rankingQuality": 46.136,
+          "rankingValue": 115.493
         },
         "security-reviewer": {
           "score": 47.077,
-          "value": {
-            "task": 117.848,
-            "input": 156.923,
-            "output": 39.231,
-            "blended50": 62.769
-          }
+          "rankingQuality": 47.077,
+          "rankingValue": 117.848
         },
         "code-reviewer": {
           "score": 50.177,
-          "value": {
-            "task": 125.609,
-            "input": 167.257,
-            "output": 41.814,
-            "blended50": 66.903
-          }
+          "rankingQuality": 44.548,
+          "rankingValue": 111.517
         },
         "implementer": {
           "score": 51.136,
-          "value": {
-            "task": 128.009,
-            "input": 170.453,
-            "output": 42.613,
-            "blended50": 68.181
-          }
+          "rankingQuality": 45.187,
+          "rankingValue": 113.117
         },
         "implementer-heavy": {
-          "score": 52.594,
-          "value": {
-            "task": 131.659,
-            "input": 175.313,
-            "output": 43.828,
-            "blended50": 70.125
-          }
+          "score": 52.568,
+          "rankingQuality": 46.142,
+          "rankingValue": 115.508
         },
         "synthesizer": {
-          "score": 46.337,
-          "value": {
-            "task": 115.996,
-            "input": 154.457,
-            "output": 38.614,
-            "blended50": 61.783
-          }
+          "score": 46.322,
+          "rankingQuality": 46.322,
+          "rankingValue": 115.958
         },
         "researcher": {
-          "score": 52.159,
-          "value": {
-            "task": 130.57,
-            "input": 173.863,
-            "output": 43.466,
-            "blended50": 69.545
-          }
+          "score": 52.134,
+          "rankingQuality": 52.134,
+          "rankingValue": 130.508
         }
+      },
+      "caiStar": {
+        "value": 33.289,
+        "source": "estimated",
+        "ridge": 27.94,
+        "knn": 38.638
       },
       "codingAgent": null,
       "aaModel": {
@@ -2317,19 +1994,19 @@
         "blended50": 1.32
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.126036,
-        "aaCostPerTaskUsd": 0.2520714190687621,
+        "commandCodeCostPerTaskUsd": 0.127038,
+        "aaCostPerTaskUsd": 0.25407588410876214,
         "tokens": {
           "nonCacheInput": 6920.372702054251,
-          "cacheRead": 925221.6036268863,
-          "cacheWrite": 36560.41229141876,
-          "reasoning": 31170.27970821456,
-          "answer": 7710.284008400282,
-          "output": 38880.56371661484
+          "cacheRead": 953461.7090814319,
+          "cacheWrite": 36813.950473236946,
+          "reasoning": 31225.54061730547,
+          "answer": 7762.909462945736,
+          "output": 38988.450080251205
         }
       },
       "benchmarks": {
-        "gdpval": 54.519,
+        "gdpval": 54.2875,
         "lcr": 17.7778,
         "gpqa": 92.8283,
         "hle": 41.0102,
@@ -2339,77 +2016,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.969,
-          "value": {
-            "task": 404.4,
-            "input": 77.226,
-            "output": 25.742,
-            "blended50": 38.613
-          }
+          "score": 50.877,
+          "rankingQuality": 50.877,
+          "rankingValue": 400.486
         },
         "strategist": {
-          "score": 44.983,
-          "value": {
-            "task": 356.906,
-            "input": 68.156,
-            "output": 22.719,
-            "blended50": 34.078
-          }
+          "score": 44.891,
+          "rankingQuality": 44.891,
+          "rankingValue": 353.367
         },
         "security-reviewer": {
           "score": 48.72,
-          "value": {
-            "task": 386.556,
-            "input": 73.818,
-            "output": 24.606,
-            "blended50": 36.909
-          }
+          "rankingQuality": 48.72,
+          "rankingValue": 383.507
         },
         "code-reviewer": {
           "score": 47.986,
-          "value": {
-            "task": 380.732,
-            "input": 72.706,
-            "output": 24.235,
-            "blended50": 36.353
-          }
+          "rankingQuality": 42.933,
+          "rankingValue": 337.954
         },
         "implementer": {
           "score": 50.206,
-          "value": {
-            "task": 398.347,
-            "input": 76.07,
-            "output": 25.357,
-            "blended50": 38.035
-          }
+          "rankingQuality": 44.413,
+          "rankingValue": 349.604
         },
         "implementer-heavy": {
-          "score": 48.604,
-          "value": {
-            "task": 385.636,
-            "input": 73.642,
-            "output": 24.547,
-            "blended50": 36.821
-          }
+          "score": 48.546,
+          "rankingQuality": 43.307,
+          "rankingValue": 340.898
         },
         "synthesizer": {
-          "score": 27.033,
-          "value": {
-            "task": 214.486,
-            "input": 40.959,
-            "output": 13.653,
-            "blended50": 20.48
-          }
+          "score": 26.998,
+          "rankingQuality": 26.998,
+          "rankingValue": 212.519
         },
         "researcher": {
-          "score": 46.808,
-          "value": {
-            "task": 371.386,
-            "input": 70.921,
-            "output": 23.64,
-            "blended50": 35.461
-          }
+          "score": 46.75,
+          "rankingQuality": 46.75,
+          "rankingValue": 368
         }
+      },
+      "caiStar": {
+        "value": 32.828,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "deepseek_deepseek-v4-pro-1m",
@@ -2424,17 +2073,17 @@
         "tokensPerTask": {
           "reward": 0.0855457227138643,
           "costUsd": 0.2547256318476481,
-          "wallTimeSec": 1072.5318353783243,
+          "wallTimeSec": 1072.5318353783239,
           "steps": 128.1457055214724,
           "inputTokens": 8912558.292035399,
           "cacheWriteTokens": 0,
           "outputTokens": 62187.78466076696,
           "cacheTokens": 4718944.850715744,
-          "cacheHitRate": 0.8541357545221666,
-          "totalTokens": 9942165.528629865
+          "cacheHitRate": 0.854135754522167,
+          "totalTokens": 9942165.528629862
         },
-        "totalTokensPerTask": 9942165.528629865,
-        "timePerTaskSec": 1072.5318353783243,
+        "totalTokensPerTask": 9942165.528629862,
+        "timePerTaskSec": 1072.5318353783239,
         "aaCostPerTaskUsd": 0.2547256318476481,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -2489,7 +2138,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 52.9435,
+        "gdpval": 52.926,
         "lcr": 13.3333,
         "gpqa": 90.8081,
         "hle": 38.5542,
@@ -2499,77 +2148,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 48.455,
-          "value": {
-            "task": 864.049,
-            "input": 220.25,
-            "output": 73.417,
-            "blended50": 110.125
-          }
+          "score": 48.448,
+          "rankingQuality": 48.448,
+          "rankingValue": 863.924
         },
         "strategist": {
-          "score": 41.832,
-          "value": {
-            "task": 745.948,
-            "input": 190.145,
-            "output": 63.382,
-            "blended50": 95.073
-          }
+          "score": 41.825,
+          "rankingQuality": 41.825,
+          "rankingValue": 745.823
         },
         "security-reviewer": {
           "score": 47.957,
-          "value": {
-            "task": 855.169,
-            "input": 217.986,
-            "output": 72.662,
-            "blended50": 108.993
-          }
+          "rankingQuality": 47.957,
+          "rankingValue": 855.169
         },
         "code-reviewer": {
           "score": 47.295,
-          "value": {
-            "task": 843.364,
-            "input": 214.977,
-            "output": 71.659,
-            "blended50": 107.489
-          }
+          "rankingQuality": 48.116,
+          "rankingValue": 858.004
         },
         "implementer": {
           "score": 49.407,
-          "value": {
-            "task": 881.025,
-            "input": 224.577,
-            "output": 74.859,
-            "blended50": 112.289
-          }
+          "rankingQuality": 49.524,
+          "rankingValue": 883.111
         },
         "implementer-heavy": {
-          "score": 47.431,
-          "value": {
-            "task": 845.789,
-            "input": 215.595,
-            "output": 71.865,
-            "blended50": 107.798
-          }
+          "score": 47.427,
+          "rankingQuality": 48.204,
+          "rankingValue": 859.573
         },
         "synthesizer": {
-          "score": 23.679,
-          "value": {
-            "task": 422.244,
-            "input": 107.632,
-            "output": 35.877,
-            "blended50": 53.816
-          }
+          "score": 23.676,
+          "rankingQuality": 23.676,
+          "rankingValue": 422.19
         },
         "researcher": {
-          "score": 42.789,
-          "value": {
-            "task": 763.013,
-            "input": 194.495,
-            "output": 64.832,
-            "blended50": 97.248
-          }
+          "score": 42.785,
+          "rankingQuality": 42.785,
+          "rankingValue": 762.942
         }
+      },
+      "caiStar": {
+        "value": 49.758,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "deepseek_deepseek-v4-flash-0731",
@@ -2591,9 +2212,9 @@
           "outputTokens": 105058.45132743364,
           "cacheTokens": 10342245.038854798,
           "cacheHitRate": 0.980762166136423,
-          "totalTokens": 20844227.993865013
+          "totalTokens": 20844227.99386505
         },
-        "totalTokensPerTask": 20844227.993865013,
+        "totalTokensPerTask": 20844227.99386505,
         "timePerTaskSec": 868.3750143149272,
         "aaCostPerTaskUsd": 0.05949917044417178,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
@@ -2638,6 +2259,7 @@
       "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "caiStar": null,
       "codingAgent": null,
       "aaModel": null
     },
@@ -2681,7 +2303,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 61.7595,
+        "gdpval": 61.501,
         "lcr": 19.4444,
         "gpqa": 92.7273,
         "hle": 43.0491,
@@ -2691,77 +2313,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.568,
-          "value": {
-            "task": 43.06,
-            "input": 27.284,
-            "output": 9.095,
-            "blended50": 13.642
-          }
+          "score": 54.464,
+          "rankingQuality": 54.464,
+          "rankingValue": 42.978
         },
         "strategist": {
-          "score": 50.061,
-          "value": {
-            "task": 39.503,
-            "input": 25.031,
-            "output": 8.344,
-            "blended50": 12.515
-          }
+          "score": 49.957,
+          "rankingQuality": 49.957,
+          "rankingValue": 39.421
         },
         "security-reviewer": {
           "score": 58.342,
-          "value": {
-            "task": 46.038,
-            "input": 29.171,
-            "output": 9.724,
-            "blended50": 14.586
-          }
+          "rankingQuality": 58.342,
+          "rankingValue": 46.038
         },
         "code-reviewer": {
           "score": 55.394,
-          "value": {
-            "task": 43.712,
-            "input": 27.697,
-            "output": 9.232,
-            "blended50": 13.849
-          }
+          "rankingQuality": 57.366,
+          "rankingValue": 45.268
         },
         "implementer": {
           "score": 52.867,
-          "value": {
-            "task": 41.718,
-            "input": 26.434,
-            "output": 8.811,
-            "blended50": 13.217
-          }
+          "rankingQuality": 55.681,
+          "rankingValue": 43.938
         },
         "implementer-heavy": {
-          "score": 52.404,
-          "value": {
-            "task": 41.352,
-            "input": 26.202,
-            "output": 8.734,
-            "blended50": 13.101
-          }
+          "score": 52.339,
+          "rankingQuality": 55.329,
+          "rankingValue": 43.66
         },
         "synthesizer": {
-          "score": 36.035,
-          "value": {
-            "task": 28.435,
-            "input": 18.018,
-            "output": 6.006,
-            "blended50": 9.009
-          }
+          "score": 35.996,
+          "rankingQuality": 35.996,
+          "rankingValue": 28.405
         },
         "researcher": {
-          "score": 45.857,
-          "value": {
-            "task": 36.186,
-            "input": 22.929,
-            "output": 7.643,
-            "blended50": 11.464
-          }
+          "score": 45.793,
+          "rankingQuality": 45.793,
+          "rankingValue": 36.135
         }
+      },
+      "caiStar": {
+        "value": 61.31,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "alibaba_cloud_qwen3-8-max-public",
@@ -2775,19 +2369,19 @@
         },
         "tokensPerTask": {
           "reward": 0.519174041297935,
-          "costUsd": 3.2306109660020477,
+          "costUsd": 3.2306109660020437,
           "wallTimeSec": 1792.1471809815948,
           "steps": 159.5848670756646,
           "inputTokens": 11507847.05899705,
           "cacheWriteTokens": 247713.88790560473,
           "outputTokens": 103997.9174041298,
-          "cacheTokens": 5809875.082822086,
-          "cacheHitRate": 0.8998815214008221,
+          "cacheTokens": 5809875.0828220835,
+          "cacheHitRate": 0.8998815214008219,
           "totalTokens": 12503741.564417152
         },
         "totalTokensPerTask": 12503741.564417152,
         "timePerTaskSec": 1792.1471809815948,
-        "aaCostPerTaskUsd": 3.2306109660020477,
+        "aaCostPerTaskUsd": 3.2306109660020437,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -2841,7 +2435,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 52.2955,
+        "gdpval": 52.0615,
         "lcr": 77.3333,
         "gpqa": 90.5051,
         "hle": 33.9203,
@@ -2851,77 +2445,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 63.441,
-          "value": {
-            "task": 274.61,
-            "input": 158.603,
-            "output": 21.147,
-            "blended50": 37.318
-          }
+          "score": 63.347,
+          "rankingQuality": 63.347,
+          "rankingValue": 274.203
         },
         "strategist": {
-          "score": 55.523,
-          "value": {
-            "task": 240.336,
-            "input": 138.808,
-            "output": 18.508,
-            "blended50": 32.661
-          }
+          "score": 55.43,
+          "rankingQuality": 55.43,
+          "rankingValue": 239.934
         },
         "security-reviewer": {
           "score": 61.003,
-          "value": {
-            "task": 264.057,
-            "input": 152.508,
-            "output": 20.334,
-            "blended50": 35.884
-          }
+          "rankingQuality": 61.003,
+          "rankingValue": 264.057
         },
         "code-reviewer": {
           "score": 60.169,
-          "value": {
-            "task": 260.447,
-            "input": 150.422,
-            "output": 20.056,
-            "blended50": 35.394
-          }
+          "rankingQuality": 52.698,
+          "rankingValue": 228.108
         },
         "implementer": {
           "score": 55.373,
-          "value": {
-            "task": 239.687,
-            "input": 138.432,
-            "output": 18.458,
-            "blended50": 32.572
-          }
+          "rankingQuality": 49.501,
+          "rankingValue": 214.27
         },
         "implementer-heavy": {
-          "score": 57.695,
-          "value": {
-            "task": 249.738,
-            "input": 144.237,
-            "output": 19.232,
-            "blended50": 33.938
-          }
+          "score": 57.637,
+          "rankingQuality": 51.01,
+          "rankingValue": 220.801
         },
         "synthesizer": {
-          "score": 59.704,
-          "value": {
-            "task": 258.434,
-            "input": 149.26,
-            "output": 19.901,
-            "blended50": 35.12
-          }
+          "score": 59.669,
+          "rankingQuality": 59.669,
+          "rankingValue": 258.283
         },
         "researcher": {
-          "score": 56.358,
-          "value": {
-            "task": 243.951,
-            "input": 140.895,
-            "output": 18.786,
-            "blended50": 33.152
-          }
+          "score": 56.3,
+          "rankingQuality": 56.3,
+          "rankingValue": 243.7
         }
+      },
+      "caiStar": {
+        "value": 37.757,
+        "source": "estimated",
+        "ridge": 37.137,
+        "knn": 38.377
       },
       "codingAgent": null,
       "aaModel": {
@@ -2969,7 +2537,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 42.3333,
         "gpqa": 76.3636,
         "hle": 10.1483,
@@ -2979,77 +2547,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 44.246,
-          "value": {
-            "task": 70.29,
-            "input": 34.035,
-            "output": 5.673,
-            "blended50": 9.724
-          }
+          "score": 44.205,
+          "rankingQuality": 44.205,
+          "rankingValue": 70.224
         },
         "strategist": {
-          "score": 38.974,
-          "value": {
-            "task": 61.914,
-            "input": 29.98,
-            "output": 4.997,
-            "blended50": 8.566
-          }
+          "score": 38.933,
+          "rankingQuality": 38.933,
+          "rankingValue": 61.849
         },
         "security-reviewer": {
           "score": 38.21,
-          "value": {
-            "task": 60.701,
-            "input": 29.392,
-            "output": 4.899,
-            "blended50": 8.398
-          }
+          "rankingQuality": 38.21,
+          "rankingValue": 60.701
         },
         "code-reviewer": {
           "score": 40.467,
-          "value": {
-            "task": 64.286,
-            "input": 31.128,
-            "output": 5.188,
-            "blended50": 8.894
-          }
+          "rankingQuality": 38.159,
+          "rankingValue": 60.62
         },
         "implementer": {
           "score": 41.042,
-          "value": {
-            "task": 65.2,
-            "input": 31.571,
-            "output": 5.262,
-            "blended50": 9.02
-          }
+          "rankingQuality": 38.542,
+          "rankingValue": 61.228
         },
         "implementer-heavy": {
-          "score": 43.312,
-          "value": {
-            "task": 68.806,
-            "input": 33.317,
-            "output": 5.553,
-            "blended50": 9.519
-          }
+          "score": 43.286,
+          "rankingQuality": 40.038,
+          "rankingValue": 63.605
         },
         "synthesizer": {
-          "score": 32.542,
-          "value": {
-            "task": 51.696,
-            "input": 25.032,
-            "output": 4.172,
-            "blended50": 7.152
-          }
+          "score": 32.526,
+          "rankingQuality": 32.526,
+          "rankingValue": 51.671
         },
         "researcher": {
-          "score": 40.552,
-          "value": {
-            "task": 64.421,
-            "input": 31.194,
-            "output": 5.199,
-            "blended50": 8.913
-          }
+          "score": 40.526,
+          "rankingQuality": 40.526,
+          "rankingValue": 64.38
         }
+      },
+      "caiStar": {
+        "value": 33.542,
+        "source": "estimated",
+        "ridge": 26.617,
+        "knn": 40.467
       },
       "codingAgent": null,
       "aaModel": {
@@ -3097,7 +2639,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 32.0045,
+        "gdpval": 31.9565,
         "lcr": 72.3333,
         "gpqa": 88.1818,
         "hle": 27.8499,
@@ -3107,77 +2649,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 52.699,
-          "value": {
-            "task": 172.707,
-            "input": 105.398,
-            "output": 17.566,
-            "blended50": 30.114
-          }
+          "score": 52.68,
+          "rankingQuality": 52.68,
+          "rankingValue": 172.644
         },
         "strategist": {
-          "score": 47.899,
-          "value": {
-            "task": 156.976,
-            "input": 95.798,
-            "output": 15.966,
-            "blended50": 27.371
-          }
+          "score": 47.88,
+          "rankingQuality": 47.88,
+          "rankingValue": 156.914
         },
         "security-reviewer": {
           "score": 56.875,
-          "value": {
-            "task": 186.392,
-            "input": 113.75,
-            "output": 18.958,
-            "blended50": 32.5
-          }
+          "rankingQuality": 56.875,
+          "rankingValue": 186.392
         },
         "code-reviewer": {
           "score": 56.141,
-          "value": {
-            "task": 183.987,
-            "input": 112.282,
-            "output": 18.714,
-            "blended50": 32.081
-          }
+          "rankingQuality": 48.826,
+          "rankingValue": 160.014
         },
         "implementer": {
           "score": 51.307,
-          "value": {
-            "task": 168.145,
-            "input": 102.614,
-            "output": 17.102,
-            "blended50": 29.318
-          }
+          "rankingQuality": 45.604,
+          "rankingValue": 149.455
         },
         "implementer-heavy": {
-          "score": 49.619,
-          "value": {
-            "task": 162.613,
-            "input": 99.238,
-            "output": 16.54,
-            "blended50": 28.354
-          }
+          "score": 49.607,
+          "rankingQuality": 44.47,
+          "rankingValue": 145.738
         },
         "synthesizer": {
-          "score": 55.7,
-          "value": {
-            "task": 182.542,
-            "input": 111.4,
-            "output": 18.567,
-            "blended50": 31.829
-          }
+          "score": 55.692,
+          "rankingQuality": 55.692,
+          "rankingValue": 182.515
         },
         "researcher": {
-          "score": 50.99,
-          "value": {
-            "task": 167.106,
-            "input": 101.98,
-            "output": 16.997,
-            "blended50": 29.137
-          }
+          "score": 50.978,
+          "rankingQuality": 50.978,
+          "rankingValue": 167.066
         }
+      },
+      "caiStar": {
+        "value": 34.197,
+        "source": "estimated",
+        "ridge": 30.618,
+        "knn": 37.776
       },
       "codingAgent": null,
       "aaModel": {
@@ -3225,7 +2741,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 38.55,
+        "gdpval": 38.408,
         "lcr": 74.6667,
         "gpqa": 92.3232,
         "hle": 40.5005,
@@ -3235,77 +2751,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 58.626,
-          "value": {
-            "task": 99.639,
-            "input": 23.45,
-            "output": 7.817,
-            "blended50": 11.725
-          }
+          "score": 58.57,
+          "rankingQuality": 58.57,
+          "rankingValue": 99.543
         },
         "strategist": {
-          "score": 53.249,
-          "value": {
-            "task": 90.5,
-            "input": 21.3,
-            "output": 7.1,
-            "blended50": 10.65
-          }
+          "score": 53.193,
+          "rankingQuality": 53.193,
+          "rankingValue": 90.405
         },
         "security-reviewer": {
           "score": 64.456,
-          "value": {
-            "task": 109.547,
-            "input": 25.782,
-            "output": 8.594,
-            "blended50": 12.891
-          }
+          "rankingQuality": 64.456,
+          "rankingValue": 109.547
         },
         "code-reviewer": {
           "score": 63.131,
-          "value": {
-            "task": 107.295,
-            "input": 25.252,
-            "output": 8.417,
-            "blended50": 12.626
-          }
+          "rankingQuality": 57.267,
+          "rankingValue": 97.329
         },
         "implementer": {
           "score": 58.404,
-          "value": {
-            "task": 99.261,
-            "input": 23.362,
-            "output": 7.787,
-            "blended50": 11.681
-          }
+          "rankingQuality": 54.115,
+          "rankingValue": 91.972
         },
         "implementer-heavy": {
-          "score": 55.782,
-          "value": {
-            "task": 94.805,
-            "input": 22.313,
-            "output": 7.438,
-            "blended50": 11.156
-          }
+          "score": 55.747,
+          "rankingQuality": 52.344,
+          "rankingValue": 88.962
         },
         "synthesizer": {
-          "score": 60.483,
-          "value": {
-            "task": 102.795,
-            "input": 24.193,
-            "output": 8.064,
-            "blended50": 12.097
-          }
+          "score": 60.462,
+          "rankingQuality": 60.462,
+          "rankingValue": 102.759
         },
         "researcher": {
-          "score": 56.163,
-          "value": {
-            "task": 95.452,
-            "input": 22.465,
-            "output": 7.488,
-            "blended50": 11.233
-          }
+          "score": 56.127,
+          "rankingQuality": 56.127,
+          "rankingValue": 95.391
         }
+      },
+      "caiStar": {
+        "value": 45.538,
+        "source": "estimated",
+        "ridge": 43.819,
+        "knn": 47.257
       },
       "codingAgent": null,
       "aaModel": {
@@ -3353,7 +2843,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 22.2485,
+        "gdpval": 22.315,
         "lcr": 9.4444,
         "gpqa": 90,
         "hle": 35.6348,
@@ -3363,77 +2853,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 34.606,
-          "value": {
-            "task": 141.122,
-            "input": 86.515,
-            "output": 21.629,
-            "blended50": 34.606
-          }
+          "score": 34.632,
+          "rankingQuality": 34.632,
+          "rankingValue": 141.228
         },
         "strategist": {
-          "score": 31.525,
-          "value": {
-            "task": 128.558,
-            "input": 78.812,
-            "output": 19.703,
-            "blended50": 31.525
-          }
+          "score": 31.552,
+          "rankingQuality": 31.552,
+          "rankingValue": 128.668
         },
         "security-reviewer": {
           "score": 55.068,
-          "value": {
-            "task": 224.565,
-            "input": 137.67,
-            "output": 34.418,
-            "blended50": 55.068
-          }
+          "rankingQuality": 55.068,
+          "rankingValue": 224.565
         },
         "code-reviewer": {
           "score": 50.683,
-          "value": {
-            "task": 206.683,
-            "input": 126.708,
-            "output": 31.677,
-            "blended50": 50.683
-          }
+          "rankingQuality": 46.496,
+          "rankingValue": 189.609
         },
         "implementer": {
           "score": 45.772,
-          "value": {
-            "task": 186.656,
-            "input": 114.43,
-            "output": 28.607,
-            "blended50": 45.772
-          }
+          "rankingQuality": 43.222,
+          "rankingValue": 176.257
         },
         "implementer-heavy": {
-          "score": 36.92,
-          "value": {
-            "task": 150.558,
-            "input": 92.3,
-            "output": 23.075,
-            "blended50": 36.92
-          }
+          "score": 36.936,
+          "rankingQuality": 37.331,
+          "rankingValue": 152.234
         },
         "synthesizer": {
-          "score": 26.558,
-          "value": {
-            "task": 108.302,
-            "input": 66.395,
-            "output": 16.599,
-            "blended50": 26.558
-          }
+          "score": 26.568,
+          "rankingQuality": 26.568,
+          "rankingValue": 108.343
         },
         "researcher": {
-          "score": 29.962,
-          "value": {
-            "task": 122.184,
-            "input": 74.905,
-            "output": 18.726,
-            "blended50": 29.962
-          }
+          "score": 29.979,
+          "rankingQuality": 29.979,
+          "rankingValue": 122.253
         }
+      },
+      "caiStar": {
+        "value": 38.122,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "alibaba_cloud_qwen3-7-plus",
@@ -3448,17 +2910,17 @@
         "tokensPerTask": {
           "reward": 0.191740412979351,
           "costUsd": 6.3006588057259885,
-          "wallTimeSec": 643.9465817995912,
+          "wallTimeSec": 643.9465817995908,
           "steps": 145.96625766871165,
           "inputTokens": 8634688.79941003,
           "cacheWriteTokens": 0,
           "outputTokens": 47864.54277286136,
           "cacheTokens": 4036775.525562371,
-          "cacheHitRate": 0.8105104948122446,
-          "totalTokens": 8784635.035787323
+          "cacheHitRate": 0.8105104948122449,
+          "totalTokens": 8784635.035787327
         },
-        "totalTokensPerTask": 8784635.035787323,
-        "timePerTaskSec": 643.9465817995912,
+        "totalTokensPerTask": 8784635.035787327,
+        "timePerTaskSec": 643.9465817995908,
         "aaCostPerTaskUsd": 6.3006588057259885,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -3502,6 +2964,7 @@
       "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "caiStar": null,
       "codingAgent": null,
       "aaModel": null
     },
@@ -3545,7 +3008,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 25.884,
+        "gdpval": 25.9785,
         "lcr": 69.6667,
         "gpqa": 80.9091,
         "hle": 21.4087,
@@ -3555,77 +3018,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 47.163,
-          "value": {
-            "task": 516.719,
-            "input": 235.815,
-            "output": 41.011,
-            "blended50": 69.871
-          }
+          "score": 47.201,
+          "rankingQuality": 47.201,
+          "rankingValue": 517.135
         },
         "strategist": {
-          "score": 39.037,
-          "value": {
-            "task": 427.69,
-            "input": 195.185,
-            "output": 33.945,
-            "blended50": 57.833
-          }
+          "score": 39.075,
+          "rankingQuality": 39.075,
+          "rankingValue": 428.107
         },
         "security-reviewer": {
           "score": 45.743,
-          "value": {
-            "task": 501.161,
-            "input": 228.715,
-            "output": 39.777,
-            "blended50": 67.767
-          }
+          "rankingQuality": 45.743,
+          "rankingValue": 501.161
         },
         "code-reviewer": {
           "score": 48.296,
-          "value": {
-            "task": 529.132,
-            "input": 241.48,
-            "output": 41.997,
-            "blended50": 71.55
-          }
+          "rankingQuality": 41.286,
+          "rankingValue": 452.33
         },
         "implementer": {
           "score": 48.755,
-          "value": {
-            "task": 534.161,
-            "input": 243.775,
-            "output": 42.396,
-            "blended50": 72.23
-          }
+          "rankingQuality": 41.592,
+          "rankingValue": 455.683
         },
         "implementer-heavy": {
-          "score": 46.516,
-          "value": {
-            "task": 509.63,
-            "input": 232.58,
-            "output": 40.449,
-            "blended50": 68.913
-          }
+          "score": 46.54,
+          "rankingQuality": 40.115,
+          "rankingValue": 439.501
         },
         "synthesizer": {
-          "score": 43.394,
-          "value": {
-            "task": 475.426,
-            "input": 216.97,
-            "output": 37.734,
-            "blended50": 64.287
-          }
+          "score": 43.408,
+          "rankingQuality": 43.408,
+          "rankingValue": 475.579
         },
         "researcher": {
-          "score": 46.805,
-          "value": {
-            "task": 512.797,
-            "input": 234.025,
-            "output": 40.7,
-            "blended50": 69.341
-          }
+          "score": 46.829,
+          "rankingQuality": 46.829,
+          "rankingValue": 513.06
         }
+      },
+      "caiStar": {
+        "value": 27.265,
+        "source": "estimated",
+        "ridge": 15.607,
+        "knn": 38.923
       },
       "codingAgent": null,
       "aaModel": {
@@ -3673,7 +3110,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 60.3333,
         "gpqa": 82.6263,
         "hle": 24.4671,
@@ -3683,77 +3120,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 52.146,
-          "value": {
-            "task": 123.646,
-            "input": 521.46,
-            "output": 173.82,
-            "blended50": 260.73
-          }
+          "score": 52.105,
+          "rankingQuality": 52.105,
+          "rankingValue": 123.549
         },
         "strategist": {
-          "score": 42.989,
-          "value": {
-            "task": 101.933,
-            "input": 429.89,
-            "output": 143.297,
-            "blended50": 214.945
-          }
+          "score": 42.948,
+          "rankingQuality": 42.948,
+          "rankingValue": 101.836
         },
         "security-reviewer": {
           "score": 44.449,
-          "value": {
-            "task": 105.395,
-            "input": 444.49,
-            "output": 148.163,
-            "blended50": 222.245
-          }
+          "rankingQuality": 44.449,
+          "rankingValue": 105.395
         },
         "code-reviewer": {
           "score": 46.235,
-          "value": {
-            "task": 109.63,
-            "input": 462.35,
-            "output": 154.117,
-            "blended50": 231.175
-          }
+          "rankingQuality": 42.289,
+          "rankingValue": 100.273
         },
         "implementer": {
           "score": 47.016,
-          "value": {
-            "task": 111.482,
-            "input": 470.16,
-            "output": 156.72,
-            "blended50": 235.08
-          }
+          "rankingQuality": 42.81,
+          "rankingValue": 101.509
         },
         "implementer-heavy": {
-          "score": 48.215,
-          "value": {
-            "task": 114.325,
-            "input": 482.15,
-            "output": 160.717,
-            "blended50": 241.075
-          }
+          "score": 48.19,
+          "rankingQuality": 43.592,
+          "rankingValue": 103.363
         },
         "synthesizer": {
-          "score": 40.136,
-          "value": {
-            "task": 95.168,
-            "input": 401.36,
-            "output": 133.787,
-            "blended50": 200.68
-          }
+          "score": 40.121,
+          "rankingQuality": 40.121,
+          "rankingValue": 95.133
         },
         "researcher": {
-          "score": 48.406,
-          "value": {
-            "task": 114.778,
-            "input": 484.06,
-            "output": 161.353,
-            "blended50": 242.03
-          }
+          "score": 48.381,
+          "rankingQuality": 48.381,
+          "rankingValue": 114.718
         }
+      },
+      "caiStar": {
+        "value": 34.397,
+        "source": "estimated",
+        "ridge": 28.571,
+        "knn": 40.223
       },
       "codingAgent": null,
       "aaModel": {
@@ -3801,7 +3212,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 38.2925,
+        "gdpval": 38.2045,
         "lcr": 9.4444,
         "gpqa": 86.5657,
         "hle": 35.6812,
@@ -3811,77 +3222,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 40.343,
-          "value": {
-            "task": 1189.778,
-            "input": 92.743,
-            "output": 46.371,
-            "blended50": 61.828
-          }
+          "score": 40.308,
+          "rankingQuality": 40.308,
+          "rankingValue": 1188.746
         },
         "strategist": {
-          "score": 37.875,
-          "value": {
-            "task": 1116.993,
-            "input": 87.069,
-            "output": 43.534,
-            "blended50": 58.046
-          }
+          "score": 37.84,
+          "rankingQuality": 37.84,
+          "rankingValue": 1115.961
         },
         "security-reviewer": {
           "score": 56.086,
-          "value": {
-            "task": 1654.064,
-            "input": 128.933,
-            "output": 64.467,
-            "blended50": 85.956
-          }
+          "rankingQuality": 56.086,
+          "rankingValue": 1654.064
         },
         "code-reviewer": {
           "score": 52.432,
-          "value": {
-            "task": 1546.302,
-            "input": 120.533,
-            "output": 60.267,
-            "blended50": 80.356
-          }
+          "rankingQuality": 50.828,
+          "rankingValue": 1498.997
         },
         "implementer": {
           "score": 48.109,
-          "value": {
-            "task": 1418.81,
-            "input": 110.595,
-            "output": 55.298,
-            "blended50": 73.73
-          }
+          "rankingQuality": 47.946,
+          "rankingValue": 1414.003
         },
         "implementer-heavy": {
-          "score": 42.723,
-          "value": {
-            "task": 1259.968,
-            "input": 98.214,
-            "output": 49.107,
-            "blended50": 65.476
-          }
+          "score": 42.701,
+          "rankingQuality": 44.341,
+          "rankingValue": 1307.686
         },
         "synthesizer": {
-          "score": 29.536,
-          "value": {
-            "task": 871.063,
-            "input": 67.899,
-            "output": 33.949,
-            "blended50": 45.266
-          }
+          "score": 29.523,
+          "rankingQuality": 29.523,
+          "rankingValue": 870.679
         },
         "researcher": {
-          "score": 33.443,
-          "value": {
-            "task": 986.286,
-            "input": 76.88,
-            "output": 38.44,
-            "blended50": 51.254
-          }
+          "score": 33.421,
+          "rankingQuality": 33.421,
+          "rankingValue": 985.638
         }
+      },
+      "caiStar": {
+        "value": 47.621,
+        "source": "estimated",
+        "ridge": 50.51,
+        "knn": 44.731
       },
       "codingAgent": null,
       "aaModel": {
@@ -3929,7 +3314,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 32.52,
+        "gdpval": 32.5085,
         "lcr": 68.3333,
         "gpqa": 84.9495,
         "hle": 27.2011,
@@ -3939,77 +3324,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 51.161,
-          "value": {
-            "task": 4938.797,
-            "input": 365.436,
-            "output": 182.718,
-            "blended50": 243.624
-          }
+          "score": 51.157,
+          "rankingQuality": 51.157,
+          "rankingValue": 4938.411
         },
         "strategist": {
-          "score": 45.326,
-          "value": {
-            "task": 4375.519,
-            "input": 323.757,
-            "output": 161.879,
-            "blended50": 215.838
-          }
+          "score": 45.322,
+          "rankingQuality": 45.322,
+          "rankingValue": 4375.133
         },
         "security-reviewer": {
           "score": 56.638,
-          "value": {
-            "task": 5467.516,
-            "input": 404.557,
-            "output": 202.279,
-            "blended50": 269.705
-          }
+          "rankingQuality": 56.638,
+          "rankingValue": 5467.516
         },
         "code-reviewer": {
           "score": 56.142,
-          "value": {
-            "task": 5419.635,
-            "input": 401.014,
-            "output": 200.507,
-            "blended50": 267.343
-          }
+          "rankingQuality": 49.888,
+          "rankingValue": 4815.909
         },
         "implementer": {
           "score": 51.546,
-          "value": {
-            "task": 4975.963,
-            "input": 368.186,
-            "output": 184.093,
-            "blended50": 245.457
-          }
+          "rankingQuality": 46.824,
+          "rankingValue": 4520.127
         },
         "implementer-heavy": {
-          "score": 49.667,
-          "value": {
-            "task": 4794.575,
-            "input": 354.764,
-            "output": 177.382,
-            "blended50": 236.51
-          }
+          "score": 49.664,
+          "rankingQuality": 45.57,
+          "rankingValue": 4399.073
         },
         "synthesizer": {
-          "score": 52.592,
-          "value": {
-            "task": 5076.938,
-            "input": 375.657,
-            "output": 187.829,
-            "blended50": 250.438
-          }
+          "score": 52.59,
+          "rankingQuality": 52.59,
+          "rankingValue": 5076.745
         },
         "researcher": {
-          "score": 47.443,
-          "value": {
-            "task": 4579.882,
-            "input": 338.879,
-            "output": 169.439,
-            "blended50": 225.919
-          }
+          "score": 47.44,
+          "rankingQuality": 47.44,
+          "rankingValue": 4579.593
         }
+      },
+      "caiStar": {
+        "value": 37.381,
+        "source": "estimated",
+        "ridge": 36.491,
+        "knn": 38.272
       },
       "codingAgent": null,
       "aaModel": {
@@ -4057,7 +3416,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 33.1475,
+        "gdpval": 33.1055,
         "lcr": 11.1111,
         "gpqa": 86.6667,
         "hle": 28.4059,
@@ -4067,77 +3426,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 37.631,
-          "value": {
-            "task": 100.516,
-            "input": 62.718,
-            "output": 15.68,
-            "blended50": 25.087
-          }
+          "score": 37.614,
+          "rankingQuality": 37.614,
+          "rankingValue": 100.47
         },
         "strategist": {
-          "score": 35.696,
-          "value": {
-            "task": 95.347,
-            "input": 59.493,
-            "output": 14.873,
-            "blended50": 23.797
-          }
+          "score": 35.679,
+          "rankingQuality": 35.679,
+          "rankingValue": 95.302
         },
         "security-reviewer": {
           "score": 50.985,
-          "value": {
-            "task": 136.186,
-            "input": 84.975,
-            "output": 21.244,
-            "blended50": 33.99
-          }
+          "rankingQuality": 50.985,
+          "rankingValue": 136.186
         },
         "code-reviewer": {
           "score": 46.841,
-          "value": {
-            "task": 125.117,
-            "input": 78.068,
-            "output": 19.517,
-            "blended50": 31.227
-          }
+          "rankingQuality": 43.95,
+          "rankingValue": 117.394
         },
         "implementer": {
           "score": 41.466,
-          "value": {
-            "task": 110.759,
-            "input": 69.11,
-            "output": 17.278,
-            "blended50": 27.644
-          }
+          "rankingQuality": 40.366,
+          "rankingValue": 107.821
         },
         "implementer-heavy": {
-          "score": 37.145,
-          "value": {
-            "task": 99.218,
-            "input": 61.908,
-            "output": 15.477,
-            "blended50": 24.763
-          }
+          "score": 37.134,
+          "rankingQuality": 37.478,
+          "rankingValue": 100.107
         },
         "synthesizer": {
-          "score": 28.551,
-          "value": {
-            "task": 76.262,
-            "input": 47.585,
-            "output": 11.896,
-            "blended50": 19.034
-          }
+          "score": 28.545,
+          "rankingQuality": 28.545,
+          "rankingValue": 76.246
         },
         "researcher": {
-          "score": 31.977,
-          "value": {
-            "task": 85.413,
-            "input": 53.295,
-            "output": 13.324,
-            "blended50": 21.318
-          }
+          "score": 31.967,
+          "rankingQuality": 31.967,
+          "rankingValue": 85.387
         }
+      },
+      "caiStar": {
+        "value": 38.167,
+        "source": "estimated",
+        "ridge": 35.409,
+        "knn": 40.926
       },
       "codingAgent": null,
       "aaModel": {
@@ -4185,7 +3518,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 61.8855,
+        "gdpval": 61.5415,
         "lcr": 64.4444,
         "gpqa": 92.6263,
         "hle": 55.468,
@@ -4195,77 +3528,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 67.711,
-          "value": {
-            "task": 20.876,
-            "input": 6.771,
-            "output": 1.354,
-            "blended50": 2.257
-          }
+          "score": 67.573,
+          "rankingQuality": 67.573,
+          "rankingValue": 20.834
         },
         "strategist": {
-          "score": 63.612,
-          "value": {
-            "task": 19.612,
-            "input": 6.361,
-            "output": 1.272,
-            "blended50": 2.12
-          }
+          "score": 63.474,
+          "rankingQuality": 63.474,
+          "rankingValue": 19.57
         },
         "security-reviewer": {
           "score": 64.205,
-          "value": {
-            "task": 19.795,
-            "input": 6.421,
-            "output": 1.284,
-            "blended50": 2.14
-          }
+          "rankingQuality": 64.205,
+          "rankingValue": 19.795
         },
         "code-reviewer": {
           "score": 64.458,
-          "value": {
-            "task": 19.873,
-            "input": 6.446,
-            "output": 1.289,
-            "blended50": 2.149
-          }
+          "rankingQuality": 65.363,
+          "rankingValue": 20.152
         },
         "implementer": {
           "score": 65.219,
-          "value": {
-            "task": 20.108,
-            "input": 6.522,
-            "output": 1.304,
-            "blended50": 2.174
-          }
+          "rankingQuality": 65.87,
+          "rankingValue": 20.309
         },
         "implementer-heavy": {
-          "score": 64.706,
-          "value": {
-            "task": 19.95,
-            "input": 6.471,
-            "output": 1.294,
-            "blended50": 2.157
-          }
+          "score": 64.62,
+          "rankingQuality": 65.471,
+          "rankingValue": 20.186
         },
         "synthesizer": {
-          "score": 58.626,
-          "value": {
-            "task": 18.075,
-            "input": 5.863,
-            "output": 1.173,
-            "blended50": 1.954
-          }
+          "score": 58.574,
+          "rankingQuality": 58.574,
+          "rankingValue": 18.059
         },
         "researcher": {
-          "score": 67.315,
-          "value": {
-            "task": 20.754,
-            "input": 6.732,
-            "output": 1.346,
-            "blended50": 2.244
-          }
+          "score": 67.229,
+          "rankingQuality": 67.229,
+          "rankingValue": 20.728
         }
+      },
+      "caiStar": {
+        "value": 67.173,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "anthropic_claude-fable-5",
@@ -4285,11 +3590,11 @@
           "inputTokens": 13437258.132743362,
           "cacheWriteTokens": 245125.98525073746,
           "outputTokens": 117577.40117994101,
-          "cacheTokens": 6741270.2402863065,
+          "cacheTokens": 6741270.240286304,
           "cacheHitRate": 0.9619283373252908,
-          "totalTokens": 13868659.998977497
+          "totalTokens": 13868659.998977493
         },
-        "totalTokensPerTask": 13868659.998977497,
+        "totalTokensPerTask": 13868659.998977493,
         "timePerTaskSec": 1407.3063016359897,
         "aaCostPerTaskUsd": 11.687407620910031,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
@@ -4345,7 +3650,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 67.2335,
+        "gdpval": 66.7335,
         "lcr": 55.5556,
         "gpqa": 93.2323,
         "hle": 54.8656,
@@ -4355,77 +3660,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 67.659,
-          "value": {
-            "task": 28.953,
-            "input": 13.532,
-            "output": 2.706,
-            "blended50": 4.511
-          }
+          "score": 67.459,
+          "rankingQuality": 67.459,
+          "rankingValue": 28.867
         },
         "strategist": {
-          "score": 63.419,
-          "value": {
-            "task": 27.139,
-            "input": 12.684,
-            "output": 2.537,
-            "blended50": 4.228
-          }
+          "score": 63.219,
+          "rankingQuality": 63.219,
+          "rankingValue": 27.053
         },
         "security-reviewer": {
           "score": 62.415,
-          "value": {
-            "task": 26.709,
-            "input": 12.483,
-            "output": 2.497,
-            "blended50": 4.161
-          }
+          "rankingQuality": 62.415,
+          "rankingValue": 26.709
         },
         "code-reviewer": {
           "score": 61.437,
-          "value": {
-            "task": 26.29,
-            "input": 12.287,
-            "output": 2.457,
-            "blended50": 4.096
-          }
+          "rankingQuality": 63.675,
+          "rankingValue": 27.248
         },
         "implementer": {
           "score": 61.208,
-          "value": {
-            "task": 26.192,
-            "input": 12.242,
-            "output": 2.448,
-            "blended50": 4.081
-          }
+          "rankingQuality": 63.522,
+          "rankingValue": 27.183
         },
         "implementer-heavy": {
-          "score": 62.295,
-          "value": {
-            "task": 26.658,
-            "input": 12.459,
-            "output": 2.492,
-            "blended50": 4.153
-          }
+          "score": 62.17,
+          "rankingQuality": 64.163,
+          "rankingValue": 27.457
         },
         "synthesizer": {
-          "score": 55.095,
-          "value": {
-            "task": 23.577,
-            "input": 11.019,
-            "output": 2.204,
-            "blended50": 3.673
-          }
+          "score": 55.02,
+          "rankingQuality": 55.02,
+          "rankingValue": 23.544
         },
         "researcher": {
-          "score": 65.12,
-          "value": {
-            "task": 27.866,
-            "input": 13.024,
-            "output": 2.605,
-            "blended50": 4.341
-          }
+          "score": 64.995,
+          "rankingQuality": 64.995,
+          "rankingValue": 27.813
         }
+      },
+      "caiStar": {
+        "value": 68.15,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "anthropic_claude-opus-5",
@@ -4440,17 +3717,17 @@
         "tokensPerTask": {
           "reward": 0.604719764011799,
           "costUsd": 8.170783921523503,
-          "wallTimeSec": 1421.8799826175893,
+          "wallTimeSec": 1421.879982617586,
           "steps": 152.07719836400818,
           "inputTokens": 20679357.135693215,
           "cacheWriteTokens": 238241.63421828908,
           "outputTokens": 114890.17109144543,
           "cacheTokens": 10578912.742331289,
           "cacheHitRate": 0.9740249879523308,
-          "totalTokens": 21565879.138036806
+          "totalTokens": 21565879.138036843
         },
-        "totalTokensPerTask": 21565879.138036806,
-        "timePerTaskSec": 1421.8799826175893,
+        "totalTokensPerTask": 21565879.138036843,
+        "timePerTaskSec": 1421.879982617586,
         "aaCostPerTaskUsd": 8.170783921523503,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -4505,7 +3782,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 54.187,
+        "gdpval": 54.097,
         "lcr": 45.5556,
         "gpqa": 92.0202,
         "hle": 48.6562,
@@ -4515,77 +3792,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 58.766,
-          "value": {
-            "task": 28.927,
-            "input": 11.753,
-            "output": 2.351,
-            "blended50": 3.918
-          }
+          "score": 58.73,
+          "rankingQuality": 58.73,
+          "rankingValue": 28.91
         },
         "strategist": {
-          "score": 55.83,
-          "value": {
-            "task": 27.482,
-            "input": 11.166,
-            "output": 2.233,
-            "blended50": 3.722
-          }
+          "score": 55.794,
+          "rankingQuality": 55.794,
+          "rankingValue": 27.464
         },
         "security-reviewer": {
           "score": 62.446,
-          "value": {
-            "task": 30.739,
-            "input": 12.489,
-            "output": 2.498,
-            "blended50": 4.163
-          }
+          "rankingQuality": 62.446,
+          "rankingValue": 30.739
         },
         "code-reviewer": {
           "score": 60.24,
-          "value": {
-            "task": 29.653,
-            "input": 12.048,
-            "output": 2.41,
-            "blended50": 4.016
-          }
+          "rankingQuality": 60.874,
+          "rankingValue": 29.965
         },
         "implementer": {
           "score": 57.585,
-          "value": {
-            "task": 28.346,
-            "input": 11.517,
-            "output": 2.303,
-            "blended50": 3.839
-          }
+          "rankingQuality": 59.104,
+          "rankingValue": 29.094
         },
         "implementer-heavy": {
-          "score": 55.922,
-          "value": {
-            "task": 27.527,
-            "input": 11.184,
-            "output": 2.237,
-            "blended50": 3.728
-          }
+          "score": 55.9,
+          "rankingQuality": 57.98,
+          "rankingValue": 28.54
         },
         "synthesizer": {
-          "score": 50.545,
-          "value": {
-            "task": 24.881,
-            "input": 10.109,
-            "output": 2.022,
-            "blended50": 3.37
-          }
+          "score": 50.531,
+          "rankingQuality": 50.531,
+          "rankingValue": 24.874
         },
         "researcher": {
-          "score": 55.649,
-          "value": {
-            "task": 27.393,
-            "input": 11.13,
-            "output": 2.226,
-            "blended50": 3.71
-          }
+          "score": 55.626,
+          "rankingQuality": 55.626,
+          "rankingValue": 27.382
         }
+      },
+      "caiStar": {
+        "value": 62.141,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "anthropic_claude-opus-4-8",
@@ -4598,14 +3847,14 @@
           "terminal-bench-v2.1": 83.895
         },
         "tokensPerTask": {
-          "reward": 0.557522123893805,
+          "reward": 0.557522123893806,
           "costUsd": 7.7247257970092145,
           "wallTimeSec": 1386.6877980572617,
           "steps": 165.01758453417034,
           "inputTokens": 18153203.522123896,
           "cacheWriteTokens": 301517.69911504426,
           "outputTokens": 148269.50147492625,
-          "cacheTokens": 8733088.679447845,
+          "cacheTokens": 8733088.67944784,
           "cacheHitRate": 0.9657541826994763,
           "totalTokens": 17920579.42791411
         },
@@ -4665,7 +3914,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 49.475,
+        "gdpval": 49.2955,
         "lcr": 75.3333,
         "gpqa": 91.4141,
         "hle": 42.3077,
@@ -4675,77 +3924,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 63.252,
-          "value": {
-            "task": 28.383,
-            "input": 12.65,
-            "output": 2.53,
-            "blended50": 4.217
-          }
+          "score": 63.18,
+          "rankingQuality": 63.18,
+          "rankingValue": 28.351
         },
         "strategist": {
-          "score": 59.546,
-          "value": {
-            "task": 26.72,
-            "input": 11.909,
-            "output": 2.382,
-            "blended50": 3.97
-          }
+          "score": 59.474,
+          "rankingQuality": 59.474,
+          "rankingValue": 26.688
         },
         "security-reviewer": {
           "score": 63.859,
-          "value": {
-            "task": 28.655,
-            "input": 12.772,
-            "output": 2.554,
-            "blended50": 4.257
-          }
+          "rankingQuality": 63.859,
+          "rankingValue": 28.655
         },
         "code-reviewer": {
           "score": 64.116,
-          "value": {
-            "task": 28.771,
-            "input": 12.823,
-            "output": 2.565,
-            "blended50": 4.274
-          }
+          "rankingQuality": 59.938,
+          "rankingValue": 26.896
         },
         "implementer": {
           "score": 61.951,
-          "value": {
-            "task": 27.799,
-            "input": 12.39,
-            "output": 2.478,
-            "blended50": 4.13
-          }
+          "rankingQuality": 58.494,
+          "rankingValue": 26.248
         },
         "implementer-heavy": {
-          "score": 61.108,
-          "value": {
-            "task": 27.421,
-            "input": 12.222,
-            "output": 2.444,
-            "blended50": 4.074
-          }
+          "score": 61.063,
+          "rankingQuality": 57.902,
+          "rankingValue": 25.982
         },
         "synthesizer": {
-          "score": 62.64,
-          "value": {
-            "task": 28.108,
-            "input": 12.528,
-            "output": 2.506,
-            "blended50": 4.176
-          }
+          "score": 62.613,
+          "rankingQuality": 62.613,
+          "rankingValue": 28.096
         },
         "researcher": {
-          "score": 62.688,
-          "value": {
-            "task": 28.13,
-            "input": 12.538,
-            "output": 2.508,
-            "blended50": 4.179
-          }
+          "score": 62.643,
+          "rankingQuality": 62.643,
+          "rankingValue": 28.11
         }
+      },
+      "caiStar": {
+        "value": 51.581,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "anthropic_claude-opus-4-7",
@@ -4759,19 +3980,19 @@
         },
         "tokensPerTask": {
           "reward": 0.40117994100295,
-          "costUsd": 5.915424259100202,
+          "costUsd": 5.915424259100206,
           "wallTimeSec": 950.3123588957067,
           "steps": 107.99932608291505,
           "inputTokens": 14256507.348082596,
           "cacheWriteTokens": 186574.30088495577,
           "outputTokens": 74954.85840707965,
           "cacheTokens": 7876338.34867077,
-          "cacheHitRate": 0.9665216325317721,
+          "cacheHitRate": 0.9665216325317725,
           "totalTokens": 16129723.114519438
         },
         "totalTokensPerTask": 16129723.114519438,
         "timePerTaskSec": 950.3123588957067,
-        "aaCostPerTaskUsd": 5.915424259100202,
+        "aaCostPerTaskUsd": 5.915424259100206,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -4825,7 +4046,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 62.3333,
         "gpqa": 84.0404,
         "hle": 19.0918,
@@ -4835,77 +4056,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 52.123,
-          "value": {
-            "task": 43.691,
-            "input": 10.425,
-            "output": 2.085,
-            "blended50": 3.475
-          }
+          "score": 52.082,
+          "rankingQuality": 52.082,
+          "rankingValue": 43.657
         },
         "strategist": {
-          "score": 48.887,
-          "value": {
-            "task": 40.979,
-            "input": 9.777,
-            "output": 1.955,
-            "blended50": 3.259
-          }
+          "score": 48.846,
+          "rankingQuality": 48.846,
+          "rankingValue": 40.945
         },
         "security-reviewer": {
           "score": 47.765,
-          "value": {
-            "task": 40.038,
-            "input": 9.553,
-            "output": 1.911,
-            "blended50": 3.184
-          }
+          "rankingQuality": 47.765,
+          "rankingValue": 40.038
         },
         "code-reviewer": {
           "score": 50.632,
-          "value": {
-            "task": 42.442,
-            "input": 10.126,
-            "output": 2.025,
-            "blended50": 3.375
-          }
+          "rankingQuality": 45.812,
+          "rankingValue": 38.401
         },
         "implementer": {
           "score": 51.296,
-          "value": {
-            "task": 42.998,
-            "input": 10.259,
-            "output": 2.052,
-            "blended50": 3.42
-          }
+          "rankingQuality": 46.254,
+          "rankingValue": 38.772
         },
         "implementer-heavy": {
-          "score": 51.986,
-          "value": {
-            "task": 43.577,
-            "input": 10.397,
-            "output": 2.079,
-            "blended50": 3.466
-          }
+          "score": 51.96,
+          "rankingQuality": 46.697,
+          "rankingValue": 39.143
         },
         "synthesizer": {
-          "score": 47.516,
-          "value": {
-            "task": 39.83,
-            "input": 9.503,
-            "output": 1.901,
-            "blended50": 3.168
-          }
+          "score": 47.501,
+          "rankingQuality": 47.501,
+          "rankingValue": 39.817
         },
         "researcher": {
-          "score": 52.914,
-          "value": {
-            "task": 44.354,
-            "input": 10.583,
-            "output": 2.117,
-            "blended50": 3.528
-          }
+          "score": 52.889,
+          "rankingQuality": 52.889,
+          "rankingValue": 44.334
         }
+      },
+      "caiStar": {
+        "value": 36.171,
+        "source": "estimated",
+        "ridge": 33.497,
+        "knn": 38.844
       },
       "codingAgent": null,
       "aaModel": {
@@ -4953,7 +4148,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 54.7745,
+        "gdpval": 54.6315,
         "lcr": 55,
         "gpqa": 91.1111,
         "hle": 41.2882,
@@ -4963,77 +4158,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 60.075,
-          "value": {
-            "task": 34.983,
-            "input": 30.038,
-            "output": 6.008,
-            "blended50": 10.013
-          }
+          "score": 60.018,
+          "rankingQuality": 60.018,
+          "rankingValue": 34.95
         },
         "strategist": {
-          "score": 56.094,
-          "value": {
-            "task": 32.665,
-            "input": 28.047,
-            "output": 5.609,
-            "blended50": 9.349
-          }
+          "score": 56.037,
+          "rankingQuality": 56.037,
+          "rankingValue": 32.632
         },
         "security-reviewer": {
           "score": 61.707,
-          "value": {
-            "task": 35.933,
-            "input": 30.854,
-            "output": 6.171,
-            "blended50": 10.285
-          }
+          "rankingQuality": 61.707,
+          "rankingValue": 35.933
         },
         "code-reviewer": {
           "score": 60.779,
-          "value": {
-            "task": 35.393,
-            "input": 30.39,
-            "output": 6.078,
-            "blended50": 10.13
-          }
+          "rankingQuality": 57.136,
+          "rankingValue": 33.271
         },
         "implementer": {
           "score": 58.198,
-          "value": {
-            "task": 33.89,
-            "input": 29.099,
-            "output": 5.82,
-            "blended50": 9.7
-          }
+          "rankingQuality": 55.416,
+          "rankingValue": 32.27
         },
         "implementer-heavy": {
-          "score": 57.919,
-          "value": {
-            "task": 33.727,
-            "input": 28.96,
-            "output": 5.792,
-            "blended50": 9.653
-          }
+          "score": 57.884,
+          "rankingQuality": 55.206,
+          "rankingValue": 32.148
         },
         "synthesizer": {
-          "score": 53.103,
-          "value": {
-            "task": 30.923,
-            "input": 26.552,
-            "output": 5.31,
-            "blended50": 8.851
-          }
+          "score": 53.082,
+          "rankingQuality": 53.082,
+          "rankingValue": 30.911
         },
         "researcher": {
-          "score": 55.999,
-          "value": {
-            "task": 32.609,
-            "input": 28,
-            "output": 5.6,
-            "blended50": 9.333
-          }
+          "score": 55.963,
+          "rankingQuality": 55.963,
+          "rankingValue": 32.588
         }
+      },
+      "caiStar": {
+        "value": 49.851,
+        "source": "estimated",
+        "ridge": 46.29,
+        "knn": 53.413
       },
       "codingAgent": null,
       "aaModel": {
@@ -5081,7 +4250,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 20,
         "gpqa": 79.899,
         "hle": 13.3457,
@@ -5091,77 +4260,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 39.849,
-          "value": {
-            "task": 45.245,
-            "input": 13.283,
-            "output": 2.657,
-            "blended50": 4.428
-          }
+          "score": 39.808,
+          "rankingQuality": 39.808,
+          "rankingValue": 45.199
         },
         "strategist": {
-          "score": 39.716,
-          "value": {
-            "task": 45.094,
-            "input": 13.239,
-            "output": 2.648,
-            "blended50": 4.413
-          }
+          "score": 39.676,
+          "rankingQuality": 39.676,
+          "rankingValue": 45.049
         },
         "security-reviewer": {
           "score": 43.43,
-          "value": {
-            "task": 49.311,
-            "input": 14.477,
-            "output": 2.895,
-            "blended50": 4.826
-          }
+          "rankingQuality": 43.43,
+          "rankingValue": 49.311
         },
         "code-reviewer": {
           "score": 44.557,
-          "value": {
-            "task": 50.591,
-            "input": 14.852,
-            "output": 2.97,
-            "blended50": 4.951
-          }
+          "rankingQuality": 42.588,
+          "rankingValue": 48.355
         },
         "implementer": {
           "score": 44.444,
-          "value": {
-            "task": 50.462,
-            "input": 14.815,
-            "output": 2.963,
-            "blended50": 4.938
-          }
+          "rankingQuality": 42.512,
+          "rankingValue": 48.269
         },
         "implementer-heavy": {
-          "score": 43.626,
-          "value": {
-            "task": 49.534,
-            "input": 14.542,
-            "output": 2.908,
-            "blended50": 4.847
-          }
+          "score": 43.6,
+          "rankingQuality": 41.95,
+          "rankingValue": 47.631
         },
         "synthesizer": {
-          "score": 29.333,
-          "value": {
-            "task": 33.305,
-            "input": 9.778,
-            "output": 1.956,
-            "blended50": 3.259
-          }
+          "score": 29.318,
+          "rankingQuality": 29.318,
+          "rankingValue": 33.288
         },
         "researcher": {
-          "score": 37.572,
-          "value": {
-            "task": 42.66,
-            "input": 12.524,
-            "output": 2.505,
-            "blended50": 4.175
-          }
+          "score": 37.546,
+          "rankingQuality": 37.546,
+          "rankingValue": 42.63
         }
+      },
+      "caiStar": {
+        "value": 38.649,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "anthropic_claude-sonnet-4-6",
@@ -5182,7 +4323,7 @@
           "cacheWriteTokens": 172390.57817109145,
           "outputTokens": 67150.87315634219,
           "cacheTokens": 4083419.110429447,
-          "cacheHitRate": 0.9487221679807681,
+          "cacheHitRate": 0.9487221679807685,
           "totalTokens": 8444053.035787314
         },
         "totalTokensPerTask": 8444053.035787314,
@@ -5241,7 +4382,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 4.4444,
         "gpqa": 64.6465,
         "hle": 4.2169,
@@ -5251,77 +4392,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 31.541,
-          "value": {
-            "task": 55.482,
-            "input": 31.541,
-            "output": 6.308,
-            "blended50": 10.514
-          }
+          "score": 31.5,
+          "rankingQuality": 31.5,
+          "rankingValue": 55.41
         },
         "strategist": {
-          "score": 34.537,
-          "value": {
-            "task": 60.752,
-            "input": 34.537,
-            "output": 6.907,
-            "blended50": 11.512
-          }
+          "score": 34.496,
+          "rankingQuality": 34.496,
+          "rankingValue": 60.68
         },
         "security-reviewer": {
           "score": 38.905,
-          "value": {
-            "task": 68.435,
-            "input": 38.905,
-            "output": 7.781,
-            "blended50": 12.968
-          }
+          "rankingQuality": 38.905,
+          "rankingValue": 68.435
         },
         "code-reviewer": {
           "score": 36.915,
-          "value": {
-            "task": 64.935,
-            "input": 36.915,
-            "output": 7.383,
-            "blended50": 12.305
-          }
+          "rankingQuality": 37.618,
+          "rankingValue": 66.172
         },
         "implementer": {
           "score": 31.41,
-          "value": {
-            "task": 55.251,
-            "input": 31.41,
-            "output": 6.282,
-            "blended50": 10.47
-          }
+          "rankingQuality": 33.948,
+          "rankingValue": 59.716
         },
         "implementer-heavy": {
-          "score": 33.365,
-          "value": {
-            "task": 58.69,
-            "input": 33.365,
-            "output": 6.673,
-            "blended50": 11.122
-          }
+          "score": 33.339,
+          "rankingQuality": 35.234,
+          "rankingValue": 61.978
         },
         "synthesizer": {
-          "score": 26.07,
-          "value": {
-            "task": 45.858,
-            "input": 26.07,
-            "output": 5.214,
-            "blended50": 8.69
-          }
+          "score": 26.055,
+          "rankingQuality": 26.055,
+          "rankingValue": 45.832
         },
         "researcher": {
-          "score": 24.881,
-          "value": {
-            "task": 43.767,
-            "input": 24.881,
-            "output": 4.976,
-            "blended50": 8.294
-          }
+          "score": 24.855,
+          "rankingQuality": 24.855,
+          "rankingValue": 43.721
         }
+      },
+      "caiStar": {
+        "value": 39.024,
+        "source": "estimated",
+        "ridge": 37.189,
+        "knn": 40.859
       },
       "codingAgent": null,
       "aaModel": {
@@ -5358,10 +4473,10 @@
       },
       "taskEfficiency": {
         "commandCodeCostPerTaskUsd": 1.231211,
-        "aaCostPerTaskUsd": 1.2312110558767355,
+        "aaCostPerTaskUsd": 0.9604289176458799,
         "tokens": {
-          "nonCacheInput": 6154.883542565092,
-          "cacheRead": 958393.0516908291,
+          "nonCacheInput": 6154.883542565091,
+          "cacheRead": 958393.0516908292,
           "cacheWrite": 34380.20220173964,
           "reasoning": 10765.805718031059,
           "answer": 6112.989233889698,
@@ -5369,7 +4484,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 61.148,
+        "gdpval": 60.8,
         "lcr": 26.1111,
         "gpqa": 94.1414,
         "hle": 49.4903,
@@ -5379,77 +4494,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 57.239,
-          "value": {
-            "task": 46.49,
-            "input": 11.448,
-            "output": 1.908,
-            "blended50": 3.271
-          }
+          "score": 57.1,
+          "rankingQuality": 57.1,
+          "rankingValue": 46.377
         },
         "strategist": {
-          "score": 51.756,
-          "value": {
-            "task": 42.037,
-            "input": 10.351,
-            "output": 1.725,
-            "blended50": 2.957
-          }
+          "score": 51.616,
+          "rankingQuality": 51.616,
+          "rankingValue": 41.923
         },
         "security-reviewer": {
           "score": 54.055,
-          "value": {
-            "task": 43.904,
-            "input": 10.811,
-            "output": 1.802,
-            "blended50": 3.089
-          }
+          "rankingQuality": 54.055,
+          "rankingValue": 43.904
         },
         "code-reviewer": {
           "score": 53.734,
-          "value": {
-            "task": 43.643,
-            "input": 10.747,
-            "output": 1.791,
-            "blended50": 3.071
-          }
+          "rankingQuality": 57.507,
+          "rankingValue": 46.708
         },
         "implementer": {
           "score": 56.667,
-          "value": {
-            "task": 46.025,
-            "input": 11.333,
-            "output": 1.889,
-            "blended50": 3.238
-          }
+          "rankingQuality": 59.462,
+          "rankingValue": 48.296
         },
         "implementer-heavy": {
-          "score": 55.184,
-          "value": {
-            "task": 44.821,
-            "input": 11.037,
-            "output": 1.839,
-            "blended50": 3.153
-          }
+          "score": 55.097,
+          "rankingQuality": 58.415,
+          "rankingValue": 47.445
         },
         "synthesizer": {
-          "score": 34.362,
-          "value": {
-            "task": 27.909,
-            "input": 6.872,
-            "output": 1.145,
-            "blended50": 1.964
-          }
+          "score": 34.31,
+          "rankingQuality": 34.31,
+          "rankingValue": 27.867
         },
         "researcher": {
-          "score": 54.071,
-          "value": {
-            "task": 43.917,
-            "input": 10.814,
-            "output": 1.802,
-            "blended50": 3.09
-          }
+          "score": 53.984,
+          "rankingQuality": 53.984,
+          "rankingValue": 43.846
         }
+      },
+      "caiStar": {
+        "value": 65.052,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "openai_gpt-5-6-sol",
@@ -5470,7 +4557,7 @@
           "cacheWriteTokens": null,
           "outputTokens": 55315.890855457226,
           "cacheTokens": 6347957.384458077,
-          "cacheHitRate": 0.902597320865973,
+          "cacheHitRate": 0.9025973208659729,
           "totalTokens": 13169248.796012262
         },
         "totalTokensPerTask": 13169248.796012262,
@@ -5529,7 +4616,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 53.815,
+        "gdpval": 53.6565,
         "lcr": 31.6667,
         "gpqa": 92.5253,
         "hle": 42.9101,
@@ -5539,77 +4626,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.384,
-          "value": {
-            "task": 107.051,
-            "input": 27.192,
-            "output": 4.532,
-            "blended50": 7.769
-          }
+          "score": 54.321,
+          "rankingQuality": 54.321,
+          "rankingValue": 106.927
         },
         "strategist": {
-          "score": 47.684,
-          "value": {
-            "task": 93.863,
-            "input": 23.842,
-            "output": 3.974,
-            "blended50": 6.812
-          }
+          "score": 47.621,
+          "rankingQuality": 47.621,
+          "rankingValue": 93.739
         },
         "security-reviewer": {
           "score": 52.879,
-          "value": {
-            "task": 104.089,
-            "input": 26.44,
-            "output": 4.407,
-            "blended50": 7.554
-          }
+          "rankingQuality": 52.879,
+          "rankingValue": 104.089
         },
         "code-reviewer": {
           "score": 53.029,
-          "value": {
-            "task": 104.384,
-            "input": 26.515,
-            "output": 4.419,
-            "blended50": 7.576
-          }
+          "rankingQuality": 55.493,
+          "rankingValue": 109.234
         },
         "implementer": {
           "score": 55.281,
-          "value": {
-            "task": 108.817,
-            "input": 27.641,
-            "output": 4.607,
-            "blended50": 7.897
-          }
+          "rankingQuality": 56.994,
+          "rankingValue": 112.189
         },
         "implementer-heavy": {
-          "score": 53.31,
-          "value": {
-            "task": 104.937,
-            "input": 26.655,
-            "output": 4.443,
-            "blended50": 7.616
-          }
+          "score": 53.271,
+          "rankingQuality": 55.654,
+          "rankingValue": 109.551
         },
         "synthesizer": {
-          "score": 34.107,
-          "value": {
-            "task": 67.137,
-            "input": 17.054,
-            "output": 2.842,
-            "blended50": 4.872
-          }
+          "score": 34.083,
+          "rankingQuality": 34.083,
+          "rankingValue": 67.09
         },
         "researcher": {
-          "score": 50.484,
-          "value": {
-            "task": 99.374,
-            "input": 25.242,
-            "output": 4.207,
-            "blended50": 7.212
-          }
+          "score": 50.444,
+          "rankingQuality": 50.444,
+          "rankingValue": 99.295
         }
+      },
+      "caiStar": {
+        "value": 60.42,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "openai_gpt-5-6-terra",
@@ -5629,7 +4688,7 @@
           "inputTokens": 7011344.04719764,
           "cacheWriteTokens": null,
           "outputTokens": 58797.35103244838,
-          "cacheTokens": 4659332.293456035,
+          "cacheTokens": 4659332.293456031,
           "cacheHitRate": 0.9184675548550253,
           "totalTokens": 9630511.582822077
         },
@@ -5689,7 +4748,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 53.915,
+        "gdpval": 53.8695,
         "lcr": 19.4444,
         "gpqa": 91.1111,
         "hle": 39.481,
@@ -5699,77 +4758,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.571,
-          "value": {
-            "task": 1073.056,
-            "input": 252.855,
-            "output": 42.143,
-            "blended50": 72.244
-          }
+          "score": 50.553,
+          "rankingQuality": 50.553,
+          "rankingValue": 1072.674
         },
         "strategist": {
-          "score": 43.855,
-          "value": {
-            "task": 930.551,
-            "input": 219.275,
-            "output": 36.546,
-            "blended50": 62.65
-          }
+          "score": 43.837,
+          "rankingQuality": 43.837,
+          "rankingValue": 930.169
         },
         "security-reviewer": {
           "score": 49.496,
-          "value": {
-            "task": 1050.246,
-            "input": 247.48,
-            "output": 41.247,
-            "blended50": 70.709
-          }
+          "rankingQuality": 49.496,
+          "rankingValue": 1050.246
         },
         "code-reviewer": {
           "score": 49.475,
-          "value": {
-            "task": 1049.801,
-            "input": 247.375,
-            "output": 41.229,
-            "blended50": 70.679
-          }
+          "rankingQuality": 52.039,
+          "rankingValue": 1104.206
         },
         "implementer": {
           "score": 52.059,
-          "value": {
-            "task": 1104.63,
-            "input": 260.295,
-            "output": 43.383,
-            "blended50": 74.37
-          }
+          "rankingQuality": 53.761,
+          "rankingValue": 1140.744
         },
         "implementer-heavy": {
-          "score": 50.125,
-          "value": {
-            "task": 1063.593,
-            "input": 250.625,
-            "output": 41.771,
-            "blended50": 71.607
-          }
+          "score": 50.113,
+          "rankingQuality": 52.464,
+          "rankingValue": 1113.224
         },
         "synthesizer": {
-          "score": 26.868,
-          "value": {
-            "task": 570.107,
-            "input": 134.34,
-            "output": 22.39,
-            "blended50": 38.383
-          }
+          "score": 26.861,
+          "rankingQuality": 26.861,
+          "rankingValue": 569.958
         },
         "researcher": {
-          "score": 45.473,
-          "value": {
-            "task": 964.883,
-            "input": 227.365,
-            "output": 37.894,
-            "blended50": 64.961
-          }
+          "score": 45.462,
+          "rankingQuality": 45.462,
+          "rankingValue": 964.649
         }
+      },
+      "caiStar": {
+        "value": 57.166,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "openai_gpt-5-6-luna",
@@ -5790,7 +4821,7 @@
           "cacheWriteTokens": null,
           "outputTokens": 67927.49852507375,
           "cacheTokens": 7751235.793456022,
-          "cacheHitRate": 0.9181831202060821,
+          "cacheHitRate": 0.9181831202060824,
           "totalTokens": 15963259.28016359
         },
         "totalTokensPerTask": 15963259.28016359,
@@ -5849,7 +4880,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 49.511,
+        "gdpval": 49.429,
         "lcr": 17.7778,
         "gpqa": 93.5354,
         "hle": 45.7831,
@@ -5859,77 +4890,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 49.823,
-          "value": {
-            "task": 42.413,
-            "input": 9.965,
-            "output": 1.661,
-            "blended50": 2.847
-          }
+          "score": 49.791,
+          "rankingQuality": 49.791,
+          "rankingValue": 42.386
         },
         "strategist": {
-          "score": 45.401,
-          "value": {
-            "task": 38.649,
-            "input": 9.08,
-            "output": 1.513,
-            "blended50": 2.594
-          }
+          "score": 45.369,
+          "rankingQuality": 45.369,
+          "rankingValue": 38.622
         },
         "security-reviewer": {
           "score": 52.805,
-          "value": {
-            "task": 44.952,
-            "input": 10.561,
-            "output": 1.76,
-            "blended50": 3.017
-          }
+          "rankingQuality": 52.805,
+          "rankingValue": 44.952
         },
         "code-reviewer": {
           "score": 52.31,
-          "value": {
-            "task": 44.53,
-            "input": 10.462,
-            "output": 1.744,
-            "blended50": 2.989
-          }
+          "rankingQuality": 55.218,
+          "rankingValue": 47.006
         },
         "implementer": {
           "score": 54.956,
-          "value": {
-            "task": 46.783,
-            "input": 10.991,
-            "output": 1.832,
-            "blended50": 3.14
-          }
+          "rankingQuality": 56.982,
+          "rankingValue": 48.507
         },
         "implementer-heavy": {
-          "score": 50.547,
-          "value": {
-            "task": 43.029,
-            "input": 10.109,
-            "output": 1.685,
-            "blended50": 2.888
-          }
+          "score": 50.527,
+          "rankingQuality": 54.029,
+          "rankingValue": 45.994
         },
         "synthesizer": {
-          "score": 29.212,
-          "value": {
-            "task": 24.867,
-            "input": 5.842,
-            "output": 0.974,
-            "blended50": 1.669
-          }
+          "score": 29.2,
+          "rankingQuality": 29.2,
+          "rankingValue": 24.857
         },
         "researcher": {
-          "score": 47.91,
-          "value": {
-            "task": 40.785,
-            "input": 9.582,
-            "output": 1.597,
-            "blended50": 2.738
-          }
+          "score": 47.889,
+          "rankingQuality": 47.889,
+          "rankingValue": 40.767
         }
+      },
+      "caiStar": {
+        "value": 61.033,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "openai_gpt-5-5",
@@ -5943,19 +4946,19 @@
         },
         "tokensPerTask": {
           "reward": 0.64306784660767,
-          "costUsd": 4.7523700715746395,
+          "costUsd": 4.752370071574643,
           "wallTimeSec": 614.9898987730064,
           "steps": 107.1319018404908,
           "inputTokens": 9686260.805309735,
           "cacheWriteTokens": null,
           "outputTokens": 39818.52802359882,
           "cacheTokens": 5961477.627811859,
-          "cacheHitRate": 0.9341674523911518,
-          "totalTokens": 12150851.179959083
+          "cacheHitRate": 0.9341674523911524,
+          "totalTokens": 12150851.179959117
         },
-        "totalTokensPerTask": 12150851.179959083,
+        "totalTokensPerTask": 12150851.179959117,
         "timePerTaskSec": 614.9898987730064,
-        "aaCostPerTaskUsd": 4.7523700715746395,
+        "aaCostPerTaskUsd": 4.752370071574643,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -6009,7 +5012,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 44.7015,
+        "gdpval": 44.5895,
         "lcr": 77.6667,
         "gpqa": 92.0202,
         "hle": 43.7442,
@@ -6019,77 +5022,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 62.263,
-          "value": {
-            "task": 56.408,
-            "input": 24.905,
-            "output": 4.151,
-            "blended50": 7.116
-          }
+          "score": 62.218,
+          "rankingQuality": 62.218,
+          "rankingValue": 56.367
         },
         "strategist": {
-          "score": 53.617,
-          "value": {
-            "task": 48.575,
-            "input": 21.447,
-            "output": 3.574,
-            "blended50": 6.128
-          }
+          "score": 53.572,
+          "rankingQuality": 53.572,
+          "rankingValue": 48.534
         },
         "security-reviewer": {
           "score": 57.746,
-          "value": {
-            "task": 52.316,
-            "input": 23.098,
-            "output": 3.85,
-            "blended50": 6.6
-          }
+          "rankingQuality": 57.746,
+          "rankingValue": 52.316
         },
         "code-reviewer": {
           "score": 60.728,
-          "value": {
-            "task": 55.017,
-            "input": 24.291,
-            "output": 4.049,
-            "blended50": 6.94
-          }
+          "rankingQuality": 56.816,
+          "rankingValue": 51.473
         },
         "implementer": {
           "score": 63.786,
-          "value": {
-            "task": 57.788,
-            "input": 25.514,
-            "output": 4.252,
-            "blended50": 7.29
-          }
+          "rankingQuality": 58.855,
+          "rankingValue": 53.32
         },
         "implementer-heavy": {
-          "score": 61.379,
-          "value": {
-            "task": 55.607,
-            "input": 24.552,
-            "output": 4.092,
-            "blended50": 7.015
-          }
+          "score": 61.351,
+          "rankingQuality": 57.232,
+          "rankingValue": 51.85
         },
         "synthesizer": {
-          "score": 53.487,
-          "value": {
-            "task": 48.457,
-            "input": 21.395,
-            "output": 3.566,
-            "blended50": 6.113
-          }
+          "score": 53.47,
+          "rankingQuality": 53.47,
+          "rankingValue": 48.442
         },
         "researcher": {
-          "score": 62.823,
-          "value": {
-            "task": 56.915,
-            "input": 25.129,
-            "output": 4.188,
-            "blended50": 7.18
-          }
+          "score": 62.795,
+          "rankingQuality": 62.795,
+          "rankingValue": 56.89
         }
+      },
+      "caiStar": {
+        "value": 48.993,
+        "source": "estimated",
+        "ridge": 45.609,
+        "knn": 52.376
       },
       "codingAgent": null,
       "aaModel": {
@@ -6137,7 +5114,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 33.5875,
+        "gdpval": 33.486,
         "lcr": 3.8889,
         "gpqa": 87.4747,
         "hle": 28.1279,
@@ -6147,77 +5124,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 36.121,
-          "value": {
-            "task": 73.007,
-            "input": 48.161,
-            "output": 8.027,
-            "blended50": 13.76
-          }
+          "score": 36.081,
+          "rankingQuality": 36.081,
+          "rankingValue": 72.926
         },
         "strategist": {
-          "score": 31.437,
-          "value": {
-            "task": 63.54,
-            "input": 41.916,
-            "output": 6.986,
-            "blended50": 11.976
-          }
+          "score": 31.396,
+          "rankingQuality": 31.396,
+          "rankingValue": 63.457
         },
         "security-reviewer": {
           "score": 44.324,
-          "value": {
-            "task": 89.587,
-            "input": 59.099,
-            "output": 9.85,
-            "blended50": 16.885
-          }
+          "rankingQuality": 44.324,
+          "rankingValue": 89.587
         },
         "code-reviewer": {
           "score": 44.322,
-          "value": {
-            "task": 89.583,
-            "input": 59.096,
-            "output": 9.849,
-            "blended50": 16.885
-          }
+          "rankingQuality": 41.171,
+          "rankingValue": 83.214
         },
         "implementer": {
           "score": 46.448,
-          "value": {
-            "task": 93.88,
-            "input": 61.931,
-            "output": 10.322,
-            "blended50": 17.694
-          }
+          "rankingQuality": 42.589,
+          "rankingValue": 86.08
         },
         "implementer-heavy": {
-          "score": 40.37,
-          "value": {
-            "task": 81.595,
-            "input": 53.827,
-            "output": 8.971,
-            "blended50": 15.379
-          }
+          "score": 40.345,
+          "rankingQuality": 38.52,
+          "rankingValue": 77.856
         },
         "synthesizer": {
-          "score": 16.248,
-          "value": {
-            "task": 32.84,
-            "input": 21.664,
-            "output": 3.611,
-            "blended50": 6.19
-          }
+          "score": 16.233,
+          "rankingQuality": 16.233,
+          "rankingValue": 32.81
         },
         "researcher": {
-          "score": 32.991,
-          "value": {
-            "task": 66.681,
-            "input": 43.988,
-            "output": 7.331,
-            "blended50": 12.568
-          }
+          "score": 32.966,
+          "rankingQuality": 32.966,
+          "rankingValue": 66.63
         }
+      },
+      "caiStar": {
+        "value": 34.87,
+        "source": "estimated",
+        "ridge": 25.272,
+        "knn": 44.468
       },
       "codingAgent": null,
       "aaModel": {
@@ -6265,7 +5216,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 78.3333,
         "gpqa": 91.5152,
         "hle": 42.493,
@@ -6275,77 +5226,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 61.128,
-          "value": {
-            "task": 62.482,
-            "input": 30.564,
-            "output": 7.641,
-            "blended50": 12.226
-          }
+          "score": 61.087,
+          "rankingQuality": 61.087,
+          "rankingValue": 62.44
         },
         "strategist": {
-          "score": 53.345,
-          "value": {
-            "task": 54.526,
-            "input": 26.673,
-            "output": 6.668,
-            "blended50": 10.669
-          }
+          "score": 53.304,
+          "rankingQuality": 53.304,
+          "rankingValue": 54.485
         },
         "security-reviewer": {
           "score": 56.807,
-          "value": {
-            "task": 58.065,
-            "input": 28.404,
-            "output": 7.101,
-            "blended50": 11.361
-          }
+          "rankingQuality": 56.807,
+          "rankingValue": 58.065
         },
         "code-reviewer": {
           "score": 59.343,
-          "value": {
-            "task": 60.657,
-            "input": 29.672,
-            "output": 7.418,
-            "blended50": 11.869
-          }
+          "rankingQuality": 55.051,
+          "rankingValue": 56.27
         },
         "implementer": {
           "score": 61.671,
-          "value": {
-            "task": 63.037,
-            "input": 30.836,
-            "output": 7.709,
-            "blended50": 12.334
-          }
+          "rankingQuality": 56.603,
+          "rankingValue": 57.857
         },
         "implementer-heavy": {
-          "score": 59.319,
-          "value": {
-            "task": 60.633,
-            "input": 29.66,
-            "output": 7.415,
-            "blended50": 11.864
-          }
+          "score": 59.293,
+          "rankingQuality": 55.018,
+          "rankingValue": 56.236
         },
         "synthesizer": {
-          "score": 54.317,
-          "value": {
-            "task": 55.52,
-            "input": 27.159,
-            "output": 6.79,
-            "blended50": 10.863
-          }
+          "score": 54.302,
+          "rankingQuality": 54.302,
+          "rankingValue": 55.505
         },
         "researcher": {
-          "score": 62.595,
-          "value": {
-            "task": 63.981,
-            "input": 31.298,
-            "output": 7.824,
-            "blended50": 12.519
-          }
+          "score": 62.57,
+          "rankingQuality": 62.57,
+          "rankingValue": 63.956
         }
+      },
+      "caiStar": {
+        "value": 46.468,
+        "source": "estimated",
+        "ridge": 43.089,
+        "knn": 49.848
       },
       "codingAgent": null,
       "aaModel": {
@@ -6393,7 +5318,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 51.5775,
+        "gdpval": 51.3555,
         "lcr": 15,
         "gpqa": 94.5455,
         "hle": 47.8684,
@@ -6403,77 +5328,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.47,
-          "value": {
-            "task": 201.32,
-            "input": 67.293,
-            "output": 13.459,
-            "blended50": 22.431
-          }
+          "score": 50.382,
+          "rankingQuality": 50.382,
+          "rankingValue": 200.969
         },
         "strategist": {
-          "score": 47.696,
-          "value": {
-            "task": 190.255,
-            "input": 63.595,
-            "output": 12.719,
-            "blended50": 21.198
-          }
+          "score": 47.607,
+          "rankingQuality": 47.607,
+          "rankingValue": 189.9
         },
         "security-reviewer": {
           "score": 57.079,
-          "value": {
-            "task": 227.683,
-            "input": 76.105,
-            "output": 15.221,
-            "blended50": 25.368
-          }
+          "rankingQuality": 57.079,
+          "rankingValue": 227.683
         },
         "code-reviewer": {
           "score": 55.066,
-          "value": {
-            "task": 219.653,
-            "input": 73.421,
-            "output": 14.684,
-            "blended50": 24.474
-          }
+          "rankingQuality": 56.587,
+          "rankingValue": 225.72
         },
         "implementer": {
           "score": 55.316,
-          "value": {
-            "task": 220.651,
-            "input": 73.755,
-            "output": 14.751,
-            "blended50": 24.585
-          }
+          "rankingQuality": 56.753,
+          "rankingValue": 226.383
         },
         "implementer-heavy": {
-          "score": 50.922,
-          "value": {
-            "task": 203.123,
-            "input": 67.896,
-            "output": 13.579,
-            "blended50": 22.632
-          }
+          "score": 50.866,
+          "rankingQuality": 53.787,
+          "rankingValue": 214.552
         },
         "synthesizer": {
-          "score": 32.644,
-          "value": {
-            "task": 130.214,
-            "input": 43.525,
-            "output": 8.705,
-            "blended50": 14.508
-          }
+          "score": 32.611,
+          "rankingQuality": 32.611,
+          "rankingValue": 130.082
         },
         "researcher": {
-          "score": 47.426,
-          "value": {
-            "task": 189.178,
-            "input": 63.235,
-            "output": 12.647,
-            "blended50": 21.078
-          }
+          "score": 47.371,
+          "rankingQuality": 47.371,
+          "rankingValue": 188.959
         }
+      },
+      "caiStar": {
+        "value": 59.628,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "google_andwise_ai-studio",
@@ -6493,11 +5390,11 @@
           "inputTokens": 18609812.979351033,
           "cacheWriteTokens": 0,
           "outputTokens": 85504.38938053098,
-          "cacheTokens": 8946811.470347656,
+          "cacheTokens": 8946811.470347652,
           "cacheHitRate": 0.8634331167917659,
-          "totalTokens": 18493123.37423313
+          "totalTokens": 18493123.374233097
         },
-        "totalTokensPerTask": 18493123.37423313,
+        "totalTokensPerTask": 18493123.374233097,
         "timePerTaskSec": 527.0915644171779,
         "aaCostPerTaskUsd": 1.2679325688650298,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
@@ -6553,7 +5450,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 46.1105,
+        "gdpval": 45.9545,
         "lcr": 14.4444,
         "gpqa": 92.8283,
         "hle": 40.8248,
@@ -6563,77 +5460,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 46.745,
-          "value": {
-            "task": 83.874,
-            "input": 31.163,
-            "output": 6.233,
-            "blended50": 10.388
-          }
+          "score": 46.682,
+          "rankingQuality": 46.682,
+          "rankingValue": 83.761
         },
         "strategist": {
-          "score": 45.046,
-          "value": {
-            "task": 80.826,
-            "input": 30.031,
-            "output": 6.006,
-            "blended50": 10.01
-          }
+          "score": 44.984,
+          "rankingQuality": 44.984,
+          "rankingValue": 80.714
         },
         "security-reviewer": {
           "score": 55.271,
-          "value": {
-            "task": 99.172,
-            "input": 36.847,
-            "output": 7.369,
-            "blended50": 12.282
-          }
+          "rankingQuality": 55.271,
+          "rankingValue": 99.172
         },
         "code-reviewer": {
           "score": 52.95,
-          "value": {
-            "task": 95.008,
-            "input": 35.3,
-            "output": 7.06,
-            "blended50": 11.767
-          }
+          "rankingQuality": 51.047,
+          "rankingValue": 91.593
         },
         "implementer": {
           "score": 51.771,
-          "value": {
-            "task": 92.892,
-            "input": 34.514,
-            "output": 6.903,
-            "blended50": 11.505
-          }
+          "rankingQuality": 50.261,
+          "rankingValue": 90.183
         },
         "implementer-heavy": {
-          "score": 47.397,
-          "value": {
-            "task": 85.044,
-            "input": 31.598,
-            "output": 6.32,
-            "blended50": 10.533
-          }
+          "score": 47.358,
+          "rankingQuality": 47.319,
+          "rankingValue": 84.904
         },
         "synthesizer": {
-          "score": 32.284,
-          "value": {
-            "task": 57.927,
-            "input": 21.523,
-            "output": 4.305,
-            "blended50": 7.174
-          }
+          "score": 32.261,
+          "rankingQuality": 32.261,
+          "rankingValue": 57.886
         },
         "researcher": {
-          "score": 43.861,
-          "value": {
-            "task": 78.699,
-            "input": 29.241,
-            "output": 5.848,
-            "blended50": 9.747
-          }
+          "score": 43.822,
+          "rankingQuality": 43.822,
+          "rankingValue": 78.629
         }
+      },
+      "caiStar": {
+        "value": 47.241,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "google_gemini-3-6-flash_ai-studio",
@@ -6646,20 +5515,20 @@
           "terminal-bench-v2.1": 78.652
         },
         "tokensPerTask": {
-          "reward": 0.412979351032448,
-          "costUsd": 2.0838901547546023,
-          "wallTimeSec": 626.0057290388548,
+          "reward": 0.412979351032449,
+          "costUsd": 2.0838901547545983,
+          "wallTimeSec": 626.0057290388545,
           "steps": 65.01533742331287,
           "inputTokens": 14211105.967551623,
           "cacheWriteTokens": 0,
           "outputTokens": 74638.99705014749,
           "cacheTokens": 6211554.129856843,
-          "cacheHitRate": 0.837777048552074,
-          "totalTokens": 13020159.542944789
+          "cacheHitRate": 0.8377770485520734,
+          "totalTokens": 13020159.542944785
         },
-        "totalTokensPerTask": 13020159.542944789,
-        "timePerTaskSec": 626.0057290388548,
-        "aaCostPerTaskUsd": 2.0838901547546023,
+        "totalTokensPerTask": 13020159.542944785,
+        "timePerTaskSec": 626.0057290388545,
+        "aaCostPerTaskUsd": 2.0838901547545983,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -6713,7 +5582,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.169,
+        "gdpval": 42.067,
         "lcr": 18.3333,
         "gpqa": 92.2222,
         "hle": 42.6784,
@@ -6723,77 +5592,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 46.297,
-          "value": {
-            "task": 66.769,
-            "input": 30.865,
-            "output": 5.144,
-            "blended50": 8.818
-          }
+          "score": 46.256,
+          "rankingQuality": 46.256,
+          "rankingValue": 66.71
         },
         "strategist": {
-          "score": 43.819,
-          "value": {
-            "task": 63.195,
-            "input": 29.213,
-            "output": 4.869,
-            "blended50": 8.346
-          }
+          "score": 43.778,
+          "rankingQuality": 43.778,
+          "rankingValue": 63.136
         },
         "security-reviewer": {
           "score": 55.036,
-          "value": {
-            "task": 79.372,
-            "input": 36.691,
-            "output": 6.115,
-            "blended50": 10.483
-          }
+          "rankingQuality": 55.036,
+          "rankingValue": 79.372
         },
         "code-reviewer": {
           "score": 53.151,
-          "value": {
-            "task": 76.654,
-            "input": 35.434,
-            "output": 5.906,
-            "blended50": 10.124
-          }
+          "rankingQuality": 53.307,
+          "rankingValue": 76.879
         },
         "implementer": {
           "score": 52.726,
-          "value": {
-            "task": 76.041,
-            "input": 35.151,
-            "output": 5.858,
-            "blended50": 10.043
-          }
+          "rankingQuality": 53.024,
+          "rankingValue": 76.471
         },
         "implementer-heavy": {
-          "score": 47.337,
-          "value": {
-            "task": 68.269,
-            "input": 31.558,
-            "output": 5.26,
-            "blended50": 9.017
-          }
+          "score": 47.312,
+          "rankingQuality": 49.415,
+          "rankingValue": 71.266
         },
         "synthesizer": {
-          "score": 32.42,
-          "value": {
-            "task": 46.756,
-            "input": 21.613,
-            "output": 3.602,
-            "blended50": 6.175
-          }
+          "score": 32.405,
+          "rankingQuality": 32.405,
+          "rankingValue": 46.734
         },
         "researcher": {
-          "score": 44.423,
-          "value": {
-            "task": 64.066,
-            "input": 29.615,
-            "output": 4.936,
-            "blended50": 8.462
-          }
+          "score": 44.398,
+          "rankingQuality": 44.398,
+          "rankingValue": 64.03
         }
+      },
+      "caiStar": {
+        "value": 53.62,
+        "source": "estimated",
+        "ridge": 48.868,
+        "knn": 58.371
       },
       "codingAgent": null,
       "aaModel": {
@@ -6841,7 +5684,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 31.9965,
+        "gdpval": 32.0005,
         "lcr": 74.6667,
         "gpqa": 83.8384,
         "hle": 18.8137,
@@ -6851,77 +5694,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 51.055,
-          "value": {
-            "task": 528.93,
-            "input": 170.183,
-            "output": 20.422,
-            "blended50": 36.468
-          }
+          "score": 51.057,
+          "rankingQuality": 51.057,
+          "rankingValue": 528.951
         },
         "strategist": {
-          "score": 48.573,
-          "value": {
-            "task": 503.217,
-            "input": 161.91,
-            "output": 19.429,
-            "blended50": 34.695
-          }
+          "score": 48.575,
+          "rankingQuality": 48.575,
+          "rankingValue": 503.238
         },
         "security-reviewer": {
           "score": 54.292,
-          "value": {
-            "task": 562.466,
-            "input": 180.973,
-            "output": 21.717,
-            "blended50": 38.78
-          }
+          "rankingQuality": 54.292,
+          "rankingValue": 562.466
         },
         "code-reviewer": {
           "score": 54.799,
-          "value": {
-            "task": 567.718,
-            "input": 182.663,
-            "output": 21.92,
-            "blended50": 39.142
-          }
+          "rankingQuality": 48.825,
+          "rankingValue": 505.828
         },
         "implementer": {
           "score": 50.171,
-          "value": {
-            "task": 519.772,
-            "input": 167.237,
-            "output": 20.068,
-            "blended50": 35.836
-          }
+          "rankingQuality": 45.739,
+          "rankingValue": 473.857
         },
         "implementer-heavy": {
-          "score": 49.702,
-          "value": {
-            "task": 514.913,
-            "input": 165.673,
-            "output": 19.881,
-            "blended50": 35.501
-          }
+          "score": 49.703,
+          "rankingQuality": 45.427,
+          "rankingValue": 470.624
         },
         "synthesizer": {
-          "score": 57.421,
-          "value": {
-            "task": 594.882,
-            "input": 191.403,
-            "output": 22.968,
-            "blended50": 41.015
-          }
+          "score": 57.422,
+          "rankingQuality": 57.422,
+          "rankingValue": 594.893
         },
         "researcher": {
-          "score": 50.75,
-          "value": {
-            "task": 525.771,
-            "input": 169.167,
-            "output": 20.3,
-            "blended50": 36.25
-          }
+          "score": 50.751,
+          "rankingQuality": 50.751,
+          "rankingValue": 525.781
         }
+      },
+      "caiStar": {
+        "value": 36.876,
+        "source": "estimated",
+        "ridge": 34.972,
+        "knn": 38.78
       },
       "codingAgent": null,
       "aaModel": {
@@ -6969,7 +5786,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 7.414,
+        "gdpval": 7.3665,
         "lcr": 6.1111,
         "gpqa": 82.2222,
         "hle": 17.1918,
@@ -6979,77 +5796,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 23.517,
-          "value": {
-            "task": 537.004,
-            "input": 94.068,
-            "output": 15.678,
-            "blended50": 26.877
-          }
+          "score": 23.498,
+          "rankingQuality": 23.498,
+          "rankingValue": 536.57
         },
         "strategist": {
-          "score": 21.397,
-          "value": {
-            "task": 488.594,
-            "input": 85.588,
-            "output": 14.265,
-            "blended50": 24.454
-          }
+          "score": 21.378,
+          "rankingQuality": 21.378,
+          "rankingValue": 488.16
         },
         "security-reviewer": {
           "score": 39.775,
-          "value": {
-            "task": 908.25,
-            "input": 159.1,
-            "output": 26.517,
-            "blended50": 45.457
-          }
+          "rankingQuality": 39.775,
+          "rankingValue": 908.25
         },
         "code-reviewer": {
           "score": 39.668,
-          "value": {
-            "task": 905.807,
-            "input": 158.672,
-            "output": 26.445,
-            "blended50": 45.335
-          }
+          "rankingQuality": 36.281,
+          "rankingValue": 828.466
         },
         "implementer": {
           "score": 40.108,
-          "value": {
-            "task": 915.854,
-            "input": 160.432,
-            "output": 26.739,
-            "blended50": 45.838
-          }
+          "rankingQuality": 36.574,
+          "rankingValue": 835.156
         },
         "implementer-heavy": {
-          "score": 30.152,
-          "value": {
-            "task": 688.512,
-            "input": 120.608,
-            "output": 20.101,
-            "blended50": 34.459
-          }
+          "score": 30.14,
+          "rankingQuality": 29.929,
+          "rankingValue": 683.42
         },
         "synthesizer": {
-          "score": 14.583,
-          "value": {
-            "task": 332.998,
-            "input": 58.332,
-            "output": 9.722,
-            "blended50": 16.666
-          }
+          "score": 14.576,
+          "rankingQuality": 14.576,
+          "rankingValue": 332.839
         },
         "researcher": {
-          "score": 24.993,
-          "value": {
-            "task": 570.708,
-            "input": 99.972,
-            "output": 16.662,
-            "blended50": 28.563
-          }
+          "score": 24.981,
+          "rankingQuality": 24.981,
+          "rankingValue": 570.434
         }
+      },
+      "caiStar": {
+        "value": 29.506,
+        "source": "estimated",
+        "ridge": 18.548,
+        "knn": 40.465
       },
       "codingAgent": null,
       "aaModel": {
@@ -7086,6 +5877,7 @@
       "taskEfficiency": null,
       "benchmarks": {},
       "roleScores": {},
+      "caiStar": null,
       "codingAgent": null,
       "aaModel": null
     },
@@ -7129,8 +5921,8 @@
         }
       },
       "benchmarks": {
-        "gdpval": 56.4,
-        "lcr": 83.3333,
+        "gdpval": 56.1315,
+        "lcr": 31.1111,
         "gpqa": 90.404,
         "hle": 45.4588,
         "omniscienceAccuracy": 45.3833,
@@ -7139,77 +5931,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 68.293,
-          "value": {
-            "task": 171.075,
-            "input": 54.634,
-            "output": 16.069,
-            "blended50": 24.834
-          }
+          "score": 55.13,
+          "rankingQuality": 55.13,
+          "rankingValue": 138.101
         },
         "strategist": {
-          "score": 64.014,
-          "value": {
-            "task": 160.356,
-            "input": 51.211,
-            "output": 15.062,
-            "blended50": 23.278
-          }
+          "score": 53.463,
+          "rankingQuality": 53.463,
+          "rankingValue": 133.925
         },
         "security-reviewer": {
-          "score": 66.942,
-          "value": {
-            "task": 167.69,
-            "input": 53.554,
-            "output": 15.751,
-            "blended50": 24.343
-          }
+          "score": 61.72,
+          "rankingQuality": 61.72,
+          "rankingValue": 154.609
         },
         "code-reviewer": {
-          "score": 67.162,
-          "value": {
-            "task": 168.241,
-            "input": 53.73,
-            "output": 15.803,
-            "blended50": 24.423
-          }
+          "score": 59.329,
+          "rankingQuality": 60.099,
+          "rankingValue": 150.549
         },
         "implementer": {
-          "score": 64.426,
-          "value": {
-            "task": 161.388,
-            "input": 51.541,
-            "output": 15.159,
-            "blended50": 23.428
-          }
+          "score": 56.593,
+          "rankingQuality": 58.275,
+          "rankingValue": 145.979
         },
         "implementer-heavy": {
-          "score": 65.172,
-          "value": {
-            "task": 163.257,
-            "input": 52.138,
-            "output": 15.335,
-            "blended50": 23.699
-          }
+          "score": 54.66,
+          "rankingQuality": 56.987,
+          "rankingValue": 142.753
         },
         "synthesizer": {
-          "score": 68.378,
-          "value": {
-            "task": 171.288,
-            "input": 54.702,
-            "output": 16.089,
-            "blended50": 24.865
-          }
+          "score": 44.838,
+          "rankingQuality": 44.838,
+          "rankingValue": 112.32
         },
         "researcher": {
-          "score": 66.283,
-          "value": {
-            "task": 166.04,
-            "input": 53.026,
-            "output": 15.596,
-            "blended50": 24.103
-          }
+          "score": 50.549,
+          "rankingQuality": 50.549,
+          "rankingValue": 126.626
         }
+      },
+      "caiStar": {
+        "value": 61.64,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "meta_spiffy-blimp350-tbh-r708-1",
@@ -7222,20 +5986,20 @@
           "terminal-bench-v2.1": 81.648
         },
         "tokensPerTask": {
-          "reward": 0.581120943952802,
-          "costUsd": 2.0728230519427373,
-          "wallTimeSec": 2448.643313905929,
+          "reward": 0.581120943952803,
+          "costUsd": 2.072823051942741,
+          "wallTimeSec": 2448.6433139059327,
           "steps": 151.43456032719837,
           "inputTokens": 20134689.07079646,
           "cacheWriteTokens": 0,
           "outputTokens": 100399.46017699115,
-          "cacheTokens": 9811071.80674846,
-          "cacheHitRate": 0.9538301727874866,
+          "cacheTokens": 9811071.806748463,
+          "cacheHitRate": 0.9538301727874863,
           "totalTokens": 19963139.084867075
         },
         "totalTokensPerTask": 19963139.084867075,
-        "timePerTaskSec": 2448.643313905929,
-        "aaCostPerTaskUsd": 2.0728230519427373,
+        "timePerTaskSec": 2448.6433139059327,
+        "aaCostPerTaskUsd": 2.072823051942741,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -7289,8 +6053,8 @@
         }
       },
       "benchmarks": {
-        "gdpval": 56.4,
-        "lcr": 83.3333,
+        "gdpval": 56.1315,
+        "lcr": 31.1111,
         "gpqa": 90.404,
         "hle": 45.4588,
         "omniscienceAccuracy": 45.3833,
@@ -7299,77 +6063,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 68.293,
-          "value": {
-            "task": 4068.45,
-            "input": 682.93,
-            "output": 341.465,
-            "blended50": 455.287
-          }
+          "score": 55.13,
+          "rankingQuality": 55.13,
+          "rankingValue": 3284.285
         },
         "strategist": {
-          "score": 64.014,
-          "value": {
-            "task": 3813.535,
-            "input": 640.14,
-            "output": 320.07,
-            "blended50": 426.76
-          }
+          "score": 53.463,
+          "rankingQuality": 53.463,
+          "rankingValue": 3184.976
         },
         "security-reviewer": {
-          "score": 66.942,
-          "value": {
-            "task": 3987.966,
-            "input": 669.42,
-            "output": 334.71,
-            "blended50": 446.28
-          }
+          "score": 61.72,
+          "rankingQuality": 61.72,
+          "rankingValue": 3676.874
         },
         "code-reviewer": {
-          "score": 67.162,
-          "value": {
-            "task": 4001.072,
-            "input": 671.62,
-            "output": 335.81,
-            "blended50": 447.747
-          }
+          "score": 59.329,
+          "rankingQuality": 60.099,
+          "rankingValue": 3580.305
         },
         "implementer": {
-          "score": 64.426,
-          "value": {
-            "task": 3838.079,
-            "input": 644.26,
-            "output": 322.13,
-            "blended50": 429.507
-          }
+          "score": 56.593,
+          "rankingQuality": 58.275,
+          "rankingValue": 3471.643
         },
         "implementer-heavy": {
-          "score": 65.172,
-          "value": {
-            "task": 3882.521,
-            "input": 651.72,
-            "output": 325.86,
-            "blended50": 434.48
-          }
+          "score": 54.66,
+          "rankingQuality": 56.987,
+          "rankingValue": 3394.912
         },
         "synthesizer": {
-          "score": 68.378,
-          "value": {
-            "task": 4073.514,
-            "input": 683.78,
-            "output": 341.89,
-            "blended50": 455.853
-          }
+          "score": 44.838,
+          "rankingQuality": 44.838,
+          "rankingValue": 2671.155
         },
         "researcher": {
-          "score": 66.283,
-          "value": {
-            "task": 3948.707,
-            "input": 662.83,
-            "output": 331.415,
-            "blended50": 441.887
-          }
+          "score": 50.549,
+          "rankingQuality": 50.549,
+          "rankingValue": 3011.379
         }
+      },
+      "caiStar": {
+        "value": 61.64,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "meta_spiffy-blimp350-tbh-r708-1",
@@ -7382,20 +6118,20 @@
           "terminal-bench-v2.1": 81.648
         },
         "tokensPerTask": {
-          "reward": 0.581120943952802,
-          "costUsd": 2.0728230519427373,
-          "wallTimeSec": 2448.643313905929,
+          "reward": 0.581120943952803,
+          "costUsd": 2.072823051942741,
+          "wallTimeSec": 2448.6433139059327,
           "steps": 151.43456032719837,
           "inputTokens": 20134689.07079646,
           "cacheWriteTokens": 0,
           "outputTokens": 100399.46017699115,
-          "cacheTokens": 9811071.80674846,
-          "cacheHitRate": 0.9538301727874866,
+          "cacheTokens": 9811071.806748463,
+          "cacheHitRate": 0.9538301727874863,
           "totalTokens": 19963139.084867075
         },
         "totalTokensPerTask": 19963139.084867075,
-        "timePerTaskSec": 2448.643313905929,
-        "aaCostPerTaskUsd": 2.0728230519427373,
+        "timePerTaskSec": 2448.6433139059327,
+        "aaCostPerTaskUsd": 2.072823051942741,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -7449,7 +6185,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 43.711,
+        "gdpval": 43.7485,
         "lcr": 81.3333,
         "gpqa": 89.798,
         "hle": 46.2002,
@@ -7459,77 +6195,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 62.707,
-          "value": {
-            "task": 214.502,
-            "input": 50.166,
-            "output": 14.755,
-            "blended50": 22.803
-          }
+          "score": 62.722,
+          "rankingQuality": 62.722,
+          "rankingValue": 214.554
         },
         "strategist": {
-          "score": 58.143,
-          "value": {
-            "task": 198.89,
-            "input": 46.514,
-            "output": 13.681,
-            "blended50": 21.143
-          }
+          "score": 58.158,
+          "rankingQuality": 58.158,
+          "rankingValue": 198.942
         },
         "security-reviewer": {
           "score": 64.791,
-          "value": {
-            "task": 221.631,
-            "input": 51.833,
-            "output": 15.245,
-            "blended50": 23.56
-          }
+          "rankingQuality": 64.791,
+          "rankingValue": 221.631
         },
         "code-reviewer": {
           "score": 65.979,
-          "value": {
-            "task": 225.695,
-            "input": 52.783,
-            "output": 15.524,
-            "blended50": 23.992
-          }
+          "rankingQuality": 62.293,
+          "rankingValue": 213.086
         },
         "implementer": {
           "score": 65.22,
-          "value": {
-            "task": 223.099,
-            "input": 52.176,
-            "output": 15.346,
-            "blended50": 23.716
-          }
+          "rankingQuality": 61.787,
+          "rankingValue": 211.355
         },
         "implementer-heavy": {
-          "score": 62.372,
-          "value": {
-            "task": 213.357,
-            "input": 49.898,
-            "output": 14.676,
-            "blended50": 22.681
-          }
+          "score": 62.382,
+          "rankingQuality": 59.895,
+          "rankingValue": 204.883
         },
         "synthesizer": {
-          "score": 63.57,
-          "value": {
-            "task": 217.455,
-            "input": 50.856,
-            "output": 14.958,
-            "blended50": 23.116
-          }
+          "score": 63.576,
+          "rankingQuality": 63.576,
+          "rankingValue": 217.475
         },
         "researcher": {
-          "score": 63.827,
-          "value": {
-            "task": 218.334,
-            "input": 51.062,
-            "output": 15.018,
-            "blended50": 23.21
-          }
+          "score": 63.837,
+          "rankingQuality": 63.837,
+          "rankingValue": 218.368
         }
+      },
+      "caiStar": {
+        "value": 54.921,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "meta_super-nova",
@@ -7609,7 +6317,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 62.3725,
+        "gdpval": 62.088,
         "lcr": 12.2222,
         "gpqa": 94.9495,
         "hle": 42.9101,
@@ -7619,77 +6327,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 53.431,
-          "value": {
-            "task": 63.861,
-            "input": 26.716,
-            "output": 8.905,
-            "blended50": 13.358
-          }
+          "score": 53.317,
+          "rankingQuality": 53.317,
+          "rankingValue": 63.725
         },
         "strategist": {
-          "score": 53.106,
-          "value": {
-            "task": 63.473,
-            "input": 26.553,
-            "output": 8.851,
-            "blended50": 13.277
-          }
+          "score": 52.992,
+          "rankingQuality": 52.992,
+          "rankingValue": 63.337
         },
         "security-reviewer": {
           "score": 59.475,
-          "value": {
-            "task": 71.085,
-            "input": 29.738,
-            "output": 9.913,
-            "blended50": 14.869
-          }
+          "rankingQuality": 59.475,
+          "rankingValue": 71.085
         },
         "code-reviewer": {
           "score": 55.8,
-          "value": {
-            "task": 66.693,
-            "input": 27.9,
-            "output": 9.3,
-            "blended50": 13.95
-          }
+          "rankingQuality": 57.894,
+          "rankingValue": 69.196
         },
         "implementer": {
           "score": 52.52,
-          "value": {
-            "task": 62.773,
-            "input": 26.26,
-            "output": 8.753,
-            "blended50": 13.13
-          }
+          "rankingQuality": 55.707,
+          "rankingValue": 66.582
         },
         "implementer-heavy": {
-          "score": 51.647,
-          "value": {
-            "task": 61.729,
-            "input": 25.824,
-            "output": 8.608,
-            "blended50": 12.912
-          }
+          "score": 51.576,
+          "rankingQuality": 55.078,
+          "rankingValue": 65.83
         },
         "synthesizer": {
-          "score": 37.645,
-          "value": {
-            "task": 44.994,
-            "input": 18.823,
-            "output": 6.274,
-            "blended50": 9.411
-          }
+          "score": 37.602,
+          "rankingQuality": 37.602,
+          "rankingValue": 44.942
         },
         "researcher": {
-          "score": 47.44,
-          "value": {
-            "task": 56.701,
-            "input": 23.72,
-            "output": 7.907,
-            "blended50": 11.86
-          }
+          "score": 47.369,
+          "rankingQuality": 47.369,
+          "rankingValue": 56.616
         }
+      },
+      "caiStar": {
+        "value": 62.081,
+        "source": "estimated",
+        "ridge": 65.335,
+        "knn": 58.827
       },
       "codingAgent": null,
       "aaModel": {
@@ -7737,7 +6419,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 51.218,
+        "gdpval": 50.9185,
         "lcr": 15,
         "gpqa": 93.1313,
         "hle": 42.6784,
@@ -7747,77 +6429,49 @@
       },
       "roleScores": {
         "architect": {
-          "score": 49.265,
-          "value": {
-            "task": 113.277,
-            "input": 24.633,
-            "output": 8.211,
-            "blended50": 12.316
-          }
+          "score": 49.145,
+          "rankingQuality": 49.145,
+          "rankingValue": 113.001
         },
         "strategist": {
-          "score": 47.696,
-          "value": {
-            "task": 109.669,
-            "input": 23.848,
-            "output": 7.949,
-            "blended50": 11.924
-          }
+          "score": 47.576,
+          "rankingQuality": 47.576,
+          "rankingValue": 109.393
         },
         "security-reviewer": {
           "score": 56.412,
-          "value": {
-            "task": 129.71,
-            "input": 28.206,
-            "output": 9.402,
-            "blended50": 14.103
-          }
+          "rankingQuality": 56.412,
+          "rankingValue": 129.71
         },
         "code-reviewer": {
           "score": 54.052,
-          "value": {
-            "task": 124.284,
-            "input": 27.026,
-            "output": 9.009,
-            "blended50": 13.513
-          }
+          "rankingQuality": 57.398,
+          "rankingValue": 131.977
         },
         "implementer": {
           "score": 52.918,
-          "value": {
-            "task": 121.676,
-            "input": 26.459,
-            "output": 8.82,
-            "blended50": 13.23
-          }
+          "rankingQuality": 56.642,
+          "rankingValue": 130.239
         },
         "implementer-heavy": {
-          "score": 49.441,
-          "value": {
-            "task": 113.682,
-            "input": 24.721,
-            "output": 8.24,
-            "blended50": 12.36
-          }
+          "score": 49.366,
+          "rankingQuality": 54.274,
+          "rankingValue": 124.794
         },
         "synthesizer": {
-          "score": 33.914,
-          "value": {
-            "task": 77.98,
-            "input": 16.957,
-            "output": 5.652,
-            "blended50": 8.479
-          }
+          "score": 33.869,
+          "rankingQuality": 33.869,
+          "rankingValue": 77.876
         },
         "researcher": {
-          "score": 45.852,
-          "value": {
-            "task": 105.429,
-            "input": 22.926,
-            "output": 7.642,
-            "blended50": 11.463
-          }
+          "score": 45.777,
+          "rankingQuality": 45.777,
+          "rankingValue": 105.257
         }
+      },
+      "caiStar": {
+        "value": 64.09,
+        "source": "observed"
       },
       "codingAgent": {
         "hostModelSlug": "xai_grok-4-5",
@@ -7832,17 +6486,17 @@
         "tokensPerTask": {
           "reward": 0.59882005899705,
           "costUsd": 2.4389824437627774,
-          "wallTimeSec": 929.1851094069541,
+          "wallTimeSec": 929.1851094069543,
           "steps": 60.744376278118615,
           "inputTokens": 3247519.280235988,
           "cacheWriteTokens": null,
           "outputTokens": 43048.22418879056,
           "cacheTokens": 1735633.0143149286,
-          "cacheHitRate": 0.9238990226060748,
+          "cacheHitRate": 0.9238990226060743,
           "totalTokens": 3598867.582822087
         },
         "totalTokensPerTask": 3598867.582822087,
-        "timePerTaskSec": 929.1851094069541,
+        "timePerTaskSec": 929.1851094069543,
         "aaCostPerTaskUsd": 2.4389824437627774,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -7897,7 +6551,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 36.9335,
+        "gdpval": 36.8195,
         "lcr": 12.2222,
         "gpqa": 87.1717,
         "hle": 31.8814,
@@ -7907,77 +6561,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 40.046,
-          "value": {
-            "task": 118.17,
-            "input": 40.046,
-            "output": 9.888,
-            "blended50": 15.86
-          }
+          "score": 40,
+          "rankingQuality": 40,
+          "rankingValue": 118.034
         },
         "strategist": {
-          "score": 37.479,
-          "value": {
-            "task": 110.595,
-            "input": 37.479,
-            "output": 9.254,
-            "blended50": 14.843
-          }
+          "score": 37.433,
+          "rankingQuality": 37.433,
+          "rankingValue": 110.459
         },
         "security-reviewer": {
           "score": 48.061,
-          "value": {
-            "task": 141.821,
-            "input": 48.061,
-            "output": 11.867,
-            "blended50": 19.034
-          }
+          "rankingQuality": 48.061,
+          "rankingValue": 141.821
         },
         "code-reviewer": {
           "score": 46.419,
-          "value": {
-            "task": 136.976,
-            "input": 46.419,
-            "output": 11.461,
-            "blended50": 18.384
-          }
+          "rankingQuality": 44.898,
+          "rankingValue": 132.487
         },
         "implementer": {
           "score": 45.736,
-          "value": {
-            "task": 134.96,
-            "input": 45.736,
-            "output": 11.293,
-            "blended50": 18.113
-          }
+          "rankingQuality": 44.442,
+          "rankingValue": 131.142
         },
         "implementer-heavy": {
-          "score": 41.124,
-          "value": {
-            "task": 121.351,
-            "input": 41.124,
-            "output": 10.154,
-            "blended50": 16.287
-          }
+          "score": 41.096,
+          "rankingQuality": 41.349,
+          "rankingValue": 122.015
         },
         "synthesizer": {
-          "score": 25.817,
-          "value": {
-            "task": 76.182,
-            "input": 25.817,
-            "output": 6.375,
-            "blended50": 10.225
-          }
+          "score": 25.8,
+          "rankingQuality": 25.8,
+          "rankingValue": 76.132
         },
         "researcher": {
-          "score": 37.474,
-          "value": {
-            "task": 110.58,
-            "input": 37.474,
-            "output": 9.253,
-            "blended50": 14.841
-          }
+          "score": 37.445,
+          "rankingQuality": 37.445,
+          "rankingValue": 110.495
         }
+      },
+      "caiStar": {
+        "value": 41.855,
+        "source": "estimated",
+        "ridge": 40.262,
+        "knn": 43.449
       },
       "codingAgent": null,
       "aaModel": {
@@ -8025,7 +6653,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 38.411,
+        "gdpval": 38.433,
         "lcr": 69.3333,
         "gpqa": 89.4949,
         "hle": 33.3179,
@@ -8035,77 +6663,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.594,
-          "value": {
-            "task": 540.756,
-            "input": 111.188,
-            "output": 46.328,
-            "blended50": 65.405
-          }
+          "score": 55.603,
+          "rankingQuality": 55.603,
+          "rankingValue": 540.843
         },
         "strategist": {
-          "score": 48.515,
-          "value": {
-            "task": 471.899,
-            "input": 97.03,
-            "output": 40.429,
-            "blended50": 57.076
-          }
+          "score": 48.523,
+          "rankingQuality": 48.523,
+          "rankingValue": 471.977
         },
         "security-reviewer": {
           "score": 56.14,
-          "value": {
-            "task": 546.066,
-            "input": 112.28,
-            "output": 46.783,
-            "blended50": 66.047
-          }
+          "rankingQuality": 56.14,
+          "rankingValue": 546.066
         },
         "code-reviewer": {
           "score": 57.259,
-          "value": {
-            "task": 556.951,
-            "input": 114.518,
-            "output": 47.716,
-            "blended50": 67.364
-          }
+          "rankingQuality": 51.935,
+          "rankingValue": 505.165
         },
         "implementer": {
           "score": 56.392,
-          "value": {
-            "task": 548.518,
-            "input": 112.784,
-            "output": 46.993,
-            "blended50": 66.344
-          }
+          "rankingQuality": 51.357,
+          "rankingValue": 499.543
         },
         "implementer-heavy": {
-          "score": 54.346,
-          "value": {
-            "task": 528.616,
-            "input": 108.692,
-            "output": 45.288,
-            "blended50": 63.936
-          }
+          "score": 54.352,
+          "rankingQuality": 49.997,
+          "rankingValue": 486.314
         },
         "synthesizer": {
-          "score": 50.996,
-          "value": {
-            "task": 496.031,
-            "input": 101.992,
-            "output": 42.497,
-            "blended50": 59.995
-          }
+          "score": 51,
+          "rankingQuality": 51,
+          "rankingValue": 496.07
         },
         "researcher": {
-          "score": 53.792,
-          "value": {
-            "task": 523.228,
-            "input": 107.584,
-            "output": 44.827,
-            "blended50": 63.285
-          }
+          "score": 53.798,
+          "rankingQuality": 53.798,
+          "rankingValue": 523.286
         }
+      },
+      "caiStar": {
+        "value": 41.286,
+        "source": "estimated",
+        "ridge": 38.626,
+        "knn": 43.946
       },
       "codingAgent": null,
       "aaModel": {
