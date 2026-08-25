@@ -19,10 +19,12 @@ The daily update regenerates `site/data/lineups.json` after refreshing benchmark
 
 1. Every canonical Octopus role has exactly one model.
 2. The same exact model cannot occupy two seats.
-3. Model families are unique by default.
-4. GPT-5.6 is the only current family exception, with a maximum of two seats, specifically to allow Luna and Sol to represent different operating tiers.
-5. A selected scored model must still have the required role score in the current snapshot.
-6. An unresolved model can appear only through a role-specific external-evidence override. If the override requires a free model, the current CommandCode row must still be marked `free: true`.
+3. Every lineup must span **at least 5 and at most 8 distinct model families**.
+4. Seven or eight families are considered at least as good as six; there is no optimization penalty for exceeding six.
+5. A single model family may occupy at most **2 seats**.
+6. A selected scored model must still have the required role score in the current snapshot.
+7. An unresolved model can appear only through a role-specific external-evidence override. If the override requires a free model, the current CommandCode row must still be marked `free: true`.
+8. Claude Sonnet 5 is eligible but not mandatory; inclusion must be justified by role fit and economics rather than vendor representation.
 
 ## Quality lineup
 
@@ -36,29 +38,30 @@ Current Balanced portfolio:
 
 | Role | Model | Rationale |
 | --- | --- | --- |
-| Architect | Claude Opus 5 | Highest-value use of the mandatory Claude anchor is deep architecture/complex decisions. |
-| Strategist | DeepSeek V4 Flash (latest) | Strong low-cost Balanced seat after the portfolio constraints are satisfied. |
+| Architect | Claude Opus 5 | Premium architecture/deep-decision seat and mandatory Claude anchor. |
+| Strategist | Qwen 3.8 27B | Strong strategic role quality at materially lower task cost than premium alternatives. |
 | Security Reviewer | MiMo V2.5 | Very strong role quality per task cost. |
-| Code Reviewer | Laguna S 2.1 | Free external-evidence coding override; excluded from scored tables while unresolved. |
-| Implementer | GPT-5.6 Luna | High-volume normal implementation tier with strong coding quality at very low task cost. |
+| Code Reviewer | GPT-5.6 Luna | Strong coding/review tier at modest cost; keeps Luna in the portfolio without spending it on the highest-volume implementation seat. |
+| Implementer | Muse Spark 1.2 Contributor | Higher measured Implementer quality than Luna at substantially lower task cost; preferred for the highest-volume seat. |
 | Implementer Heavy | GPT-5.6 Sol | Higher-capability escalation tier; deliberately not used for routine implementation. |
-| Synthesizer | Muse Spark 1.2 Contributor | Strong low-cost portfolio fit once higher-priority seats are assigned. |
+| Synthesizer | Inkling Small | Low-cost portfolio fit with acceptable synthesis quality. |
 | Researcher | Tencent Hy3 | Strong Researcher score, especially long-context reasoning, at low task cost. |
 
 ### Mandatory portfolio models
 
-Balanced currently requires Claude Opus 5, GPT-5.6 Luna and GPT-5.6 Sol somewhere in the eight-seat portfolio. This requirement does **not** permanently bind those models to Architect, Implementer and Implementer Heavy. Future re-optimization may move them if the role evidence changes, subject to the constraints below.
+Balanced currently requires Claude Opus 5, GPT-5.6 Luna and GPT-5.6 Sol somewhere in the eight-seat portfolio. This requirement does **not** permanently bind those models to Architect, Code Reviewer and Implementer Heavy. Future re-optimization may move them if the role evidence changes, subject to the constraints below.
 
 ### Sol constraint and implementation escalation
 
-`GPT-5.6 Sol -> implementer` is explicitly forbidden in policy. The reason is economic rather than aesthetic: normal implementation is expected to be a high-volume seat, and Sol's normalized task cost is far above Luna's for a much smaller difference in measured role quality.
+`GPT-5.6 Sol -> implementer` is explicitly forbidden in policy. The reason is economic rather than aesthetic: normal implementation is expected to be the highest-volume seat. In the current snapshot Muse Spark 1.2 Contributor has higher measured Implementer quality than Luna while costing substantially less per normalized task, so Muse is preferred for routine throughput and Sol remains the heavy/escalation tier.
 
 The operating interpretation is:
 
 ```text
-normal implementation -> Luna
-review / correction    -> cheap reviewer + Luna correction
-repeated failure or genuinely heavy implementation -> Sol escalation
+normal implementation -> Muse Spark 1.2 Contributor
+code review            -> GPT-5.6 Luna
+review / correction    -> cheap correction loop on the normal tier
+repeated failure or genuinely heavy implementation -> GPT-5.6 Sol escalation
 ```
 
 This aims at **cost per completed task**, not cost per first attempt. The benchmark does not currently observe real Octopus retry rates, so no retry probability is inserted into the numerical score. The escalation rule is therefore policy, clearly separated from measured benchmark methodology.

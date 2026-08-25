@@ -76,10 +76,12 @@ The top-page recommendations are a **portfolio assignment**, not eight independe
 
 Current policy highlights:
 
-- models are unique within a lineup; model families are unique by default;
-- GPT-5.6 may appear twice so Luna and Sol can represent distinct cost/capability tiers;
+- exact models are unique within a lineup;
+- each lineup must span **5–8 distinct model families**; 7 or 8 are fully acceptable and are not penalized versus 6;
+- a family may occupy at most **2 seats**;
 - Balanced requires Claude Opus 5, GPT-5.6 Luna and GPT-5.6 Sol somewhere in the eight-seat portfolio; their roles are policy decisions, not permanent model identities;
-- GPT-5.6 Sol is forbidden for normal `implementer`; it is reserved for `implementer-heavy` / escalation-class work in the current policy;
+- GPT-5.6 Sol is forbidden for normal `implementer`; routine implementation is intentionally assigned to a cheaper high-quality model, while Sol is reserved for `implementer-heavy` / escalation-class work;
+- Claude Sonnet 5 remains eligible for portfolio selection but is not mandatory;
 - Budget scored picks must retain at least 80% of the best role quality;
 - free unresolved rows may enter only through an explicit external-evidence override and remain excluded from the scored Quality/Balanced tables.
 

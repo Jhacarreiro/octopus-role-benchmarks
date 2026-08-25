@@ -1,9 +1,5 @@
 {
-  "schemaVersion": 1,
-  "defaultFamilyMax": 1,
-  "familyMax": {
-    "GPT-5.6": 2
-  },
+  "schemaVersion": 2,
   "familyByModel": {
     "Claude Fable 5": "Claude 5",
     "Claude Opus 5": "Claude 5",
@@ -20,11 +16,12 @@
     "MiMo V2.5": "MiMo V2.5",
     "Laguna S 2.1": "Laguna S 2.1",
     "Inkling Small": "Inkling",
-    "Ox Alpha": "Ox Alpha"
+    "Ox Alpha": "Ox Alpha",
+    "Claude Sonnet 5": "Claude 5"
   },
   "modes": {
     "quality": {
-      "description": "Current-generation, family-diverse picks optimized for role quality with price ignored.",
+      "description": "Price-free portfolio optimized for role quality while spanning 5–8 model families, with no exact model repeated.",
       "selections": {
         "architect": "Claude Fable 5",
         "strategist": "GLM-5.3",
@@ -37,7 +34,7 @@
       }
     },
     "balanced": {
-      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. Opus 5, Luna and Sol are mandatory portfolio models; Sol is reserved for heavy work, and Laguna is a free external-evidence coding override.",
+      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. The portfolio must span 5–8 model families; Opus 5, Luna and Sol are mandatory, with routine implementation assigned to a cheaper high-quality model and Sol reserved for heavy work.",
       "mandatoryModels": [
         "Claude Opus 5",
         "GPT-5.6 Luna",
@@ -51,30 +48,17 @@
       ],
       "selections": {
         "architect": "Claude Opus 5",
-        "strategist": "DeepSeek V4 Flash (latest)",
+        "strategist": "Qwen 3.8 27B",
         "security-reviewer": "MiMo V2.5",
-        "code-reviewer": "Laguna S 2.1",
-        "implementer": "GPT-5.6 Luna",
+        "code-reviewer": "GPT-5.6 Luna",
+        "implementer": "Muse Spark 1.2 Contributor",
         "implementer-heavy": "GPT-5.6 Sol",
-        "synthesizer": "Muse Spark 1.2 Contributor",
+        "synthesizer": "Inkling Small",
         "researcher": "Tencent Hy3"
-      },
-      "externalOverrides": {
-        "code-reviewer": {
-          "freeRequired": true,
-          "badges": [
-            "FREE"
-          ],
-          "reason": "Free coding override supported by public agentic/coding benchmark evidence; remains excluded from scored tables until AA mapping is verified.",
-          "evidenceUrls": [
-            "https://poolside.ai/models",
-            "https://huggingface.co/poolside/Laguna-S-2.1"
-          ]
-        }
       }
     },
     "budget": {
-      "description": "Low-cost portfolio. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "description": "Low-cost portfolio spanning 5–8 model families. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
       "qualityFloorFraction": 0.8,
       "forbiddenAssignments": [
         {
@@ -114,5 +98,8 @@
         }
       }
     }
-  }
+  },
+  "minFamilies": 5,
+  "maxFamilies": 8,
+  "maxSeatsPerFamily": 2
 }

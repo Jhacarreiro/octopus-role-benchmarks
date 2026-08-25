@@ -7,7 +7,7 @@ const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'ut
 const policy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const roles=latest.roles.map(r=>r.id);
 const modelByName=new Map(latest.models.map(m=>[m.name,m]));
-const out={schemaVersion:policy.schemaVersion,snapshotDate:latest.date,generatedAt:latest.generatedAt,policy:{defaultFamilyMax:policy.defaultFamilyMax,familyMax:policy.familyMax},modes:{}};
+const out={schemaVersion:policy.schemaVersion,snapshotDate:latest.date,generatedAt:latest.generatedAt,policy:{minFamilies:policy.minFamilies,maxFamilies:policy.maxFamilies,maxSeatsPerFamily:policy.maxSeatsPerFamily},modes:{}};
 function fail(msg){throw new Error(`lineup policy: ${msg}`)}
 for(const [modeId,mode] of Object.entries(policy.modes)){
   const selected=mode.selections||{};
@@ -38,8 +38,11 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
     }
     selections[role]={model:name,family,source:override?'external-evidence':'scored',badges:override?.badges||[],free:m.free===true,mappingStatus:m.mapping?.status||null,quality:score?.rankingQuality??null,balancedScore:score?.rankingValue??null,costPerTaskUsd:m.taskEfficiency?.commandCodeCostPerTaskUsd??0,reason:override?.reason||null,evidenceUrls:override?.evidenceUrls||[]};
   }
-  for(const [family,count] of familyCounts){const max=policy.familyMax?.[family]??policy.defaultFamilyMax??1;if(count>max)fail(`${modeId}: family ${family} appears ${count} times (max ${max})`)}
-  out.modes[modeId]={description:mode.description,qualityFloorFraction:mode.qualityFloorFraction??null,mandatoryModels:mode.mandatoryModels||[],forbiddenAssignments:mode.forbiddenAssignments||[],selections};
+  const familyCount=familyCounts.size;
+  if(familyCount<(policy.minFamilies??1)) fail(`${modeId}: only ${familyCount} model families (min ${policy.minFamilies})`);
+  if(familyCount>(policy.maxFamilies??roles.length)) fail(`${modeId}: ${familyCount} model families (max ${policy.maxFamilies})`);
+  for(const [family,count] of familyCounts){const max=policy.maxSeatsPerFamily??roles.length;if(count>max)fail(`${modeId}: family ${family} appears ${count} times (max ${max})`)}
+  out.modes[modeId]={description:mode.description,qualityFloorFraction:mode.qualityFloorFraction??null,mandatoryModels:mode.mandatoryModels||[],forbiddenAssignments:mode.forbiddenAssignments||[],familyCount,selections};
 }
 const text=JSON.stringify(out,null,2)+'\n';
 const target=path.join(root,'site','data','lineups.json');

@@ -1,19 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "snapshotDate": "2026-08-25",
   "generatedAt": "2026-08-25T07:10:43.541Z",
   "policy": {
-    "defaultFamilyMax": 1,
-    "familyMax": {
-      "GPT-5.6": 2
-    }
+    "minFamilies": 5,
+    "maxFamilies": 8,
+    "maxSeatsPerFamily": 2
   },
   "modes": {
     "quality": {
-      "description": "Current-generation, family-diverse picks optimized for role quality with price ignored.",
+      "description": "Price-free portfolio optimized for role quality while spanning 5–8 model families, with no exact model repeated.",
       "qualityFloorFraction": null,
       "mandatoryModels": [],
       "forbiddenAssignments": [],
+      "familyCount": 8,
       "selections": {
         "architect": {
           "model": "Claude Fable 5",
@@ -122,7 +122,7 @@
       }
     },
     "balanced": {
-      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. Opus 5, Luna and Sol are mandatory portfolio models; Sol is reserved for heavy work, and Laguna is a free external-evidence coding override.",
+      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. The portfolio must span 5–8 model families; Opus 5, Luna and Sol are mandatory, with routine implementation assigned to a cheaper high-quality model and Sol reserved for heavy work.",
       "qualityFloorFraction": null,
       "mandatoryModels": [
         "Claude Opus 5",
@@ -135,6 +135,7 @@
           "model": "GPT-5.6 Sol"
         }
       ],
+      "familyCount": 7,
       "selections": {
         "architect": {
           "model": "Claude Opus 5",
@@ -150,15 +151,15 @@
           "evidenceUrls": []
         },
         "strategist": {
-          "model": "DeepSeek V4 Flash (latest)",
-          "family": "DeepSeek V4",
+          "model": "Qwen 3.8 27B",
+          "family": "Qwen 3.8",
           "source": "scored",
           "badges": [],
           "free": false,
           "mappingStatus": "exact",
-          "quality": 41.825,
-          "balancedScore": 745.823,
-          "costPerTaskUsd": 0.056079,
+          "quality": 55.43,
+          "balancedScore": 239.934,
+          "costPerTaskUsd": 0.231022,
           "reason": null,
           "evidenceUrls": []
         },
@@ -176,33 +177,28 @@
           "evidenceUrls": []
         },
         "code-reviewer": {
-          "model": "Laguna S 2.1",
-          "family": "Laguna S 2.1",
-          "source": "external-evidence",
-          "badges": [
-            "FREE"
-          ],
-          "free": true,
-          "mappingStatus": "unscored",
-          "quality": null,
-          "balancedScore": null,
-          "costPerTaskUsd": 0,
-          "reason": "Free coding override supported by public agentic/coding benchmark evidence; remains excluded from scored tables until AA mapping is verified.",
-          "evidenceUrls": [
-            "https://poolside.ai/models",
-            "https://huggingface.co/poolside/Laguna-S-2.1"
-          ]
-        },
-        "implementer": {
           "model": "GPT-5.6 Luna",
           "family": "GPT-5.6",
           "source": "scored",
           "badges": [],
           "free": false,
           "mappingStatus": "exact",
-          "quality": 53.761,
-          "balancedScore": 1140.744,
+          "quality": 52.039,
+          "balancedScore": 1104.206,
           "costPerTaskUsd": 0.047128,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "implementer": {
+          "model": "Muse Spark 1.2 Contributor",
+          "family": "Muse 1.2",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "commercial_variant",
+          "quality": 58.275,
+          "balancedScore": 3471.643,
+          "costPerTaskUsd": 0.016786,
           "reason": null,
           "evidenceUrls": []
         },
@@ -220,15 +216,15 @@
           "evidenceUrls": []
         },
         "synthesizer": {
-          "model": "Muse Spark 1.2 Contributor",
-          "family": "Muse 1.2",
+          "model": "Inkling Small",
+          "family": "Inkling",
           "source": "scored",
           "badges": [],
           "free": false,
-          "mappingStatus": "commercial_variant",
-          "quality": 44.838,
-          "balancedScore": 2671.155,
-          "costPerTaskUsd": 0.016786,
+          "mappingStatus": "exact",
+          "quality": 51,
+          "balancedScore": 496.07,
+          "costPerTaskUsd": 0.102808,
           "reason": null,
           "evidenceUrls": []
         },
@@ -248,7 +244,7 @@
       }
     },
     "budget": {
-      "description": "Low-cost portfolio. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "description": "Low-cost portfolio spanning 5–8 model families. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
       "qualityFloorFraction": 0.8,
       "mandatoryModels": [],
       "forbiddenAssignments": [
@@ -257,6 +253,7 @@
           "model": "GPT-5.6 Sol"
         }
       ],
+      "familyCount": 8,
       "selections": {
         "architect": {
           "model": "Tencent Hy3",
