@@ -18,6 +18,10 @@
   <div class="formula"><strong>Balanced mode</strong><code>Balanced Score = Role Quality / CommandCode Cost per Task</code></div>
   <div class="formula"><strong>Budget lineup</strong><code>Minimize CommandCode Cost per Task subject to Role Quality ≥ 80% of the best available role quality</code></div>
   <p>The Budget lineup is only a recommended shortlist, not a third full-table ranking. It also applies the current-generation and model-family-diversity constraints used by the recommended lineups.</p>
+  <h3>Free-model external-evidence overrides</h3>
+  <p>The recommended lineups may include a CommandCode model that is still <strong>UNSCORED</strong> when it is explicitly free and there is enough external evidence to justify a narrow role recommendation. This is an editorial override only: unresolved models remain excluded from the full Quality and Balanced rankings until a verified Artificial Analysis family mapping exists.</p>
+  <p><strong>Laguna S 2.1</strong> is used as a free coding override. CommandCode exposes it as free with a 256K served context; Poolside documents a native 1M context and reports 70.2% Terminal-Bench 2.1, 78.5% SWE-bench Multilingual, 59.4% SWE-bench Pro and 40.4% DeepSWE. <a href="https://poolside.ai/models">Poolside model page</a> · <a href="https://huggingface.co/poolside/Laguna-S-2.1">model card and benchmark table</a>.</p>
+  <p><strong>Ox Alpha</strong> is used only in the Budget shortlist and marked <strong>EXPERIMENTAL</strong>. The CommandCode row is free with a 1M context window, but the model remains stealth and unresolved, so no synthetic benchmark score is assigned to it and it is not used in Balanced.</p>
   <p>The coding adjustment applies only to <strong>Implementer</strong>, <strong>Implementer Heavy</strong> and <strong>Code Reviewer</strong>.</p>
 </section>
 <section id="coverage" class="methodology"></section>

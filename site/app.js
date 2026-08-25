@@ -2,19 +2,23 @@ const DATA_REMOTE='https://raw.githubusercontent.com/Jhacarreiro/octopus-role-be
 const state={data:null,role:'implementer',mode:'balanced',lineupMode:'balanced',query:'',sort:'value',dir:-1};
 const LINEUPS={
   quality:{architect:'Claude Fable 5',strategist:'GLM-5.3','security-reviewer':'Muse Spark 1.2','code-reviewer':'Grok 4.6',implementer:'Kimi K3','implementer-heavy':'GPT-5.6 Sol',synthesizer:'Qwen 3.8 27B',researcher:'Tencent Hy3'},
-  balanced:{architect:'Claude Opus 5',strategist:'GPT-5.6 Luna','security-reviewer':'MiMo V2.5','code-reviewer':'DeepSeek V4 Flash (latest)',implementer:'Muse Spark 1.2 Contributor','implementer-heavy':'GPT-5.6 Sol',synthesizer:'Inkling Small',researcher:'Tencent Hy3'},
-  budget:{architect:'Tencent Hy3',strategist:'Qwen 3.8 27B','security-reviewer':'MiniMax M3','code-reviewer':'Gemini 3.7 Flash',implementer:'GPT-5.6 Luna','implementer-heavy':'Muse Spark 1.2 Contributor',synthesizer:'MiMo V2.5',researcher:'Inkling Small'}
+  balanced:{architect:'Claude Opus 5',strategist:'GPT-5.6 Luna','security-reviewer':'MiMo V2.5','code-reviewer':'Laguna S 2.1',implementer:'Muse Spark 1.2 Contributor','implementer-heavy':'GPT-5.6 Sol',synthesizer:'Inkling Small',researcher:'Tencent Hy3'},
+  budget:{architect:'Tencent Hy3',strategist:'Qwen 3.8 27B','security-reviewer':'MiniMax M3','code-reviewer':'Gemini 3.7 Flash',implementer:'Laguna S 2.1','implementer-heavy':'Muse Spark 1.2 Contributor',synthesizer:'MiMo V2.5',researcher:'Ox Alpha'}
 };
 const LINEUP_NOTES={
   quality:'Current-generation, family-diverse picks optimized for role quality with price ignored.',
-  balanced:'Current-generation, family-diverse recommendations balancing role fit, quality and CommandCode task cost. GPT-5.6 is intentionally used twice: Luna for strategy and Sol for heavy implementation.',
-  budget:'Current-generation, family-diverse picks chosen for minimum task cost while retaining at least 80% of the best available role quality.'
+  balanced:'Current-generation, family-diverse recommendations balancing role fit, quality and CommandCode task cost. Laguna S 2.1 is a free external-evidence override for Code Reviewer; unresolved models remain excluded from the full ranking.',
+  budget:'Low-cost picks with a strong quality floor. Free unresolved models may be included as clearly marked external-evidence overrides; Ox Alpha is experimental because it remains stealth.'
+};
+const LINEUP_META={
+  balanced:{'code-reviewer':{free:true,external:true}},
+  budget:{implementer:{free:true,external:true},researcher:{free:true,experimental:true}}
 };
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>n==null?'—':Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
 async function load(){let err;for(const url of [DATA_REMOTE,'./data/latest.json']){try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(`${r.status}`);state.data=await r.json();break}catch(e){err=e}}if(!state.data){$('#status').textContent='Unable to load current data: '+err;return}renderLineup();renderRoles();render()}
-function renderLineup(){const lineup=LINEUPS[state.lineupMode];$('#lineupNote').textContent=LINEUP_NOTES[state.lineupMode];$('#lineup').innerHTML=state.data.roles.map(r=>{const name=lineup[r.id];return `<div class="lineup-item"><span class="lineup-role">${esc(r.label)}</span><strong>${esc(name)}</strong></div>`}).join('');document.querySelectorAll('[data-lineup-mode]').forEach(b=>b.classList.toggle('active',b.dataset.lineupMode===state.lineupMode))}
+function renderLineup(){const lineup=LINEUPS[state.lineupMode],meta=LINEUP_META[state.lineupMode]||{};$('#lineupNote').textContent=LINEUP_NOTES[state.lineupMode];$('#lineup').innerHTML=state.data.roles.map(r=>{const name=lineup[r.id],m=meta[r.id]||{},badges=[m.free?'<span class="lineup-badge free">FREE</span>':'',m.experimental?'<span class="lineup-badge">EXPERIMENTAL</span>':''].join('');return `<div class="lineup-item"><span class="lineup-role">${esc(r.label)}</span><strong>${esc(name)}</strong>${badges?`<span class="lineup-badges">${badges}</span>`:''}</div>`}).join('');document.querySelectorAll('[data-lineup-mode]').forEach(b=>b.classList.toggle('active',b.dataset.lineupMode===state.lineupMode))}
 function renderRoles(){$('#roles').innerHTML=state.data.roles.map(r=>`<button data-role="${esc(r.id)}">${esc(r.label)}</button>`).join('');$('#roles').addEventListener('click',e=>{const b=e.target.closest('button[data-role]');if(!b)return;state.role=b.dataset.role;state.sort='value';state.dir=-1;render()})}
 function metricValue(m){const s=m.roleScores?.[state.role];return state.mode==='quality'?(s?.rankingQuality??null):(s?.rankingValue??null)}
 function noteHtml(m){const a=[];if(m.discountPercent)a.push(`<span class="badge promo">-${m.discountPercent}%</span>`);if(m.dataTraining)a.push('<span class="badge warn">DATA USED FOR TRAINING</span>');if(m.offPeakShown)a.push('<span class="badge">off-peak</span>');return a.join(' ')}
