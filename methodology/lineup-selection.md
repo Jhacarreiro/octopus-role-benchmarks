@@ -18,7 +18,7 @@ The daily update regenerates `site/data/lineups.json` after refreshing benchmark
 ## Common constraints
 
 1. Every canonical Octopus role has exactly one model.
-2. The same exact model cannot occupy two seats. Scored rows that share the same `aaModel.slug` also count as the same benchmark identity and cannot both occupy seats. This prevents commercial variants of one benchmarked model from masquerading as diversity.
+2. The same exact model **may** occupy two seats, and scored rows sharing the same `aaModel.slug` may also coexist. Repetition is governed only by the family-level seat cap below; benchmark identity remains metadata, not a diversity constraint.
 3. Every lineup must span **at least 5 and at most 8 distinct model families**.
 4. Seven or eight families are considered at least as good as six; there is no optimization penalty for exceeding six.
 5. A single model family may occupy at most **2 seats**.
@@ -96,11 +96,11 @@ Current Budget portfolio:
 | Role | Model | Note |
 | --- | --- | --- |
 | Architect | Tencent Hy3 | Scored pick above the 80% quality floor. |
-| Strategist | Qwen 3.8 27B | Scored pick above the 80% quality floor. |
-| Security Reviewer | MiMo V2.5 Pro | Lower-cost scored pick above the 80% quality floor; MiMo appears twice but with two distinct benchmark identities. |
+| Strategist | Muse Spark 1.2 Contributor | Same model is deliberately reused for a second seat because it remains above the 80% quality floor and materially lowers cost. |
+| Security Reviewer | Inkling Small | Keeps the Budget portfolio at seven distinct families while remaining above the 80% quality floor. |
 | Code Reviewer | Laguna S 2.1 | FREE external-evidence override. |
 | Implementer | GPT-5.6 Luna | Scored, low-cost normal implementation tier. |
-| Implementer Heavy | Muse Spark 1.2 Contributor | Scored low-cost heavy seat above the quality floor. |
+| Implementer Heavy | Muse Spark 1.2 Contributor | Same exact model as Strategist; repetition is allowed because the Muse family still occupies only two seats. |
 | Synthesizer | MiMo V2.5 | Scored pick above the 80% quality floor. |
 | Researcher | Ox Alpha | FREE / EXPERIMENTAL external-evidence override; remains unscored. |
 
@@ -118,12 +118,12 @@ After every refresh, `scripts/evaluate-lineup-swaps.mjs` evaluates **single-seat
 
 Classification rules:
 
-- **Quality**: a candidate is `auto-safe-candidate` only when it raises Role Quality and preserves every portfolio/identity constraint.
-- **Budget**: a candidate is `auto-safe-candidate` only when it lowers task cost, remains above the 80% role-quality floor and preserves every portfolio/identity constraint.
+- **Quality**: a candidate is `auto-safe-candidate` only when it raises Role Quality by at least the configured threshold, preserves every portfolio constraint and does not reduce the current distinct-family count.
+- **Budget**: a candidate is `auto-safe-candidate` only when it lowers task cost by at least the configured percentage, remains above the 80% role-quality floor, preserves every portfolio constraint and does not reduce the current distinct-family count.
 - **Balanced**: every numerical improvement is `review-only`, because higher quality-per-cost can hide a material drop in absolute role quality or role fit.
 - **External-evidence override roles**: always `review-only`.
 - **Multi-seat rotations**: always `review-only`.
 
 `auto-safe-candidate` means the swap is structurally and numerically admissible, **not that it is automatically applied**. `applyAutomatically` is currently `false`. Newly added models cannot become auto-safe until their family is explicitly classified in `config/lineup-policy.json`.
 
-For the 2026-08-25 snapshot, Quality and Budget each have **0** auto-safe single-seat swaps. Balanced has three review-only numeric opportunities; all trade substantial absolute quality for lower cost, which is exactly why Balanced remains human-reviewed.
+For the 2026-08-25 snapshot after allowing model repetition, Quality and Budget each have **0** auto-safe single-seat swaps under the diversity-preserving thresholds. Balanced has review-only numeric opportunities, as intended.

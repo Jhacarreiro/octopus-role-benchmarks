@@ -7,24 +7,20 @@ const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'ut
 const policy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const roles=latest.roles.map(r=>r.id);
 const modelByName=new Map(latest.models.map(m=>[m.name,m]));
-const out={schemaVersion:policy.schemaVersion,snapshotDate:latest.date,generatedAt:latest.generatedAt,policy:{minFamilies:policy.minFamilies,maxFamilies:policy.maxFamilies,maxSeatsPerFamily:policy.maxSeatsPerFamily},modes:{}};
+const out={schemaVersion:policy.schemaVersion,snapshotDate:latest.date,generatedAt:latest.generatedAt,policy:{minFamilies:policy.minFamilies,maxFamilies:policy.maxFamilies,maxSeatsPerFamily:policy.maxSeatsPerFamily,allowRepeatedModel:policy.allowRepeatedModel===true,allowRepeatedBenchmarkIdentity:policy.allowRepeatedBenchmarkIdentity===true},modes:{}};
 function fail(msg){throw new Error(`lineup policy: ${msg}`)}
 for(const [modeId,mode] of Object.entries(policy.modes)){
   const selected=mode.selections||{};
   if(Object.keys(selected).sort().join('|')!==[...roles].sort().join('|')) fail(`${modeId}: selections must cover exactly the canonical roles`);
   const names=Object.values(selected);
-  if(new Set(names).size!==names.length) fail(`${modeId}: exact model repeated`);
   for(const req of mode.mandatoryModels||[]) if(!names.includes(req)) fail(`${modeId}: mandatory model missing: ${req}`);
   for(const rule of mode.forbiddenAssignments||[]) if(selected[rule.role]===rule.model) fail(`${modeId}: forbidden assignment ${rule.model} -> ${rule.role}`);
   const familyCounts=new Map();
-  const identityOwners=new Map();
   const selections={};
   for(const role of roles){
     const name=selected[role],m=modelByName.get(name); if(!m) fail(`${modeId}/${role}: model not found: ${name}`);
     const family=policy.familyByModel[name]; if(!family) fail(`${modeId}/${role}: family missing for ${name}`);
     const benchmarkIdentity=m.mapping?.status==='unscored'?`unscored:${name}`:(m.aaModel?.slug?`aa:${m.aaModel.slug}`:`model:${name}`);
-    if(identityOwners.has(benchmarkIdentity)) fail(`${modeId}: benchmark identity repeated: ${benchmarkIdentity} (${identityOwners.get(benchmarkIdentity)} and ${name})`);
-    identityOwners.set(benchmarkIdentity,name);
     familyCounts.set(family,(familyCounts.get(family)||0)+1);
     const override=mode.externalOverrides?.[role]||null;
     const score=m.roleScores?.[role]||null;

@@ -24,15 +24,12 @@ function validateSelections(modeId,selections){
   const keys=Object.keys(selections).sort().join('|');
   if(keys!==[...roles].sort().join('|')) return {ok:false,reason:'role coverage'};
   const names=Object.values(selections);
-  if(new Set(names).size!==names.length) return {ok:false,reason:'exact model repeated'};
   for(const req of mode.mandatoryModels||[]) if(!names.includes(req)) return {ok:false,reason:`mandatory model missing: ${req}`};
   for(const rule of mode.forbiddenAssignments||[]) if(selections[rule.role]===rule.model) return {ok:false,reason:`forbidden assignment: ${rule.model} -> ${rule.role}`};
-  const identities=new Set();
   const famCounts=new Map();
   for(const role of roles){
     const name=selections[role],m=modelByName.get(name); if(!m) return {ok:false,reason:`model missing: ${name}`};
     const f=family(name); if(!f) return {ok:false,reason:`family missing: ${name}`};
-    const id=benchmarkIdentity(m); if(identities.has(id)) return {ok:false,reason:`benchmark identity repeated: ${id}`}; identities.add(id);
     famCounts.set(f,(famCounts.get(f)||0)+1);
     const originalOverride=mode.externalOverrides?.[role]||null;
     const originalName=mode.selections[role];
@@ -62,7 +59,8 @@ const out={
   policySchemaVersion:policy.schemaVersion,
   applyAutomatically:policy.swapEvaluation?.applyAutomatically===true,
   scope:policy.swapEvaluation?.scope||'single-seat',
-  identityRule:policy.swapEvaluation?.identityRule||'aaModel.slug for scored rows; model name for unresolved rows',
+  repetitionRule:'models and benchmark identities may repeat subject to family seat limits',
+  diversityRule:policy.swapEvaluation?.diversityRule||null,
   modes:{}
 };
 
@@ -99,6 +97,12 @@ for(const modeId of ['quality','balanced','budget']){
         metric='costPerTaskUsd'; delta=cur-cc; improves=delta>1e-12;
       }
       if(!improves) continue;
+      let classification=configured.classification;
+      const currentFamilyCount=lineups.modes?.[modeId]?.familyCount??null;
+      let reviewReason=null;
+      if(classification==='auto-safe-candidate'&&configured.preserveOrIncreaseFamilyCount&&currentFamilyCount!=null&&valid.familyCount<currentFamilyCount){classification='review-only';reviewReason='would reduce distinct-family count';}
+      if(classification==='auto-safe-candidate'&&modeId==='quality'&&configured.minimumAbsoluteImprovement!=null&&delta<configured.minimumAbsoluteImprovement){classification='review-only';reviewReason=`quality improvement below ${configured.minimumAbsoluteImprovement}`;}
+      if(classification==='auto-safe-candidate'&&modeId==='budget'&&configured.minimumCostReductionFraction!=null){const cur=currentModel.taskEfficiency?.commandCodeCostPerTaskUsd??0;const frac=cur>0?delta/cur:0;if(frac+1e-12<configured.minimumCostReductionFraction){classification='review-only';reviewReason=`cost reduction below ${(configured.minimumCostReductionFraction*100).toFixed(0)}%`;}}
       opportunities.push({
         role,
         from:currentName,
@@ -107,7 +111,8 @@ for(const modeId of ['quality','balanced','budget']){
         toIdentity:benchmarkIdentity(candidate),
         fromFamily:family(currentName),
         toFamily:family(candidate.name),
-        classification:configured.classification,
+        classification,
+        reviewReason,
         metric,
         improvement:delta,
         fromQuality:currentScore.rankingQuality,
@@ -125,8 +130,8 @@ for(const modeId of ['quality','balanced','budget']){
     classification:configured.classification,
     objective:configured.objective||null,
     currentFamilyCount:lineups.modes?.[modeId]?.familyCount??null,
-    autoSafeCandidateCount:configured.classification==='auto-safe-candidate'?opportunities.length:0,
-    reviewOnlyCandidateCount:configured.classification==='review-only'?opportunities.length:0,
+    autoSafeCandidateCount:opportunities.filter(o=>o.classification==='auto-safe-candidate').length,
+    reviewOnlyCandidateCount:opportunities.filter(o=>o.classification==='review-only').length,
     lockedRoles,
     opportunities
   };

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "familyByModel": {
     "Claude Fable 5": "Claude 5",
     "Claude Opus 5": "Claude 5",
@@ -59,7 +59,7 @@
       }
     },
     "budget": {
-      "description": "Low-cost portfolio spanning 5–8 model families. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "description": "Low-cost portfolio spanning 5–8 model families. The same model may occupy two seats when useful, subject to the two-seat-per-family cap. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
       "qualityFloorFraction": 0.8,
       "forbiddenAssignments": [
         {
@@ -69,8 +69,8 @@
       ],
       "selections": {
         "architect": "Tencent Hy3",
-        "strategist": "Qwen 3.8 27B",
-        "security-reviewer": "MiMo V2.5 Pro",
+        "strategist": "Muse Spark 1.2 Contributor",
+        "security-reviewer": "Inkling Small",
         "code-reviewer": "Laguna S 2.1",
         "implementer": "GPT-5.6 Luna",
         "implementer-heavy": "Muse Spark 1.2 Contributor",
@@ -106,11 +106,12 @@
   "swapEvaluation": {
     "scope": "single-seat",
     "applyAutomatically": false,
-    "identityRule": "aaModel.slug for scored rows; model name for unresolved rows",
     "modes": {
       "quality": {
         "classification": "auto-safe-candidate",
-        "objective": "higher-role-quality"
+        "objective": "higher-role-quality",
+        "minimumAbsoluteImprovement": 0.5,
+        "preserveOrIncreaseFamilyCount": true
       },
       "balanced": {
         "classification": "review-only",
@@ -118,10 +119,15 @@
       },
       "budget": {
         "classification": "auto-safe-candidate",
-        "objective": "lower-task-cost-with-quality-floor"
+        "objective": "lower-task-cost-with-quality-floor",
+        "minimumCostReductionFraction": 0.1,
+        "preserveOrIncreaseFamilyCount": true
       }
     },
     "externalOverrideRoles": "review-only",
-    "multiSeatRotations": "review-only"
-  }
+    "multiSeatRotations": "review-only",
+    "diversityRule": "auto-safe candidates must preserve or increase the current distinct-family count"
+  },
+  "allowRepeatedModel": true,
+  "allowRepeatedBenchmarkIdentity": true
 }

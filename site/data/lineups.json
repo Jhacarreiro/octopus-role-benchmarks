@@ -1,11 +1,13 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "snapshotDate": "2026-08-25",
   "generatedAt": "2026-08-25T07:10:43.541Z",
   "policy": {
     "minFamilies": 5,
     "maxFamilies": 8,
-    "maxSeatsPerFamily": 2
+    "maxSeatsPerFamily": 2,
+    "allowRepeatedModel": true,
+    "allowRepeatedBenchmarkIdentity": true
   },
   "modes": {
     "quality": {
@@ -260,7 +262,7 @@
       }
     },
     "budget": {
-      "description": "Low-cost portfolio spanning 5–8 model families. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "description": "Low-cost portfolio spanning 5–8 model families. The same model may occupy two seats when useful, subject to the two-seat-per-family cap. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
       "qualityFloorFraction": 0.8,
       "mandatoryModels": [],
       "forbiddenAssignments": [
@@ -286,30 +288,30 @@
           "evidenceUrls": []
         },
         "strategist": {
-          "model": "Qwen 3.8 27B",
-          "family": "Qwen 3.8",
-          "benchmarkIdentity": "aa:qwen3-8-27b",
+          "model": "Muse Spark 1.2 Contributor",
+          "family": "Muse 1.2",
+          "benchmarkIdentity": "aa:muse-spark-1-2",
           "source": "scored",
           "badges": [],
           "free": false,
-          "mappingStatus": "exact",
-          "quality": 55.43,
-          "balancedScore": 239.934,
-          "costPerTaskUsd": 0.231022,
+          "mappingStatus": "commercial_variant",
+          "quality": 53.463,
+          "balancedScore": 3184.976,
+          "costPerTaskUsd": 0.016786,
           "reason": null,
           "evidenceUrls": []
         },
         "security-reviewer": {
-          "model": "MiMo V2.5 Pro",
-          "family": "MiMo V2.5",
-          "benchmarkIdentity": "aa:mimo-v2-5-pro",
+          "model": "Inkling Small",
+          "family": "Inkling",
+          "benchmarkIdentity": "aa:inkling-small",
           "source": "scored",
           "badges": [],
           "free": false,
           "mappingStatus": "exact",
-          "quality": 56.086,
-          "balancedScore": 1654.064,
-          "costPerTaskUsd": 0.033908,
+          "quality": 56.14,
+          "balancedScore": 546.066,
+          "costPerTaskUsd": 0.102808,
           "reason": null,
           "evidenceUrls": []
         },

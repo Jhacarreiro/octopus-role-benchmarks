@@ -2,7 +2,7 @@
 
 Static public UI for the benchmark.
 
-- `index.html`: recommended Quality, Balanced and Budget role portfolios, plus Quality and Balanced full-table ranking modes. Portfolio validation enforces 5–8 distinct families and at most two seats per family.
+- `index.html`: recommended Quality, Balanced and Budget role portfolios, plus Quality and Balanced full-table ranking modes. Portfolio validation enforces 5–8 distinct families and at most two seats per family; the same exact model may occupy both seats of a family when useful.
 - `methodology.html`: ranking formula, task-cost normalization, CAI* estimator, reverse validation and role weights.
 - `data/`: generated latest snapshot and CAI validation metrics.
 
