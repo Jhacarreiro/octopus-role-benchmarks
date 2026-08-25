@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "defaultFamilyMax": 1,
+  "familyMax": {
+    "GPT-5.6": 2
+  },
+  "familyByModel": {
+    "Claude Fable 5": "Claude 5",
+    "Claude Opus 5": "Claude 5",
+    "GLM-5.3": "GLM 5.3",
+    "Muse Spark 1.2": "Muse 1.2",
+    "Muse Spark 1.2 Contributor": "Muse 1.2",
+    "Grok 4.6": "Grok 4.6",
+    "Kimi K3": "Kimi K3",
+    "GPT-5.6 Sol": "GPT-5.6",
+    "GPT-5.6 Luna": "GPT-5.6",
+    "Qwen 3.8 27B": "Qwen 3.8",
+    "Tencent Hy3": "Tencent Hy3",
+    "DeepSeek V4 Flash (latest)": "DeepSeek V4",
+    "MiMo V2.5": "MiMo V2.5",
+    "Laguna S 2.1": "Laguna S 2.1",
+    "Inkling Small": "Inkling",
+    "Ox Alpha": "Ox Alpha"
+  },
+  "modes": {
+    "quality": {
+      "description": "Current-generation, family-diverse picks optimized for role quality with price ignored.",
+      "selections": {
+        "architect": "Claude Fable 5",
+        "strategist": "GLM-5.3",
+        "security-reviewer": "Muse Spark 1.2",
+        "code-reviewer": "Grok 4.6",
+        "implementer": "Kimi K3",
+        "implementer-heavy": "GPT-5.6 Sol",
+        "synthesizer": "Qwen 3.8 27B",
+        "researcher": "Tencent Hy3"
+      }
+    },
+    "balanced": {
+      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. Opus 5, Luna and Sol are mandatory portfolio models; Sol is reserved for heavy work, and Laguna is a free external-evidence coding override.",
+      "mandatoryModels": [
+        "Claude Opus 5",
+        "GPT-5.6 Luna",
+        "GPT-5.6 Sol"
+      ],
+      "forbiddenAssignments": [
+        {
+          "role": "implementer",
+          "model": "GPT-5.6 Sol"
+        }
+      ],
+      "selections": {
+        "architect": "Claude Opus 5",
+        "strategist": "DeepSeek V4 Flash (latest)",
+        "security-reviewer": "MiMo V2.5",
+        "code-reviewer": "Laguna S 2.1",
+        "implementer": "GPT-5.6 Luna",
+        "implementer-heavy": "GPT-5.6 Sol",
+        "synthesizer": "Muse Spark 1.2 Contributor",
+        "researcher": "Tencent Hy3"
+      },
+      "externalOverrides": {
+        "code-reviewer": {
+          "freeRequired": true,
+          "badges": [
+            "FREE"
+          ],
+          "reason": "Free coding override supported by public agentic/coding benchmark evidence; remains excluded from scored tables until AA mapping is verified.",
+          "evidenceUrls": [
+            "https://poolside.ai/models",
+            "https://huggingface.co/poolside/Laguna-S-2.1"
+          ]
+        }
+      }
+    },
+    "budget": {
+      "description": "Low-cost portfolio. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "qualityFloorFraction": 0.8,
+      "forbiddenAssignments": [
+        {
+          "role": "implementer",
+          "model": "GPT-5.6 Sol"
+        }
+      ],
+      "selections": {
+        "architect": "Tencent Hy3",
+        "strategist": "Qwen 3.8 27B",
+        "security-reviewer": "Inkling Small",
+        "code-reviewer": "Laguna S 2.1",
+        "implementer": "GPT-5.6 Luna",
+        "implementer-heavy": "Muse Spark 1.2 Contributor",
+        "synthesizer": "MiMo V2.5",
+        "researcher": "Ox Alpha"
+      },
+      "externalOverrides": {
+        "code-reviewer": {
+          "freeRequired": true,
+          "badges": [
+            "FREE"
+          ],
+          "reason": "Free coding override supported by public agentic/coding benchmark evidence.",
+          "evidenceUrls": [
+            "https://poolside.ai/models",
+            "https://huggingface.co/poolside/Laguna-S-2.1"
+          ]
+        },
+        "researcher": {
+          "freeRequired": true,
+          "badges": [
+            "FREE",
+            "EXPERIMENTAL"
+          ],
+          "reason": "Free 1M-context stealth model used only as an experimental Budget pick; no synthetic benchmark score is assigned."
+        }
+      }
+    }
+  }
+}

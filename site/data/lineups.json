@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-08-25",
+  "generatedAt": "2026-08-25T07:10:43.541Z",
+  "policy": {
+    "defaultFamilyMax": 1,
+    "familyMax": {
+      "GPT-5.6": 2
+    }
+  },
+  "modes": {
+    "quality": {
+      "description": "Current-generation, family-diverse picks optimized for role quality with price ignored.",
+      "qualityFloorFraction": null,
+      "mandatoryModels": [],
+      "forbiddenAssignments": [],
+      "selections": {
+        "architect": {
+          "model": "Claude Fable 5",
+          "family": "Claude 5",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 67.573,
+          "balancedScore": 20.834,
+          "costPerTaskUsd": 3.243464,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "strategist": {
+          "model": "GLM-5.3",
+          "family": "GLM 5.3",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 57.97,
+          "balancedScore": 84.884,
+          "costPerTaskUsd": 0.682931,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "security-reviewer": {
+          "model": "Muse Spark 1.2",
+          "family": "Muse 1.2",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 61.72,
+          "balancedScore": 154.609,
+          "costPerTaskUsd": 0.3992,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "code-reviewer": {
+          "model": "Grok 4.6",
+          "family": "Grok 4.6",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 57.894,
+          "balancedScore": 69.196,
+          "costPerTaskUsd": 0.836671,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "implementer": {
+          "model": "Kimi K3",
+          "family": "Kimi K3",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 60.665,
+          "balancedScore": 72.44,
+          "costPerTaskUsd": 0.837457,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "implementer-heavy": {
+          "model": "GPT-5.6 Sol",
+          "family": "GPT-5.6",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 58.415,
+          "balancedScore": 47.445,
+          "costPerTaskUsd": 1.231211,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "synthesizer": {
+          "model": "Qwen 3.8 27B",
+          "family": "Qwen 3.8",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 59.669,
+          "balancedScore": 258.283,
+          "costPerTaskUsd": 0.231022,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "researcher": {
+          "model": "Tencent Hy3",
+          "family": "Tencent Hy3",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact_alias",
+          "quality": 54.511,
+          "balancedScore": 1469.418,
+          "costPerTaskUsd": 0.037097,
+          "reason": null,
+          "evidenceUrls": []
+        }
+      }
+    },
+    "balanced": {
+      "description": "Portfolio selection balancing role fit, role quality and CommandCode task cost. Opus 5, Luna and Sol are mandatory portfolio models; Sol is reserved for heavy work, and Laguna is a free external-evidence coding override.",
+      "qualityFloorFraction": null,
+      "mandatoryModels": [
+        "Claude Opus 5",
+        "GPT-5.6 Luna",
+        "GPT-5.6 Sol"
+      ],
+      "forbiddenAssignments": [
+        {
+          "role": "implementer",
+          "model": "GPT-5.6 Sol"
+        }
+      ],
+      "selections": {
+        "architect": {
+          "model": "Claude Opus 5",
+          "family": "Claude 5",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 67.459,
+          "balancedScore": 28.867,
+          "costPerTaskUsd": 2.336859,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "strategist": {
+          "model": "DeepSeek V4 Flash (latest)",
+          "family": "DeepSeek V4",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 41.825,
+          "balancedScore": 745.823,
+          "costPerTaskUsd": 0.056079,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "security-reviewer": {
+          "model": "MiMo V2.5",
+          "family": "MiMo V2.5",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact_alias",
+          "quality": 56.638,
+          "balancedScore": 5467.516,
+          "costPerTaskUsd": 0.010359,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "code-reviewer": {
+          "model": "Laguna S 2.1",
+          "family": "Laguna S 2.1",
+          "source": "external-evidence",
+          "badges": [
+            "FREE"
+          ],
+          "free": true,
+          "mappingStatus": "unscored",
+          "quality": null,
+          "balancedScore": null,
+          "costPerTaskUsd": 0,
+          "reason": "Free coding override supported by public agentic/coding benchmark evidence; remains excluded from scored tables until AA mapping is verified.",
+          "evidenceUrls": [
+            "https://poolside.ai/models",
+            "https://huggingface.co/poolside/Laguna-S-2.1"
+          ]
+        },
+        "implementer": {
+          "model": "GPT-5.6 Luna",
+          "family": "GPT-5.6",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 53.761,
+          "balancedScore": 1140.744,
+          "costPerTaskUsd": 0.047128,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "implementer-heavy": {
+          "model": "GPT-5.6 Sol",
+          "family": "GPT-5.6",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 58.415,
+          "balancedScore": 47.445,
+          "costPerTaskUsd": 1.231211,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "synthesizer": {
+          "model": "Muse Spark 1.2 Contributor",
+          "family": "Muse 1.2",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "commercial_variant",
+          "quality": 44.838,
+          "balancedScore": 2671.155,
+          "costPerTaskUsd": 0.016786,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "researcher": {
+          "model": "Tencent Hy3",
+          "family": "Tencent Hy3",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact_alias",
+          "quality": 54.511,
+          "balancedScore": 1469.418,
+          "costPerTaskUsd": 0.037097,
+          "reason": null,
+          "evidenceUrls": []
+        }
+      }
+    },
+    "budget": {
+      "description": "Low-cost portfolio. Scored picks must retain at least 80% of the best role quality; free unresolved models require an explicit external-evidence override.",
+      "qualityFloorFraction": 0.8,
+      "mandatoryModels": [],
+      "forbiddenAssignments": [
+        {
+          "role": "implementer",
+          "model": "GPT-5.6 Sol"
+        }
+      ],
+      "selections": {
+        "architect": {
+          "model": "Tencent Hy3",
+          "family": "Tencent Hy3",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact_alias",
+          "quality": 55.893,
+          "balancedScore": 1506.672,
+          "costPerTaskUsd": 0.037097,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "strategist": {
+          "model": "Qwen 3.8 27B",
+          "family": "Qwen 3.8",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 55.43,
+          "balancedScore": 239.934,
+          "costPerTaskUsd": 0.231022,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "security-reviewer": {
+          "model": "Inkling Small",
+          "family": "Inkling",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 56.14,
+          "balancedScore": 546.066,
+          "costPerTaskUsd": 0.102808,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "code-reviewer": {
+          "model": "Laguna S 2.1",
+          "family": "Laguna S 2.1",
+          "source": "external-evidence",
+          "badges": [
+            "FREE"
+          ],
+          "free": true,
+          "mappingStatus": "unscored",
+          "quality": null,
+          "balancedScore": null,
+          "costPerTaskUsd": 0,
+          "reason": "Free coding override supported by public agentic/coding benchmark evidence.",
+          "evidenceUrls": [
+            "https://poolside.ai/models",
+            "https://huggingface.co/poolside/Laguna-S-2.1"
+          ]
+        },
+        "implementer": {
+          "model": "GPT-5.6 Luna",
+          "family": "GPT-5.6",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact",
+          "quality": 53.761,
+          "balancedScore": 1140.744,
+          "costPerTaskUsd": 0.047128,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "implementer-heavy": {
+          "model": "Muse Spark 1.2 Contributor",
+          "family": "Muse 1.2",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "commercial_variant",
+          "quality": 56.987,
+          "balancedScore": 3394.912,
+          "costPerTaskUsd": 0.016786,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "synthesizer": {
+          "model": "MiMo V2.5",
+          "family": "MiMo V2.5",
+          "source": "scored",
+          "badges": [],
+          "free": false,
+          "mappingStatus": "exact_alias",
+          "quality": 52.59,
+          "balancedScore": 5076.745,
+          "costPerTaskUsd": 0.010359,
+          "reason": null,
+          "evidenceUrls": []
+        },
+        "researcher": {
+          "model": "Ox Alpha",
+          "family": "Ox Alpha",
+          "source": "external-evidence",
+          "badges": [
+            "FREE",
+            "EXPERIMENTAL"
+          ],
+          "free": true,
+          "mappingStatus": "unscored",
+          "quality": null,
+          "balancedScore": null,
+          "costPerTaskUsd": 0,
+          "reason": "Free 1M-context stealth model used only as an experimental Budget pick; no synthetic benchmark score is assigned.",
+          "evidenceUrls": []
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 # Octopus Role Benchmarks
 
-A transparent **benchmark-vs-cost ranking** for Claude Octopus roles using the current CommandCode Max catalogue.
+Transparent **Quality** and **Balanced** rankings for Claude Octopus roles using the current CommandCode Max catalogue, plus curated Quality/Balanced/Budget portfolio recommendations.
 
-The public UI shows one number per model and role: **Ranking Value**. Higher is better.
+The detailed table exposes two modes: **Quality** ignores price; **Balanced** divides role quality by CommandCode Cost per Task. The top lineup adds a curated **Budget** portfolio.
 
 ## Ranking formula
 
@@ -64,9 +64,26 @@ GitHub Actions daily
   -> fit CAI* estimator on observed CAI families
   -> estimate missing CAI values
   -> reverse validation + guardrails
-  -> one Ranking Value per role/model
+  -> Role Quality + Balanced Score per role/model
+  -> validate curated lineup policy against the fresh snapshot
+  -> generate site/data/lineups.json
   -> dated JSON snapshot + public site data
 ```
+
+## Recommended lineup policy
+
+The top-page recommendations are a **portfolio assignment**, not eight independent #1 picks. The machine-readable source is [`config/lineup-policy.json`](config/lineup-policy.json); [`scripts/build-lineups.mjs`](scripts/build-lineups.mjs) validates it against every fresh snapshot and generates `site/data/lineups.json`. The daily job fails if the policy becomes invalid.
+
+Current policy highlights:
+
+- models are unique within a lineup; model families are unique by default;
+- GPT-5.6 may appear twice so Luna and Sol can represent distinct cost/capability tiers;
+- Balanced requires Claude Opus 5, GPT-5.6 Luna and GPT-5.6 Sol somewhere in the eight-seat portfolio; their roles are policy decisions, not permanent model identities;
+- GPT-5.6 Sol is forbidden for normal `implementer`; it is reserved for `implementer-heavy` / escalation-class work in the current policy;
+- Budget scored picks must retain at least 80% of the best role quality;
+- free unresolved rows may enter only through an explicit external-evidence override and remain excluded from the scored Quality/Balanced tables.
+
+The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
 
 ## Run locally
 
