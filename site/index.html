@@ -4,23 +4,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Octopus Role Benchmarks</title>
-  <meta name="description" content="One transparent benchmark-per-task-dollar ranking for each Claude Octopus role.">
+  <meta name="description" content="Compare benchmark-vs-cost value or pure role quality for each Claude Octopus role.">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body><main>
 <header>
-  <div><h1>Octopus Role Benchmarks</h1><p>One benchmark-vs-cost ranking for each Octopus role.</p></div>
+  <div><h1>Octopus Role Benchmarks</h1><p>Rank by benchmark-vs-cost value or pure role quality.</p></div>
   <div class="header-links"><a class="repo" href="./methodology.html">Methodology</a><a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">GitHub</a></div>
 </header>
+<section class="lineup" aria-labelledby="lineup-title">
+  <div class="lineup-head">
+    <div><h2 id="lineup-title">Recommended role lineup</h2><p>Current-generation models, diversified by family. GPT-5.6 is intentionally used twice: Luna for strategy and Sol for heavy implementation.</p></div>
+  </div>
+  <div class="lineup-grid" id="lineup"></div>
+</section>
 <div id="status" class="status">Loading current snapshot…</div>
 <nav id="roles" class="roles" aria-label="Octopus roles"></nav>
 <section class="controls" aria-label="Table controls">
+  <div class="mode-control" aria-label="Ranking mode">
+    <span>Rank by</span>
+    <div class="segmented" role="group" aria-label="Ranking mode">
+      <button type="button" data-mode="value" class="active">Value</button>
+      <button type="button" data-mode="quality">Quality</button>
+    </div>
+  </div>
   <label>Search<input id="search" type="search" placeholder="Model name"></label>
   <label class="check"><input id="showUnscored" type="checkbox"> Show unscored</label>
 </section>
 <section class="table-wrap">
-  <table><thead><tr><th class="num rank">#</th><th data-sort="name">Model</th><th data-sort="value" class="num">Ranking Value ↑</th><th>Notes</th></tr></thead><tbody id="rows"></tbody></table>
+  <table><thead><tr><th class="num rank">#</th><th data-sort="name">Model</th><th data-sort="value" class="num" id="metricHeading">Ranking Value ↑</th><th>Notes</th></tr></thead><tbody id="rows"></tbody></table>
   <div id="empty" class="empty" hidden>No models match the current filters.</div>
 </section>
-<p class="footnote">Higher Ranking Value is better. See <a href="./methodology.html">methodology</a> for the exact role formula, task-cost normalization and CAI estimation validation.</p>
+<p class="footnote" id="modeNote">Value mode ranks role quality per CommandCode Cost per Task. Quality mode ignores price entirely. See <a href="./methodology.html">methodology</a> for the exact role formula, task-cost normalization and CAI estimation validation.</p>
 </main><script src="./app.js" defer></script></body></html>

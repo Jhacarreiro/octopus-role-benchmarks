@@ -8,13 +8,14 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body><main>
-<header><div><h1>Methodology</h1><p>How one Ranking Value is produced for every Octopus role.</p></div><div class="header-links"><a class="repo" href="./">Ranking</a><a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">GitHub</a></div></header>
+<header><div><h1>Methodology</h1><p>How role quality and benchmark-vs-cost Ranking Value are produced.</p></div><div class="header-links"><a class="repo" href="./">Ranking</a><a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">GitHub</a></div></header>
 <div id="methodStatus" class="status">Loading methodology…</div>
 <section class="methodology prose">
-  <h2>One ranking value</h2>
-  <p>Every scored CommandCode Max row receives one value. Higher is better.</p>
-  <div class="formula"><strong>Non-coding roles</strong><code>Ranking Value = Universal Role Score / CommandCode Cost per Task</code></div>
-  <div class="formula"><strong>Coding roles</strong><code>Ranking Value = (⅔ Universal Role Score + ⅓ CAI*) / CommandCode Cost per Task</code></div>
+  <h2>Two views of the same role score</h2>
+  <p><strong>Quality</strong> ignores price and ranks only the role-quality score. <strong>Value</strong> divides that same quality by CommandCode Cost per Task. Higher is better in both modes.</p>
+  <div class="formula"><strong>Non-coding role quality</strong><code>Role Quality = Universal Role Score</code></div>
+  <div class="formula"><strong>Coding role quality</strong><code>Role Quality = ⅔ Universal Role Score + ⅓ CAI*</code></div>
+  <div class="formula"><strong>Value mode</strong><code>Ranking Value = Role Quality / CommandCode Cost per Task</code></div>
   <p>The coding adjustment applies only to <strong>Implementer</strong>, <strong>Implementer Heavy</strong> and <strong>Code Reviewer</strong>.</p>
 </section>
 <section id="coverage" class="methodology"></section>
