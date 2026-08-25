@@ -17,10 +17,14 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
   for(const req of mode.mandatoryModels||[]) if(!names.includes(req)) fail(`${modeId}: mandatory model missing: ${req}`);
   for(const rule of mode.forbiddenAssignments||[]) if(selected[rule.role]===rule.model) fail(`${modeId}: forbidden assignment ${rule.model} -> ${rule.role}`);
   const familyCounts=new Map();
+  const identityOwners=new Map();
   const selections={};
   for(const role of roles){
     const name=selected[role],m=modelByName.get(name); if(!m) fail(`${modeId}/${role}: model not found: ${name}`);
     const family=policy.familyByModel[name]; if(!family) fail(`${modeId}/${role}: family missing for ${name}`);
+    const benchmarkIdentity=m.mapping?.status==='unscored'?`unscored:${name}`:(m.aaModel?.slug?`aa:${m.aaModel.slug}`:`model:${name}`);
+    if(identityOwners.has(benchmarkIdentity)) fail(`${modeId}: benchmark identity repeated: ${benchmarkIdentity} (${identityOwners.get(benchmarkIdentity)} and ${name})`);
+    identityOwners.set(benchmarkIdentity,name);
     familyCounts.set(family,(familyCounts.get(family)||0)+1);
     const override=mode.externalOverrides?.[role]||null;
     const score=m.roleScores?.[role]||null;
@@ -36,7 +40,7 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
         if(ratio+1e-12<mode.qualityFloorFraction) fail(`${modeId}/${role}: ${name} quality floor ${(ratio*100).toFixed(1)}% < ${(mode.qualityFloorFraction*100).toFixed(1)}%`);
       }
     }
-    selections[role]={model:name,family,source:override?'external-evidence':'scored',badges:override?.badges||[],free:m.free===true,mappingStatus:m.mapping?.status||null,quality:score?.rankingQuality??null,balancedScore:score?.rankingValue??null,costPerTaskUsd:m.taskEfficiency?.commandCodeCostPerTaskUsd??0,reason:override?.reason||null,evidenceUrls:override?.evidenceUrls||[]};
+    selections[role]={model:name,family,benchmarkIdentity,source:override?'external-evidence':'scored',badges:override?.badges||[],free:m.free===true,mappingStatus:m.mapping?.status||null,quality:score?.rankingQuality??null,balancedScore:score?.rankingValue??null,costPerTaskUsd:m.taskEfficiency?.commandCodeCostPerTaskUsd??0,reason:override?.reason||null,evidenceUrls:override?.evidenceUrls||[]};
   }
   const familyCount=familyCounts.size;
   if(familyCount<(policy.minFamilies??1)) fail(`${modeId}: only ${familyCount} model families (min ${policy.minFamilies})`);

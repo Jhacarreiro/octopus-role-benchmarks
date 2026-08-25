@@ -7,3 +7,5 @@ Static public UI for the benchmark.
 - `data/`: generated latest snapshot and CAI validation metrics.
 
 Free unresolved models can appear only in the curated top lineups through a documented external-evidence override; they remain excluded from the full scored tables.
+
+- `../data/lineup-opportunities.json` in the repository records dry-run single-seat swap opportunities after each refresh; the public UI does not auto-apply them.

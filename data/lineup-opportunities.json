@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-08-25",
+  "generatedAt": "2026-08-25T07:10:43.541Z",
+  "policySchemaVersion": 3,
+  "applyAutomatically": false,
+  "scope": "single-seat",
+  "identityRule": "aaModel.slug for scored rows; model name for unresolved rows",
+  "modes": {
+    "quality": {
+      "classification": "auto-safe-candidate",
+      "objective": "higher-role-quality",
+      "currentFamilyCount": 7,
+      "autoSafeCandidateCount": 0,
+      "reviewOnlyCandidateCount": 0,
+      "lockedRoles": [],
+      "opportunities": []
+    },
+    "balanced": {
+      "classification": "review-only",
+      "objective": "higher-balanced-score",
+      "currentFamilyCount": 7,
+      "autoSafeCandidateCount": 0,
+      "reviewOnlyCandidateCount": 3,
+      "lockedRoles": [],
+      "opportunities": [
+        {
+          "role": "strategist",
+          "from": "Qwen 3.8 27B",
+          "to": "MiMo V2.5 Pro",
+          "fromIdentity": "aa:qwen3-8-27b",
+          "toIdentity": "aa:mimo-v2-5-pro",
+          "fromFamily": "Qwen 3.8",
+          "toFamily": "MiMo V2.5",
+          "classification": "review-only",
+          "metric": "balancedScore",
+          "improvement": 876.027,
+          "fromQuality": 55.43,
+          "toQuality": 37.84,
+          "fromBalanced": 239.934,
+          "toBalanced": 1115.961,
+          "fromCostPerTaskUsd": 0.231022,
+          "toCostPerTaskUsd": 0.033908,
+          "resultingFamilyCount": 6
+        },
+        {
+          "role": "strategist",
+          "from": "Qwen 3.8 27B",
+          "to": "DeepSeek V4 Flash (latest)",
+          "fromIdentity": "aa:qwen3-8-27b",
+          "toIdentity": "aa:deepseek-v4-flash",
+          "fromFamily": "Qwen 3.8",
+          "toFamily": "DeepSeek V4",
+          "classification": "review-only",
+          "metric": "balancedScore",
+          "improvement": 505.889,
+          "fromQuality": 55.43,
+          "toQuality": 41.825,
+          "fromBalanced": 239.934,
+          "toBalanced": 745.823,
+          "fromCostPerTaskUsd": 0.231022,
+          "toCostPerTaskUsd": 0.056079,
+          "resultingFamilyCount": 7
+        },
+        {
+          "role": "synthesizer",
+          "from": "Inkling Small",
+          "to": "MiMo V2.5 Pro",
+          "fromIdentity": "aa:inkling-small",
+          "toIdentity": "aa:mimo-v2-5-pro",
+          "fromFamily": "Inkling",
+          "toFamily": "MiMo V2.5",
+          "classification": "review-only",
+          "metric": "balancedScore",
+          "improvement": 374.609,
+          "fromQuality": 51,
+          "toQuality": 29.523,
+          "fromBalanced": 496.07,
+          "toBalanced": 870.679,
+          "fromCostPerTaskUsd": 0.102808,
+          "toCostPerTaskUsd": 0.033908,
+          "resultingFamilyCount": 6
+        }
+      ]
+    },
+    "budget": {
+      "classification": "auto-safe-candidate",
+      "objective": "lower-task-cost-with-quality-floor",
+      "currentFamilyCount": 7,
+      "autoSafeCandidateCount": 0,
+      "reviewOnlyCandidateCount": 0,
+      "lockedRoles": [
+        {
+          "role": "code-reviewer",
+          "model": "Laguna S 2.1",
+          "classification": "review-only",
+          "reason": "external-evidence override"
+        },
+        {
+          "role": "researcher",
+          "model": "Ox Alpha",
+          "classification": "review-only",
+          "reason": "external-evidence override"
+        }
+      ],
+      "opportunities": []
+    }
+  }
+}

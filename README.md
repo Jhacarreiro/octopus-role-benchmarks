@@ -76,7 +76,7 @@ The top-page recommendations are a **portfolio assignment**, not eight independe
 
 Current policy highlights:
 
-- exact models are unique within a lineup;
+- exact models are unique within a lineup; scored rows sharing the same `aaModel.slug` are also treated as the same benchmark identity and cannot occupy two seats;
 - each lineup must span **5–8 distinct model families**; 7 or 8 are fully acceptable and are not penalized versus 6;
 - a family may occupy at most **2 seats**;
 - Balanced requires Claude Opus 5, GPT-5.6 Luna and GPT-5.6 Sol somewhere in the eight-seat portfolio; their roles are policy decisions, not permanent model identities;
@@ -86,6 +86,8 @@ Current policy highlights:
 - free unresolved rows may enter only through an explicit external-evidence override and remain excluded from the scored Quality/Balanced tables.
 
 The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
+
+Future single-seat swap opportunities are evaluated after every refresh by `scripts/evaluate-lineup-swaps.mjs` and written to `data/lineup-opportunities.json`. Quality and Budget can produce structurally **auto-safe candidates**, but the current policy has `applyAutomatically: false`; Balanced, external overrides and multi-seat rotations are always review-only.
 
 ## Run locally
 

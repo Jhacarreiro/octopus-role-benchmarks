@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "familyByModel": {
     "Claude Fable 5": "Claude 5",
     "Claude Opus 5": "Claude 5",
@@ -17,20 +17,21 @@
     "Laguna S 2.1": "Laguna S 2.1",
     "Inkling Small": "Inkling",
     "Ox Alpha": "Ox Alpha",
-    "Claude Sonnet 5": "Claude 5"
+    "Claude Sonnet 5": "Claude 5",
+    "MiMo V2.5 Pro": "MiMo V2.5"
   },
   "modes": {
     "quality": {
       "description": "Price-free portfolio optimized for role quality while spanning 5–8 model families, with no exact model repeated.",
       "selections": {
-        "architect": "Claude Fable 5",
+        "architect": "Claude Opus 5",
         "strategist": "GLM-5.3",
         "security-reviewer": "Muse Spark 1.2",
         "code-reviewer": "Grok 4.6",
         "implementer": "Kimi K3",
         "implementer-heavy": "GPT-5.6 Sol",
         "synthesizer": "Qwen 3.8 27B",
-        "researcher": "Tencent Hy3"
+        "researcher": "Claude Fable 5"
       }
     },
     "balanced": {
@@ -69,7 +70,7 @@
       "selections": {
         "architect": "Tencent Hy3",
         "strategist": "Qwen 3.8 27B",
-        "security-reviewer": "Inkling Small",
+        "security-reviewer": "MiMo V2.5 Pro",
         "code-reviewer": "Laguna S 2.1",
         "implementer": "GPT-5.6 Luna",
         "implementer-heavy": "Muse Spark 1.2 Contributor",
@@ -101,5 +102,26 @@
   },
   "minFamilies": 5,
   "maxFamilies": 8,
-  "maxSeatsPerFamily": 2
+  "maxSeatsPerFamily": 2,
+  "swapEvaluation": {
+    "scope": "single-seat",
+    "applyAutomatically": false,
+    "identityRule": "aaModel.slug for scored rows; model name for unresolved rows",
+    "modes": {
+      "quality": {
+        "classification": "auto-safe-candidate",
+        "objective": "higher-role-quality"
+      },
+      "balanced": {
+        "classification": "review-only",
+        "objective": "higher-balanced-score"
+      },
+      "budget": {
+        "classification": "auto-safe-candidate",
+        "objective": "lower-task-cost-with-quality-floor"
+      }
+    },
+    "externalOverrideRoles": "review-only",
+    "multiSeatRotations": "review-only"
+  }
 }

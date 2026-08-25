@@ -18,7 +18,7 @@ The daily update regenerates `site/data/lineups.json` after refreshing benchmark
 ## Common constraints
 
 1. Every canonical Octopus role has exactly one model.
-2. The same exact model cannot occupy two seats.
+2. The same exact model cannot occupy two seats. Scored rows that share the same `aaModel.slug` also count as the same benchmark identity and cannot both occupy seats. This prevents commercial variants of one benchmarked model from masquerading as diversity.
 3. Every lineup must span **at least 5 and at most 8 distinct model families**.
 4. Seven or eight families are considered at least as good as six; there is no optimization penalty for exceeding six.
 5. A single model family may occupy at most **2 seats**.
@@ -29,6 +29,21 @@ The daily update regenerates `site/data/lineups.json` after refreshing benchmark
 ## Quality lineup
 
 Quality ignores price. The current curated portfolio is family-diverse and uses role quality as its primary signal. It remains a portfolio rather than a simple per-role top-1 list so one family cannot dominate multiple seats.
+
+Current Quality portfolio:
+
+| Role | Model |
+| --- | --- |
+| Architect | Claude Opus 5 |
+| Strategist | GLM-5.3 |
+| Security Reviewer | Muse Spark 1.2 |
+| Code Reviewer | Grok 4.6 |
+| Implementer | Kimi K3 |
+| Implementer Heavy | GPT-5.6 Sol |
+| Synthesizer | Qwen 3.8 27B |
+| Researcher | Claude Fable 5 |
+
+This intentionally uses two Claude 5 models while still spanning seven distinct families. Opus takes Architect and Fable takes Researcher because this improves aggregate measured role quality under the current portfolio constraints.
 
 ## Balanced lineup
 
@@ -82,7 +97,7 @@ Current Budget portfolio:
 | --- | --- | --- |
 | Architect | Tencent Hy3 | Scored pick above the 80% quality floor. |
 | Strategist | Qwen 3.8 27B | Scored pick above the 80% quality floor. |
-| Security Reviewer | Inkling Small | Scored pick above the 80% quality floor. |
+| Security Reviewer | MiMo V2.5 Pro | Lower-cost scored pick above the 80% quality floor; MiMo appears twice but with two distinct benchmark identities. |
 | Code Reviewer | Laguna S 2.1 | FREE external-evidence override. |
 | Implementer | GPT-5.6 Luna | Scored, low-cost normal implementation tier. |
 | Implementer Heavy | Muse Spark 1.2 Contributor | Scored low-cost heavy seat above the quality floor. |
@@ -98,3 +113,17 @@ Laguna S 2.1 is accepted narrowly for coding roles because public Poolside evide
 ## Automation boundary
 
 The automation is intentionally conservative. It **validates and publishes** the approved portfolio; it does not silently replace a model when rankings change. A failing constraint stops the update and forces review. This prevents a daily data refresh from turning an editorial/operational portfolio decision into an unreviewed routing change.
+
+After every refresh, `scripts/evaluate-lineup-swaps.mjs` evaluates **single-seat** substitutions within the explicitly classified current-generation candidate universe (`familyByModel`). It writes `data/lineup-opportunities.json`.
+
+Classification rules:
+
+- **Quality**: a candidate is `auto-safe-candidate` only when it raises Role Quality and preserves every portfolio/identity constraint.
+- **Budget**: a candidate is `auto-safe-candidate` only when it lowers task cost, remains above the 80% role-quality floor and preserves every portfolio/identity constraint.
+- **Balanced**: every numerical improvement is `review-only`, because higher quality-per-cost can hide a material drop in absolute role quality or role fit.
+- **External-evidence override roles**: always `review-only`.
+- **Multi-seat rotations**: always `review-only`.
+
+`auto-safe-candidate` means the swap is structurally and numerically admissible, **not that it is automatically applied**. `applyAutomatically` is currently `false`. Newly added models cannot become auto-safe until their family is explicitly classified in `config/lineup-policy.json`.
+
+For the 2026-08-25 snapshot, Quality and Budget each have **0** auto-safe single-seat swaps. Balanced has three review-only numeric opportunities; all trade substantial absolute quality for lower cost, which is exactly why Balanced remains human-reviewed.

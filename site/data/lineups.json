@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "snapshotDate": "2026-08-25",
   "generatedAt": "2026-08-25T07:10:43.541Z",
   "policy": {
@@ -13,24 +13,26 @@
       "qualityFloorFraction": null,
       "mandatoryModels": [],
       "forbiddenAssignments": [],
-      "familyCount": 8,
+      "familyCount": 7,
       "selections": {
         "architect": {
-          "model": "Claude Fable 5",
+          "model": "Claude Opus 5",
           "family": "Claude 5",
+          "benchmarkIdentity": "aa:claude-opus-5",
           "source": "scored",
           "badges": [],
           "free": false,
           "mappingStatus": "exact",
-          "quality": 67.573,
-          "balancedScore": 20.834,
-          "costPerTaskUsd": 3.243464,
+          "quality": 67.459,
+          "balancedScore": 28.867,
+          "costPerTaskUsd": 2.336859,
           "reason": null,
           "evidenceUrls": []
         },
         "strategist": {
           "model": "GLM-5.3",
           "family": "GLM 5.3",
+          "benchmarkIdentity": "aa:glm-5-3",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -44,6 +46,7 @@
         "security-reviewer": {
           "model": "Muse Spark 1.2",
           "family": "Muse 1.2",
+          "benchmarkIdentity": "aa:muse-spark-1-2",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -57,6 +60,7 @@
         "code-reviewer": {
           "model": "Grok 4.6",
           "family": "Grok 4.6",
+          "benchmarkIdentity": "aa:grok-4-6",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -70,6 +74,7 @@
         "implementer": {
           "model": "Kimi K3",
           "family": "Kimi K3",
+          "benchmarkIdentity": "aa:kimi-k3",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -83,6 +88,7 @@
         "implementer-heavy": {
           "model": "GPT-5.6 Sol",
           "family": "GPT-5.6",
+          "benchmarkIdentity": "aa:gpt-5-6-sol",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -96,6 +102,7 @@
         "synthesizer": {
           "model": "Qwen 3.8 27B",
           "family": "Qwen 3.8",
+          "benchmarkIdentity": "aa:qwen3-8-27b",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -107,15 +114,16 @@
           "evidenceUrls": []
         },
         "researcher": {
-          "model": "Tencent Hy3",
-          "family": "Tencent Hy3",
+          "model": "Claude Fable 5",
+          "family": "Claude 5",
+          "benchmarkIdentity": "aa:claude-fable-5",
           "source": "scored",
           "badges": [],
           "free": false,
-          "mappingStatus": "exact_alias",
-          "quality": 54.511,
-          "balancedScore": 1469.418,
-          "costPerTaskUsd": 0.037097,
+          "mappingStatus": "exact",
+          "quality": 67.229,
+          "balancedScore": 20.728,
+          "costPerTaskUsd": 3.243464,
           "reason": null,
           "evidenceUrls": []
         }
@@ -140,6 +148,7 @@
         "architect": {
           "model": "Claude Opus 5",
           "family": "Claude 5",
+          "benchmarkIdentity": "aa:claude-opus-5",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -153,6 +162,7 @@
         "strategist": {
           "model": "Qwen 3.8 27B",
           "family": "Qwen 3.8",
+          "benchmarkIdentity": "aa:qwen3-8-27b",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -166,6 +176,7 @@
         "security-reviewer": {
           "model": "MiMo V2.5",
           "family": "MiMo V2.5",
+          "benchmarkIdentity": "aa:mimo-v2-5-0424",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -179,6 +190,7 @@
         "code-reviewer": {
           "model": "GPT-5.6 Luna",
           "family": "GPT-5.6",
+          "benchmarkIdentity": "aa:gpt-5-6-luna",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -192,6 +204,7 @@
         "implementer": {
           "model": "Muse Spark 1.2 Contributor",
           "family": "Muse 1.2",
+          "benchmarkIdentity": "aa:muse-spark-1-2",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -205,6 +218,7 @@
         "implementer-heavy": {
           "model": "GPT-5.6 Sol",
           "family": "GPT-5.6",
+          "benchmarkIdentity": "aa:gpt-5-6-sol",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -218,6 +232,7 @@
         "synthesizer": {
           "model": "Inkling Small",
           "family": "Inkling",
+          "benchmarkIdentity": "aa:inkling-small",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -231,6 +246,7 @@
         "researcher": {
           "model": "Tencent Hy3",
           "family": "Tencent Hy3",
+          "benchmarkIdentity": "aa:hy3",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -253,11 +269,12 @@
           "model": "GPT-5.6 Sol"
         }
       ],
-      "familyCount": 8,
+      "familyCount": 7,
       "selections": {
         "architect": {
           "model": "Tencent Hy3",
           "family": "Tencent Hy3",
+          "benchmarkIdentity": "aa:hy3",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -271,6 +288,7 @@
         "strategist": {
           "model": "Qwen 3.8 27B",
           "family": "Qwen 3.8",
+          "benchmarkIdentity": "aa:qwen3-8-27b",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -282,21 +300,23 @@
           "evidenceUrls": []
         },
         "security-reviewer": {
-          "model": "Inkling Small",
-          "family": "Inkling",
+          "model": "MiMo V2.5 Pro",
+          "family": "MiMo V2.5",
+          "benchmarkIdentity": "aa:mimo-v2-5-pro",
           "source": "scored",
           "badges": [],
           "free": false,
           "mappingStatus": "exact",
-          "quality": 56.14,
-          "balancedScore": 546.066,
-          "costPerTaskUsd": 0.102808,
+          "quality": 56.086,
+          "balancedScore": 1654.064,
+          "costPerTaskUsd": 0.033908,
           "reason": null,
           "evidenceUrls": []
         },
         "code-reviewer": {
           "model": "Laguna S 2.1",
           "family": "Laguna S 2.1",
+          "benchmarkIdentity": "unscored:Laguna S 2.1",
           "source": "external-evidence",
           "badges": [
             "FREE"
@@ -315,6 +335,7 @@
         "implementer": {
           "model": "GPT-5.6 Luna",
           "family": "GPT-5.6",
+          "benchmarkIdentity": "aa:gpt-5-6-luna",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -328,6 +349,7 @@
         "implementer-heavy": {
           "model": "Muse Spark 1.2 Contributor",
           "family": "Muse 1.2",
+          "benchmarkIdentity": "aa:muse-spark-1-2",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -341,6 +363,7 @@
         "synthesizer": {
           "model": "MiMo V2.5",
           "family": "MiMo V2.5",
+          "benchmarkIdentity": "aa:mimo-v2-5-0424",
           "source": "scored",
           "badges": [],
           "free": false,
@@ -354,6 +377,7 @@
         "researcher": {
           "model": "Ox Alpha",
           "family": "Ox Alpha",
+          "benchmarkIdentity": "unscored:Ox Alpha",
           "source": "external-evidence",
           "badges": [
             "FREE",
