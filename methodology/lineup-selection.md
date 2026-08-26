@@ -114,10 +114,9 @@ Therefore the recommendation cards apply a deliberate security capability tier:
 Quality  -> Claude Fable 5
 Balanced -> Claude Opus 5
 Budget   -> Muse Spark 1.2 Contributor
-Escalate -> GPT-5.6 Sol for code-heavy or critical second-opinion work
 ```
 
-These are policy anchors, not outputs of a hidden cybersecurity score. `security-reviewer` is locked to human review in the swap evaluator, so a cheaper proxy-score candidate cannot silently displace the selected security tier. The project should revisit a dedicated `Security*` only when a reproducible cyber benchmark reaches broad enough comparable coverage across the relevant model families.
+These are policy anchors, not outputs of a hidden cybersecurity score. `security-reviewer` is locked to human review in the swap evaluator, so a cheaper proxy-score candidate cannot silently displace the selected security tier. There is no separate security-heavy role in Octopus; `implementer-heavy` is a coding/implementation role. The project should revisit a dedicated `Security*` only when a reproducible cyber benchmark reaches broad enough comparable coverage across the relevant model families.
 
 ## External-evidence overrides
 

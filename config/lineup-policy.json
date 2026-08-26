@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "familyByModel": {
     "Claude Fable 5": "Claude 5",
     "Claude Opus 5": "Claude 5",
@@ -35,7 +35,7 @@
       }
     },
     "balanced": {
-      "description": "Portfolio balancing role fit, quality and cost, with a deliberate premium-security override: Claude Opus 5 handles Security Reviewer. Routine implementation stays on Muse; Sol remains heavy/escalation. The portfolio spans six model families.",
+      "description": "Portfolio balancing role fit, quality and cost, with a deliberate premium-security override: Claude Opus 5 handles Security Reviewer. Routine implementation stays on Muse; GPT-5.6 Sol remains Implementer Heavy. The portfolio spans six model families.",
       "mandatoryModels": [
         "Claude Opus 5",
         "GPT-5.6 Luna",
@@ -137,7 +137,6 @@
     "rationale": "Current public cybersecurity benchmarks do not have sufficient comparable coverage across the benchmark universe, so security routing uses an explicit capability-tier policy rather than a synthetic Security* score.",
     "quality": "Claude Fable 5",
     "balanced": "Claude Opus 5",
-    "budget": "Muse Spark 1.2 Contributor",
-    "escalation": "GPT-5.6 Sol for code-heavy or critical second-opinion security work"
+    "budget": "Muse Spark 1.2 Contributor"
   }
 }

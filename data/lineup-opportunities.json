@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "snapshotDate": "2026-08-25",
   "generatedAt": "2026-08-25T07:10:43.541Z",
-  "policySchemaVersion": 6,
+  "policySchemaVersion": 7,
   "applyAutomatically": false,
   "scope": "single-seat",
   "repetitionRule": "models and benchmark identities may repeat subject to family seat limits",
