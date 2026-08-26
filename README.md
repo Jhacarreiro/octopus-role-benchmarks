@@ -54,7 +54,7 @@ See:
 ## Pipeline
 
 ```text
-GitHub Actions daily
+GitHub Actions weekly
   -> OpenCLI CommandCode Max
   -> OpenCLI Artificial Analysis models
   -> OpenCLI Coding Agent Index
@@ -103,3 +103,7 @@ No login cookies, API keys or browser profile are required for the current publi
 ## License
 
 MIT.
+
+### Weekly refresh
+
+The benchmark refresh runs once per week via `.github/workflows/weekly.yml` (Monday 06:17 UTC). Any downstream review or notification automation is deployment-specific and intentionally outside this public repository.
