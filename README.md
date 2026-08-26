@@ -54,7 +54,7 @@ See:
 ## Pipeline
 
 ```text
-GitHub Actions daily
+GitHub Actions weekly
   -> OpenCLI CommandCode Max
   -> OpenCLI Artificial Analysis models
   -> OpenCLI Coding Agent Index
@@ -103,3 +103,7 @@ No login cookies, API keys or browser profile are required for the current publi
 ## License
 
 MIT.
+
+### Weekly refresh and Telegram review
+
+The benchmark refresh runs once per week via `.github/workflows/weekly.yml` (Monday 06:17 UTC). A deterministic Gallivanter cron, `octopus-benchmark-weekly-review`, runs Monday at 10:00 Europe/Lisbon and compares the newly published snapshot with the last reviewed snapshot. It sends Telegram only when models, prices, effective task costs, lineup assignments, or new swap opportunities changed. No-change runs return `NO_REPLY` and are not delivered.
