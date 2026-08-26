@@ -88,7 +88,7 @@ Current policy highlights:
 
 The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
 
-Future single-seat swap opportunities are evaluated after every refresh by `scripts/evaluate-lineup-swaps.mjs` and written to `data/lineup-opportunities.json`. Quality and Budget can produce structurally **auto-safe candidates**, but only when the swap preserves or increases the current distinct-family count and clears the configured improvement threshold. `applyAutomatically` remains false; Balanced, external overrides and multi-seat rotations are always review-only.
+Future single-seat swap opportunities are evaluated after every refresh by `scripts/evaluate-lineup-swaps.mjs` and written to `data/lineup-opportunities.json`. Quality and Budget can produce structurally **auto-safe candidates**, but only when the swap preserves or increases the current distinct-family count and clears the configured improvement threshold. `applyAutomatically` remains false; Balanced, external overrides and multi-seat rotations are always review-only. The weekly watcher turns new candidates into decision-oriented alerts: it includes Quality, normalized task cost, Balanced score, family-count impact, the review reason and a suggested next action. Price changes flag models currently used in a lineup, and newly discovered models without `familyByModel` are explicitly marked ineligible until manually classified.
 
 ## Run locally
 
