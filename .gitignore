@@ -8,3 +8,4 @@ tmp/
 .opencli/
 
 .opencli-home/
+.weekly-review-state.json

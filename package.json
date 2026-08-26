@@ -9,7 +9,8 @@
     "check": "node scripts/validate.mjs && node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
     "test": "node scripts/validate.mjs && node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
     "build-lineups": "node scripts/build-lineups.mjs",
-    "evaluate-lineups": "node scripts/evaluate-lineup-swaps.mjs"
+    "evaluate-lineups": "node scripts/evaluate-lineup-swaps.mjs",
+    "weekly-report": "node scripts/weekly-change-report.mjs"
   },
   "dependencies": {
     "@jackwener/opencli": "1.8.6",

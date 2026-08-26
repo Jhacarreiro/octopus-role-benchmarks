@@ -13,7 +13,7 @@ The lineup is therefore not produced by taking the #1 row for every role indepen
 - `scripts/build-lineups.mjs` — fail-closed policy validator and generator.
 - `site/data/lineups.json` — generated public artifact consumed by the site.
 
-The daily update regenerates `site/data/lineups.json` after refreshing benchmark data and CAI validation. `npm test` fails when the generated lineup data is stale or a policy constraint is broken.
+The weekly update regenerates `site/data/lineups.json` after refreshing benchmark data and CAI validation. `npm test` fails when the generated lineup data is stale or a policy constraint is broken.
 
 ## Common constraints
 

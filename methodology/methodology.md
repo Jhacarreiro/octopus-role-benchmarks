@@ -126,7 +126,7 @@ Current fail-closed guardrails:
 - final coding-role ranking Spearman ≥ 0.95;
 - final Top-5 recovery ≥ 80%.
 
-If these fail, the daily update does not publish a new snapshot.
+If these fail, the weekly update does not publish a new snapshot.
 
 ## Role weights
 
