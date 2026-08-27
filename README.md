@@ -11,13 +11,13 @@ The static UI is deployed directly from this repository by `.github/workflows/pa
 Current native GitHub Pages URL:
 
 ```text
-https://jhacarreiro.github.io/octopus-role-benchmarks/
+https://benchmark.gallivanter.biz/
 ```
 
 Target branded URL after DNS cutover:
 
 ```text
-https://benchmark.getrad.ar/
+https://getrad.ar/whipit/benchmark/ (compatibility redirect)
 ```
 
 `getrad.ar` is only the shared domain namespace; benchmark source, deployment and history remain owned by this repository.
