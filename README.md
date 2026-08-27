@@ -4,6 +4,24 @@ Transparent **Quality** and **Balanced** rankings for Claude Octopus roles using
 
 The detailed table exposes two modes: **Quality** ignores price; **Balanced** divides role quality by CommandCode Cost per Task. The top lineup adds a curated **Budget** portfolio.
 
+## Public site
+
+The static UI is deployed directly from this repository by `.github/workflows/pages.yml`. It does not depend on the Radar repository.
+
+Current native GitHub Pages URL:
+
+```text
+https://jhacarreiro.github.io/octopus-role-benchmarks/
+```
+
+Target branded URL after DNS cutover:
+
+```text
+https://benchmark.getrad.ar/
+```
+
+`getrad.ar` is only the shared domain namespace; benchmark source, deployment and history remain owned by this repository.
+
 ## Ranking formula
 
 For non-coding roles:
