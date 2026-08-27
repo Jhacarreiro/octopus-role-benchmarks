@@ -10,4 +10,4 @@ Free unresolved models can appear only in the curated top lineups through a docu
 
 - `../data/lineup-opportunities.json` in the repository records dry-run single-seat swap opportunities after each refresh; the public UI does not auto-apply them.
 
-Deployment: `.github/workflows/pages.yml` publishes this directory directly from `octopus-role-benchmarks` to GitHub Pages. The site is not copied into or deployed by the Radar repository.
+Deployment: `scripts/publish-static.sh` copies this directory into the separate deployment-only `Jhacarreiro/whipit-pages` repository. The source repository remains private and Radar is not part of the deployment path.

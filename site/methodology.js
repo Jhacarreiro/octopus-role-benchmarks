@@ -1,10 +1,9 @@
-const RAW='https://raw.githubusercontent.com/Jhacarreiro/octopus-role-benchmarks/main/';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const f=(n,d=2)=>Number(n).toFixed(d);
 async function fetchFirst(paths){let err;for(const p of paths){try{const r=await fetch(p,{cache:'no-store'});if(!r.ok)throw new Error(String(r.status));return await r.json()}catch(e){err=e}}throw err}
 async function load(){
   try{
-    const [d,v]=await Promise.all([fetchFirst([RAW+'data/latest.json','./data/latest.json']),fetchFirst([RAW+'data/cai-validation.json','./data/cai-validation.json'])]);
+    const [d,v]=await Promise.all([fetchFirst(['./data/latest.json']),fetchFirst(['./data/cai-validation.json'])]);
     document.querySelector('#methodStatus').innerHTML=`Snapshot <strong>${esc(d.date)}</strong> · methodology v${d.methodologyVersion}`;
     document.querySelector('#coverage').innerHTML=`<h2>Coverage</h2><div class="metric-grid"><div><strong>${d.counts.scoredFamilies}</strong><span>scored model families</span></div><div><strong>${d.efficiencyCoverage.present}/${d.efficiencyCoverage.total}</strong><span>task-cost coverage</span></div><div><strong>${d.caiStarCoverage.observed}</strong><span>CAI observed</span></div><div><strong>${d.caiStarCoverage.estimated}</strong><span>CAI estimated</span></div><div><strong>${d.caiStarCoverage.present}/${d.caiStarCoverage.total}</strong><span>final CAI* coverage</span></div></div>`;
     document.querySelector('#caiCounts').innerHTML=`Current scored universe: <strong>${d.caiStarCoverage.observed}</strong> families use observed Artificial Analysis CAI and <strong>${d.caiStarCoverage.estimated}</strong> use the estimator. Together CAI* covers <strong>${d.caiStarCoverage.present}/${d.caiStarCoverage.total}</strong>.`;

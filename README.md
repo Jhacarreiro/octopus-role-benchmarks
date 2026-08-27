@@ -6,12 +6,12 @@ The detailed table exposes two modes: **Quality** ignores price; **Balanced** di
 
 ## Public site
 
-The static UI is deployed directly from this repository by `.github/workflows/pages.yml`. It does not depend on the Radar repository.
+The source repository remains private. Static public artefacts from `site/` are published to the separate deployment-only `Jhacarreiro/whipit-pages` repository. It does not depend on Radar.
 
 Current native GitHub Pages URL:
 
 ```text
-https://jhacarreiro.github.io/octopus-role-benchmarks/
+https://jhacarreiro.github.io/whipit-pages/benchmark/
 ```
 
 Target branded URL after DNS cutover:
