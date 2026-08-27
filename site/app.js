@@ -1,11 +1,9 @@
-const DATA_REMOTE='https://raw.githubusercontent.com/Jhacarreiro/octopus-role-benchmarks/main/data/latest.json';
-const LINEUPS_REMOTE='https://raw.githubusercontent.com/Jhacarreiro/octopus-role-benchmarks/main/site/data/lineups.json';
 const state={data:null,lineups:null,role:'implementer',mode:'balanced',lineupMode:'balanced',query:'',sort:'value',dir:-1};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>n==null?'—':Number(n).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
 async function fetchFirst(urls){let err;for(const url of urls){try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error(`${r.status}`);return await r.json()}catch(e){err=e}}throw err}
-async function load(){try{[state.data,state.lineups]=await Promise.all([fetchFirst([DATA_REMOTE,'./data/latest.json']),fetchFirst([LINEUPS_REMOTE,'./data/lineups.json'])])}catch(e){$('#status').textContent='Unable to load current data: '+e;return}renderLineup();renderRoles();render()}
+async function load(){try{[state.data,state.lineups]=await Promise.all([fetchFirst(['./data/latest.json']),fetchFirst(['./data/lineups.json'])])}catch(e){$('#status').textContent='Unable to load current data: '+e;return}renderLineup();renderRoles();render()}
 function renderLineup(){const mode=state.lineups?.modes?.[state.lineupMode];if(!mode)return;$('#lineupNote').textContent=mode.description;$('#lineup').innerHTML=state.data.roles.map(r=>{const pick=mode.selections[r.id],badges=(pick?.badges||[]).map(b=>`<span class="lineup-badge ${b==='FREE'?'free':''}">${esc(b)}</span>`).join('');return `<div class="lineup-item"><span class="lineup-role">${esc(r.label)}</span><strong>${esc(pick?.model||'—')}</strong>${badges?`<span class="lineup-badges">${badges}</span>`:''}</div>`}).join('');document.querySelectorAll('[data-lineup-mode]').forEach(b=>b.classList.toggle('active',b.dataset.lineupMode===state.lineupMode))}
 function renderRoles(){$('#roles').innerHTML=state.data.roles.map(r=>`<button data-role="${esc(r.id)}">${esc(r.label)}</button>`).join('');$('#roles').addEventListener('click',e=>{const b=e.target.closest('button[data-role]');if(!b)return;state.role=b.dataset.role;state.sort='value';state.dir=-1;render()})}
 function metricValue(m){const s=m.roleScores?.[state.role];return state.mode==='quality'?(s?.rankingQuality??null):(s?.rankingValue??null)}
