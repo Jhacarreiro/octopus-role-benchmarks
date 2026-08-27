@@ -6,13 +6,21 @@ The detailed table exposes two modes: **Quality** ignores price; **Balanced** di
 
 ## Public site
 
-Static public artefacts from `site/` are published through a separate deployment process. Operator-specific repository names, paths, domains and infrastructure details are intentionally not stored here.
+The static UI is deployed directly from this repository by `.github/workflows/pages.yml`. It does not depend on private operator repositories.
 
-Example public URL:
+Current native GitHub Pages URL:
 
 ```text
-https://example.invalid/benchmark/
+https://jhacarreiro.github.io/octopus-role-benchmarks/
 ```
+
+Target branded URL after DNS cutover:
+
+```text
+https://benchmark.getrad.ar/
+```
+
+`getrad.ar` is only the shared domain namespace; benchmark source, deployment and history remain owned by this repository.
 
 ## Ranking formula
 
