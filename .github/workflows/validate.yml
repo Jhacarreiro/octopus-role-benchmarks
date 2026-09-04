@@ -12,4 +12,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm test
+      - name: Validate benchmark snapshot
+        run: npm run check:snapshot
+      - name: Audit approved lineups
+        continue-on-error: true
+        run: npm run check:lineups

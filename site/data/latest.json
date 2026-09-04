@@ -1,93 +1,96 @@
 {
   "schemaVersion": 4,
   "methodologyVersion": 4,
-  "date": "2026-08-25",
-  "generatedAt": "2026-08-25T07:10:43.541Z",
+  "date": "2026-09-04",
+  "generatedAt": "2026-09-04T13:28:10.367Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
-      "rows": 59
+      "rows": 68
     },
     "artificialAnalysis": {
       "url": "https://artificialanalysis.ai/",
-      "scoredFamilies": 51
+      "scoredFamilies": 58
     },
     "codingAgentIndex": {
       "url": "https://artificialanalysis.ai/agents/coding-agents",
-      "variants": 56
+      "variants": 68
     }
   },
   "coveragePolicy": 1,
   "coverage": {
     "gdpval": {
       "field": "gdpvalNormalized",
-      "total": 51,
-      "present": 51,
+      "total": 58,
+      "present": 58,
       "ratio": 1,
       "missing": []
     },
     "lcr": {
       "field": "lcr",
-      "total": 51,
-      "present": 51,
+      "total": 58,
+      "present": 58,
       "ratio": 1,
       "missing": []
     },
     "gpqa": {
       "field": "gpqa",
-      "total": 51,
-      "present": 51,
+      "total": 58,
+      "present": 58,
       "ratio": 1,
       "missing": []
     },
     "hle": {
       "field": "hle",
-      "total": 51,
-      "present": 51,
+      "total": 58,
+      "present": 58,
       "ratio": 1,
       "missing": []
     },
     "omniscienceAccuracy": {
       "field": "omniscienceAccuracy",
-      "total": 51,
-      "present": 51,
+      "total": 58,
+      "present": 58,
       "ratio": 1,
       "missing": []
     },
     "omniscienceReliability": {
       "field": "omniscienceReliability",
-      "total": 51,
-      "present": 51,
+      "total": 58,
+      "present": 58,
       "ratio": 1,
       "missing": []
     },
     "scicode": {
       "field": "scicode",
-      "total": 51,
-      "present": 51,
+      "total": 58,
+      "present": 58,
       "ratio": 1,
       "missing": []
     }
   },
   "efficiencyCoverage": {
-    "total": 51,
-    "present": 51,
+    "total": 58,
+    "present": 58,
     "ratio": 1,
     "missing": []
   },
   "codingAgentCoverage": {
-    "total": 51,
-    "present": 22,
-    "ratio": 0.431373,
+    "total": 58,
+    "present": 23,
+    "ratio": 0.396552,
     "missing": [
       "claude-4-5-haiku",
       "claude-opus-4-6",
       "claude-sonnet-5",
+      "deepseek-v4-flash-vision",
       "gemini-3-1-flash-lite-preview",
       "gemini-3-5-flash",
       "gemini-3-5-flash-lite",
+      "gemini-3-8-flash",
       "glm-5",
       "glm-5-3",
+      "glm-5-3-flash",
       "gpt-5-3-codex",
       "gpt-5-4",
       "gpt-5-4-mini",
@@ -97,26 +100,29 @@
       "inkling-small",
       "kimi-k2-5",
       "kimi-k2-7-code",
+      "longcat-2-0",
       "mimo-v2-5-0424",
       "mimo-v2-5-pro",
       "minimax-m2-5",
       "minimax-m2-7",
       "minimax-m3",
+      "muse-spark-1-3-xhigh",
       "nvidia-nemotron-3-ultra-550b-a55b",
       "qwen3-6-plus",
       "qwen3-7-max",
       "qwen3-8-27b",
+      "qwen3-8-flash-next",
       "qwen3-max-preview",
       "step-3-5-flash",
       "step-3-7-flash"
     ]
   },
   "caiStarCoverage": {
-    "total": 51,
-    "present": 51,
+    "total": 58,
+    "present": 58,
     "ratio": 1,
-    "observed": 22,
-    "estimated": 29
+    "observed": 23,
+    "estimated": 35
   },
   "caiEstimator": {
     "method": "50% ridge + 50% inverse-distance 5NN",
@@ -147,17 +153,17 @@
       "knn": 0.5
     },
     "codingRoleWeight": 0.3333333333333333,
-    "observedFamilies": 22,
-    "estimatedFamilies": 29
+    "observedFamilies": 23,
+    "estimatedFamilies": 35
   },
   "counts": {
-    "commandCodeRows": 59,
-    "scoredRows": 54,
-    "unscoredRows": 5,
-    "scoredFamilies": 51,
-    "codingAgentFamilies": 22,
-    "caiObservedFamilies": 22,
-    "caiEstimatedFamilies": 29
+    "commandCodeRows": 68,
+    "scoredRows": 64,
+    "unscoredRows": 4,
+    "scoredFamilies": 58,
+    "codingAgentFamilies": 23,
+    "caiObservedFamilies": 23,
+    "caiEstimatedFamilies": 35
   },
   "benchmarks": {
     "gdpval": {
@@ -323,16 +329,16 @@
   ],
   "models": [
     {
-      "name": "Ox Alpha",
-      "rawName": "Ox AlphaFREE",
-      "context": "1M",
+      "name": "Laguna S 2.1",
+      "rawName": "Laguna S 2.1",
+      "context": null,
       "inputPerM": 0,
       "outputPerM": 0,
       "cacheReadPerM": 0,
       "cacheWritePerM": null,
-      "inputListPerM": null,
-      "outputListPerM": null,
-      "cacheReadListPerM": null,
+      "inputListPerM": 0,
+      "outputListPerM": 0,
+      "cacheReadListPerM": 0,
       "cacheWriteListPerM": null,
       "discountPercent": null,
       "free": true,
@@ -356,16 +362,16 @@
       "aaModel": null
     },
     {
-      "name": "Laguna S 2.1",
-      "rawName": "Laguna S 2.1FREE",
-      "context": "256K",
+      "name": "LongCat 2.0",
+      "rawName": "LongCat 2.0",
+      "context": null,
       "inputPerM": 0,
       "outputPerM": 0,
       "cacheReadPerM": 0,
       "cacheWritePerM": null,
-      "inputListPerM": null,
-      "outputListPerM": null,
-      "cacheReadListPerM": null,
+      "inputListPerM": 0,
+      "outputListPerM": 0,
+      "cacheReadListPerM": 0,
       "cacheWriteListPerM": null,
       "discountPercent": null,
       "free": true,
@@ -373,13 +379,115 @@
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
-        "status": "unscored",
-        "reason": "Stealth/anonymous model; no verified AA identity."
+        "status": "exact",
+        "slug": "longcat-2-0",
+        "reason": "Unique normalized match to AA canonical slug."
       },
       "tokenPrices": {
         "input": 0,
         "output": 0,
         "blended50": 0
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0,
+        "aaCostPerTaskUsd": 0.12129322742338783,
+        "tokens": {
+          "nonCacheInput": 8305.228308866393,
+          "cacheRead": 995890.0951760501,
+          "cacheWrite": 48418.0035560877,
+          "reasoning": 12780.488842559758,
+          "answer": 8850.850851349234,
+          "output": 21631.339693908994
+        }
+      },
+      "benchmarks": {
+        "gdpval": 26.6095,
+        "lcr": 62.6667,
+        "gpqa": 77.9798,
+        "hle": 33.6886,
+        "omniscienceAccuracy": 29.6333,
+        "omniscienceReliability": 24.6092,
+        "scicode": 35.4167
+      },
+      "roleScores": {
+        "architect": {
+          "score": 46.96,
+          "rankingQuality": 46.96,
+          "rankingValue": null
+        },
+        "strategist": {
+          "score": 39.363,
+          "rankingQuality": 39.363,
+          "rankingValue": null
+        },
+        "security-reviewer": {
+          "score": 46.816,
+          "rankingQuality": 46.816,
+          "rankingValue": null
+        },
+        "code-reviewer": {
+          "score": 46.763,
+          "rankingQuality": 43.046,
+          "rankingValue": null
+        },
+        "implementer": {
+          "score": 45.716,
+          "rankingQuality": 42.348,
+          "rankingValue": null
+        },
+        "implementer-heavy": {
+          "score": 42.921,
+          "rankingQuality": 40.485,
+          "rankingValue": null
+        },
+        "synthesizer": {
+          "score": 43.04,
+          "rankingQuality": 43.04,
+          "rankingValue": null
+        },
+        "researcher": {
+          "score": 46.445,
+          "rankingQuality": 46.445,
+          "rankingValue": null
+        }
+      },
+      "caiStar": {
+        "value": 35.612,
+        "source": "estimated",
+        "ridge": 30.596,
+        "knn": 40.628
+      },
+      "codingAgent": null,
+      "aaModel": {
+        "slug": "longcat-2-0",
+        "sourceUrl": "https://artificialanalysis.ai/models/longcat-2-0"
+      }
+    },
+    {
+      "name": "Tencent Hy4 Preview",
+      "rawName": "Tencent Hy4 Preview",
+      "context": null,
+      "inputPerM": 0.834,
+      "outputPerM": 2.501,
+      "cacheReadPerM": 0.042,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.834,
+      "outputListPerM": 2.501,
+      "cacheReadListPerM": 0.042,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified Artificial Analysis Hy4 model family at publication time; do not proxy to Hy3 Preview."
+      },
+      "tokenPrices": {
+        "input": 0.834,
+        "output": 2.501,
+        "blended50": 1.6675
       },
       "taskEfficiency": null,
       "benchmarks": {},
@@ -391,7 +499,7 @@
     {
       "name": "Tencent Hy3",
       "rawName": "Tencent Hy3",
-      "context": "262K",
+      "context": null,
       "inputPerM": 0.14,
       "outputPerM": 0.58,
       "cacheReadPerM": 0.035,
@@ -428,7 +536,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 35.671,
+        "gdpval": 35.5955,
         "lcr": 74.6667,
         "gpqa": 89.697,
         "hle": 33.4569,
@@ -438,14 +546,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.893,
-          "rankingQuality": 55.893,
-          "rankingValue": 1506.672
+          "score": 55.863,
+          "rankingQuality": 55.863,
+          "rankingValue": 1505.863
         },
         "strategist": {
-          "score": 47.152,
-          "rankingQuality": 47.152,
-          "rankingValue": 1271.046
+          "score": 47.122,
+          "rankingQuality": 47.122,
+          "rankingValue": 1270.237
         },
         "security-reviewer": {
           "score": 54.734,
@@ -454,35 +562,35 @@
         },
         "code-reviewer": {
           "score": 56.478,
-          "rankingQuality": 50.41,
-          "rankingValue": 1358.87
-        },
-        "implementer": {
-          "score": 56.542,
           "rankingQuality": 50.453,
           "rankingValue": 1360.029
         },
+        "implementer": {
+          "score": 56.542,
+          "rankingQuality": 50.495,
+          "rankingValue": 1361.161
+        },
         "implementer-heavy": {
-          "score": 54.227,
-          "rankingQuality": 48.909,
-          "rankingValue": 1318.408
+          "score": 54.208,
+          "rankingQuality": 48.939,
+          "rankingValue": 1319.217
         },
         "synthesizer": {
-          "score": 50.518,
-          "rankingQuality": 50.518,
-          "rankingValue": 1361.781
+          "score": 50.507,
+          "rankingQuality": 50.507,
+          "rankingValue": 1361.485
         },
         "researcher": {
-          "score": 54.511,
-          "rankingQuality": 54.511,
-          "rankingValue": 1469.418
+          "score": 54.492,
+          "rankingQuality": 54.492,
+          "rankingValue": 1468.906
         }
       },
       "caiStar": {
-        "value": 38.274,
+        "value": 38.402,
         "source": "estimated",
-        "ridge": 32.119,
-        "knn": 44.43
+        "ridge": 32.338,
+        "knn": 44.466
       },
       "codingAgent": null,
       "aaModel": {
@@ -493,7 +601,7 @@
     {
       "name": "Kimi K3",
       "rawName": "Kimi K3",
-      "context": "1M",
+      "context": null,
       "inputPerM": 3,
       "outputPerM": 15,
       "cacheReadPerM": 0.3,
@@ -530,7 +638,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 58.761,
+        "gdpval": 58.3985,
         "lcr": 38.3333,
         "gpqa": 93.5354,
         "hle": 46.8953,
@@ -540,14 +648,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 58.829,
-          "rankingQuality": 58.829,
-          "rankingValue": 70.247
+          "score": 58.684,
+          "rankingQuality": 58.684,
+          "rankingValue": 70.074
         },
         "strategist": {
-          "score": 54.722,
-          "rankingQuality": 54.722,
-          "rankingValue": 65.343
+          "score": 54.577,
+          "rankingQuality": 54.577,
+          "rankingValue": 65.17
         },
         "security-reviewer": {
           "score": 61.221,
@@ -565,19 +673,19 @@
           "rankingValue": 72.44
         },
         "implementer-heavy": {
-          "score": 58.117,
-          "rankingQuality": 59.624,
-          "rankingValue": 71.196
+          "score": 58.026,
+          "rankingQuality": 59.564,
+          "rankingValue": 71.125
         },
         "synthesizer": {
-          "score": 44.942,
-          "rankingQuality": 44.942,
-          "rankingValue": 53.665
+          "score": 44.887,
+          "rankingQuality": 44.887,
+          "rankingValue": 53.599
         },
         "researcher": {
-          "score": 54.427,
-          "rankingQuality": 54.427,
-          "rankingValue": 64.991
+          "score": 54.336,
+          "rankingQuality": 54.336,
+          "rankingValue": 64.882
         }
       },
       "caiStar": {
@@ -597,17 +705,17 @@
         "tokensPerTask": {
           "reward": 0.63716814159292,
           "costUsd": 3.0816355416104315,
-          "wallTimeSec": 1447.3730531697347,
+          "wallTimeSec": 1447.3730531697342,
           "steps": 122.94989775051124,
           "inputTokens": 9190580.569321534,
           "cacheWriteTokens": 0,
           "outputTokens": 82651.89675516225,
-          "cacheTokens": 5031930.14688139,
+          "cacheTokens": 5031930.146881393,
           "cacheHitRate": 0.9500000000000018,
           "totalTokens": 10383196.737883452
         },
         "totalTokensPerTask": 10383196.737883452,
-        "timePerTaskSec": 1447.3730531697347,
+        "timePerTaskSec": 1447.3730531697342,
         "aaCostPerTaskUsd": 3.0816355416104315,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -625,7 +733,7 @@
     {
       "name": "Kimi K2.7 Code",
       "rawName": "Kimi K2.7 Code",
-      "context": "256K",
+      "context": null,
       "inputPerM": 0.95,
       "outputPerM": 4,
       "cacheReadPerM": 0.19,
@@ -662,7 +770,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 34.426,
+        "gdpval": 34.3285,
         "lcr": 16.1111,
         "gpqa": 89.596,
         "hle": 35.0324,
@@ -672,14 +780,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 40.972,
-          "rankingQuality": 40.972,
-          "rankingValue": 184.579
+          "score": 40.933,
+          "rankingQuality": 40.933,
+          "rankingValue": 184.404
         },
         "strategist": {
-          "score": 35.628,
-          "rankingQuality": 35.628,
-          "rankingValue": 160.505
+          "score": 35.589,
+          "rankingQuality": 35.589,
+          "rankingValue": 160.329
         },
         "security-reviewer": {
           "score": 47.896,
@@ -688,35 +796,35 @@
         },
         "code-reviewer": {
           "score": 46.956,
-          "rankingQuality": 45.451,
-          "rankingValue": 204.757
+          "rankingQuality": 45.443,
+          "rankingValue": 204.721
         },
         "implementer": {
           "score": 47.832,
-          "rankingQuality": 46.035,
-          "rankingValue": 207.388
+          "rankingQuality": 46.027,
+          "rankingValue": 207.352
         },
         "implementer-heavy": {
-          "score": 42.142,
-          "rankingQuality": 42.241,
-          "rankingValue": 190.296
+          "score": 42.118,
+          "rankingQuality": 42.217,
+          "rankingValue": 190.188
         },
         "synthesizer": {
-          "score": 23.852,
-          "rankingQuality": 23.852,
-          "rankingValue": 107.454
+          "score": 23.837,
+          "rankingQuality": 23.837,
+          "rankingValue": 107.386
         },
         "researcher": {
-          "score": 38.296,
-          "rankingQuality": 38.296,
-          "rankingValue": 172.524
+          "score": 38.271,
+          "rankingQuality": 38.271,
+          "rankingValue": 172.411
         }
       },
       "caiStar": {
-        "value": 42.44,
+        "value": 42.416,
         "source": "estimated",
-        "ridge": 41.467,
-        "knn": 43.414
+        "ridge": 41.379,
+        "knn": 43.453
       },
       "codingAgent": null,
       "aaModel": {
@@ -727,7 +835,7 @@
     {
       "name": "Kimi K2.7 Code HighSpeed",
       "rawName": "Kimi K2.7 Code HighSpeed",
-      "context": "262K",
+      "context": null,
       "inputPerM": 1.9,
       "outputPerM": 8,
       "cacheReadPerM": 0.38,
@@ -764,7 +872,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 34.426,
+        "gdpval": 34.3285,
         "lcr": 16.1111,
         "gpqa": 89.596,
         "hle": 35.0324,
@@ -774,14 +882,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 40.972,
-          "rankingQuality": 40.972,
-          "rankingValue": 92.29
+          "score": 40.933,
+          "rankingQuality": 40.933,
+          "rankingValue": 92.202
         },
         "strategist": {
-          "score": 35.628,
-          "rankingQuality": 35.628,
-          "rankingValue": 80.252
+          "score": 35.589,
+          "rankingQuality": 35.589,
+          "rankingValue": 80.165
         },
         "security-reviewer": {
           "score": 47.896,
@@ -790,35 +898,35 @@
         },
         "code-reviewer": {
           "score": 46.956,
-          "rankingQuality": 45.451,
-          "rankingValue": 102.379
+          "rankingQuality": 45.443,
+          "rankingValue": 102.361
         },
         "implementer": {
           "score": 47.832,
-          "rankingQuality": 46.035,
-          "rankingValue": 103.694
+          "rankingQuality": 46.027,
+          "rankingValue": 103.676
         },
         "implementer-heavy": {
-          "score": 42.142,
-          "rankingQuality": 42.241,
-          "rankingValue": 95.148
+          "score": 42.118,
+          "rankingQuality": 42.217,
+          "rankingValue": 95.094
         },
         "synthesizer": {
-          "score": 23.852,
-          "rankingQuality": 23.852,
-          "rankingValue": 53.727
+          "score": 23.837,
+          "rankingQuality": 23.837,
+          "rankingValue": 53.693
         },
         "researcher": {
-          "score": 38.296,
-          "rankingQuality": 38.296,
-          "rankingValue": 86.262
+          "score": 38.271,
+          "rankingQuality": 38.271,
+          "rankingValue": 86.206
         }
       },
       "caiStar": {
-        "value": 42.44,
+        "value": 42.416,
         "source": "estimated",
-        "ridge": 41.467,
-        "knn": 43.414
+        "ridge": 41.379,
+        "knn": 43.453
       },
       "codingAgent": null,
       "aaModel": {
@@ -829,7 +937,7 @@
     {
       "name": "Kimi K2.6",
       "rawName": "Kimi K2.6",
-      "context": "256K",
+      "context": null,
       "inputPerM": 0.95,
       "outputPerM": 4,
       "cacheReadPerM": 0.16,
@@ -854,19 +962,19 @@
         "blended50": 2.475
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.365321,
-        "aaCostPerTaskUsd": 0.3653205286462706,
+        "commandCodeCostPerTaskUsd": 0.388612,
+        "aaCostPerTaskUsd": 0.38861223350545604,
         "tokens": {
           "nonCacheInput": 6030.869988617405,
-          "cacheRead": 497850.7079798132,
-          "cacheWrite": 133487.08307733538,
+          "cacheRead": 468367.53727198363,
+          "cacheWrite": 162970.25378516503,
           "reasoning": 32410.628884939328,
           "answer": 5869.961104272016,
           "output": 38280.589989211345
         }
       },
       "benchmarks": {
-        "gdpval": 34.571,
+        "gdpval": 34.4505,
         "lcr": 76.6667,
         "gpqa": 91.1111,
         "hle": 37.4884,
@@ -876,44 +984,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 56.841,
-          "rankingQuality": 56.841,
-          "rankingValue": 155.592
+          "score": 56.792,
+          "rankingQuality": 56.792,
+          "rankingValue": 146.141
         },
         "strategist": {
-          "score": 50.742,
-          "rankingQuality": 50.742,
-          "rankingValue": 138.897
+          "score": 50.694,
+          "rankingQuality": 50.694,
+          "rankingValue": 130.449
         },
         "security-reviewer": {
           "score": 62.908,
           "rankingQuality": 62.908,
-          "rankingValue": 172.199
+          "rankingValue": 161.879
         },
         "code-reviewer": {
           "score": 63.483,
           "rankingQuality": 53.618,
-          "rankingValue": 146.77
+          "rankingValue": 137.973
         },
         "implementer": {
           "score": 60.999,
           "rankingQuality": 51.962,
-          "rankingValue": 142.237
+          "rankingValue": 133.712
         },
         "implementer-heavy": {
-          "score": 57.15,
-          "rankingQuality": 49.396,
-          "rankingValue": 135.213
+          "score": 57.12,
+          "rankingQuality": 49.376,
+          "rankingValue": 127.057
         },
         "synthesizer": {
-          "score": 58.105,
-          "rankingQuality": 58.105,
-          "rankingValue": 159.052
+          "score": 58.087,
+          "rankingQuality": 58.087,
+          "rankingValue": 149.473
         },
         "researcher": {
-          "score": 55.578,
-          "rankingQuality": 55.578,
-          "rankingValue": 152.135
+          "score": 55.548,
+          "rankingQuality": 55.548,
+          "rankingValue": 142.939
         }
       },
       "caiStar": {
@@ -961,7 +1069,7 @@
     {
       "name": "Kimi K2.5",
       "rawName": "Kimi K2.5",
-      "context": "256K",
+      "context": null,
       "inputPerM": 0.6,
       "outputPerM": 3,
       "cacheReadPerM": 0.1,
@@ -998,7 +1106,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 25.3825,
+        "gdpval": 25.2845,
         "lcr": 73,
         "gpqa": 87.8788,
         "hle": 30.7229,
@@ -1008,14 +1116,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.587,
-          "rankingQuality": 50.587,
-          "rankingValue": 524.849
+          "score": 50.548,
+          "rankingQuality": 50.548,
+          "rankingValue": 524.444
         },
         "strategist": {
-          "score": 44.016,
-          "rankingQuality": 44.016,
-          "rankingValue": 456.673
+          "score": 43.977,
+          "rankingQuality": 43.977,
+          "rankingValue": 456.269
         },
         "security-reviewer": {
           "score": 55.25,
@@ -1024,35 +1132,35 @@
         },
         "code-reviewer": {
           "score": 57.061,
-          "rankingQuality": 51.42,
-          "rankingValue": 533.491
+          "rankingQuality": 51.398,
+          "rankingValue": 533.263
         },
         "implementer": {
           "score": 56.579,
-          "rankingQuality": 51.099,
-          "rankingValue": 530.161
+          "rankingQuality": 51.077,
+          "rankingValue": 529.932
         },
         "implementer-heavy": {
-          "score": 51.765,
-          "rankingQuality": 47.89,
-          "rankingValue": 496.867
+          "score": 51.74,
+          "rankingQuality": 47.851,
+          "rankingValue": 496.462
         },
         "synthesizer": {
-          "score": 50.565,
-          "rankingQuality": 50.565,
-          "rankingValue": 524.62
+          "score": 50.55,
+          "rankingQuality": 50.55,
+          "rankingValue": 524.465
         },
         "researcher": {
-          "score": 51.543,
-          "rankingQuality": 51.543,
-          "rankingValue": 534.767
+          "score": 51.519,
+          "rankingQuality": 51.519,
+          "rankingValue": 534.518
         }
       },
       "caiStar": {
-        "value": 40.139,
+        "value": 40.072,
         "source": "estimated",
-        "ridge": 36.734,
-        "knn": 43.545
+        "ridge": 36.614,
+        "knn": 43.529
       },
       "codingAgent": null,
       "aaModel": {
@@ -1061,9 +1169,111 @@
       }
     },
     {
+      "name": "GLM-5.3 Flash",
+      "rawName": "GLM-5.3 Flash",
+      "context": null,
+      "inputPerM": 0.15,
+      "outputPerM": 0.5,
+      "cacheReadPerM": 0.03,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.15,
+      "outputListPerM": 0.5,
+      "cacheReadListPerM": 0.03,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "glm-5-3-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "tokenPrices": {
+        "input": 0.15,
+        "output": 0.5,
+        "blended50": 0.325
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.094906,
+        "aaCostPerTaskUsd": 0.0868525314872083,
+        "tokens": {
+          "nonCacheInput": 6598.987205446066,
+          "cacheRead": 2013312.4340562546,
+          "cacheWrite": 67992.26235371566,
+          "reasoning": 33737.320061888655,
+          "answer": 12898.121473854239,
+          "output": 46635.441535742895
+        }
+      },
+      "benchmarks": {
+        "gdpval": 63.233,
+        "lcr": 51.1111,
+        "gpqa": 91.2121,
+        "hle": 39.8517,
+        "omniscienceAccuracy": 27.5,
+        "omniscienceReliability": 72.3678,
+        "scicode": 46.0648
+      },
+      "roleScores": {
+        "architect": {
+          "score": 62.291,
+          "rankingQuality": 62.291,
+          "rankingValue": 656.344
+        },
+        "strategist": {
+          "score": 57.373,
+          "rankingQuality": 57.373,
+          "rankingValue": 604.524
+        },
+        "security-reviewer": {
+          "score": 60.559,
+          "rankingQuality": 60.559,
+          "rankingValue": 638.095
+        },
+        "code-reviewer": {
+          "score": 57.86,
+          "rankingQuality": 54.796,
+          "rankingValue": 577.371
+        },
+        "implementer": {
+          "score": 52.973,
+          "rankingQuality": 51.538,
+          "rankingValue": 543.043
+        },
+        "implementer-heavy": {
+          "score": 55.881,
+          "rankingQuality": 53.476,
+          "rankingValue": 563.463
+        },
+        "synthesizer": {
+          "score": 52.459,
+          "rankingQuality": 52.459,
+          "rankingValue": 552.747
+        },
+        "researcher": {
+          "score": 54.309,
+          "rankingQuality": 54.309,
+          "rankingValue": 572.24
+        }
+      },
+      "caiStar": {
+        "value": 48.667,
+        "source": "estimated",
+        "ridge": 50.088,
+        "knn": 47.246
+      },
+      "codingAgent": null,
+      "aaModel": {
+        "slug": "glm-5-3-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-flash"
+      }
+    },
+    {
       "name": "GLM-5.3",
       "rawName": "GLM-5.3",
-      "context": "1M",
+      "context": null,
       "inputPerM": 1.4,
       "outputPerM": 4.4,
       "cacheReadPerM": 0.26,
@@ -1100,7 +1310,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 63.293,
+        "gdpval": 62.9145,
         "lcr": 48.3333,
         "gpqa": 91.7172,
         "hle": 42.2614,
@@ -1110,14 +1320,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 62.083,
-          "rankingQuality": 62.083,
-          "rankingValue": 90.907
+          "score": 61.932,
+          "rankingQuality": 61.932,
+          "rankingValue": 90.686
         },
         "strategist": {
-          "score": 57.97,
-          "rankingQuality": 57.97,
-          "rankingValue": 84.884
+          "score": 57.819,
+          "rankingQuality": 57.819,
+          "rankingValue": 84.663
         },
         "security-reviewer": {
           "score": 63.726,
@@ -1126,35 +1336,35 @@
         },
         "code-reviewer": {
           "score": 62.281,
-          "rankingQuality": 61.486,
-          "rankingValue": 90.033
+          "rankingQuality": 61.502,
+          "rankingValue": 90.056
         },
         "implementer": {
           "score": 59.123,
-          "rankingQuality": 59.38,
-          "rankingValue": 86.949
+          "rankingQuality": 59.397,
+          "rankingValue": 86.974
         },
         "implementer-heavy": {
-          "score": 60.078,
-          "rankingQuality": 60.017,
-          "rankingValue": 87.881
+          "score": 59.984,
+          "rankingQuality": 59.971,
+          "rankingValue": 87.814
         },
         "synthesizer": {
-          "score": 52.103,
-          "rankingQuality": 52.103,
-          "rankingValue": 76.293
+          "score": 52.046,
+          "rankingQuality": 52.046,
+          "rankingValue": 76.21
         },
         "researcher": {
-          "score": 55.077,
-          "rankingQuality": 55.077,
-          "rankingValue": 80.648
+          "score": 54.982,
+          "rankingQuality": 54.982,
+          "rankingValue": 80.509
         }
       },
       "caiStar": {
-        "value": 59.895,
+        "value": 59.944,
         "source": "estimated",
-        "ridge": 59.809,
-        "knn": 59.981
+        "ridge": 59.916,
+        "knn": 59.971
       },
       "codingAgent": null,
       "aaModel": {
@@ -1165,7 +1375,7 @@
     {
       "name": "GLM-5.2",
       "rawName": "GLM-5.2",
-      "context": "1M",
+      "context": null,
       "inputPerM": 1.4,
       "outputPerM": 4.4,
       "cacheReadPerM": 0.26,
@@ -1202,7 +1412,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 50.256,
+        "gdpval": 49.8775,
         "lcr": 7.2222,
         "gpqa": 89.4949,
         "hle": 41.1492,
@@ -1212,14 +1422,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 45.979,
-          "rankingQuality": 45.979,
-          "rankingValue": 103.433
+          "score": 45.828,
+          "rankingQuality": 45.828,
+          "rankingValue": 103.093
         },
         "strategist": {
-          "score": 42.733,
-          "rankingQuality": 42.733,
-          "rankingValue": 96.131
+          "score": 42.582,
+          "rankingQuality": 42.582,
+          "rankingValue": 95.791
         },
         "security-reviewer": {
           "score": 57.52,
@@ -1237,19 +1447,19 @@
           "rankingValue": 105.813
         },
         "implementer-heavy": {
-          "score": 45.666,
-          "rankingQuality": 44.881,
-          "rankingValue": 100.963
+          "score": 45.572,
+          "rankingQuality": 44.818,
+          "rankingValue": 100.821
         },
         "synthesizer": {
-          "score": 30.395,
-          "rankingQuality": 30.395,
-          "rankingValue": 68.375
+          "score": 30.338,
+          "rankingQuality": 30.338,
+          "rankingValue": 68.247
         },
         "researcher": {
-          "score": 37.136,
-          "rankingQuality": 37.136,
-          "rankingValue": 83.54
+          "score": 37.042,
+          "rankingQuality": 37.042,
+          "rankingValue": 83.328
         }
       },
       "caiStar": {
@@ -1297,7 +1507,7 @@
     {
       "name": "GLM-5.2 Fast",
       "rawName": "GLM-5.2 Fast",
-      "context": "1M",
+      "context": null,
       "inputPerM": 3,
       "outputPerM": 10.25,
       "cacheReadPerM": 0.5,
@@ -1334,7 +1544,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 50.256,
+        "gdpval": 49.8775,
         "lcr": 7.2222,
         "gpqa": 89.4949,
         "hle": 41.1492,
@@ -1344,14 +1554,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 45.979,
-          "rankingQuality": 45.979,
-          "rankingValue": 47.925
+          "score": 45.828,
+          "rankingQuality": 45.828,
+          "rankingValue": 47.767
         },
         "strategist": {
-          "score": 42.733,
-          "rankingQuality": 42.733,
-          "rankingValue": 44.541
+          "score": 42.582,
+          "rankingQuality": 42.582,
+          "rankingValue": 44.384
         },
         "security-reviewer": {
           "score": 57.52,
@@ -1369,19 +1579,19 @@
           "rankingValue": 49.027
         },
         "implementer-heavy": {
-          "score": 45.666,
-          "rankingQuality": 44.881,
-          "rankingValue": 46.78
+          "score": 45.572,
+          "rankingQuality": 44.818,
+          "rankingValue": 46.714
         },
         "synthesizer": {
-          "score": 30.395,
-          "rankingQuality": 30.395,
-          "rankingValue": 31.681
+          "score": 30.338,
+          "rankingQuality": 30.338,
+          "rankingValue": 31.622
         },
         "researcher": {
-          "score": 37.136,
-          "rankingQuality": 37.136,
-          "rankingValue": 38.707
+          "score": 37.042,
+          "rankingQuality": 37.042,
+          "rankingValue": 38.609
         }
       },
       "caiStar": {
@@ -1429,7 +1639,7 @@
     {
       "name": "GLM-5.1",
       "rawName": "GLM-5.1",
-      "context": "—",
+      "context": null,
       "inputPerM": 1.4,
       "outputPerM": 4.4,
       "cacheReadPerM": 0.26,
@@ -1455,18 +1665,18 @@
       },
       "taskEfficiency": {
         "commandCodeCostPerTaskUsd": 0.305117,
-        "aaCostPerTaskUsd": 0.3042416609054816,
+        "aaCostPerTaskUsd": 0.2861134254352813,
         "tokens": {
           "nonCacheInput": 6035.4241339818145,
           "cacheRead": 243875.36068842665,
-          "cacheWrite": 81538.49015074233,
+          "cacheWrite": 81538.49015074235,
           "reasoning": 16856.582401882275,
           "answer": 10213.037205100474,
           "output": 27069.61960698275
         }
       },
       "benchmarks": {
-        "gdpval": 37.85,
+        "gdpval": 37.7125,
         "lcr": 68,
         "gpqa": 86.7677,
         "hle": 30.0741,
@@ -1476,14 +1686,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.005,
-          "rankingQuality": 54.005,
-          "rankingValue": 176.998
+          "score": 53.95,
+          "rankingQuality": 53.95,
+          "rankingValue": 176.817
         },
         "strategist": {
-          "score": 49.162,
-          "rankingQuality": 49.162,
-          "rankingValue": 161.125
+          "score": 49.107,
+          "rankingQuality": 49.107,
+          "rankingValue": 160.945
         },
         "security-reviewer": {
           "score": 58.14,
@@ -1501,19 +1711,19 @@
           "rankingValue": 154.973
         },
         "implementer-heavy": {
-          "score": 51.427,
-          "rankingQuality": 46.588,
-          "rankingValue": 152.689
+          "score": 51.392,
+          "rankingQuality": 46.565,
+          "rankingValue": 152.614
         },
         "synthesizer": {
-          "score": 55.028,
-          "rankingQuality": 55.028,
-          "rankingValue": 180.35
+          "score": 55.007,
+          "rankingQuality": 55.007,
+          "rankingValue": 180.282
         },
         "researcher": {
-          "score": 50.625,
-          "rankingQuality": 50.625,
-          "rankingValue": 165.92
+          "score": 50.591,
+          "rankingQuality": 50.591,
+          "rankingValue": 165.809
         }
       },
       "caiStar": {
@@ -1538,11 +1748,11 @@
           "inputTokens": 30011169.017699115,
           "cacheWriteTokens": 0,
           "outputTokens": 78135.85840707965,
-          "cacheTokens": 12572554.732106363,
-          "cacheHitRate": 0.8889225409991813,
-          "totalTokens": 25761884.92944787
+          "cacheTokens": 12572554.732106332,
+          "cacheHitRate": 0.888922540999181,
+          "totalTokens": 25761884.929447833
         },
-        "totalTokensPerTask": 25761884.92944787,
+        "totalTokensPerTask": 25761884.929447833,
         "timePerTaskSec": 1140.250613496931,
         "aaCostPerTaskUsd": 4.282000252842536,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
@@ -1561,7 +1771,7 @@
     {
       "name": "GLM-5",
       "rawName": "GLM-5",
-      "context": "200K",
+      "context": null,
       "inputPerM": 1,
       "outputPerM": 3.2,
       "cacheReadPerM": 0.2,
@@ -1598,7 +1808,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 70.6667,
         "gpqa": 82.0202,
         "hle": 29.2864,
@@ -1608,14 +1818,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.29,
-          "rankingQuality": 55.29,
-          "rankingValue": 107.928
+          "score": 55.207,
+          "rankingQuality": 55.207,
+          "rankingValue": 107.766
         },
         "strategist": {
-          "score": 50.89,
-          "rankingQuality": 50.89,
-          "rankingValue": 99.339
+          "score": 50.807,
+          "rankingQuality": 50.807,
+          "rankingValue": 99.177
         },
         "security-reviewer": {
           "score": 56.985,
@@ -1624,35 +1834,35 @@
         },
         "code-reviewer": {
           "score": 57.182,
-          "rankingQuality": 51.533,
-          "rankingValue": 100.594
+          "rankingQuality": 51.335,
+          "rankingValue": 100.207
         },
         "implementer": {
           "score": 53.54,
-          "rankingQuality": 49.105,
-          "rankingValue": 95.854
+          "rankingQuality": 48.907,
+          "rankingValue": 95.468
         },
         "implementer-heavy": {
-          "score": 53.633,
-          "rankingQuality": 49.167,
-          "rankingValue": 95.975
+          "score": 53.581,
+          "rankingQuality": 48.934,
+          "rankingValue": 95.52
         },
         "synthesizer": {
-          "score": 56.305,
-          "rankingQuality": 56.305,
-          "rankingValue": 109.909
+          "score": 56.274,
+          "rankingQuality": 56.274,
+          "rankingValue": 109.848
         },
         "researcher": {
-          "score": 52.208,
-          "rankingQuality": 52.208,
-          "rankingValue": 101.911
+          "score": 52.156,
+          "rankingQuality": 52.156,
+          "rankingValue": 101.81
         }
       },
       "caiStar": {
-        "value": 40.234,
+        "value": 39.641,
         "source": "estimated",
-        "ridge": 41.394,
-        "knn": 39.074
+        "ridge": 41.383,
+        "knn": 37.898
       },
       "codingAgent": null,
       "aaModel": {
@@ -1662,17 +1872,17 @@
     },
     {
       "name": "MiniMax M3",
-      "rawName": "MiniMax M3-50%",
-      "context": "1M",
+      "rawName": "MiniMax M3",
+      "context": null,
       "inputPerM": 0.3,
       "outputPerM": 1.2,
       "cacheReadPerM": 0.06,
       "cacheWritePerM": null,
-      "inputListPerM": 0.6,
-      "outputListPerM": 2.4,
-      "cacheReadListPerM": 0.12,
+      "inputListPerM": 0.3,
+      "outputListPerM": 1.2,
+      "cacheReadListPerM": 0.06,
       "cacheWriteListPerM": null,
-      "discountPercent": 50,
+      "discountPercent": null,
       "free": false,
       "dataTraining": false,
       "offPeakShown": false,
@@ -1700,7 +1910,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 44.216,
+        "gdpval": 43.9875,
         "lcr": 17.2222,
         "gpqa": 92.9293,
         "hle": 38.9713,
@@ -1710,14 +1920,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 46.424,
-          "rankingQuality": 46.424,
-          "rankingValue": 348.053
+          "score": 46.332,
+          "rankingQuality": 46.332,
+          "rankingValue": 347.363
         },
         "strategist": {
-          "score": 41.921,
-          "rankingQuality": 41.921,
-          "rankingValue": 314.293
+          "score": 41.83,
+          "rankingQuality": 41.83,
+          "rankingValue": 313.611
         },
         "security-reviewer": {
           "score": 58.596,
@@ -1726,35 +1936,35 @@
         },
         "code-reviewer": {
           "score": 53.64,
-          "rankingQuality": 50.18,
-          "rankingValue": 376.213
+          "rankingQuality": 50.128,
+          "rankingValue": 375.823
         },
         "implementer": {
           "score": 47.642,
-          "rankingQuality": 46.182,
-          "rankingValue": 346.239
+          "rankingQuality": 46.13,
+          "rankingValue": 345.849
         },
         "implementer-heavy": {
-          "score": 44.208,
-          "rankingQuality": 43.892,
-          "rankingValue": 329.07
+          "score": 44.151,
+          "rankingQuality": 43.802,
+          "rankingValue": 328.395
         },
         "synthesizer": {
-          "score": 34.037,
-          "rankingQuality": 34.037,
-          "rankingValue": 255.184
+          "score": 34.003,
+          "rankingQuality": 34.003,
+          "rankingValue": 254.929
         },
         "researcher": {
-          "score": 37.397,
-          "rankingQuality": 37.397,
-          "rankingValue": 280.375
+          "score": 37.34,
+          "rankingQuality": 37.34,
+          "rankingValue": 279.948
         }
       },
       "caiStar": {
-        "value": 43.261,
+        "value": 43.105,
         "source": "estimated",
-        "ridge": 45.435,
-        "knn": 41.088
+        "ridge": 45.128,
+        "knn": 41.082
       },
       "codingAgent": null,
       "aaModel": {
@@ -1765,7 +1975,7 @@
     {
       "name": "MiniMax M2.7",
       "rawName": "MiniMax M2.7",
-      "context": "—",
+      "context": null,
       "inputPerM": 0.3,
       "outputPerM": 1.2,
       "cacheReadPerM": 0.06,
@@ -1802,7 +2012,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 32.96,
+        "gdpval": 32.8745,
         "lcr": 3.3333,
         "gpqa": 87.3737,
         "hle": 29.6108,
@@ -1812,14 +2022,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 35.934,
-          "rankingQuality": 35.934,
-          "rankingValue": 496.566
+          "score": 35.899,
+          "rankingQuality": 35.899,
+          "rankingValue": 496.082
         },
         "strategist": {
-          "score": 34.392,
-          "rankingQuality": 34.392,
-          "rankingValue": 475.257
+          "score": 34.357,
+          "rankingQuality": 34.357,
+          "rankingValue": 474.774
         },
         "security-reviewer": {
           "score": 51.861,
@@ -1828,35 +2038,35 @@
         },
         "code-reviewer": {
           "score": 48.525,
-          "rankingQuality": 46.784,
-          "rankingValue": 646.5
+          "rankingQuality": 46.74,
+          "rankingValue": 645.892
         },
         "implementer": {
           "score": 44.762,
-          "rankingQuality": 44.276,
-          "rankingValue": 611.843
+          "rankingQuality": 44.231,
+          "rankingValue": 611.221
         },
         "implementer-heavy": {
-          "score": 38.79,
-          "rankingQuality": 40.294,
-          "rankingValue": 556.816
+          "score": 38.768,
+          "rankingQuality": 40.235,
+          "rankingValue": 556.001
         },
         "synthesizer": {
-          "score": 24.691,
-          "rankingQuality": 24.691,
-          "rankingValue": 341.201
+          "score": 24.678,
+          "rankingQuality": 24.678,
+          "rankingValue": 341.021
         },
         "researcher": {
-          "score": 30.667,
-          "rankingQuality": 30.667,
-          "rankingValue": 423.782
+          "score": 30.646,
+          "rankingQuality": 30.646,
+          "rankingValue": 423.492
         }
       },
       "caiStar": {
-        "value": 43.303,
+        "value": 43.169,
         "source": "estimated",
-        "ridge": 42.91,
-        "knn": 43.696
+        "ridge": 42.593,
+        "knn": 43.744
       },
       "codingAgent": null,
       "aaModel": {
@@ -1867,7 +2077,7 @@
     {
       "name": "MiniMax M2.5",
       "rawName": "MiniMax M2.5",
-      "context": "200K",
+      "context": null,
       "inputPerM": 0.3,
       "outputPerM": 1.2,
       "cacheReadPerM": 0.03,
@@ -1904,7 +2114,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 72,
         "gpqa": 84.8485,
         "hle": 20.5283,
@@ -1914,14 +2124,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.876,
-          "rankingQuality": 54.876,
-          "rankingValue": 137.372
+          "score": 54.793,
+          "rankingQuality": 54.793,
+          "rankingValue": 137.164
         },
         "strategist": {
-          "score": 46.136,
-          "rankingQuality": 46.136,
-          "rankingValue": 115.493
+          "score": 46.053,
+          "rankingQuality": 46.053,
+          "rankingValue": 115.285
         },
         "security-reviewer": {
           "score": 47.077,
@@ -1930,34 +2140,34 @@
         },
         "code-reviewer": {
           "score": 50.177,
-          "rankingQuality": 44.548,
-          "rankingValue": 111.517
+          "rankingQuality": 44.568,
+          "rankingValue": 111.568
         },
         "implementer": {
           "score": 51.136,
-          "rankingQuality": 45.187,
-          "rankingValue": 113.117
+          "rankingQuality": 45.207,
+          "rankingValue": 113.167
         },
         "implementer-heavy": {
-          "score": 52.568,
-          "rankingQuality": 46.142,
-          "rankingValue": 115.508
+          "score": 52.516,
+          "rankingQuality": 46.127,
+          "rankingValue": 115.47
         },
         "synthesizer": {
-          "score": 46.322,
-          "rankingQuality": 46.322,
-          "rankingValue": 115.958
+          "score": 46.291,
+          "rankingQuality": 46.291,
+          "rankingValue": 115.881
         },
         "researcher": {
-          "score": 52.134,
-          "rankingQuality": 52.134,
-          "rankingValue": 130.508
+          "score": 52.082,
+          "rankingQuality": 52.082,
+          "rankingValue": 130.377
         }
       },
       "caiStar": {
-        "value": 33.289,
+        "value": 33.35,
         "source": "estimated",
-        "ridge": 27.94,
+        "ridge": 28.062,
         "knn": 38.638
       },
       "codingAgent": null,
@@ -1969,7 +2179,7 @@
     {
       "name": "DeepSeek V4 Pro (latest)",
       "rawName": "DeepSeek V4 Pro (latest)",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.66,
       "outputPerM": 1.98,
       "cacheReadPerM": 0.022,
@@ -1994,19 +2204,19 @@
         "blended50": 1.32
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.127038,
-        "aaCostPerTaskUsd": 0.25407588410876214,
+        "commandCodeCostPerTaskUsd": 0.132634,
+        "aaCostPerTaskUsd": 0.26526849335458225,
         "tokens": {
           "nonCacheInput": 6920.372702054251,
-          "cacheRead": 953461.7090814319,
-          "cacheWrite": 36813.950473236946,
+          "cacheRead": 944690.0717414473,
+          "cacheWrite": 45585.58781322135,
           "reasoning": 31225.54061730547,
           "answer": 7762.909462945736,
           "output": 38988.450080251205
         }
       },
       "benchmarks": {
-        "gdpval": 54.2875,
+        "gdpval": 53.8415,
         "lcr": 17.7778,
         "gpqa": 92.8283,
         "hle": 41.0102,
@@ -2016,44 +2226,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.877,
-          "rankingQuality": 50.877,
-          "rankingValue": 400.486
+          "score": 50.698,
+          "rankingQuality": 50.698,
+          "rankingValue": 382.24
         },
         "strategist": {
-          "score": 44.891,
-          "rankingQuality": 44.891,
-          "rankingValue": 353.367
+          "score": 44.712,
+          "rankingQuality": 44.712,
+          "rankingValue": 337.108
         },
         "security-reviewer": {
           "score": 48.72,
           "rankingQuality": 48.72,
-          "rankingValue": 383.507
+          "rankingValue": 367.327
         },
         "code-reviewer": {
           "score": 47.986,
           "rankingQuality": 42.933,
-          "rankingValue": 337.954
+          "rankingValue": 323.695
         },
         "implementer": {
           "score": 50.206,
           "rankingQuality": 44.413,
-          "rankingValue": 349.604
+          "rankingValue": 334.854
         },
         "implementer-heavy": {
-          "score": 48.546,
-          "rankingQuality": 43.307,
-          "rankingValue": 340.898
+          "score": 48.434,
+          "rankingQuality": 43.232,
+          "rankingValue": 325.95
         },
         "synthesizer": {
-          "score": 26.998,
-          "rankingQuality": 26.998,
-          "rankingValue": 212.519
+          "score": 26.931,
+          "rankingQuality": 26.931,
+          "rankingValue": 203.047
         },
         "researcher": {
-          "score": 46.75,
-          "rankingQuality": 46.75,
-          "rankingValue": 368
+          "score": 46.639,
+          "rankingQuality": 46.639,
+          "rankingValue": 351.637
         }
       },
       "caiStar": {
@@ -2078,11 +2288,11 @@
           "inputTokens": 8912558.292035399,
           "cacheWriteTokens": 0,
           "outputTokens": 62187.78466076696,
-          "cacheTokens": 4718944.850715744,
+          "cacheTokens": 4718944.850715748,
           "cacheHitRate": 0.854135754522167,
-          "totalTokens": 9942165.528629862
+          "totalTokens": 9942165.528629865
         },
-        "totalTokensPerTask": 9942165.528629862,
+        "totalTokensPerTask": 9942165.528629865,
         "timePerTaskSec": 1072.5318353783239,
         "aaCostPerTaskUsd": 0.2547256318476481,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
@@ -2101,7 +2311,7 @@
     {
       "name": "DeepSeek V4 Flash (latest)",
       "rawName": "DeepSeek V4 Flash (latest)",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.22,
       "outputPerM": 0.66,
       "cacheReadPerM": 0.007,
@@ -2138,7 +2348,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 52.926,
+        "gdpval": 52.364,
         "lcr": 13.3333,
         "gpqa": 90.8081,
         "hle": 38.5542,
@@ -2148,14 +2358,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 48.448,
-          "rankingQuality": 48.448,
-          "rankingValue": 863.924
+          "score": 48.224,
+          "rankingQuality": 48.224,
+          "rankingValue": 859.93
         },
         "strategist": {
-          "score": 41.825,
-          "rankingQuality": 41.825,
-          "rankingValue": 745.823
+          "score": 41.6,
+          "rankingQuality": 41.6,
+          "rankingValue": 741.811
         },
         "security-reviewer": {
           "score": 47.957,
@@ -2173,19 +2383,19 @@
           "rankingValue": 883.111
         },
         "implementer-heavy": {
-          "score": 47.427,
-          "rankingQuality": 48.204,
-          "rankingValue": 859.573
+          "score": 47.286,
+          "rankingQuality": 48.11,
+          "rankingValue": 857.897
         },
         "synthesizer": {
-          "score": 23.676,
-          "rankingQuality": 23.676,
-          "rankingValue": 422.19
+          "score": 23.592,
+          "rankingQuality": 23.592,
+          "rankingValue": 420.692
         },
         "researcher": {
-          "score": 42.785,
-          "rankingQuality": 42.785,
-          "rankingValue": 762.942
+          "score": 42.644,
+          "rankingQuality": 42.644,
+          "rankingValue": 760.427
         }
       },
       "caiStar": {
@@ -2203,14 +2413,14 @@
           "terminal-bench-v2.1": 67.79
         },
         "tokensPerTask": {
-          "reward": 0.427728613569322,
+          "reward": 0.427728613569321,
           "costUsd": 0.05949917044417178,
           "wallTimeSec": 868.3750143149272,
           "steps": 105.93149284253577,
           "inputTokens": 18789280.92920354,
           "cacheWriteTokens": null,
           "outputTokens": 105058.45132743364,
-          "cacheTokens": 10342245.038854798,
+          "cacheTokens": 10342245.038854802,
           "cacheHitRate": 0.980762166136423,
           "totalTokens": 20844227.99386505
         },
@@ -2233,7 +2443,7 @@
     {
       "name": "DeepSeek V4 Flash Vision (exp)",
       "rawName": "DeepSeek V4 Flash Vision (exp)",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.22,
       "outputPerM": 0.66,
       "cacheReadPerM": 0.007,
@@ -2248,25 +2458,358 @@
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
-        "status": "unscored",
-        "reason": "No verified AA identity for the experimental vision variant; not proxied to text-only Flash."
+        "status": "exact_alias",
+        "slug": "deepseek-v4-flash-vision",
+        "reason": "AA now exposes the matching DeepSeek V4 Flash Vision benchmark family."
       },
       "tokenPrices": {
         "input": 0.22,
         "output": 0.66,
         "blended50": 0.44
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.058179,
+        "aaCostPerTaskUsd": 0.11635843000544639,
+        "tokens": {
+          "nonCacheInput": 6157.966873406325,
+          "cacheRead": 1681740.498797411,
+          "cacheWrite": 78948.69657678729,
+          "reasoning": 30588.845717954908,
+          "answer": 11355.950573103779,
+          "output": 41944.79629105869
+        }
+      },
+      "benchmarks": {
+        "gdpval": 58.3055,
+        "lcr": 78,
+        "gpqa": 91.3131,
+        "hle": 34.4764,
+        "omniscienceAccuracy": 38.5667,
+        "omniscienceReliability": 8.5187,
+        "scicode": 46.6435
+      },
+      "roleScores": {
+        "architect": {
+          "score": 66.256,
+          "rankingQuality": 66.256,
+          "rankingValue": 1138.83
+        },
+        "strategist": {
+          "score": 56.619,
+          "rankingQuality": 56.619,
+          "rankingValue": 973.186
+        },
+        "security-reviewer": {
+          "score": 52.794,
+          "rankingQuality": 52.794,
+          "rankingValue": 907.441
+        },
+        "code-reviewer": {
+          "score": 55.252,
+          "rankingQuality": 50.564,
+          "rankingValue": 869.111
+        },
+        "implementer": {
+          "score": 56.831,
+          "rankingQuality": 51.616,
+          "rankingValue": 887.193
+        },
+        "implementer-heavy": {
+          "score": 60.297,
+          "rankingQuality": 53.927,
+          "rankingValue": 926.915
+        },
+        "synthesizer": {
+          "score": 53.263,
+          "rankingQuality": 53.263,
+          "rankingValue": 915.502
+        },
+        "researcher": {
+          "score": 62.834,
+          "rankingQuality": 62.834,
+          "rankingValue": 1080.012
+        }
+      },
+      "caiStar": {
+        "value": 41.187,
+        "source": "estimated",
+        "ridge": 39.907,
+        "knn": 42.466
+      },
       "codingAgent": null,
-      "aaModel": null
+      "aaModel": {
+        "slug": "deepseek-v4-flash-vision",
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision"
+      }
+    },
+    {
+      "name": "DeepSeek V4 Flash Fast",
+      "rawName": "DeepSeek V4 Flash Fast",
+      "context": null,
+      "inputPerM": 0.28,
+      "outputPerM": 0.56,
+      "cacheReadPerM": 0.07,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.28,
+      "outputListPerM": 0.56,
+      "cacheReadListPerM": 0.07,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "deepseek-v4-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "tokenPrices": {
+        "input": 0.28,
+        "output": 0.56,
+        "blended50": 0.42
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.134558,
+        "aaCostPerTaskUsd": 0.11215889736791404,
+        "tokens": {
+          "nonCacheInput": 6157.164944834896,
+          "cacheRead": 1246708.047303648,
+          "cacheWrite": 70026.34222385235,
+          "reasoning": 37087.45804796433,
+          "answer": 9264.24009706643,
+          "output": 46351.69814503076
+        }
+      },
+      "benchmarks": {
+        "gdpval": 52.364,
+        "lcr": 13.3333,
+        "gpqa": 90.8081,
+        "hle": 38.5542,
+        "omniscienceAccuracy": 40.3833,
+        "omniscienceReliability": 8.303,
+        "scicode": 49.8843
+      },
+      "roleScores": {
+        "architect": {
+          "score": 48.224,
+          "rankingQuality": 48.224,
+          "rankingValue": 358.388
+        },
+        "strategist": {
+          "score": 41.6,
+          "rankingQuality": 41.6,
+          "rankingValue": 309.16
+        },
+        "security-reviewer": {
+          "score": 47.957,
+          "rankingQuality": 47.957,
+          "rankingValue": 356.404
+        },
+        "code-reviewer": {
+          "score": 47.295,
+          "rankingQuality": 48.116,
+          "rankingValue": 357.586
+        },
+        "implementer": {
+          "score": 49.407,
+          "rankingQuality": 49.524,
+          "rankingValue": 368.049
+        },
+        "implementer-heavy": {
+          "score": 47.286,
+          "rankingQuality": 48.11,
+          "rankingValue": 357.541
+        },
+        "synthesizer": {
+          "score": 23.592,
+          "rankingQuality": 23.592,
+          "rankingValue": 175.33
+        },
+        "researcher": {
+          "score": 42.644,
+          "rankingQuality": 42.644,
+          "rankingValue": 316.919
+        }
+      },
+      "caiStar": {
+        "value": 49.758,
+        "source": "observed"
+      },
+      "codingAgent": {
+        "hostModelSlug": "deepseek_deepseek-v4-flash-0731",
+        "agent": "Codex",
+        "displayLabel": "Codex - DeepSeek V4 Flash 0731 (max)",
+        "indexScore": 49.758,
+        "evaluations": {
+          "deep-swe": 42.773,
+          "swe-atlas-qna": 38.71,
+          "terminal-bench-v2.1": 67.79
+        },
+        "tokensPerTask": {
+          "reward": 0.427728613569321,
+          "costUsd": 0.05949917044417178,
+          "wallTimeSec": 868.3750143149272,
+          "steps": 105.93149284253577,
+          "inputTokens": 18789280.92920354,
+          "cacheWriteTokens": null,
+          "outputTokens": 105058.45132743364,
+          "cacheTokens": 10342245.038854802,
+          "cacheHitRate": 0.980762166136423,
+          "totalTokens": 20844227.99386505
+        },
+        "totalTokensPerTask": 20844227.99386505,
+        "timePerTaskSec": 868.3750143149272,
+        "aaCostPerTaskUsd": 0.05949917044417178,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 836.281
+      },
+      "aaModel": {
+        "slug": "deepseek-v4-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash"
+      }
+    },
+    {
+      "name": "Qwen 3.8 Max 0902",
+      "rawName": "Qwen 3.8 Max 0902",
+      "context": null,
+      "inputPerM": 2,
+      "outputPerM": 6,
+      "cacheReadPerM": 0.25,
+      "cacheWritePerM": null,
+      "inputListPerM": 2,
+      "outputListPerM": 6,
+      "cacheReadListPerM": 0.25,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "qwen3-8-max",
+        "reason": "CommandCode current Qwen 3.8 Max 0902 row maps to AA Qwen3.8 Max; the input/output/cache price tuple matches AA ($2/$6/$0.25)."
+      },
+      "tokenPrices": {
+        "input": 2,
+        "output": 6,
+        "blended50": 4
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.913337,
+        "aaCostPerTaskUsd": 0.9133365716363483,
+        "tokens": {
+          "nonCacheInput": 7078.432908817686,
+          "cacheRead": 1514034.549135956,
+          "cacheWrite": 145473.26478483426,
+          "reasoning": 27254.154869674137,
+          "answer": 11033.26829116842,
+          "output": 38287.42316084256
+        }
+      },
+      "benchmarks": {
+        "gdpval": 61.048,
+        "lcr": 19.4444,
+        "gpqa": 92.7273,
+        "hle": 43.0491,
+        "omniscienceAccuracy": 31.85,
+        "omniscienceReliability": 58.2539,
+        "scicode": 52.8935
+      },
+      "roleScores": {
+        "architect": {
+          "score": 54.283,
+          "rankingQuality": 54.283,
+          "rankingValue": 59.434
+        },
+        "strategist": {
+          "score": 49.776,
+          "rankingQuality": 49.776,
+          "rankingValue": 54.499
+        },
+        "security-reviewer": {
+          "score": 58.342,
+          "rankingQuality": 58.342,
+          "rankingValue": 63.878
+        },
+        "code-reviewer": {
+          "score": 55.394,
+          "rankingQuality": 57.366,
+          "rankingValue": 62.809
+        },
+        "implementer": {
+          "score": 52.867,
+          "rankingQuality": 55.681,
+          "rankingValue": 60.964
+        },
+        "implementer-heavy": {
+          "score": 52.226,
+          "rankingQuality": 55.254,
+          "rankingValue": 60.497
+        },
+        "synthesizer": {
+          "score": 35.928,
+          "rankingQuality": 35.928,
+          "rankingValue": 39.337
+        },
+        "researcher": {
+          "score": 45.679,
+          "rankingQuality": 45.679,
+          "rankingValue": 50.013
+        }
+      },
+      "caiStar": {
+        "value": 61.31,
+        "source": "observed"
+      },
+      "codingAgent": {
+        "hostModelSlug": "alibaba_cloud_qwen3-8-max-public",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Qwen3.8 Max",
+        "indexScore": 61.31,
+        "evaluations": {
+          "deep-swe": 51.917,
+          "swe-atlas-qna": 48.118,
+          "terminal-bench-v2.1": 83.895
+        },
+        "tokensPerTask": {
+          "reward": 0.519174041297935,
+          "costUsd": 3.2306109660020477,
+          "wallTimeSec": 1792.1471809815948,
+          "steps": 159.5848670756646,
+          "inputTokens": 11507847.05899705,
+          "cacheWriteTokens": 247713.88790560473,
+          "outputTokens": 103997.9174041298,
+          "cacheTokens": 5809875.0828220835,
+          "cacheHitRate": 0.8998815214008221,
+          "totalTokens": 12503741.564417152
+        },
+        "totalTokensPerTask": 12503741.564417152,
+        "timePerTaskSec": 1792.1471809815948,
+        "aaCostPerTaskUsd": 3.2306109660020477,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 18.978
+      },
+      "aaModel": {
+        "slug": "qwen3-8-max",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max"
+      }
     },
     {
       "name": "Qwen 3.8 Max",
       "rawName": "Qwen 3.8 Max",
-      "context": "1M",
+      "context": null,
       "inputPerM": 2,
       "outputPerM": 6,
       "cacheReadPerM": 0.25,
@@ -2291,19 +2834,19 @@
         "blended50": 4
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 1.267261,
-        "aaCostPerTaskUsd": 1.1320379078897653,
+        "commandCodeCostPerTaskUsd": 0.986073,
+        "aaCostPerTaskUsd": 0.9133365716363483,
         "tokens": {
           "nonCacheInput": 7078.432908817686,
-          "cacheRead": 1389062.3569911462,
-          "cacheWrite": 270445.45692964416,
+          "cacheRead": 1514034.549135956,
+          "cacheWrite": 145473.26478483426,
           "reasoning": 27254.154869674137,
           "answer": 11033.26829116842,
           "output": 38287.42316084256
         }
       },
       "benchmarks": {
-        "gdpval": 61.501,
+        "gdpval": 61.048,
         "lcr": 19.4444,
         "gpqa": 92.7273,
         "hle": 43.0491,
@@ -2313,44 +2856,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.464,
-          "rankingQuality": 54.464,
-          "rankingValue": 42.978
+          "score": 54.283,
+          "rankingQuality": 54.283,
+          "rankingValue": 55.05
         },
         "strategist": {
-          "score": 49.957,
-          "rankingQuality": 49.957,
-          "rankingValue": 39.421
+          "score": 49.776,
+          "rankingQuality": 49.776,
+          "rankingValue": 50.479
         },
         "security-reviewer": {
           "score": 58.342,
           "rankingQuality": 58.342,
-          "rankingValue": 46.038
+          "rankingValue": 59.166
         },
         "code-reviewer": {
           "score": 55.394,
           "rankingQuality": 57.366,
-          "rankingValue": 45.268
+          "rankingValue": 58.176
         },
         "implementer": {
           "score": 52.867,
           "rankingQuality": 55.681,
-          "rankingValue": 43.938
+          "rankingValue": 56.467
         },
         "implementer-heavy": {
-          "score": 52.339,
-          "rankingQuality": 55.329,
-          "rankingValue": 43.66
+          "score": 52.226,
+          "rankingQuality": 55.254,
+          "rankingValue": 56.034
         },
         "synthesizer": {
-          "score": 35.996,
-          "rankingQuality": 35.996,
-          "rankingValue": 28.405
+          "score": 35.928,
+          "rankingQuality": 35.928,
+          "rankingValue": 36.435
         },
         "researcher": {
-          "score": 45.793,
-          "rankingQuality": 45.793,
-          "rankingValue": 36.135
+          "score": 45.679,
+          "rankingQuality": 45.679,
+          "rankingValue": 46.324
         }
       },
       "caiStar": {
@@ -2369,19 +2912,19 @@
         },
         "tokensPerTask": {
           "reward": 0.519174041297935,
-          "costUsd": 3.2306109660020437,
+          "costUsd": 3.2306109660020477,
           "wallTimeSec": 1792.1471809815948,
           "steps": 159.5848670756646,
           "inputTokens": 11507847.05899705,
           "cacheWriteTokens": 247713.88790560473,
           "outputTokens": 103997.9174041298,
           "cacheTokens": 5809875.0828220835,
-          "cacheHitRate": 0.8998815214008219,
+          "cacheHitRate": 0.8998815214008221,
           "totalTokens": 12503741.564417152
         },
         "totalTokensPerTask": 12503741.564417152,
         "timePerTaskSec": 1792.1471809815948,
-        "aaCostPerTaskUsd": 3.2306109660020437,
+        "aaCostPerTaskUsd": 3.2306109660020477,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -2398,7 +2941,7 @@
     {
       "name": "Qwen 3.8 27B",
       "rawName": "Qwen 3.8 27B",
-      "context": "262K",
+      "context": null,
       "inputPerM": 0.4,
       "outputPerM": 3,
       "cacheReadPerM": 0.04,
@@ -2423,20 +2966,20 @@
         "blended50": 1.7
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.231022,
-        "aaCostPerTaskUsd": 0.25340327612903635,
+        "commandCodeCostPerTaskUsd": 0.323517,
+        "aaCostPerTaskUsd": 0.3690217121876813,
         "tokens": {
           "nonCacheInput": 7102.2232513967965,
-          "cacheRead": 1511352.1053417649,
-          "cacheWrite": 65572.69921864306,
+          "cacheRead": 1254422.2474336645,
+          "cacheWrite": 322502.5571267431,
           "reasoning": 37213.6504131602,
           "answer": 9952.419462482525,
           "output": 47166.06987564272
         }
       },
       "benchmarks": {
-        "gdpval": 52.0615,
-        "lcr": 77.3333,
+        "gdpval": 52.1485,
+        "lcr": 21.6667,
         "gpqa": 90.5051,
         "hle": 33.9203,
         "omniscienceAccuracy": 15.5833,
@@ -2445,51 +2988,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 63.347,
-          "rankingQuality": 63.347,
-          "rankingValue": 274.203
+          "score": 49.465,
+          "rankingQuality": 49.465,
+          "rankingValue": 152.898
         },
         "strategist": {
-          "score": 55.43,
-          "rankingQuality": 55.43,
-          "rankingValue": 239.934
+          "score": 44.331,
+          "rankingQuality": 44.331,
+          "rankingValue": 137.028
         },
         "security-reviewer": {
-          "score": 61.003,
-          "rankingQuality": 61.003,
-          "rankingValue": 264.057
+          "score": 55.437,
+          "rankingQuality": 55.437,
+          "rankingValue": 171.357
         },
         "code-reviewer": {
-          "score": 60.169,
-          "rankingQuality": 52.698,
-          "rankingValue": 228.108
+          "score": 51.819,
+          "rankingQuality": 48.412,
+          "rankingValue": 149.643
         },
         "implementer": {
-          "score": 55.373,
-          "rankingQuality": 49.501,
-          "rankingValue": 214.27
+          "score": 47.023,
+          "rankingQuality": 45.215,
+          "rankingValue": 139.761
         },
         "implementer-heavy": {
-          "score": 57.637,
-          "rankingQuality": 51.01,
-          "rankingValue": 220.801
+          "score": 46.525,
+          "rankingQuality": 44.883,
+          "rankingValue": 138.735
         },
         "synthesizer": {
-          "score": 59.669,
-          "rankingQuality": 59.669,
-          "rankingValue": 258.283
+          "score": 34.632,
+          "rankingQuality": 34.632,
+          "rankingValue": 107.048
         },
         "researcher": {
-          "score": 56.3,
-          "rankingQuality": 56.3,
-          "rankingValue": 243.7
+          "score": 39.622,
+          "rankingQuality": 39.622,
+          "rankingValue": 122.473
         }
       },
       "caiStar": {
-        "value": 37.757,
+        "value": 41.599,
         "source": "estimated",
-        "ridge": 37.137,
-        "knn": 38.377
+        "ridge": 40.767,
+        "knn": 42.431
       },
       "codingAgent": null,
       "aaModel": {
@@ -2500,7 +3043,7 @@
     {
       "name": "Qwen 3.6 Max Preview",
       "rawName": "Qwen 3.6 Max Preview",
-      "context": "—",
+      "context": null,
       "inputPerM": 1.3,
       "outputPerM": 7.8,
       "cacheReadPerM": 0.26,
@@ -2537,7 +3080,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 42.3333,
         "gpqa": 76.3636,
         "hle": 10.1483,
@@ -2547,14 +3090,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 44.205,
-          "rankingQuality": 44.205,
-          "rankingValue": 70.224
+          "score": 44.122,
+          "rankingQuality": 44.122,
+          "rankingValue": 70.093
         },
         "strategist": {
-          "score": 38.933,
-          "rankingQuality": 38.933,
-          "rankingValue": 61.849
+          "score": 38.85,
+          "rankingQuality": 38.85,
+          "rankingValue": 61.717
         },
         "security-reviewer": {
           "score": 38.21,
@@ -2563,35 +3106,35 @@
         },
         "code-reviewer": {
           "score": 40.467,
-          "rankingQuality": 38.159,
-          "rankingValue": 60.62
+          "rankingQuality": 38.154,
+          "rankingValue": 60.612
         },
         "implementer": {
           "score": 41.042,
-          "rankingQuality": 38.542,
-          "rankingValue": 61.228
+          "rankingQuality": 38.537,
+          "rankingValue": 61.22
         },
         "implementer-heavy": {
-          "score": 43.286,
-          "rankingQuality": 40.038,
-          "rankingValue": 63.605
+          "score": 43.234,
+          "rankingQuality": 39.998,
+          "rankingValue": 63.541
         },
         "synthesizer": {
-          "score": 32.526,
-          "rankingQuality": 32.526,
-          "rankingValue": 51.671
+          "score": 32.495,
+          "rankingQuality": 32.495,
+          "rankingValue": 51.622
         },
         "researcher": {
-          "score": 40.526,
-          "rankingQuality": 40.526,
-          "rankingValue": 64.38
+          "score": 40.474,
+          "rankingQuality": 40.474,
+          "rankingValue": 64.297
         }
       },
       "caiStar": {
-        "value": 33.542,
+        "value": 33.527,
         "source": "estimated",
-        "ridge": 26.617,
-        "knn": 40.467
+        "ridge": 26.596,
+        "knn": 40.458
       },
       "codingAgent": null,
       "aaModel": {
@@ -2602,7 +3145,7 @@
     {
       "name": "Qwen 3.6 Plus",
       "rawName": "Qwen 3.6 Plus",
-      "context": "—",
+      "context": null,
       "inputPerM": 0.5,
       "outputPerM": 3,
       "cacheReadPerM": 0.1,
@@ -2639,7 +3182,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 31.9565,
+        "gdpval": 31.8375,
         "lcr": 72.3333,
         "gpqa": 88.1818,
         "hle": 27.8499,
@@ -2649,14 +3192,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 52.68,
-          "rankingQuality": 52.68,
-          "rankingValue": 172.644
+          "score": 52.632,
+          "rankingQuality": 52.632,
+          "rankingValue": 172.487
         },
         "strategist": {
-          "score": 47.88,
-          "rankingQuality": 47.88,
-          "rankingValue": 156.914
+          "score": 47.833,
+          "rankingQuality": 47.833,
+          "rankingValue": 156.76
         },
         "security-reviewer": {
           "score": 56.875,
@@ -2665,35 +3208,35 @@
         },
         "code-reviewer": {
           "score": 56.141,
-          "rankingQuality": 48.826,
-          "rankingValue": 160.014
+          "rankingQuality": 48.796,
+          "rankingValue": 159.916
         },
         "implementer": {
           "score": 51.307,
-          "rankingQuality": 45.604,
-          "rankingValue": 149.455
+          "rankingQuality": 45.573,
+          "rankingValue": 149.353
         },
         "implementer-heavy": {
-          "score": 49.607,
-          "rankingQuality": 44.47,
-          "rankingValue": 145.738
+          "score": 49.578,
+          "rankingQuality": 44.42,
+          "rankingValue": 145.574
         },
         "synthesizer": {
-          "score": 55.692,
-          "rankingQuality": 55.692,
-          "rankingValue": 182.515
+          "score": 55.674,
+          "rankingQuality": 55.674,
+          "rankingValue": 182.456
         },
         "researcher": {
-          "score": 50.978,
-          "rankingQuality": 50.978,
-          "rankingValue": 167.066
+          "score": 50.948,
+          "rankingQuality": 50.948,
+          "rankingValue": 166.968
         }
       },
       "caiStar": {
-        "value": 34.197,
+        "value": 34.105,
         "source": "estimated",
-        "ridge": 30.618,
-        "knn": 37.776
+        "ridge": 30.429,
+        "knn": 37.781
       },
       "codingAgent": null,
       "aaModel": {
@@ -2704,7 +3247,7 @@
     {
       "name": "Qwen 3.7 Max",
       "rawName": "Qwen 3.7 Max",
-      "context": "1M",
+      "context": null,
       "inputPerM": 2.5,
       "outputPerM": 7.5,
       "cacheReadPerM": 0.5,
@@ -2729,19 +3272,19 @@
         "blended50": 5
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.588387,
-        "aaCostPerTaskUsd": 0.5413305226923919,
+        "commandCodeCostPerTaskUsd": 0.769729,
+        "aaCostPerTaskUsd": 0.67923292156161,
         "tokens": {
           "nonCacheInput": 6917.741679968224,
-          "cacheRead": 327442.3727467475,
-          "cacheWrite": 74693.24895928535,
+          "cacheRead": 258491.17331213845,
+          "cacheWrite": 143644.44839389442,
           "reasoning": 17887.875807604243,
           "answer": 5256.372155180304,
           "output": 23144.247962784546
         }
       },
       "benchmarks": {
-        "gdpval": 38.408,
+        "gdpval": 38.215,
         "lcr": 74.6667,
         "gpqa": 92.3232,
         "hle": 40.5005,
@@ -2751,51 +3294,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 58.57,
-          "rankingQuality": 58.57,
-          "rankingValue": 99.543
+          "score": 58.492,
+          "rankingQuality": 58.492,
+          "rankingValue": 75.99
         },
         "strategist": {
-          "score": 53.193,
-          "rankingQuality": 53.193,
-          "rankingValue": 90.405
+          "score": 53.115,
+          "rankingQuality": 53.115,
+          "rankingValue": 69.005
         },
         "security-reviewer": {
           "score": 64.456,
           "rankingQuality": 64.456,
-          "rankingValue": 109.547
+          "rankingValue": 83.739
         },
         "code-reviewer": {
           "score": 63.131,
-          "rankingQuality": 57.267,
-          "rankingValue": 97.329
+          "rankingQuality": 57.251,
+          "rankingValue": 74.378
         },
         "implementer": {
           "score": 58.404,
-          "rankingQuality": 54.115,
-          "rankingValue": 91.972
+          "rankingQuality": 54.1,
+          "rankingValue": 70.284
         },
         "implementer-heavy": {
-          "score": 55.747,
-          "rankingQuality": 52.344,
-          "rankingValue": 88.962
+          "score": 55.699,
+          "rankingQuality": 52.297,
+          "rankingValue": 67.942
         },
         "synthesizer": {
-          "score": 60.462,
-          "rankingQuality": 60.462,
-          "rankingValue": 102.759
+          "score": 60.433,
+          "rankingQuality": 60.433,
+          "rankingValue": 78.512
         },
         "researcher": {
-          "score": 56.127,
-          "rankingQuality": 56.127,
-          "rankingValue": 95.391
+          "score": 56.079,
+          "rankingQuality": 56.079,
+          "rankingValue": 72.856
         }
       },
       "caiStar": {
-        "value": 45.538,
+        "value": 45.492,
         "source": "estimated",
-        "ridge": 43.819,
-        "knn": 47.257
+        "ridge": 43.711,
+        "knn": 47.273
       },
       "codingAgent": null,
       "aaModel": {
@@ -2806,7 +3349,7 @@
     {
       "name": "Qwen 3.7 Plus",
       "rawName": "Qwen 3.7 Plus",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.4,
       "outputPerM": 1.6,
       "cacheReadPerM": 0.08,
@@ -2831,19 +3374,19 @@
         "blended50": 1
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.245221,
-        "aaCostPerTaskUsd": 0.2424146847014958,
+        "commandCodeCostPerTaskUsd": 0.179365,
+        "aaCostPerTaskUsd": 0.17028705303604513,
         "tokens": {
           "nonCacheInput": 6990.946052984096,
-          "cacheRead": 70155.85022995448,
-          "cacheWrite": 401301.9476577492,
+          "cacheRead": 226955.04950267333,
+          "cacheWrite": 244502.74838503037,
           "reasoning": 18528.42543765705,
           "answer": 4072.2610887363285,
           "output": 22600.68652639338
         }
       },
       "benchmarks": {
-        "gdpval": 22.315,
+        "gdpval": 22.3675,
         "lcr": 9.4444,
         "gpqa": 90,
         "hle": 35.6348,
@@ -2853,44 +3396,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 34.632,
-          "rankingQuality": 34.632,
-          "rankingValue": 141.228
+          "score": 34.653,
+          "rankingQuality": 34.653,
+          "rankingValue": 193.198
         },
         "strategist": {
-          "score": 31.552,
-          "rankingQuality": 31.552,
-          "rankingValue": 128.668
+          "score": 31.573,
+          "rankingQuality": 31.573,
+          "rankingValue": 176.027
         },
         "security-reviewer": {
           "score": 55.068,
           "rankingQuality": 55.068,
-          "rankingValue": 224.565
+          "rankingValue": 307.016
         },
         "code-reviewer": {
           "score": 50.683,
           "rankingQuality": 46.496,
-          "rankingValue": 189.609
+          "rankingValue": 259.226
         },
         "implementer": {
           "score": 45.772,
           "rankingQuality": 43.222,
-          "rankingValue": 176.257
+          "rankingValue": 240.972
         },
         "implementer-heavy": {
-          "score": 36.936,
-          "rankingQuality": 37.331,
-          "rankingValue": 152.234
+          "score": 36.95,
+          "rankingQuality": 37.341,
+          "rankingValue": 208.184
         },
         "synthesizer": {
-          "score": 26.568,
-          "rankingQuality": 26.568,
-          "rankingValue": 108.343
+          "score": 26.576,
+          "rankingQuality": 26.576,
+          "rankingValue": 148.167
         },
         "researcher": {
-          "score": 29.979,
-          "rankingQuality": 29.979,
-          "rankingValue": 122.253
+          "score": 29.992,
+          "rankingQuality": 29.992,
+          "rankingValue": 167.212
         }
       },
       "caiStar": {
@@ -2916,7 +3459,7 @@
           "cacheWriteTokens": 0,
           "outputTokens": 47864.54277286136,
           "cacheTokens": 4036775.525562371,
-          "cacheHitRate": 0.8105104948122449,
+          "cacheHitRate": 0.8105104948122446,
           "totalTokens": 8784635.035787327
         },
         "totalTokensPerTask": 8784635.035787327,
@@ -2936,9 +3479,111 @@
       }
     },
     {
+      "name": "Qwen 3.8 Flash",
+      "rawName": "Qwen 3.8 Flash",
+      "context": null,
+      "inputPerM": 0.16,
+      "outputPerM": 0.47,
+      "cacheReadPerM": 0.016,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.16,
+      "outputListPerM": 0.47,
+      "cacheReadListPerM": 0.016,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "qwen3-8-flash-next",
+        "reason": "AA exposes the current Qwen3.8 Flash benchmark as Qwen3.8-Flash-Next; CommandCode output/cache pricing matches the AA entry."
+      },
+      "tokenPrices": {
+        "input": 0.16,
+        "output": 0.47,
+        "blended50": 0.315
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.098346,
+        "aaCostPerTaskUsd": 0.09701942971977867,
+        "tokens": {
+          "nonCacheInput": 7242.201918225282,
+          "cacheRead": 3001680.1438941853,
+          "cacheWrite": 125430.28441294504,
+          "reasoning": 44677.134272678464,
+          "answer": 17220.045446036744,
+          "output": 61897.17971871521
+        }
+      },
+      "benchmarks": {
+        "gdpval": 62.139,
+        "lcr": 77,
+        "gpqa": 92.3232,
+        "hle": 38.0445,
+        "omniscienceAccuracy": 24.5,
+        "omniscienceReliability": 54.6799,
+        "scicode": 46.875
+      },
+      "roleScores": {
+        "architect": {
+          "score": 68.277,
+          "rankingQuality": 68.277,
+          "rankingValue": 694.253
+        },
+        "strategist": {
+          "score": 59.856,
+          "rankingQuality": 59.856,
+          "rankingValue": 608.627
+        },
+        "security-reviewer": {
+          "score": 60.654,
+          "rankingQuality": 60.654,
+          "rankingValue": 616.741
+        },
+        "code-reviewer": {
+          "score": 60.381,
+          "rankingQuality": 54.457,
+          "rankingValue": 553.729
+        },
+        "implementer": {
+          "score": 57.328,
+          "rankingQuality": 52.422,
+          "rankingValue": 533.036
+        },
+        "implementer-heavy": {
+          "score": 61.261,
+          "rankingQuality": 55.044,
+          "rankingValue": 559.697
+        },
+        "synthesizer": {
+          "score": 59.807,
+          "rankingQuality": 59.807,
+          "rankingValue": 608.128
+        },
+        "researcher": {
+          "score": 61.188,
+          "rankingQuality": 61.188,
+          "rankingValue": 622.171
+        }
+      },
+      "caiStar": {
+        "value": 42.61,
+        "source": "estimated",
+        "ridge": 42.105,
+        "knn": 43.115
+      },
+      "codingAgent": null,
+      "aaModel": {
+        "slug": "qwen3-8-flash-next",
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next"
+      }
+    },
+    {
       "name": "Qwen 3.7 Flash",
       "rawName": "Qwen 3.7 Flash",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.03,
       "outputPerM": 0.13,
       "cacheReadPerM": 0.006,
@@ -2971,7 +3616,7 @@
     {
       "name": "Step 3.7 Flash",
       "rawName": "Step 3.7 Flash",
-      "context": "256K",
+      "context": null,
       "inputPerM": 0.2,
       "outputPerM": 1.15,
       "cacheReadPerM": 0.04,
@@ -3008,7 +3653,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 25.9785,
+        "gdpval": 25.908,
         "lcr": 69.6667,
         "gpqa": 80.9091,
         "hle": 21.4087,
@@ -3018,14 +3663,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 47.201,
-          "rankingQuality": 47.201,
-          "rankingValue": 517.135
+          "score": 47.173,
+          "rankingQuality": 47.173,
+          "rankingValue": 516.828
         },
         "strategist": {
-          "score": 39.075,
-          "rankingQuality": 39.075,
-          "rankingValue": 428.107
+          "score": 39.046,
+          "rankingQuality": 39.046,
+          "rankingValue": 427.789
         },
         "security-reviewer": {
           "score": 45.743,
@@ -3034,35 +3679,35 @@
         },
         "code-reviewer": {
           "score": 48.296,
-          "rankingQuality": 41.286,
-          "rankingValue": 452.33
+          "rankingQuality": 41.333,
+          "rankingValue": 452.845
         },
         "implementer": {
           "score": 48.755,
-          "rankingQuality": 41.592,
-          "rankingValue": 455.683
+          "rankingQuality": 41.639,
+          "rankingValue": 456.198
         },
         "implementer-heavy": {
-          "score": 46.54,
-          "rankingQuality": 40.115,
-          "rankingValue": 439.501
+          "score": 46.522,
+          "rankingQuality": 40.151,
+          "rankingValue": 439.895
         },
         "synthesizer": {
-          "score": 43.408,
-          "rankingQuality": 43.408,
-          "rankingValue": 475.579
+          "score": 43.398,
+          "rankingQuality": 43.398,
+          "rankingValue": 475.469
         },
         "researcher": {
-          "score": 46.829,
-          "rankingQuality": 46.829,
-          "rankingValue": 513.06
+          "score": 46.811,
+          "rankingQuality": 46.811,
+          "rankingValue": 512.862
         }
       },
       "caiStar": {
-        "value": 27.265,
+        "value": 27.408,
         "source": "estimated",
-        "ridge": 15.607,
-        "knn": 38.923
+        "ridge": 15.886,
+        "knn": 38.931
       },
       "codingAgent": null,
       "aaModel": {
@@ -3073,7 +3718,7 @@
     {
       "name": "Step 3.5 Flash",
       "rawName": "Step 3.5 Flash",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.1,
       "outputPerM": 0.3,
       "cacheReadPerM": 0.02,
@@ -3110,7 +3755,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 60.3333,
         "gpqa": 82.6263,
         "hle": 24.4671,
@@ -3120,14 +3765,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 52.105,
-          "rankingQuality": 52.105,
-          "rankingValue": 123.549
+          "score": 52.022,
+          "rankingQuality": 52.022,
+          "rankingValue": 123.352
         },
         "strategist": {
-          "score": 42.948,
-          "rankingQuality": 42.948,
-          "rankingValue": 101.836
+          "score": 42.865,
+          "rankingQuality": 42.865,
+          "rankingValue": 101.639
         },
         "security-reviewer": {
           "score": 44.449,
@@ -3136,35 +3781,35 @@
         },
         "code-reviewer": {
           "score": 46.235,
-          "rankingQuality": 42.289,
-          "rankingValue": 100.273
+          "rankingQuality": 42.304,
+          "rankingValue": 100.309
         },
         "implementer": {
           "score": 47.016,
-          "rankingQuality": 42.81,
-          "rankingValue": 101.509
+          "rankingQuality": 42.825,
+          "rankingValue": 101.544
         },
         "implementer-heavy": {
-          "score": 48.19,
-          "rankingQuality": 43.592,
-          "rankingValue": 103.363
+          "score": 48.138,
+          "rankingQuality": 43.573,
+          "rankingValue": 103.318
         },
         "synthesizer": {
-          "score": 40.121,
-          "rankingQuality": 40.121,
-          "rankingValue": 95.133
+          "score": 40.09,
+          "rankingQuality": 40.09,
+          "rankingValue": 95.059
         },
         "researcher": {
-          "score": 48.381,
-          "rankingQuality": 48.381,
-          "rankingValue": 114.718
+          "score": 48.329,
+          "rankingQuality": 48.329,
+          "rankingValue": 114.595
         }
       },
       "caiStar": {
-        "value": 34.397,
+        "value": 34.443,
         "source": "estimated",
-        "ridge": 28.571,
-        "knn": 40.223
+        "ridge": 28.656,
+        "knn": 40.23
       },
       "codingAgent": null,
       "aaModel": {
@@ -3174,17 +3819,17 @@
     },
     {
       "name": "MiMo V2.5 Pro",
-      "rawName": "MiMo V2.5 Pro-99%",
-      "context": "1M",
+      "rawName": "MiMo V2.5 Pro",
+      "context": null,
       "inputPerM": 0.435,
       "outputPerM": 0.87,
       "cacheReadPerM": 0.0036,
       "cacheWritePerM": null,
-      "inputListPerM": 2,
-      "outputListPerM": 6,
-      "cacheReadListPerM": 0.4,
+      "inputListPerM": 0.435,
+      "outputListPerM": 0.87,
+      "cacheReadListPerM": 0.0036,
       "cacheWriteListPerM": null,
-      "discountPercent": 99,
+      "discountPercent": null,
       "free": false,
       "dataTraining": false,
       "offPeakShown": false,
@@ -3212,7 +3857,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 38.2045,
+        "gdpval": 38.0415,
         "lcr": 9.4444,
         "gpqa": 86.5657,
         "hle": 35.6812,
@@ -3222,14 +3867,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 40.308,
-          "rankingQuality": 40.308,
-          "rankingValue": 1188.746
+          "score": 40.243,
+          "rankingQuality": 40.243,
+          "rankingValue": 1186.829
         },
         "strategist": {
-          "score": 37.84,
-          "rankingQuality": 37.84,
-          "rankingValue": 1115.961
+          "score": 37.775,
+          "rankingQuality": 37.775,
+          "rankingValue": 1114.044
         },
         "security-reviewer": {
           "score": 56.086,
@@ -3238,35 +3883,35 @@
         },
         "code-reviewer": {
           "score": 52.432,
-          "rankingQuality": 50.828,
-          "rankingValue": 1498.997
+          "rankingQuality": 50.777,
+          "rankingValue": 1497.493
         },
         "implementer": {
           "score": 48.109,
-          "rankingQuality": 47.946,
-          "rankingValue": 1414.003
+          "rankingQuality": 47.895,
+          "rankingValue": 1412.499
         },
         "implementer-heavy": {
-          "score": 42.701,
-          "rankingQuality": 44.341,
-          "rankingValue": 1307.686
+          "score": 42.66,
+          "rankingQuality": 44.262,
+          "rankingValue": 1305.356
         },
         "synthesizer": {
-          "score": 29.523,
-          "rankingQuality": 29.523,
-          "rankingValue": 870.679
+          "score": 29.499,
+          "rankingQuality": 29.499,
+          "rankingValue": 869.972
         },
         "researcher": {
-          "score": 33.421,
-          "rankingQuality": 33.421,
-          "rankingValue": 985.638
+          "score": 33.38,
+          "rankingQuality": 33.38,
+          "rankingValue": 984.428
         }
       },
       "caiStar": {
-        "value": 47.621,
+        "value": 47.467,
         "source": "estimated",
-        "ridge": 50.51,
-        "knn": 44.731
+        "ridge": 50.231,
+        "knn": 44.703
       },
       "codingAgent": null,
       "aaModel": {
@@ -3276,17 +3921,17 @@
     },
     {
       "name": "MiMo V2.5",
-      "rawName": "MiMo V2.5-98%",
-      "context": "1M",
+      "rawName": "MiMo V2.5",
+      "context": null,
       "inputPerM": 0.14,
       "outputPerM": 0.28,
       "cacheReadPerM": 0.0028,
       "cacheWritePerM": null,
-      "inputListPerM": 0.8,
-      "outputListPerM": 4,
-      "cacheReadListPerM": 0.16,
+      "inputListPerM": 0.14,
+      "outputListPerM": 0.28,
+      "cacheReadListPerM": 0.0028,
       "cacheWriteListPerM": null,
-      "discountPercent": 98,
+      "discountPercent": null,
       "free": false,
       "dataTraining": false,
       "offPeakShown": false,
@@ -3314,7 +3959,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 32.5085,
+        "gdpval": 32.2885,
         "lcr": 68.3333,
         "gpqa": 84.9495,
         "hle": 27.2011,
@@ -3324,14 +3969,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 51.157,
-          "rankingQuality": 51.157,
-          "rankingValue": 4938.411
+          "score": 51.069,
+          "rankingQuality": 51.069,
+          "rankingValue": 4929.916
         },
         "strategist": {
-          "score": 45.322,
-          "rankingQuality": 45.322,
-          "rankingValue": 4375.133
+          "score": 45.234,
+          "rankingQuality": 45.234,
+          "rankingValue": 4366.638
         },
         "security-reviewer": {
           "score": 56.638,
@@ -3340,35 +3985,35 @@
         },
         "code-reviewer": {
           "score": 56.142,
-          "rankingQuality": 49.888,
-          "rankingValue": 4815.909
+          "rankingQuality": 49.838,
+          "rankingValue": 4811.082
         },
         "implementer": {
           "score": 51.546,
-          "rankingQuality": 46.824,
-          "rankingValue": 4520.127
+          "rankingQuality": 46.774,
+          "rankingValue": 4515.301
         },
         "implementer-heavy": {
-          "score": 49.664,
-          "rankingQuality": 45.57,
-          "rankingValue": 4399.073
+          "score": 49.609,
+          "rankingQuality": 45.483,
+          "rankingValue": 4390.675
         },
         "synthesizer": {
-          "score": 52.59,
-          "rankingQuality": 52.59,
-          "rankingValue": 5076.745
+          "score": 52.557,
+          "rankingQuality": 52.557,
+          "rankingValue": 5073.559
         },
         "researcher": {
-          "score": 47.44,
-          "rankingQuality": 47.44,
-          "rankingValue": 4579.593
+          "score": 47.385,
+          "rankingQuality": 47.385,
+          "rankingValue": 4574.283
         }
       },
       "caiStar": {
-        "value": 37.381,
+        "value": 37.23,
         "source": "estimated",
-        "ridge": 36.491,
-        "knn": 38.272
+        "ridge": 36.169,
+        "knn": 38.292
       },
       "codingAgent": null,
       "aaModel": {
@@ -3379,7 +4024,7 @@
     {
       "name": "Nemotron 3 Ultra",
       "rawName": "Nemotron 3 Ultra",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.6,
       "outputPerM": 2.4,
       "cacheReadPerM": 0.12,
@@ -3404,19 +4049,19 @@
         "blended50": 1.5
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.374379,
-        "aaCostPerTaskUsd": 0.38266237297499145,
+        "commandCodeCostPerTaskUsd": 0.295933,
+        "aaCostPerTaskUsd": 0.31374086294174913,
         "tokens": {
           "nonCacheInput": 6928.821652466916,
-          "cacheRead": 0,
-          "cacheWrite": 522364.4580190179,
+          "cacheRead": 163428.35619600126,
+          "cacheWrite": 358936.10182301665,
           "reasoning": 15027.672711410163,
           "answer": 8640.110987535494,
           "output": 23667.783698945655
         }
       },
       "benchmarks": {
-        "gdpval": 33.1055,
+        "gdpval": 33.096,
         "lcr": 11.1111,
         "gpqa": 86.6667,
         "hle": 28.4059,
@@ -3426,51 +4071,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 37.614,
-          "rankingQuality": 37.614,
-          "rankingValue": 100.47
+          "score": 37.61,
+          "rankingQuality": 37.61,
+          "rankingValue": 127.09
         },
         "strategist": {
-          "score": 35.679,
-          "rankingQuality": 35.679,
-          "rankingValue": 95.302
+          "score": 35.675,
+          "rankingQuality": 35.675,
+          "rankingValue": 120.551
         },
         "security-reviewer": {
           "score": 50.985,
           "rankingQuality": 50.985,
-          "rankingValue": 136.186
+          "rankingValue": 172.286
         },
         "code-reviewer": {
           "score": 46.841,
-          "rankingQuality": 43.95,
-          "rankingValue": 117.394
+          "rankingQuality": 43.905,
+          "rankingValue": 148.361
         },
         "implementer": {
           "score": 41.466,
-          "rankingQuality": 40.366,
-          "rankingValue": 107.821
+          "rankingQuality": 40.321,
+          "rankingValue": 136.25
         },
         "implementer-heavy": {
-          "score": 37.134,
-          "rankingQuality": 37.478,
-          "rankingValue": 100.107
+          "score": 37.132,
+          "rankingQuality": 37.432,
+          "rankingValue": 126.488
         },
         "synthesizer": {
-          "score": 28.545,
-          "rankingQuality": 28.545,
-          "rankingValue": 76.246
+          "score": 28.543,
+          "rankingQuality": 28.543,
+          "rankingValue": 96.451
         },
         "researcher": {
-          "score": 31.967,
-          "rankingQuality": 31.967,
-          "rankingValue": 85.387
+          "score": 31.965,
+          "rankingQuality": 31.965,
+          "rankingValue": 108.014
         }
       },
       "caiStar": {
-        "value": 38.167,
+        "value": 38.032,
         "source": "estimated",
-        "ridge": 35.409,
-        "knn": 40.926
+        "ridge": 35.124,
+        "knn": 40.941
       },
       "codingAgent": null,
       "aaModel": {
@@ -3479,9 +4124,141 @@
       }
     },
     {
+      "name": "Claude Fable 5.1",
+      "rawName": "Claude Fable 5.1",
+      "context": null,
+      "inputPerM": 10,
+      "outputPerM": 50,
+      "cacheReadPerM": 0.25,
+      "cacheWritePerM": 12.5,
+      "inputListPerM": 10,
+      "outputListPerM": 50,
+      "cacheReadListPerM": 0.25,
+      "cacheWriteListPerM": 12.5,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "claude-fable-5-1",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "tokenPrices": {
+        "input": 10,
+        "output": 50,
+        "blended50": 30
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 3.751681,
+        "aaCostPerTaskUsd": 3.6891263473884166,
+        "tokens": {
+          "nonCacheInput": 9413.624013024832,
+          "cacheRead": 1953382.4849282708,
+          "cacheWrite": 72592.43136300733,
+          "reasoning": 30768.956571510964,
+          "answer": 14466.909857886294,
+          "output": 45235.866429397254
+        }
+      },
+      "benchmarks": {
+        "gdpval": 67.6525,
+        "lcr": 80,
+        "gpqa": 93.7374,
+        "hle": 59.1288,
+        "omniscienceAccuracy": 67.2333,
+        "omniscienceReliability": 27.4161,
+        "scicode": 62.037
+      },
+      "roleScores": {
+        "architect": {
+          "score": 74.678,
+          "rankingQuality": 74.678,
+          "rankingValue": 19.905
+        },
+        "strategist": {
+          "score": 68.623,
+          "rankingQuality": 68.623,
+          "rankingValue": 18.291
+        },
+        "security-reviewer": {
+          "score": 65.984,
+          "rankingQuality": 65.984,
+          "rankingValue": 17.588
+        },
+        "code-reviewer": {
+          "score": 67.319,
+          "rankingQuality": 68.356,
+          "rankingValue": 18.22
+        },
+        "implementer": {
+          "score": 69.196,
+          "rankingQuality": 69.608,
+          "rankingValue": 18.554
+        },
+        "implementer-heavy": {
+          "score": 70.204,
+          "rankingQuality": 70.28,
+          "rankingValue": 18.733
+        },
+        "synthesizer": {
+          "score": 65.078,
+          "rankingQuality": 65.078,
+          "rankingValue": 17.346
+        },
+        "researcher": {
+          "score": 74.333,
+          "rankingQuality": 74.333,
+          "rankingValue": 19.813
+        }
+      },
+      "caiStar": {
+        "value": 70.431,
+        "source": "observed"
+      },
+      "codingAgent": {
+        "hostModelSlug": "anthropic_claude-fable-5-1",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Fable 5.1 (max) (with fallback)",
+        "indexScore": 70.431,
+        "evaluations": {
+          "deep-swe": 66.077,
+          "swe-atlas-qna": 56.452,
+          "terminal-bench-v2.1": 88.764
+        },
+        "tokensPerTask": {
+          "reward": 0.660766961651917,
+          "costUsd": 9.183238026073614,
+          "wallTimeSec": 1438.8667842535776,
+          "steps": 25.385480572597135,
+          "inputTokens": 5259368.017699115,
+          "cacheWriteTokens": 438133.21533923305,
+          "outputTokens": 155907.5604719764,
+          "cacheTokens": 3245768.0132924356,
+          "cacheHitRate": 0.9015196331153521,
+          "totalTokens": 7135668.150306755
+        },
+        "totalTokensPerTask": 7135668.150306755,
+        "timePerTaskSec": 1438.8667842535776,
+        "aaCostPerTaskUsd": 9.183238026073614,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highlighted > default > highest index score"
+        },
+        "aaValuePerDollar": 7.67
+      },
+      "aaModel": {
+        "slug": "claude-fable-5-1",
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1"
+      }
+    },
+    {
       "name": "Claude Fable 5",
       "rawName": "Claude Fable 5",
-      "context": "1M",
+      "context": null,
       "inputPerM": 10,
       "outputPerM": 50,
       "cacheReadPerM": 1,
@@ -3518,7 +4295,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 61.5415,
+        "gdpval": 61.1495,
         "lcr": 64.4444,
         "gpqa": 92.6263,
         "hle": 55.468,
@@ -3528,14 +4305,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 67.573,
-          "rankingQuality": 67.573,
-          "rankingValue": 20.834
+          "score": 67.416,
+          "rankingQuality": 67.416,
+          "rankingValue": 20.785
         },
         "strategist": {
-          "score": 63.474,
-          "rankingQuality": 63.474,
-          "rankingValue": 19.57
+          "score": 63.318,
+          "rankingQuality": 63.318,
+          "rankingValue": 19.522
         },
         "security-reviewer": {
           "score": 64.205,
@@ -3553,19 +4330,19 @@
           "rankingValue": 20.309
         },
         "implementer-heavy": {
-          "score": 64.62,
-          "rankingQuality": 65.471,
-          "rankingValue": 20.186
+          "score": 64.522,
+          "rankingQuality": 65.406,
+          "rankingValue": 20.165
         },
         "synthesizer": {
-          "score": 58.574,
-          "rankingQuality": 58.574,
-          "rankingValue": 18.059
+          "score": 58.515,
+          "rankingQuality": 58.515,
+          "rankingValue": 18.041
         },
         "researcher": {
-          "score": 67.229,
-          "rankingQuality": 67.229,
-          "rankingValue": 20.728
+          "score": 67.131,
+          "rankingQuality": 67.131,
+          "rankingValue": 20.697
         }
       },
       "caiStar": {
@@ -3583,7 +4360,7 @@
           "terminal-bench-v2.1": 86.517
         },
         "tokensPerTask": {
-          "reward": 0.660766961651917,
+          "reward": 0.660766961651918,
           "costUsd": 11.687407620910031,
           "wallTimeSec": 1407.3063016359897,
           "steps": 137.007744236847,
@@ -3592,15 +4369,15 @@
           "outputTokens": 117577.40117994101,
           "cacheTokens": 6741270.240286304,
           "cacheHitRate": 0.9619283373252908,
-          "totalTokens": 13868659.998977493
+          "totalTokens": 13868659.998977492
         },
-        "totalTokensPerTask": 13868659.998977493,
+        "totalTokensPerTask": 13868659.998977492,
         "timePerTaskSec": 1407.3063016359897,
         "aaCostPerTaskUsd": 11.687407620910031,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
-          "isHighlighted": true,
-          "isDefault": true,
+          "isHighlighted": false,
+          "isDefault": false,
           "rule": "highlighted > default > highest index score"
         },
         "aaValuePerDollar": 5.747
@@ -3613,7 +4390,7 @@
     {
       "name": "Claude Opus 5",
       "rawName": "Claude Opus 5",
-      "context": "1M",
+      "context": null,
       "inputPerM": 5,
       "outputPerM": 25,
       "cacheReadPerM": 0.5,
@@ -3650,7 +4427,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 66.7335,
+        "gdpval": 66.197,
         "lcr": 55.5556,
         "gpqa": 93.2323,
         "hle": 54.8656,
@@ -3660,14 +4437,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 67.459,
-          "rankingQuality": 67.459,
-          "rankingValue": 28.867
+          "score": 67.244,
+          "rankingQuality": 67.244,
+          "rankingValue": 28.775
         },
         "strategist": {
-          "score": 63.219,
-          "rankingQuality": 63.219,
-          "rankingValue": 27.053
+          "score": 63.005,
+          "rankingQuality": 63.005,
+          "rankingValue": 26.961
         },
         "security-reviewer": {
           "score": 62.415,
@@ -3685,19 +4462,19 @@
           "rankingValue": 27.183
         },
         "implementer-heavy": {
-          "score": 62.17,
-          "rankingQuality": 64.163,
-          "rankingValue": 27.457
+          "score": 62.036,
+          "rankingQuality": 64.074,
+          "rankingValue": 27.419
         },
         "synthesizer": {
-          "score": 55.02,
-          "rankingQuality": 55.02,
-          "rankingValue": 23.544
+          "score": 54.939,
+          "rankingQuality": 54.939,
+          "rankingValue": 23.51
         },
         "researcher": {
-          "score": 64.995,
-          "rankingQuality": 64.995,
-          "rankingValue": 27.813
+          "score": 64.861,
+          "rankingQuality": 64.861,
+          "rankingValue": 27.756
         }
       },
       "caiStar": {
@@ -3716,19 +4493,19 @@
         },
         "tokensPerTask": {
           "reward": 0.604719764011799,
-          "costUsd": 8.170783921523503,
-          "wallTimeSec": 1421.879982617586,
+          "costUsd": 8.170783921523505,
+          "wallTimeSec": 1421.8799826175893,
           "steps": 152.07719836400818,
           "inputTokens": 20679357.135693215,
           "cacheWriteTokens": 238241.63421828908,
           "outputTokens": 114890.17109144543,
           "cacheTokens": 10578912.742331289,
           "cacheHitRate": 0.9740249879523308,
-          "totalTokens": 21565879.138036843
+          "totalTokens": 21565879.138036806
         },
-        "totalTokensPerTask": 21565879.138036843,
-        "timePerTaskSec": 1421.879982617586,
-        "aaCostPerTaskUsd": 8.170783921523503,
+        "totalTokensPerTask": 21565879.138036806,
+        "timePerTaskSec": 1421.8799826175893,
+        "aaCostPerTaskUsd": 8.170783921523505,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": true,
@@ -3745,7 +4522,7 @@
     {
       "name": "Claude Opus 4.8",
       "rawName": "Claude Opus 4.8",
-      "context": "1M",
+      "context": null,
       "inputPerM": 5,
       "outputPerM": 25,
       "cacheReadPerM": 0.5,
@@ -3782,7 +4559,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 54.097,
+        "gdpval": 53.894,
         "lcr": 45.5556,
         "gpqa": 92.0202,
         "hle": 48.6562,
@@ -3792,14 +4569,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 58.73,
-          "rankingQuality": 58.73,
-          "rankingValue": 28.91
+          "score": 58.649,
+          "rankingQuality": 58.649,
+          "rankingValue": 28.87
         },
         "strategist": {
-          "score": 55.794,
-          "rankingQuality": 55.794,
-          "rankingValue": 27.464
+          "score": 55.712,
+          "rankingQuality": 55.712,
+          "rankingValue": 27.424
         },
         "security-reviewer": {
           "score": 62.446,
@@ -3817,19 +4594,19 @@
           "rankingValue": 29.094
         },
         "implementer-heavy": {
-          "score": 55.9,
-          "rankingQuality": 57.98,
-          "rankingValue": 28.54
+          "score": 55.849,
+          "rankingQuality": 57.946,
+          "rankingValue": 28.524
         },
         "synthesizer": {
-          "score": 50.531,
-          "rankingQuality": 50.531,
-          "rankingValue": 24.874
+          "score": 50.501,
+          "rankingQuality": 50.501,
+          "rankingValue": 24.859
         },
         "researcher": {
-          "score": 55.626,
-          "rankingQuality": 55.626,
-          "rankingValue": 27.382
+          "score": 55.575,
+          "rankingQuality": 55.575,
+          "rankingValue": 27.357
         }
       },
       "caiStar": {
@@ -3847,8 +4624,8 @@
           "terminal-bench-v2.1": 83.895
         },
         "tokensPerTask": {
-          "reward": 0.557522123893806,
-          "costUsd": 7.7247257970092145,
+          "reward": 0.557522123893805,
+          "costUsd": 7.724725797009217,
           "wallTimeSec": 1386.6877980572617,
           "steps": 165.01758453417034,
           "inputTokens": 18153203.522123896,
@@ -3860,7 +4637,7 @@
         },
         "totalTokensPerTask": 17920579.42791411,
         "timePerTaskSec": 1386.6877980572617,
-        "aaCostPerTaskUsd": 7.7247257970092145,
+        "aaCostPerTaskUsd": 7.724725797009217,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -3877,7 +4654,7 @@
     {
       "name": "Claude Opus 4.7",
       "rawName": "Claude Opus 4.7",
-      "context": "1M",
+      "context": null,
       "inputPerM": 5,
       "outputPerM": 25,
       "cacheReadPerM": 0.5,
@@ -3914,7 +4691,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 49.2955,
+        "gdpval": 49.142,
         "lcr": 75.3333,
         "gpqa": 91.4141,
         "hle": 42.3077,
@@ -3924,14 +4701,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 63.18,
-          "rankingQuality": 63.18,
-          "rankingValue": 28.351
+          "score": 63.119,
+          "rankingQuality": 63.119,
+          "rankingValue": 28.323
         },
         "strategist": {
-          "score": 59.474,
-          "rankingQuality": 59.474,
-          "rankingValue": 26.688
+          "score": 59.413,
+          "rankingQuality": 59.413,
+          "rankingValue": 26.66
         },
         "security-reviewer": {
           "score": 63.859,
@@ -3949,19 +4726,19 @@
           "rankingValue": 26.248
         },
         "implementer-heavy": {
-          "score": 61.063,
-          "rankingQuality": 57.902,
-          "rankingValue": 25.982
+          "score": 61.025,
+          "rankingQuality": 57.877,
+          "rankingValue": 25.971
         },
         "synthesizer": {
-          "score": 62.613,
-          "rankingQuality": 62.613,
-          "rankingValue": 28.096
+          "score": 62.59,
+          "rankingQuality": 62.59,
+          "rankingValue": 28.086
         },
         "researcher": {
-          "score": 62.643,
-          "rankingQuality": 62.643,
-          "rankingValue": 28.11
+          "score": 62.605,
+          "rankingQuality": 62.605,
+          "rankingValue": 28.093
         }
       },
       "caiStar": {
@@ -3981,7 +4758,7 @@
         "tokensPerTask": {
           "reward": 0.40117994100295,
           "costUsd": 5.915424259100206,
-          "wallTimeSec": 950.3123588957067,
+          "wallTimeSec": 950.312358895707,
           "steps": 107.99932608291505,
           "inputTokens": 14256507.348082596,
           "cacheWriteTokens": 186574.30088495577,
@@ -3991,7 +4768,7 @@
           "totalTokens": 16129723.114519438
         },
         "totalTokensPerTask": 16129723.114519438,
-        "timePerTaskSec": 950.3123588957067,
+        "timePerTaskSec": 950.312358895707,
         "aaCostPerTaskUsd": 5.915424259100206,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -4009,7 +4786,7 @@
     {
       "name": "Claude Opus 4.6",
       "rawName": "Claude Opus 4.6",
-      "context": "1M",
+      "context": null,
       "inputPerM": 5,
       "outputPerM": 25,
       "cacheReadPerM": 0.5,
@@ -4046,7 +4823,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 62.3333,
         "gpqa": 84.0404,
         "hle": 19.0918,
@@ -4056,14 +4833,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 52.082,
-          "rankingQuality": 52.082,
-          "rankingValue": 43.657
+          "score": 51.999,
+          "rankingQuality": 51.999,
+          "rankingValue": 43.587
         },
         "strategist": {
-          "score": 48.846,
-          "rankingQuality": 48.846,
-          "rankingValue": 40.945
+          "score": 48.763,
+          "rankingQuality": 48.763,
+          "rankingValue": 40.875
         },
         "security-reviewer": {
           "score": 47.765,
@@ -4072,35 +4849,35 @@
         },
         "code-reviewer": {
           "score": 50.632,
-          "rankingQuality": 45.812,
-          "rankingValue": 38.401
+          "rankingQuality": 45.829,
+          "rankingValue": 38.416
         },
         "implementer": {
           "score": 51.296,
-          "rankingQuality": 46.254,
-          "rankingValue": 38.772
+          "rankingQuality": 46.272,
+          "rankingValue": 38.787
         },
         "implementer-heavy": {
-          "score": 51.96,
-          "rankingQuality": 46.697,
-          "rankingValue": 39.143
+          "score": 51.908,
+          "rankingQuality": 46.68,
+          "rankingValue": 39.129
         },
         "synthesizer": {
-          "score": 47.501,
-          "rankingQuality": 47.501,
-          "rankingValue": 39.817
+          "score": 47.47,
+          "rankingQuality": 47.47,
+          "rankingValue": 39.791
         },
         "researcher": {
-          "score": 52.889,
-          "rankingQuality": 52.889,
-          "rankingValue": 44.334
+          "score": 52.837,
+          "rankingQuality": 52.837,
+          "rankingValue": 44.29
         }
       },
       "caiStar": {
-        "value": 36.171,
+        "value": 36.224,
         "source": "estimated",
-        "ridge": 33.497,
-        "knn": 38.844
+        "ridge": 33.605,
+        "knn": 38.843
       },
       "codingAgent": null,
       "aaModel": {
@@ -4111,7 +4888,7 @@
     {
       "name": "Claude Sonnet 5",
       "rawName": "Claude Sonnet 5",
-      "context": "1M",
+      "context": null,
       "inputPerM": 2,
       "outputPerM": 10,
       "cacheReadPerM": 0.2,
@@ -4148,7 +4925,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 54.6315,
+        "gdpval": 54.182,
         "lcr": 55,
         "gpqa": 91.1111,
         "hle": 41.2882,
@@ -4158,14 +4935,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 60.018,
-          "rankingQuality": 60.018,
-          "rankingValue": 34.95
+          "score": 59.838,
+          "rankingQuality": 59.838,
+          "rankingValue": 34.845
         },
         "strategist": {
-          "score": 56.037,
-          "rankingQuality": 56.037,
-          "rankingValue": 32.632
+          "score": 55.857,
+          "rankingQuality": 55.857,
+          "rankingValue": 32.527
         },
         "security-reviewer": {
           "score": 61.707,
@@ -4174,35 +4951,35 @@
         },
         "code-reviewer": {
           "score": 60.779,
-          "rankingQuality": 57.136,
-          "rankingValue": 33.271
+          "rankingQuality": 57.177,
+          "rankingValue": 33.295
         },
         "implementer": {
           "score": 58.198,
-          "rankingQuality": 55.416,
-          "rankingValue": 32.27
+          "rankingQuality": 55.456,
+          "rankingValue": 32.293
         },
         "implementer-heavy": {
-          "score": 57.884,
-          "rankingQuality": 55.206,
-          "rankingValue": 32.148
+          "score": 57.771,
+          "rankingQuality": 55.171,
+          "rankingValue": 32.127
         },
         "synthesizer": {
-          "score": 53.082,
-          "rankingQuality": 53.082,
-          "rankingValue": 30.911
+          "score": 53.014,
+          "rankingQuality": 53.014,
+          "rankingValue": 30.871
         },
         "researcher": {
-          "score": 55.963,
-          "rankingQuality": 55.963,
-          "rankingValue": 32.588
+          "score": 55.851,
+          "rankingQuality": 55.851,
+          "rankingValue": 32.523
         }
       },
       "caiStar": {
-        "value": 49.851,
+        "value": 49.972,
         "source": "estimated",
-        "ridge": 46.29,
-        "knn": 53.413
+        "ridge": 46.548,
+        "knn": 53.396
       },
       "codingAgent": null,
       "aaModel": {
@@ -4213,7 +4990,7 @@
     {
       "name": "Claude Sonnet 4.6",
       "rawName": "Claude Sonnet 4.6",
-      "context": "1M",
+      "context": null,
       "inputPerM": 3,
       "outputPerM": 15,
       "cacheReadPerM": 0.3,
@@ -4250,7 +5027,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 20,
         "gpqa": 79.899,
         "hle": 13.3457,
@@ -4260,14 +5037,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 39.808,
-          "rankingQuality": 39.808,
-          "rankingValue": 45.199
+          "score": 39.725,
+          "rankingQuality": 39.725,
+          "rankingValue": 45.104
         },
         "strategist": {
-          "score": 39.676,
-          "rankingQuality": 39.676,
-          "rankingValue": 45.049
+          "score": 39.592,
+          "rankingQuality": 39.592,
+          "rankingValue": 44.953
         },
         "security-reviewer": {
           "score": 43.43,
@@ -4285,19 +5062,19 @@
           "rankingValue": 48.269
         },
         "implementer-heavy": {
-          "score": 43.6,
-          "rankingQuality": 41.95,
-          "rankingValue": 47.631
+          "score": 43.548,
+          "rankingQuality": 41.915,
+          "rankingValue": 47.591
         },
         "synthesizer": {
-          "score": 29.318,
-          "rankingQuality": 29.318,
-          "rankingValue": 33.288
+          "score": 29.287,
+          "rankingQuality": 29.287,
+          "rankingValue": 33.253
         },
         "researcher": {
-          "score": 37.546,
-          "rankingQuality": 37.546,
-          "rankingValue": 42.63
+          "score": 37.494,
+          "rankingQuality": 37.494,
+          "rankingValue": 42.571
         }
       },
       "caiStar": {
@@ -4317,17 +5094,17 @@
         "tokensPerTask": {
           "reward": 0.289085545722714,
           "costUsd": 2.0415130214723938,
-          "wallTimeSec": 827.6555807770972,
+          "wallTimeSec": 827.6555807770975,
           "steps": 67.4176891615542,
           "inputTokens": 8347776.569321534,
           "cacheWriteTokens": 172390.57817109145,
           "outputTokens": 67150.87315634219,
           "cacheTokens": 4083419.110429447,
-          "cacheHitRate": 0.9487221679807685,
+          "cacheHitRate": 0.9487221679807681,
           "totalTokens": 8444053.035787314
         },
         "totalTokensPerTask": 8444053.035787314,
-        "timePerTaskSec": 827.6555807770972,
+        "timePerTaskSec": 827.6555807770975,
         "aaCostPerTaskUsd": 2.0415130214723938,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -4345,7 +5122,7 @@
     {
       "name": "Claude Haiku 4.5",
       "rawName": "Claude Haiku 4.5",
-      "context": "200K",
+      "context": null,
       "inputPerM": 1,
       "outputPerM": 5,
       "cacheReadPerM": 0.1,
@@ -4382,7 +5159,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 4.4444,
         "gpqa": 64.6465,
         "hle": 4.2169,
@@ -4392,14 +5169,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 31.5,
-          "rankingQuality": 31.5,
-          "rankingValue": 55.41
+          "score": 31.417,
+          "rankingQuality": 31.417,
+          "rankingValue": 55.264
         },
         "strategist": {
-          "score": 34.496,
-          "rankingQuality": 34.496,
-          "rankingValue": 60.68
+          "score": 34.413,
+          "rankingQuality": 34.413,
+          "rankingValue": 60.534
         },
         "security-reviewer": {
           "score": 38.905,
@@ -4408,35 +5185,35 @@
         },
         "code-reviewer": {
           "score": 36.915,
-          "rankingQuality": 37.618,
-          "rankingValue": 66.172
+          "rankingQuality": 37.555,
+          "rankingValue": 66.061
         },
         "implementer": {
           "score": 31.41,
-          "rankingQuality": 33.948,
-          "rankingValue": 59.716
+          "rankingQuality": 33.885,
+          "rankingValue": 59.605
         },
         "implementer-heavy": {
-          "score": 33.339,
-          "rankingQuality": 35.234,
-          "rankingValue": 61.978
+          "score": 33.287,
+          "rankingQuality": 35.136,
+          "rankingValue": 61.806
         },
         "synthesizer": {
-          "score": 26.055,
-          "rankingQuality": 26.055,
-          "rankingValue": 45.832
+          "score": 26.023,
+          "rankingQuality": 26.023,
+          "rankingValue": 45.775
         },
         "researcher": {
-          "score": 24.855,
-          "rankingQuality": 24.855,
-          "rankingValue": 43.721
+          "score": 24.803,
+          "rankingQuality": 24.803,
+          "rankingValue": 43.629
         }
       },
       "caiStar": {
-        "value": 39.024,
+        "value": 38.834,
         "source": "estimated",
-        "ridge": 37.189,
-        "knn": 40.859
+        "ridge": 36.806,
+        "knn": 40.862
       },
       "codingAgent": null,
       "aaModel": {
@@ -4447,7 +5224,7 @@
     {
       "name": "GPT-5.6 Sol",
       "rawName": "GPT-5.6 Sol",
-      "context": "1.1M",
+      "context": null,
       "inputPerM": 5,
       "outputPerM": 30,
       "cacheReadPerM": 0.5,
@@ -4472,19 +5249,19 @@
         "blended50": 17.5
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 1.231211,
-        "aaCostPerTaskUsd": 0.9604289176458799,
+        "commandCodeCostPerTaskUsd": 1.275614,
+        "aaCostPerTaskUsd": 0.9529762049060371,
         "tokens": {
           "nonCacheInput": 6154.883542565091,
-          "cacheRead": 958393.0516908292,
-          "cacheWrite": 34380.20220173964,
+          "cacheRead": 950670.7603838005,
+          "cacheWrite": 42102.493508768275,
           "reasoning": 10765.805718031059,
           "answer": 6112.989233889698,
           "output": 16878.794951920758
         }
       },
       "benchmarks": {
-        "gdpval": 60.8,
+        "gdpval": 60.507,
         "lcr": 26.1111,
         "gpqa": 94.1414,
         "hle": 49.4903,
@@ -4494,44 +5271,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 57.1,
-          "rankingQuality": 57.1,
-          "rankingValue": 46.377
+          "score": 56.982,
+          "rankingQuality": 56.982,
+          "rankingValue": 44.67
         },
         "strategist": {
-          "score": 51.616,
-          "rankingQuality": 51.616,
-          "rankingValue": 41.923
+          "score": 51.499,
+          "rankingQuality": 51.499,
+          "rankingValue": 40.372
         },
         "security-reviewer": {
           "score": 54.055,
           "rankingQuality": 54.055,
-          "rankingValue": 43.904
+          "rankingValue": 42.376
         },
         "code-reviewer": {
           "score": 53.734,
           "rankingQuality": 57.507,
-          "rankingValue": 46.708
+          "rankingValue": 45.082
         },
         "implementer": {
           "score": 56.667,
           "rankingQuality": 59.462,
-          "rankingValue": 48.296
+          "rankingValue": 46.614
         },
         "implementer-heavy": {
-          "score": 55.097,
-          "rankingQuality": 58.415,
-          "rankingValue": 47.445
+          "score": 55.024,
+          "rankingQuality": 58.367,
+          "rankingValue": 45.756
         },
         "synthesizer": {
-          "score": 34.31,
-          "rankingQuality": 34.31,
-          "rankingValue": 27.867
+          "score": 34.266,
+          "rankingQuality": 34.266,
+          "rankingValue": 26.862
         },
         "researcher": {
-          "score": 53.984,
-          "rankingQuality": 53.984,
-          "rankingValue": 43.846
+          "score": 53.91,
+          "rankingQuality": 53.91,
+          "rankingValue": 42.262
         }
       },
       "caiStar": {
@@ -4550,26 +5327,26 @@
         },
         "tokensPerTask": {
           "reward": 0.687315634218289,
-          "costUsd": 6.420249160020451,
+          "costUsd": 4.995463274846626,
           "wallTimeSec": 613.70177198364,
           "steps": 112.26891615541923,
           "inputTokens": 9770635.345132744,
           "cacheWriteTokens": null,
           "outputTokens": 55315.890855457226,
-          "cacheTokens": 6347957.384458077,
-          "cacheHitRate": 0.9025973208659729,
+          "cacheTokens": 6347957.384458073,
+          "cacheHitRate": 0.902597320865973,
           "totalTokens": 13169248.796012262
         },
         "totalTokensPerTask": 13169248.796012262,
         "timePerTaskSec": 613.70177198364,
-        "aaCostPerTaskUsd": 6.420249160020451,
+        "aaCostPerTaskUsd": 4.995463274846626,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
-          "isHighlighted": true,
-          "isDefault": true,
+          "isHighlighted": false,
+          "isDefault": false,
           "rule": "highlighted > default > highest index score"
         },
-        "aaValuePerDollar": 10.132
+        "aaValuePerDollar": 13.022
       },
       "aaModel": {
         "slug": "gpt-5-6-sol",
@@ -4579,7 +5356,7 @@
     {
       "name": "GPT-5.6 Terra",
       "rawName": "GPT-5.6 Terra",
-      "context": "1.1M",
+      "context": null,
       "inputPerM": 2,
       "outputPerM": 12,
       "cacheReadPerM": 0.2,
@@ -4604,19 +5381,19 @@
         "blended50": 7
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.508019,
-        "aaCostPerTaskUsd": 0.5080188911299259,
+        "commandCodeCostPerTaskUsd": 0.526035,
+        "aaCostPerTaskUsd": 0.5260347624706755,
         "tokens": {
           "nonCacheInput": 6885.499206762742,
-          "cacheRead": 814122.246253208,
-          "cacheWrite": 32549.306502707423,
+          "cacheRead": 806289.2587137517,
+          "cacheWrite": 40382.294042163754,
           "reasoning": 14922.844369990895,
           "answer": 5914.670397424957,
           "output": 20837.51476741585
         }
       },
       "benchmarks": {
-        "gdpval": 53.6565,
+        "gdpval": 53.281,
         "lcr": 31.6667,
         "gpqa": 92.5253,
         "hle": 42.9101,
@@ -4626,44 +5403,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 54.321,
-          "rankingQuality": 54.321,
-          "rankingValue": 106.927
+          "score": 54.171,
+          "rankingQuality": 54.171,
+          "rankingValue": 102.98
         },
         "strategist": {
-          "score": 47.621,
-          "rankingQuality": 47.621,
-          "rankingValue": 93.739
+          "score": 47.471,
+          "rankingQuality": 47.471,
+          "rankingValue": 90.243
         },
         "security-reviewer": {
           "score": 52.879,
           "rankingQuality": 52.879,
-          "rankingValue": 104.089
+          "rankingValue": 100.524
         },
         "code-reviewer": {
           "score": 53.029,
           "rankingQuality": 55.493,
-          "rankingValue": 109.234
+          "rankingValue": 105.493
         },
         "implementer": {
           "score": 55.281,
           "rankingQuality": 56.994,
-          "rankingValue": 112.189
+          "rankingValue": 108.346
         },
         "implementer-heavy": {
-          "score": 53.271,
-          "rankingQuality": 55.654,
-          "rankingValue": 109.551
+          "score": 53.177,
+          "rankingQuality": 55.591,
+          "rankingValue": 105.679
         },
         "synthesizer": {
-          "score": 34.083,
-          "rankingQuality": 34.083,
-          "rankingValue": 67.09
+          "score": 34.027,
+          "rankingQuality": 34.027,
+          "rankingValue": 64.686
         },
         "researcher": {
-          "score": 50.444,
-          "rankingQuality": 50.444,
-          "rankingValue": 99.295
+          "score": 50.35,
+          "rankingQuality": 50.35,
+          "rankingValue": 95.716
         }
       },
       "caiStar": {
@@ -4682,7 +5459,7 @@
         },
         "tokensPerTask": {
           "reward": 0.669616519174041,
-          "costUsd": 2.695350269529651,
+          "costUsd": 1.9300146631901847,
           "wallTimeSec": 491.0206543967283,
           "steps": 95.80674846625767,
           "inputTokens": 7011344.04719764,
@@ -4694,14 +5471,14 @@
         },
         "totalTokensPerTask": 9630511.582822077,
         "timePerTaskSec": 491.0206543967283,
-        "aaCostPerTaskUsd": 2.695350269529651,
+        "aaCostPerTaskUsd": 1.9300146631901847,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
-          "isDefault": true,
+          "isDefault": false,
           "rule": "highlighted > default > highest index score"
         },
-        "aaValuePerDollar": 22.416
+        "aaValuePerDollar": 31.305
       },
       "aaModel": {
         "slug": "gpt-5-6-terra",
@@ -4711,7 +5488,7 @@
     {
       "name": "GPT-5.6 Luna",
       "rawName": "GPT-5.6 Luna",
-      "context": "1.1M",
+      "context": null,
       "inputPerM": 0.2,
       "outputPerM": 1.2,
       "cacheReadPerM": 0.02,
@@ -4736,19 +5513,19 @@
         "blended50": 0.7
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.047128,
-        "aaCostPerTaskUsd": 0.047127533600050245,
+        "commandCodeCostPerTaskUsd": 0.048659,
+        "aaCostPerTaskUsd": 0.04865896719117515,
         "tokens": {
           "nonCacheInput": 7251.129685606495,
-          "cacheRead": 751734.4906656109,
-          "cacheWrite": 26350.528405606354,
+          "cacheRead": 745076.0837476767,
+          "cacheWrite": 33008.93532354071,
           "reasoning": 14393.315543699287,
           "answer": 5652.505913146663,
           "output": 20045.82145684595
         }
       },
       "benchmarks": {
-        "gdpval": 53.8695,
+        "gdpval": 53.4555,
         "lcr": 19.4444,
         "gpqa": 91.1111,
         "hle": 39.481,
@@ -4758,44 +5535,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.553,
-          "rankingQuality": 50.553,
-          "rankingValue": 1072.674
+          "score": 50.388,
+          "rankingQuality": 50.388,
+          "rankingValue": 1035.533
         },
         "strategist": {
-          "score": 43.837,
-          "rankingQuality": 43.837,
-          "rankingValue": 930.169
+          "score": 43.671,
+          "rankingQuality": 43.671,
+          "rankingValue": 897.491
         },
         "security-reviewer": {
           "score": 49.496,
           "rankingQuality": 49.496,
-          "rankingValue": 1050.246
+          "rankingValue": 1017.201
         },
         "code-reviewer": {
           "score": 49.475,
           "rankingQuality": 52.039,
-          "rankingValue": 1104.206
+          "rankingValue": 1069.463
         },
         "implementer": {
           "score": 52.059,
           "rankingQuality": 53.761,
-          "rankingValue": 1140.744
+          "rankingValue": 1104.852
         },
         "implementer-heavy": {
-          "score": 50.113,
-          "rankingQuality": 52.464,
-          "rankingValue": 1113.224
+          "score": 50.01,
+          "rankingQuality": 52.395,
+          "rankingValue": 1076.779
         },
         "synthesizer": {
-          "score": 26.861,
-          "rankingQuality": 26.861,
-          "rankingValue": 569.958
+          "score": 26.799,
+          "rankingQuality": 26.799,
+          "rankingValue": 550.751
         },
         "researcher": {
-          "score": 45.462,
-          "rankingQuality": 45.462,
-          "rankingValue": 964.649
+          "score": 45.359,
+          "rankingQuality": 45.359,
+          "rankingValue": 932.181
         }
       },
       "caiStar": {
@@ -4814,26 +5591,26 @@
         },
         "tokensPerTask": {
           "reward": 0.634218289085546,
-          "costUsd": 1.508396035337423,
+          "costUsd": 0.2882767483844579,
           "wallTimeSec": 482.0907147239265,
           "steps": 114.62883435582822,
           "inputTokens": 13054325.640117994,
           "cacheWriteTokens": null,
           "outputTokens": 67927.49852507375,
           "cacheTokens": 7751235.793456022,
-          "cacheHitRate": 0.9181831202060824,
+          "cacheHitRate": 0.9181831202060821,
           "totalTokens": 15963259.28016359
         },
         "totalTokensPerTask": 15963259.28016359,
         "timePerTaskSec": 482.0907147239265,
-        "aaCostPerTaskUsd": 1.508396035337423,
+        "aaCostPerTaskUsd": 0.2882767483844579,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
           "isDefault": true,
           "rule": "highlighted > default > highest index score"
         },
-        "aaValuePerDollar": 37.899
+        "aaValuePerDollar": 198.303
       },
       "aaModel": {
         "slug": "gpt-5-6-luna",
@@ -4843,7 +5620,7 @@
     {
       "name": "GPT-5.5",
       "rawName": "GPT-5.5",
-      "context": "400K",
+      "context": null,
       "inputPerM": 5,
       "outputPerM": 30,
       "cacheReadPerM": 0.5,
@@ -4868,19 +5645,19 @@
         "blended50": 17.5
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 1.174707,
-        "aaCostPerTaskUsd": 1.1747069315889214,
+        "commandCodeCostPerTaskUsd": 1.191003,
+        "aaCostPerTaskUsd": 1.1910028328395381,
         "tokens": {
           "nonCacheInput": 6112.556811445688,
-          "cacheRead": 309624.2742021448,
-          "cacheWrite": 96506.28792057667,
+          "cacheRead": 306002.96281311894,
+          "cacheWrite": 100127.5993096026,
           "reasoning": 12856.081757977827,
           "answer": 4037.2706029467436,
           "output": 16893.35236092457
         }
       },
       "benchmarks": {
-        "gdpval": 49.429,
+        "gdpval": 49.088,
         "lcr": 17.7778,
         "gpqa": 93.5354,
         "hle": 45.7831,
@@ -4890,44 +5667,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 49.791,
-          "rankingQuality": 49.791,
-          "rankingValue": 42.386
+          "score": 49.654,
+          "rankingQuality": 49.654,
+          "rankingValue": 41.691
         },
         "strategist": {
-          "score": 45.369,
-          "rankingQuality": 45.369,
-          "rankingValue": 38.622
+          "score": 45.232,
+          "rankingQuality": 45.232,
+          "rankingValue": 37.978
         },
         "security-reviewer": {
           "score": 52.805,
           "rankingQuality": 52.805,
-          "rankingValue": 44.952
+          "rankingValue": 44.337
         },
         "code-reviewer": {
           "score": 52.31,
           "rankingQuality": 55.218,
-          "rankingValue": 47.006
+          "rankingValue": 46.363
         },
         "implementer": {
           "score": 54.956,
           "rankingQuality": 56.982,
-          "rankingValue": 48.507
+          "rankingValue": 47.844
         },
         "implementer-heavy": {
-          "score": 50.527,
-          "rankingQuality": 54.029,
-          "rankingValue": 45.994
+          "score": 50.442,
+          "rankingQuality": 53.972,
+          "rankingValue": 45.316
         },
         "synthesizer": {
-          "score": 29.2,
-          "rankingQuality": 29.2,
-          "rankingValue": 24.857
+          "score": 29.149,
+          "rankingQuality": 29.149,
+          "rankingValue": 24.474
         },
         "researcher": {
-          "score": 47.889,
-          "rankingQuality": 47.889,
-          "rankingValue": 40.767
+          "score": 47.804,
+          "rankingQuality": 47.804,
+          "rankingValue": 40.138
         }
       },
       "caiStar": {
@@ -4945,19 +5722,19 @@
           "terminal-bench-v2.1": 82.772
         },
         "tokensPerTask": {
-          "reward": 0.64306784660767,
+          "reward": 0.643067846607669,
           "costUsd": 4.752370071574643,
-          "wallTimeSec": 614.9898987730064,
+          "wallTimeSec": 614.9898987730061,
           "steps": 107.1319018404908,
           "inputTokens": 9686260.805309735,
           "cacheWriteTokens": null,
           "outputTokens": 39818.52802359882,
           "cacheTokens": 5961477.627811859,
           "cacheHitRate": 0.9341674523911524,
-          "totalTokens": 12150851.179959117
+          "totalTokens": 12150851.179959083
         },
-        "totalTokensPerTask": 12150851.179959117,
-        "timePerTaskSec": 614.9898987730064,
+        "totalTokensPerTask": 12150851.179959083,
+        "timePerTaskSec": 614.9898987730061,
         "aaCostPerTaskUsd": 4.752370071574643,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
@@ -4975,7 +5752,7 @@
     {
       "name": "GPT-5.4",
       "rawName": "GPT-5.4",
-      "context": "400K",
+      "context": null,
       "inputPerM": 2.5,
       "outputPerM": 15,
       "cacheReadPerM": 0.25,
@@ -5000,19 +5777,19 @@
         "blended50": 8.75
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 1.103797,
-        "aaCostPerTaskUsd": 1.103797371493454,
+        "commandCodeCostPerTaskUsd": 1.120338,
+        "aaCostPerTaskUsd": 1.1203375391685524,
         "tokens": {
           "nonCacheInput": 6087.584264016439,
-          "cacheRead": 661871.3248989995,
-          "cacheWrite": 162726.24707671738,
+          "cacheRead": 654520.1392656226,
+          "cacheWrite": 170077.4327100944,
           "reasoning": 28961.65676312917,
           "answer": 5458.007364662127,
           "output": 34419.66412779129
         }
       },
       "benchmarks": {
-        "gdpval": 44.5895,
+        "gdpval": 44.244,
         "lcr": 77.6667,
         "gpqa": 92.0202,
         "hle": 43.7442,
@@ -5022,51 +5799,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 62.218,
-          "rankingQuality": 62.218,
-          "rankingValue": 56.367
+          "score": 62.08,
+          "rankingQuality": 62.08,
+          "rankingValue": 55.412
         },
         "strategist": {
-          "score": 53.572,
-          "rankingQuality": 53.572,
-          "rankingValue": 48.534
+          "score": 53.434,
+          "rankingQuality": 53.434,
+          "rankingValue": 47.695
         },
         "security-reviewer": {
           "score": 57.746,
           "rankingQuality": 57.746,
-          "rankingValue": 52.316
+          "rankingValue": 51.543
         },
         "code-reviewer": {
           "score": 60.728,
-          "rankingQuality": 56.816,
-          "rankingValue": 51.473
+          "rankingQuality": 56.868,
+          "rankingValue": 50.76
         },
         "implementer": {
           "score": 63.786,
-          "rankingQuality": 58.855,
-          "rankingValue": 53.32
+          "rankingQuality": 58.906,
+          "rankingValue": 52.579
         },
         "implementer-heavy": {
-          "score": 61.351,
-          "rankingQuality": 57.232,
-          "rankingValue": 51.85
+          "score": 61.265,
+          "rankingQuality": 57.226,
+          "rankingValue": 51.079
         },
         "synthesizer": {
-          "score": 53.47,
-          "rankingQuality": 53.47,
-          "rankingValue": 48.442
+          "score": 53.418,
+          "rankingQuality": 53.418,
+          "rankingValue": 47.68
         },
         "researcher": {
-          "score": 62.795,
-          "rankingQuality": 62.795,
-          "rankingValue": 56.89
+          "score": 62.708,
+          "rankingQuality": 62.708,
+          "rankingValue": 55.972
         }
       },
       "caiStar": {
-        "value": 48.993,
+        "value": 49.147,
         "source": "estimated",
-        "ridge": 45.609,
-        "knn": 52.376
+        "ridge": 45.954,
+        "knn": 52.34
       },
       "codingAgent": null,
       "aaModel": {
@@ -5077,7 +5854,7 @@
     {
       "name": "GPT-5.4 Mini",
       "rawName": "GPT-5.4 Mini",
-      "context": "400K",
+      "context": null,
       "inputPerM": 0.75,
       "outputPerM": 4.5,
       "cacheReadPerM": 0.075,
@@ -5102,19 +5879,19 @@
         "blended50": 2.625
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.49476,
-        "aaCostPerTaskUsd": 0.49475962823531655,
+        "commandCodeCostPerTaskUsd": 0.494783,
+        "aaCostPerTaskUsd": 0.494783145873995,
         "tokens": {
           "nonCacheInput": 6054.671867764765,
-          "cacheRead": 692490.256226935,
-          "cacheWrite": 104749.21962597626,
+          "cacheRead": 692455.4152807447,
+          "cacheWrite": 104784.06057216655,
           "reasoning": 74716.37729705716,
           "answer": 5221.387235829649,
           "output": 79937.76453288681
         }
       },
       "benchmarks": {
-        "gdpval": 33.486,
+        "gdpval": 33.349,
         "lcr": 3.8889,
         "gpqa": 87.4747,
         "hle": 28.1279,
@@ -5124,51 +5901,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 36.081,
-          "rankingQuality": 36.081,
-          "rankingValue": 72.926
+          "score": 36.026,
+          "rankingQuality": 36.026,
+          "rankingValue": 72.812
         },
         "strategist": {
-          "score": 31.396,
-          "rankingQuality": 31.396,
-          "rankingValue": 63.457
+          "score": 31.342,
+          "rankingQuality": 31.342,
+          "rankingValue": 63.345
         },
         "security-reviewer": {
           "score": 44.324,
           "rankingQuality": 44.324,
-          "rankingValue": 89.587
+          "rankingValue": 89.583
         },
         "code-reviewer": {
           "score": 44.322,
-          "rankingQuality": 41.171,
-          "rankingValue": 83.214
+          "rankingQuality": 41.238,
+          "rankingValue": 83.346
         },
         "implementer": {
           "score": 46.448,
-          "rankingQuality": 42.589,
-          "rankingValue": 86.08
+          "rankingQuality": 42.655,
+          "rankingValue": 86.21
         },
         "implementer-heavy": {
-          "score": 40.345,
-          "rankingQuality": 38.52,
-          "rankingValue": 77.856
+          "score": 40.31,
+          "rankingQuality": 38.563,
+          "rankingValue": 77.939
         },
         "synthesizer": {
-          "score": 16.233,
-          "rankingQuality": 16.233,
-          "rankingValue": 32.81
+          "score": 16.213,
+          "rankingQuality": 16.213,
+          "rankingValue": 32.768
         },
         "researcher": {
-          "score": 32.966,
-          "rankingQuality": 32.966,
-          "rankingValue": 66.63
+          "score": 32.931,
+          "rankingQuality": 32.931,
+          "rankingValue": 66.556
         }
       },
       "caiStar": {
-        "value": 34.87,
+        "value": 35.069,
         "source": "estimated",
-        "ridge": 25.272,
-        "knn": 44.468
+        "ridge": 25.67,
+        "knn": 44.467
       },
       "codingAgent": null,
       "aaModel": {
@@ -5179,7 +5956,7 @@
     {
       "name": "GPT-5.3 Codex",
       "rawName": "GPT-5.3 Codex",
-      "context": "400K",
+      "context": null,
       "inputPerM": 2,
       "outputPerM": 8,
       "cacheReadPerM": 0.5,
@@ -5216,7 +5993,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 78.3333,
         "gpqa": 91.5152,
         "hle": 42.493,
@@ -5226,14 +6003,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 61.087,
-          "rankingQuality": 61.087,
-          "rankingValue": 62.44
+          "score": 61.004,
+          "rankingQuality": 61.004,
+          "rankingValue": 62.355
         },
         "strategist": {
-          "score": 53.304,
-          "rankingQuality": 53.304,
-          "rankingValue": 54.485
+          "score": 53.221,
+          "rankingQuality": 53.221,
+          "rankingValue": 54.4
         },
         "security-reviewer": {
           "score": 56.807,
@@ -5242,35 +6019,35 @@
         },
         "code-reviewer": {
           "score": 59.343,
-          "rankingQuality": 55.051,
-          "rankingValue": 56.27
+          "rankingQuality": 55.107,
+          "rankingValue": 56.327
         },
         "implementer": {
           "score": 61.671,
-          "rankingQuality": 56.603,
-          "rankingValue": 57.857
+          "rankingQuality": 56.659,
+          "rankingValue": 57.914
         },
         "implementer-heavy": {
-          "score": 59.293,
-          "rankingQuality": 55.018,
-          "rankingValue": 56.236
+          "score": 59.241,
+          "rankingQuality": 55.039,
+          "rankingValue": 56.258
         },
         "synthesizer": {
-          "score": 54.302,
-          "rankingQuality": 54.302,
-          "rankingValue": 55.505
+          "score": 54.27,
+          "rankingQuality": 54.27,
+          "rankingValue": 55.472
         },
         "researcher": {
-          "score": 62.57,
-          "rankingQuality": 62.57,
-          "rankingValue": 63.956
+          "score": 62.518,
+          "rankingQuality": 62.518,
+          "rankingValue": 63.903
         }
       },
       "caiStar": {
-        "value": 46.468,
+        "value": 46.636,
         "source": "estimated",
-        "ridge": 43.089,
-        "knn": 49.848
+        "ridge": 43.423,
+        "knn": 49.849
       },
       "codingAgent": null,
       "aaModel": {
@@ -5279,18 +6056,120 @@
       }
     },
     {
-      "name": "Gemini 3.7 Flash",
-      "rawName": "Gemini 3.7 Flash-50%",
-      "context": "1M",
-      "inputPerM": 0.75,
-      "outputPerM": 3.75,
-      "cacheReadPerM": 0.075,
-      "cacheWritePerM": 0.04167,
+      "name": "Gemini 3.8 Flash",
+      "rawName": "Gemini 3.8 Flash",
+      "context": null,
+      "inputPerM": 1.5,
+      "outputPerM": 7.5,
+      "cacheReadPerM": 0.15,
+      "cacheWritePerM": null,
       "inputListPerM": 1.5,
       "outputListPerM": 7.5,
       "cacheReadListPerM": 0.15,
-      "cacheWriteListPerM": 0.04167,
-      "discountPercent": 50,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact",
+        "slug": "gemini-3-8-flash",
+        "reason": "Unique normalized match to AA canonical slug."
+      },
+      "tokenPrices": {
+        "input": 1.5,
+        "output": 7.5,
+        "blended50": 4.5
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.153278,
+        "aaCostPerTaskUsd": 0.5766390520257983,
+        "tokens": {
+          "nonCacheInput": 6999.955900921086,
+          "cacheRead": 2063812.164766963,
+          "cacheWrite": 313898.12611485407,
+          "reasoning": 28791.566241561668,
+          "answer": 19522.98793349026,
+          "output": 48314.55417505193
+        }
+      },
+      "benchmarks": {
+        "gdpval": 52.2725,
+        "lcr": 81,
+        "gpqa": 95.2525,
+        "hle": 47.8221,
+        "omniscienceAccuracy": 54.6,
+        "omniscienceReliability": 44.8238,
+        "scicode": 53.588
+      },
+      "roleScores": {
+        "architect": {
+          "score": 67.383,
+          "rankingQuality": 67.383,
+          "rankingValue": 58.427
+        },
+        "strategist": {
+          "score": 62.037,
+          "rankingQuality": 62.037,
+          "rankingValue": 53.792
+        },
+        "security-reviewer": {
+          "score": 64.278,
+          "rankingQuality": 64.278,
+          "rankingValue": 55.735
+        },
+        "code-reviewer": {
+          "score": 64.58,
+          "rankingQuality": 60.526,
+          "rankingValue": 52.482
+        },
+        "implementer": {
+          "score": 63.373,
+          "rankingQuality": 59.722,
+          "rankingValue": 51.785
+        },
+        "implementer-heavy": {
+          "score": 62.908,
+          "rankingQuality": 59.412,
+          "rankingValue": 51.516
+        },
+        "synthesizer": {
+          "score": 64.176,
+          "rankingQuality": 64.176,
+          "rankingValue": 55.647
+        },
+        "researcher": {
+          "score": 67.358,
+          "rankingQuality": 67.358,
+          "rankingValue": 58.406
+        }
+      },
+      "caiStar": {
+        "value": 52.419,
+        "source": "estimated",
+        "ridge": 48.306,
+        "knn": 56.531
+      },
+      "codingAgent": null,
+      "aaModel": {
+        "slug": "gemini-3-8-flash",
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash"
+      }
+    },
+    {
+      "name": "Gemini 3.7 Flash",
+      "rawName": "Gemini 3.7 Flash",
+      "context": null,
+      "inputPerM": 1.5,
+      "outputPerM": 7.5,
+      "cacheReadPerM": 0.15,
+      "cacheWritePerM": 0.08334,
+      "inputListPerM": 1.5,
+      "outputListPerM": 7.5,
+      "cacheReadListPerM": 0.15,
+      "cacheWriteListPerM": 0.08334,
+      "discountPercent": null,
       "free": false,
       "dataTraining": false,
       "offPeakShown": false,
@@ -5301,12 +6180,12 @@
         "reason": "Unique normalized match to AA canonical slug."
       },
       "tokenPrices": {
-        "input": 0.75,
-        "output": 3.75,
-        "blended50": 2.25
+        "input": 1.5,
+        "output": 7.5,
+        "blended50": 4.5
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.250695,
+        "commandCodeCostPerTaskUsd": 0.50139,
         "aaCostPerTaskUsd": 0.40216581818386,
         "tokens": {
           "nonCacheInput": 6961.869869175055,
@@ -5318,7 +6197,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 51.3555,
+        "gdpval": 50.7985,
         "lcr": 15,
         "gpqa": 94.5455,
         "hle": 47.8684,
@@ -5328,44 +6207,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 50.382,
-          "rankingQuality": 50.382,
-          "rankingValue": 200.969
+          "score": 50.159,
+          "rankingQuality": 50.159,
+          "rankingValue": 100.04
         },
         "strategist": {
-          "score": 47.607,
-          "rankingQuality": 47.607,
-          "rankingValue": 189.9
+          "score": 47.384,
+          "rankingQuality": 47.384,
+          "rankingValue": 94.505
         },
         "security-reviewer": {
           "score": 57.079,
           "rankingQuality": 57.079,
-          "rankingValue": 227.683
+          "rankingValue": 113.842
         },
         "code-reviewer": {
           "score": 55.066,
           "rankingQuality": 56.587,
-          "rankingValue": 225.72
+          "rankingValue": 112.86
         },
         "implementer": {
           "score": 55.316,
           "rankingQuality": 56.753,
-          "rankingValue": 226.383
+          "rankingValue": 113.191
         },
         "implementer-heavy": {
-          "score": 50.866,
-          "rankingQuality": 53.787,
-          "rankingValue": 214.552
+          "score": 50.727,
+          "rankingQuality": 53.694,
+          "rankingValue": 107.09
         },
         "synthesizer": {
-          "score": 32.611,
-          "rankingQuality": 32.611,
-          "rankingValue": 130.082
+          "score": 32.527,
+          "rankingQuality": 32.527,
+          "rankingValue": 64.874
         },
         "researcher": {
-          "score": 47.371,
-          "rankingQuality": 47.371,
-          "rankingValue": 188.959
+          "score": 47.232,
+          "rankingQuality": 47.232,
+          "rankingValue": 94.202
         }
       },
       "caiStar": {
@@ -5390,17 +6269,17 @@
           "inputTokens": 18609812.979351033,
           "cacheWriteTokens": 0,
           "outputTokens": 85504.38938053098,
-          "cacheTokens": 8946811.470347652,
+          "cacheTokens": 8946811.470347656,
           "cacheHitRate": 0.8634331167917659,
-          "totalTokens": 18493123.374233097
+          "totalTokens": 18493123.3742331
         },
-        "totalTokensPerTask": 18493123.374233097,
+        "totalTokensPerTask": 18493123.3742331,
         "timePerTaskSec": 527.0915644171779,
         "aaCostPerTaskUsd": 1.2679325688650298,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
-          "isHighlighted": true,
-          "isDefault": true,
+          "isHighlighted": false,
+          "isDefault": false,
           "rule": "highlighted > default > highest index score"
         },
         "aaValuePerDollar": 47.028
@@ -5413,7 +6292,7 @@
     {
       "name": "Gemini 3.6 Flash",
       "rawName": "Gemini 3.6 Flash",
-      "context": "1M",
+      "context": null,
       "inputPerM": 1.5,
       "outputPerM": 7.5,
       "cacheReadPerM": 0.15,
@@ -5450,7 +6329,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 45.9545,
+        "gdpval": 45.7075,
         "lcr": 14.4444,
         "gpqa": 92.8283,
         "hle": 40.8248,
@@ -5460,14 +6339,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 46.682,
-          "rankingQuality": 46.682,
-          "rankingValue": 83.761
+          "score": 46.583,
+          "rankingQuality": 46.583,
+          "rankingValue": 83.583
         },
         "strategist": {
-          "score": 44.984,
-          "rankingQuality": 44.984,
-          "rankingValue": 80.714
+          "score": 44.885,
+          "rankingQuality": 44.885,
+          "rankingValue": 80.537
         },
         "security-reviewer": {
           "score": 55.271,
@@ -5485,19 +6364,19 @@
           "rankingValue": 90.183
         },
         "implementer-heavy": {
-          "score": 47.358,
-          "rankingQuality": 47.319,
-          "rankingValue": 84.904
+          "score": 47.296,
+          "rankingQuality": 47.278,
+          "rankingValue": 84.83
         },
         "synthesizer": {
-          "score": 32.261,
-          "rankingQuality": 32.261,
-          "rankingValue": 57.886
+          "score": 32.224,
+          "rankingQuality": 32.224,
+          "rankingValue": 57.819
         },
         "researcher": {
-          "score": 43.822,
-          "rankingQuality": 43.822,
-          "rankingValue": 78.629
+          "score": 43.76,
+          "rankingQuality": 43.76,
+          "rankingValue": 78.518
         }
       },
       "caiStar": {
@@ -5515,7 +6394,7 @@
           "terminal-bench-v2.1": 78.652
         },
         "tokensPerTask": {
-          "reward": 0.412979351032449,
+          "reward": 0.412979351032448,
           "costUsd": 2.0838901547545983,
           "wallTimeSec": 626.0057290388545,
           "steps": 65.01533742331287,
@@ -5524,9 +6403,9 @@
           "outputTokens": 74638.99705014749,
           "cacheTokens": 6211554.129856843,
           "cacheHitRate": 0.8377770485520734,
-          "totalTokens": 13020159.542944785
+          "totalTokens": 13020159.542944789
         },
-        "totalTokensPerTask": 13020159.542944785,
+        "totalTokensPerTask": 13020159.542944789,
         "timePerTaskSec": 626.0057290388545,
         "aaCostPerTaskUsd": 2.0838901547545983,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
@@ -5545,7 +6424,7 @@
     {
       "name": "Gemini 3.5 Flash",
       "rawName": "Gemini 3.5 Flash",
-      "context": "1M",
+      "context": null,
       "inputPerM": 1.5,
       "outputPerM": 9,
       "cacheReadPerM": 0.15,
@@ -5582,7 +6461,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 42.067,
+        "gdpval": 41.859,
         "lcr": 18.3333,
         "gpqa": 92.2222,
         "hle": 42.6784,
@@ -5592,14 +6471,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 46.256,
-          "rankingQuality": 46.256,
-          "rankingValue": 66.71
+          "score": 46.173,
+          "rankingQuality": 46.173,
+          "rankingValue": 66.59
         },
         "strategist": {
-          "score": 43.778,
-          "rankingQuality": 43.778,
-          "rankingValue": 63.136
+          "score": 43.695,
+          "rankingQuality": 43.695,
+          "rankingValue": 63.017
         },
         "security-reviewer": {
           "score": 55.036,
@@ -5608,35 +6487,35 @@
         },
         "code-reviewer": {
           "score": 53.151,
-          "rankingQuality": 53.307,
-          "rankingValue": 76.879
+          "rankingQuality": 53.312,
+          "rankingValue": 76.886
         },
         "implementer": {
           "score": 52.726,
-          "rankingQuality": 53.024,
-          "rankingValue": 76.471
+          "rankingQuality": 53.029,
+          "rankingValue": 76.478
         },
         "implementer-heavy": {
-          "score": 47.312,
-          "rankingQuality": 49.415,
-          "rankingValue": 71.266
+          "score": 47.26,
+          "rankingQuality": 49.385,
+          "rankingValue": 71.223
         },
         "synthesizer": {
-          "score": 32.405,
-          "rankingQuality": 32.405,
-          "rankingValue": 46.734
+          "score": 32.374,
+          "rankingQuality": 32.374,
+          "rankingValue": 46.69
         },
         "researcher": {
-          "score": 44.398,
-          "rankingQuality": 44.398,
-          "rankingValue": 64.03
+          "score": 44.346,
+          "rankingQuality": 44.346,
+          "rankingValue": 63.955
         }
       },
       "caiStar": {
-        "value": 53.62,
+        "value": 53.634,
         "source": "estimated",
-        "ridge": 48.868,
-        "knn": 58.371
+        "ridge": 48.938,
+        "knn": 58.329
       },
       "codingAgent": null,
       "aaModel": {
@@ -5647,7 +6526,7 @@
     {
       "name": "Gemini 3.5 Flash Lite",
       "rawName": "Gemini 3.5 Flash Lite",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.3,
       "outputPerM": 2.5,
       "cacheReadPerM": 0.03,
@@ -5684,8 +6563,8 @@
         }
       },
       "benchmarks": {
-        "gdpval": 32.0005,
-        "lcr": 74.6667,
+        "gdpval": 31.8155,
+        "lcr": 7.2222,
         "gpqa": 83.8384,
         "hle": 18.8137,
         "omniscienceAccuracy": 29.4667,
@@ -5694,51 +6573,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 51.057,
-          "rankingQuality": 51.057,
-          "rankingValue": 528.951
+          "score": 34.121,
+          "rankingQuality": 34.121,
+          "rankingValue": 353.494
         },
         "strategist": {
-          "score": 48.575,
-          "rankingQuality": 48.575,
-          "rankingValue": 503.238
+          "score": 35.012,
+          "rankingQuality": 35.012,
+          "rankingValue": 362.725
         },
         "security-reviewer": {
-          "score": 54.292,
-          "rankingQuality": 54.292,
-          "rankingValue": 562.466
+          "score": 47.548,
+          "rankingQuality": 47.548,
+          "rankingValue": 492.598
         },
         "code-reviewer": {
-          "score": 54.799,
-          "rankingQuality": 48.825,
-          "rankingValue": 505.828
+          "score": 44.682,
+          "rankingQuality": 42.999,
+          "rankingValue": 445.47
         },
         "implementer": {
-          "score": 50.171,
-          "rankingQuality": 45.739,
-          "rankingValue": 473.857
+          "score": 40.054,
+          "rankingQuality": 39.914,
+          "rankingValue": 413.509
         },
         "implementer-heavy": {
-          "score": 49.703,
-          "rankingQuality": 45.427,
-          "rankingValue": 470.624
+          "score": 36.168,
+          "rankingQuality": 37.323,
+          "rankingValue": 386.667
         },
         "synthesizer": {
-          "score": 57.422,
-          "rankingQuality": 57.422,
-          "rankingValue": 594.893
+          "score": 27.044,
+          "rankingQuality": 27.044,
+          "rankingValue": 280.176
         },
         "researcher": {
-          "score": 50.751,
-          "rankingQuality": 50.751,
-          "rankingValue": 525.781
+          "score": 30.471,
+          "rankingQuality": 30.471,
+          "rankingValue": 315.68
         }
       },
       "caiStar": {
-        "value": 36.876,
+        "value": 39.634,
         "source": "estimated",
-        "ridge": 34.972,
-        "knn": 38.78
+        "ridge": 38.611,
+        "knn": 40.657
       },
       "codingAgent": null,
       "aaModel": {
@@ -5749,7 +6628,7 @@
     {
       "name": "Gemini 3.1 Flash Lite",
       "rawName": "Gemini 3.1 Flash Lite",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.25,
       "outputPerM": 1.5,
       "cacheReadPerM": 0.03,
@@ -5786,7 +6665,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 7.3665,
+        "gdpval": 7.5335,
         "lcr": 6.1111,
         "gpqa": 82.2222,
         "hle": 17.1918,
@@ -5796,14 +6675,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 23.498,
-          "rankingQuality": 23.498,
-          "rankingValue": 536.57
+          "score": 23.564,
+          "rankingQuality": 23.564,
+          "rankingValue": 538.077
         },
         "strategist": {
-          "score": 21.378,
-          "rankingQuality": 21.378,
-          "rankingValue": 488.16
+          "score": 21.445,
+          "rankingQuality": 21.445,
+          "rankingValue": 489.69
         },
         "security-reviewer": {
           "score": 39.775,
@@ -5812,35 +6691,35 @@
         },
         "code-reviewer": {
           "score": 39.668,
-          "rankingQuality": 36.281,
-          "rankingValue": 828.466
+          "rankingQuality": 36.259,
+          "rankingValue": 827.963
         },
         "implementer": {
           "score": 40.108,
-          "rankingQuality": 36.574,
-          "rankingValue": 835.156
+          "rankingQuality": 36.552,
+          "rankingValue": 834.654
         },
         "implementer-heavy": {
-          "score": 30.14,
-          "rankingQuality": 29.929,
-          "rankingValue": 683.42
+          "score": 30.182,
+          "rankingQuality": 29.935,
+          "rankingValue": 683.557
         },
         "synthesizer": {
-          "score": 14.576,
-          "rankingQuality": 14.576,
-          "rankingValue": 332.839
+          "score": 14.601,
+          "rankingQuality": 14.601,
+          "rankingValue": 333.409
         },
         "researcher": {
-          "score": 24.981,
-          "rankingQuality": 24.981,
-          "rankingValue": 570.434
+          "score": 25.023,
+          "rankingQuality": 25.023,
+          "rankingValue": 571.393
         }
       },
       "caiStar": {
-        "value": 29.506,
+        "value": 29.44,
         "source": "estimated",
-        "ridge": 18.548,
-        "knn": 40.465
+        "ridge": 18.427,
+        "knn": 40.453
       },
       "codingAgent": null,
       "aaModel": {
@@ -5851,7 +6730,7 @@
     {
       "name": "Fugu Ultra",
       "rawName": "Fugu Ultra",
-      "context": "1M",
+      "context": null,
       "inputPerM": 5,
       "outputPerM": 30,
       "cacheReadPerM": 0.5,
@@ -5882,9 +6761,213 @@
       "aaModel": null
     },
     {
+      "name": "Muse Spark 1.3",
+      "rawName": "Muse Spark 1.3",
+      "context": null,
+      "inputPerM": 1.25,
+      "outputPerM": 4.25,
+      "cacheReadPerM": 0.15,
+      "cacheWritePerM": null,
+      "inputListPerM": 1.25,
+      "outputListPerM": 4.25,
+      "cacheReadListPerM": 0.15,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": false,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "exact_alias",
+        "slug": "muse-spark-1-3-xhigh",
+        "reason": "AA benchmarks Muse Spark 1.3 as the xhigh variant; CommandCode input/output/cache pricing exactly matches the AA entry ($1.25/$4.25/$0.15)."
+      },
+      "tokenPrices": {
+        "input": 1.25,
+        "output": 4.25,
+        "blended50": 2.75
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.54699,
+        "aaCostPerTaskUsd": 0.5469900533218429,
+        "tokens": {
+          "nonCacheInput": 6158.3853203904,
+          "cacheRead": 1620362.536955725,
+          "cacheWrite": 133145.343107879,
+          "reasoning": 18395.640165323442,
+          "answer": 12146.950950711276,
+          "output": 30542.591116034717
+        }
+      },
+      "benchmarks": {
+        "gdpval": 60.4705,
+        "lcr": 79.3333,
+        "gpqa": 94.1414,
+        "hle": 47.4513,
+        "omniscienceAccuracy": 41.5167,
+        "omniscienceReliability": 68.538,
+        "scicode": 58.5648
+      },
+      "roleScores": {
+        "architect": {
+          "score": 69.968,
+          "rankingQuality": 69.968,
+          "rankingValue": 127.915
+        },
+        "strategist": {
+          "score": 64.626,
+          "rankingQuality": 64.626,
+          "rankingValue": 118.148
+        },
+        "security-reviewer": {
+          "score": 68.809,
+          "rankingQuality": 68.809,
+          "rankingValue": 125.796
+        },
+        "code-reviewer": {
+          "score": 68.681,
+          "rankingQuality": 66.623,
+          "rankingValue": 121.799
+        },
+        "implementer": {
+          "score": 65.905,
+          "rankingQuality": 64.773,
+          "rankingValue": 118.417
+        },
+        "implementer-heavy": {
+          "score": 66.753,
+          "rankingQuality": 65.338,
+          "rankingValue": 119.45
+        },
+        "synthesizer": {
+          "score": 66.782,
+          "rankingQuality": 66.782,
+          "rankingValue": 122.09
+        },
+        "researcher": {
+          "score": 66.087,
+          "rankingQuality": 66.087,
+          "rankingValue": 120.819
+        }
+      },
+      "caiStar": {
+        "value": 62.508,
+        "source": "estimated",
+        "ridge": 62.531,
+        "knn": 62.484
+      },
+      "codingAgent": null,
+      "aaModel": {
+        "slug": "muse-spark-1-3-xhigh",
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
+      }
+    },
+    {
+      "name": "Muse Spark 1.3 Contributor",
+      "rawName": "Muse Spark 1.3 Contributor",
+      "context": null,
+      "inputPerM": 0.1,
+      "outputPerM": 0.2,
+      "cacheReadPerM": 0.002,
+      "cacheWritePerM": null,
+      "inputListPerM": 0.1,
+      "outputListPerM": 0.2,
+      "cacheReadListPerM": 0.002,
+      "cacheWriteListPerM": null,
+      "discountPercent": null,
+      "free": false,
+      "dataTraining": true,
+      "offPeakShown": false,
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "mapping": {
+        "status": "commercial_variant",
+        "slug": "muse-spark-1-3-xhigh",
+        "reason": "Contributor is the lower-price CommandCode commercial/data-sharing variant of the same Muse Spark 1.3 benchmark identity."
+      },
+      "tokenPrices": {
+        "input": 0.1,
+        "output": 0.2,
+        "blended50": 0.15
+      },
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.02328,
+        "aaCostPerTaskUsd": 0.5469900533218429,
+        "tokens": {
+          "nonCacheInput": 6158.3853203904,
+          "cacheRead": 1620362.536955725,
+          "cacheWrite": 133145.343107879,
+          "reasoning": 18395.640165323442,
+          "answer": 12146.950950711276,
+          "output": 30542.591116034717
+        }
+      },
+      "benchmarks": {
+        "gdpval": 60.4705,
+        "lcr": 79.3333,
+        "gpqa": 94.1414,
+        "hle": 47.4513,
+        "omniscienceAccuracy": 41.5167,
+        "omniscienceReliability": 68.538,
+        "scicode": 58.5648
+      },
+      "roleScores": {
+        "architect": {
+          "score": 69.968,
+          "rankingQuality": 69.968,
+          "rankingValue": 3005.498
+        },
+        "strategist": {
+          "score": 64.626,
+          "rankingQuality": 64.626,
+          "rankingValue": 2776.031
+        },
+        "security-reviewer": {
+          "score": 68.809,
+          "rankingQuality": 68.809,
+          "rankingValue": 2955.713
+        },
+        "code-reviewer": {
+          "score": 68.681,
+          "rankingQuality": 66.623,
+          "rankingValue": 2861.813
+        },
+        "implementer": {
+          "score": 65.905,
+          "rankingQuality": 64.773,
+          "rankingValue": 2782.345
+        },
+        "implementer-heavy": {
+          "score": 66.753,
+          "rankingQuality": 65.338,
+          "rankingValue": 2806.615
+        },
+        "synthesizer": {
+          "score": 66.782,
+          "rankingQuality": 66.782,
+          "rankingValue": 2868.643
+        },
+        "researcher": {
+          "score": 66.087,
+          "rankingQuality": 66.087,
+          "rankingValue": 2838.789
+        }
+      },
+      "caiStar": {
+        "value": 62.508,
+        "source": "estimated",
+        "ridge": 62.531,
+        "knn": 62.484
+      },
+      "codingAgent": null,
+      "aaModel": {
+        "slug": "muse-spark-1-3-xhigh",
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
+      }
+    },
+    {
       "name": "Muse Spark 1.2",
       "rawName": "Muse Spark 1.2",
-      "context": "1M",
+      "context": null,
       "inputPerM": 1.25,
       "outputPerM": 4.25,
       "cacheReadPerM": 0.15,
@@ -5921,7 +7004,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 56.1315,
+        "gdpval": 55.751,
         "lcr": 31.1111,
         "gpqa": 90.404,
         "hle": 45.4588,
@@ -5931,14 +7014,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.13,
-          "rankingQuality": 55.13,
-          "rankingValue": 138.101
+          "score": 54.978,
+          "rankingQuality": 54.978,
+          "rankingValue": 137.72
         },
         "strategist": {
-          "score": 53.463,
-          "rankingQuality": 53.463,
-          "rankingValue": 133.925
+          "score": 53.31,
+          "rankingQuality": 53.31,
+          "rankingValue": 133.542
         },
         "security-reviewer": {
           "score": 61.72,
@@ -5956,19 +7039,19 @@
           "rankingValue": 145.979
         },
         "implementer-heavy": {
-          "score": 54.66,
-          "rankingQuality": 56.987,
-          "rankingValue": 142.753
+          "score": 54.565,
+          "rankingQuality": 56.923,
+          "rankingValue": 142.593
         },
         "synthesizer": {
-          "score": 44.838,
-          "rankingQuality": 44.838,
-          "rankingValue": 112.32
+          "score": 44.781,
+          "rankingQuality": 44.781,
+          "rankingValue": 112.177
         },
         "researcher": {
-          "score": 50.549,
-          "rankingQuality": 50.549,
-          "rankingValue": 126.626
+          "score": 50.454,
+          "rankingQuality": 50.454,
+          "rankingValue": 126.388
         }
       },
       "caiStar": {
@@ -5986,7 +7069,7 @@
           "terminal-bench-v2.1": 81.648
         },
         "tokensPerTask": {
-          "reward": 0.581120943952803,
+          "reward": 0.581120943952802,
           "costUsd": 2.072823051942741,
           "wallTimeSec": 2448.6433139059327,
           "steps": 151.43456032719837,
@@ -6003,7 +7086,7 @@
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
-          "isDefault": true,
+          "isDefault": false,
           "rule": "highlighted > default > highest index score"
         },
         "aaValuePerDollar": 29.737
@@ -6016,7 +7099,7 @@
     {
       "name": "Muse Spark 1.2 Contributor",
       "rawName": "Muse Spark 1.2 Contributor",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.1,
       "outputPerM": 0.2,
       "cacheReadPerM": 0.002,
@@ -6053,7 +7136,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 56.1315,
+        "gdpval": 55.751,
         "lcr": 31.1111,
         "gpqa": 90.404,
         "hle": 45.4588,
@@ -6063,14 +7146,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.13,
-          "rankingQuality": 55.13,
-          "rankingValue": 3284.285
+          "score": 54.978,
+          "rankingQuality": 54.978,
+          "rankingValue": 3275.229
         },
         "strategist": {
-          "score": 53.463,
-          "rankingQuality": 53.463,
-          "rankingValue": 3184.976
+          "score": 53.31,
+          "rankingQuality": 53.31,
+          "rankingValue": 3175.861
         },
         "security-reviewer": {
           "score": 61.72,
@@ -6088,19 +7171,19 @@
           "rankingValue": 3471.643
         },
         "implementer-heavy": {
-          "score": 54.66,
-          "rankingQuality": 56.987,
-          "rankingValue": 3394.912
+          "score": 54.565,
+          "rankingQuality": 56.923,
+          "rankingValue": 3391.1
         },
         "synthesizer": {
-          "score": 44.838,
-          "rankingQuality": 44.838,
-          "rankingValue": 2671.155
+          "score": 44.781,
+          "rankingQuality": 44.781,
+          "rankingValue": 2667.759
         },
         "researcher": {
-          "score": 50.549,
-          "rankingQuality": 50.549,
-          "rankingValue": 3011.379
+          "score": 50.454,
+          "rankingQuality": 50.454,
+          "rankingValue": 3005.719
         }
       },
       "caiStar": {
@@ -6118,7 +7201,7 @@
           "terminal-bench-v2.1": 81.648
         },
         "tokensPerTask": {
-          "reward": 0.581120943952803,
+          "reward": 0.581120943952802,
           "costUsd": 2.072823051942741,
           "wallTimeSec": 2448.6433139059327,
           "steps": 151.43456032719837,
@@ -6135,7 +7218,7 @@
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
-          "isDefault": true,
+          "isDefault": false,
           "rule": "highlighted > default > highest index score"
         },
         "aaValuePerDollar": 29.737
@@ -6148,7 +7231,7 @@
     {
       "name": "Muse Spark 1.1",
       "rawName": "Muse Spark 1.1",
-      "context": "1M",
+      "context": null,
       "inputPerM": 1.25,
       "outputPerM": 4.25,
       "cacheReadPerM": 0.15,
@@ -6185,7 +7268,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 43.7485,
+        "gdpval": 43.574,
         "lcr": 81.3333,
         "gpqa": 89.798,
         "hle": 46.2002,
@@ -6195,14 +7278,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 62.722,
-          "rankingQuality": 62.722,
-          "rankingValue": 214.554
+          "score": 62.653,
+          "rankingQuality": 62.653,
+          "rankingValue": 214.318
         },
         "strategist": {
-          "score": 58.158,
-          "rankingQuality": 58.158,
-          "rankingValue": 198.942
+          "score": 58.088,
+          "rankingQuality": 58.088,
+          "rankingValue": 198.702
         },
         "security-reviewer": {
           "score": 64.791,
@@ -6220,19 +7303,19 @@
           "rankingValue": 211.355
         },
         "implementer-heavy": {
-          "score": 62.382,
-          "rankingQuality": 59.895,
-          "rankingValue": 204.883
+          "score": 62.338,
+          "rankingQuality": 59.866,
+          "rankingValue": 204.784
         },
         "synthesizer": {
-          "score": 63.576,
-          "rankingQuality": 63.576,
-          "rankingValue": 217.475
+          "score": 63.55,
+          "rankingQuality": 63.55,
+          "rankingValue": 217.386
         },
         "researcher": {
-          "score": 63.837,
-          "rankingQuality": 63.837,
-          "rankingValue": 218.368
+          "score": 63.793,
+          "rankingQuality": 63.793,
+          "rankingValue": 218.217
         }
       },
       "caiStar": {
@@ -6251,8 +7334,8 @@
         },
         "tokensPerTask": {
           "reward": 0.542772861356932,
-          "costUsd": 1.435218435173823,
-          "wallTimeSec": 761.3780071574632,
+          "costUsd": 1.4352184351738262,
+          "wallTimeSec": 761.3780071574635,
           "steps": 55.51329243353784,
           "inputTokens": 13967690.943952803,
           "cacheWriteTokens": 0,
@@ -6262,8 +7345,8 @@
           "totalTokens": 12289527.214723915
         },
         "totalTokensPerTask": 12289527.214723915,
-        "timePerTaskSec": 761.3780071574632,
-        "aaCostPerTaskUsd": 1.435218435173823,
+        "timePerTaskSec": 761.3780071574635,
+        "aaCostPerTaskUsd": 1.4352184351738262,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
@@ -6280,7 +7363,7 @@
     {
       "name": "Grok 4.6",
       "rawName": "Grok 4.6",
-      "context": "500K",
+      "context": null,
       "inputPerM": 2,
       "outputPerM": 6,
       "cacheReadPerM": 0.5,
@@ -6305,19 +7388,19 @@
         "blended50": 4
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.836671,
-        "aaCostPerTaskUsd": 0.8366707813404866,
+        "commandCodeCostPerTaskUsd": 0.937217,
+        "aaCostPerTaskUsd": 0.9372171271668933,
         "tokens": {
           "nonCacheInput": 6102.838360024687,
-          "cacheRead": 807153.553452597,
-          "cacheWrite": 145240.0366282766,
+          "cacheRead": 740122.6562349924,
+          "cacheWrite": 212270.93384588123,
           "reasoning": 12765.417288934888,
           "answer": 8969.291817329324,
           "output": 21734.709106264214
         }
       },
       "benchmarks": {
-        "gdpval": 62.088,
+        "gdpval": 61.4965,
         "lcr": 12.2222,
         "gpqa": 94.9495,
         "hle": 42.9101,
@@ -6327,51 +7410,51 @@
       },
       "roleScores": {
         "architect": {
-          "score": 53.317,
-          "rankingQuality": 53.317,
-          "rankingValue": 63.725
+          "score": 53.081,
+          "rankingQuality": 53.081,
+          "rankingValue": 56.637
         },
         "strategist": {
-          "score": 52.992,
-          "rankingQuality": 52.992,
-          "rankingValue": 63.337
+          "score": 52.756,
+          "rankingQuality": 52.756,
+          "rankingValue": 56.29
         },
         "security-reviewer": {
           "score": 59.475,
           "rankingQuality": 59.475,
-          "rankingValue": 71.085
+          "rankingValue": 63.459
         },
         "code-reviewer": {
           "score": 55.8,
-          "rankingQuality": 57.894,
-          "rankingValue": 69.196
+          "rankingQuality": 57.839,
+          "rankingValue": 61.714
         },
         "implementer": {
           "score": 52.52,
-          "rankingQuality": 55.707,
-          "rankingValue": 66.582
+          "rankingQuality": 55.652,
+          "rankingValue": 59.38
         },
         "implementer-heavy": {
-          "score": 51.576,
-          "rankingQuality": 55.078,
-          "rankingValue": 65.83
+          "score": 51.428,
+          "rankingQuality": 54.924,
+          "rankingValue": 58.603
         },
         "synthesizer": {
-          "score": 37.602,
-          "rankingQuality": 37.602,
-          "rankingValue": 44.942
+          "score": 37.513,
+          "rankingQuality": 37.513,
+          "rankingValue": 40.026
         },
         "researcher": {
-          "score": 47.369,
-          "rankingQuality": 47.369,
-          "rankingValue": 56.616
+          "score": 47.221,
+          "rankingQuality": 47.221,
+          "rankingValue": 50.384
         }
       },
       "caiStar": {
-        "value": 62.081,
+        "value": 61.916,
         "source": "estimated",
-        "ridge": 65.335,
-        "knn": 58.827
+        "ridge": 64.995,
+        "knn": 58.837
       },
       "codingAgent": null,
       "aaModel": {
@@ -6382,7 +7465,7 @@
     {
       "name": "Grok 4.5",
       "rawName": "Grok 4.5",
-      "context": "500K",
+      "context": null,
       "inputPerM": 2,
       "outputPerM": 6,
       "cacheReadPerM": 0.5,
@@ -6407,19 +7490,19 @@
         "blended50": 4
       },
       "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.434908,
-        "aaCostPerTaskUsd": 0.3600867355990034,
+        "commandCodeCostPerTaskUsd": 0.492709,
+        "aaCostPerTaskUsd": 0.42559443703902644,
         "tokens": {
           "nonCacheInput": 6121.250124316139,
-          "cacheRead": 374105.09972282214,
-          "cacheWrite": 73420.6837932842,
+          "cacheRead": 335571.15769927914,
+          "cacheWrite": 111954.6258168272,
           "reasoning": 7571.241935421061,
           "answer": 7223.981039071624,
           "output": 14795.222974492684
         }
       },
       "benchmarks": {
-        "gdpval": 50.9185,
+        "gdpval": 50.902,
         "lcr": 15,
         "gpqa": 93.1313,
         "hle": 42.6784,
@@ -6429,44 +7512,44 @@
       },
       "roleScores": {
         "architect": {
-          "score": 49.145,
-          "rankingQuality": 49.145,
-          "rankingValue": 113.001
+          "score": 49.139,
+          "rankingQuality": 49.139,
+          "rankingValue": 99.732
         },
         "strategist": {
-          "score": 47.576,
-          "rankingQuality": 47.576,
-          "rankingValue": 109.393
+          "score": 47.569,
+          "rankingQuality": 47.569,
+          "rankingValue": 96.546
         },
         "security-reviewer": {
           "score": 56.412,
           "rankingQuality": 56.412,
-          "rankingValue": 129.71
+          "rankingValue": 114.494
         },
         "code-reviewer": {
           "score": 54.052,
           "rankingQuality": 57.398,
-          "rankingValue": 131.977
+          "rankingValue": 116.495
         },
         "implementer": {
           "score": 52.918,
           "rankingQuality": 56.642,
-          "rankingValue": 130.239
+          "rankingValue": 114.96
         },
         "implementer-heavy": {
-          "score": 49.366,
-          "rankingQuality": 54.274,
-          "rankingValue": 124.794
+          "score": 49.362,
+          "rankingQuality": 54.271,
+          "rankingValue": 110.148
         },
         "synthesizer": {
-          "score": 33.869,
-          "rankingQuality": 33.869,
-          "rankingValue": 77.876
+          "score": 33.866,
+          "rankingQuality": 33.866,
+          "rankingValue": 68.734
         },
         "researcher": {
-          "score": 45.777,
-          "rankingQuality": 45.777,
-          "rankingValue": 105.257
+          "score": 45.773,
+          "rankingQuality": 45.773,
+          "rankingValue": 92.901
         }
       },
       "caiStar": {
@@ -6492,7 +7575,7 @@
           "cacheWriteTokens": null,
           "outputTokens": 43048.22418879056,
           "cacheTokens": 1735633.0143149286,
-          "cacheHitRate": 0.9238990226060743,
+          "cacheHitRate": 0.9238990226060748,
           "totalTokens": 3598867.582822087
         },
         "totalTokensPerTask": 3598867.582822087,
@@ -6514,7 +7597,7 @@
     {
       "name": "Inkling",
       "rawName": "Inkling",
-      "context": "256K",
+      "context": null,
       "inputPerM": 1,
       "outputPerM": 4.05,
       "cacheReadPerM": 0.17,
@@ -6551,7 +7634,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 36.8195,
+        "gdpval": 36.7145,
         "lcr": 12.2222,
         "gpqa": 87.1717,
         "hle": 31.8814,
@@ -6561,14 +7644,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 40,
-          "rankingQuality": 40,
-          "rankingValue": 118.034
+          "score": 39.958,
+          "rankingQuality": 39.958,
+          "rankingValue": 117.91
         },
         "strategist": {
-          "score": 37.433,
-          "rankingQuality": 37.433,
-          "rankingValue": 110.459
+          "score": 37.391,
+          "rankingQuality": 37.391,
+          "rankingValue": 110.335
         },
         "security-reviewer": {
           "score": 48.061,
@@ -6577,35 +7660,35 @@
         },
         "code-reviewer": {
           "score": 46.419,
-          "rankingQuality": 44.898,
-          "rankingValue": 132.487
+          "rankingQuality": 44.903,
+          "rankingValue": 132.502
         },
         "implementer": {
           "score": 45.736,
-          "rankingQuality": 44.442,
-          "rankingValue": 131.142
+          "rankingQuality": 44.447,
+          "rankingValue": 131.157
         },
         "implementer-heavy": {
-          "score": 41.096,
-          "rankingQuality": 41.349,
-          "rankingValue": 122.015
+          "score": 41.069,
+          "rankingQuality": 41.336,
+          "rankingValue": 121.976
         },
         "synthesizer": {
-          "score": 25.8,
-          "rankingQuality": 25.8,
-          "rankingValue": 76.132
+          "score": 25.784,
+          "rankingQuality": 25.784,
+          "rankingValue": 76.085
         },
         "researcher": {
-          "score": 37.445,
-          "rankingQuality": 37.445,
-          "rankingValue": 110.495
+          "score": 37.419,
+          "rankingQuality": 37.419,
+          "rankingValue": 110.418
         }
       },
       "caiStar": {
-        "value": 41.855,
+        "value": 41.87,
         "source": "estimated",
-        "ridge": 40.262,
-        "knn": 43.449
+        "ridge": 40.211,
+        "knn": 43.53
       },
       "codingAgent": null,
       "aaModel": {
@@ -6616,7 +7699,7 @@
     {
       "name": "Inkling Small",
       "rawName": "Inkling Small",
-      "context": "1M",
+      "context": null,
       "inputPerM": 0.5,
       "outputPerM": 1.2,
       "cacheReadPerM": 0.1,
@@ -6653,7 +7736,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 38.433,
+        "gdpval": 38.401,
         "lcr": 69.3333,
         "gpqa": 89.4949,
         "hle": 33.3179,
@@ -6663,14 +7746,14 @@
       },
       "roleScores": {
         "architect": {
-          "score": 55.603,
-          "rankingQuality": 55.603,
-          "rankingValue": 540.843
+          "score": 55.59,
+          "rankingQuality": 55.59,
+          "rankingValue": 540.717
         },
         "strategist": {
-          "score": 48.523,
-          "rankingQuality": 48.523,
-          "rankingValue": 471.977
+          "score": 48.511,
+          "rankingQuality": 48.511,
+          "rankingValue": 471.86
         },
         "security-reviewer": {
           "score": 56.14,
@@ -6679,35 +7762,35 @@
         },
         "code-reviewer": {
           "score": 57.259,
-          "rankingQuality": 51.935,
-          "rankingValue": 505.165
+          "rankingQuality": 51.958,
+          "rankingValue": 505.389
         },
         "implementer": {
           "score": 56.392,
-          "rankingQuality": 51.357,
-          "rankingValue": 499.543
+          "rankingQuality": 51.38,
+          "rankingValue": 499.767
         },
         "implementer-heavy": {
-          "score": 54.352,
-          "rankingQuality": 49.997,
-          "rankingValue": 486.314
+          "score": 54.344,
+          "rankingQuality": 50.015,
+          "rankingValue": 486.489
         },
         "synthesizer": {
-          "score": 51,
-          "rankingQuality": 51,
-          "rankingValue": 496.07
+          "score": 50.995,
+          "rankingQuality": 50.995,
+          "rankingValue": 496.022
         },
         "researcher": {
-          "score": 53.798,
-          "rankingQuality": 53.798,
-          "rankingValue": 523.286
+          "score": 53.79,
+          "rankingQuality": 53.79,
+          "rankingValue": 523.208
         }
       },
       "caiStar": {
-        "value": 41.286,
+        "value": 41.356,
         "source": "estimated",
-        "ridge": 38.626,
-        "knn": 43.946
+        "ridge": 38.751,
+        "knn": 43.961
       },
       "codingAgent": null,
       "aaModel": {
