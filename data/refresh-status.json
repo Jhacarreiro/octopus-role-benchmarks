@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "status": "success",
-  "attemptedAt": "2026-09-04T13:29:32.822Z",
+  "attemptedAt": "2026-09-04T13:59:42.252Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-04",
-    "generatedAt": "2026-09-04T13:28:10.367Z"
+    "generatedAt": "2026-09-04T13:59:41.846Z"
   },
   "stage": null,
   "errorSummary": null,
-  "runUrl": null
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/33881114298"
 }
