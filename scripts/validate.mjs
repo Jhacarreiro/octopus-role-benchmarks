@@ -24,7 +24,9 @@ for(const m of latest.models||[]){
   if(m.caiStar?.value==null) throw new Error(`Scored model lacks CAI*: ${m.name}`);
   for(const role of latest.roles){
     const r=m.roleScores?.[role.id];
-    if(!r||r.rankingValue==null) throw new Error(`Missing ranking value: ${m.name}/${role.id}`);
+    if(!r) throw new Error(`Missing role score: ${m.name}/${role.id}`);
+    const cost=m.taskEfficiency?.commandCodeCostPerTaskUsd;
+    if(r.rankingValue==null&&cost!==0) throw new Error(`Missing ranking value: ${m.name}/${role.id}`);
     if(role.codingAdjusted&&r.rankingQuality==null) throw new Error(`Missing coding-adjusted quality: ${m.name}/${role.id}`);
   }
 }

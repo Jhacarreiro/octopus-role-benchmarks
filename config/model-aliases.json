@@ -50,8 +50,9 @@
       "reason": "Stealth/anonymous model; no verified AA identity."
     },
     "DeepSeek V4 Flash Vision (exp)": {
-      "status": "unscored",
-      "reason": "No verified AA identity for the experimental vision variant; not proxied to text-only Flash."
+      "status": "exact_alias",
+      "slug": "deepseek-v4-flash-vision",
+      "reason": "AA now exposes the matching DeepSeek V4 Flash Vision benchmark family."
     },
     "Qwen 3.7 Flash": {
       "status": "unscored",
@@ -65,6 +66,30 @@
       "status": "exact_alias",
       "slug": "mimo-v2-5-0424",
       "reason": "AA canonical MiMo-V2.5 release currently uses the 0424 slug."
+    },
+    "Tencent Hy4 Preview": {
+      "status": "unscored",
+      "reason": "No verified Artificial Analysis Hy4 model family at publication time; do not proxy to Hy3 Preview."
+    },
+    "Qwen 3.8 Max 0902": {
+      "status": "exact_alias",
+      "slug": "qwen3-8-max",
+      "reason": "CommandCode current Qwen 3.8 Max 0902 row maps to AA Qwen3.8 Max; the input/output/cache price tuple matches AA ($2/$6/$0.25)."
+    },
+    "Qwen 3.8 Flash": {
+      "status": "exact_alias",
+      "slug": "qwen3-8-flash-next",
+      "reason": "AA exposes the current Qwen3.8 Flash benchmark as Qwen3.8-Flash-Next; CommandCode output/cache pricing matches the AA entry."
+    },
+    "Muse Spark 1.3": {
+      "status": "exact_alias",
+      "slug": "muse-spark-1-3-xhigh",
+      "reason": "AA benchmarks Muse Spark 1.3 as the xhigh variant; CommandCode input/output/cache pricing exactly matches the AA entry ($1.25/$4.25/$0.15)."
+    },
+    "Muse Spark 1.3 Contributor": {
+      "status": "commercial_variant",
+      "slug": "muse-spark-1-3-xhigh",
+      "reason": "Contributor is the lower-price CommandCode commercial/data-sharing variant of the same Muse Spark 1.3 benchmark identity."
     }
   }
 }

@@ -1,7 +1,7 @@
 # CAI estimation — reverse validation
 
-Snapshot: **2026-08-25**
-Observed Coding Agent families: **22**
+Snapshot: **2026-09-04**
+Observed Coding Agent families: **23**
 
 ## Selected estimator
 
@@ -17,14 +17,14 @@ An entire vendor/family group is removed from training before predicting it. Thi
 
 | Method | MAE | RMSE | Spearman | Pairwise accuracy |
 |---|---:|---:|---:|---:|
-| Ridge | 6.02 | 7.7 | 0.735 | 75.8% |
-| 5NN | 5.31 | 7.98 | 0.762 | 78.8% |
-| **50/50 ensemble** | **5.06** | **7.12** | **0.84** | **81%** |
+| Ridge | 6.1 | 7.72 | 0.749 | 76.3% |
+| 5NN | 5.55 | 8.08 | 0.769 | 78.7% |
+| **50/50 ensemble** | **5.2** | **7.24** | **0.849** | **81.8%** |
 
 ## Random 30% holdout × 500
 
-- MAE median: **4.91**; p90: **7.57**.
-- Spearman median: **0.821**; p10: **0.607**.
+- MAE median: **4.9**; p90: **7.36**.
+- Spearman median: **0.857**; p10: **0.679**.
 - Pairwise ranking accuracy median: **85.7%**.
 
 ## Effect on final ranking
@@ -33,10 +33,10 @@ For each observed family, the real CAI is hidden using leave-one-vendor-out; the
 
 | Role | Spearman | Pairwise accuracy | Top-5 recovered | Quality MAE |
 |---|---:|---:|---:|---:|
-| implementer | 0.996 | 98.7% | 100% | 1.69 |
-| implementer-heavy | 0.999 | 99.6% | 100% | 1.69 |
-| code-reviewer | 0.999 | 99.6% | 100% | 1.69 |
+| implementer | 0.995 | 98.8% | 100% | 1.73 |
+| implementer-heavy | 0.993 | 98.4% | 100% | 1.73 |
+| code-reviewer | 0.996 | 98.8% | 100% | 1.73 |
 
 ## Guardrails
 
-The scheduled weekly pipeline fails closed if leave-one-vendor-out ensemble MAE rises above 8, estimator Spearman falls below 0.70, or any coding-role final-ranking Spearman falls below 0.95 / top-5 recovery below 80%.
+The daily pipeline fails closed if leave-one-vendor-out ensemble MAE rises above 8, estimator Spearman falls below 0.70, or any coding-role final-ranking Spearman falls below 0.95 / top-5 recovery below 80%.

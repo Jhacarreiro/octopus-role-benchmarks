@@ -15,16 +15,65 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run update
-      - run: npm test
-      - name: Commit snapshot if changed
+
+      - name: Run benchmark refresh
+        id: refresh
+        continue-on-error: true
+        shell: bash
         run: |
-          if git diff --quiet && git diff --cached --quiet; then
-            echo "No changes"
-            exit 0
+          set +e
+          : > /tmp/octopus-refresh.log
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          npm run update 2>&1 | tee -a /tmp/octopus-refresh.log
+          update_code=${PIPESTATUS[0]}
+          if [ "$update_code" -ne 0 ]; then
+            echo "publish_snapshot=false" >> "$GITHUB_OUTPUT"
+            node scripts/write-refresh-status.mjs --status error --stage update --log-file /tmp/octopus-refresh.log --run-url "$RUN_URL"
+            exit "$update_code"
           fi
+
+          npm run check:snapshot 2>&1 | tee -a /tmp/octopus-refresh.log
+          validate_code=${PIPESTATUS[0]}
+          if [ "$validate_code" -ne 0 ]; then
+            echo "publish_snapshot=false" >> "$GITHUB_OUTPUT"
+            node scripts/write-refresh-status.mjs --status error --stage validation --log-file /tmp/octopus-refresh.log --run-url "$RUN_URL"
+            exit "$validate_code"
+          fi
+
+          if npm run update-lineups 2>&1 | tee -a /tmp/octopus-refresh.log; then
+            echo "Lineup artifacts refreshed"
+          else
+            echo "::warning::Lineup policy needs review; benchmark snapshot remains publishable"
+          fi
+
+          node scripts/write-refresh-status.mjs --status success --run-url "$RUN_URL"
+          echo "publish_snapshot=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit public refresh state
+        shell: bash
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data site/data methodology/cai-estimation-validation.md
-          git commit -m "data: weekly benchmark snapshot $(date -u +%F)"
+
+          if [ "${{ steps.refresh.outputs.publish_snapshot }}" = "true" ]; then
+            git add data site/data methodology/cai-estimation-validation.md
+          else
+            git add data/refresh-status.json site/data/refresh-status.json
+          fi
+
+          if git diff --cached --quiet; then
+            echo "No public state changes"
+            exit 0
+          fi
+
+          if [ "${{ steps.refresh.outputs.publish_snapshot }}" = "true" ]; then
+            git commit -m "data: weekly benchmark snapshot $(date -u +%F)"
+          else
+            git commit -m "status: benchmark refresh failed $(date -u +%F)"
+          fi
           git push
+
+      - name: Fail workflow when refresh failed
+        if: steps.refresh.outcome == 'failure'
+        run: exit 1

@@ -5,12 +5,16 @@
   "type": "module",
   "scripts": {
     "install-adapters": "node scripts/install-opencli-adapters.mjs",
-    "update": "node scripts/update.mjs && node scripts/reverse-validate-cai.mjs && node scripts/build-lineups.mjs && node scripts/evaluate-lineup-swaps.mjs",
-    "check": "node scripts/validate.mjs && node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
-    "test": "node scripts/validate.mjs && node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
+    "update": "node scripts/update.mjs && node scripts/reverse-validate-cai.mjs",
+    "check": "npm run check:snapshot",
+    "test": "npm run check:snapshot",
     "build-lineups": "node scripts/build-lineups.mjs",
     "evaluate-lineups": "node scripts/evaluate-lineup-swaps.mjs",
-    "weekly-report": "node scripts/weekly-change-report.mjs"
+    "weekly-report": "node scripts/weekly-change-report.mjs",
+    "update-lineups": "node scripts/build-lineups.mjs && node scripts/evaluate-lineup-swaps.mjs",
+    "check:snapshot": "node scripts/validate.mjs",
+    "check:lineups": "node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
+    "check:all": "npm run check:snapshot && npm run check:lineups"
   },
   "dependencies": {
     "@jackwener/opencli": "1.8.6",

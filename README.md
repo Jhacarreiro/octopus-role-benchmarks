@@ -90,7 +90,7 @@ GitHub Actions weekly
 
 ## Recommended lineup policy
 
-The top-page recommendations are a **portfolio assignment**, not eight independent #1 picks. The machine-readable source is [`config/lineup-policy.json`](config/lineup-policy.json); [`scripts/build-lineups.mjs`](scripts/build-lineups.mjs) validates it against every fresh snapshot and generates `site/data/lineups.json`. The daily job fails if the policy becomes invalid.
+The top-page recommendations are a **portfolio assignment**, not eight independent #1 picks. The machine-readable source is [`config/lineup-policy.json`](config/lineup-policy.json); [`scripts/build-lineups.mjs`](scripts/build-lineups.mjs) validates it against the current snapshot and generates `site/data/lineups.json`. Lineup validity is reviewed separately from benchmark publication: a stale or invalid curated lineup is surfaced for review but does not block a valid fresh benchmark snapshot.
 
 Current policy highlights:
 
@@ -113,7 +113,9 @@ Future single-seat swap opportunities are evaluated after every refresh by `scri
 ```bash
 npm ci
 npm run update
-npm test
+npm run check:snapshot
+# optional strict portfolio audit:
+npm run update-lineups
 ```
 
 No login cookies, API keys or browser profile are required for the current public extraction path.
@@ -124,4 +126,4 @@ MIT.
 
 ### Weekly refresh
 
-The benchmark refresh runs once per week via `.github/workflows/weekly.yml` (Monday 06:17 UTC). Any downstream review or notification automation is deployment-specific and intentionally outside this public repository.
+The benchmark refresh runs once per week via `.github/workflows/weekly.yml` (Monday 06:17 UTC). The workflow publishes a valid benchmark snapshot even if the separately curated lineup needs review; lineup audit status is recorded and surfaced rather than used as a benchmark publication gate. Any downstream review or notification automation is deployment-specific and intentionally outside this public repository.
