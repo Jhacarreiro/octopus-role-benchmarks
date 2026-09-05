@@ -96,7 +96,7 @@ const lines=[
   `Snapshot: **${data.date}**`,`Observed Coding Agent families: **${families.length}**`,'',
   '## Selected estimator','',
   '`CAI* estimate = 50% Ridge + 50% inverse-distance 5-nearest-neighbours`.','',
-  '- Ridge: λ=1; SciCode, GPQA, HLE, LCR, GDPval, Omniscience Accuracy, Omniscience Reliability, log(Output Tokens/Task).',
+  '- Ridge: λ=1; SciCode, GPQA, HLE, LCR, GDPval, AA-Omniscience Index (normalized to 0–100), log(Output Tokens/Task).',
   '- 5NN: SciCode, GPQA, HLE, LCR; standardized features; Euclidean distance; inverse-distance weighting.',
   '- Production coding-role blend: `2/3 universal role score + 1/3 CAI*`.','',
   '## Leave-one-vendor-out','',

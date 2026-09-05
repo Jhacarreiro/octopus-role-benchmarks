@@ -1,4 +1,4 @@
-export const RIDGE_FEATURES = ['scicode','gpqa','hle','lcr','gdpval','omniscienceAccuracy','omniscienceReliability','logOutputTokens'];
+export const RIDGE_FEATURES = ['scicode','gpqa','hle','lcr','gdpval','omniscienceIndex','logOutputTokens'];
 export const KNN_FEATURES = ['scicode','gpqa','hle','lcr'];
 export const RIDGE_LAMBDA = 1;
 export const KNN_K = 5;
@@ -99,8 +99,7 @@ export function rowFromModelFamily(slug, benchmarks, outputTokens, cai=null){
     hle:benchmarks.hle,
     lcr:benchmarks.lcr,
     gdpval:benchmarks.gdpval,
-    omniscienceAccuracy:benchmarks.omniscienceAccuracy,
-    omniscienceReliability:benchmarks.omniscienceReliability,
+    omniscienceIndex:benchmarks.omniscienceIndex,
     logOutputTokens:Math.log1p(outputTokens),
   };
 }

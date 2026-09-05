@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "coveragePolicy": 1.0,
   "costBasis": {
     "default": "task",
@@ -51,17 +51,13 @@
       "scale": "0-100",
       "description": "Long-context extraction, reasoning and synthesis across 10k-100k token documents."
     },
-    "omniscienceAccuracy": {
-      "sourceField": "omniscienceAccuracy",
-      "label": "AA-Omniscience Accuracy",
-      "scale": "0-100",
-      "description": "Factual answer accuracy across economically relevant domains."
-    },
-    "omniscienceReliability": {
-      "sourceField": "omniscienceReliability",
-      "label": "AA-Omniscience Reliability",
-      "scale": "0-100",
-      "description": "Derived as 1 - AA-Omniscience hallucination rate; higher is more reliable."
+    "omniscienceIndex": {
+      "sourceField": "omniscience",
+      "multiplier": 0.5,
+      "offset": 50,
+      "label": "AA-Omniscience Index",
+      "scale": "0-100 normalized from native -100 to 100",
+      "description": "Knowledge reliability metric: +1 correct, -1 incorrect, 0 abstain; balances factual accuracy against hallucination without rewarding refusal as success."
     }
   },
   "roles": [
@@ -86,8 +82,7 @@
       "weights": {
         "gdpval": 0.4,
         "lcr": 0.2,
-        "omniscienceAccuracy": 0.2,
-        "omniscienceReliability": 0.1,
+        "omniscienceIndex": 0.3,
         "gpqa": 0.1
       },
       "note": "Balances professional judgment with factuality and long-context reasoning.",
@@ -102,7 +97,7 @@
         "scicode": 0.3,
         "gpqa": 0.25,
         "hle": 0.2,
-        "omniscienceReliability": 0.15,
+        "omniscienceIndex": 0.15,
         "lcr": 0.1
       },
       "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only.",
@@ -117,7 +112,7 @@
         "scicode": 0.45,
         "gpqa": 0.2,
         "lcr": 0.15,
-        "omniscienceReliability": 0.1,
+        "omniscienceIndex": 0.1,
         "hle": 0.1
       },
       "note": "SciCode is the dominant coding signal; reasoning and context support review quality.",
@@ -158,8 +153,7 @@
       "purpose": "Aggregate many inputs into a coherent, faithful final output.",
       "weights": {
         "lcr": 0.45,
-        "omniscienceAccuracy": 0.2,
-        "omniscienceReliability": 0.2,
+        "omniscienceIndex": 0.4,
         "gdpval": 0.15
       },
       "note": "Long-context synthesis and factual reliability dominate.",
@@ -173,7 +167,7 @@
       "weights": {
         "lcr": 0.3,
         "gdpval": 0.25,
-        "omniscienceAccuracy": 0.2,
+        "omniscienceIndex": 0.2,
         "gpqa": 0.15,
         "hle": 0.1
       },
@@ -200,8 +194,7 @@
         "hle",
         "lcr",
         "gdpval",
-        "omniscienceAccuracy",
-        "omniscienceReliability",
+        "omniscienceIndex",
         "logOutputTokens"
       ],
       "knnK": 5,

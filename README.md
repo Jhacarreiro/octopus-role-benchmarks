@@ -127,3 +127,7 @@ MIT.
 ### Weekly refresh
 
 The benchmark refresh runs once per week via `.github/workflows/weekly.yml` (Monday 06:17 UTC). The workflow publishes a valid benchmark snapshot even if the separately curated lineup needs review; lineup audit status is recorded and surfaced rather than used as a benchmark publication gate. Any downstream review or notification automation is deployment-specific and intentionally outside this public repository.
+
+Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. The 100% coverage rule applies to the scored universe. No benchmark value is imputed or carried forward except the explicitly documented, validated SciCode fallback below.
+
+When AA temporarily omits SciCode for a mapped model, Octopus may estimate SciCode from the model's other independent AA benchmarks (GPQA, HLE, LCR, GDPval and normalized AA-Omniscience) using a leave-one-out validated Ridge model. Intelligence Index is deliberately excluded to avoid circularity. The estimate is conservatively bounded by a recent last-known target score and any explicitly configured same-series/sibling analogue; provenance and validation error are published in the snapshot. If the estimator guardrails fail or required features are missing, the model becomes `source_incomplete` instead of receiving a score.
