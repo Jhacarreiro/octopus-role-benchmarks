@@ -106,7 +106,7 @@ Current Budget portfolio:
 
 ## Security Reviewer tier policy
 
-The public `security-reviewer` numerical score is still a universal proxy built from SciCode, GPQA, HLE, Non-Hallucination and LCR. It is **not** a dedicated cybersecurity benchmark. Public cyber benchmarks reviewed so far are useful external evidence but do not provide sufficiently broad, comparable coverage across the current model universe to support a universal `Security*` adjustment without synthesizing too much missing data.
+The public `security-reviewer` numerical score is still a universal proxy built from SciCode, GPQA, HLE, AA-Omniscience Index and LCR. It is **not** a dedicated cybersecurity benchmark. Public cyber benchmarks reviewed so far are useful external evidence but do not provide sufficiently broad, comparable coverage across the current model universe to support a universal `Security*` adjustment without synthesizing too much missing data.
 
 Therefore the recommendation cards apply a deliberate security capability tier:
 

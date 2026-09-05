@@ -14,11 +14,16 @@ for(const role of roles.roles){
   for(const key of Object.keys(role.weights)) if(!roles.benchmarks[key]) throw new Error(`Unknown benchmark ${key} in ${role.id}`);
 }
 const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'utf8'));
-if(latest.schemaVersion<4) throw new Error('Expected snapshot schema >=4');
+if(latest.schemaVersion<5) throw new Error('Expected snapshot schema >=5');
 for(const [key,c] of Object.entries(latest.coverage||{})) if(c.ratio!==1||c.present!==c.total) throw new Error(`Snapshot coverage <100% for ${key}`);
 for(const c of [latest.efficiencyCoverage,latest.caiStarCoverage]) if(!c||c.ratio!==1||c.present!==c.total) throw new Error('Task-cost and CAI* coverage must both be 100%');
 for(const m of latest.models||[]){
   if(m.mapping?.status==='unscored'&&Object.keys(m.roleScores||{}).length) throw new Error(`Unscored model has role score: ${m.name}`);
+  if(m.mapping?.status==='source_incomplete'){
+    if(Object.keys(m.roleScores||{}).length) throw new Error(`Source-incomplete model has role score: ${m.name}`);
+    if(m.caiStar?.value!=null) throw new Error(`Source-incomplete model has CAI*: ${m.name}`);
+    continue;
+  }
   if(!m.aaModel) continue;
   if(m.taskEfficiency?.commandCodeCostPerTaskUsd==null) throw new Error(`Scored model lacks CC task cost: ${m.name}`);
   if(m.caiStar?.value==null) throw new Error(`Scored model lacks CAI*: ${m.name}`);
@@ -37,4 +42,4 @@ for(const [role,m] of Object.entries(v.finalRanking)){
   if(m.spearman<v.guardrails.finalRankingSpearmanMin) throw new Error(`${role} final ranking Spearman guardrail failed`);
   if(m.top5Hit<v.guardrails.finalRankingTop5HitMin) throw new Error(`${role} final ranking top5 guardrail failed`);
 }
-console.log(`ok: ${roles.roles.length} roles; universal=100%; CAI*=100%; reverse-validation guardrails pass`);
+console.log(`ok: ${roles.roles.length} roles; scored-universe coverage=100%; source-incomplete=${latest.counts?.sourceIncompleteFamilies??0}; CAI*=100%; reverse-validation guardrails pass`);

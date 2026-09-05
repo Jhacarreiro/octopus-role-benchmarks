@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 2,
+  "benchmarks": {
+    "scicode": {
+      "lastKnownMaxAgeDays": 7,
+      "conservativeMin": true,
+      "analogies": {
+        "step-3-7-flash": {
+          "sourceSlug": "step-3-5-flash",
+          "relationship": "previous_generation",
+          "reason": "Same series predecessor; use as an additional conservative bound while AA SciCode is temporarily unavailable."
+        },
+        "inkling-small": {
+          "sourceSlug": "inkling",
+          "relationship": "same_generation_sibling",
+          "reason": "Same-generation sibling; use as an additional conservative bound while AA SciCode is temporarily unavailable."
+        },
+        "mimo-v2-5-0424": {
+          "ceilingSlug": "mimo-v2-5-pro",
+          "relationship": "higher_variant_ceiling",
+          "reason": "Higher MiMo V2.5 variant used only as a sanity ceiling, never as a score donor."
+        }
+      }
+    }
+  }
+}

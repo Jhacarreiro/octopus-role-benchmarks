@@ -28,7 +28,7 @@
   <p>Implementation routing should be interpreted as a cost-per-completed-task policy: use Muse for routine high-volume implementation, Luna for review, correct cheaply on the normal tier, and escalate genuinely hard or repeatedly failing work to Sol. The public benchmark does not yet measure retry probability directly, so this escalation rule is a documented operating policy rather than a measured benchmark component.</p>
   <p>The coding adjustment applies only to <strong>Implementer</strong>, <strong>Implementer Heavy</strong> and <strong>Code Reviewer</strong>.</p>
   <h3>Security Reviewer tier policy</h3>
-  <p>The numerical Security Reviewer score remains a universal proxy based on SciCode, GPQA, HLE, Non-Hallucination and LCR; it is not a dedicated cybersecurity benchmark. Public cyber benchmarks reviewed so far do not provide sufficiently broad, comparable model coverage to justify a universal Security* adjustment.</p>
+  <p>The numerical Security Reviewer score remains a universal proxy based on SciCode, GPQA, HLE, AA-Omniscience Index and LCR; it is not a dedicated cybersecurity benchmark. Public cyber benchmarks reviewed so far do not provide sufficiently broad, comparable model coverage to justify a universal Security* adjustment.</p>
   <p>The recommendation cards therefore use explicit security tiers: <strong>Quality → Claude Fable 5</strong>, <strong>Balanced → Claude Opus 5</strong>, <strong>Budget → Muse Spark 1.2 Contributor</strong>. These are policy anchors and Security Reviewer changes always require human review. Octopus has no separate security-heavy role; <code>implementer-heavy</code> is a coding/implementation role.</p>
 </section>
 <section id="coverage" class="methodology"></section>
@@ -43,7 +43,7 @@
   <p id="caiCounts"></p>
   <p>For missing Coding Agent Index values, the estimate is deliberately simple:</p>
   <code class="formula-code">CAI* = 50% Ridge prediction + 50% inverse-distance 5NN prediction</code>
-  <p><strong>Ridge (λ=1)</strong> uses SciCode, GPQA, HLE, LCR, GDPval, Omniscience Accuracy, Omniscience Reliability and log(Output Tokens/Task). <strong>5NN</strong> uses SciCode, GPQA, HLE and LCR, standardized across the observed CAI training set, with Euclidean distance and inverse-distance weighting over the five nearest models.</p>
+  <p><strong>Ridge (λ=1)</strong> uses SciCode, GPQA, HLE, LCR, GDPval, AA-Omniscience Index (normalized to 0–100) and log(Output Tokens/Task). <strong>5NN</strong> uses SciCode, GPQA, HLE and LCR, standardized across the observed CAI training set, with Euclidean distance and inverse-distance weighting over the five nearest models.</p>
   <p>The estimator is trained only on unique model families with observed AA Coding Agent results. Commercial CommandCode variants never count as extra training examples.</p>
 </section>
 <section id="validation" class="methodology"></section>
