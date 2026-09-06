@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 5,
+  "schemaVersion": 6,
   "coveragePolicy": 1.0,
   "costBasis": {
     "default": "task",
@@ -58,6 +58,13 @@
       "label": "AA-Omniscience Index",
       "scale": "0-100 normalized from native -100 to 100",
       "description": "Knowledge reliability metric: +1 correct, -1 incorrect, 0 abstain; balances factual accuracy against hallucination without rewarding refusal as success."
+    },
+    "cyberbench": {
+      "external": true,
+      "label": "Vals AI CyberBench Overall",
+      "scale": "0-100",
+      "description": "External cybersecurity benchmark measuring vulnerability reproduction and patching on real software vulnerabilities.",
+      "sourceUrl": "https://www.vals.ai/benchmarks/cyber"
     }
   },
   "roles": [
@@ -93,16 +100,10 @@
       "id": "security-reviewer",
       "label": "Security Reviewer",
       "purpose": "Adversarial review of implementation risks, unsafe assumptions and failure modes.",
-      "weights": {
-        "scicode": 0.3,
-        "gpqa": 0.25,
-        "hle": 0.2,
-        "omniscienceIndex": 0.15,
-        "lcr": 0.1
-      },
-      "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only.",
+      "note": "Uses the external Vals AI CyberBench Overall score directly; no internal proxy or composite formula.",
       "codingAgentEvidence": false,
-      "codingAdjusted": false
+      "codingAdjusted": false,
+      "externalBenchmark": "cyberbench"
     },
     {
       "id": "code-reviewer",

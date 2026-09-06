@@ -11,25 +11,16 @@
 <header><div><h1>Methodology</h1><p>How role quality and benchmark-vs-cost Ranking Value are produced.</p></div><div class="header-links"><a class="repo" href="./">Ranking</a><a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">GitHub</a></div></header>
 <div id="methodStatus" class="status">Loading methodology…</div>
 <section class="methodology prose">
-  <h2>Two views of the same role score</h2>
-  <p><strong>Quality</strong> ignores price and ranks only the role-quality score. <strong>Balanced</strong> divides that same quality by CommandCode Cost per Task. Higher is better in both modes.</p>
-  <div class="formula"><strong>Non-coding role quality</strong><code>Role Quality = Universal Role Score</code></div>
-  <div class="formula"><strong>Coding role quality</strong><code>Role Quality = ⅔ Universal Role Score + ⅓ CAI*</code></div>
-  <div class="formula"><strong>Balanced mode</strong><code>Balanced Score = Role Quality / CommandCode Cost per Task</code></div>
-  <div class="formula"><strong>Budget lineup</strong><code>Minimize CommandCode Cost per Task subject to Role Quality ≥ 80% of the best available role quality</code></div>
-  <p>The Budget lineup is only a recommended shortlist, not a third full-table ranking. It also applies the current-generation and model-family-diversity constraints used by the recommended lineups.</p>
-  <h3>Free-model external-evidence overrides</h3>
-  <p>The recommended lineups may include a CommandCode model that is still <strong>UNSCORED</strong> when it is explicitly free and there is enough external evidence to justify a narrow role recommendation. This is an editorial override only: unresolved models remain excluded from the full Quality and Balanced rankings until a verified Artificial Analysis family mapping exists.</p>
-  <p><strong>Laguna S 2.1</strong> is used as a free coding override. CommandCode exposes it as free with a 256K served context; Poolside documents a native 1M context and reports 70.2% Terminal-Bench 2.1, 78.5% SWE-bench Multilingual, 59.4% SWE-bench Pro and 40.4% DeepSWE. <a href="https://poolside.ai/models">Poolside model page</a> · <a href="https://huggingface.co/poolside/Laguna-S-2.1">model card and benchmark table</a>.</p>
-  <p><strong>Ox Alpha</strong> is used only in the Budget shortlist and marked <strong>EXPERIMENTAL</strong>. The CommandCode row is free with a 1M context window, but the model remains stealth and unresolved, so no synthetic benchmark score is assigned to it and it is not used in Balanced.</p>
-  <h3>Portfolio assignment</h3>
-  <p>The eight recommendation cards are selected as a portfolio rather than as eight independent winners. The same exact model may occupy two seats, and commercial rows sharing the same Artificial Analysis model identity may coexist. Diversity is enforced at the family level: each lineup must span 5–8 distinct model families, and no family may occupy more than two seats. Six, seven or eight families are all acceptable; five remains valid when deliberately justified. No manual lineup is forced toward a particular target.</p>
-  <p>Balanced currently requires <strong>Claude Opus 5</strong>, <strong>GPT-5.6 Luna</strong> and <strong>GPT-5.6 Sol</strong> somewhere in the portfolio. Their roles are not permanently fixed. The current assignment uses Muse Spark 1.2 Contributor for normal Implementer, Luna for Code Reviewer and Sol for Implementer Heavy. Sol is explicitly forbidden for normal Implementer because routine implementation is the highest-volume seat and cheaper strong models provide better economics. Claude Sonnet 5 remains eligible but is not mandatory.</p>
-  <p>Implementation routing should be interpreted as a cost-per-completed-task policy: use Muse for routine high-volume implementation, Luna for review, correct cheaply on the normal tier, and escalate genuinely hard or repeatedly failing work to Sol. The public benchmark does not yet measure retry probability directly, so this escalation rule is a documented operating policy rather than a measured benchmark component.</p>
-  <p>The coding adjustment applies only to <strong>Implementer</strong>, <strong>Implementer Heavy</strong> and <strong>Code Reviewer</strong>.</p>
-  <h3>Security Reviewer tier policy</h3>
-  <p>The numerical Security Reviewer score remains a universal proxy based on SciCode, GPQA, HLE, AA-Omniscience Index and LCR; it is not a dedicated cybersecurity benchmark. Public cyber benchmarks reviewed so far do not provide sufficiently broad, comparable model coverage to justify a universal Security* adjustment.</p>
-  <p>The recommendation cards therefore use explicit security tiers: <strong>Quality → Claude Fable 5</strong>, <strong>Balanced → Claude Opus 5</strong>, <strong>Budget → Muse Spark 1.2 Contributor</strong>. These are policy anchors and Security Reviewer changes always require human review. Octopus has no separate security-heavy role; <code>implementer-heavy</code> is a coding/implementation role.</p>
+  <h2>Role quality and portfolio modes</h2>
+  <p>The detailed ranking table exposes role-quality signals and cost-per-quality values. The eight recommendation cards are generated separately as constrained portfolios: <strong>Quality</strong>, <strong>Balanced</strong> and <strong>Budget</strong>.</p>
+  <div class="formula"><strong>Quality</strong><code>Intelligence floor 0.90 → adaptive ≥5-family pool → maximize total Role Quality</code></div>
+  <div class="formula"><strong>Balanced</strong><code>Intelligence floor 0.85 → remove cost &gt; mean + 2σ → maximize total Role Quality</code></div>
+  <div class="formula"><strong>Budget</strong><code>Intelligence floor 0.80 → minimize total CommandCode Cost per Task</code></div>
+  <p>When an initial Intelligence floor leaves fewer than five candidate families, the floor is lowered in 0.005 steps until five families are available. Every final lineup still requires at least four families and allows at most two seats per family.</p>
+  <p>There are no mandatory models, manual Fable blacklist, or per-role quality floor. Code Reviewer must differ from both implementation identities. Implementer Heavy must differ from Implementer and must have at least +2.0 AA Intelligence Index points.</p>
+  <h3>Security Reviewer</h3>
+  <p><strong>Security Reviewer = Vals AI CyberBench Overall, directly.</strong> The previous SciCode/GPQA/HLE/Omniscience/LCR proxy has been removed. If a model has no direct CyberBench score, it is simply ineligible for this one role.</p>
+  <p>Balanced uses price only as an outlier filter. Once expensive outliers are removed, price no longer affects its role-quality optimization. Budget remains the mode where price is the direct objective.</p>
 </section>
 <section id="coverage" class="methodology"></section>
 <section class="methodology prose">
@@ -50,12 +41,12 @@
 <section id="rolesMethod" class="methodology"></section>
 <section class="methodology prose">
   <h2>Coverage and failure rules</h2>
-  <p>All components of the Universal Role Score, CommandCode Cost per Task and final CAI* must cover 100% of the scored model-family universe. Stealth/unresolved rows remain visible as UNSCORED. The daily job also reruns reverse validation and fails closed if estimator/ranking guardrails are breached.</p>
+  <p>Universal weighted-role components, CommandCode Cost per Task and final CAI* must cover the scored model-family universe according to the published coverage rules. Security Reviewer is role-specific and uses direct CyberBench coverage instead. Stealth/unresolved rows remain visible as UNSCORED. Validation continues to fail closed when estimator/ranking guardrails are breached.</p>
   <p>Raw model mappings, observed/estimated CAI*, Ridge/5NN components, role scores, task costs and final Ranking Values are all preserved in the public JSON snapshot.</p>
 </section>
 <section>
-  <h2>Swap evaluation</h2>
-  <p>Every data refresh evaluates possible <strong>single-seat</strong> replacements against the current lineup policy. Quality candidates must clear a minimum absolute-quality improvement; Budget candidates must clear a minimum cost-reduction threshold while preserving the 80% quality floor. An automatic-safe candidate must also preserve or increase the current distinct-family count. Security Reviewer is always review-only because it is a policy anchor. Balanced candidates are always review-only because a better quality-per-cost number can still reduce absolute quality or role fit.</p>
-  <p>External-evidence overrides and multi-seat rotations are also always review-only. The evaluator never changes the portfolio by itself: <code>applyAutomatically</code> remains false. New models must first receive an explicit family classification before they are eligible for automated swap evaluation.</p>
+  <h2>Portfolio regeneration</h2>
+  <p>After refreshes, Octopus regenerates the complete Quality, Balanced and Budget portfolios under the current deterministic policy. Review data records portfolio-level changes rather than evaluating independent hand-picked seat swaps.</p>
+  <p>The policy file contains rules, not selected model names. Generated selections and their requested/effective Intelligence floors, family counts, costs and Balanced outlier statistics are published in <code>site/data/lineups.json</code>.</p>
 </section>
 </main><script src="./methodology.js" defer></script></body></html>

@@ -2,9 +2,9 @@
 
 ## Objective
 
-Produce one transparent **Ranking Value** for every scored CommandCode Max row and every Octopus role.
+Produce transparent role-quality data and deterministic portfolio recommendations for every scored CommandCode Max row.
 
-The ranking is not a claim that one model is universally best. It is a reproducible role-specific estimate of benchmark quality per effective cost of completing comparable work.
+The public table still exposes role-specific quality and value signals, but the recommended Quality/Balanced/Budget portfolios are selected by the explicit lineup policy rather than by blindly taking the highest `Ranking Value` in each role.
 
 ## Universe and identity
 
@@ -14,7 +14,7 @@ Each CommandCode row maps to Artificial Analysis as `exact`, `exact_alias`, `com
 
 ## Universal Role Score
 
-Each role has a weighted score built only from benchmark components with **100% coverage** of the scored model-family universe.
+Most roles have a weighted score built only from benchmark components with **100% coverage** of the scored model-family universe. `Security Reviewer` is deliberately different: it uses the external Vals AI CyberBench Overall score directly and is role-ineligible when that external result is missing.
 
 Current components:
 
@@ -135,7 +135,7 @@ GDPval-AA v2 40% · AA-LCR 25% · GPQA Diamond 20% · Humanity's Last Exam 15%.
 GDPval-AA v2 40% · AA-LCR 20% · AA-Omniscience Index 30% · GPQA Diamond 10%.
 
 ### Security Reviewer
-SciCode 30% · GPQA Diamond 25% · Humanity's Last Exam 20% · AA-Omniscience Index 15% · AA-LCR 10%.
+**Vals AI CyberBench Overall 100%.** No Octopus proxy, regression, or composite formula is applied. Missing CyberBench coverage excludes that model from Security Reviewer only.
 
 ### Code Reviewer
 SciCode 45% · GPQA Diamond 20% · AA-LCR 15% · AA-Omniscience Index 10% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.
@@ -164,7 +164,7 @@ The public snapshot preserves, for every scored model row:
 - final coding-adjusted quality;
 - final Ranking Value.
 
-The homepage intentionally displays only the final Ranking Value. The intermediate values remain public in JSON and in this methodology so the ranking can be audited without cluttering the main view.
+The public JSON preserves the intermediate values needed to audit both the per-role table and the portfolio optimizer, including AA Intelligence Index, CyberBench provenance, requested/effective lineup floors, family counts and Balanced price-outlier statistics.
 
 Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. The 100% coverage rule applies to the scored universe. No benchmark value is imputed or carried forward except the explicitly documented, validated SciCode fallback below.
 

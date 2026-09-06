@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
+import {autoApplyFamilyEligible} from './lib/model-family.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const statePath=path.join(root,'.weekly-review-state.json');
@@ -72,7 +73,7 @@ function buildReport(oldC,newC){
  const usage=selectionUsage(newL);
  const added=[...b.keys()].filter(n=>!a.has(n)).sort();
  const removed=[...a.keys()].filter(n=>!b.has(n)).sort();
- const unclassifiedAdded=added.filter(n=>!newP?.familyByModel?.[n]);
+ const unclassifiedAdded=added.filter(n=>!autoApplyFamilyEligible(b.get(n),newP||{}));
  const priceFields=[['inputPerM','input/M'],['outputPerM','output/M'],['cacheReadPerM','cache read/M'],['cacheWritePerM','cache write/M'],['discountPercent','desconto'],['free','free']];
  const priceChanges=[];
  for(const n of [...a.keys()].filter(n=>b.has(n)).sort()){
@@ -91,7 +92,7 @@ function buildReport(oldC,newC){
  const material=added.length||removed.length||priceChanges.length||roleChanges.length||autoSafe.length||reviewOnly.length||unclassifiedAdded.length;
  if(!material)return {report:'NO_REPLY',oldD,newD};
  const lines=['🧭 Octopus benchmark — revisão semanal',`Snapshot: ${oldD.date||oldC.slice(0,7)} → ${newD.date||newC.slice(0,7)}`,`Decisão: ${autoSafe.length} auto-safe nova(s) · ${reviewOnly.length} review-only nova(s) · ${unclassifiedAdded.length} modelo(s) novo(s) sem família`, ''];
- if(added.length||removed.length){lines.push('MODELOS');lines.push(...fmtModelList('Entraram:',added,'+'));lines.push(...fmtModelList('Saíram:',removed,'-'));if(unclassifiedAdded.length){lines.push('⚠️ Novos ainda fora do optimizer (sem familyByModel):');for(const n of unclassifiedAdded.slice(0,8))lines.push(`  - ${n}`);if(unclassifiedAdded.length>8)lines.push(`  … +${unclassifiedAdded.length-8} adicionais`);lines.push('  AÇÃO: classificar manualmente em familyByModel antes de o modelo poder entrar no optimizer.')}lines.push('')}
+ if(added.length||removed.length){lines.push('MODELOS');lines.push(...fmtModelList('Entraram:',added,'+'));lines.push(...fmtModelList('Saíram:',removed,'-'));if(unclassifiedAdded.length){lines.push('⚠️ Novos ainda fora do optimizer (família não classificável automaticamente):');for(const n of unclassifiedAdded.slice(0,8))lines.push(`  - ${n}`);if(unclassifiedAdded.length>8)lines.push(`  … +${unclassifiedAdded.length-8} adicionais`);lines.push('  AÇÃO: adicionar um family override explícito antes de o modelo poder entrar no optimizer.')}lines.push('')}
  if(priceChanges.length){lines.push('PREÇOS');const {shown,more}=clip(priceChanges,12);lines.push(...shown.map(x=>x.text));if(more)lines.push(`… +${more} alterações de preço adicionais`);lines.push('')}
  lines.push('ROLES');
  if(roleChanges.length)lines.push(...roleChanges); else lines.push('• Nenhuma alteração efectiva nas lineups.');

@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 5,
-  "methodologyVersion": 5,
-  "date": "2026-09-05",
-  "generatedAt": "2026-09-05T17:58:55.533Z",
+  "schemaVersion": 6,
+  "methodologyVersion": 6,
+  "date": "2026-09-06",
+  "generatedAt": "2026-09-06T16:17:59.472Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
@@ -12,11 +12,160 @@
       "url": "https://artificialanalysis.ai/",
       "mappedFamilies": 59,
       "scoredFamilies": 59,
-      "sourceIncompleteFamilies": 0
+      "sourceIncompleteFamilies": 0,
+      "intelligenceIndexFamilies": 65
     },
     "codingAgentIndex": {
       "url": "https://artificialanalysis.ai/agents/coding-agents",
       "variants": 68
+    },
+    "cyberbench": {
+      "url": "https://www.vals.ai/benchmarks/cyber",
+      "fetchedAt": "2026-09-06T16:17:59.471Z",
+      "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z",
+      "directFamilies": 24,
+      "missingMappings": [
+        {
+          "slug": "claude-4-5-haiku",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "claude-opus-4-6",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "claude-sonnet-4-6",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "claude-sonnet-5",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "deepseek-v4-flash-vision",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "deepseek-v4-pro",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gemini-3-1-flash-lite-preview",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gemini-3-5-flash-lite",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "glm-5",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "glm-5-1",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "glm-5-3-flash",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gpt-5-3-codex",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gpt-5-4",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gpt-5-4-mini",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gpt-5-5",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gpt-5-6-luna",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "gpt-5-6-terra",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "hy3",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "inkling",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "inkling-small",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "kimi-k2-7-code",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "longcat-2-0",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "mimo-v2-5-0424",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "mimo-v2-5-pro",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "minimax-m2-5",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "qwen3-6-plus",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "qwen3-7-max",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "qwen3-7-plus",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "qwen3-8-27b",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "qwen3-8-flash-next",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "qwen3-8-max",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "qwen3-max-preview",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "step-3-5-flash",
+          "reason": "no_explicit_mapping"
+        },
+        {
+          "slug": "step-3-7-flash",
+          "reason": "no_explicit_mapping"
+        }
+      ]
     }
   },
   "coveragePolicy": 1,
@@ -938,7 +1087,8 @@
     "sourceIncompleteFamilies": 0,
     "codingAgentFamilies": 23,
     "caiObservedFamilies": 23,
-    "caiEstimatedFamilies": 36
+    "caiEstimatedFamilies": 36,
+    "cyberbenchDirectFamilies": 24
   },
   "benchmarks": {
     "gdpval": {
@@ -978,6 +1128,13 @@
       "label": "AA-Omniscience Index",
       "scale": "0-100 normalized from native -100 to 100",
       "description": "Knowledge reliability metric: +1 correct, -1 incorrect, 0 abstain; balances factual accuracy against hallucination without rewarding refusal as success."
+    },
+    "cyberbench": {
+      "external": true,
+      "label": "Vals AI CyberBench Overall",
+      "scale": "0-100",
+      "description": "External cybersecurity benchmark measuring vulnerability reproduction and patching on real software vulnerabilities.",
+      "sourceUrl": "https://www.vals.ai/benchmarks/cyber"
     }
   },
   "roles": [
@@ -1013,16 +1170,10 @@
       "id": "security-reviewer",
       "label": "Security Reviewer",
       "purpose": "Adversarial review of implementation risks, unsafe assumptions and failure modes.",
-      "weights": {
-        "scicode": 0.3,
-        "gpqa": 0.25,
-        "hle": 0.2,
-        "omniscienceIndex": 0.15,
-        "lcr": 0.1
-      },
-      "note": "Proxy methodology: no dedicated security benchmark currently satisfies 100% coverage; uses coding, difficult reasoning and reliability components only.",
+      "note": "Uses the external Vals AI CyberBench Overall score directly; no internal proxy or composite formula.",
       "codingAgentEvidence": false,
-      "codingAdjusted": false
+      "codingAdjusted": false,
+      "externalBenchmark": "cyberbench"
     },
     {
       "id": "code-reviewer",
@@ -1217,11 +1368,6 @@
           "rankingQuality": 41.685,
           "rankingValue": null
         },
-        "security-reviewer": {
-          "score": 49.101,
-          "rankingQuality": 49.101,
-          "rankingValue": null
-        },
         "code-reviewer": {
           "score": 48.482,
           "rankingQuality": 42.955,
@@ -1257,7 +1403,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "longcat-2-0",
-        "sourceUrl": "https://artificialanalysis.ai/models/longcat-2-0"
+        "sourceUrl": "https://artificialanalysis.ai/models/longcat-2-0",
+        "intelligenceIndex": 25.8458
       }
     },
     {
@@ -1380,11 +1527,6 @@
           "rankingQuality": 49.804,
           "rankingValue": 1609.436
         },
-        "security-reviewer": {
-          "score": 56.878,
-          "rankingQuality": 56.878,
-          "rankingValue": 1838.035
-        },
         "code-reviewer": {
           "score": 57.833,
           "rankingQuality": 51.333,
@@ -1420,7 +1562,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "hy3",
-        "sourceUrl": "https://artificialanalysis.ai/models/hy3"
+        "sourceUrl": "https://artificialanalysis.ai/models/hy3",
+        "intelligenceIndex": 33.2451
       }
     },
     {
@@ -1445,7 +1588,16 @@
         "slug": "kimi-k3",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Kimi K3",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 3,
         "output": 15,
@@ -1469,7 +1621,8 @@
         "gpqa": 93.5354,
         "hle": 46.8953,
         "omniscienceIndex": 59.85,
-        "scicode": 59.4907
+        "scicode": 59.4907,
+        "cyberbench": 57.813
       },
       "roleScores": {
         "architect": {
@@ -1483,9 +1636,9 @@
           "rankingValue": 36.001
         },
         "security-reviewer": {
-          "score": 63.421,
-          "rankingQuality": 63.421,
-          "rankingValue": 40.231
+          "score": 57.813,
+          "rankingQuality": 57.813,
+          "rankingValue": 36.673
         },
         "code-reviewer": {
           "score": 61.902,
@@ -1552,7 +1705,8 @@
       },
       "aaModel": {
         "slug": "kimi-k3",
-        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k3"
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k3",
+        "intelligenceIndex": 50.2337
       }
     },
     {
@@ -1641,11 +1795,6 @@
           "rankingQuality": 38.017,
           "rankingValue": 358.333
         },
-        "security-reviewer": {
-          "score": 51.648,
-          "rankingQuality": 51.648,
-          "rankingValue": 486.814
-        },
         "code-reviewer": {
           "score": 49.174,
           "rankingQuality": 46.296,
@@ -1681,7 +1830,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "kimi-k2-7-code",
-        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code"
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code",
+        "intelligenceIndex": 33.8553
       }
     },
     {
@@ -1770,11 +1920,6 @@
           "rankingQuality": 38.017,
           "rankingValue": 179.167
         },
-        "security-reviewer": {
-          "score": 51.648,
-          "rankingQuality": 51.648,
-          "rankingValue": 243.408
-        },
         "code-reviewer": {
           "score": 49.174,
           "rankingQuality": 46.296,
@@ -1810,7 +1955,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "kimi-k2-7-code",
-        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code"
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code",
+        "intelligenceIndex": 33.8553
       }
     },
     {
@@ -1861,6 +2007,14 @@
             }
           ],
           "value": 48.5818
+        },
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Kimi K2.6",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-04-20T00:00:00.000Z"
         }
       },
       "tokenPrices": {
@@ -1886,7 +2040,8 @@
         "gpqa": 91.1111,
         "hle": 37.4884,
         "omniscienceIndex": 52.65,
-        "scicode": 48.5818
+        "scicode": 48.5818,
+        "cyberbench": 43.465
       },
       "roleScores": {
         "architect": {
@@ -1900,9 +2055,9 @@
           "rankingValue": 504.336
         },
         "security-reviewer": {
-          "score": 60.847,
-          "rankingQuality": 60.847,
-          "rankingValue": 573.52
+          "score": 43.465,
+          "rankingQuality": 43.465,
+          "rankingValue": 409.684
         },
         "code-reviewer": {
           "score": 61.248,
@@ -1969,7 +2124,8 @@
       },
       "aaModel": {
         "slug": "kimi-k2-6",
-        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-6"
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-6",
+        "intelligenceIndex": 35.8473
       }
     },
     {
@@ -2020,6 +2176,14 @@
             }
           ],
           "value": 43.9798
+        },
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Kimi K2.5",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-01-26T00:00:00.000Z"
         }
       },
       "tokenPrices": {
@@ -2045,7 +2209,8 @@
         "gpqa": 87.8788,
         "hle": 30.7229,
         "omniscienceIndex": 46.3333,
-        "scicode": 43.9798
+        "scicode": 43.9798,
+        "cyberbench": 26.301
       },
       "roleScores": {
         "architect": {
@@ -2059,9 +2224,9 @@
           "rankingValue": 567.518
         },
         "security-reviewer": {
-          "score": 56.058,
-          "rankingQuality": 56.058,
-          "rankingValue": 675.154
+          "score": 26.301,
+          "rankingQuality": 26.301,
+          "rankingValue": 316.765
         },
         "code-reviewer": {
           "score": 56.772,
@@ -2098,7 +2263,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "kimi-k2-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-5",
+        "intelligenceIndex": 27.6344
       }
     },
     {
@@ -2160,11 +2326,6 @@
           "rankingQuality": 58.946,
           "rankingValue": 289.291
         },
-        "security-reviewer": {
-          "score": 59.431,
-          "rankingQuality": 59.431,
-          "rankingValue": 291.672
-        },
         "code-reviewer": {
           "score": 58.497,
           "rankingQuality": 56.611,
@@ -2200,7 +2361,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "glm-5-3-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-flash",
+        "intelligenceIndex": 46.2237
       }
     },
     {
@@ -2225,7 +2387,16 @@
         "slug": "glm-5-3",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "GLM 5.3",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-08-18T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
@@ -2249,7 +2420,8 @@
         "gpqa": 91.7172,
         "hle": 42.2614,
         "omniscienceIndex": 57.15,
-        "scicode": 59.0278
+        "scicode": 59.0278,
+        "cyberbench": 56.97
       },
       "roleScores": {
         "architect": {
@@ -2263,9 +2435,9 @@
           "rankingValue": 47.327
         },
         "security-reviewer": {
-          "score": 62.496,
-          "rankingQuality": 62.496,
-          "rankingValue": 49.625
+          "score": 56.97,
+          "rankingQuality": 56.97,
+          "rankingValue": 45.237
         },
         "code-reviewer": {
           "score": 62.097,
@@ -2302,7 +2474,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "glm-5-3",
-        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3"
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3",
+        "intelligenceIndex": 48.584
       }
     },
     {
@@ -2327,7 +2500,16 @@
         "slug": "glm-5-2",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "GLM 5.2",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
@@ -2351,7 +2533,8 @@
         "gpqa": 89.4949,
         "hle": 41.1492,
         "omniscienceIndex": 52.2167,
-        "scicode": 51.1574
+        "scicode": 51.1574,
+        "cyberbench": 53.122
       },
       "roleScores": {
         "architect": {
@@ -2365,9 +2548,9 @@
           "rankingValue": 387.136
         },
         "security-reviewer": {
-          "score": 54.506,
-          "rankingQuality": 54.506,
-          "rankingValue": 474.196
+          "score": 53.122,
+          "rankingQuality": 53.122,
+          "rankingValue": 462.155
         },
         "code-reviewer": {
           "score": 51.34,
@@ -2434,7 +2617,8 @@
       },
       "aaModel": {
         "slug": "glm-5-2",
-        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2"
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2",
+        "intelligenceIndex": 42.5399
       }
     },
     {
@@ -2459,7 +2643,16 @@
         "slug": "glm-5-2",
         "reason": "Fast is a CommandCode commercial variant of GLM-5.2."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "GLM 5.2",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 3,
         "output": 10.25,
@@ -2483,7 +2676,8 @@
         "gpqa": 89.4949,
         "hle": 41.1492,
         "omniscienceIndex": 52.2167,
-        "scicode": 51.1574
+        "scicode": 51.1574,
+        "cyberbench": 53.122
       },
       "roleScores": {
         "architect": {
@@ -2497,9 +2691,9 @@
           "rankingValue": 168.434
         },
         "security-reviewer": {
-          "score": 54.506,
-          "rankingQuality": 54.506,
-          "rankingValue": 206.312
+          "score": 53.122,
+          "rankingQuality": 53.122,
+          "rankingValue": 201.073
         },
         "code-reviewer": {
           "score": 51.34,
@@ -2566,7 +2760,8 @@
       },
       "aaModel": {
         "slug": "glm-5-2",
-        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2"
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2",
+        "intelligenceIndex": 42.5399
       }
     },
     {
@@ -2655,11 +2850,6 @@
           "rankingQuality": 52.264,
           "rankingValue": 444.206
         },
-        "security-reviewer": {
-          "score": 55.762,
-          "rankingQuality": 55.762,
-          "rankingValue": 473.937
-        },
         "code-reviewer": {
           "score": 56.141,
           "rankingQuality": 49.731,
@@ -2725,7 +2915,8 @@
       },
       "aaModel": {
         "slug": "glm-5-1",
-        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-1"
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-1",
+        "intelligenceIndex": 31.9115
       }
     },
     {
@@ -2814,11 +3005,6 @@
           "rankingQuality": 53.656,
           "rankingValue": 607.01
         },
-        "security-reviewer": {
-          "score": 55.299,
-          "rankingQuality": 55.299,
-          "rankingValue": 625.597
-        },
         "code-reviewer": {
           "score": 56.47,
           "rankingQuality": 51.619,
@@ -2854,7 +3040,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "glm-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/glm-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5",
+        "intelligenceIndex": 32.3976
       }
     },
     {
@@ -2879,7 +3066,16 @@
         "slug": "minimax-m3",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "MiniMax-M3",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-05-31T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
@@ -2903,7 +3099,8 @@
         "gpqa": 92.9293,
         "hle": 38.9713,
         "omniscienceIndex": 50.675,
-        "scicode": 47.1065
+        "scicode": 47.1065,
+        "cyberbench": 42.719
       },
       "roleScores": {
         "architect": {
@@ -2917,9 +3114,9 @@
           "rankingValue": 199.519
         },
         "security-reviewer": {
-          "score": 54.482,
-          "rankingQuality": 54.482,
-          "rankingValue": 246.472
+          "score": 42.719,
+          "rankingQuality": 42.719,
+          "rankingValue": 193.258
         },
         "code-reviewer": {
           "score": 51.332,
@@ -2956,7 +3153,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "minimax-m3",
-        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m3"
+        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m3",
+        "intelligenceIndex": 35.7477
       }
     },
     {
@@ -3007,6 +3205,14 @@
             }
           ],
           "value": 45.0703
+        },
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "MiniMax-M2.7",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-03-17T00:00:00.000Z"
         }
       },
       "tokenPrices": {
@@ -3032,7 +3238,8 @@
         "gpqa": 87.3737,
         "hle": 29.6108,
         "omniscienceIndex": 50.3833,
-        "scicode": 45.0703
+        "scicode": 45.0703,
+        "cyberbench": 24.556
       },
       "roleScores": {
         "architect": {
@@ -3046,9 +3253,9 @@
           "rankingValue": 869.133
         },
         "security-reviewer": {
-          "score": 49.177,
-          "rankingQuality": 49.177,
-          "rankingValue": 1175.892
+          "score": 24.556,
+          "rankingQuality": 24.556,
+          "rankingValue": 587.169
         },
         "code-reviewer": {
           "score": 46.256,
@@ -3085,7 +3292,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "minimax-m2-7",
-        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-7"
+        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-7",
+        "intelligenceIndex": 30.0578
       }
     },
     {
@@ -3174,11 +3382,6 @@
           "rankingQuality": 47.602,
           "rankingValue": 1138.232
         },
-        "security-reviewer": {
-          "score": 49.639,
-          "rankingQuality": 49.639,
-          "rankingValue": 1186.94
-        },
         "code-reviewer": {
           "score": 51.683,
           "rankingQuality": 45.731,
@@ -3214,7 +3417,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "minimax-m2-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-5",
+        "intelligenceIndex": 26.8283
       }
     },
     {
@@ -3275,11 +3479,6 @@
           "score": 47.931,
           "rankingQuality": 47.931,
           "rankingValue": 288.066
-        },
-        "security-reviewer": {
-          "score": 56.062,
-          "rankingQuality": 56.062,
-          "rankingValue": 336.933
         },
         "code-reviewer": {
           "score": 53.344,
@@ -3346,7 +3545,8 @@
       },
       "aaModel": {
         "slug": "deepseek-v4-pro",
-        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro"
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro",
+        "intelligenceIndex": 42.1133
       }
     },
     {
@@ -3371,7 +3571,16 @@
         "slug": "deepseek-v4-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "DeepSeek V4 Flash 0731",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 0.22,
         "output": 0.66,
@@ -3395,7 +3604,8 @@
         "gpqa": 90.8081,
         "hle": 38.5542,
         "omniscienceIndex": 42.8583,
-        "scicode": 50.3472
+        "scicode": 50.3472,
+        "cyberbench": 53.568
       },
       "roleScores": {
         "architect": {
@@ -3409,9 +3619,9 @@
           "rankingValue": 630.467
         },
         "security-reviewer": {
-          "score": 53.279,
-          "rankingQuality": 53.279,
-          "rankingValue": 762.523
+          "score": 53.568,
+          "rankingQuality": 53.568,
+          "rankingValue": 766.659
         },
         "code-reviewer": {
           "score": 50.959,
@@ -3478,7 +3688,8 @@
       },
       "aaModel": {
         "slug": "deepseek-v4-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+        "intelligenceIndex": 40.8391
       }
     },
     {
@@ -3540,11 +3751,6 @@
           "rankingQuality": 59.387,
           "rankingValue": 2537.906
         },
-        "security-reviewer": {
-          "score": 58.93,
-          "rankingQuality": 58.93,
-          "rankingValue": 2518.376
-        },
         "code-reviewer": {
           "score": 60.372,
           "rankingQuality": 55.068,
@@ -3580,7 +3786,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "deepseek-v4-flash-vision",
-        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision"
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision",
+        "intelligenceIndex": 41.5421
       }
     },
     {
@@ -3605,7 +3812,16 @@
         "slug": "deepseek-v4-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "DeepSeek V4 Flash 0731",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 0.28,
         "output": 0.56,
@@ -3629,7 +3845,8 @@
         "gpqa": 90.8081,
         "hle": 38.5542,
         "omniscienceIndex": 42.8583,
-        "scicode": 50.3472
+        "scicode": 50.3472,
+        "cyberbench": 53.568
       },
       "roleScores": {
         "architect": {
@@ -3643,9 +3860,9 @@
           "rankingValue": 236.943
         },
         "security-reviewer": {
-          "score": 53.279,
-          "rankingQuality": 53.279,
-          "rankingValue": 286.573
+          "score": 53.568,
+          "rankingQuality": 53.568,
+          "rankingValue": 288.127
         },
         "code-reviewer": {
           "score": 50.959,
@@ -3712,7 +3929,8 @@
       },
       "aaModel": {
         "slug": "deepseek-v4-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+        "intelligenceIndex": 40.8391
       }
     },
     {
@@ -3773,11 +3991,6 @@
           "score": 51.356,
           "rankingQuality": 51.356,
           "rankingValue": 43.24
-        },
-        "security-reviewer": {
-          "score": 57.463,
-          "rankingQuality": 57.463,
-          "rankingValue": 48.382
         },
         "code-reviewer": {
           "score": 54.895,
@@ -3844,7 +4057,8 @@
       },
       "aaModel": {
         "slug": "qwen3-8-max",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
+        "intelligenceIndex": 46.9057
       }
     },
     {
@@ -3905,11 +4119,6 @@
           "score": 51.356,
           "rankingQuality": 51.356,
           "rankingValue": 40.128
-        },
-        "security-reviewer": {
-          "score": 57.463,
-          "rankingQuality": 57.463,
-          "rankingValue": 44.899
         },
         "code-reviewer": {
           "score": 54.895,
@@ -3976,7 +4185,8 @@
       },
       "aaModel": {
         "slug": "qwen3-8-max",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
+        "intelligenceIndex": 46.9057
       }
     },
     {
@@ -4038,11 +4248,6 @@
           "rankingQuality": 46.245,
           "rankingValue": 93.851
         },
-        "security-reviewer": {
-          "score": 52.321,
-          "rankingQuality": 52.321,
-          "rankingValue": 106.182
-        },
         "code-reviewer": {
           "score": 50.233,
           "rankingQuality": 47.478,
@@ -4078,7 +4283,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-8-27b",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-27b"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
+        "intelligenceIndex": 41.4059
       }
     },
     {
@@ -4167,11 +4373,6 @@
           "rankingQuality": 40.1,
           "rankingValue": 207.034
         },
-        "security-reviewer": {
-          "score": 40.823,
-          "rankingQuality": 40.823,
-          "rankingValue": 210.767
-        },
         "code-reviewer": {
           "score": 42.265,
           "rankingQuality": 39.217,
@@ -4207,7 +4408,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-max-preview",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-max-preview"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-max-preview",
+        "intelligenceIndex": 13.0472
       }
     },
     {
@@ -4296,11 +4498,6 @@
           "rankingQuality": 51.03,
           "rankingValue": 615.108
         },
-        "security-reviewer": {
-          "score": 55.237,
-          "rankingQuality": 55.237,
-          "rankingValue": 665.819
-        },
         "code-reviewer": {
           "score": 55.549,
           "rankingQuality": 48.464,
@@ -4336,7 +4533,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-6-plus",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-6-plus"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-6-plus",
+        "intelligenceIndex": 31.5039
       }
     },
     {
@@ -4425,11 +4623,6 @@
           "rankingQuality": 55.918,
           "rankingValue": 299.898
         },
-        "security-reviewer": {
-          "score": 62.245,
-          "rankingQuality": 62.245,
-          "rankingValue": 333.83
-        },
         "code-reviewer": {
           "score": 62.018,
           "rankingQuality": 56.11,
@@ -4465,7 +4658,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-7-max",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-max"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-max",
+        "intelligenceIndex": 36.9833
       }
     },
     {
@@ -4554,11 +4748,6 @@
           "rankingQuality": 33.85,
           "rankingValue": 623.274
         },
-        "security-reviewer": {
-          "score": 51.763,
-          "rankingQuality": 51.763,
-          "rankingValue": 953.103
-        },
         "code-reviewer": {
           "score": 48.45,
           "rankingQuality": 45.007,
@@ -4624,7 +4813,8 @@
       },
       "aaModel": {
         "slug": "qwen3-7-plus",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-plus"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-plus",
+        "intelligenceIndex": 30.8084
       }
     },
     {
@@ -4686,11 +4876,6 @@
           "rankingQuality": 61.761,
           "rankingValue": 2123.904
         },
-        "security-reviewer": {
-          "score": 60.601,
-          "rankingQuality": 60.601,
-          "rankingValue": 2084.013
-        },
         "code-reviewer": {
           "score": 61.494,
           "rankingQuality": 57.309,
@@ -4726,7 +4911,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-8-flash-next",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next"
+        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+        "intelligenceIndex": 45.5774
       }
     },
     {
@@ -4859,11 +5045,6 @@
           "rankingQuality": 41.407,
           "rankingValue": 962.081
         },
-        "security-reviewer": {
-          "score": 48.142,
-          "rankingQuality": 48.142,
-          "rankingValue": 1118.567
-        },
         "code-reviewer": {
           "score": 49.852,
           "rankingQuality": 43.45,
@@ -4899,7 +5080,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "step-3-7-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/step-3-7-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/step-3-7-flash",
+        "intelligenceIndex": 22.8785
       }
     },
     {
@@ -4988,11 +5170,6 @@
           "rankingQuality": 44.511,
           "rankingValue": 1836.793
         },
-        "security-reviewer": {
-          "score": 47.596,
-          "rankingQuality": 47.596,
-          "rankingValue": 1964.099
-        },
         "code-reviewer": {
           "score": 48.555,
           "rankingQuality": 43.546,
@@ -5028,7 +5205,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "step-3-5-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/step-3-5-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/step-3-5-flash",
+        "intelligenceIndex": 19.5407
       }
     },
     {
@@ -5090,11 +5268,6 @@
           "rankingQuality": 39.849,
           "rankingValue": 1081.56
         },
-        "security-reviewer": {
-          "score": 52.639,
-          "rankingQuality": 52.639,
-          "rankingValue": 1428.699
-        },
         "code-reviewer": {
           "score": 50.221,
           "rankingQuality": 49.024,
@@ -5130,7 +5303,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "mimo-v2-5-pro",
-        "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro"
+        "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro",
+        "intelligenceIndex": 32.5863
       }
     },
     {
@@ -5225,11 +5399,6 @@
           "rankingQuality": 48.288,
           "rankingValue": 2029.76
         },
-        "security-reviewer": {
-          "score": 53.657,
-          "rankingQuality": 53.657,
-          "rankingValue": 2255.443
-        },
         "code-reviewer": {
           "score": 54.543,
           "rankingQuality": 48.102,
@@ -5265,7 +5434,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "mimo-v2-5-0424",
-        "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-0424"
+        "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-0424",
+        "intelligenceIndex": 29.531
       }
     },
     {
@@ -5327,11 +5497,6 @@
           "rankingQuality": 37.738,
           "rankingValue": 537.824
         },
-        "security-reviewer": {
-          "score": 48.012,
-          "rankingQuality": 48.012,
-          "rankingValue": 684.244
-        },
         "code-reviewer": {
           "score": 44.946,
           "rankingQuality": 42.367,
@@ -5367,7 +5532,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "nvidia-nemotron-3-ultra-550b-a55b",
-        "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b"
+        "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
+        "intelligenceIndex": 29.5512
       }
     },
     {
@@ -5392,7 +5558,16 @@
         "slug": "claude-fable-5-1",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Claude Fable 5.1",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-09-01T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 10,
         "output": 50,
@@ -5416,7 +5591,8 @@
         "gpqa": 93.7374,
         "hle": 59.1288,
         "omniscienceIndex": 71.725,
-        "scicode": 63.0787
+        "scicode": 63.0787,
+        "cyberbench": 68.825
       },
       "roleScores": {
         "architect": {
@@ -5430,9 +5606,9 @@
           "rankingValue": 11.454
         },
         "security-reviewer": {
-          "score": 72.054,
-          "rankingQuality": 72.054,
-          "rankingValue": 11.708
+          "score": 68.825,
+          "rankingQuality": 68.825,
+          "rankingValue": 11.183
         },
         "code-reviewer": {
           "score": 70.885,
@@ -5499,7 +5675,8 @@
       },
       "aaModel": {
         "slug": "claude-fable-5-1",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1",
+        "intelligenceIndex": 56.7581
       }
     },
     {
@@ -5524,7 +5701,16 @@
         "slug": "claude-fable-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Claude Fable 5",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-06-09T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 10,
         "output": 50,
@@ -5548,7 +5734,8 @@
         "gpqa": 92.6263,
         "hle": 55.468,
         "omniscienceIndex": 71.65,
-        "scicode": 60.9954
+        "scicode": 60.9954,
+        "cyberbench": 66.036
       },
       "roleScores": {
         "architect": {
@@ -5562,9 +5749,9 @@
           "rankingValue": 11.668
         },
         "security-reviewer": {
-          "score": 69.741,
-          "rankingQuality": 69.741,
-          "rankingValue": 12.258
+          "score": 66.036,
+          "rankingQuality": 66.036,
+          "rankingValue": 11.607
         },
         "code-reviewer": {
           "score": 68.352,
@@ -5631,7 +5818,8 @@
       },
       "aaModel": {
         "slug": "claude-fable-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5",
+        "intelligenceIndex": 53.1913
       }
     },
     {
@@ -5656,7 +5844,16 @@
         "slug": "claude-opus-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Claude Opus 5",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-22T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 5,
         "output": 25,
@@ -5680,7 +5877,8 @@
         "gpqa": 93.2323,
         "hle": 54.8656,
         "omniscienceIndex": 68.5333,
-        "scicode": 56.3657
+        "scicode": 56.3657,
+        "cyberbench": 67.213
       },
       "roleScores": {
         "architect": {
@@ -5694,9 +5892,9 @@
           "rankingValue": 15.641
         },
         "security-reviewer": {
-          "score": 67.026,
-          "rankingQuality": 67.026,
-          "rankingValue": 15.938
+          "score": 67.213,
+          "rankingQuality": 67.213,
+          "rankingValue": 15.983
         },
         "code-reviewer": {
           "score": 64.684,
@@ -5763,7 +5961,8 @@
       },
       "aaModel": {
         "slug": "claude-opus-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-5",
+        "intelligenceIndex": 54.0539
       }
     },
     {
@@ -5814,6 +6013,14 @@
             }
           ],
           "value": 53.4722
+        },
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Claude Opus 4.8",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-05-28T00:00:00.000Z"
         }
       },
       "tokenPrices": {
@@ -5839,7 +6046,8 @@
         "gpqa": 92.0202,
         "hle": 48.6562,
         "omniscienceIndex": 64.375,
-        "scicode": 53.4722
+        "scicode": 53.4722,
+        "cyberbench": 60.908
       },
       "roleScores": {
         "architect": {
@@ -5853,9 +6061,9 @@
           "rankingValue": 100.753
         },
         "security-reviewer": {
-          "score": 62.99,
-          "rankingQuality": 62.99,
-          "rankingValue": 110.371
+          "score": 60.908,
+          "rankingQuality": 60.908,
+          "rankingValue": 106.723
         },
         "code-reviewer": {
           "score": 60.603,
@@ -5922,7 +6130,8 @@
       },
       "aaModel": {
         "slug": "claude-opus-4-8",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-8"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-8",
+        "intelligenceIndex": 46.4375
       }
     },
     {
@@ -5973,6 +6182,14 @@
             }
           ],
           "value": 53.8076
+        },
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Claude Opus 4.7",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-04-16T00:00:00.000Z"
         }
       },
       "tokenPrices": {
@@ -5998,7 +6215,8 @@
         "gpqa": 91.4141,
         "hle": 42.3077,
         "omniscienceIndex": 63.6333,
-        "scicode": 53.8076
+        "scicode": 53.8076,
+        "cyberbench": 56.114
       },
       "roleScores": {
         "architect": {
@@ -6012,9 +6230,9 @@
           "rankingValue": 108.586
         },
         "security-reviewer": {
-          "score": 64.869,
-          "rankingQuality": 64.869,
-          "rankingValue": 113.663
+          "score": 56.114,
+          "rankingQuality": 56.114,
+          "rankingValue": 98.323
         },
         "code-reviewer": {
           "score": 64.89,
@@ -6081,7 +6299,8 @@
       },
       "aaModel": {
         "slug": "claude-opus-4-7",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-7"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-7",
+        "intelligenceIndex": 44.2905
       }
     },
     {
@@ -6170,11 +6389,6 @@
           "rankingQuality": 52.44,
           "rankingValue": 91.885
         },
-        "security-reviewer": {
-          "score": 52.316,
-          "rankingQuality": 52.316,
-          "rankingValue": 91.668
-        },
         "code-reviewer": {
           "score": 53.551,
           "rankingQuality": 48.25,
@@ -6210,7 +6424,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "claude-opus-4-6",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-6"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-6",
+        "intelligenceIndex": 30.7655
       }
     },
     {
@@ -6272,11 +6487,6 @@
           "rankingQuality": 57.695,
           "rankingValue": 17.409
         },
-        "security-reviewer": {
-          "score": 61.554,
-          "rankingQuality": 61.554,
-          "rankingValue": 18.573
-        },
         "code-reviewer": {
           "score": 60.851,
           "rankingQuality": 58.474,
@@ -6312,7 +6522,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "claude-sonnet-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-5",
+        "intelligenceIndex": 45.1096
       }
     },
     {
@@ -6401,11 +6612,6 @@
           "rankingQuality": 41.738,
           "rankingValue": 119.434
         },
-        "security-reviewer": {
-          "score": 44.185,
-          "rankingQuality": 44.185,
-          "rankingValue": 126.436
-        },
         "code-reviewer": {
           "score": 43.598,
           "rankingQuality": 41.948,
@@ -6471,7 +6677,8 @@
       },
       "aaModel": {
         "slug": "claude-sonnet-4-6",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6",
+        "intelligenceIndex": 28.9599
       }
     },
     {
@@ -6560,11 +6767,6 @@
           "rankingQuality": 36.499,
           "rankingValue": 284.664
         },
-        "security-reviewer": {
-          "score": 34.694,
-          "rankingQuality": 34.694,
-          "rankingValue": 270.586
-        },
         "code-reviewer": {
           "score": 34.108,
           "rankingQuality": 35.669,
@@ -6600,7 +6802,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "claude-4-5-haiku",
-        "sourceUrl": "https://artificialanalysis.ai/models/claude-4-5-haiku"
+        "sourceUrl": "https://artificialanalysis.ai/models/claude-4-5-haiku",
+        "intelligenceIndex": 17.3638
       }
     },
     {
@@ -6625,7 +6828,16 @@
         "slug": "gpt-6-astra",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "GPT-6 Astra",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 10,
         "output": 50,
@@ -6649,7 +6861,8 @@
         "gpqa": 96.0606,
         "hle": 54.6803,
         "omniscienceIndex": 71.7,
-        "scicode": 56.4815
+        "scicode": 56.4815,
+        "cyberbench": 66.608
       },
       "roleScores": {
         "architect": {
@@ -6663,9 +6876,9 @@
           "rankingValue": 23.292
         },
         "security-reviewer": {
-          "score": 66.151,
-          "rankingQuality": 66.151,
-          "rankingValue": 25.767
+          "score": 66.608,
+          "rankingQuality": 66.608,
+          "rankingValue": 25.945
         },
         "code-reviewer": {
           "score": 62.517,
@@ -6702,7 +6915,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gpt-6-astra",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-6-astra"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-6-astra",
+        "intelligenceIndex": 54.6573
       }
     },
     {
@@ -6727,7 +6941,16 @@
         "slug": "gpt-5-6-sol",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "GPT-5.6 Sol",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 5,
         "output": 30,
@@ -6751,7 +6974,8 @@
         "gpqa": 94.1414,
         "hle": 49.4903,
         "omniscienceIndex": 60.9833,
-        "scicode": 57.0602
+        "scicode": 57.0602,
+        "cyberbench": 63.709
       },
       "roleScores": {
         "architect": {
@@ -6765,9 +6989,9 @@
           "rankingValue": 33.13
         },
         "security-reviewer": {
-          "score": 62.31,
-          "rankingQuality": 62.31,
-          "rankingValue": 37.188
+          "score": 63.709,
+          "rankingQuality": 63.709,
+          "rankingValue": 38.023
         },
         "code-reviewer": {
           "score": 59.469,
@@ -6834,7 +7058,8 @@
       },
       "aaModel": {
         "slug": "gpt-5-6-sol",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol",
+        "intelligenceIndex": 51.2552
       }
     },
     {
@@ -6895,11 +7120,6 @@
           "score": 50.216,
           "rankingQuality": 50.216,
           "rankingValue": 61.662
-        },
-        "security-reviewer": {
-          "score": 58.877,
-          "rankingQuality": 58.877,
-          "rankingValue": 72.297
         },
         "code-reviewer": {
           "score": 57.288,
@@ -6966,7 +7186,8 @@
       },
       "aaModel": {
         "slug": "gpt-5-6-terra",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra",
+        "intelligenceIndex": 46.7688
       }
     },
     {
@@ -7027,11 +7248,6 @@
           "score": 46.329,
           "rankingQuality": 46.329,
           "rankingValue": 478.116
-        },
-        "security-reviewer": {
-          "score": 55.424,
-          "rankingQuality": 55.424,
-          "rankingValue": 571.977
         },
         "code-reviewer": {
           "score": 53.687,
@@ -7098,7 +7314,8 @@
       },
       "aaModel": {
         "slug": "gpt-5-6-luna",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna",
+        "intelligenceIndex": 43.4415
       }
     },
     {
@@ -7187,11 +7404,6 @@
           "rankingQuality": 48.996,
           "rankingValue": 71.912
         },
-        "security-reviewer": {
-          "score": 59.623,
-          "rankingQuality": 59.623,
-          "rankingValue": 87.509
-        },
         "code-reviewer": {
           "score": 56.377,
           "rankingQuality": 57.929,
@@ -7257,7 +7469,8 @@
       },
       "aaModel": {
         "slug": "gpt-5-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-5",
+        "intelligenceIndex": 45.6173
       }
     },
     {
@@ -7346,11 +7559,6 @@
           "rankingQuality": 57.683,
           "rankingValue": 165.061
         },
-        "security-reviewer": {
-          "score": 63.498,
-          "rankingQuality": 63.498,
-          "rankingValue": 181.701
-        },
         "code-reviewer": {
           "score": 63.783,
           "rankingQuality": 59.106,
@@ -7386,7 +7594,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gpt-5-4",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4",
+        "intelligenceIndex": 42.8257
       }
     },
     {
@@ -7475,11 +7684,6 @@
           "rankingQuality": 33.68,
           "rankingValue": 287.48
         },
-        "security-reviewer": {
-          "score": 46.977,
-          "rankingQuality": 46.977,
-          "rankingValue": 400.978
-        },
         "code-reviewer": {
           "score": 44.464,
           "rankingQuality": 42.622,
@@ -7515,7 +7719,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gpt-5-4-mini",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini",
+        "intelligenceIndex": 31.9167
       }
     },
     {
@@ -7604,11 +7809,6 @@
           "rankingQuality": 57.729,
           "rankingValue": 289.57
         },
-        "security-reviewer": {
-          "score": 63.507,
-          "rankingQuality": 63.507,
-          "rankingValue": 318.553
-        },
         "code-reviewer": {
           "score": 63.818,
           "rankingQuality": 58.804,
@@ -7644,7 +7844,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gpt-5-3-codex",
-        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-3-codex"
+        "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-3-codex",
+        "intelligenceIndex": 36.9388
       }
     },
     {
@@ -7669,7 +7870,16 @@
         "slug": "gemini-3-8-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Gemini 3.8 Flash",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 1.5,
         "output": 7.5,
@@ -7693,7 +7903,8 @@
         "gpqa": 95.2525,
         "hle": 47.8221,
         "omniscienceIndex": 64.775,
-        "scicode": 56.5972
+        "scicode": 56.5972,
+        "cyberbench": 62.252
       },
       "roleScores": {
         "architect": {
@@ -7707,9 +7918,9 @@
           "rankingValue": 35.659
         },
         "security-reviewer": {
-          "score": 62.24,
-          "rankingQuality": 62.24,
-          "rankingValue": 42.17
+          "score": 62.252,
+          "rankingQuality": 62.252,
+          "rankingValue": 42.178
         },
         "code-reviewer": {
           "score": 59.029,
@@ -7746,7 +7957,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-8-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash",
+        "intelligenceIndex": 47.0713
       }
     },
     {
@@ -7771,7 +7983,16 @@
         "slug": "gemini-3-7-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Gemini 3.7 Flash",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-08-13T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 1.5,
         "output": 7.5,
@@ -7795,7 +8016,8 @@
         "gpqa": 94.5455,
         "hle": 47.8684,
         "omniscienceIndex": 63.2417,
-        "scicode": 57.1759
+        "scicode": 57.1759,
+        "cyberbench": 59.307
       },
       "roleScores": {
         "architect": {
@@ -7809,9 +8031,9 @@
           "rankingValue": 73.801
         },
         "security-reviewer": {
-          "score": 61.349,
-          "rankingQuality": 61.349,
-          "rankingValue": 90.252
+          "score": 59.307,
+          "rankingQuality": 59.307,
+          "rankingValue": 87.248
         },
         "code-reviewer": {
           "score": 57.999,
@@ -7878,7 +8100,8 @@
       },
       "aaModel": {
         "slug": "gemini-3-7-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash",
+        "intelligenceIndex": 45.242
       }
     },
     {
@@ -7903,7 +8126,16 @@
         "slug": "gemini-3-6-flash",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Gemini 3.6 Flash",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-21T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 1.5,
         "output": 7.5,
@@ -7927,7 +8159,8 @@
         "gpqa": 92.8283,
         "hle": 40.8248,
         "omniscienceIndex": 61.0667,
-        "scicode": 53.3565
+        "scicode": 53.3565,
+        "cyberbench": 55.354
       },
       "roleScores": {
         "architect": {
@@ -7941,9 +8174,9 @@
           "rankingValue": 80.603
         },
         "security-reviewer": {
-          "score": 57.983,
-          "rankingQuality": 57.983,
-          "rankingValue": 98.994
+          "score": 55.354,
+          "rankingQuality": 55.354,
+          "rankingValue": 94.506
         },
         "code-reviewer": {
           "score": 54.932,
@@ -8010,7 +8243,8 @@
       },
       "aaModel": {
         "slug": "gemini-3-6-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash",
+        "intelligenceIndex": 40.287
       }
     },
     {
@@ -8061,6 +8295,14 @@
             }
           ],
           "value": 52.1293
+        },
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Gemini 3.5 Flash",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-05-19T00:00:00.000Z"
         }
       },
       "tokenPrices": {
@@ -8086,7 +8328,8 @@
         "gpqa": 92.2222,
         "hle": 42.6784,
         "omniscienceIndex": 60.5917,
-        "scicode": 52.1293
+        "scicode": 52.1293,
+        "cyberbench": 53.079
       },
       "roleScores": {
         "architect": {
@@ -8100,9 +8343,9 @@
           "rankingValue": 213.86
         },
         "security-reviewer": {
-          "score": 58.152,
-          "rankingQuality": 58.152,
-          "rankingValue": 268.332
+          "score": 53.079,
+          "rankingQuality": 53.079,
+          "rankingValue": 244.923
         },
         "code-reviewer": {
           "score": 54.98,
@@ -8139,7 +8382,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-5-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash"
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash",
+        "intelligenceIndex": 39.7284
       }
     },
     {
@@ -8201,11 +8445,6 @@
           "rankingQuality": 36.967,
           "rankingValue": 464.52
         },
-        "security-reviewer": {
-          "score": 45.733,
-          "rankingQuality": 45.733,
-          "rankingValue": 574.672
-        },
         "code-reviewer": {
           "score": 43.588,
           "rankingQuality": 41.887,
@@ -8241,7 +8480,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-5-flash-lite",
-        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite"
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
+        "intelligenceIndex": 27.5743
       }
     },
     {
@@ -8330,11 +8570,6 @@
           "rankingQuality": 23.956,
           "rankingValue": 469.311
         },
-        "security-reviewer": {
-          "score": 41.608,
-          "rankingQuality": 41.608,
-          "rankingValue": 815.124
-        },
         "code-reviewer": {
           "score": 39.361,
           "rankingQuality": 35.584,
@@ -8370,7 +8605,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "gemini-3-1-flash-lite-preview",
-        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview"
+        "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
+        "intelligenceIndex": 18.7074
       }
     },
     {
@@ -8429,7 +8665,16 @@
         "slug": "muse-spark-1-3-xhigh",
         "reason": "AA benchmarks Muse Spark 1.3 as the xhigh variant; CommandCode input/output/cache pricing exactly matches the AA entry ($1.25/$4.25/$0.15)."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Muse Spark 1.3",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 1.25,
         "output": 4.25,
@@ -8453,7 +8698,8 @@
         "gpqa": 94.1414,
         "hle": 47.4513,
         "omniscienceIndex": 61.5583,
-        "scicode": 59.7222
+        "scicode": 59.7222,
+        "cyberbench": 60.31
       },
       "roleScores": {
         "architect": {
@@ -8467,9 +8713,9 @@
           "rankingValue": 80.74
         },
         "security-reviewer": {
-          "score": 68.476,
-          "rankingQuality": 68.476,
-          "rankingValue": 81.53
+          "score": 60.31,
+          "rankingQuality": 60.31,
+          "rankingValue": 71.807
         },
         "code-reviewer": {
           "score": 69.054,
@@ -8506,7 +8752,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "muse-spark-1-3-xhigh",
-        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
+        "intelligenceIndex": 51.553
       }
     },
     {
@@ -8531,7 +8778,16 @@
         "slug": "muse-spark-1-3-xhigh",
         "reason": "Contributor is the lower-price CommandCode commercial/data-sharing variant of the same Muse Spark 1.3 benchmark identity."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Muse Spark 1.3",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 0.1,
         "output": 0.2,
@@ -8555,7 +8811,8 @@
         "gpqa": 94.1414,
         "hle": 47.4513,
         "omniscienceIndex": 61.5583,
-        "scicode": 59.7222
+        "scicode": 59.7222,
+        "cyberbench": 60.31
       },
       "roleScores": {
         "architect": {
@@ -8569,9 +8826,9 @@
           "rankingValue": 1963.204
         },
         "security-reviewer": {
-          "score": 68.476,
-          "rankingQuality": 68.476,
-          "rankingValue": 1982.398
+          "score": 60.31,
+          "rankingQuality": 60.31,
+          "rankingValue": 1745.99
         },
         "code-reviewer": {
           "score": 69.054,
@@ -8608,7 +8865,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "muse-spark-1-3-xhigh",
-        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
+        "intelligenceIndex": 51.553
       }
     },
     {
@@ -8633,7 +8891,16 @@
         "slug": "muse-spark-1-2",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Muse Spark 1.2",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 1.25,
         "output": 4.25,
@@ -8657,7 +8924,8 @@
         "gpqa": 90.404,
         "hle": 45.4588,
         "omniscienceIndex": 63.6,
-        "scicode": 57.4074
+        "scicode": 57.4074,
+        "cyberbench": 57.053
       },
       "roleScores": {
         "architect": {
@@ -8671,9 +8939,9 @@
           "rankingValue": 100.689
         },
         "security-reviewer": {
-          "score": 61.566,
-          "rankingQuality": 61.566,
-          "rankingValue": 112.894
+          "score": 57.053,
+          "rankingQuality": 57.053,
+          "rankingValue": 104.619
         },
         "code-reviewer": {
           "score": 59.487,
@@ -8740,7 +9008,8 @@
       },
       "aaModel": {
         "slug": "muse-spark-1-2",
-        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
+        "intelligenceIndex": 46.8372
       }
     },
     {
@@ -8765,7 +9034,16 @@
         "slug": "muse-spark-1-2",
         "reason": "Contributor is a CommandCode data-sharing commercial variant of Muse Spark 1.2."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Muse Spark 1.2",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 0.1,
         "output": 0.2,
@@ -8789,7 +9067,8 @@
         "gpqa": 90.404,
         "hle": 45.4588,
         "omniscienceIndex": 63.6,
-        "scicode": 57.4074
+        "scicode": 57.4074,
+        "cyberbench": 57.053
       },
       "roleScores": {
         "architect": {
@@ -8803,9 +9082,9 @@
           "rankingValue": 2380.044
         },
         "security-reviewer": {
-          "score": 61.566,
-          "rankingQuality": 61.566,
-          "rankingValue": 2668.545
+          "score": 57.053,
+          "rankingQuality": 57.053,
+          "rankingValue": 2472.931
         },
         "code-reviewer": {
           "score": 59.487,
@@ -8872,7 +9151,8 @@
       },
       "aaModel": {
         "slug": "muse-spark-1-2",
-        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2"
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
+        "intelligenceIndex": 46.8372
       }
     },
     {
@@ -8923,6 +9203,14 @@
             }
           ],
           "value": 53.8963
+        },
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Muse Spark 1.1",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
       "tokenPrices": {
@@ -8948,7 +9236,8 @@
         "gpqa": 89.798,
         "hle": 46.2002,
         "omniscienceIndex": 64.0417,
-        "scicode": 53.8963
+        "scicode": 53.8963,
+        "cyberbench": 54.754
       },
       "roleScores": {
         "architect": {
@@ -8962,9 +9251,9 @@
           "rankingValue": 534.898
         },
         "security-reviewer": {
-          "score": 65.231,
-          "rankingQuality": 65.231,
-          "rankingValue": 584.376
+          "score": 54.754,
+          "rankingQuality": 54.754,
+          "rankingValue": 490.517
         },
         "code-reviewer": {
           "score": 64.887,
@@ -9031,7 +9320,8 @@
       },
       "aaModel": {
         "slug": "muse-spark-1-1",
-        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-1"
+        "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-1",
+        "intelligenceIndex": 43.2876
       }
     },
     {
@@ -9056,7 +9346,16 @@
         "slug": "grok-4-6",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Grok 4.6",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 2,
         "output": 6,
@@ -9080,7 +9379,8 @@
         "gpqa": 94.9495,
         "hle": 42.9101,
         "omniscienceIndex": 65.2417,
-        "scicode": 56.4815
+        "scicode": 56.4815,
+        "cyberbench": 59.167
       },
       "roleScores": {
         "architect": {
@@ -9094,9 +9394,9 @@
           "rankingValue": 43.452
         },
         "security-reviewer": {
-          "score": 60.272,
-          "rankingQuality": 60.272,
-          "rankingValue": 48.081
+          "score": 59.167,
+          "rankingQuality": 59.167,
+          "rankingValue": 47.199
         },
         "code-reviewer": {
           "score": 57.055,
@@ -9133,7 +9433,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "grok-4-6",
-        "sourceUrl": "https://artificialanalysis.ai/models/grok-4-6"
+        "sourceUrl": "https://artificialanalysis.ai/models/grok-4-6",
+        "intelligenceIndex": 50.5768
       }
     },
     {
@@ -9158,7 +9459,16 @@
         "slug": "grok-4-5",
         "reason": "Unique normalized match to AA canonical slug."
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "cyberbench": {
+          "status": "direct",
+          "benchmark": "Vals AI CyberBench Overall",
+          "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
+          "sourceLabel": "Grok 4.5",
+          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
+        }
+      },
       "tokenPrices": {
         "input": 2,
         "output": 6,
@@ -9182,7 +9492,8 @@
         "gpqa": 93.1313,
         "hle": 42.6784,
         "omniscienceIndex": 62.6583,
-        "scicode": 54.9769
+        "scicode": 54.9769,
+        "cyberbench": 51.528
       },
       "roleScores": {
         "architect": {
@@ -9196,9 +9507,9 @@
           "rankingValue": 101.143
         },
         "security-reviewer": {
-          "score": 59.21,
-          "rankingQuality": 59.21,
-          "rankingValue": 120.232
+          "score": 51.528,
+          "rankingQuality": 51.528,
+          "rankingValue": 104.633
         },
         "code-reviewer": {
           "score": 56.15,
@@ -9265,7 +9576,8 @@
       },
       "aaModel": {
         "slug": "grok-4-5",
-        "sourceUrl": "https://artificialanalysis.ai/models/grok-4-5"
+        "sourceUrl": "https://artificialanalysis.ai/models/grok-4-5",
+        "intelligenceIndex": 45.4782
       }
     },
     {
@@ -9327,11 +9639,6 @@
           "rankingQuality": 39.84,
           "rankingValue": 90.988
         },
-        "security-reviewer": {
-          "score": 51.139,
-          "rankingQuality": 51.139,
-          "rankingValue": 116.793
-        },
         "code-reviewer": {
           "score": 48.702,
           "rankingQuality": 46.619,
@@ -9367,7 +9674,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "inkling",
-        "sourceUrl": "https://artificialanalysis.ai/models/inkling"
+        "sourceUrl": "https://artificialanalysis.ai/models/inkling",
+        "intelligenceIndex": 32.1665
       }
     },
     {
@@ -9466,11 +9774,6 @@
           "rankingQuality": 51.649,
           "rankingValue": 924.367
         },
-        "security-reviewer": {
-          "score": 57.497,
-          "rankingQuality": 57.497,
-          "rankingValue": 1029.029
-        },
         "code-reviewer": {
           "score": 58.228,
           "rankingQuality": 52.244,
@@ -9506,7 +9809,8 @@
       "codingAgent": null,
       "aaModel": {
         "slug": "inkling-small",
-        "sourceUrl": "https://artificialanalysis.ai/models/inkling-small"
+        "sourceUrl": "https://artificialanalysis.ai/models/inkling-small",
+        "intelligenceIndex": 32.2964
       }
     }
   ]

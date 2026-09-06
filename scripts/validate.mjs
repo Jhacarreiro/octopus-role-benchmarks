@@ -3,18 +3,23 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
-if(roles.schemaVersion<4) throw new Error('Expected methodology schema >=4');
+if(roles.schemaVersion<6) throw new Error('Expected methodology schema >=6');
 if(roles.coveragePolicy!==1) throw new Error('coveragePolicy must remain 1.0');
 if(roles.costBasis?.default!=='task') throw new Error('Primary cost basis must be task');
 if(Math.abs((roles.ranking?.codingAgentWeight??0)-1/3)>1e-12) throw new Error('Coding Agent weight must remain 1/3');
 if(!Array.isArray(roles.roles)||roles.roles.length!==8) throw new Error('Expected 8 canonical Octopus roles');
 for(const role of roles.roles){
-  const sum=Object.values(role.weights).reduce((a,b)=>a+b,0);
-  if(Math.abs(sum-1)>1e-9) throw new Error(`Weights for ${role.id} sum to ${sum}`);
-  for(const key of Object.keys(role.weights)) if(!roles.benchmarks[key]) throw new Error(`Unknown benchmark ${key} in ${role.id}`);
+  if(role.externalBenchmark){
+    if(role.weights) throw new Error(`External benchmark role ${role.id} must not define weights`);
+    if(!roles.benchmarks[role.externalBenchmark]?.external) throw new Error(`Unknown external benchmark ${role.externalBenchmark} in ${role.id}`);
+  }else{
+    const sum=Object.values(role.weights||{}).reduce((a,b)=>a+b,0);
+    if(Math.abs(sum-1)>1e-9) throw new Error(`Weights for ${role.id} sum to ${sum}`);
+    for(const key of Object.keys(role.weights||{})) if(!roles.benchmarks[key]) throw new Error(`Unknown benchmark ${key} in ${role.id}`);
+  }
 }
 const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'utf8'));
-if(latest.schemaVersion<5) throw new Error('Expected snapshot schema >=5');
+if(latest.schemaVersion<6) throw new Error('Expected snapshot schema >=6');
 for(const [key,c] of Object.entries(latest.coverage||{})) if(c.ratio!==1||c.present!==c.total) throw new Error(`Snapshot coverage <100% for ${key}`);
 for(const c of [latest.efficiencyCoverage,latest.caiStarCoverage]) if(!c||c.ratio!==1||c.present!==c.total) throw new Error('Task-cost and CAI* coverage must both be 100%');
 for(const m of latest.models||[]){
@@ -27,9 +32,13 @@ for(const m of latest.models||[]){
   if(!m.aaModel) continue;
   if(m.taskEfficiency?.commandCodeCostPerTaskUsd==null) throw new Error(`Scored model lacks CC task cost: ${m.name}`);
   if(m.caiStar?.value==null) throw new Error(`Scored model lacks CAI*: ${m.name}`);
+  if(m.aaModel?.intelligenceIndex==null) throw new Error(`Scored model lacks AA Intelligence Index: ${m.name}`);
   for(const role of latest.roles){
     const r=m.roleScores?.[role.id];
-    if(!r) throw new Error(`Missing role score: ${m.name}/${role.id}`);
+    if(!r){
+      if(role.externalBenchmark) continue;
+      throw new Error(`Missing role score: ${m.name}/${role.id}`);
+    }
     const cost=m.taskEfficiency?.commandCodeCostPerTaskUsd;
     if(r.rankingValue==null&&cost!==0) throw new Error(`Missing ranking value: ${m.name}/${role.id}`);
     if(role.codingAdjusted&&r.rankingQuality==null) throw new Error(`Missing coding-adjusted quality: ${m.name}/${role.id}`);

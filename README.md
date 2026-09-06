@@ -1,8 +1,8 @@
 # Octopus Role Benchmarks
 
-Transparent **Quality** and **Balanced** rankings for Claude Octopus roles using the current CommandCode Max catalogue, plus curated Quality/Balanced/Budget portfolio recommendations.
+Transparent role rankings for Claude Octopus roles using the current CommandCode Max catalogue, plus deterministic Quality/Balanced/Budget portfolio recommendations.
 
-The detailed table exposes two modes: **Quality** ignores price; **Balanced** divides role quality by CommandCode Cost per Task. The top lineup adds a curated **Budget** portfolio.
+The detailed table exposes **Quality** and cost-adjusted **Balanced** ranking views. Separately, the recommendation cards are generated as constrained **Quality**, **Balanced** and **Budget** portfolios under config/lineup-policy.json.
 
 ## Public site
 
@@ -76,37 +76,47 @@ GitHub Actions weekly
   -> OpenCLI CommandCode Max
   -> OpenCLI Artificial Analysis models
   -> OpenCLI Coding Agent Index
+  -> AA Intelligence Index refresh
+  -> Vals AI CyberBench refresh
   -> verified model-family mapping
-  -> 100% universal benchmark coverage gate
-  -> 100% CommandCode Cost-per-Task coverage gate
-  -> fit CAI* estimator on observed CAI families
-  -> estimate missing CAI values
-  -> reverse validation + guardrails
-  -> Role Quality + Balanced Score per role/model
-  -> validate curated lineup policy against the fresh snapshot
+  -> universal benchmark coverage gate
+  -> CommandCode Cost-per-Task coverage gate
+  -> fit/validate CAI* and SciCode estimators
+  -> role-quality scores
+  -> deterministic Quality / Balanced / Budget portfolio optimizer
   -> generate site/data/lineups.json
   -> dated JSON snapshot + public site data
 ```
 
+`Security Reviewer` is the exception to the universal weighted role-score formula: it uses the external **Vals AI CyberBench Overall** score directly. If a model has no direct CyberBench result, that model is simply ineligible for the Security Reviewer seat; other roles remain usable.
+
 ## Recommended lineup policy
 
-The top-page recommendations are a **portfolio assignment**, not eight independent #1 picks. The machine-readable source is [`config/lineup-policy.json`](config/lineup-policy.json); [`scripts/build-lineups.mjs`](scripts/build-lineups.mjs) validates it against the current snapshot and generates `site/data/lineups.json`. Lineup validity is reviewed separately from benchmark publication: a stale or invalid curated lineup is surfaced for review but does not block a valid fresh benchmark snapshot.
+The eight recommendation cards are selected as one constrained portfolio rather than eight independent winners. The machine-readable policy is [`config/lineup-policy.json`](config/lineup-policy.json); [`scripts/build-lineups.mjs`](scripts/build-lineups.mjs) deterministically optimizes the portfolio from the current snapshot.
 
-Current policy highlights:
+Shared rules:
 
-- the same exact model may occupy two seats when useful; commercial rows sharing the same `aaModel.slug` may also coexist; diversity is enforced at the **family** level, not the model/benchmark-identity level;
-- each lineup must span **5–8 distinct model families**; 6, 7 or 8 are all acceptable and no manual lineup is forced toward a particular target;
-- a family may occupy at most **2 seats**;
-- Balanced requires Claude Opus 5, GPT-5.6 Luna and GPT-5.6 Sol somewhere in the eight-seat portfolio; their roles are policy decisions, not permanent model identities;
-- GPT-5.6 Sol is forbidden for normal `implementer`; routine implementation is intentionally assigned to a cheaper high-quality model, while Sol is reserved for `implementer-heavy` / escalation-class work;
-- Claude Sonnet 5 remains eligible for portfolio selection but is not mandatory;
-- Security Reviewer cards use an explicit tier policy because current public cybersecurity benchmarks do not provide sufficiently broad, comparable coverage across this model universe: Quality → Claude Fable 5, Balanced → Claude Opus 5, Budget → Muse Spark 1.2 Contributor;
-- Budget scored picks must retain at least 80% of the best role quality;
-- free unresolved rows may enter only through an explicit external-evidence override and remain excluded from the scored Quality/Balanced tables.
+- `latestGenerationOnly = true`;
+- requested Intelligence floors are **Quality 0.90**, **Balanced 0.85**, **Budget 0.80** of the best eligible AA Intelligence Index;
+- before optimization, the floor is lowered in **0.005** steps only if needed until the eligible pool contains at least **5 model families**;
+- the final lineup must contain at least **4 families** and at most 8;
+- each family may occupy at most **2 seats**;
+- there are **no mandatory models** and no manual Fable blacklist;
+- there is **no per-role quality floor**;
+- Code Reviewer must use a different AA benchmark identity from both Implementer and Implementer Heavy;
+- Implementer Heavy must differ from Implementer and must have AA Intelligence Index at least **2.0 points higher**.
+
+Mode objectives:
+
+- **Quality**: maximize total Role Quality. Price does not affect ranking or tie-breaking.
+- **Balanced**: start from the Intelligence-qualified pool, remove only models whose CommandCode Cost per Task is above **mean + 2 population standard deviations**, then maximize total Role Quality. Price does not affect ranking after that filter.
+- **Budget**: minimize total CommandCode Cost per Task subject to the shared structural and role-eligibility constraints.
+
+Balanced records its pool mean, sigma, cutoff and excluded outliers in `site/data/lineups.json`. The current v6 snapshot excludes only Claude Fable 5.1 as a Balanced price outlier.
 
 The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
 
-Future single-seat swap opportunities are evaluated after every refresh by `scripts/evaluate-lineup-swaps.mjs` and written to `data/lineup-opportunities.json`. Quality and Budget can produce structurally **auto-safe candidates**, but only when the swap preserves or increases the current distinct-family count and clears the configured improvement threshold. `applyAutomatically` remains false; Balanced, external overrides and multi-seat rotations are always review-only. The weekly watcher turns new candidates into decision-oriented alerts: it includes Quality, normalized task cost, Balanced score, family-count impact, the review reason and a suggested next action. Price changes flag models currently used in a lineup, and newly discovered models without `familyByModel` are explicitly marked ineligible until manually classified.
+After each refresh, `scripts/evaluate-lineup-swaps.mjs` regenerates the entire portfolio under the current rules and records portfolio-level opportunities in `data/lineup-opportunities.json`. It no longer proposes single-seat swaps against static hand-picked selections.
 
 ## Run locally
 
