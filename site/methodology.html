@@ -14,17 +14,17 @@
   <h2>Role quality and portfolio modes</h2>
   <p>The detailed ranking table exposes role-quality signals and cost-per-quality values. The eight recommendation cards are generated separately as constrained portfolios: <strong>Quality</strong>, <strong>Balanced</strong> and <strong>Budget</strong>.</p>
   <div class="formula"><strong>Quality</strong><code>Intelligence floor 0.90 → adaptive ≥5-family pool → maximize total Role Quality</code></div>
-  <div class="formula"><strong>Balanced</strong><code>Intelligence floor 0.85 → remove cost &gt; mean + 2σ → maximize total Role Quality</code></div>
-  <div class="formula"><strong>Budget</strong><code>Intelligence floor 0.80 → minimize total CommandCode Cost per Task</code></div>
+  <div class="formula"><strong>Balanced</strong><code>Intelligence floor 0.85 → remove plan-adjusted cost &gt; mean + 2σ → maximize total Role Quality</code></div>
+  <div class="formula"><strong>Budget</strong><code>Intelligence floor 0.80 → maximize included monthly plan capacity</code></div>
   <p>When an initial Intelligence floor leaves fewer than five candidate families, the floor is lowered in 0.005 steps until five families are available. Every final lineup still requires at least four families and allows at most two seats per family.</p>
   <p>There are no mandatory models, manual Fable blacklist, or per-role quality floor. Code Reviewer must differ from both implementation identities. Implementer Heavy must differ from Implementer and must have at least +2.0 AA Intelligence Index points.</p>
   <h3>Security Reviewer</h3>
   <p><strong>Security Reviewer = Vals AI CyberBench Overall, directly.</strong> The previous SciCode/GPQA/HLE/Omniscience/LCR proxy has been removed. If a model has no direct CyberBench score, it is simply ineligible for this one role.</p>
-  <p>Balanced uses price only as an outlier filter. Once expensive outliers are removed, price no longer affects its role-quality optimization. Budget remains the mode where price is the direct objective.</p>
+  <p>Balanced uses plan-adjusted cost only as an outlier filter. Once expensive outliers are removed, price no longer affects its role-quality optimization. Budget instead optimizes how many complete portfolios fit inside the separate standard and premium Max monthly allowances.</p>
 </section>
 <section id="coverage" class="methodology"></section>
 <section class="methodology prose">
-  <h2>CommandCode Cost per Task</h2>
+  <h2>CommandCode credit burn and plan-adjusted Cost per Task</h2>
   <p>Price per million tokens is not used as the primary denominator. Artificial Analysis measures the token mix consumed per Intelligence Index task. Those measured non-cached input, cache-read, cache-write and output tokens are repriced with the current effective CommandCode Max rates.</p>
   <code class="formula-code">task cost = input tokens × CC input + cache-read × CC cache-read + cache-write × CC cache-write + output × CC output</code>
   <p>If CommandCode exposes no separate cache rate, normal input price is used. Active CommandCode promotions are retained.</p>

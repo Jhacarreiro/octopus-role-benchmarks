@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isLatestGenerationModel, modelFamily } from './lib/model-family.mjs';
+import { planEconomics, billingCategory as validatedBillingCategory, planAdjustedTaskCost, monthlyUtilization as planMonthlyUtilization } from './lib/plan-economics.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const check=process.argv.includes('--check');
@@ -14,11 +15,32 @@ function fail(msg){throw new Error(`lineup policy: ${msg}`)}
 function round(n,d=6){const p=10**d;return Math.round((n+Number.EPSILON)*p)/p}
 function benchmarkIdentity(m){return m.aaModel?.slug?`aa:${m.aaModel.slug}`:`model:${m.name}`}
 function intelligence(m){return Number(m.aaModel?.intelligenceIndex)}
-function taskCost(m){return Number(m.taskEfficiency?.commandCodeCostPerTaskUsd)}
+function creditBurn(m){return Number(m.taskEfficiency?.commandCodeCostPerTaskUsd)}
 function roleQuality(m,role){return Number(m.roleScores?.[role]?.rankingQuality)}
 function familyOf(m){return modelFamily(m,policy)}
 function familyCount(models){return new Set(models.map(familyOf).filter(Boolean)).size}
 function signature(assign){return roles.map(r=>`${r}:${assign.get(r)?.name||''}`).join('|')}
+
+const economics=planEconomics(policy);
+
+function billingCategory(m){
+  return validatedBillingCategory(m,economics);
+}
+function planAdjustedCost(m){
+  const adjusted=planAdjustedTaskCost(creditBurn(m),m,economics);
+  return adjusted==null?NaN:adjusted;
+}
+function burnVector(m){
+  const raw=creditBurn(m);
+  if(!Number.isFinite(raw)||raw<0)fail(`${m.name}: invalid CommandCode credit burn`);
+  const c=billingCategory(m);
+  if(c==='standard')return {standard:raw,premium:0};
+  if(c==='premium')return {standard:0,premium:raw};
+  return {standard:0,premium:0};
+}
+function portfolioUtilization(standardBurn,premiumBurn){
+  return planMonthlyUtilization(standardBurn,premiumBurn,economics);
+}
 
 const base=latest.models.filter(m=>
   m.mapping?.status!=='unscored' &&
@@ -31,6 +53,10 @@ const generationEligible=policy.latestGenerationOnly
   : base.slice();
 
 if(!generationEligible.length)fail('no scored models with AA Intelligence Index');
+for(const m of generationEligible){
+  billingCategory(m);
+  if(!Number.isFinite(creditBurn(m))||creditBurn(m)<0)fail(`${m.name}: missing task credit burn`);
+}
 const bestIntelligence=Math.max(...generationEligible.map(intelligence));
 
 function makePool(modeId,mode){
@@ -62,20 +88,29 @@ function applyModeFilter(modeId,mode,poolInfo){
   let pool=poolInfo.pool.slice();
   let priceFilter=null;
   if(mode.priceOutlierFilter){
-    const values=pool.map(taskCost).filter(x=>Number.isFinite(x)&&x>=0);
-    if(values.length!==pool.length)fail(`${modeId}: price filter requires task cost for every eligible model`);
+    const metric=mode.priceOutlierFilter.costMetric??'commandCodeCostPerTaskUsd';
+    const costFn=metric==='planAdjustedCostPerTaskUsd'?planAdjustedCost:creditBurn;
+    const values=pool.map(costFn).filter(x=>Number.isFinite(x)&&x>=0);
+    if(values.length!==pool.length)fail(`${modeId}: price filter requires ${metric} for every eligible model`);
     const {mean,sd}=populationStats(values);
     const sigma=Number(mode.priceOutlierFilter.standardDeviations);
     const cutoff=mean+sigma*sd;
-    const excluded=pool.filter(m=>taskCost(m)>cutoff+EPS);
-    pool=pool.filter(m=>taskCost(m)<=cutoff+EPS);
+    const excluded=pool.filter(m=>costFn(m)>cutoff+EPS);
+    pool=pool.filter(m=>costFn(m)<=cutoff+EPS);
     priceFilter={
       method:mode.priceOutlierFilter.method,
+      costMetric:metric,
       standardDeviations:sigma,
       meanCostPerTaskUsd:round(mean,6),
       populationStdDevCostPerTaskUsd:round(sd,6),
       cutoffCostPerTaskUsd:round(cutoff,6),
-      excluded:excluded.map(m=>({model:m.name,family:familyOf(m),costPerTaskUsd:round(taskCost(m),6)}))
+      excluded:excluded.map(m=>({
+        model:m.name,
+        family:familyOf(m),
+        billingCategory:billingCategory(m),
+        creditBurnPerTaskUsd:round(creditBurn(m),6),
+        planAdjustedCostPerTaskUsd:round(planAdjustedCost(m),6)
+      }))
     };
     const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
     if(familyCount(pool)<requiredFamilies)fail(`${modeId}: price filter leaves only ${familyCount(pool)} families (precheck requires ${requiredFamilies})`);
@@ -83,15 +118,55 @@ function applyModeFilter(modeId,mode,poolInfo){
   return {...poolInfo,pool,priceFilter};
 }
 
+function summarizeAssign(assign){
+  let totalQuality=0,totalCreditBurn=0,totalPlanAdjustedCost=0,standardBurn=0,premiumBurn=0;
+  for(const [role,m] of assign){
+    totalQuality+=roleQuality(m,role);
+    totalCreditBurn+=creditBurn(m);
+    totalPlanAdjustedCost+=planAdjustedCost(m);
+    const b=burnVector(m);
+    standardBurn+=b.standard;
+    premiumBurn+=b.premium;
+  }
+  const utilization=portfolioUtilization(standardBurn,premiumBurn);
+  return {
+    totalQuality,
+    totalCreditBurn,
+    totalPlanAdjustedCost,
+    standardBurn,
+    premiumBurn,
+    monthlyUtilization:utilization,
+    signature:[...assign].sort(([a],[b])=>a.localeCompare(b)).map(([r,m])=>`${r}:${m.name}`).join('|')
+  };
+}
+
 function betterCandidate(modeId,a,b){
   if(!b)return true;
   if(modeId==='budget'){
-    if(Math.abs(a.totalCost-b.totalCost)>EPS)return a.totalCost<b.totalCost;
+    if(Math.abs(a.monthlyUtilization-b.monthlyUtilization)>EPS)return a.monthlyUtilization<b.monthlyUtilization;
+    if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
+    if(Math.abs(a.totalCreditBurn-b.totalCreditBurn)>EPS)return a.totalCreditBurn<b.totalCreditBurn;
     if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
   }else{
     if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
   }
   return a.signature<b.signature;
+}
+
+function budgetDominates(a,b){
+  const A=a.partial,B=b.partial;
+  const stdNoWorse=A.standardBurn<=B.standardBurn+EPS;
+  const premNoWorse=A.premiumBurn<=B.premiumBurn+EPS;
+  if(!(stdNoWorse&&premNoWorse))return false;
+  const sameStd=Math.abs(A.standardBurn-B.standardBurn)<=EPS;
+  const samePrem=Math.abs(A.premiumBurn-B.premiumBurn)<=EPS;
+  if(!sameStd||!samePrem)return true;
+  if(Math.abs(A.totalQuality-B.totalQuality)>EPS)return A.totalQuality>B.totalQuality;
+  return A.signature<=B.signature;
+}
+function insertBudgetState(list,state){
+  for(const existing of list)if(budgetDominates(existing,state))return list;
+  return [...list.filter(existing=>!budgetDominates(state,existing)),state];
 }
 
 function optimize(modeId,pool){
@@ -117,13 +192,44 @@ function optimize(modeId,pool){
     const selected=roles.map(r=>assign.get(r));
     const famCount=familyCount(selected);
     if(famCount<minFamilies||famCount>maxFamilies)return null;
-    const totalQuality=selected.reduce((sum,m,i)=>sum+roleQuality(m,roles[i]),0);
-    const totalCost=selected.reduce((sum,m)=>sum+taskCost(m),0);
-    return {assign,totalQuality,totalCost,familyCount:famCount,signature:signature(assign)};
+    return {...summarizeAssign(assign),assign,familyCount:famCount,signature:signature(assign)};
   }
 
+  function buildCandidatePartial(assign){return summarizeAssign(assign)}
+
   function fillStandard(initialCounts,initialAssign){
-    let states=new Map([[initialCounts.join(','),{counts:initialCounts,assign:initialAssign}]]);
+    if(modeId==='budget'){
+      let states=new Map([[initialCounts.join(','),[{counts:initialCounts,assign:initialAssign,partial:buildCandidatePartial(initialAssign)}]]]);
+      for(const role of standardRoles){
+        const next=new Map();
+        for(const list of states.values()){
+          for(const st of list){
+            for(const m of roleCandidates[role]){
+              const idx=familyIndex.get(familyOf(m));
+              if(idx==null||st.counts[idx]>=maxSeats)continue;
+              const counts=st.counts.slice();
+              counts[idx]++;
+              const assign=new Map(st.assign);
+              assign.set(role,m);
+              const key=counts.join(',');
+              const state={counts,assign,partial:buildCandidatePartial(assign)};
+              next.set(key,insertBudgetState(next.get(key)||[],state));
+            }
+          }
+        }
+        states=next;
+        if(!states.size)return;
+      }
+      for(const list of states.values()){
+        for(const st of list){
+          const candidate=buildCandidate(st.assign);
+          if(candidate&&betterCandidate(modeId,candidate,best))best=candidate;
+        }
+      }
+      return;
+    }
+
+    let states=new Map([[initialCounts.join(','),{counts:initialCounts,assign:initialAssign,partial:buildCandidatePartial(initialAssign)}]]);
     for(const role of standardRoles){
       const next=new Map();
       for(const st of states.values()){
@@ -135,9 +241,9 @@ function optimize(modeId,pool){
           const assign=new Map(st.assign);
           assign.set(role,m);
           const key=counts.join(',');
-          const candidate=buildCandidatePartial(modeId,assign);
+          const candidate=buildCandidatePartial(assign);
           const prev=next.get(key);
-          if(!prev || betterPartial(modeId,candidate,prev.partial)){
+          if(!prev || candidate.totalQuality>prev.partial.totalQuality+EPS || (Math.abs(candidate.totalQuality-prev.partial.totalQuality)<=EPS && candidate.signature<prev.partial.signature)){
             next.set(key,{counts,assign,partial:candidate});
           }
         }
@@ -149,25 +255,6 @@ function optimize(modeId,pool){
       const candidate=buildCandidate(st.assign);
       if(candidate&&betterCandidate(modeId,candidate,best))best=candidate;
     }
-  }
-
-  function buildCandidatePartial(mode,assign){
-    let totalQuality=0,totalCost=0;
-    for(const [role,m] of assign){
-      totalQuality+=roleQuality(m,role);
-      totalCost+=taskCost(m);
-    }
-    return {totalQuality,totalCost,signature:[...assign].sort(([a],[b])=>a.localeCompare(b)).map(([r,m])=>`${r}:${m.name}`).join('|')};
-  }
-  function betterPartial(mode,a,b){
-    if(!b)return true;
-    if(mode==='budget'){
-      if(Math.abs(a.totalCost-b.totalCost)>EPS)return a.totalCost<b.totalCost;
-      if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
-    }else{
-      if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
-    }
-    return a.signature<b.signature;
   }
 
   for(const impl of implementers){
@@ -210,7 +297,8 @@ const out={
     maxSeatsPerFamily:policy.maxSeatsPerFamily,
     allowRepeatedModel:policy.allowRepeatedModel===true,
     allowRepeatedBenchmarkIdentity:policy.allowRepeatedBenchmarkIdentity===true,
-    codingConstraints:policy.codingConstraints
+    codingConstraints:policy.codingConstraints,
+    planEconomics:policy.planEconomics
   },
   modes:{}
 };
@@ -226,14 +314,22 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
       family:familyOf(m),
       benchmarkIdentity:benchmarkIdentity(m),
       quality:round(roleQuality(m,role),3),
-      costPerTaskUsd:round(taskCost(m),6),
+      costPerTaskUsd:round(creditBurn(m),6),
+      creditBurnPerTaskUsd:round(creditBurn(m),6),
+      planAdjustedCostPerTaskUsd:round(planAdjustedCost(m),6),
+      billingCategory:billingCategory(m),
+      max10MonthlyUsageLimitUsd:m.max10MonthlyUsageLimitUsd??null,
+      max20MonthlyUsageLimitUsd:m.max20MonthlyUsageLimitUsd??null,
       intelligenceIndex:round(intelligence(m),4),
       source:role==='security-reviewer'?'cyberbench':'scored',
       benchmarkProvenance:role==='security-reviewer'?(m.benchmarkProvenance?.cyberbench??null):null,
       free:m.free===true,
+      discountPercent:m.discountPercent??null,
       mappingStatus:m.mapping?.status??null
     };
   }
+  const capacity10=result.monthlyUtilization<=EPS?null:round(1/result.monthlyUtilization,3);
+  const capacity20=result.monthlyUtilization<=EPS?null:round(economics.max20Scale/result.monthlyUtilization,3);
   out.modes[modeId]={
     label:mode.label??modeId,
     description:mode.description,
@@ -247,7 +343,14 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
     priceFilter:poolInfo.priceFilter,
     familyCount:result.familyCount,
     totalRoleQuality:round(result.totalQuality,3),
-    totalCostPerTaskUsd:round(result.totalCost,6),
+    totalCostPerTaskUsd:round(result.totalCreditBurn,6),
+    totalCreditBurnPerPortfolioUsd:round(result.totalCreditBurn,6),
+    totalPlanAdjustedCostPerPortfolioUsd:round(result.totalPlanAdjustedCost,6),
+    standardCreditBurnPerPortfolioUsd:round(result.standardBurn,6),
+    premiumCreditBurnPerPortfolioUsd:round(result.premiumBurn,6),
+    max10MonthlyIncludedUtilization:round(result.monthlyUtilization,6),
+    max10EstimatedCompletePortfoliosPerMonth:capacity10,
+    max20EstimatedCompletePortfoliosPerMonth:capacity20,
     selections
   };
 }
@@ -262,7 +365,8 @@ if(check){
   fs.writeFileSync(target,text);
   console.log(`wrote ${path.relative(root,target)} for snapshot ${latest.date}`);
   for(const [modeId,mode] of Object.entries(out.modes)){
-    console.log(`${modeId}: floor=${mode.effectiveIntelligenceFloor.toFixed(3)} families=${mode.familyCount} cost=${mode.totalCostPerTaskUsd.toFixed(6)}`);
+    const capacity=mode.max10EstimatedCompletePortfoliosPerMonth==null?'unlimited':mode.max10EstimatedCompletePortfoliosPerMonth.toFixed(2);
+    console.log(`${modeId}: floor=${mode.effectiveIntelligenceFloor.toFixed(3)} families=${mode.familyCount} creditBurn=${mode.totalCreditBurnPerPortfolioUsd.toFixed(6)} max10Capacity=${capacity}`);
     for(const role of roles)console.log(`  ${role}: ${mode.selections[role].model}`);
   }
 }

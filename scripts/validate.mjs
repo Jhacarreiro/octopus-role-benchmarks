@@ -33,6 +33,9 @@ for(const m of latest.models||[]){
   if(m.taskEfficiency?.commandCodeCostPerTaskUsd==null) throw new Error(`Scored model lacks CC task cost: ${m.name}`);
   if(m.caiStar?.value==null) throw new Error(`Scored model lacks CAI*: ${m.name}`);
   if(m.aaModel?.intelligenceIndex==null) throw new Error(`Scored model lacks AA Intelligence Index: ${m.name}`);
+  if(!["standard","premium","free"].includes(m.billingCategory)) throw new Error("Scored model lacks valid CommandCode billing category: "+m.name);
+  if(!Number.isFinite(m.max10MonthlyUsageLimitUsd)||!Number.isFinite(m.max20MonthlyUsageLimitUsd)) throw new Error("Scored model lacks CommandCode Max allowances: "+m.name);
+  if(!Number.isFinite(m.taskEfficiency?.planAdjustedCostPerTaskUsd)||m.taskEfficiency.planAdjustedCostPerTaskUsd<0) throw new Error("Scored model lacks plan-adjusted task cost: "+m.name);
   for(const role of latest.roles){
     const r=m.roleScores?.[role.id];
     if(!r){

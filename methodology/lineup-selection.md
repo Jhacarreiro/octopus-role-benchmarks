@@ -40,8 +40,8 @@ Requested Intelligence floor: **0.85**.
 Balanced uses price only to remove extreme cost outliers from the Intelligence-qualified pool:
 
 ```text
-cutoff = mean(CommandCode Cost per Task)
-       + 2 × population standard deviation(CommandCode Cost per Task)
+cutoff = mean(Plan-adjusted Cost per Task)
+       + 2 × population standard deviation(Plan-adjusted Cost per Task)
 ```
 
 Models strictly above that cutoff are excluded. The optimizer then maximizes total Role Quality exactly like Quality. Price does not contribute to the score after the outlier filter.
@@ -54,9 +54,15 @@ If this filter makes the structural constraints infeasible, generation fails clo
 
 Requested Intelligence floor: **0.80**.
 
-After the adaptive five-family pre-check, Budget minimizes the total CommandCode Cost per Task for all eight seats, subject to the same family, coding-independence and role-eligibility constraints.
+After the adaptive five-family pre-check, Budget maximizes included monthly capacity across the separate standard and premium CommandCode Max credit pools. For an eight-seat portfolio it minimizes:
 
-Budget does **not** apply the Balanced outlier filter because cost is already the direct objective.
+```text
+monthly utilization = max(standard credit burn / 150, premium credit burn / 100)
+```
+
+The reciprocal is the estimated number of complete portfolios that fit in Max 10×; Max 20× doubles that capacity. If two portfolios have the same utilization, Budget prefers lower plan-adjusted cost, then lower raw credit burn, then higher Role Quality.
+
+Budget does **not** apply the Balanced outlier filter because subscription capacity is already the direct objective.
 
 ## Security Reviewer
 

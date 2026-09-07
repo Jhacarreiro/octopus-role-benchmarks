@@ -27,7 +27,7 @@ Current components:
 
 Weights are machine-readable in [`config/roles.json`](../config/roles.json). Missing values are never imputed inside the Universal Role Score and weights are never renormalized around missing data.
 
-## CommandCode Cost per Task
+## CommandCode credit burn and plan-adjusted Cost per Task
 
 Price per million tokens is not the primary denominator because different models can consume very different token volumes for the same benchmark task.
 
@@ -50,21 +50,29 @@ CC task cost =
 
 Rates are converted from per-million-token prices. If CommandCode exposes no separate cache rate, normal input price is used rather than assuming cache usage is free.
 
-The task-cost denominator must have **100% coverage** of the scored model-family universe.
+The raw result above is **credit burn per task**. The ranking denominator then adjusts that burn for the Max subscription allowance of the model billing category:
+
+```text
+Plan-adjusted Cost per Task = credit burn × monthly subscription price / category monthly usage limit
+```
+
+For the Max 10× reference plan used by the policy: standard = $150 allowance for $100 subscription, premium = $100 for $100, and free = $0. Therefore standard credit burn is multiplied by 2/3, premium by 1, and free remains 0. Max 20× doubles both allowances and the subscription price, so the ratios — and therefore rankings — are identical. Published model discounts are already reflected in the effective token rates and are **not applied again**.
+
+The plan-adjusted task-cost denominator must have **100% coverage** of the scored model-family universe.
 
 ## Ranking formula
 
 For non-coding roles:
 
 ```text
-Ranking Value = Universal Role Score / CommandCode Cost per Task
+Ranking Value = Universal Role Score / Plan-adjusted Cost per Task
 ```
 
 For `implementer`, `implementer-heavy` and `code-reviewer`:
 
 ```text
 Coding Quality = 2/3 Universal Role Score + 1/3 CAI*
-Ranking Value  = Coding Quality / CommandCode Cost per Task
+Ranking Value  = Coding Quality / Plan-adjusted Cost per Task
 ```
 
 The 1/3 CAI weight was reverse-validated against observed Coding Agent families. It materially adds agentic-coding information while leaving the final ranking robust to estimation error.
@@ -158,7 +166,7 @@ The public snapshot preserves, for every scored model row:
 
 - source model-family identity;
 - Universal Role Score;
-- CommandCode Cost per Task;
+- raw CommandCode credit burn and plan-adjusted Cost per Task;
 - `CAI*` value and whether it was observed or estimated;
 - Ridge and 5NN component estimates for estimated rows;
 - final coding-adjusted quality;

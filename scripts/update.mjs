@@ -5,11 +5,14 @@ import { fileURLToPath } from 'node:url';
 import { fitCaiEstimator, predictCai, rowFromModelFamily, RIDGE_FEATURES, KNN_FEATURES, RIDGE_LAMBDA, KNN_K, CAI_BLEND, CODING_ROLE_CAI_WEIGHT } from './cai-estimator.mjs';
 import { fitScicodeEstimator, predictScicode, validateScicodeEstimator, scicodeRowFromAa, isCompleteScicodeFeatureRow, SCICODE_FEATURES, SCICODE_RIDGE_LAMBDA, SCICODE_VALIDATION_LIMITS } from './scicode-estimator.mjs';
 import { fetchCyberBench, resolveCyberBenchBySlug } from './cyberbench.mjs';
+import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');
 const bin=path.join(root,'node_modules','.bin','opencli');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
+const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
+const economics=planEconomics(lineupPolicy);
 const aliases=JSON.parse(fs.readFileSync(path.join(root,'config','model-aliases.json'),'utf8')).aliases;
 const benchmarkFallbacks=JSON.parse(fs.readFileSync(path.join(root,"config","benchmark-fallbacks.json"),"utf8"));
 const cyberbenchConfig=JSON.parse(fs.readFileSync(path.join(root,'config','cyberbench-models.json'),'utf8'));
@@ -24,7 +27,7 @@ function runOpenCLI(args){
 function normalize(value){return String(value).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/\s+\(latest\)$/,'').replace(/\s+\(exp\)$/,'').replace(/\s+contributor$/,'').replace(/\s+highspeed$/,'').replace(/\s+fast$/,'').replace(/[^a-z0-9]+/g,'')}
 function round(n,d=4){const p=10**d;return Math.round((n+Number.EPSILON)*p)/p}
 function scaleBenchmark(key,model){const spec=roles.benchmarks[key];const v=model[spec.sourceField];const multiplier=spec.multiplier??100;const offset=spec.offset??0;return v==null?null:round(v*multiplier+offset,4)}
-function tokenPriceBases(m){const input=m.inputPerM,output=m.outputPerM;return{input,output,blended50:input==null||output==null?null:round((input+output)/2,6)}}
+function tokenPriceBases(m){const input=m.inputPerM,output=m.outputPerM;return{input,output,cacheRead:m.cacheReadPerM??null,cacheWrite:m.cacheWritePerM??null,blended50:input==null||output==null?null:round((input+output)/2,6)}}
 function repriceTask(tokens,row){
   if(!tokens||[tokens.nonCacheInput,tokens.cacheRead,tokens.cacheWrite,tokens.output].some(v=>v==null)) return null;
   const input=row.inputPerM,output=row.outputPerM;
@@ -245,6 +248,7 @@ const models=mapped.map(row=>{
   if(cyberbench)benchmarks.cyberbench=round(cyberbench.value,3);
   const tokenPrices=tokenPriceBases(row);
   const taskCostUsd=source?repriceTask(source.intelligenceTask?.tokens,row):null;
+  const planAdjustedCostUsd=source?round(planAdjustedTaskCost(taskCostUsd,row,economics),6):null;
   const caiStar=source?caiBySlug.get(source.slug):null;
   const roleScores={};
   if(source){
@@ -253,7 +257,7 @@ const models=mapped.map(row=>{
         const direct=benchmarks[role.externalBenchmark];
         if(direct==null)continue;
         const rankingQuality=round(direct,3);
-        const rankingValue=taskCostUsd===0||taskCostUsd==null?null:round(rankingQuality/taskCostUsd,3);
+        const rankingValue=planAdjustedCostUsd===0||planAdjustedCostUsd==null?null:round(rankingQuality/planAdjustedCostUsd,3);
         roleScores[role.id]={score:rankingQuality,rankingQuality,rankingValue};
         continue;
       }
@@ -261,7 +265,7 @@ const models=mapped.map(row=>{
       for(const [key,w] of Object.entries(role.weights||{})) score+=benchmarks[key]*w;
       score=round(score,3);
       const rankingQuality=role.codingAdjusted?round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*caiStar.value,3):score;
-      const rankingValue=taskCostUsd===0||taskCostUsd==null?null:round(rankingQuality/taskCostUsd,3);
+      const rankingValue=planAdjustedCostUsd===0||planAdjustedCostUsd==null?null:round(rankingQuality/planAdjustedCostUsd,3);
       roleScores[role.id]={score,rankingQuality,rankingValue};
     }
   }
@@ -276,13 +280,13 @@ const models=mapped.map(row=>{
   if(codingAgent?.aaCostPerTaskUsd>0)codingAgent.aaValuePerDollar=round(codingAgent.indexScore/codingAgent.aaCostPerTaskUsd,3);
   const benchmarkProvenance=benchmarkFallbackBySlug.has(row.mapping.slug)?{scicode:{status:'estimated',...benchmarkFallbackBySlug.get(row.mapping.slug)}}:{};
   if(cyberbench)benchmarkProvenance.cyberbench=cyberbench.provenance;
-  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,aaCostPerTaskUsd:source.intelligenceTask?.aaCostUsd?.total??null,tokens:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
+  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,aaCostPerTaskUsd:source.intelligenceTask?.aaCostUsd?.total??null,tokens:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
 const unexpectedUnscored=models.filter(x=>!x.aaModel&&!aliases[x.name]);if(unexpectedUnscored.length)throw new Error(`Unexpected unscored models: ${unexpectedUnscored.map(x=>x.name).join(', ')}`);
 const missingTaskRows=models.filter(x=>x.mapping?.status!=='source_incomplete'&&x.aaModel&&x.taskEfficiency?.commandCodeCostPerTaskUsd==null);if(missingTaskRows.length)throw new Error(`CommandCode task repricing failed: ${missingTaskRows.map(x=>x.name).join(', ')}`);
 
 const now=new Date(),date=now.toISOString().slice(0,10);
-const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:now.toISOString(),sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length},artificialAnalysis:{url:'https://artificialanalysis.ai/',mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{url:'https://artificialanalysis.ai/agents/coding-agents',variants:codingRows.length}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,scicodeEstimator:{method:'ridge_from_independent_AA_benchmarks_with_conservative_bounds',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,estimatedFamilies:benchmarkFallbacksApplied.length,validation:{mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,estimatedFamilies:scoredSlugs.length-observedCaiRows.length},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiEstimatedFamilies:scoredSlugs.length-observedCaiRows.length,cyberbenchDirectFamilies:cyberbenchBySlug.size},benchmarks:roles.benchmarks,roles:roles.roles,models};
+const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:now.toISOString(),sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length,planEconomics:economics,billingCategories:{standard:maxRows.filter(x=>x.billingCategory==='standard').length,premium:maxRows.filter(x=>x.billingCategory==='premium').length,free:maxRows.filter(x=>x.billingCategory==='free').length}},artificialAnalysis:{url:'https://artificialanalysis.ai/',mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{url:'https://artificialanalysis.ai/agents/coding-agents',variants:codingRows.length}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,scicodeEstimator:{method:'ridge_from_independent_AA_benchmarks_with_conservative_bounds',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,estimatedFamilies:benchmarkFallbacksApplied.length,validation:{mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,estimatedFamilies:scoredSlugs.length-observedCaiRows.length},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiEstimatedFamilies:scoredSlugs.length-observedCaiRows.length,cyberbenchDirectFamilies:cyberbenchBySlug.size},benchmarks:roles.benchmarks,roles:roles.roles,models};
 for(const dir of [path.join(root,'data'),path.join(root,'site','data')])fs.mkdirSync(dir,{recursive:true});
 const json=JSON.stringify(snapshot,null,2)+'\n';fs.writeFileSync(path.join(root,'data',`${date}.json`),json);fs.writeFileSync(path.join(root,'data','latest.json'),json);fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
 console.log(JSON.stringify({date,...snapshot.counts,taskCoverage:`${efficiencyCoverage.present}/${efficiencyCoverage.total}`,codingAgentCoverage:`${codingCoverage.present}/${codingCoverage.total}`,caiStarCoverage:`${caiStarCoverage.present}/${caiStarCoverage.total}`,coverage:Object.fromEntries(Object.entries(coverage).map(([k,v])=>[k,`${v.present}/${v.total}`])),unscored:models.filter(x=>!x.aaModel).map(x=>x.name)},null,2));

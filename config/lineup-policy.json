@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 8,
+  "schemaVersion": 9,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -14,7 +14,7 @@
     "reviewerDifferentFromImplementer": true,
     "reviewerDifferentFromHeavy": true,
     "heavyDifferentFromImplementer": true,
-    "heavyMinimumIntelligenceDelta": 2.0
+    "heavyMinimumIntelligenceDelta": 2
   },
   "modes": {
     "quality": {
@@ -25,24 +25,34 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Role-quality optimizer after removing statistically extreme cost outliers from the Intelligence-qualified pool.",
+      "description": "Role-quality optimizer after removing statistically extreme subscription-adjusted cost outliers from the Intelligence-qualified pool.",
       "requestedIntelligenceFloor": 0.85,
       "objective": "maximize-role-quality",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
-        "standardDeviations": 2
+        "standardDeviations": 2,
+        "costMetric": "planAdjustedCostPerTaskUsd"
       }
     },
     "budget": {
       "label": "Budget",
-      "description": "Lowest total task cost inside the Intelligence-qualified pool while preserving all structural and role-eligibility constraints.",
+      "description": "Maximizes included monthly portfolio capacity across separate standard and premium CommandCode Max credit pools while preserving all structural and role-eligibility constraints.",
       "requestedIntelligenceFloor": 0.8,
-      "objective": "minimize-task-cost"
+      "objective": "maximize-included-monthly-capacity"
     }
   },
   "swapEvaluation": {
     "scope": "regenerate-full-portfolio",
     "applyAutomatically": false,
     "note": "Lineups are generated from current benchmark data; weekly review compares regenerated portfolios rather than static single-seat picks."
+  },
+  "planEconomics": {
+    "sourceUrl": "https://commandcode.ai/docs/plans/max",
+    "referencePlan": "max10x",
+    "monthlyPriceUsd": 100,
+    "standardMonthlyUsageLimitUsd": 150,
+    "premiumMonthlyUsageLimitUsd": 100,
+    "max20Scale": 2,
+    "note": "Max 10x and Max 20x have identical price-to-allowance ratios; portfolio ordering is invariant between them."
   }
 }

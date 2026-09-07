@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 8,
-  "snapshotDate": "2026-09-06",
-  "generatedAt": "2026-09-06T16:17:59.472Z",
+  "schemaVersion": 9,
+  "snapshotDate": "2026-09-07",
+  "generatedAt": "2026-09-07T08:35:33.487Z",
   "policy": {
     "latestGenerationOnly": true,
     "poolPrecheck": {
@@ -18,6 +18,15 @@
       "reviewerDifferentFromHeavy": true,
       "heavyDifferentFromImplementer": true,
       "heavyMinimumIntelligenceDelta": 2
+    },
+    "planEconomics": {
+      "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "referencePlan": "max10x",
+      "monthlyPriceUsd": 100,
+      "standardMonthlyUsageLimitUsd": 150,
+      "premiumMonthlyUsageLimitUsd": 100,
+      "max20Scale": 2,
+      "note": "Max 10x and Max 20x have identical price-to-allowance ratios; portfolio ordering is invariant between them."
     }
   },
   "modes": {
@@ -35,6 +44,13 @@
       "familyCount": 4,
       "totalRoleQuality": 528.653,
       "totalCostPerTaskUsd": 21.470957,
+      "totalCreditBurnPerPortfolioUsd": 21.470957,
+      "totalPlanAdjustedCostPerPortfolioUsd": 20.12852,
+      "standardCreditBurnPerPortfolioUsd": 4.027311,
+      "premiumCreditBurnPerPortfolioUsd": 17.443646,
+      "max10MonthlyIncludedUtilization": 0.174436,
+      "max10EstimatedCompletePortfoliosPerMonth": 5.733,
+      "max20EstimatedCompletePortfoliosPerMonth": 11.465,
       "selections": {
         "architect": {
           "model": "Muse Spark 1.3 Contributor",
@@ -42,10 +58,16 @@
           "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
           "quality": 70.028,
           "costPerTaskUsd": 0.034542,
+          "creditBurnPerTaskUsd": 0.034542,
+          "planAdjustedCostPerTaskUsd": 0.023028,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 51.553,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "commercial_variant"
         },
         "strategist": {
@@ -54,10 +76,16 @@
           "benchmarkIdentity": "aa:kimi-k3",
           "quality": 56.754,
           "costPerTaskUsd": 1.576439,
+          "creditBurnPerTaskUsd": 1.576439,
+          "planAdjustedCostPerTaskUsd": 1.050959,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 50.2337,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "security-reviewer": {
@@ -66,6 +94,11 @@
           "benchmarkIdentity": "aa:gpt-6-astra",
           "quality": 66.608,
           "costPerTaskUsd": 2.567319,
+          "creditBurnPerTaskUsd": 2.567319,
+          "planAdjustedCostPerTaskUsd": 2.567319,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.6573,
           "source": "cyberbench",
           "benchmarkProvenance": {
@@ -73,10 +106,11 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-06T16:17:59.471Z",
+            "fetchedAt": "2026-09-07T08:35:33.487Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "code-reviewer": {
@@ -85,10 +119,16 @@
           "benchmarkIdentity": "aa:gpt-6-astra",
           "quality": 63.328,
           "costPerTaskUsd": 2.567319,
+          "creditBurnPerTaskUsd": 2.567319,
+          "planAdjustedCostPerTaskUsd": 2.567319,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.6573,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "implementer": {
@@ -97,10 +137,16 @@
           "benchmarkIdentity": "aa:kimi-k3",
           "quality": 60.989,
           "costPerTaskUsd": 1.576439,
+          "creditBurnPerTaskUsd": 1.576439,
+          "planAdjustedCostPerTaskUsd": 1.050959,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 50.2337,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "implementer-heavy": {
@@ -109,10 +155,16 @@
           "benchmarkIdentity": "aa:claude-fable-5-1",
           "quality": 68.707,
           "costPerTaskUsd": 6.154504,
+          "creditBurnPerTaskUsd": 6.154504,
+          "planAdjustedCostPerTaskUsd": 6.154504,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 56.7581,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "synthesizer": {
@@ -121,10 +173,16 @@
           "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
           "quality": 70.723,
           "costPerTaskUsd": 0.839891,
+          "creditBurnPerTaskUsd": 0.839891,
+          "planAdjustedCostPerTaskUsd": 0.559927,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 51.553,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact_alias"
         },
         "researcher": {
@@ -133,17 +191,23 @@
           "benchmarkIdentity": "aa:claude-fable-5-1",
           "quality": 71.516,
           "costPerTaskUsd": 6.154504,
+          "creditBurnPerTaskUsd": 6.154504,
+          "planAdjustedCostPerTaskUsd": 6.154504,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 56.7581,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         }
       }
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Role-quality optimizer after removing statistically extreme cost outliers from the Intelligence-qualified pool.",
+      "description": "Role-quality optimizer after removing statistically extreme subscription-adjusted cost outliers from the Intelligence-qualified pool.",
       "objective": "maximize-role-quality",
       "requestedIntelligenceFloor": 0.85,
       "effectiveIntelligenceFloor": 0.85,
@@ -153,21 +217,31 @@
       "candidateFamilies": 6,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
+        "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
-        "meanCostPerTaskUsd": 2.236367,
-        "populationStdDevCostPerTaskUsd": 1.887203,
-        "cutoffCostPerTaskUsd": 6.010773,
+        "meanCostPerTaskUsd": 2.029542,
+        "populationStdDevCostPerTaskUsd": 2.000729,
+        "cutoffCostPerTaskUsd": 6.031,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
             "family": "Claude",
-            "costPerTaskUsd": 6.154504
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 6.154504,
+            "planAdjustedCostPerTaskUsd": 6.154504
           }
         ]
       },
       "familyCount": 4,
       "totalRoleQuality": 522.046,
       "totalCostPerTaskUsd": 16.938441,
+      "totalCreditBurnPerPortfolioUsd": 16.938441,
+      "totalPlanAdjustedCostPerPortfolioUsd": 15.807391,
+      "standardCreditBurnPerPortfolioUsd": 3.393149,
+      "premiumCreditBurnPerPortfolioUsd": 13.545292,
+      "max10MonthlyIncludedUtilization": 0.135453,
+      "max10EstimatedCompletePortfoliosPerMonth": 7.383,
+      "max20EstimatedCompletePortfoliosPerMonth": 14.765,
       "selections": {
         "architect": {
           "model": "GLM-5.3",
@@ -175,10 +249,16 @@
           "benchmarkIdentity": "aa:glm-5-3",
           "quality": 60.384,
           "costPerTaskUsd": 1.259358,
+          "creditBurnPerTaskUsd": 1.259358,
+          "planAdjustedCostPerTaskUsd": 0.839572,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 48.584,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "strategist": {
@@ -187,10 +267,16 @@
           "benchmarkIdentity": "aa:claude-opus-5",
           "quality": 65.776,
           "costPerTaskUsd": 4.205327,
+          "creditBurnPerTaskUsd": 4.205327,
+          "planAdjustedCostPerTaskUsd": 4.205327,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.0539,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "security-reviewer": {
@@ -199,6 +285,11 @@
           "benchmarkIdentity": "aa:gpt-6-astra",
           "quality": 66.608,
           "costPerTaskUsd": 2.567319,
+          "creditBurnPerTaskUsd": 2.567319,
+          "planAdjustedCostPerTaskUsd": 2.567319,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.6573,
           "source": "cyberbench",
           "benchmarkProvenance": {
@@ -206,10 +297,11 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-06T16:17:59.471Z",
+            "fetchedAt": "2026-09-07T08:35:33.487Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "code-reviewer": {
@@ -218,10 +310,16 @@
           "benchmarkIdentity": "aa:gpt-6-astra",
           "quality": 63.328,
           "costPerTaskUsd": 2.567319,
+          "creditBurnPerTaskUsd": 2.567319,
+          "planAdjustedCostPerTaskUsd": 2.567319,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.6573,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "implementer": {
@@ -230,10 +328,16 @@
           "benchmarkIdentity": "aa:glm-5-3",
           "quality": 60.992,
           "costPerTaskUsd": 1.259358,
+          "creditBurnPerTaskUsd": 1.259358,
+          "planAdjustedCostPerTaskUsd": 0.839572,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 48.584,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "implementer-heavy": {
@@ -242,10 +346,16 @@
           "benchmarkIdentity": "aa:claude-opus-5",
           "quality": 63.575,
           "costPerTaskUsd": 4.205327,
+          "creditBurnPerTaskUsd": 4.205327,
+          "planAdjustedCostPerTaskUsd": 4.205327,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.0539,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "synthesizer": {
@@ -254,10 +364,16 @@
           "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
           "quality": 70.723,
           "costPerTaskUsd": 0.839891,
+          "creditBurnPerTaskUsd": 0.839891,
+          "planAdjustedCostPerTaskUsd": 0.559927,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 51.553,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact_alias"
         },
         "researcher": {
@@ -266,18 +382,24 @@
           "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
           "quality": 70.66,
           "costPerTaskUsd": 0.034542,
+          "creditBurnPerTaskUsd": 0.034542,
+          "planAdjustedCostPerTaskUsd": 0.023028,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 51.553,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "commercial_variant"
         }
       }
     },
     "budget": {
       "label": "Budget",
-      "description": "Lowest total task cost inside the Intelligence-qualified pool while preserving all structural and role-eligibility constraints.",
-      "objective": "minimize-task-cost",
+      "description": "Maximizes included monthly portfolio capacity across separate standard and premium CommandCode Max credit pools while preserving all structural and role-eligibility constraints.",
+      "objective": "maximize-included-monthly-capacity",
       "requestedIntelligenceFloor": 0.8,
       "effectiveIntelligenceFloor": 0.8,
       "bestEligibleIntelligenceIndex": 56.7581,
@@ -288,6 +410,13 @@
       "familyCount": 4,
       "totalRoleQuality": 500.876,
       "totalCostPerTaskUsd": 3.041872,
+      "totalCreditBurnPerPortfolioUsd": 3.041872,
+      "totalPlanAdjustedCostPerPortfolioUsd": 2.027915,
+      "standardCreditBurnPerPortfolioUsd": 3.041872,
+      "premiumCreditBurnPerPortfolioUsd": 0,
+      "max10MonthlyIncludedUtilization": 0.020279,
+      "max10EstimatedCompletePortfoliosPerMonth": 49.312,
+      "max20EstimatedCompletePortfoliosPerMonth": 98.623,
       "selections": {
         "architect": {
           "model": "Qwen 3.8 Flash",
@@ -295,10 +424,16 @@
           "benchmarkIdentity": "aa:qwen3-8-flash-next",
           "quality": 67.141,
           "costPerTaskUsd": 0.029079,
+          "creditBurnPerTaskUsd": 0.029079,
+          "planAdjustedCostPerTaskUsd": 0.019386,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 45.5774,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact_alias"
         },
         "strategist": {
@@ -307,10 +442,16 @@
           "benchmarkIdentity": "aa:glm-5-3-flash",
           "quality": 58.946,
           "costPerTaskUsd": 0.20376,
+          "creditBurnPerTaskUsd": 0.20376,
+          "planAdjustedCostPerTaskUsd": 0.13584,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 46.2237,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "security-reviewer": {
@@ -319,6 +460,11 @@
           "benchmarkIdentity": "aa:grok-4-6",
           "quality": 59.167,
           "costPerTaskUsd": 1.253555,
+          "creditBurnPerTaskUsd": 1.253555,
+          "planAdjustedCostPerTaskUsd": 0.835703,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 50.5768,
           "source": "cyberbench",
           "benchmarkProvenance": {
@@ -326,10 +472,11 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "Grok 4.6",
-            "fetchedAt": "2026-09-06T16:17:59.471Z",
+            "fetchedAt": "2026-09-07T08:35:33.487Z",
             "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
           },
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "code-reviewer": {
@@ -338,10 +485,16 @@
           "benchmarkIdentity": "aa:grok-4-6",
           "quality": 58.625,
           "costPerTaskUsd": 1.253555,
+          "creditBurnPerTaskUsd": 1.253555,
+          "planAdjustedCostPerTaskUsd": 0.835703,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 50.5768,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "implementer": {
@@ -350,10 +503,16 @@
           "benchmarkIdentity": "aa:glm-5-3-flash",
           "quality": 55.15,
           "costPerTaskUsd": 0.20376,
+          "creditBurnPerTaskUsd": 0.20376,
+          "planAdjustedCostPerTaskUsd": 0.13584,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 46.2237,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact"
         },
         "implementer-heavy": {
@@ -362,10 +521,16 @@
           "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
           "quality": 66.134,
           "costPerTaskUsd": 0.034542,
+          "creditBurnPerTaskUsd": 0.034542,
+          "planAdjustedCostPerTaskUsd": 0.023028,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 51.553,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "commercial_variant"
         },
         "synthesizer": {
@@ -374,10 +539,16 @@
           "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
           "quality": 70.723,
           "costPerTaskUsd": 0.034542,
+          "creditBurnPerTaskUsd": 0.034542,
+          "planAdjustedCostPerTaskUsd": 0.023028,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 51.553,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "commercial_variant"
         },
         "researcher": {
@@ -386,10 +557,16 @@
           "benchmarkIdentity": "aa:qwen3-8-flash-next",
           "quality": 64.99,
           "costPerTaskUsd": 0.029079,
+          "creditBurnPerTaskUsd": 0.029079,
+          "planAdjustedCostPerTaskUsd": 0.019386,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 45.5774,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
+          "discountPercent": null,
           "mappingStatus": "exact_alias"
         }
       }

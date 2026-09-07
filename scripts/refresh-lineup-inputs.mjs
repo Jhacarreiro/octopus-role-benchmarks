@@ -3,11 +3,14 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { fetchCyberBench, resolveCyberBenchBySlug } from './cyberbench.mjs';
+import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');
 const bin=path.join(root,'node_modules','.bin','opencli');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
+const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
+const economics=planEconomics(lineupPolicy);
 const cyberConfig=JSON.parse(fs.readFileSync(path.join(root,'config','cyberbench-models.json'),'utf8'));
 const snapshotPath=path.join(root,'data','latest.json');
 const snapshot=JSON.parse(fs.readFileSync(snapshotPath,'utf8'));
@@ -18,13 +21,58 @@ function runOpenCLI(args){
   if(r.status!==0)throw new Error(`opencli ${args.join(' ')} failed\n${r.stderr}\n${r.stdout}`);
   return JSON.parse(r.stdout.trim());
 }
+function tokenPriceBases(m){
+  const input=m.inputPerM,output=m.outputPerM;
+  return {
+    input,
+    output,
+    cacheRead:m.cacheReadPerM??null,
+    cacheWrite:m.cacheWritePerM??null,
+    blended50:input==null||output==null?null:round((input+output)/2,6)
+  };
+}
+function repriceTask(tokens,row){
+  if(!tokens||[tokens.nonCacheInput,tokens.cacheRead,tokens.cacheWrite,tokens.output].some(v=>v==null))return null;
+  const input=row.inputPerM,output=row.outputPerM;
+  if(input==null||output==null)return null;
+  const cacheRead=row.cacheReadPerM??input,cacheWrite=row.cacheWritePerM??input;
+  return round((tokens.nonCacheInput*input+tokens.cacheRead*cacheRead+tokens.cacheWrite*cacheWrite+tokens.output*output)/1e6,6);
+}
 
 const installer=spawnSync(process.execPath,[path.join(root,'scripts','install-opencli-adapters.mjs')],{cwd:root,env:{...process.env,OPENCLI_HOME:opencliHome},encoding:'utf8'});
 if(installer.status!==0)throw new Error(installer.stderr||installer.stdout||'Adapter install failed');
 
+const maxRows=runOpenCLI(['commandcode','max','-f','json']);
+const maxByRawName=new Map(maxRows.map(x=>[x.rawName,x]));
+let commandCodeUpdated=0;
+for(const m of snapshot.models||[]){
+  const cc=maxByRawName.get(m.rawName);
+  if(!cc)continue;
+  m.discountPercent=cc.discountPercent;
+  m.free=cc.free===true;
+  m.billingCategory=cc.billingCategory;
+  m.max10MonthlyUsageLimitUsd=cc.max10MonthlyUsageLimitUsd;
+  m.max20MonthlyUsageLimitUsd=cc.max20MonthlyUsageLimitUsd;
+  m.offPeakShown=cc.offPeakShown===true;
+  m.tokenPrices=tokenPriceBases(cc);
+  const cost=repriceTask(m.taskEfficiency?.tokens,cc);
+  const adjusted=planAdjustedTaskCost(cost,cc,economics);
+  if(m.taskEfficiency&&Number.isFinite(cost)){
+    m.taskEfficiency.commandCodeCostPerTaskUsd=cost;
+    m.taskEfficiency.planAdjustedCostPerTaskUsd=adjusted;
+  }
+  if(m.roleScores&&Number.isFinite(adjusted)){
+    for(const score of Object.values(m.roleScores)){
+      if(Number.isFinite(score?.rankingQuality))score.rankingValue=adjusted===0?null:round(score.rankingQuality/adjusted,3);
+    }
+  }
+  commandCodeUpdated++;
+}
+if(commandCodeUpdated!==snapshot.models.length)throw new Error(`CommandCode pricing refresh updated ${commandCodeUpdated}/${snapshot.models.length} rows`);
+
 const slugs=[...new Set((snapshot.models||[]).map(m=>m.aaModel?.slug).filter(Boolean))].sort();
 const aaRows=runOpenCLI(['artificial-analysis','models',slugs.join(','),'-f','json']);
-const aaBySlug=new Map(aaRows.map(x=>[x.slug,x]));
+const aaBySlug=new Map(aaRows.map(model=>[model.slug,model]));
 if(aaBySlug.size!==slugs.length)throw new Error(`AA Intelligence refresh returned ${aaBySlug.size}/${slugs.length} families`);
 
 const cyber=await fetchCyberBench({url:cyberConfig.sourceUrl});
@@ -48,8 +96,8 @@ for(const m of snapshot.models||[]){
     const score=round(cb.value,3);
     m.benchmarks.cyberbench=score;
     m.benchmarkProvenance.cyberbench=cb.provenance;
-    const cost=m.taskEfficiency?.commandCodeCostPerTaskUsd;
-    m.roleScores['security-reviewer']={score,rankingQuality:score,rankingValue:cost==null||cost===0?null:round(score/cost,3)};
+    const adjusted=m.taskEfficiency?.planAdjustedCostPerTaskUsd;
+    m.roleScores['security-reviewer']={score,rankingQuality:score,rankingValue:adjusted==null||adjusted===0?null:round(score/adjusted,3)};
     securityUpdated++;
   }else{
     delete m.benchmarks.cyberbench;
@@ -67,13 +115,25 @@ snapshot.generatedAt=now.toISOString();
 snapshot.benchmarks=roles.benchmarks;
 snapshot.roles=roles.roles;
 snapshot.sources=snapshot.sources||{};
+snapshot.sources.commandCodeMax={
+  ...(snapshot.sources.commandCodeMax||{}),
+  url:'https://commandcode.ai/docs/plans/max',
+  rows:maxRows.length,
+  refreshedAt:now.toISOString(),
+  billingCategories:{
+    standard:maxRows.filter(x=>x.billingCategory==='standard').length,
+    premium:maxRows.filter(x=>x.billingCategory==='premium').length,
+    free:maxRows.filter(x=>x.billingCategory==='free').length
+  },
+  planEconomics:economics
+};
 snapshot.sources.cyberbench={url:cyber.sourceUrl,fetchedAt:cyber.fetchedAt,benchmarkUpdatedAt:cyber.benchmarkUpdatedAt,directFamilies:resolved.values.size,missingMappings:resolved.missing};
 snapshot.sources.artificialAnalysis={...(snapshot.sources.artificialAnalysis||{}),intelligenceIndexFamilies:intelligenceUpdated};
-snapshot.counts={...(snapshot.counts||{}),cyberbenchDirectFamilies:resolved.values.size};
+snapshot.counts={...(snapshot.counts||{}),commandCodePlanRows:commandCodeUpdated,cyberbenchDirectFamilies:resolved.values.size};
 
 for(const dir of [path.join(root,'data'),path.join(root,'site','data')])fs.mkdirSync(dir,{recursive:true});
 const json=JSON.stringify(snapshot,null,2)+'\n';
 fs.writeFileSync(path.join(root,'data',`${date}.json`),json);
 fs.writeFileSync(path.join(root,'data','latest.json'),json);
 fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
-console.log(JSON.stringify({date,intelligenceUpdated,securityUpdated,cyberbenchDirectFamilies:resolved.values.size,cyberbenchMissing:resolved.missing.length},null,2));
+console.log(JSON.stringify({date,commandCodeUpdated,intelligenceUpdated,securityUpdated,cyberbenchDirectFamilies:resolved.values.size,cyberbenchMissing:resolved.missing.length},null,2));

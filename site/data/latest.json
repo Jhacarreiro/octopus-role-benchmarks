@@ -1,12 +1,24 @@
 {
   "schemaVersion": 6,
   "methodologyVersion": 6,
-  "date": "2026-09-06",
-  "generatedAt": "2026-09-06T16:17:59.472Z",
+  "date": "2026-09-07",
+  "generatedAt": "2026-09-07T08:35:33.487Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
-      "rows": 69
+      "rows": 69,
+      "refreshedAt": "2026-09-07T08:35:33.487Z",
+      "billingCategories": {
+        "standard": 46,
+        "premium": 21,
+        "free": 2
+      },
+      "planEconomics": {
+        "monthlyPriceUsd": 100,
+        "standardMonthlyUsageLimitUsd": 150,
+        "premiumMonthlyUsageLimitUsd": 100,
+        "max20Scale": 2
+      }
     },
     "artificialAnalysis": {
       "url": "https://artificialanalysis.ai/",
@@ -21,8 +33,8 @@
     },
     "cyberbench": {
       "url": "https://www.vals.ai/benchmarks/cyber",
-      "fetchedAt": "2026-09-06T16:17:59.471Z",
-      "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z",
+      "fetchedAt": "2026-09-07T08:35:33.487Z",
+      "benchmarkUpdatedAt": "2026-09-05T00:00:00.000Z",
       "directFamilies": 24,
       "missingMappings": [
         {
@@ -1088,7 +1100,8 @@
     "codingAgentFamilies": 23,
     "caiObservedFamilies": 23,
     "caiEstimatedFamilies": 36,
-    "cyberbenchDirectFamilies": 24
+    "cyberbenchDirectFamilies": 24,
+    "commandCodePlanRows": 69
   },
   "benchmarks": {
     "gdpval": {
@@ -1273,6 +1286,8 @@
       "tokenPrices": {
         "input": 0,
         "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": null,
         "blended50": 0
       },
       "taskEfficiency": null,
@@ -1280,7 +1295,10 @@
       "roleScores": {},
       "caiStar": null,
       "codingAgent": null,
-      "aaModel": null
+      "aaModel": null,
+      "billingCategory": "free",
+      "max10MonthlyUsageLimitUsd": 0,
+      "max20MonthlyUsageLimitUsd": 0
     },
     {
       "name": "LongCat 2.0",
@@ -1335,6 +1353,8 @@
       "tokenPrices": {
         "input": 0,
         "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": null,
         "blended50": 0
       },
       "taskEfficiency": {
@@ -1347,7 +1367,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0
       },
       "benchmarks": {
         "gdpval": 23.4995,
@@ -1405,7 +1426,10 @@
         "slug": "longcat-2-0",
         "sourceUrl": "https://artificialanalysis.ai/models/longcat-2-0",
         "intelligenceIndex": 25.8458
-      }
+      },
+      "billingCategory": "free",
+      "max10MonthlyUsageLimitUsd": 0,
+      "max20MonthlyUsageLimitUsd": 0
     },
     {
       "name": "Tencent Hy4 Preview",
@@ -1432,6 +1456,8 @@
       "tokenPrices": {
         "input": 0.834,
         "output": 2.501,
+        "cacheRead": 0.042,
+        "cacheWrite": null,
         "blended50": 1.6675
       },
       "taskEfficiency": null,
@@ -1439,7 +1465,10 @@
       "roleScores": {},
       "caiStar": null,
       "codingAgent": null,
-      "aaModel": null
+      "aaModel": null,
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Tencent Hy3",
@@ -1494,6 +1523,8 @@
       "tokenPrices": {
         "input": 0.14,
         "output": 0.58,
+        "cacheRead": 0.035,
+        "cacheWrite": null,
         "blended50": 0.36
       },
       "taskEfficiency": {
@@ -1506,7 +1537,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.02063
       },
       "benchmarks": {
         "gdpval": 32.0105,
@@ -1520,37 +1552,37 @@
         "architect": {
           "score": 55.512,
           "rankingQuality": 55.512,
-          "rankingValue": 1793.892
+          "rankingValue": 2690.839
         },
         "strategist": {
           "score": 49.804,
           "rankingQuality": 49.804,
-          "rankingValue": 1609.436
+          "rankingValue": 2414.154
         },
         "code-reviewer": {
           "score": 57.833,
           "rankingQuality": 51.333,
-          "rankingValue": 1658.846
+          "rankingValue": 2488.27
         },
         "implementer": {
           "score": 56.146,
           "rankingQuality": 50.208,
-          "rankingValue": 1622.492
+          "rankingValue": 2433.737
         },
         "implementer-heavy": {
           "score": 53.394,
           "rankingQuality": 48.373,
-          "rankingValue": 1563.193
+          "rankingValue": 2344.789
         },
         "synthesizer": {
           "score": 56.658,
           "rankingQuality": 56.658,
-          "rankingValue": 1830.926
+          "rankingValue": 2746.389
         },
         "researcher": {
           "score": 56.656,
           "rankingQuality": 56.656,
-          "rankingValue": 1830.861
+          "rankingValue": 2746.292
         }
       },
       "caiStar": {
@@ -1563,8 +1595,11 @@
       "aaModel": {
         "slug": "hy3",
         "sourceUrl": "https://artificialanalysis.ai/models/hy3",
-        "intelligenceIndex": 33.2451
-      }
+        "intelligenceIndex": 32.4074
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Kimi K3",
@@ -1594,13 +1629,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K3",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 3,
         "output": 15,
+        "cacheRead": 0.3,
+        "cacheWrite": null,
         "blended50": 9
       },
       "taskEfficiency": {
@@ -1613,7 +1650,8 @@
           "reasoning": 24696.883455381467,
           "answer": 13196.181952970259,
           "output": 37893.06540835173
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 1.0509593333333334
       },
       "benchmarks": {
         "gdpval": 54.447,
@@ -1628,42 +1666,42 @@
         "architect": {
           "score": 57.104,
           "rankingQuality": 57.104,
-          "rankingValue": 36.223
+          "rankingValue": 54.335
         },
         "strategist": {
           "score": 56.754,
           "rankingQuality": 56.754,
-          "rankingValue": 36.001
+          "rankingValue": 54.002
         },
         "security-reviewer": {
           "score": 57.813,
           "rankingQuality": 57.813,
-          "rankingValue": 36.673
+          "rankingValue": 55.01
         },
         "code-reviewer": {
           "score": 61.902,
           "rankingQuality": 62.148,
-          "rankingValue": 39.423
+          "rankingValue": 59.135
         },
         "implementer": {
           "score": 60.164,
           "rankingQuality": 60.989,
-          "rankingValue": 38.688
+          "rankingValue": 58.032
         },
         "implementer-heavy": {
           "score": 57.403,
           "rankingQuality": 59.148,
-          "rankingValue": 37.52
+          "rankingValue": 56.28
         },
         "synthesizer": {
           "score": 49.357,
           "rankingQuality": 49.357,
-          "rankingValue": 31.309
+          "rankingValue": 46.964
         },
         "researcher": {
           "score": 55.802,
           "rankingQuality": 55.802,
-          "rankingValue": 35.398
+          "rankingValue": 53.096
         }
       },
       "caiStar": {
@@ -1707,7 +1745,10 @@
         "slug": "kimi-k3",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k3",
         "intelligenceIndex": 50.2337
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Kimi K2.7 Code",
@@ -1762,6 +1803,8 @@
       "tokenPrices": {
         "input": 0.95,
         "output": 4,
+        "cacheRead": 0.19,
+        "cacheWrite": null,
         "blended50": 2.475
       },
       "taskEfficiency": {
@@ -1774,7 +1817,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.07072933333333332
       },
       "benchmarks": {
         "gdpval": 30.9185,
@@ -1788,37 +1832,37 @@
         "architect": {
           "score": 39.569,
           "rankingQuality": 39.569,
-          "rankingValue": 372.962
+          "rankingValue": 559.443
         },
         "strategist": {
           "score": 38.017,
           "rankingQuality": 38.017,
-          "rankingValue": 358.333
+          "rankingValue": 537.5
         },
         "code-reviewer": {
           "score": 49.174,
           "rankingQuality": 46.296,
-          "rankingValue": 436.368
+          "rankingValue": 654.552
         },
         "implementer": {
           "score": 47.154,
           "rankingQuality": 44.949,
-          "rankingValue": 423.671
+          "rankingValue": 635.507
         },
         "implementer-heavy": {
           "score": 40.757,
           "rankingQuality": 40.685,
-          "rankingValue": 383.481
+          "rankingValue": 575.221
         },
         "synthesizer": {
           "score": 29.844,
           "rankingQuality": 29.844,
-          "rankingValue": 281.298
+          "rankingValue": 421.947
         },
         "researcher": {
           "score": 38.484,
           "rankingQuality": 38.484,
-          "rankingValue": 362.735
+          "rankingValue": 544.102
         }
       },
       "caiStar": {
@@ -1831,8 +1875,11 @@
       "aaModel": {
         "slug": "kimi-k2-7-code",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code",
-        "intelligenceIndex": 33.8553
-      }
+        "intelligenceIndex": 32.7229
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Kimi K2.7 Code HighSpeed",
@@ -1887,6 +1934,8 @@
       "tokenPrices": {
         "input": 1.9,
         "output": 8,
+        "cacheRead": 0.38,
+        "cacheWrite": null,
         "blended50": 4.95
       },
       "taskEfficiency": {
@@ -1899,7 +1948,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.141458
       },
       "benchmarks": {
         "gdpval": 30.9185,
@@ -1913,37 +1963,37 @@
         "architect": {
           "score": 39.569,
           "rankingQuality": 39.569,
-          "rankingValue": 186.482
+          "rankingValue": 279.723
         },
         "strategist": {
           "score": 38.017,
           "rankingQuality": 38.017,
-          "rankingValue": 179.167
+          "rankingValue": 268.751
         },
         "code-reviewer": {
           "score": 49.174,
           "rankingQuality": 46.296,
-          "rankingValue": 218.185
+          "rankingValue": 327.277
         },
         "implementer": {
           "score": 47.154,
           "rankingQuality": 44.949,
-          "rankingValue": 211.837
+          "rankingValue": 317.755
         },
         "implementer-heavy": {
           "score": 40.757,
           "rankingQuality": 40.685,
-          "rankingValue": 191.741
+          "rankingValue": 287.612
         },
         "synthesizer": {
           "score": 29.844,
           "rankingQuality": 29.844,
-          "rankingValue": 140.65
+          "rankingValue": 210.974
         },
         "researcher": {
           "score": 38.484,
           "rankingQuality": 38.484,
-          "rankingValue": 181.368
+          "rankingValue": 272.052
         }
       },
       "caiStar": {
@@ -1956,8 +2006,11 @@
       "aaModel": {
         "slug": "kimi-k2-7-code",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-7-code",
-        "intelligenceIndex": 33.8553
-      }
+        "intelligenceIndex": 32.7229
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Kimi K2.6",
@@ -2013,13 +2066,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.6",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-04-20T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.95,
         "output": 4,
+        "cacheRead": 0.16,
+        "cacheWrite": null,
         "blended50": 2.475
       },
       "taskEfficiency": {
@@ -2032,7 +2087,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.07072933333333332
       },
       "benchmarks": {
         "gdpval": 31.0015,
@@ -2047,42 +2103,42 @@
         "architect": {
           "score": 56.496,
           "rankingQuality": 56.496,
-          "rankingValue": 532.509
+          "rankingValue": 798.763
         },
         "strategist": {
           "score": 53.507,
           "rankingQuality": 53.507,
-          "rankingValue": 504.336
+          "rankingValue": 756.504
         },
         "security-reviewer": {
           "score": 43.465,
           "rankingQuality": 43.465,
-          "rankingValue": 409.684
+          "rankingValue": 614.526
         },
         "code-reviewer": {
           "score": 61.248,
           "rankingQuality": 52.128,
-          "rankingValue": 491.338
+          "rankingValue": 737.007
         },
         "implementer": {
           "score": 58.715,
           "rankingQuality": 50.44,
-          "rankingValue": 475.427
+          "rankingValue": 713.141
         },
         "implementer-heavy": {
           "score": 54.923,
           "rankingQuality": 47.912,
-          "rankingValue": 451.6
+          "rankingValue": 677.399
         },
         "synthesizer": {
           "score": 62.16,
           "rankingQuality": 62.16,
-          "rankingValue": 585.896
+          "rankingValue": 878.843
         },
         "researcher": {
           "score": 59.996,
           "rankingQuality": 59.996,
-          "rankingValue": 565.499
+          "rankingValue": 848.248
         }
       },
       "caiStar": {
@@ -2126,7 +2182,10 @@
         "slug": "kimi-k2-6",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-6",
         "intelligenceIndex": 35.8473
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Kimi K2.5",
@@ -2182,13 +2241,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.5",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-01-26T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.6,
         "output": 3,
+        "cacheRead": 0.1,
+        "cacheWrite": null,
         "blended50": 1.8
       },
       "taskEfficiency": {
@@ -2201,7 +2262,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.05535333333333334
       },
       "benchmarks": {
         "gdpval": 22.083,
@@ -2216,42 +2278,42 @@
         "architect": {
           "score": 50.517,
           "rankingQuality": 50.517,
-          "rankingValue": 608.419
+          "rankingValue": 912.628
         },
         "strategist": {
           "score": 47.121,
           "rankingQuality": 47.121,
-          "rankingValue": 567.518
+          "rankingValue": 851.277
         },
         "security-reviewer": {
           "score": 26.301,
           "rankingQuality": 26.301,
-          "rankingValue": 316.765
+          "rankingValue": 475.148
         },
         "code-reviewer": {
           "score": 56.772,
           "rankingQuality": 49.226,
-          "rankingValue": 592.87
+          "rankingValue": 889.305
         },
         "implementer": {
           "score": 54.342,
           "rankingQuality": 47.606,
-          "rankingValue": 573.359
+          "rankingValue": 860.039
         },
         "implementer-heavy": {
           "score": 49.7,
           "rankingQuality": 44.511,
-          "rankingValue": 536.083
+          "rankingValue": 804.125
         },
         "synthesizer": {
           "score": 56.946,
           "rankingQuality": 56.946,
-          "rankingValue": 685.848
+          "rankingValue": 1028.773
         },
         "researcher": {
           "score": 54.442,
           "rankingQuality": 54.442,
-          "rankingValue": 655.691
+          "rankingValue": 983.536
         }
       },
       "caiStar": {
@@ -2265,7 +2327,10 @@
         "slug": "kimi-k2-5",
         "sourceUrl": "https://artificialanalysis.ai/models/kimi-k2-5",
         "intelligenceIndex": 27.6344
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GLM-5.3 Flash",
@@ -2293,6 +2358,8 @@
       "tokenPrices": {
         "input": 0.15,
         "output": 0.5,
+        "cacheRead": 0.03,
+        "cacheWrite": null,
         "blended50": 0.325
       },
       "taskEfficiency": {
@@ -2305,7 +2372,8 @@
           "reasoning": 35993.1891643582,
           "answer": 18262.78629122519,
           "output": 54255.97545558339
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.13584000000000002
       },
       "benchmarks": {
         "gdpval": 58.706,
@@ -2319,37 +2387,37 @@
         "architect": {
           "score": 60.48,
           "rankingQuality": 60.48,
-          "rankingValue": 296.82
+          "rankingValue": 445.23
         },
         "strategist": {
           "score": 58.946,
           "rankingQuality": 58.946,
-          "rankingValue": 289.291
+          "rankingValue": 433.937
         },
         "code-reviewer": {
           "score": 58.497,
           "rankingQuality": 56.611,
-          "rankingValue": 277.832
+          "rankingValue": 416.748
         },
         "implementer": {
           "score": 56.306,
           "rankingQuality": 55.15,
-          "rankingValue": 270.662
+          "rankingValue": 405.992
         },
         "implementer-heavy": {
           "score": 57.249,
           "rankingQuality": 55.779,
-          "rankingValue": 273.749
+          "rankingValue": 410.623
         },
         "synthesizer": {
           "score": 53.299,
           "rankingQuality": 53.299,
-          "rankingValue": 261.577
+          "rankingValue": 392.366
         },
         "researcher": {
           "score": 58.423,
           "rankingQuality": 58.423,
-          "rankingValue": 286.725
+          "rankingValue": 430.087
         }
       },
       "caiStar": {
@@ -2363,7 +2431,10 @@
         "slug": "glm-5-3-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-flash",
         "intelligenceIndex": 46.2237
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GLM-5.3",
@@ -2393,13 +2464,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.3",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-08-18T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
+        "cacheRead": 0.26,
+        "cacheWrite": null,
         "blended50": 2.9
       },
       "taskEfficiency": {
@@ -2412,7 +2485,8 @@
           "reasoning": 36067.85904975473,
           "answer": 18321.858034957626,
           "output": 54389.71708471235
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.839572
       },
       "benchmarks": {
         "gdpval": 59.046,
@@ -2427,42 +2501,42 @@
         "architect": {
           "score": 60.384,
           "rankingQuality": 60.384,
-          "rankingValue": 47.948
+          "rankingValue": 71.922
         },
         "strategist": {
           "score": 59.602,
           "rankingQuality": 59.602,
-          "rankingValue": 47.327
+          "rankingValue": 70.991
         },
         "security-reviewer": {
           "score": 56.97,
           "rankingQuality": 56.97,
-          "rankingValue": 45.237
+          "rankingValue": 67.856
         },
         "code-reviewer": {
           "score": 62.097,
           "rankingQuality": 61.956,
-          "rankingValue": 49.196
+          "rankingValue": 73.795
         },
         "implementer": {
           "score": 60.65,
           "rankingQuality": 60.992,
-          "rankingValue": 48.431
+          "rankingValue": 72.647
         },
         "implementer-heavy": {
           "score": 60.162,
           "rankingQuality": 60.666,
-          "rankingValue": 48.172
+          "rankingValue": 72.258
         },
         "synthesizer": {
           "score": 53.467,
           "rankingQuality": 53.467,
-          "rankingValue": 42.456
+          "rankingValue": 63.684
         },
         "researcher": {
           "score": 58.675,
           "rankingQuality": 58.675,
-          "rankingValue": 46.591
+          "rankingValue": 69.887
         }
       },
       "caiStar": {
@@ -2476,7 +2550,10 @@
         "slug": "glm-5-3",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3",
         "intelligenceIndex": 48.584
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GLM-5.2",
@@ -2506,13 +2583,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
+        "cacheRead": 0.26,
+        "cacheWrite": null,
         "blended50": 2.9
       },
       "taskEfficiency": {
@@ -2525,7 +2604,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.07662933333333334
       },
       "benchmarks": {
         "gdpval": 46.101,
@@ -2540,42 +2620,42 @@
         "architect": {
           "score": 44.317,
           "rankingQuality": 44.317,
-          "rankingValue": 385.553
+          "rankingValue": 578.329
         },
         "strategist": {
           "score": 44.499,
           "rankingQuality": 44.499,
-          "rankingValue": 387.136
+          "rankingValue": 580.705
         },
         "security-reviewer": {
           "score": 53.122,
           "rankingQuality": 53.122,
-          "rankingValue": 462.155
+          "rankingValue": 693.233
         },
         "code-reviewer": {
           "score": 51.34,
           "rankingQuality": 48.663,
-          "rankingValue": 423.363
+          "rankingValue": 635.044
         },
         "implementer": {
           "score": 49.317,
           "rankingQuality": 47.315,
-          "rankingValue": 411.635
+          "rankingValue": 617.453
         },
         "implementer-heavy": {
           "score": 44.94,
           "rankingQuality": 44.397,
-          "rankingValue": 386.249
+          "rankingValue": 579.373
         },
         "synthesizer": {
           "score": 31.052,
           "rankingQuality": 31.052,
-          "rankingValue": 270.149
+          "rankingValue": 405.223
         },
         "researcher": {
           "score": 41.674,
           "rankingQuality": 41.674,
-          "rankingValue": 362.559
+          "rankingValue": 543.839
         }
       },
       "caiStar": {
@@ -2618,8 +2698,11 @@
       "aaModel": {
         "slug": "glm-5-2",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2",
-        "intelligenceIndex": 42.5399
-      }
+        "intelligenceIndex": 42.0812
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GLM-5.2 Fast",
@@ -2649,13 +2732,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 3,
         "output": 10.25,
+        "cacheRead": 0.5,
+        "cacheWrite": null,
         "blended50": 6.625
       },
       "taskEfficiency": {
@@ -2668,7 +2753,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.17612799999999998
       },
       "benchmarks": {
         "gdpval": 46.101,
@@ -2683,42 +2769,42 @@
         "architect": {
           "score": 44.317,
           "rankingQuality": 44.317,
-          "rankingValue": 167.745
+          "rankingValue": 251.618
         },
         "strategist": {
           "score": 44.499,
           "rankingQuality": 44.499,
-          "rankingValue": 168.434
+          "rankingValue": 252.651
         },
         "security-reviewer": {
           "score": 53.122,
           "rankingQuality": 53.122,
-          "rankingValue": 201.073
+          "rankingValue": 301.61
         },
         "code-reviewer": {
           "score": 51.34,
           "rankingQuality": 48.663,
-          "rankingValue": 184.196
+          "rankingValue": 276.293
         },
         "implementer": {
           "score": 49.317,
           "rankingQuality": 47.315,
-          "rankingValue": 179.093
+          "rankingValue": 268.64
         },
         "implementer-heavy": {
           "score": 44.94,
           "rankingQuality": 44.397,
-          "rankingValue": 168.048
+          "rankingValue": 252.072
         },
         "synthesizer": {
           "score": 31.052,
           "rankingQuality": 31.052,
-          "rankingValue": 117.536
+          "rankingValue": 176.304
         },
         "researcher": {
           "score": 41.674,
           "rankingQuality": 41.674,
-          "rankingValue": 157.741
+          "rankingValue": 236.612
         }
       },
       "caiStar": {
@@ -2761,8 +2847,11 @@
       "aaModel": {
         "slug": "glm-5-2",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2",
-        "intelligenceIndex": 42.5399
-      }
+        "intelligenceIndex": 42.0812
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GLM-5.1",
@@ -2817,6 +2906,8 @@
       "tokenPrices": {
         "input": 1.4,
         "output": 4.4,
+        "cacheRead": 0.26,
+        "cacheWrite": null,
         "blended50": 2.9
       },
       "taskEfficiency": {
@@ -2829,7 +2920,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.078438
       },
       "benchmarks": {
         "gdpval": 34.3155,
@@ -2843,37 +2935,37 @@
         "architect": {
           "score": 54.008,
           "rankingQuality": 54.008,
-          "rankingValue": 459.029
+          "rankingValue": 688.544
         },
         "strategist": {
           "score": 52.264,
           "rankingQuality": 52.264,
-          "rankingValue": 444.206
+          "rankingValue": 666.31
         },
         "code-reviewer": {
           "score": 56.141,
           "rankingQuality": 49.731,
-          "rankingValue": 422.678
+          "rankingValue": 634.017
         },
         "implementer": {
           "score": 53.323,
           "rankingQuality": 47.852,
-          "rankingValue": 406.708
+          "rankingValue": 610.061
         },
         "implementer-heavy": {
           "score": 51.676,
           "rankingQuality": 46.754,
-          "rankingValue": 397.375
+          "rankingValue": 596.063
         },
         "synthesizer": {
           "score": 58.467,
           "rankingQuality": 58.467,
-          "rankingValue": 496.928
+          "rankingValue": 745.391
         },
         "researcher": {
           "score": 56.786,
           "rankingQuality": 56.786,
-          "rankingValue": 482.64
+          "rankingValue": 723.96
         }
       },
       "caiStar": {
@@ -2917,7 +3009,10 @@
         "slug": "glm-5-1",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-1",
         "intelligenceIndex": 31.9115
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GLM-5",
@@ -2972,6 +3067,8 @@
       "tokenPrices": {
         "input": 1,
         "output": 3.2,
+        "cacheRead": 0.2,
+        "cacheWrite": null,
         "blended50": 2.1
       },
       "taskEfficiency": {
@@ -2984,7 +3081,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.05892933333333333
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -2998,37 +3096,37 @@
         "architect": {
           "score": 54.994,
           "rankingQuality": 54.994,
-          "rankingValue": 622.146
+          "rankingValue": 933.219
         },
         "strategist": {
           "score": 53.656,
           "rankingQuality": 53.656,
-          "rankingValue": 607.01
+          "rankingValue": 910.514
         },
         "code-reviewer": {
           "score": 56.47,
           "rankingQuality": 51.619,
-          "rankingValue": 583.965
+          "rankingValue": 875.947
         },
         "implementer": {
           "score": 54.281,
           "rankingQuality": 50.16,
-          "rankingValue": 567.459
+          "rankingValue": 851.189
         },
         "implementer-heavy": {
           "score": 53.66,
           "rankingQuality": 49.746,
-          "rankingValue": 562.776
+          "rankingValue": 844.164
         },
         "synthesizer": {
           "score": 59.834,
           "rankingQuality": 59.834,
-          "rankingValue": 676.901
+          "rankingValue": 1015.352
         },
         "researcher": {
           "score": 57.509,
           "rankingQuality": 57.509,
-          "rankingValue": 650.598
+          "rankingValue": 975.898
         }
       },
       "caiStar": {
@@ -3042,7 +3140,10 @@
         "slug": "glm-5",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5",
         "intelligenceIndex": 32.3976
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "MiniMax M3",
@@ -3072,13 +3173,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M3",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-05-31T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
+        "cacheRead": 0.06,
+        "cacheWrite": null,
         "blended50": 0.75
       },
       "taskEfficiency": {
@@ -3091,7 +3194,8 @@
           "reasoning": 14126.500964635967,
           "answer": 19637.483994258608,
           "output": 33763.98495889457
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.14736466666666667
       },
       "benchmarks": {
         "gdpval": 40.4075,
@@ -3106,42 +3210,42 @@
         "architect": {
           "score": 44.9,
           "rankingQuality": 44.9,
-          "rankingValue": 203.124
+          "rankingValue": 304.686
         },
         "strategist": {
           "score": 44.103,
           "rankingQuality": 44.103,
-          "rankingValue": 199.519
+          "rankingValue": 299.278
         },
         "security-reviewer": {
           "score": 42.719,
           "rankingQuality": 42.719,
-          "rankingValue": 193.258
+          "rankingValue": 289.886
         },
         "code-reviewer": {
           "score": 51.332,
           "rankingQuality": 48.653,
-          "rankingValue": 220.103
+          "rankingValue": 330.154
         },
         "implementer": {
           "score": 48.684,
           "rankingQuality": 46.887,
-          "rankingValue": 212.113
+          "rankingValue": 318.17
         },
         "implementer-heavy": {
           "score": 44.037,
           "rankingQuality": 43.789,
-          "rankingValue": 198.098
+          "rankingValue": 297.147
         },
         "synthesizer": {
           "score": 34.081,
           "rankingQuality": 34.081,
-          "rankingValue": 154.18
+          "rankingValue": 231.27
         },
         "researcher": {
           "score": 43.24,
           "rankingQuality": 43.24,
-          "rankingValue": 195.615
+          "rankingValue": 293.422
         }
       },
       "caiStar": {
@@ -3155,7 +3259,10 @@
         "slug": "minimax-m3",
         "sourceUrl": "https://artificialanalysis.ai/models/minimax-m3",
         "intelligenceIndex": 35.7477
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "MiniMax M2.7",
@@ -3211,13 +3318,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M2.7",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-03-17T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
+        "cacheRead": 0.06,
+        "cacheWrite": null,
         "blended50": 0.75
       },
       "taskEfficiency": {
@@ -3230,7 +3339,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.027880666666666668
       },
       "benchmarks": {
         "gdpval": 29.572,
@@ -3245,42 +3355,42 @@
         "architect": {
           "score": 34.578,
           "rankingQuality": 34.578,
-          "rankingValue": 826.809
+          "rankingValue": 1240.214
         },
         "strategist": {
           "score": 36.348,
           "rankingQuality": 36.348,
-          "rankingValue": 869.133
+          "rankingValue": 1303.699
         },
         "security-reviewer": {
           "score": 24.556,
           "rankingQuality": 24.556,
-          "rankingValue": 587.169
+          "rankingValue": 880.754
         },
         "code-reviewer": {
           "score": 46.256,
           "rankingQuality": 44.548,
-          "rankingValue": 1065.206
+          "rankingValue": 1597.81
         },
         "implementer": {
           "score": 43.609,
           "rankingQuality": 42.784,
-          "rankingValue": 1023.027
+          "rankingValue": 1534.54
         },
         "implementer-heavy": {
           "score": 37.079,
           "rankingQuality": 38.43,
-          "rankingValue": 918.916
+          "rankingValue": 1378.375
         },
         "synthesizer": {
           "score": 26.089,
           "rankingQuality": 26.089,
-          "rankingValue": 623.825
+          "rankingValue": 935.738
         },
         "researcher": {
           "score": 34.537,
           "rankingQuality": 34.537,
-          "rankingValue": 825.829
+          "rankingValue": 1238.744
         }
       },
       "caiStar": {
@@ -3294,7 +3404,10 @@
         "slug": "minimax-m2-7",
         "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-7",
         "intelligenceIndex": 30.0578
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "MiniMax M2.5",
@@ -3349,6 +3462,8 @@
       "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
+        "cacheRead": 0.03,
+        "cacheWrite": null,
         "blended50": 0.75
       },
       "taskEfficiency": {
@@ -3361,7 +3476,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.027880666666666668
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -3375,37 +3491,37 @@
         "architect": {
           "score": 53.663,
           "rankingQuality": 53.663,
-          "rankingValue": 1283.159
+          "rankingValue": 1924.739
         },
         "strategist": {
           "score": 47.602,
           "rankingQuality": 47.602,
-          "rankingValue": 1138.232
+          "rankingValue": 1707.348
         },
         "code-reviewer": {
           "score": 51.683,
           "rankingQuality": 45.731,
-          "rankingValue": 1093.494
+          "rankingValue": 1640.241
         },
         "implementer": {
           "score": 50.586,
           "rankingQuality": 45,
-          "rankingValue": 1076.014
+          "rankingValue": 1614.022
         },
         "implementer-heavy": {
           "score": 51.306,
           "rankingQuality": 45.48,
-          "rankingValue": 1087.492
+          "rankingValue": 1631.238
         },
         "synthesizer": {
           "score": 50.957,
           "rankingQuality": 50.957,
-          "rankingValue": 1218.455
+          "rankingValue": 1827.682
         },
         "researcher": {
           "score": 52.444,
           "rankingQuality": 52.444,
-          "rankingValue": 1254.011
+          "rankingValue": 1881.017
         }
       },
       "caiStar": {
@@ -3419,7 +3535,10 @@
         "slug": "minimax-m2-5",
         "sourceUrl": "https://artificialanalysis.ai/models/minimax-m2-5",
         "intelligenceIndex": 26.8283
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "DeepSeek V4 Pro (latest)",
@@ -3447,6 +3566,8 @@
       "tokenPrices": {
         "input": 0.66,
         "output": 1.98,
+        "cacheRead": 0.022,
+        "cacheWrite": null,
         "blended50": 1.32
       },
       "taskEfficiency": {
@@ -3459,7 +3580,8 @@
           "reasoning": 33344.50675632576,
           "answer": 10750.335378169633,
           "output": 44094.8421344954
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.110926
       },
       "benchmarks": {
         "gdpval": 49.918,
@@ -3473,37 +3595,37 @@
         "architect": {
           "score": 49.129,
           "rankingQuality": 49.129,
-          "rankingValue": 295.266
+          "rankingValue": 442.899
         },
         "strategist": {
           "score": 47.931,
           "rankingQuality": 47.931,
-          "rankingValue": 288.066
+          "rankingValue": 432.099
         },
         "code-reviewer": {
           "score": 53.344,
           "rankingQuality": 46.505,
-          "rankingValue": 279.496
+          "rankingValue": 419.243
         },
         "implementer": {
           "score": 51.317,
           "rankingQuality": 45.154,
-          "rankingValue": 271.376
+          "rankingValue": 407.064
         },
         "implementer-heavy": {
           "score": 48.287,
           "rankingQuality": 43.134,
-          "rankingValue": 259.236
+          "rankingValue": 388.854
         },
         "synthesizer": {
           "score": 35.654,
           "rankingQuality": 35.654,
-          "rankingValue": 214.281
+          "rankingValue": 321.421
         },
         "researcher": {
           "score": 45.921,
           "rankingQuality": 45.921,
-          "rankingValue": 275.986
+          "rankingValue": 413.979
         }
       },
       "caiStar": {
@@ -3547,7 +3669,10 @@
         "slug": "deepseek-v4-pro",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro",
         "intelligenceIndex": 42.1133
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "DeepSeek V4 Flash (latest)",
@@ -3577,13 +3702,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.22,
         "output": 0.66,
+        "cacheRead": 0.007,
+        "cacheWrite": null,
         "blended50": 0.44
       },
       "taskEfficiency": {
@@ -3596,7 +3723,8 @@
           "reasoning": 40540.721929274296,
           "answer": 12433.597925505277,
           "output": 52974.31985477958
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.046581333333333336
       },
       "benchmarks": {
         "gdpval": 48.6165,
@@ -3611,42 +3739,42 @@
         "architect": {
           "score": 46.725,
           "rankingQuality": 46.725,
-          "rankingValue": 668.723
+          "rankingValue": 1003.084
         },
         "strategist": {
           "score": 44.052,
           "rankingQuality": 44.052,
-          "rankingValue": 630.467
+          "rankingValue": 945.701
         },
         "security-reviewer": {
           "score": 53.568,
           "rankingQuality": 53.568,
-          "rankingValue": 766.659
+          "rankingValue": 1149.989
         },
         "code-reviewer": {
           "score": 50.959,
           "rankingQuality": 50.559,
-          "rankingValue": 723.595
+          "rankingValue": 1085.392
         },
         "implementer": {
           "score": 49.685,
           "rankingQuality": 49.709,
-          "rankingValue": 711.429
+          "rankingValue": 1067.144
         },
         "implementer-heavy": {
           "score": 46.558,
           "rankingQuality": 47.625,
-          "rankingValue": 681.604
+          "rankingValue": 1022.405
         },
         "synthesizer": {
           "score": 30.436,
           "rankingQuality": 30.436,
-          "rankingValue": 435.597
+          "rankingValue": 653.395
         },
         "researcher": {
           "score": 42.202,
           "rankingQuality": 42.202,
-          "rankingValue": 603.99
+          "rankingValue": 905.985
         }
       },
       "caiStar": {
@@ -3690,7 +3818,10 @@
         "slug": "deepseek-v4-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash",
         "intelligenceIndex": 40.8391
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "DeepSeek V4 Flash Vision (exp)",
@@ -3718,6 +3849,8 @@
       "tokenPrices": {
         "input": 0.22,
         "output": 0.66,
+        "cacheRead": 0.007,
+        "cacheWrite": null,
         "blended50": 0.44
       },
       "taskEfficiency": {
@@ -3730,7 +3863,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.0156
       },
       "benchmarks": {
         "gdpval": 54.0855,
@@ -3744,37 +3878,37 @@
         "architect": {
           "score": 65.402,
           "rankingQuality": 65.402,
-          "rankingValue": 2794.957
+          "rankingValue": 4192.436
         },
         "strategist": {
           "score": 59.387,
           "rankingQuality": 59.387,
-          "rankingValue": 2537.906
+          "rankingValue": 3806.859
         },
         "code-reviewer": {
           "score": 60.372,
           "rankingQuality": 55.068,
-          "rankingValue": 2353.333
+          "rankingValue": 3530
         },
         "implementer": {
           "score": 59.136,
           "rankingQuality": 54.244,
-          "rankingValue": 2318.12
+          "rankingValue": 3477.179
         },
         "implementer-heavy": {
           "score": 61.263,
           "rankingQuality": 55.662,
-          "rankingValue": 2378.718
+          "rankingValue": 3568.077
         },
         "synthesizer": {
           "score": 61.186,
           "rankingQuality": 61.186,
-          "rankingValue": 2614.786
+          "rankingValue": 3922.179
         },
         "researcher": {
           "score": 63.303,
           "rankingQuality": 63.303,
-          "rankingValue": 2705.256
+          "rankingValue": 4057.885
         }
       },
       "caiStar": {
@@ -3787,8 +3921,11 @@
       "aaModel": {
         "slug": "deepseek-v4-flash-vision",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision",
-        "intelligenceIndex": 41.5421
-      }
+        "intelligenceIndex": 40.6858
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "DeepSeek V4 Flash Fast",
@@ -3818,13 +3955,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.28,
         "output": 0.56,
+        "cacheRead": 0.07,
+        "cacheWrite": null,
         "blended50": 0.42
       },
       "taskEfficiency": {
@@ -3837,7 +3976,8 @@
           "reasoning": 40540.721929274296,
           "answer": 12433.597925505277,
           "output": 52974.31985477958
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.12394533333333332
       },
       "benchmarks": {
         "gdpval": 48.6165,
@@ -3852,42 +3992,42 @@
         "architect": {
           "score": 46.725,
           "rankingQuality": 46.725,
-          "rankingValue": 251.32
+          "rankingValue": 376.981
         },
         "strategist": {
           "score": 44.052,
           "rankingQuality": 44.052,
-          "rankingValue": 236.943
+          "rankingValue": 355.415
         },
         "security-reviewer": {
           "score": 53.568,
           "rankingQuality": 53.568,
-          "rankingValue": 288.127
+          "rankingValue": 432.191
         },
         "code-reviewer": {
           "score": 50.959,
           "rankingQuality": 50.559,
-          "rankingValue": 271.942
+          "rankingValue": 407.914
         },
         "implementer": {
           "score": 49.685,
           "rankingQuality": 49.709,
-          "rankingValue": 267.371
+          "rankingValue": 401.056
         },
         "implementer-heavy": {
           "score": 46.558,
           "rankingQuality": 47.625,
-          "rankingValue": 256.161
+          "rankingValue": 384.242
         },
         "synthesizer": {
           "score": 30.436,
           "rankingQuality": 30.436,
-          "rankingValue": 163.707
+          "rankingValue": 245.56
         },
         "researcher": {
           "score": 42.202,
           "rankingQuality": 42.202,
-          "rankingValue": 226.993
+          "rankingValue": 340.489
         }
       },
       "caiStar": {
@@ -3931,7 +4071,10 @@
         "slug": "deepseek-v4-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash",
         "intelligenceIndex": 40.8391
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.8 Max 0902",
@@ -3959,6 +4102,8 @@
       "tokenPrices": {
         "input": 2,
         "output": 6,
+        "cacheRead": 0.25,
+        "cacheWrite": null,
         "blended50": 4
       },
       "taskEfficiency": {
@@ -3971,7 +4116,8 @@
           "reasoning": 30970.38655866932,
           "answer": 13498.01131433437,
           "output": 44468.39787300369
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.7917953333333334
       },
       "benchmarks": {
         "gdpval": 56.71,
@@ -3985,37 +4131,37 @@
         "architect": {
           "score": 52.548,
           "rankingQuality": 52.548,
-          "rankingValue": 44.244
+          "rankingValue": 66.366
         },
         "strategist": {
           "score": 51.356,
           "rankingQuality": 51.356,
-          "rankingValue": 43.24
+          "rankingValue": 64.86
         },
         "code-reviewer": {
           "score": 54.895,
           "rankingQuality": 57.033,
-          "rankingValue": 48.02
+          "rankingValue": 72.03
         },
         "implementer": {
           "score": 53.075,
           "rankingQuality": 55.82,
-          "rankingValue": 46.999
+          "rankingValue": 70.498
         },
         "implementer-heavy": {
           "score": 51.297,
           "rankingQuality": 54.635,
-          "rankingValue": 46.001
+          "rankingValue": 69.001
         },
         "synthesizer": {
           "score": 37.936,
           "rankingQuality": 37.936,
-          "rankingValue": 31.941
+          "rankingValue": 47.911
         },
         "researcher": {
           "score": 48.565,
           "rankingQuality": 48.565,
-          "rankingValue": 40.89
+          "rankingValue": 61.335
         }
       },
       "caiStar": {
@@ -4059,7 +4205,10 @@
         "slug": "qwen3-8-max",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
         "intelligenceIndex": 46.9057
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.8 Max",
@@ -4087,6 +4236,8 @@
       "tokenPrices": {
         "input": 2,
         "output": 6,
+        "cacheRead": 0.25,
+        "cacheWrite": 2.5,
         "blended50": 4
       },
       "taskEfficiency": {
@@ -4099,7 +4250,8 @@
           "reasoning": 30970.38655866932,
           "answer": 13498.01131433437,
           "output": 44468.39787300369
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.8532126666666667
       },
       "benchmarks": {
         "gdpval": 56.71,
@@ -4113,37 +4265,37 @@
         "architect": {
           "score": 52.548,
           "rankingQuality": 52.548,
-          "rankingValue": 41.059
+          "rankingValue": 61.588
         },
         "strategist": {
           "score": 51.356,
           "rankingQuality": 51.356,
-          "rankingValue": 40.128
+          "rankingValue": 60.191
         },
         "code-reviewer": {
           "score": 54.895,
           "rankingQuality": 57.033,
-          "rankingValue": 44.563
+          "rankingValue": 66.845
         },
         "implementer": {
           "score": 53.075,
           "rankingQuality": 55.82,
-          "rankingValue": 43.616
+          "rankingValue": 65.423
         },
         "implementer-heavy": {
           "score": 51.297,
           "rankingQuality": 54.635,
-          "rankingValue": 42.69
+          "rankingValue": 64.034
         },
         "synthesizer": {
           "score": 37.936,
           "rankingQuality": 37.936,
-          "rankingValue": 29.642
+          "rankingValue": 44.463
         },
         "researcher": {
           "score": 48.565,
           "rankingQuality": 48.565,
-          "rankingValue": 37.947
+          "rankingValue": 56.92
         }
       },
       "caiStar": {
@@ -4187,7 +4339,10 @@
         "slug": "qwen3-8-max",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
         "intelligenceIndex": 46.9057
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.8 27B",
@@ -4215,6 +4370,8 @@
       "tokenPrices": {
         "input": 0.4,
         "output": 3,
+        "cacheRead": 0.04,
+        "cacheWrite": null,
         "blended50": 1.7
       },
       "taskEfficiency": {
@@ -4227,7 +4384,8 @@
           "reasoning": 41665.11548406813,
           "answer": 15933.394050116656,
           "output": 57598.509534184785
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.32849866666666666
       },
       "benchmarks": {
         "gdpval": 48.3965,
@@ -4241,37 +4399,37 @@
         "architect": {
           "score": 47.964,
           "rankingQuality": 47.964,
-          "rankingValue": 97.34
+          "rankingValue": 146.01
         },
         "strategist": {
           "score": 46.245,
           "rankingQuality": 46.245,
-          "rankingValue": 93.851
+          "rankingValue": 140.777
         },
         "code-reviewer": {
           "score": 50.233,
           "rankingQuality": 47.478,
-          "rankingValue": 96.354
+          "rankingValue": 144.53
         },
         "implementer": {
           "score": 48.204,
           "rankingQuality": 46.125,
-          "rankingValue": 93.608
+          "rankingValue": 140.412
         },
         "implementer-heavy": {
           "score": 46.473,
           "rankingQuality": 44.971,
-          "rankingValue": 91.266
+          "rankingValue": 136.899
         },
         "synthesizer": {
           "score": 35.013,
           "rankingQuality": 35.013,
-          "rankingValue": 71.057
+          "rankingValue": 106.585
         },
         "researcher": {
           "score": 44.569,
           "rankingQuality": 44.569,
-          "rankingValue": 90.45
+          "rankingValue": 135.675
         }
       },
       "caiStar": {
@@ -4285,7 +4443,10 @@
         "slug": "qwen3-8-27b",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
         "intelligenceIndex": 41.4059
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.6 Max Preview",
@@ -4340,6 +4501,8 @@
       "tokenPrices": {
         "input": 1.3,
         "output": 7.8,
+        "cacheRead": 0.26,
+        "cacheWrite": 1.63,
         "blended50": 4.55
       },
       "taskEfficiency": {
@@ -4352,7 +4515,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.12912533333333334
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -4366,37 +4530,37 @@
         "architect": {
           "score": 42.826,
           "rankingQuality": 42.826,
-          "rankingValue": 221.108
+          "rankingValue": 331.662
         },
         "strategist": {
           "score": 40.1,
           "rankingQuality": 40.1,
-          "rankingValue": 207.034
+          "rankingValue": 310.551
         },
         "code-reviewer": {
           "score": 42.265,
           "rankingQuality": 39.217,
-          "rankingValue": 202.475
+          "rankingValue": 303.713
         },
         "implementer": {
           "score": 41.142,
           "rankingQuality": 38.469,
-          "rankingValue": 198.613
+          "rankingValue": 297.92
         },
         "implementer-heavy": {
           "score": 42.454,
           "rankingQuality": 39.343,
-          "rankingValue": 203.126
+          "rankingValue": 304.688
         },
         "synthesizer": {
           "score": 36.524,
           "rankingQuality": 36.524,
-          "rankingValue": 188.571
+          "rankingValue": 282.857
         },
         "researcher": {
           "score": 40.642,
           "rankingQuality": 40.642,
-          "rankingValue": 209.832
+          "rankingValue": 314.748
         }
       },
       "caiStar": {
@@ -4410,7 +4574,10 @@
         "slug": "qwen3-max-preview",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-max-preview",
         "intelligenceIndex": 13.0472
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.6 Plus",
@@ -4465,6 +4632,8 @@
       "tokenPrices": {
         "input": 0.5,
         "output": 3,
+        "cacheRead": 0.1,
+        "cacheWrite": null,
         "blended50": 1.75
       },
       "taskEfficiency": {
@@ -4477,7 +4646,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.055307333333333326
       },
       "benchmarks": {
         "gdpval": 28.5325,
@@ -4491,37 +4661,37 @@
         "architect": {
           "score": 52.81,
           "rankingQuality": 52.81,
-          "rankingValue": 636.564
+          "rankingValue": 954.846
         },
         "strategist": {
           "score": 51.03,
           "rankingQuality": 51.03,
-          "rankingValue": 615.108
+          "rankingValue": 922.662
         },
         "code-reviewer": {
           "score": 55.549,
           "rankingQuality": 48.464,
-          "rankingValue": 584.178
+          "rankingValue": 876.267
         },
         "implementer": {
           "score": 52.207,
           "rankingQuality": 46.236,
-          "rankingValue": 557.322
+          "rankingValue": 835.983
         },
         "implementer-heavy": {
           "score": 49.951,
           "rankingQuality": 44.732,
-          "rankingValue": 539.193
+          "rankingValue": 808.79
         },
         "synthesizer": {
           "score": 59.707,
           "rankingQuality": 59.707,
-          "rankingValue": 719.7
+          "rankingValue": 1079.549
         },
         "researcher": {
           "score": 56.734,
           "rankingQuality": 56.734,
-          "rankingValue": 683.864
+          "rankingValue": 1025.795
         }
       },
       "caiStar": {
@@ -4535,7 +4705,10 @@
         "slug": "qwen3-6-plus",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-6-plus",
         "intelligenceIndex": 31.5039
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.7 Max",
@@ -4590,6 +4763,8 @@
       "tokenPrices": {
         "input": 2.5,
         "output": 7.5,
+        "cacheRead": 0.5,
+        "cacheWrite": 3.13,
         "blended50": 5
       },
       "taskEfficiency": {
@@ -4602,7 +4777,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.12430466666666667
       },
       "benchmarks": {
         "gdpval": 34.6575,
@@ -4616,37 +4792,37 @@
         "architect": {
           "score": 58.153,
           "rankingQuality": 58.153,
-          "rankingValue": 311.884
+          "rankingValue": 467.826
         },
         "strategist": {
           "score": 55.918,
           "rankingQuality": 55.918,
-          "rankingValue": 299.898
+          "rankingValue": 449.846
         },
         "code-reviewer": {
           "score": 62.018,
           "rankingQuality": 56.11,
-          "rankingValue": 300.927
+          "rankingValue": 451.391
         },
         "implementer": {
           "score": 59.054,
           "rankingQuality": 54.134,
-          "rankingValue": 290.33
+          "rankingValue": 435.495
         },
         "implementer-heavy": {
           "score": 55.676,
           "rankingQuality": 51.882,
-          "rankingValue": 278.252
+          "rankingValue": 417.378
         },
         "synthesizer": {
           "score": 63.445,
           "rankingQuality": 63.445,
-          "rankingValue": 340.266
+          "rankingValue": 510.399
         },
         "researcher": {
           "score": 61.611,
           "rankingQuality": 61.611,
-          "rankingValue": 330.43
+          "rankingValue": 495.645
         }
       },
       "caiStar": {
@@ -4659,8 +4835,11 @@
       "aaModel": {
         "slug": "qwen3-7-max",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-max",
-        "intelligenceIndex": 36.9833
-      }
+        "intelligenceIndex": 36.616
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.7 Plus",
@@ -4715,6 +4894,8 @@
       "tokenPrices": {
         "input": 0.4,
         "output": 1.6,
+        "cacheRead": 0.08,
+        "cacheWrite": 0.5,
         "blended50": 1
       },
       "taskEfficiency": {
@@ -4727,7 +4908,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.036206666666666665
       },
       "benchmarks": {
         "gdpval": 19.496,
@@ -4741,37 +4923,37 @@
         "architect": {
           "score": 33.505,
           "rankingQuality": 33.505,
-          "rankingValue": 616.921
+          "rankingValue": 925.382
         },
         "strategist": {
           "score": 33.85,
           "rankingQuality": 33.85,
-          "rankingValue": 623.274
+          "rankingValue": 934.911
         },
         "code-reviewer": {
           "score": 48.45,
           "rankingQuality": 45.007,
-          "rankingValue": 828.706
+          "rankingValue": 1243.058
         },
         "implementer": {
           "score": 45.701,
           "rankingQuality": 43.175,
-          "rankingValue": 794.973
+          "rankingValue": 1192.46
         },
         "implementer-heavy": {
           "score": 36.179,
           "rankingQuality": 36.827,
-          "rankingValue": 678.089
+          "rankingValue": 1017.133
         },
         "synthesizer": {
           "score": 27.391,
           "rankingQuality": 27.391,
-          "rankingValue": 504.345
+          "rankingValue": 756.518
         },
         "researcher": {
           "score": 34.879,
           "rankingQuality": 34.879,
-          "rankingValue": 642.221
+          "rankingValue": 963.331
         }
       },
       "caiStar": {
@@ -4814,8 +4996,11 @@
       "aaModel": {
         "slug": "qwen3-7-plus",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-7-plus",
-        "intelligenceIndex": 30.8084
-      }
+        "intelligenceIndex": 31.8583
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.8 Flash",
@@ -4843,6 +5028,8 @@
       "tokenPrices": {
         "input": 0.16,
         "output": 0.47,
+        "cacheRead": 0.016,
+        "cacheWrite": null,
         "blended50": 0.315
       },
       "taskEfficiency": {
@@ -4855,7 +5042,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.019386
       },
       "benchmarks": {
         "gdpval": 57.633,
@@ -4869,37 +5057,37 @@
         "architect": {
           "score": 67.141,
           "rankingQuality": 67.141,
-          "rankingValue": 2308.917
+          "rankingValue": 3463.376
         },
         "strategist": {
           "score": 61.761,
           "rankingQuality": 61.761,
-          "rankingValue": 2123.904
+          "rankingValue": 3185.856
         },
         "code-reviewer": {
           "score": 61.494,
           "rankingQuality": 57.309,
-          "rankingValue": 1970.804
+          "rankingValue": 2956.206
         },
         "implementer": {
           "score": 59.95,
           "rankingQuality": 56.28,
-          "rankingValue": 1935.417
+          "rankingValue": 2903.126
         },
         "implementer-heavy": {
           "score": 62.334,
           "rankingQuality": 57.869,
-          "rankingValue": 1990.062
+          "rankingValue": 2985.092
         },
         "synthesizer": {
           "score": 62.552,
           "rankingQuality": 62.552,
-          "rankingValue": 2151.106
+          "rankingValue": 3226.658
         },
         "researcher": {
           "score": 64.99,
           "rankingQuality": 64.99,
-          "rankingValue": 2234.946
+          "rankingValue": 3352.419
         }
       },
       "caiStar": {
@@ -4913,7 +5101,10 @@
         "slug": "qwen3-8-flash-next",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
         "intelligenceIndex": 45.5774
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Qwen 3.7 Flash",
@@ -4940,6 +5131,8 @@
       "tokenPrices": {
         "input": 0.03,
         "output": 0.13,
+        "cacheRead": 0.006,
+        "cacheWrite": 0.038,
         "blended50": 0.08
       },
       "taskEfficiency": null,
@@ -4947,7 +5140,10 @@
       "roleScores": {},
       "caiStar": null,
       "codingAgent": null,
-      "aaModel": null
+      "aaModel": null,
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Step 3.7 Flash",
@@ -5012,6 +5208,8 @@
       "tokenPrices": {
         "input": 0.2,
         "output": 1.15,
+        "cacheRead": 0.04,
+        "cacheWrite": null,
         "blended50": 0.675
       },
       "taskEfficiency": {
@@ -5024,7 +5222,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.02869266666666667
       },
       "benchmarks": {
         "gdpval": 22.938,
@@ -5038,37 +5237,37 @@
         "architect": {
           "score": 46.985,
           "rankingQuality": 46.985,
-          "rankingValue": 1091.684
+          "rankingValue": 1637.526
         },
         "strategist": {
           "score": 41.407,
           "rankingQuality": 41.407,
-          "rankingValue": 962.081
+          "rankingValue": 1443.121
         },
         "code-reviewer": {
           "score": 49.852,
           "rankingQuality": 43.45,
-          "rankingValue": 1009.549
+          "rankingValue": 1514.324
         },
         "implementer": {
           "score": 48.452,
           "rankingQuality": 42.517,
-          "rankingValue": 987.871
+          "rankingValue": 1481.807
         },
         "implementer-heavy": {
           "score": 45.903,
           "rankingQuality": 40.818,
-          "rankingValue": 948.396
+          "rankingValue": 1422.593
         },
         "synthesizer": {
           "score": 49.134,
           "rankingQuality": 49.134,
-          "rankingValue": 1141.616
+          "rankingValue": 1712.424
         },
         "researcher": {
           "score": 48.383,
           "rankingQuality": 48.383,
-          "rankingValue": 1124.166
+          "rankingValue": 1686.25
         }
       },
       "caiStar": {
@@ -5082,7 +5281,10 @@
         "slug": "step-3-7-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/step-3-7-flash",
         "intelligenceIndex": 22.8785
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Step 3.5 Flash",
@@ -5137,6 +5339,8 @@
       "tokenPrices": {
         "input": 0.1,
         "output": 0.3,
+        "cacheRead": 0.02,
+        "cacheWrite": null,
         "blended50": 0.2
       },
       "taskEfficiency": {
@@ -5149,7 +5353,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.016155333333333334
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -5163,37 +5368,37 @@
         "architect": {
           "score": 51.226,
           "rankingQuality": 51.226,
-          "rankingValue": 2113.894
+          "rankingValue": 3170.841
         },
         "strategist": {
           "score": 44.511,
           "rankingQuality": 44.511,
-          "rankingValue": 1836.793
+          "rankingValue": 2755.189
         },
         "code-reviewer": {
           "score": 48.555,
           "rankingQuality": 43.546,
-          "rankingValue": 1796.971
+          "rankingValue": 2695.457
         },
         "implementer": {
           "score": 47.416,
           "rankingQuality": 42.787,
-          "rankingValue": 1765.65
+          "rankingValue": 2648.475
         },
         "implementer-heavy": {
           "score": 47.757,
           "rankingQuality": 43.014,
-          "rankingValue": 1775.018
+          "rankingValue": 2662.526
         },
         "synthesizer": {
           "score": 45.237,
           "rankingQuality": 45.237,
-          "rankingValue": 1866.752
+          "rankingValue": 2800.128
         },
         "researcher": {
           "score": 48.869,
           "rankingQuality": 48.869,
-          "rankingValue": 2016.63
+          "rankingValue": 3024.945
         }
       },
       "caiStar": {
@@ -5207,7 +5412,10 @@
         "slug": "step-3-5-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/step-3-5-flash",
         "intelligenceIndex": 19.5407
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "MiMo V2.5 Pro",
@@ -5235,6 +5443,8 @@
       "tokenPrices": {
         "input": 0.435,
         "output": 0.87,
+        "cacheRead": 0.0036,
+        "cacheWrite": null,
         "blended50": 0.6525
       },
       "taskEfficiency": {
@@ -5247,7 +5457,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.024562666666666667
       },
       "benchmarks": {
         "gdpval": 34.5395,
@@ -5261,37 +5472,37 @@
         "architect": {
           "score": 38.842,
           "rankingQuality": 38.842,
-          "rankingValue": 1054.229
+          "rankingValue": 1581.343
         },
         "strategist": {
           "score": 39.849,
           "rankingQuality": 39.849,
-          "rankingValue": 1081.56
+          "rankingValue": 1622.34
         },
         "code-reviewer": {
           "score": 50.221,
           "rankingQuality": 49.024,
-          "rankingValue": 1330.583
+          "rankingValue": 1995.874
         },
         "implementer": {
           "score": 48.317,
           "rankingQuality": 47.755,
-          "rankingValue": 1296.14
+          "rankingValue": 1944.211
         },
         "implementer-heavy": {
           "score": 41.941,
           "rankingQuality": 43.504,
-          "rankingValue": 1180.762
+          "rankingValue": 1771.143
         },
         "synthesizer": {
           "score": 30.081,
           "rankingQuality": 30.081,
-          "rankingValue": 816.442
+          "rankingValue": 1224.663
         },
         "researcher": {
           "score": 38.346,
           "rankingQuality": 38.346,
-          "rankingValue": 1040.766
+          "rankingValue": 1561.15
         }
       },
       "caiStar": {
@@ -5305,7 +5516,10 @@
         "slug": "mimo-v2-5-pro",
         "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro",
         "intelligenceIndex": 32.5863
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "MiMo V2.5",
@@ -5366,6 +5580,8 @@
       "tokenPrices": {
         "input": 0.14,
         "output": 0.28,
+        "cacheRead": 0.0028,
+        "cacheWrite": null,
         "blended50": 0.21
       },
       "taskEfficiency": {
@@ -5378,7 +5594,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.01586
       },
       "benchmarks": {
         "gdpval": 29.169,
@@ -5392,37 +5609,37 @@
         "architect": {
           "score": 50.988,
           "rankingQuality": 50.988,
-          "rankingValue": 2143.253
+          "rankingValue": 3214.88
         },
         "strategist": {
           "score": 48.288,
           "rankingQuality": 48.288,
-          "rankingValue": 2029.76
+          "rankingValue": 3044.641
         },
         "code-reviewer": {
           "score": 54.543,
           "rankingQuality": 48.102,
-          "rankingValue": 2021.942
+          "rankingValue": 3032.913
         },
         "implementer": {
           "score": 52.246,
           "rankingQuality": 46.571,
-          "rankingValue": 1957.587
+          "rankingValue": 2936.381
         },
         "implementer-heavy": {
           "score": 49.762,
           "rankingQuality": 44.915,
-          "rankingValue": 1887.978
+          "rankingValue": 2831.967
         },
         "synthesizer": {
           "score": 55.259,
           "rankingQuality": 55.259,
-          "rankingValue": 2322.783
+          "rankingValue": 3484.174
         },
         "researcher": {
           "score": 53.671,
           "rankingQuality": 53.671,
-          "rankingValue": 2256.032
+          "rankingValue": 3384.048
         }
       },
       "caiStar": {
@@ -5435,8 +5652,11 @@
       "aaModel": {
         "slug": "mimo-v2-5-0424",
         "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-0424",
-        "intelligenceIndex": 29.531
-      }
+        "intelligenceIndex": 28.2032
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Nemotron 3 Ultra",
@@ -5464,6 +5684,8 @@
       "tokenPrices": {
         "input": 0.6,
         "output": 2.4,
+        "cacheRead": 0.12,
+        "cacheWrite": null,
         "blended50": 1.5
       },
       "taskEfficiency": {
@@ -5476,7 +5698,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.04677866666666666
       },
       "benchmarks": {
         "gdpval": 29.774,
@@ -5490,37 +5713,37 @@
         "architect": {
           "score": 36.282,
           "rankingQuality": 36.282,
-          "rankingValue": 517.073
+          "rankingValue": 775.61
         },
         "strategist": {
           "score": 37.738,
           "rankingQuality": 37.738,
-          "rankingValue": 537.824
+          "rankingValue": 806.735
         },
         "code-reviewer": {
           "score": 44.946,
           "rankingQuality": 42.367,
-          "rankingValue": 603.794
+          "rankingValue": 905.691
         },
         "implementer": {
           "score": 41.674,
           "rankingQuality": 40.186,
-          "rankingValue": 572.711
+          "rankingValue": 859.067
         },
         "implementer-heavy": {
           "score": 36.457,
           "rankingQuality": 36.708,
-          "rankingValue": 523.144
+          "rankingValue": 784.717
         },
         "synthesizer": {
           "score": 29.386,
           "rankingQuality": 29.386,
-          "rankingValue": 418.795
+          "rankingValue": 628.192
         },
         "researcher": {
           "score": 36.577,
           "rankingQuality": 36.577,
-          "rankingValue": 521.278
+          "rankingValue": 781.916
         }
       },
       "caiStar": {
@@ -5533,8 +5756,11 @@
       "aaModel": {
         "slug": "nvidia-nemotron-3-ultra-550b-a55b",
         "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
-        "intelligenceIndex": 29.5512
-      }
+        "intelligenceIndex": 29.3345
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Claude Fable 5.1",
@@ -5564,13 +5790,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5.1",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-09-01T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 10,
         "output": 50,
+        "cacheRead": 0.25,
+        "cacheWrite": 12.5,
         "blended50": 30
       },
       "taskEfficiency": {
@@ -5583,7 +5811,8 @@
           "reasoning": 38593.97000610013,
           "answer": 25478.156071213605,
           "output": 64072.12607731373
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 6.154504
       },
       "benchmarks": {
         "gdpval": 63.455,
@@ -5677,7 +5906,10 @@
         "slug": "claude-fable-5-1",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1",
         "intelligenceIndex": 56.7581
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Fable 5",
@@ -5707,13 +5939,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-06-09T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 10,
         "output": 50,
+        "cacheRead": 1,
+        "cacheWrite": 12.5,
         "blended50": 30
       },
       "taskEfficiency": {
@@ -5726,7 +5960,8 @@
           "reasoning": 33300.917135107135,
           "answer": 16191.809624996597,
           "output": 49492.72676010373
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 5.689256
       },
       "benchmarks": {
         "gdpval": 56.8365,
@@ -5820,7 +6055,10 @@
         "slug": "claude-fable-5",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5",
         "intelligenceIndex": 53.1913
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Opus 5",
@@ -5850,13 +6088,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 5",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-22T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 5,
         "output": 25,
+        "cacheRead": 0.5,
+        "cacheWrite": 6.25,
         "blended50": 15
       },
       "taskEfficiency": {
@@ -5869,7 +6109,8 @@
           "reasoning": 32141.926731182117,
           "answer": 24346.95127634085,
           "output": 56488.878007522966
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 4.205327
       },
       "benchmarks": {
         "gdpval": 61.9545,
@@ -5963,7 +6204,10 @@
         "slug": "claude-opus-5",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-5",
         "intelligenceIndex": 54.0539
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Opus 4.8",
@@ -6019,13 +6263,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.8",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-05-28T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 5,
         "output": 25,
+        "cacheRead": 0.5,
+        "cacheWrite": 6.25,
         "blended50": 15
       },
       "taskEfficiency": {
@@ -6038,7 +6284,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.570711
       },
       "benchmarks": {
         "gdpval": 49.689,
@@ -6131,8 +6378,11 @@
       "aaModel": {
         "slug": "claude-opus-4-8",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-8",
-        "intelligenceIndex": 46.4375
-      }
+        "intelligenceIndex": 47.7797
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Opus 4.7",
@@ -6188,13 +6438,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.7",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-04-16T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 5,
         "output": 25,
+        "cacheRead": 0.5,
+        "cacheWrite": 6.25,
         "blended50": 15
       },
       "taskEfficiency": {
@@ -6207,7 +6459,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.570711
       },
       "benchmarks": {
         "gdpval": 45.016,
@@ -6301,7 +6554,10 @@
         "slug": "claude-opus-4-7",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-7",
         "intelligenceIndex": 44.2905
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Opus 4.6",
@@ -6356,6 +6612,8 @@
       "tokenPrices": {
         "input": 5,
         "output": 25,
+        "cacheRead": 0.5,
+        "cacheWrite": 6.25,
         "blended50": 15
       },
       "taskEfficiency": {
@@ -6368,7 +6626,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.570711
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -6426,7 +6685,10 @@
         "slug": "claude-opus-4-6",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-opus-4-6",
         "intelligenceIndex": 30.7655
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Sonnet 5",
@@ -6454,6 +6716,8 @@
       "tokenPrices": {
         "input": 2,
         "output": 10,
+        "cacheRead": 0.2,
+        "cacheWrite": 2.5,
         "blended50": 6
       },
       "taskEfficiency": {
@@ -6466,7 +6730,8 @@
           "reasoning": 69759.7864243733,
           "answer": 22316.178914029922,
           "output": 92075.96533840323
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 3.314116
       },
       "benchmarks": {
         "gdpval": 50.2905,
@@ -6524,7 +6789,10 @@
         "slug": "claude-sonnet-5",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-5",
         "intelligenceIndex": 45.1096
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Sonnet 4.6",
@@ -6579,6 +6847,8 @@
       "tokenPrices": {
         "input": 3,
         "output": 15,
+        "cacheRead": 0.3,
+        "cacheWrite": 3.75,
         "blended50": 9
       },
       "taskEfficiency": {
@@ -6591,7 +6861,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.349465
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -6679,7 +6950,10 @@
         "slug": "claude-sonnet-4-6",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6",
         "intelligenceIndex": 28.9599
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Claude Haiku 4.5",
@@ -6734,6 +7008,8 @@
       "tokenPrices": {
         "input": 1,
         "output": 5,
+        "cacheRead": 0.1,
+        "cacheWrite": 1.25,
         "blended50": 3
       },
       "taskEfficiency": {
@@ -6746,7 +7022,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.128218
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -6804,7 +7081,10 @@
         "slug": "claude-4-5-haiku",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-4-5-haiku",
         "intelligenceIndex": 17.3638
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "GPT-6 Astra",
@@ -6834,13 +7114,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-6 Astra",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 10,
         "output": 50,
+        "cacheRead": 1,
+        "cacheWrite": 12.5,
         "blended50": 30
       },
       "taskEfficiency": {
@@ -6853,7 +7135,8 @@
           "reasoning": 12613.796583147894,
           "answer": 8371.550286955331,
           "output": 20985.346870103225
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 2.567319
       },
       "benchmarks": {
         "gdpval": 54.2065,
@@ -6917,7 +7200,10 @@
         "slug": "gpt-6-astra",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-6-astra",
         "intelligenceIndex": 54.6573
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "GPT-5.6 Sol",
@@ -6947,13 +7233,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-5.6 Sol",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 5,
         "output": 30,
+        "cacheRead": 0.5,
+        "cacheWrite": 6.25,
         "blended50": 17.5
       },
       "taskEfficiency": {
@@ -6966,7 +7254,8 @@
           "reasoning": 14120.76977953155,
           "answer": 8620.070691135668,
           "output": 22740.84047066722
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 1.1170206666666667
       },
       "benchmarks": {
         "gdpval": 56.446,
@@ -6981,42 +7270,42 @@
         "architect": {
           "score": 55.358,
           "rankingQuality": 55.358,
-          "rankingValue": 33.039
+          "rankingValue": 49.559
         },
         "strategist": {
           "score": 55.51,
           "rankingQuality": 55.51,
-          "rankingValue": 33.13
+          "rankingValue": 49.695
         },
         "security-reviewer": {
           "score": 63.709,
           "rankingQuality": 63.709,
-          "rankingValue": 38.023
+          "rankingValue": 57.035
         },
         "code-reviewer": {
           "score": 59.469,
           "rankingQuality": 61.33,
-          "rankingValue": 36.603
+          "rankingValue": 54.905
         },
         "implementer": {
           "score": 57.223,
           "rankingQuality": 59.833,
-          "rankingValue": 35.71
+          "rankingValue": 53.565
         },
         "implementer-heavy": {
           "score": 54.425,
           "rankingQuality": 57.967,
-          "rankingValue": 34.596
+          "rankingValue": 51.894
         },
         "synthesizer": {
           "score": 44.61,
           "rankingQuality": 44.61,
-          "rankingValue": 26.624
+          "rankingValue": 39.937
         },
         "researcher": {
           "score": 53.212,
           "rankingQuality": 53.212,
-          "rankingValue": 31.758
+          "rankingValue": 47.637
         }
       },
       "caiStar": {
@@ -7060,7 +7349,10 @@
         "slug": "gpt-5-6-sol",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol",
         "intelligenceIndex": 51.2552
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GPT-5.6 Terra",
@@ -7088,6 +7380,8 @@
       "tokenPrices": {
         "input": 2,
         "output": 12,
+        "cacheRead": 0.2,
+        "cacheWrite": 2.5,
         "blended50": 7
       },
       "taskEfficiency": {
@@ -7100,7 +7394,8 @@
           "reasoning": 19365.58939995653,
           "answer": 8564.912261487058,
           "output": 27930.501661443588
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.814376
       },
       "benchmarks": {
         "gdpval": 49.0555,
@@ -7188,7 +7483,10 @@
         "slug": "gpt-5-6-terra",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra",
         "intelligenceIndex": 46.7688
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "GPT-5.6 Luna",
@@ -7216,6 +7514,8 @@
       "tokenPrices": {
         "input": 0.2,
         "output": 1.2,
+        "cacheRead": 0.02,
+        "cacheWrite": 0.25,
         "blended50": 0.7
       },
       "taskEfficiency": {
@@ -7228,7 +7528,8 @@
           "reasoning": 20156.71482034798,
           "answer": 9604.026644953112,
           "output": 29760.741465301093
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.06459933333333333
       },
       "benchmarks": {
         "gdpval": 49.678,
@@ -7242,37 +7543,37 @@
         "architect": {
           "score": 48.877,
           "rankingQuality": 48.877,
-          "rankingValue": 504.412
+          "rankingValue": 756.618
         },
         "strategist": {
           "score": 46.329,
           "rankingQuality": 46.329,
-          "rankingValue": 478.116
+          "rankingValue": 717.175
         },
         "code-reviewer": {
           "score": 53.687,
           "rankingQuality": 54.847,
-          "rankingValue": 566.022
+          "rankingValue": 849.034
         },
         "implementer": {
           "score": 52.684,
           "rankingQuality": 54.178,
-          "rankingValue": 559.118
+          "rankingValue": 838.677
         },
         "implementer-heavy": {
           "score": 49.534,
           "rankingQuality": 52.078,
-          "rankingValue": 537.446
+          "rankingValue": 806.169
         },
         "synthesizer": {
           "score": 34.145,
           "rankingQuality": 34.145,
-          "rankingValue": 352.377
+          "rankingValue": 528.566
         },
         "researcher": {
           "score": 44.839,
           "rankingQuality": 44.839,
-          "rankingValue": 462.74
+          "rankingValue": 694.109
         }
       },
       "caiStar": {
@@ -7316,7 +7617,10 @@
         "slug": "gpt-5-6-luna",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna",
         "intelligenceIndex": 43.4415
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "GPT-5.5",
@@ -7371,6 +7675,8 @@
       "tokenPrices": {
         "input": 5,
         "output": 30,
+        "cacheRead": 0.5,
+        "cacheWrite": null,
         "blended50": 17.5
       },
       "taskEfficiency": {
@@ -7383,7 +7689,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.681334
       },
       "benchmarks": {
         "gdpval": 45.0245,
@@ -7471,7 +7778,10 @@
         "slug": "gpt-5-5",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-5",
         "intelligenceIndex": 45.6173
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "GPT-5.4",
@@ -7526,6 +7836,8 @@
       "tokenPrices": {
         "input": 2.5,
         "output": 15,
+        "cacheRead": 0.25,
+        "cacheWrite": null,
         "blended50": 8.75
       },
       "taskEfficiency": {
@@ -7538,7 +7850,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.349465
       },
       "benchmarks": {
         "gdpval": 40.533,
@@ -7596,7 +7909,10 @@
         "slug": "gpt-5-4",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4",
         "intelligenceIndex": 42.8257
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "GPT-5.4 Mini",
@@ -7651,6 +7967,8 @@
       "tokenPrices": {
         "input": 0.75,
         "output": 4.5,
+        "cacheRead": 0.075,
+        "cacheWrite": null,
         "blended50": 2.625
       },
       "taskEfficiency": {
@@ -7663,7 +7981,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.117156
       },
       "benchmarks": {
         "gdpval": 29.98,
@@ -7721,7 +8040,10 @@
         "slug": "gpt-5-4-mini",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini",
         "intelligenceIndex": 31.9167
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "GPT-5.3 Codex",
@@ -7776,6 +8098,8 @@
       "tokenPrices": {
         "input": 2,
         "output": 8,
+        "cacheRead": 0.5,
+        "cacheWrite": null,
         "blended50": 5
       },
       "taskEfficiency": {
@@ -7788,7 +8112,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.199361
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -7846,7 +8171,10 @@
         "slug": "gpt-5-3-codex",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-3-codex",
         "intelligenceIndex": 36.9388
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Gemini 3.8 Flash",
@@ -7876,13 +8204,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.8 Flash",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.5,
         "output": 7.5,
+        "cacheRead": 0.15,
+        "cacheWrite": null,
         "blended50": 4.5
       },
       "taskEfficiency": {
@@ -7895,7 +8225,8 @@
           "reasoning": 33204.31689482828,
           "answer": 23444.54236683236,
           "output": 56648.85926166063
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.9839593333333333
       },
       "benchmarks": {
         "gdpval": 48.349,
@@ -7910,42 +8241,42 @@
         "architect": {
           "score": 50.98,
           "rankingQuality": 50.98,
-          "rankingValue": 34.541
+          "rankingValue": 51.811
         },
         "strategist": {
           "score": 52.631,
           "rankingQuality": 52.631,
-          "rankingValue": 35.659
+          "rankingValue": 53.489
         },
         "security-reviewer": {
           "score": 62.252,
           "rankingQuality": 62.252,
-          "rankingValue": 42.178
+          "rankingValue": 63.267
         },
         "code-reviewer": {
           "score": 59.029,
           "rankingQuality": 59.141,
-          "rankingValue": 40.07
+          "rankingValue": 60.105
         },
         "implementer": {
           "score": 56.278,
           "rankingQuality": 57.307,
-          "rankingValue": 38.827
+          "rankingValue": 58.241
         },
         "implementer-heavy": {
           "score": 51.415,
           "rankingQuality": 54.065,
-          "rankingValue": 36.631
+          "rankingValue": 54.946
         },
         "synthesizer": {
           "score": 42.912,
           "rankingQuality": 42.912,
-          "rankingValue": 29.074
+          "rankingValue": 43.612
         },
         "researcher": {
           "score": 50.612,
           "rankingQuality": 50.612,
-          "rankingValue": 34.291
+          "rankingValue": 51.437
         }
       },
       "caiStar": {
@@ -7959,7 +8290,10 @@
         "slug": "gemini-3-8-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash",
         "intelligenceIndex": 47.0713
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Gemini 3.7 Flash",
@@ -7989,13 +8323,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.7 Flash",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-08-13T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.5,
         "output": 7.5,
+        "cacheRead": 0.15,
+        "cacheWrite": 0.08334,
         "blended50": 4.5
       },
       "taskEfficiency": {
@@ -8008,7 +8344,8 @@
           "reasoning": 16338.723104223334,
           "answer": 30294.673547585935,
           "output": 46633.39665180927
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.453166
       },
       "benchmarks": {
         "gdpval": 46.8485,
@@ -8023,42 +8360,42 @@
         "architect": {
           "score": 48.579,
           "rankingQuality": 48.579,
-          "rankingValue": 71.466
+          "rankingValue": 107.199
         },
         "strategist": {
           "score": 50.166,
           "rankingQuality": 50.166,
-          "rankingValue": 73.801
+          "rankingValue": 110.701
         },
         "security-reviewer": {
           "score": 59.307,
           "rankingQuality": 59.307,
-          "rankingValue": 87.248
+          "rankingValue": 130.873
         },
         "code-reviewer": {
           "score": 57.999,
           "rankingQuality": 58.542,
-          "rankingValue": 86.123
+          "rankingValue": 129.184
         },
         "implementer": {
           "score": 55.524,
           "rankingQuality": 56.892,
-          "rankingValue": 83.696
+          "rankingValue": 125.543
         },
         "implementer-heavy": {
           "score": 49.896,
           "rankingQuality": 53.14,
-          "rankingValue": 78.176
+          "rankingValue": 117.264
         },
         "synthesizer": {
           "score": 39.074,
           "rankingQuality": 39.074,
-          "rankingValue": 57.483
+          "rankingValue": 86.224
         },
         "researcher": {
           "score": 47.829,
           "rankingQuality": 47.829,
-          "rankingValue": 70.363
+          "rankingValue": 105.544
         }
       },
       "caiStar": {
@@ -8102,7 +8439,10 @@
         "slug": "gemini-3-7-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash",
         "intelligenceIndex": 45.242
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Gemini 3.6 Flash",
@@ -8132,13 +8472,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.6 Flash",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-21T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.5,
         "output": 7.5,
+        "cacheRead": 0.15,
+        "cacheWrite": null,
         "blended50": 4.5
       },
       "taskEfficiency": {
@@ -8151,7 +8493,8 @@
           "reasoning": 15076.473558646016,
           "answer": 14043.472976763704,
           "output": 29119.94653540972
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.585722
       },
       "benchmarks": {
         "gdpval": 41.798,
@@ -8245,7 +8588,10 @@
         "slug": "gemini-3-6-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash",
         "intelligenceIndex": 40.287
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Gemini 3.5 Flash",
@@ -8301,13 +8647,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.5 Flash",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-05-19T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.5,
         "output": 9,
+        "cacheRead": 0.15,
+        "cacheWrite": null,
         "blended50": 5.25
       },
       "taskEfficiency": {
@@ -8320,7 +8668,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.21671699999999997
       },
       "benchmarks": {
         "gdpval": 38.202,
@@ -8384,7 +8733,10 @@
         "slug": "gemini-3-5-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash",
         "intelligenceIndex": 39.7284
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Gemini 3.5 Flash Lite",
@@ -8412,6 +8764,8 @@
       "tokenPrices": {
         "input": 0.3,
         "output": 2.5,
+        "cacheRead": 0.03,
+        "cacheWrite": null,
         "blended50": 1.4
       },
       "taskEfficiency": {
@@ -8424,7 +8778,8 @@
           "reasoning": 8436.51525599122,
           "answer": 5385.591710730246,
           "output": 13822.106966721465
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.079581
       },
       "benchmarks": {
         "gdpval": 28.3855,
@@ -8482,7 +8837,10 @@
         "slug": "gemini-3-5-flash-lite",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
         "intelligenceIndex": 27.5743
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Gemini 3.1 Flash Lite",
@@ -8537,6 +8895,8 @@
       "tokenPrices": {
         "input": 0.25,
         "output": 1.5,
+        "cacheRead": 0.03,
+        "cacheWrite": null,
         "blended50": 0.875
       },
       "taskEfficiency": {
@@ -8549,7 +8909,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.051045
       },
       "benchmarks": {
         "gdpval": 4.934,
@@ -8607,7 +8968,10 @@
         "slug": "gemini-3-1-flash-lite-preview",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
         "intelligenceIndex": 18.7074
-      }
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Fugu Ultra",
@@ -8634,6 +8998,8 @@
       "tokenPrices": {
         "input": 5,
         "output": 30,
+        "cacheRead": 0.5,
+        "cacheWrite": null,
         "blended50": 17.5
       },
       "taskEfficiency": null,
@@ -8641,7 +9007,10 @@
       "roleScores": {},
       "caiStar": null,
       "codingAgent": null,
-      "aaModel": null
+      "aaModel": null,
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Muse Spark 1.3",
@@ -8671,13 +9040,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.25,
         "output": 4.25,
+        "cacheRead": 0.15,
+        "cacheWrite": null,
         "blended50": 2.75
       },
       "taskEfficiency": {
@@ -8690,7 +9061,8 @@
           "reasoning": 18259.604821085577,
           "answer": 16966.20840376841,
           "output": 35225.81322485399
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.5599273333333333
       },
       "benchmarks": {
         "gdpval": 58.3295,
@@ -8705,42 +9077,42 @@
         "architect": {
           "score": 70.028,
           "rankingQuality": 70.028,
-          "rankingValue": 83.377
+          "rankingValue": 125.066
         },
         "strategist": {
           "score": 67.813,
           "rankingQuality": 67.813,
-          "rankingValue": 80.74
+          "rankingValue": 121.11
         },
         "security-reviewer": {
           "score": 60.31,
           "rankingQuality": 60.31,
-          "rankingValue": 71.807
+          "rankingValue": 107.71
         },
         "code-reviewer": {
           "score": 69.054,
           "rankingQuality": 67.188,
-          "rankingValue": 79.996
+          "rankingValue": 119.994
         },
         "implementer": {
           "score": 67.15,
           "rankingQuality": 65.919,
-          "rankingValue": 78.485
+          "rankingValue": 117.728
         },
         "implementer-heavy": {
           "score": 67.472,
           "rankingQuality": 66.134,
-          "rankingValue": 78.741
+          "rankingValue": 118.112
         },
         "synthesizer": {
           "score": 70.723,
           "rankingQuality": 70.723,
-          "rankingValue": 84.205
+          "rankingValue": 126.307
         },
         "researcher": {
           "score": 70.66,
           "rankingQuality": 70.66,
-          "rankingValue": 84.13
+          "rankingValue": 126.195
         }
       },
       "caiStar": {
@@ -8754,7 +9126,10 @@
         "slug": "muse-spark-1-3-xhigh",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
         "intelligenceIndex": 51.553
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Muse Spark 1.3 Contributor",
@@ -8784,13 +9159,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.1,
         "output": 0.2,
+        "cacheRead": 0.002,
+        "cacheWrite": null,
         "blended50": 0.15
       },
       "taskEfficiency": {
@@ -8803,7 +9180,8 @@
           "reasoning": 18259.604821085577,
           "answer": 16966.20840376841,
           "output": 35225.81322485399
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.023028
       },
       "benchmarks": {
         "gdpval": 58.3295,
@@ -8818,42 +9196,42 @@
         "architect": {
           "score": 70.028,
           "rankingQuality": 70.028,
-          "rankingValue": 2027.329
+          "rankingValue": 3040.994
         },
         "strategist": {
           "score": 67.813,
           "rankingQuality": 67.813,
-          "rankingValue": 1963.204
+          "rankingValue": 2944.806
         },
         "security-reviewer": {
           "score": 60.31,
           "rankingQuality": 60.31,
-          "rankingValue": 1745.99
+          "rankingValue": 2618.986
         },
         "code-reviewer": {
           "score": 69.054,
           "rankingQuality": 67.188,
-          "rankingValue": 1945.11
+          "rankingValue": 2917.665
         },
         "implementer": {
           "score": 67.15,
           "rankingQuality": 65.919,
-          "rankingValue": 1908.372
+          "rankingValue": 2862.559
         },
         "implementer-heavy": {
           "score": 67.472,
           "rankingQuality": 66.134,
-          "rankingValue": 1914.597
+          "rankingValue": 2871.895
         },
         "synthesizer": {
           "score": 70.723,
           "rankingQuality": 70.723,
-          "rankingValue": 2047.449
+          "rankingValue": 3071.174
         },
         "researcher": {
           "score": 70.66,
           "rankingQuality": 70.66,
-          "rankingValue": 2045.626
+          "rankingValue": 3068.438
         }
       },
       "caiStar": {
@@ -8867,7 +9245,10 @@
         "slug": "muse-spark-1-3-xhigh",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
         "intelligenceIndex": 51.553
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Muse Spark 1.2",
@@ -8897,13 +9278,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.25,
         "output": 4.25,
+        "cacheRead": 0.15,
+        "cacheWrite": null,
         "blended50": 2.75
       },
       "taskEfficiency": {
@@ -8916,7 +9299,8 @@
           "reasoning": 18209.135542550746,
           "answer": 19408.413774228808,
           "output": 37617.54931677955
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.363562
       },
       "benchmarks": {
         "gdpval": 51.4175,
@@ -8931,42 +9315,42 @@
         "architect": {
           "score": 53.244,
           "rankingQuality": 53.244,
-          "rankingValue": 97.634
+          "rankingValue": 146.451
         },
         "strategist": {
           "score": 54.91,
           "rankingQuality": 54.91,
-          "rankingValue": 100.689
+          "rankingValue": 151.033
         },
         "security-reviewer": {
           "score": 57.053,
           "rankingQuality": 57.053,
-          "rankingValue": 104.619
+          "rankingValue": 156.928
         },
         "code-reviewer": {
           "score": 59.487,
           "rankingQuality": 60.205,
-          "rankingValue": 110.398
+          "rankingValue": 165.598
         },
         "implementer": {
           "score": 57.218,
           "rankingQuality": 58.692,
-          "rankingValue": 107.624
+          "rankingValue": 161.436
         },
         "implementer-heavy": {
           "score": 53.95,
           "rankingQuality": 56.513,
-          "rankingValue": 103.628
+          "rankingValue": 155.443
         },
         "synthesizer": {
           "score": 47.153,
           "rankingQuality": 47.153,
-          "rankingValue": 86.465
+          "rankingValue": 129.697
         },
         "researcher": {
           "score": 53.014,
           "rankingQuality": 53.014,
-          "rankingValue": 97.212
+          "rankingValue": 145.818
         }
       },
       "caiStar": {
@@ -9010,7 +9394,10 @@
         "slug": "muse-spark-1-2",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
         "intelligenceIndex": 46.8372
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Muse Spark 1.2 Contributor",
@@ -9040,13 +9427,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 0.1,
         "output": 0.2,
+        "cacheRead": 0.002,
+        "cacheWrite": null,
         "blended50": 0.15
       },
       "taskEfficiency": {
@@ -9059,7 +9448,8 @@
           "reasoning": 18209.135542550746,
           "answer": 19408.413774228808,
           "output": 37617.54931677955
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.015380666666666667
       },
       "benchmarks": {
         "gdpval": 51.4175,
@@ -9074,42 +9464,42 @@
         "architect": {
           "score": 53.244,
           "rankingQuality": 53.244,
-          "rankingValue": 2307.832
+          "rankingValue": 3461.749
         },
         "strategist": {
           "score": 54.91,
           "rankingQuality": 54.91,
-          "rankingValue": 2380.044
+          "rankingValue": 3570.066
         },
         "security-reviewer": {
           "score": 57.053,
           "rankingQuality": 57.053,
-          "rankingValue": 2472.931
+          "rankingValue": 3709.397
         },
         "code-reviewer": {
           "score": 59.487,
           "rankingQuality": 60.205,
-          "rankingValue": 2609.553
+          "rankingValue": 3914.33
         },
         "implementer": {
           "score": 57.218,
           "rankingQuality": 58.692,
-          "rankingValue": 2543.973
+          "rankingValue": 3815.959
         },
         "implementer-heavy": {
           "score": 53.95,
           "rankingQuality": 56.513,
-          "rankingValue": 2449.525
+          "rankingValue": 3674.288
         },
         "synthesizer": {
           "score": 47.153,
           "rankingQuality": 47.153,
-          "rankingValue": 2043.821
+          "rankingValue": 3065.732
         },
         "researcher": {
           "score": 53.014,
           "rankingQuality": 53.014,
-          "rankingValue": 2297.863
+          "rankingValue": 3446.795
         }
       },
       "caiStar": {
@@ -9153,7 +9543,10 @@
         "slug": "muse-spark-1-2",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
         "intelligenceIndex": 46.8372
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Muse Spark 1.1",
@@ -9209,13 +9602,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.1",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 1.25,
         "output": 4.25,
+        "cacheRead": 0.15,
+        "cacheWrite": null,
         "blended50": 2.75
       },
       "taskEfficiency": {
@@ -9228,7 +9623,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.111625
       },
       "benchmarks": {
         "gdpval": 39.9565,
@@ -9321,8 +9717,11 @@
       "aaModel": {
         "slug": "muse-spark-1-1",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-1",
-        "intelligenceIndex": 43.2876
-      }
+        "intelligenceIndex": 41.1636
+      },
+      "billingCategory": "premium",
+      "max10MonthlyUsageLimitUsd": 100,
+      "max20MonthlyUsageLimitUsd": 200
     },
     {
       "name": "Grok 4.6",
@@ -9352,13 +9751,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.6",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 2,
         "output": 6,
+        "cacheRead": 0.5,
+        "cacheWrite": null,
         "blended50": 4
       },
       "taskEfficiency": {
@@ -9371,7 +9772,8 @@
           "reasoning": 14620.874774593738,
           "answer": 13919.345503066015,
           "output": 28540.220277659755
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.8357033333333332
       },
       "benchmarks": {
         "gdpval": 57.3925,
@@ -9386,42 +9788,42 @@
         "architect": {
           "score": 51.439,
           "rankingQuality": 51.439,
-          "rankingValue": 41.034
+          "rankingValue": 61.552
         },
         "strategist": {
           "score": 54.469,
           "rankingQuality": 54.469,
-          "rankingValue": 43.452
+          "rankingValue": 65.177
         },
         "security-reviewer": {
           "score": 59.167,
           "rankingQuality": 59.167,
-          "rankingValue": 47.199
+          "rankingValue": 70.799
         },
         "code-reviewer": {
           "score": 57.055,
           "rankingQuality": 58.625,
-          "rankingValue": 46.767
+          "rankingValue": 70.15
         },
         "implementer": {
           "score": 54.256,
           "rankingQuality": 56.759,
-          "rankingValue": 45.278
+          "rankingValue": 67.918
         },
         "implementer-heavy": {
           "score": 51.704,
           "rankingQuality": 55.057,
-          "rankingValue": 43.921
+          "rankingValue": 65.881
         },
         "synthesizer": {
           "score": 40.206,
           "rankingQuality": 40.206,
-          "rankingValue": 32.074
+          "rankingValue": 48.11
         },
         "researcher": {
           "score": 49.597,
           "rankingQuality": 49.597,
-          "rankingValue": 39.565
+          "rankingValue": 59.348
         }
       },
       "caiStar": {
@@ -9435,7 +9837,10 @@
         "slug": "grok-4-6",
         "sourceUrl": "https://artificialanalysis.ai/models/grok-4-6",
         "intelligenceIndex": 50.5768
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Grok 4.5",
@@ -9465,13 +9870,15 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.5",
-          "fetchedAt": "2026-09-06T16:17:59.471Z",
+          "fetchedAt": "2026-09-07T08:35:33.487Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },
       "tokenPrices": {
         "input": 2,
         "output": 6,
+        "cacheRead": 0.5,
+        "cacheWrite": null,
         "blended50": 4
       },
       "taskEfficiency": {
@@ -9484,7 +9891,8 @@
           "reasoning": 8478.451229523565,
           "answer": 11445.59675245611,
           "output": 19924.047981979675
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.32830866666666664
       },
       "benchmarks": {
         "gdpval": 46.747,
@@ -9499,42 +9907,42 @@
         "architect": {
           "score": 47.477,
           "rankingQuality": 47.477,
-          "rankingValue": 96.407
+          "rankingValue": 144.611
         },
         "strategist": {
           "score": 49.809,
           "rankingQuality": 49.809,
-          "rankingValue": 101.143
+          "rankingValue": 151.714
         },
         "security-reviewer": {
           "score": 51.528,
           "rankingQuality": 51.528,
-          "rankingValue": 104.633
+          "rankingValue": 156.95
         },
         "code-reviewer": {
           "score": 56.15,
           "rankingQuality": 58.797,
-          "rankingValue": 119.394
+          "rankingValue": 179.091
         },
         "implementer": {
           "score": 53.474,
           "rankingQuality": 57.013,
-          "rankingValue": 115.771
+          "rankingValue": 173.657
         },
         "implementer-heavy": {
           "score": 48.739,
           "rankingQuality": 53.856,
-          "rankingValue": 109.361
+          "rankingValue": 164.041
         },
         "synthesizer": {
           "score": 38.825,
           "rankingQuality": 38.825,
-          "rankingValue": 78.838
+          "rankingValue": 118.258
         },
         "researcher": {
           "score": 46.956,
           "rankingQuality": 46.956,
-          "rankingValue": 95.349
+          "rankingValue": 143.024
         }
       },
       "caiStar": {
@@ -9578,7 +9986,10 @@
         "slug": "grok-4-5",
         "sourceUrl": "https://artificialanalysis.ai/models/grok-4-5",
         "intelligenceIndex": 45.4782
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Inkling",
@@ -9606,6 +10017,8 @@
       "tokenPrices": {
         "input": 1,
         "output": 4.05,
+        "cacheRead": 0.17,
+        "cacheWrite": null,
         "blended50": 2.525
       },
       "taskEfficiency": {
@@ -9618,7 +10031,8 @@
           "reasoning": 20572.261950613618,
           "answer": 9705.96708128365,
           "output": 30278.229031897266
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.29190799999999995
       },
       "benchmarks": {
         "gdpval": 33.445,
@@ -9632,37 +10046,37 @@
         "architect": {
           "score": 38.65,
           "rankingQuality": 38.65,
-          "rankingValue": 88.27
+          "rankingValue": 132.405
         },
         "strategist": {
           "score": 39.84,
           "rankingQuality": 39.84,
-          "rankingValue": 90.988
+          "rankingValue": 136.481
         },
         "code-reviewer": {
           "score": 48.702,
           "rankingQuality": 46.619,
-          "rankingValue": 106.47
+          "rankingValue": 159.704
         },
         "implementer": {
           "score": 46.292,
           "rankingQuality": 45.012,
-          "rankingValue": 102.8
+          "rankingValue": 154.199
         },
         "implementer-heavy": {
           "score": 40.669,
           "rankingQuality": 41.263,
-          "rankingValue": 94.237
+          "rankingValue": 141.356
         },
         "synthesizer": {
           "score": 30.917,
           "rankingQuality": 30.917,
-          "rankingValue": 70.609
+          "rankingValue": 105.914
         },
         "researcher": {
           "score": 38.492,
           "rankingQuality": 38.492,
-          "rankingValue": 87.909
+          "rankingValue": 131.863
         }
       },
       "caiStar": {
@@ -9676,7 +10090,10 @@
         "slug": "inkling",
         "sourceUrl": "https://artificialanalysis.ai/models/inkling",
         "intelligenceIndex": 32.1665
-      }
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     },
     {
       "name": "Inkling Small",
@@ -9741,6 +10158,8 @@
       "tokenPrices": {
         "input": 0.5,
         "output": 1.2,
+        "cacheRead": 0.1,
+        "cacheWrite": null,
         "blended50": 0.85
       },
       "taskEfficiency": {
@@ -9753,7 +10172,8 @@
           "reasoning": 14190.092936793555,
           "answer": 7934.539581831235,
           "output": 22124.632518624792
-        }
+        },
+        "planAdjustedCostPerTaskUsd": 0.037250000000000005
       },
       "benchmarks": {
         "gdpval": 34.7655,
@@ -9767,37 +10187,37 @@
         "architect": {
           "score": 55.72,
           "rankingQuality": 55.72,
-          "rankingValue": 997.226
+          "rankingValue": 1495.839
         },
         "strategist": {
           "score": 51.649,
           "rankingQuality": 51.649,
-          "rankingValue": 924.367
+          "rankingValue": 1386.55
         },
         "code-reviewer": {
           "score": 58.228,
           "rankingQuality": 52.244,
-          "rankingValue": 935.016
+          "rankingValue": 1402.523
         },
         "implementer": {
           "score": 56.232,
           "rankingQuality": 50.913,
-          "rankingValue": 911.195
+          "rankingValue": 1366.792
         },
         "implementer-heavy": {
           "score": 53.868,
           "rankingQuality": 49.337,
-          "rankingValue": 882.989
+          "rankingValue": 1324.483
         },
         "synthesizer": {
           "score": 57.478,
           "rankingQuality": 57.478,
-          "rankingValue": 1028.689
+          "rankingValue": 1543.034
         },
         "researcher": {
           "score": 57.254,
           "rankingQuality": 57.254,
-          "rankingValue": 1024.68
+          "rankingValue": 1537.02
         }
       },
       "caiStar": {
@@ -9810,8 +10230,11 @@
       "aaModel": {
         "slug": "inkling-small",
         "sourceUrl": "https://artificialanalysis.ai/models/inkling-small",
-        "intelligenceIndex": 32.2964
-      }
+        "intelligenceIndex": 32.2275
+      },
+      "billingCategory": "standard",
+      "max10MonthlyUsageLimitUsd": 150,
+      "max20MonthlyUsageLimitUsd": 300
     }
   ]
 }

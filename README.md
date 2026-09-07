@@ -27,22 +27,24 @@ https://getrad.ar/whipit/benchmark/ (compatibility redirect)
 For non-coding roles:
 
 ```text
-Ranking Value = Universal Role Score / CommandCode Cost per Task
+Ranking Value = Universal Role Score / Plan-adjusted Cost per Task
 ```
 
 For `implementer`, `implementer-heavy` and `code-reviewer`:
 
 ```text
-Ranking Value = (2/3 Universal Role Score + 1/3 CAI*) / CommandCode Cost per Task
+Ranking Value = (2/3 Universal Role Score + 1/3 CAI*) / Plan-adjusted Cost per Task
 ```
 
 `CAI*` uses the observed Artificial Analysis Coding Agent Index when available. Missing CAI values are estimated with a reverse-validated 50/50 ensemble of ridge regression and inverse-distance 5-nearest-neighbours.
 
-## Why Cost per Task
+## Why plan-adjusted Cost per Task
 
 Nominal price per million tokens can make verbose models look artificially cheap. Artificial Analysis publishes the measured token mix consumed per Intelligence Index task. The pipeline reprices that measured non-cached input, cache-read, cache-write and output usage with current effective CommandCode Max prices, including promotions.
 
-The Cost-per-Task denominator has **100% coverage** of the scored model-family universe.
+The raw credit burn uses CommandCode effective prices after any published discount. The plan-adjusted denominator then converts that credit burn into subscription economics: standard Max credits use the 100/150 ratio, premium credits use 100/100, and free models remain zero. Max 20× has the same ratios, so ordering is unchanged. Discounts are not applied twice.
+
+The plan-adjusted Cost-per-Task denominator has **100% coverage** of the scored model-family universe.
 
 ## CAI coverage and estimation
 
@@ -64,7 +66,7 @@ See:
 
 ## Sources
 
-- **CommandCode Max** — current model catalogue and effective pricing;
+- **CommandCode Max** — current model catalogue, effective pricing, discounts and standard/premium/free monthly credit allowances;
 - **Artificial Analysis** — model benchmarks and per-task efficiency telemetry;
 - **Artificial Analysis Coding Agent Index** — observed agentic coding outcomes;
 - **OpenCLI 1.8.6** — read-only structured extraction layer.
@@ -80,7 +82,7 @@ GitHub Actions weekly
   -> Vals AI CyberBench refresh
   -> verified model-family mapping
   -> universal benchmark coverage gate
-  -> CommandCode Cost-per-Task coverage gate
+  -> CommandCode plan-adjusted Cost-per-Task coverage gate
   -> fit/validate CAI* and SciCode estimators
   -> role-quality scores
   -> deterministic Quality / Balanced / Budget portfolio optimizer
@@ -109,8 +111,8 @@ Shared rules:
 Mode objectives:
 
 - **Quality**: maximize total Role Quality. Price does not affect ranking or tie-breaking.
-- **Balanced**: start from the Intelligence-qualified pool, remove only models whose CommandCode Cost per Task is above **mean + 2 population standard deviations**, then maximize total Role Quality. Price does not affect ranking after that filter.
-- **Budget**: minimize total CommandCode Cost per Task subject to the shared structural and role-eligibility constraints.
+- **Balanced**: start from the Intelligence-qualified pool, remove only models whose **plan-adjusted Cost per Task** is above **mean + 2 population standard deviations**, then maximize total Role Quality. Price does not affect ranking after that filter.
+- **Budget**: maximize the number of complete portfolios that fit inside the separate standard and premium Max monthly allowances. Equivalently, minimize the larger of `standard burn / 150` and `premium burn / 100`; ties use lower plan-adjusted cost, then lower raw credit burn.
 
 Balanced records its pool mean, sigma, cutoff and excluded outliers in `site/data/lineups.json`. The current v6 snapshot excludes only Claude Fable 5.1 as a Balanced price outlier.
 
