@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-07T10:15:22.639Z",
+  "snapshotDate": "2026-09-07",
+  "refresh": {
+    "schemaVersion": 2,
+    "status": "success",
+    "attemptedAt": "2026-09-07T10:15:22.544Z",
+    "lastSuccessfulSnapshot": {
+      "date": "2026-09-07",
+      "generatedAt": "2026-09-07T08:35:33.487Z"
+    },
+    "mode": "lineup-inputs-only",
+    "message": "Full refresh blocked by SciCode estimator validation; refreshed CommandCode Max pricing/allowances, AA Intelligence, CyberBench and portfolios from the last validated benchmark snapshot.",
+    "stage": null,
+    "errorSummary": null,
+    "runUrl": null
+  },
+  "materialChanges": true,
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-07 → 2026-09-07\n✅ Refresh: success · lineup-inputs-only — Full refresh blocked by SciCode estimator validation; refreshed CommandCode Max pricing/allowances, AA Intelligence, CyberBench and portfolios from the last validated benchmark snapshot.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+}

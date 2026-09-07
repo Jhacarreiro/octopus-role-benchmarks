@@ -15,6 +15,8 @@ const attemptedAt=arg('attempted-at',new Date().toISOString());
 const stage=arg('stage',null);
 const runUrl=arg('run-url',null);
 const logFile=arg('log-file',null);
+const mode=arg('mode',null);
+const message=arg('message',null);
 
 function readLatest({committed=false}={}){
   try{
@@ -41,13 +43,15 @@ function summarizeLog(file){
 
 const latest=readLatest({committed:state==='error'});
 const payload={
-  schemaVersion:1,
+  schemaVersion:2,
   status:state,
   attemptedAt,
   lastSuccessfulSnapshot:latest?{
     date:latest.date??null,
     generatedAt:latest.generatedAt??null
   }:null,
+  mode:state==='success'?mode:null,
+  message:message||null,
   stage:state==='error'?stage:null,
   errorSummary:state==='error'?(summarizeLog(logFile)||'Refresh failed; see the GitHub Actions run for details.'):null,
   runUrl:runUrl||null

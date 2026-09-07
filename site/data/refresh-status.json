@@ -1,12 +1,14 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "success",
-  "attemptedAt": "2026-09-04T13:59:42.252Z",
+  "attemptedAt": "2026-09-07T10:15:22.544Z",
   "lastSuccessfulSnapshot": {
-    "date": "2026-09-04",
-    "generatedAt": "2026-09-04T13:59:41.846Z"
+    "date": "2026-09-07",
+    "generatedAt": "2026-09-07T08:35:33.487Z"
   },
+  "mode": "lineup-inputs-only",
+  "message": "Full refresh blocked by SciCode estimator validation; refreshed CommandCode Max pricing/allowances, AA Intelligence, CyberBench and portfolios from the last validated benchmark snapshot.",
   "stage": null,
   "errorSummary": null,
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/33881114298"
+  "runUrl": null
 }
