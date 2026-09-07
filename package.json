@@ -14,8 +14,9 @@
     "update-lineups": "node scripts/build-lineups.mjs && node scripts/evaluate-lineup-swaps.mjs",
     "check:snapshot": "node scripts/validate.mjs",
     "check:lineups": "node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
-    "check:all": "npm run test:commandcode && npm run check:snapshot && npm run check:lineups",
-    "test:commandcode": "node scripts/test-commandcode-max.mjs"
+    "check:all": "npm run test:commandcode && npm run test:site && npm run check:snapshot && npm run check:lineups",
+    "test:commandcode": "node scripts/test-commandcode-max.mjs",
+    "test:site": "node scripts/test-site-runtime.mjs"
   },
   "dependencies": {
     "@jackwener/opencli": "1.8.6",
