@@ -1,14 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-07T12:39:58.483Z",
+  "generatedAt": "2026-09-08T07:00:24.317Z",
   "snapshotDate": "2026-09-07",
   "refresh": {
-    "schemaVersion": 2,
-    "status": "success",
+    "schemaVersion": 3,
+    "status": "partial",
     "attemptedAt": "2026-09-07T12:39:58.432Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-07",
-      "generatedAt": "2026-09-07T12:39:50.361Z"
+      "generatedAt": "2026-09-07T08:35:33.487Z"
+    },
+    "lastPublishedSnapshot": {
+      "date": "2026-09-07",
+      "generatedAt": "2026-09-07T12:39:50.361Z",
+      "benchmarkDate": "2026-09-07",
+      "benchmarkGeneratedAt": "2026-09-07T08:35:33.487Z",
+      "lineupInputsRefreshedAt": "2026-09-07T12:39:50.361Z"
+    },
+    "lastValidatedBenchmark": {
+      "date": "2026-09-07",
+      "generatedAt": "2026-09-07T08:35:33.487Z"
     },
     "mode": "lineup-inputs-only",
     "message": "Full refresh blocked by SciCode estimator validation; refreshed CommandCode Max pricing/allowances, AA Intelligence, CyberBench and portfolios from the last validated benchmark snapshot.",
@@ -17,5 +28,5 @@
     "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/34123002050"
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-07 → 2026-09-07\n✅ Refresh: success · lineup-inputs-only — Full refresh blocked by SciCode estimator validation; refreshed CommandCode Max pricing/allowances, AA Intelligence, CyberBench and portfolios from the last validated benchmark snapshot.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-07 → 2026-09-07\n⚠️ Refresh: partial · lineup-inputs-only — Full refresh blocked by SciCode estimator validation; refreshed CommandCode Max pricing/allowances, AA Intelligence, CyberBench and portfolios from the last validated benchmark snapshot.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }

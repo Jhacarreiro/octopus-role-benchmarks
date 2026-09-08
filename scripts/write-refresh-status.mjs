@@ -10,7 +10,7 @@ const arg=(name,fallback=null)=>{
   return i>=0&&args[i+1]!=null?args[i+1]:fallback;
 };
 const state=arg('status');
-if(!['success','error'].includes(state)) throw new Error('Expected --status success|error');
+if(!['success','partial','error'].includes(state)) throw new Error('Expected --status success|partial|error');
 const attemptedAt=arg('attempted-at',new Date().toISOString());
 const stage=arg('stage',null);
 const runUrl=arg('run-url',null);
@@ -42,15 +42,29 @@ function summarizeLog(file){
 }
 
 const latest=readLatest({committed:state==='error'});
+const generatedAt=latest?.generatedAt??null;
+const benchmarkDate=latest?.benchmarkDate??latest?.date??null;
+const benchmarkGeneratedAt=latest?.benchmarkGeneratedAt??generatedAt;
+const lineupInputsRefreshedAt=latest?.lineupInputsRefreshedAt??generatedAt;
+const snapshotSummary=latest?{
+  date:latest.date??null,
+  generatedAt,
+  benchmarkDate,
+  benchmarkGeneratedAt,
+  lineupInputsRefreshedAt
+}:null;
+const validatedBenchmark=latest?{
+  date:benchmarkDate,
+  generatedAt:benchmarkGeneratedAt
+}:null;
 const payload={
-  schemaVersion:2,
+  schemaVersion:3,
   status:state,
   attemptedAt,
-  lastSuccessfulSnapshot:latest?{
-    date:latest.date??null,
-    generatedAt:latest.generatedAt??null
-  }:null,
-  mode:state==='success'?mode:null,
+  lastSuccessfulSnapshot:validatedBenchmark,
+  lastPublishedSnapshot:snapshotSummary,
+  lastValidatedBenchmark:validatedBenchmark,
+  mode:state==='error'?null:mode,
   message:message||null,
   stage:state==='error'?stage:null,
   errorSummary:state==='error'?(summarizeLog(logFile)||'Refresh failed; see the GitHub Actions run for details.'):null,

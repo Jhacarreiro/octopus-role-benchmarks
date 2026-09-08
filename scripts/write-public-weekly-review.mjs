@@ -38,7 +38,8 @@ const material=added.length||removed.length||priceChanges.length||roleChanges.le
 let message="NO_REPLY";
 if(material){
   const mode=newR?.mode?` · ${newR.mode}`:"";
-  const lines=["🧭 Octopus benchmark — revisão semanal",`Snapshot: ${oldD?.date??"—"} → ${newD?.date??"—"}`,`${newR?.status==="success"?"✅":"⚠️"} Refresh: ${newR?.status??"unknown"}${mode}${newR?.message?` — ${newR.message}`:""}`,""];
+  const icon=newR?.status==="success"?"✅":newR?.status==="partial"?"⚠️":"❌";
+  const lines=["🧭 Octopus benchmark — revisão semanal",`Snapshot: ${oldD?.date??"—"} → ${newD?.date??"—"}`,`${icon} Refresh: ${newR?.status??"unknown"}${mode}${newR?.message?` — ${newR.message}`:""}`,""];
   if(added.length||removed.length){lines.push("MODELOS");if(added.length){const {shown,more}=clip(added);lines.push("Entraram:",...shown.map(x=>`+ ${x}`));if(more)lines.push(`… +${more} adicionais`)}if(removed.length){const {shown,more}=clip(removed);lines.push("Saíram:",...shown.map(x=>`- ${x}`));if(more)lines.push(`… +${more} adicionais`)}lines.push("")}
   if(priceChanges.length){const {shown,more}=clip(priceChanges,12);lines.push("PREÇOS / CRÉDITOS",...shown);if(more)lines.push(`… +${more} alterações adicionais`);lines.push("")}
   lines.push("LINEUPS");
