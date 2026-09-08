@@ -954,7 +954,9 @@
         "maxError": 8,
         "minObserved": 20
       }
-    }
+    },
+    "validatedAt": "2026-09-07T08:35:33.487Z",
+    "sourceSnapshotGeneratedAt": "2026-09-07T08:35:33.487Z"
   },
   "sourceIncomplete": [],
   "coverage": {
@@ -10236,5 +10238,8 @@
       "max10MonthlyUsageLimitUsd": 150,
       "max20MonthlyUsageLimitUsd": 300
     }
-  ]
+  ],
+  "benchmarkDate": "2026-09-07",
+  "benchmarkGeneratedAt": "2026-09-07T08:35:33.487Z",
+  "lineupInputsRefreshedAt": "2026-09-07T12:39:50.361Z"
 }

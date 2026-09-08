@@ -107,11 +107,24 @@ for(const m of snapshot.models||[]){
 }
 
 const now=new Date();
-const date=now.toISOString().slice(0,10);
+const nowIso=now.toISOString();
+const date=nowIso.slice(0,10);
+const benchmarkDate=snapshot.benchmarkDate??snapshot.date??null;
+const benchmarkGeneratedAt=snapshot.benchmarkGeneratedAt??snapshot.generatedAt??null;
 snapshot.schemaVersion=6;
 snapshot.methodologyVersion=roles.schemaVersion;
 snapshot.date=date;
-snapshot.generatedAt=now.toISOString();
+snapshot.generatedAt=nowIso;
+snapshot.benchmarkDate=benchmarkDate;
+snapshot.benchmarkGeneratedAt=benchmarkGeneratedAt;
+snapshot.lineupInputsRefreshedAt=nowIso;
+if(snapshot.scicodeEstimator){
+  snapshot.scicodeEstimator={
+    ...snapshot.scicodeEstimator,
+    validatedAt:snapshot.scicodeEstimator.validatedAt??benchmarkGeneratedAt,
+    sourceSnapshotGeneratedAt:snapshot.scicodeEstimator.sourceSnapshotGeneratedAt??benchmarkGeneratedAt
+  };
+}
 snapshot.benchmarks=roles.benchmarks;
 snapshot.roles=roles.roles;
 snapshot.sources=snapshot.sources||{};
@@ -119,7 +132,7 @@ snapshot.sources.commandCodeMax={
   ...(snapshot.sources.commandCodeMax||{}),
   url:'https://commandcode.ai/docs/plans/max',
   rows:maxRows.length,
-  refreshedAt:now.toISOString(),
+  refreshedAt:nowIso,
   billingCategories:{
     standard:maxRows.filter(x=>x.billingCategory==='standard').length,
     premium:maxRows.filter(x=>x.billingCategory==='premium').length,
