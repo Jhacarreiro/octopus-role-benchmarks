@@ -25,9 +25,9 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Role-quality optimizer after removing statistically extreme subscription-adjusted cost outliers from the Intelligence-qualified pool.",
+      "description": "Maximizes role quality per subscription-adjusted task cost after removing statistically extreme effective-cost outliers from the Intelligence-qualified pool.",
       "requestedIntelligenceFloor": 0.85,
-      "objective": "maximize-role-quality",
+      "objective": "maximize-quality-per-effective-cost",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
@@ -36,9 +36,9 @@
     },
     "budget": {
       "label": "Budget",
-      "description": "Maximizes included monthly portfolio capacity across separate standard and premium CommandCode Max credit pools while preserving all structural and role-eligibility constraints.",
+      "description": "Minimizes total subscription-adjusted task cost while preserving all structural and role-eligibility constraints.",
       "requestedIntelligenceFloor": 0.8,
-      "objective": "maximize-included-monthly-capacity"
+      "objective": "minimize-effective-task-cost"
     }
   },
   "swapEvaluation": {

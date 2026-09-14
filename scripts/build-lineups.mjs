@@ -17,6 +17,7 @@ function benchmarkIdentity(m){return m.aaModel?.slug?`aa:${m.aaModel.slug}`:`mod
 function intelligence(m){return Number(m.aaModel?.intelligenceIndex)}
 function creditBurn(m){return Number(m.taskEfficiency?.commandCodeCostPerTaskUsd)}
 function roleQuality(m,role){return Number(m.roleScores?.[role]?.rankingQuality)}
+function roleBalanced(m,role){return Number(m.roleScores?.[role]?.rankingValue)}
 function familyOf(m){return modelFamily(m,policy)}
 function familyCount(models){return new Set(models.map(familyOf).filter(Boolean)).size}
 function signature(assign){return roles.map(r=>`${r}:${assign.get(r)?.name||''}`).join('|')}
@@ -119,9 +120,11 @@ function applyModeFilter(modeId,mode,poolInfo){
 }
 
 function summarizeAssign(assign){
-  let totalQuality=0,totalCreditBurn=0,totalPlanAdjustedCost=0,standardBurn=0,premiumBurn=0;
+  let totalQuality=0,totalBalanced=0,totalCreditBurn=0,totalPlanAdjustedCost=0,standardBurn=0,premiumBurn=0;
   for(const [role,m] of assign){
     totalQuality+=roleQuality(m,role);
+    const balanced=roleBalanced(m,role);
+    if(Number.isFinite(balanced))totalBalanced+=balanced;
     totalCreditBurn+=creditBurn(m);
     totalPlanAdjustedCost+=planAdjustedCost(m);
     const b=burnVector(m);
@@ -131,6 +134,7 @@ function summarizeAssign(assign){
   const utilization=portfolioUtilization(standardBurn,premiumBurn);
   return {
     totalQuality,
+    totalBalanced,
     totalCreditBurn,
     totalPlanAdjustedCost,
     standardBurn,
@@ -143,25 +147,28 @@ function summarizeAssign(assign){
 function betterCandidate(modeId,a,b){
   if(!b)return true;
   if(modeId==='budget'){
-    if(Math.abs(a.monthlyUtilization-b.monthlyUtilization)>EPS)return a.monthlyUtilization<b.monthlyUtilization;
     if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
-    if(Math.abs(a.totalCreditBurn-b.totalCreditBurn)>EPS)return a.totalCreditBurn<b.totalCreditBurn;
     if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
+    if(Math.abs(a.totalCreditBurn-b.totalCreditBurn)>EPS)return a.totalCreditBurn<b.totalCreditBurn;
+  }else if(modeId==='balanced'){
+    if(Math.abs(a.totalBalanced-b.totalBalanced)>EPS)return a.totalBalanced>b.totalBalanced;
+    if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
+    if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
   }else{
     if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
+    if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
   }
   return a.signature<b.signature;
 }
 
 function budgetDominates(a,b){
   const A=a.partial,B=b.partial;
-  const stdNoWorse=A.standardBurn<=B.standardBurn+EPS;
-  const premNoWorse=A.premiumBurn<=B.premiumBurn+EPS;
-  if(!(stdNoWorse&&premNoWorse))return false;
-  const sameStd=Math.abs(A.standardBurn-B.standardBurn)<=EPS;
-  const samePrem=Math.abs(A.premiumBurn-B.premiumBurn)<=EPS;
-  if(!sameStd||!samePrem)return true;
-  if(Math.abs(A.totalQuality-B.totalQuality)>EPS)return A.totalQuality>B.totalQuality;
+  if(A.totalPlanAdjustedCost<B.totalPlanAdjustedCost-EPS)return true;
+  if(A.totalPlanAdjustedCost>B.totalPlanAdjustedCost+EPS)return false;
+  if(A.totalQuality>B.totalQuality+EPS)return true;
+  if(A.totalQuality<B.totalQuality-EPS)return false;
+  if(A.totalCreditBurn<B.totalCreditBurn-EPS)return true;
+  if(A.totalCreditBurn>B.totalCreditBurn+EPS)return false;
   return A.signature<=B.signature;
 }
 function insertBudgetState(list,state){
@@ -169,7 +176,7 @@ function insertBudgetState(list,state){
   return [...list.filter(existing=>!budgetDominates(state,existing)),state];
 }
 
-function optimize(modeId,pool){
+function optimize(modeId,pool,{allowNoFeasible=false}={}){
   const minFamilies=Number(policy.minFamilies??1);
   const maxFamilies=Number(policy.maxFamilies??roles.length);
   const maxSeats=Number(policy.maxSeatsPerFamily??roles.length);
@@ -177,8 +184,14 @@ function optimize(modeId,pool){
   const familyIndex=new Map(families.map((f,i)=>[f,i]));
   const roleCandidates={};
   for(const role of roles){
-    roleCandidates[role]=pool.filter(m=>Number.isFinite(roleQuality(m,role)));
-    if(!roleCandidates[role].length)fail(`${modeId}/${role}: no eligible candidates`);
+    roleCandidates[role]=pool.filter(m=>
+      Number.isFinite(roleQuality(m,role)) &&
+      (modeId!=='balanced'||Number.isFinite(roleBalanced(m,role)))
+    );
+    if(!roleCandidates[role].length){
+      if(allowNoFeasible)return null;
+      fail(`${modeId}/${role}: no eligible candidates`);
+    }
   }
 
   const implementers=roleCandidates['implementer'];
@@ -243,7 +256,18 @@ function optimize(modeId,pool){
           const key=counts.join(',');
           const candidate=buildCandidatePartial(assign);
           const prev=next.get(key);
-          if(!prev || candidate.totalQuality>prev.partial.totalQuality+EPS || (Math.abs(candidate.totalQuality-prev.partial.totalQuality)<=EPS && candidate.signature<prev.partial.signature)){
+          const candidateMetric=modeId==='balanced'?candidate.totalBalanced:candidate.totalQuality;
+          const prevMetric=prev?(modeId==='balanced'?prev.partial.totalBalanced:prev.partial.totalQuality):null;
+          if(!prev || candidateMetric>prevMetric+EPS || (
+            Math.abs(candidateMetric-prevMetric)<=EPS &&
+            (
+              candidate.totalQuality>prev.partial.totalQuality+EPS ||
+              (Math.abs(candidate.totalQuality-prev.partial.totalQuality)<=EPS && (
+                candidate.totalPlanAdjustedCost<prev.partial.totalPlanAdjustedCost-EPS ||
+                (Math.abs(candidate.totalPlanAdjustedCost-prev.partial.totalPlanAdjustedCost)<=EPS && candidate.signature<prev.partial.signature)
+              ))
+            )
+          )){
             next.set(key,{counts,assign,partial:candidate});
           }
         }
@@ -281,8 +305,44 @@ function optimize(modeId,pool){
       }
     }
   }
-  if(!best)fail(`${modeId}: no feasible portfolio`);
+  if(!best){
+    if(allowNoFeasible)return null;
+    fail(`${modeId}: no feasible portfolio`);
+  }
   return best;
+}
+
+function solveMode(modeId,mode){
+  const requested=Number(mode.requestedIntelligenceFloor);
+  const step=Number(policy.poolPrecheck?.floorStep??0.005);
+  const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
+  if(!Number.isFinite(requested)||requested<=0||requested>1)fail(`${modeId}: invalid requestedIntelligenceFloor`);
+  if(!Number.isFinite(step)||step<=0)fail('invalid poolPrecheck.floorStep');
+
+  let effective=requested;
+  while(effective>=0){
+    const threshold=bestIntelligence*effective;
+    const rawPool=generationEligible.filter(m=>intelligence(m)+EPS>=threshold);
+    if(familyCount(rawPool)>=requiredFamilies){
+      let poolInfo;
+      try{
+        poolInfo=applyModeFilter(modeId,mode,{
+          requested,
+          effective:round(effective,3),
+          threshold:round(threshold,6),
+          pool:rawPool
+        });
+      }catch(err){
+        if(!String(err?.message??'').includes('price filter leaves only'))throw err;
+        effective=round(effective-step,3);
+        continue;
+      }
+      const result=optimize(modeId,poolInfo.pool,{allowNoFeasible:true});
+      if(result)return {poolInfo,result};
+    }
+    effective=round(effective-step,3);
+  }
+  fail(`${modeId}: could not find a feasible portfolio from floor ${requested.toFixed(3)} downward in ${step.toFixed(3)} steps`);
 }
 
 const out={
@@ -304,8 +364,7 @@ const out={
 };
 
 for(const [modeId,mode] of Object.entries(policy.modes)){
-  const poolInfo=applyModeFilter(modeId,mode,makePool(modeId,mode));
-  const result=optimize(modeId,poolInfo.pool);
+  const {poolInfo,result}=solveMode(modeId,mode);
   const selections={};
   for(const role of roles){
     const m=result.assign.get(role);

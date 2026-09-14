@@ -44,13 +44,15 @@ globalThis.fetch=async (url)=>{
   return {ok:true,status:200,json:async()=>JSON.parse(body)};
 };
 
+const expectedLineups=JSON.parse(fs.readFileSync(new URL('../site/data/lineups.json',import.meta.url),'utf8'));
 const code=fs.readFileSync(new URL('../site/app.js',import.meta.url),'utf8');
 eval(code);
 
 await new Promise(r=>setTimeout(r,25));
 
 if(rawCalls!==0) throw new Error(`same-origin was not preferred; raw calls=${rawCalls}`);
-if(!one('#lineup').innerHTML.includes('Claude Opus 5')) throw new Error('default Balanced lineup did not render');
+const expectedBalanced=expectedLineups.modes.balanced.selections.architect.model;
+if(!one('#lineup').innerHTML.includes(expectedBalanced)) throw new Error('default Balanced lineup did not render expected model: '+expectedBalanced);
 if(one('#rows').innerHTML.length<100) throw new Error('ranking table did not render');
 
 const before=one('#lineup').innerHTML;
@@ -58,7 +60,8 @@ const qualityButton={dataset:{lineupMode:'quality'}};
 one('.lineup-modes').trigger('click',{target:{closest:()=>qualityButton}});
 const after=one('#lineup').innerHTML;
 if(after===before) throw new Error('lineup mode button did not change rendered lineup');
-if(!after.includes('Claude Fable 5.1')) throw new Error('Quality lineup did not render after button click');
+const expectedQuality=expectedLineups.modes.quality.selections.architect.model;
+if(!after.includes(expectedQuality)) throw new Error('Quality lineup did not render expected model after button click: '+expectedQuality);
 
 const rankButton={dataset:{mode:'quality'}};
 one('.ranking-modes').trigger('click',{target:{closest:()=>rankButton}});

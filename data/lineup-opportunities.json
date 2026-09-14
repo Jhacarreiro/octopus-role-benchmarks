@@ -23,8 +23,8 @@
     },
     "balanced": {
       "classification": "review-only",
-      "objective": "maximize-role-quality",
-      "currentFamilyCount": 4,
+      "objective": "maximize-quality-per-effective-cost",
+      "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.85,
       "effectiveIntelligenceFloor": 0.85,
       "priceFilter": {
@@ -52,7 +52,7 @@
     },
     "budget": {
       "classification": "review-only",
-      "objective": "maximize-included-monthly-capacity",
+      "objective": "minimize-effective-task-cost",
       "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.8,
       "effectiveIntelligenceFloor": 0.8,
