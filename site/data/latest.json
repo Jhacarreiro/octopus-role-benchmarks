@@ -1384,37 +1384,37 @@
         "architect": {
           "score": 46.299,
           "rankingQuality": 46.299,
-          "rankingValue": null
+          "rankingValue": 46.299
         },
         "strategist": {
           "score": 41.685,
           "rankingQuality": 41.685,
-          "rankingValue": null
+          "rankingValue": 41.685
         },
         "code-reviewer": {
           "score": 48.482,
           "rankingQuality": 42.955,
-          "rankingValue": null
+          "rankingValue": 42.955
         },
         "implementer": {
           "score": 46.066,
           "rankingQuality": 41.344,
-          "rankingValue": null
+          "rankingValue": 41.344
         },
         "implementer-heavy": {
           "score": 42.61,
           "rankingQuality": 39.04,
-          "rankingValue": null
+          "rankingValue": 39.04
         },
         "synthesizer": {
           "score": 48.092,
           "rankingQuality": 48.092,
-          "rankingValue": null
+          "rankingValue": 48.092
         },
         "researcher": {
           "score": 48.099,
           "rankingQuality": 48.099,
-          "rankingValue": null
+          "rankingValue": 48.099
         }
       },
       "caiStar": {
@@ -1554,37 +1554,37 @@
         "architect": {
           "score": 55.512,
           "rankingQuality": 55.512,
-          "rankingValue": 2690.839
+          "rankingValue": 55.44
         },
         "strategist": {
           "score": 49.804,
           "rankingQuality": 49.804,
-          "rankingValue": 2414.154
+          "rankingValue": 49.732
         },
         "code-reviewer": {
           "score": 57.833,
           "rankingQuality": 51.333,
-          "rankingValue": 2488.27
+          "rankingValue": 51.261
         },
         "implementer": {
           "score": 56.146,
           "rankingQuality": 50.208,
-          "rankingValue": 2433.737
+          "rankingValue": 50.136
         },
         "implementer-heavy": {
           "score": 53.394,
           "rankingQuality": 48.373,
-          "rankingValue": 2344.789
+          "rankingValue": 48.301
         },
         "synthesizer": {
           "score": 56.658,
           "rankingQuality": 56.658,
-          "rankingValue": 2746.389
+          "rankingValue": 56.586
         },
         "researcher": {
           "score": 56.656,
           "rankingQuality": 56.656,
-          "rankingValue": 2746.292
+          "rankingValue": 56.584
         }
       },
       "caiStar": {
@@ -1668,42 +1668,42 @@
         "architect": {
           "score": 57.104,
           "rankingQuality": 57.104,
-          "rankingValue": 54.335
+          "rankingValue": 53.426
         },
         "strategist": {
           "score": 56.754,
           "rankingQuality": 56.754,
-          "rankingValue": 54.002
+          "rankingValue": 53.076
         },
         "security-reviewer": {
           "score": 57.813,
           "rankingQuality": 57.813,
-          "rankingValue": 55.01
+          "rankingValue": 54.135
         },
         "code-reviewer": {
           "score": 61.902,
           "rankingQuality": 62.148,
-          "rankingValue": 59.135
+          "rankingValue": 58.47
         },
         "implementer": {
           "score": 60.164,
           "rankingQuality": 60.989,
-          "rankingValue": 58.032
+          "rankingValue": 57.311
         },
         "implementer-heavy": {
           "score": 57.403,
           "rankingQuality": 59.148,
-          "rankingValue": 56.28
+          "rankingValue": 55.47
         },
         "synthesizer": {
           "score": 49.357,
           "rankingQuality": 49.357,
-          "rankingValue": 46.964
+          "rankingValue": 45.679
         },
         "researcher": {
           "score": 55.802,
           "rankingQuality": 55.802,
-          "rankingValue": 53.096
+          "rankingValue": 52.124
         }
       },
       "caiStar": {
@@ -1834,37 +1834,37 @@
         "architect": {
           "score": 39.569,
           "rankingQuality": 39.569,
-          "rankingValue": 559.443
+          "rankingValue": 39.321
         },
         "strategist": {
           "score": 38.017,
           "rankingQuality": 38.017,
-          "rankingValue": 537.5
+          "rankingValue": 37.769
         },
         "code-reviewer": {
           "score": 49.174,
           "rankingQuality": 46.296,
-          "rankingValue": 654.552
+          "rankingValue": 46.048
         },
         "implementer": {
           "score": 47.154,
           "rankingQuality": 44.949,
-          "rankingValue": 635.507
+          "rankingValue": 44.701
         },
         "implementer-heavy": {
           "score": 40.757,
           "rankingQuality": 40.685,
-          "rankingValue": 575.221
+          "rankingValue": 40.437
         },
         "synthesizer": {
           "score": 29.844,
           "rankingQuality": 29.844,
-          "rankingValue": 421.947
+          "rankingValue": 29.596
         },
         "researcher": {
           "score": 38.484,
           "rankingQuality": 38.484,
-          "rankingValue": 544.102
+          "rankingValue": 38.236
         }
       },
       "caiStar": {
@@ -1965,37 +1965,37 @@
         "architect": {
           "score": 39.569,
           "rankingQuality": 39.569,
-          "rankingValue": 279.723
+          "rankingValue": 39.074
         },
         "strategist": {
           "score": 38.017,
           "rankingQuality": 38.017,
-          "rankingValue": 268.751
+          "rankingValue": 37.522
         },
         "code-reviewer": {
           "score": 49.174,
           "rankingQuality": 46.296,
-          "rankingValue": 327.277
+          "rankingValue": 45.801
         },
         "implementer": {
           "score": 47.154,
           "rankingQuality": 44.949,
-          "rankingValue": 317.755
+          "rankingValue": 44.454
         },
         "implementer-heavy": {
           "score": 40.757,
           "rankingQuality": 40.685,
-          "rankingValue": 287.612
+          "rankingValue": 40.19
         },
         "synthesizer": {
           "score": 29.844,
           "rankingQuality": 29.844,
-          "rankingValue": 210.974
+          "rankingValue": 29.349
         },
         "researcher": {
           "score": 38.484,
           "rankingQuality": 38.484,
-          "rankingValue": 272.052
+          "rankingValue": 37.989
         }
       },
       "caiStar": {
@@ -2105,42 +2105,42 @@
         "architect": {
           "score": 56.496,
           "rankingQuality": 56.496,
-          "rankingValue": 798.763
+          "rankingValue": 56.248
         },
         "strategist": {
           "score": 53.507,
           "rankingQuality": 53.507,
-          "rankingValue": 756.504
+          "rankingValue": 53.259
         },
         "security-reviewer": {
           "score": 43.465,
           "rankingQuality": 43.465,
-          "rankingValue": 614.526
+          "rankingValue": 43.217
         },
         "code-reviewer": {
           "score": 61.248,
           "rankingQuality": 52.128,
-          "rankingValue": 737.007
+          "rankingValue": 51.88
         },
         "implementer": {
           "score": 58.715,
           "rankingQuality": 50.44,
-          "rankingValue": 713.141
+          "rankingValue": 50.192
         },
         "implementer-heavy": {
           "score": 54.923,
           "rankingQuality": 47.912,
-          "rankingValue": 677.399
+          "rankingValue": 47.664
         },
         "synthesizer": {
           "score": 62.16,
           "rankingQuality": 62.16,
-          "rankingValue": 878.843
+          "rankingValue": 61.912
         },
         "researcher": {
           "score": 59.996,
           "rankingQuality": 59.996,
-          "rankingValue": 848.248
+          "rankingValue": 59.748
         }
       },
       "caiStar": {
@@ -2280,42 +2280,42 @@
         "architect": {
           "score": 50.517,
           "rankingQuality": 50.517,
-          "rankingValue": 912.628
+          "rankingValue": 50.323
         },
         "strategist": {
           "score": 47.121,
           "rankingQuality": 47.121,
-          "rankingValue": 851.277
+          "rankingValue": 46.927
         },
         "security-reviewer": {
           "score": 26.301,
           "rankingQuality": 26.301,
-          "rankingValue": 475.148
+          "rankingValue": 26.107
         },
         "code-reviewer": {
           "score": 56.772,
           "rankingQuality": 49.226,
-          "rankingValue": 889.305
+          "rankingValue": 49.032
         },
         "implementer": {
           "score": 54.342,
           "rankingQuality": 47.606,
-          "rankingValue": 860.039
+          "rankingValue": 47.412
         },
         "implementer-heavy": {
           "score": 49.7,
           "rankingQuality": 44.511,
-          "rankingValue": 804.125
+          "rankingValue": 44.317
         },
         "synthesizer": {
           "score": 56.946,
           "rankingQuality": 56.946,
-          "rankingValue": 1028.773
+          "rankingValue": 56.752
         },
         "researcher": {
           "score": 54.442,
           "rankingQuality": 54.442,
-          "rankingValue": 983.536
+          "rankingValue": 54.248
         }
       },
       "caiStar": {
@@ -2389,37 +2389,37 @@
         "architect": {
           "score": 60.48,
           "rankingQuality": 60.48,
-          "rankingValue": 445.23
+          "rankingValue": 60.005
         },
         "strategist": {
           "score": 58.946,
           "rankingQuality": 58.946,
-          "rankingValue": 433.937
+          "rankingValue": 58.471
         },
         "code-reviewer": {
           "score": 58.497,
           "rankingQuality": 56.611,
-          "rankingValue": 416.748
+          "rankingValue": 56.136
         },
         "implementer": {
           "score": 56.306,
           "rankingQuality": 55.15,
-          "rankingValue": 405.992
+          "rankingValue": 54.675
         },
         "implementer-heavy": {
           "score": 57.249,
           "rankingQuality": 55.779,
-          "rankingValue": 410.623
+          "rankingValue": 55.304
         },
         "synthesizer": {
           "score": 53.299,
           "rankingQuality": 53.299,
-          "rankingValue": 392.366
+          "rankingValue": 52.824
         },
         "researcher": {
           "score": 58.423,
           "rankingQuality": 58.423,
-          "rankingValue": 430.087
+          "rankingValue": 57.948
         }
       },
       "caiStar": {
@@ -2503,42 +2503,42 @@
         "architect": {
           "score": 60.384,
           "rankingQuality": 60.384,
-          "rankingValue": 71.922
+          "rankingValue": 57.445
         },
         "strategist": {
           "score": 59.602,
           "rankingQuality": 59.602,
-          "rankingValue": 70.991
+          "rankingValue": 56.663
         },
         "security-reviewer": {
           "score": 56.97,
           "rankingQuality": 56.97,
-          "rankingValue": 67.856
+          "rankingValue": 54.031
         },
         "code-reviewer": {
           "score": 62.097,
           "rankingQuality": 61.956,
-          "rankingValue": 73.795
+          "rankingValue": 59.017
         },
         "implementer": {
           "score": 60.65,
           "rankingQuality": 60.992,
-          "rankingValue": 72.647
+          "rankingValue": 58.053
         },
         "implementer-heavy": {
           "score": 60.162,
           "rankingQuality": 60.666,
-          "rankingValue": 72.258
+          "rankingValue": 57.727
         },
         "synthesizer": {
           "score": 53.467,
           "rankingQuality": 53.467,
-          "rankingValue": 63.684
+          "rankingValue": 50.528
         },
         "researcher": {
           "score": 58.675,
           "rankingQuality": 58.675,
-          "rankingValue": 69.887
+          "rankingValue": 55.736
         }
       },
       "caiStar": {
@@ -2622,42 +2622,42 @@
         "architect": {
           "score": 44.317,
           "rankingQuality": 44.317,
-          "rankingValue": 578.329
+          "rankingValue": 44.049
         },
         "strategist": {
           "score": 44.499,
           "rankingQuality": 44.499,
-          "rankingValue": 580.705
+          "rankingValue": 44.231
         },
         "security-reviewer": {
           "score": 53.122,
           "rankingQuality": 53.122,
-          "rankingValue": 693.233
+          "rankingValue": 52.854
         },
         "code-reviewer": {
           "score": 51.34,
           "rankingQuality": 48.663,
-          "rankingValue": 635.044
+          "rankingValue": 48.395
         },
         "implementer": {
           "score": 49.317,
           "rankingQuality": 47.315,
-          "rankingValue": 617.453
+          "rankingValue": 47.047
         },
         "implementer-heavy": {
           "score": 44.94,
           "rankingQuality": 44.397,
-          "rankingValue": 579.373
+          "rankingValue": 44.129
         },
         "synthesizer": {
           "score": 31.052,
           "rankingQuality": 31.052,
-          "rankingValue": 405.223
+          "rankingValue": 30.784
         },
         "researcher": {
           "score": 41.674,
           "rankingQuality": 41.674,
-          "rankingValue": 543.839
+          "rankingValue": 41.406
         }
       },
       "caiStar": {
@@ -2771,42 +2771,42 @@
         "architect": {
           "score": 44.317,
           "rankingQuality": 44.317,
-          "rankingValue": 251.618
+          "rankingValue": 43.701
         },
         "strategist": {
           "score": 44.499,
           "rankingQuality": 44.499,
-          "rankingValue": 252.651
+          "rankingValue": 43.883
         },
         "security-reviewer": {
           "score": 53.122,
           "rankingQuality": 53.122,
-          "rankingValue": 301.61
+          "rankingValue": 52.506
         },
         "code-reviewer": {
           "score": 51.34,
           "rankingQuality": 48.663,
-          "rankingValue": 276.293
+          "rankingValue": 48.047
         },
         "implementer": {
           "score": 49.317,
           "rankingQuality": 47.315,
-          "rankingValue": 268.64
+          "rankingValue": 46.699
         },
         "implementer-heavy": {
           "score": 44.94,
           "rankingQuality": 44.397,
-          "rankingValue": 252.072
+          "rankingValue": 43.781
         },
         "synthesizer": {
           "score": 31.052,
           "rankingQuality": 31.052,
-          "rankingValue": 176.304
+          "rankingValue": 30.436
         },
         "researcher": {
           "score": 41.674,
           "rankingQuality": 41.674,
-          "rankingValue": 236.612
+          "rankingValue": 41.058
         }
       },
       "caiStar": {
@@ -2937,37 +2937,37 @@
         "architect": {
           "score": 54.008,
           "rankingQuality": 54.008,
-          "rankingValue": 688.544
+          "rankingValue": 53.733
         },
         "strategist": {
           "score": 52.264,
           "rankingQuality": 52.264,
-          "rankingValue": 666.31
+          "rankingValue": 51.989
         },
         "code-reviewer": {
           "score": 56.141,
           "rankingQuality": 49.731,
-          "rankingValue": 634.017
+          "rankingValue": 49.456
         },
         "implementer": {
           "score": 53.323,
           "rankingQuality": 47.852,
-          "rankingValue": 610.061
+          "rankingValue": 47.577
         },
         "implementer-heavy": {
           "score": 51.676,
           "rankingQuality": 46.754,
-          "rankingValue": 596.063
+          "rankingValue": 46.479
         },
         "synthesizer": {
           "score": 58.467,
           "rankingQuality": 58.467,
-          "rankingValue": 745.391
+          "rankingValue": 58.192
         },
         "researcher": {
           "score": 56.786,
           "rankingQuality": 56.786,
-          "rankingValue": 723.96
+          "rankingValue": 56.511
         }
       },
       "caiStar": {
@@ -3098,37 +3098,37 @@
         "architect": {
           "score": 54.994,
           "rankingQuality": 54.994,
-          "rankingValue": 933.219
+          "rankingValue": 54.788
         },
         "strategist": {
           "score": 53.656,
           "rankingQuality": 53.656,
-          "rankingValue": 910.514
+          "rankingValue": 53.45
         },
         "code-reviewer": {
           "score": 56.47,
           "rankingQuality": 51.619,
-          "rankingValue": 875.947
+          "rankingValue": 51.413
         },
         "implementer": {
           "score": 54.281,
           "rankingQuality": 50.16,
-          "rankingValue": 851.189
+          "rankingValue": 49.954
         },
         "implementer-heavy": {
           "score": 53.66,
           "rankingQuality": 49.746,
-          "rankingValue": 844.164
+          "rankingValue": 49.54
         },
         "synthesizer": {
           "score": 59.834,
           "rankingQuality": 59.834,
-          "rankingValue": 1015.352
+          "rankingValue": 59.628
         },
         "researcher": {
           "score": 57.509,
           "rankingQuality": 57.509,
-          "rankingValue": 975.898
+          "rankingValue": 57.303
         }
       },
       "caiStar": {
@@ -3212,42 +3212,42 @@
         "architect": {
           "score": 44.9,
           "rankingQuality": 44.9,
-          "rankingValue": 304.686
+          "rankingValue": 44.384
         },
         "strategist": {
           "score": 44.103,
           "rankingQuality": 44.103,
-          "rankingValue": 299.278
+          "rankingValue": 43.587
         },
         "security-reviewer": {
           "score": 42.719,
           "rankingQuality": 42.719,
-          "rankingValue": 289.886
+          "rankingValue": 42.203
         },
         "code-reviewer": {
           "score": 51.332,
           "rankingQuality": 48.653,
-          "rankingValue": 330.154
+          "rankingValue": 48.137
         },
         "implementer": {
           "score": 48.684,
           "rankingQuality": 46.887,
-          "rankingValue": 318.17
+          "rankingValue": 46.371
         },
         "implementer-heavy": {
           "score": 44.037,
           "rankingQuality": 43.789,
-          "rankingValue": 297.147
+          "rankingValue": 43.273
         },
         "synthesizer": {
           "score": 34.081,
           "rankingQuality": 34.081,
-          "rankingValue": 231.27
+          "rankingValue": 33.565
         },
         "researcher": {
           "score": 43.24,
           "rankingQuality": 43.24,
-          "rankingValue": 293.422
+          "rankingValue": 42.724
         }
       },
       "caiStar": {
@@ -3357,42 +3357,42 @@
         "architect": {
           "score": 34.578,
           "rankingQuality": 34.578,
-          "rankingValue": 1240.214
+          "rankingValue": 34.48
         },
         "strategist": {
           "score": 36.348,
           "rankingQuality": 36.348,
-          "rankingValue": 1303.699
+          "rankingValue": 36.25
         },
         "security-reviewer": {
           "score": 24.556,
           "rankingQuality": 24.556,
-          "rankingValue": 880.754
+          "rankingValue": 24.458
         },
         "code-reviewer": {
           "score": 46.256,
           "rankingQuality": 44.548,
-          "rankingValue": 1597.81
+          "rankingValue": 44.45
         },
         "implementer": {
           "score": 43.609,
           "rankingQuality": 42.784,
-          "rankingValue": 1534.54
+          "rankingValue": 42.686
         },
         "implementer-heavy": {
           "score": 37.079,
           "rankingQuality": 38.43,
-          "rankingValue": 1378.375
+          "rankingValue": 38.332
         },
         "synthesizer": {
           "score": 26.089,
           "rankingQuality": 26.089,
-          "rankingValue": 935.738
+          "rankingValue": 25.991
         },
         "researcher": {
           "score": 34.537,
           "rankingQuality": 34.537,
-          "rankingValue": 1238.744
+          "rankingValue": 34.439
         }
       },
       "caiStar": {
@@ -3493,37 +3493,37 @@
         "architect": {
           "score": 53.663,
           "rankingQuality": 53.663,
-          "rankingValue": 1924.739
+          "rankingValue": 53.565
         },
         "strategist": {
           "score": 47.602,
           "rankingQuality": 47.602,
-          "rankingValue": 1707.348
+          "rankingValue": 47.504
         },
         "code-reviewer": {
           "score": 51.683,
           "rankingQuality": 45.731,
-          "rankingValue": 1640.241
+          "rankingValue": 45.633
         },
         "implementer": {
           "score": 50.586,
           "rankingQuality": 45,
-          "rankingValue": 1614.022
+          "rankingValue": 44.902
         },
         "implementer-heavy": {
           "score": 51.306,
           "rankingQuality": 45.48,
-          "rankingValue": 1631.238
+          "rankingValue": 45.382
         },
         "synthesizer": {
           "score": 50.957,
           "rankingQuality": 50.957,
-          "rankingValue": 1827.682
+          "rankingValue": 50.859
         },
         "researcher": {
           "score": 52.444,
           "rankingQuality": 52.444,
-          "rankingValue": 1881.017
+          "rankingValue": 52.346
         }
       },
       "caiStar": {
@@ -3597,37 +3597,37 @@
         "architect": {
           "score": 49.129,
           "rankingQuality": 49.129,
-          "rankingValue": 442.899
+          "rankingValue": 48.741
         },
         "strategist": {
           "score": 47.931,
           "rankingQuality": 47.931,
-          "rankingValue": 432.099
+          "rankingValue": 47.543
         },
         "code-reviewer": {
           "score": 53.344,
           "rankingQuality": 46.505,
-          "rankingValue": 419.243
+          "rankingValue": 46.117
         },
         "implementer": {
           "score": 51.317,
           "rankingQuality": 45.154,
-          "rankingValue": 407.064
+          "rankingValue": 44.766
         },
         "implementer-heavy": {
           "score": 48.287,
           "rankingQuality": 43.134,
-          "rankingValue": 388.854
+          "rankingValue": 42.746
         },
         "synthesizer": {
           "score": 35.654,
           "rankingQuality": 35.654,
-          "rankingValue": 321.421
+          "rankingValue": 35.266
         },
         "researcher": {
           "score": 45.921,
           "rankingQuality": 45.921,
-          "rankingValue": 413.979
+          "rankingValue": 45.533
         }
       },
       "caiStar": {
@@ -3741,42 +3741,42 @@
         "architect": {
           "score": 46.725,
           "rankingQuality": 46.725,
-          "rankingValue": 1003.084
+          "rankingValue": 46.562
         },
         "strategist": {
           "score": 44.052,
           "rankingQuality": 44.052,
-          "rankingValue": 945.701
+          "rankingValue": 43.889
         },
         "security-reviewer": {
           "score": 53.568,
           "rankingQuality": 53.568,
-          "rankingValue": 1149.989
+          "rankingValue": 53.405
         },
         "code-reviewer": {
           "score": 50.959,
           "rankingQuality": 50.559,
-          "rankingValue": 1085.392
+          "rankingValue": 50.396
         },
         "implementer": {
           "score": 49.685,
           "rankingQuality": 49.709,
-          "rankingValue": 1067.144
+          "rankingValue": 49.546
         },
         "implementer-heavy": {
           "score": 46.558,
           "rankingQuality": 47.625,
-          "rankingValue": 1022.405
+          "rankingValue": 47.462
         },
         "synthesizer": {
           "score": 30.436,
           "rankingQuality": 30.436,
-          "rankingValue": 653.395
+          "rankingValue": 30.273
         },
         "researcher": {
           "score": 42.202,
           "rankingQuality": 42.202,
-          "rankingValue": 905.985
+          "rankingValue": 42.039
         }
       },
       "caiStar": {
@@ -3880,37 +3880,37 @@
         "architect": {
           "score": 65.402,
           "rankingQuality": 65.402,
-          "rankingValue": 4192.436
+          "rankingValue": 65.347
         },
         "strategist": {
           "score": 59.387,
           "rankingQuality": 59.387,
-          "rankingValue": 3806.859
+          "rankingValue": 59.332
         },
         "code-reviewer": {
           "score": 60.372,
           "rankingQuality": 55.068,
-          "rankingValue": 3530
+          "rankingValue": 55.013
         },
         "implementer": {
           "score": 59.136,
           "rankingQuality": 54.244,
-          "rankingValue": 3477.179
+          "rankingValue": 54.189
         },
         "implementer-heavy": {
           "score": 61.263,
           "rankingQuality": 55.662,
-          "rankingValue": 3568.077
+          "rankingValue": 55.607
         },
         "synthesizer": {
           "score": 61.186,
           "rankingQuality": 61.186,
-          "rankingValue": 3922.179
+          "rankingValue": 61.131
         },
         "researcher": {
           "score": 63.303,
           "rankingQuality": 63.303,
-          "rankingValue": 4057.885
+          "rankingValue": 63.248
         }
       },
       "caiStar": {
@@ -3994,42 +3994,42 @@
         "architect": {
           "score": 46.725,
           "rankingQuality": 46.725,
-          "rankingValue": 376.981
+          "rankingValue": 46.291
         },
         "strategist": {
           "score": 44.052,
           "rankingQuality": 44.052,
-          "rankingValue": 355.415
+          "rankingValue": 43.618
         },
         "security-reviewer": {
           "score": 53.568,
           "rankingQuality": 53.568,
-          "rankingValue": 432.191
+          "rankingValue": 53.134
         },
         "code-reviewer": {
           "score": 50.959,
           "rankingQuality": 50.559,
-          "rankingValue": 407.914
+          "rankingValue": 50.125
         },
         "implementer": {
           "score": 49.685,
           "rankingQuality": 49.709,
-          "rankingValue": 401.056
+          "rankingValue": 49.275
         },
         "implementer-heavy": {
           "score": 46.558,
           "rankingQuality": 47.625,
-          "rankingValue": 384.242
+          "rankingValue": 47.191
         },
         "synthesizer": {
           "score": 30.436,
           "rankingQuality": 30.436,
-          "rankingValue": 245.56
+          "rankingValue": 30.002
         },
         "researcher": {
           "score": 42.202,
           "rankingQuality": 42.202,
-          "rankingValue": 340.489
+          "rankingValue": 41.768
         }
       },
       "caiStar": {
@@ -4133,37 +4133,37 @@
         "architect": {
           "score": 52.548,
           "rankingQuality": 52.548,
-          "rankingValue": 66.366
+          "rankingValue": 49.777
         },
         "strategist": {
           "score": 51.356,
           "rankingQuality": 51.356,
-          "rankingValue": 64.86
+          "rankingValue": 48.585
         },
         "code-reviewer": {
           "score": 54.895,
           "rankingQuality": 57.033,
-          "rankingValue": 72.03
+          "rankingValue": 54.262
         },
         "implementer": {
           "score": 53.075,
           "rankingQuality": 55.82,
-          "rankingValue": 70.498
+          "rankingValue": 53.049
         },
         "implementer-heavy": {
           "score": 51.297,
           "rankingQuality": 54.635,
-          "rankingValue": 69.001
+          "rankingValue": 51.864
         },
         "synthesizer": {
           "score": 37.936,
           "rankingQuality": 37.936,
-          "rankingValue": 47.911
+          "rankingValue": 35.165
         },
         "researcher": {
           "score": 48.565,
           "rankingQuality": 48.565,
-          "rankingValue": 61.335
+          "rankingValue": 45.794
         }
       },
       "caiStar": {
@@ -4267,37 +4267,37 @@
         "architect": {
           "score": 52.548,
           "rankingQuality": 52.548,
-          "rankingValue": 61.588
+          "rankingValue": 49.562
         },
         "strategist": {
           "score": 51.356,
           "rankingQuality": 51.356,
-          "rankingValue": 60.191
+          "rankingValue": 48.37
         },
         "code-reviewer": {
           "score": 54.895,
           "rankingQuality": 57.033,
-          "rankingValue": 66.845
+          "rankingValue": 54.047
         },
         "implementer": {
           "score": 53.075,
           "rankingQuality": 55.82,
-          "rankingValue": 65.423
+          "rankingValue": 52.834
         },
         "implementer-heavy": {
           "score": 51.297,
           "rankingQuality": 54.635,
-          "rankingValue": 64.034
+          "rankingValue": 51.649
         },
         "synthesizer": {
           "score": 37.936,
           "rankingQuality": 37.936,
-          "rankingValue": 44.463
+          "rankingValue": 34.95
         },
         "researcher": {
           "score": 48.565,
           "rankingQuality": 48.565,
-          "rankingValue": 56.92
+          "rankingValue": 45.579
         }
       },
       "caiStar": {
@@ -4401,37 +4401,37 @@
         "architect": {
           "score": 47.964,
           "rankingQuality": 47.964,
-          "rankingValue": 146.01
+          "rankingValue": 46.814
         },
         "strategist": {
           "score": 46.245,
           "rankingQuality": 46.245,
-          "rankingValue": 140.777
+          "rankingValue": 45.095
         },
         "code-reviewer": {
           "score": 50.233,
           "rankingQuality": 47.478,
-          "rankingValue": 144.53
+          "rankingValue": 46.328
         },
         "implementer": {
           "score": 48.204,
           "rankingQuality": 46.125,
-          "rankingValue": 140.412
+          "rankingValue": 44.975
         },
         "implementer-heavy": {
           "score": 46.473,
           "rankingQuality": 44.971,
-          "rankingValue": 136.899
+          "rankingValue": 43.821
         },
         "synthesizer": {
           "score": 35.013,
           "rankingQuality": 35.013,
-          "rankingValue": 106.585
+          "rankingValue": 33.863
         },
         "researcher": {
           "score": 44.569,
           "rankingQuality": 44.569,
-          "rankingValue": 135.675
+          "rankingValue": 43.419
         }
       },
       "caiStar": {
@@ -4532,37 +4532,37 @@
         "architect": {
           "score": 42.826,
           "rankingQuality": 42.826,
-          "rankingValue": 331.662
+          "rankingValue": 42.374
         },
         "strategist": {
           "score": 40.1,
           "rankingQuality": 40.1,
-          "rankingValue": 310.551
+          "rankingValue": 39.648
         },
         "code-reviewer": {
           "score": 42.265,
           "rankingQuality": 39.217,
-          "rankingValue": 303.713
+          "rankingValue": 38.765
         },
         "implementer": {
           "score": 41.142,
           "rankingQuality": 38.469,
-          "rankingValue": 297.92
+          "rankingValue": 38.017
         },
         "implementer-heavy": {
           "score": 42.454,
           "rankingQuality": 39.343,
-          "rankingValue": 304.688
+          "rankingValue": 38.891
         },
         "synthesizer": {
           "score": 36.524,
           "rankingQuality": 36.524,
-          "rankingValue": 282.857
+          "rankingValue": 36.072
         },
         "researcher": {
           "score": 40.642,
           "rankingQuality": 40.642,
-          "rankingValue": 314.748
+          "rankingValue": 40.19
         }
       },
       "caiStar": {
@@ -4663,37 +4663,37 @@
         "architect": {
           "score": 52.81,
           "rankingQuality": 52.81,
-          "rankingValue": 954.846
+          "rankingValue": 52.616
         },
         "strategist": {
           "score": 51.03,
           "rankingQuality": 51.03,
-          "rankingValue": 922.662
+          "rankingValue": 50.836
         },
         "code-reviewer": {
           "score": 55.549,
           "rankingQuality": 48.464,
-          "rankingValue": 876.267
+          "rankingValue": 48.27
         },
         "implementer": {
           "score": 52.207,
           "rankingQuality": 46.236,
-          "rankingValue": 835.983
+          "rankingValue": 46.042
         },
         "implementer-heavy": {
           "score": 49.951,
           "rankingQuality": 44.732,
-          "rankingValue": 808.79
+          "rankingValue": 44.538
         },
         "synthesizer": {
           "score": 59.707,
           "rankingQuality": 59.707,
-          "rankingValue": 1079.549
+          "rankingValue": 59.513
         },
         "researcher": {
           "score": 56.734,
           "rankingQuality": 56.734,
-          "rankingValue": 1025.795
+          "rankingValue": 56.54
         }
       },
       "caiStar": {
@@ -4794,37 +4794,37 @@
         "architect": {
           "score": 58.153,
           "rankingQuality": 58.153,
-          "rankingValue": 467.826
+          "rankingValue": 57.718
         },
         "strategist": {
           "score": 55.918,
           "rankingQuality": 55.918,
-          "rankingValue": 449.846
+          "rankingValue": 55.483
         },
         "code-reviewer": {
           "score": 62.018,
           "rankingQuality": 56.11,
-          "rankingValue": 451.391
+          "rankingValue": 55.675
         },
         "implementer": {
           "score": 59.054,
           "rankingQuality": 54.134,
-          "rankingValue": 435.495
+          "rankingValue": 53.699
         },
         "implementer-heavy": {
           "score": 55.676,
           "rankingQuality": 51.882,
-          "rankingValue": 417.378
+          "rankingValue": 51.447
         },
         "synthesizer": {
           "score": 63.445,
           "rankingQuality": 63.445,
-          "rankingValue": 510.399
+          "rankingValue": 63.01
         },
         "researcher": {
           "score": 61.611,
           "rankingQuality": 61.611,
-          "rankingValue": 495.645
+          "rankingValue": 61.176
         }
       },
       "caiStar": {
@@ -4925,37 +4925,37 @@
         "architect": {
           "score": 33.505,
           "rankingQuality": 33.505,
-          "rankingValue": 925.382
+          "rankingValue": 33.378
         },
         "strategist": {
           "score": 33.85,
           "rankingQuality": 33.85,
-          "rankingValue": 934.911
+          "rankingValue": 33.723
         },
         "code-reviewer": {
           "score": 48.45,
           "rankingQuality": 45.007,
-          "rankingValue": 1243.058
+          "rankingValue": 44.88
         },
         "implementer": {
           "score": 45.701,
           "rankingQuality": 43.175,
-          "rankingValue": 1192.46
+          "rankingValue": 43.048
         },
         "implementer-heavy": {
           "score": 36.179,
           "rankingQuality": 36.827,
-          "rankingValue": 1017.133
+          "rankingValue": 36.7
         },
         "synthesizer": {
           "score": 27.391,
           "rankingQuality": 27.391,
-          "rankingValue": 756.518
+          "rankingValue": 27.264
         },
         "researcher": {
           "score": 34.879,
           "rankingQuality": 34.879,
-          "rankingValue": 963.331
+          "rankingValue": 34.752
         }
       },
       "caiStar": {
@@ -5059,37 +5059,37 @@
         "architect": {
           "score": 67.141,
           "rankingQuality": 67.141,
-          "rankingValue": 3463.376
+          "rankingValue": 67.073
         },
         "strategist": {
           "score": 61.761,
           "rankingQuality": 61.761,
-          "rankingValue": 3185.856
+          "rankingValue": 61.693
         },
         "code-reviewer": {
           "score": 61.494,
           "rankingQuality": 57.309,
-          "rankingValue": 2956.206
+          "rankingValue": 57.241
         },
         "implementer": {
           "score": 59.95,
           "rankingQuality": 56.28,
-          "rankingValue": 2903.126
+          "rankingValue": 56.212
         },
         "implementer-heavy": {
           "score": 62.334,
           "rankingQuality": 57.869,
-          "rankingValue": 2985.092
+          "rankingValue": 57.801
         },
         "synthesizer": {
           "score": 62.552,
           "rankingQuality": 62.552,
-          "rankingValue": 3226.658
+          "rankingValue": 62.484
         },
         "researcher": {
           "score": 64.99,
           "rankingQuality": 64.99,
-          "rankingValue": 3352.419
+          "rankingValue": 64.922
         }
       },
       "caiStar": {
@@ -5239,37 +5239,37 @@
         "architect": {
           "score": 46.985,
           "rankingQuality": 46.985,
-          "rankingValue": 1637.526
+          "rankingValue": 46.885
         },
         "strategist": {
           "score": 41.407,
           "rankingQuality": 41.407,
-          "rankingValue": 1443.121
+          "rankingValue": 41.307
         },
         "code-reviewer": {
           "score": 49.852,
           "rankingQuality": 43.45,
-          "rankingValue": 1514.324
+          "rankingValue": 43.35
         },
         "implementer": {
           "score": 48.452,
           "rankingQuality": 42.517,
-          "rankingValue": 1481.807
+          "rankingValue": 42.417
         },
         "implementer-heavy": {
           "score": 45.903,
           "rankingQuality": 40.818,
-          "rankingValue": 1422.593
+          "rankingValue": 40.718
         },
         "synthesizer": {
           "score": 49.134,
           "rankingQuality": 49.134,
-          "rankingValue": 1712.424
+          "rankingValue": 49.034
         },
         "researcher": {
           "score": 48.383,
           "rankingQuality": 48.383,
-          "rankingValue": 1686.25
+          "rankingValue": 48.283
         }
       },
       "caiStar": {
@@ -5370,37 +5370,37 @@
         "architect": {
           "score": 51.226,
           "rankingQuality": 51.226,
-          "rankingValue": 3170.841
+          "rankingValue": 51.169
         },
         "strategist": {
           "score": 44.511,
           "rankingQuality": 44.511,
-          "rankingValue": 2755.189
+          "rankingValue": 44.454
         },
         "code-reviewer": {
           "score": 48.555,
           "rankingQuality": 43.546,
-          "rankingValue": 2695.457
+          "rankingValue": 43.489
         },
         "implementer": {
           "score": 47.416,
           "rankingQuality": 42.787,
-          "rankingValue": 2648.475
+          "rankingValue": 42.73
         },
         "implementer-heavy": {
           "score": 47.757,
           "rankingQuality": 43.014,
-          "rankingValue": 2662.526
+          "rankingValue": 42.957
         },
         "synthesizer": {
           "score": 45.237,
           "rankingQuality": 45.237,
-          "rankingValue": 2800.128
+          "rankingValue": 45.18
         },
         "researcher": {
           "score": 48.869,
           "rankingQuality": 48.869,
-          "rankingValue": 3024.945
+          "rankingValue": 48.812
         }
       },
       "caiStar": {
@@ -5474,37 +5474,37 @@
         "architect": {
           "score": 38.842,
           "rankingQuality": 38.842,
-          "rankingValue": 1581.343
+          "rankingValue": 38.756
         },
         "strategist": {
           "score": 39.849,
           "rankingQuality": 39.849,
-          "rankingValue": 1622.34
+          "rankingValue": 39.763
         },
         "code-reviewer": {
           "score": 50.221,
           "rankingQuality": 49.024,
-          "rankingValue": 1995.874
+          "rankingValue": 48.938
         },
         "implementer": {
           "score": 48.317,
           "rankingQuality": 47.755,
-          "rankingValue": 1944.211
+          "rankingValue": 47.669
         },
         "implementer-heavy": {
           "score": 41.941,
           "rankingQuality": 43.504,
-          "rankingValue": 1771.143
+          "rankingValue": 43.418
         },
         "synthesizer": {
           "score": 30.081,
           "rankingQuality": 30.081,
-          "rankingValue": 1224.663
+          "rankingValue": 29.995
         },
         "researcher": {
           "score": 38.346,
           "rankingQuality": 38.346,
-          "rankingValue": 1561.15
+          "rankingValue": 38.26
         }
       },
       "caiStar": {
@@ -5611,37 +5611,37 @@
         "architect": {
           "score": 50.988,
           "rankingQuality": 50.988,
-          "rankingValue": 3214.88
+          "rankingValue": 50.932
         },
         "strategist": {
           "score": 48.288,
           "rankingQuality": 48.288,
-          "rankingValue": 3044.641
+          "rankingValue": 48.232
         },
         "code-reviewer": {
           "score": 54.543,
           "rankingQuality": 48.102,
-          "rankingValue": 3032.913
+          "rankingValue": 48.046
         },
         "implementer": {
           "score": 52.246,
           "rankingQuality": 46.571,
-          "rankingValue": 2936.381
+          "rankingValue": 46.515
         },
         "implementer-heavy": {
           "score": 49.762,
           "rankingQuality": 44.915,
-          "rankingValue": 2831.967
+          "rankingValue": 44.859
         },
         "synthesizer": {
           "score": 55.259,
           "rankingQuality": 55.259,
-          "rankingValue": 3484.174
+          "rankingValue": 55.203
         },
         "researcher": {
           "score": 53.671,
           "rankingQuality": 53.671,
-          "rankingValue": 3384.048
+          "rankingValue": 53.615
         }
       },
       "caiStar": {
@@ -5715,37 +5715,37 @@
         "architect": {
           "score": 36.282,
           "rankingQuality": 36.282,
-          "rankingValue": 775.61
+          "rankingValue": 36.118
         },
         "strategist": {
           "score": 37.738,
           "rankingQuality": 37.738,
-          "rankingValue": 806.735
+          "rankingValue": 37.574
         },
         "code-reviewer": {
           "score": 44.946,
           "rankingQuality": 42.367,
-          "rankingValue": 905.691
+          "rankingValue": 42.203
         },
         "implementer": {
           "score": 41.674,
           "rankingQuality": 40.186,
-          "rankingValue": 859.067
+          "rankingValue": 40.022
         },
         "implementer-heavy": {
           "score": 36.457,
           "rankingQuality": 36.708,
-          "rankingValue": 784.717
+          "rankingValue": 36.544
         },
         "synthesizer": {
           "score": 29.386,
           "rankingQuality": 29.386,
-          "rankingValue": 628.192
+          "rankingValue": 29.222
         },
         "researcher": {
           "score": 36.577,
           "rankingQuality": 36.577,
-          "rankingValue": 781.916
+          "rankingValue": 36.413
         }
       },
       "caiStar": {
@@ -5829,42 +5829,42 @@
         "architect": {
           "score": 70.777,
           "rankingQuality": 70.777,
-          "rankingValue": 11.5
+          "rankingValue": 49.236
         },
         "strategist": {
           "score": 70.495,
           "rankingQuality": 70.495,
-          "rankingValue": 11.454
+          "rankingValue": 48.954
         },
         "security-reviewer": {
           "score": 68.825,
           "rankingQuality": 68.825,
-          "rankingValue": 11.183
+          "rankingValue": 47.284
         },
         "code-reviewer": {
           "score": 70.885,
           "rankingQuality": 70.734,
-          "rankingValue": 11.493
+          "rankingValue": 49.193
         },
         "implementer": {
           "score": 68.487,
           "rankingQuality": 69.135,
-          "rankingValue": 11.233
+          "rankingValue": 47.594
         },
         "implementer-heavy": {
           "score": 67.845,
           "rankingQuality": 68.707,
-          "rankingValue": 11.164
+          "rankingValue": 47.166
         },
         "synthesizer": {
           "score": 70.208,
           "rankingQuality": 70.208,
-          "rankingValue": 11.408
+          "rankingValue": 48.667
         },
         "researcher": {
           "score": 71.516,
           "rankingQuality": 71.516,
-          "rankingValue": 11.62
+          "rankingValue": 49.975
         }
       },
       "caiStar": {
@@ -5978,42 +5978,42 @@
         "architect": {
           "score": 65.691,
           "rankingQuality": 65.691,
-          "rankingValue": 11.547
+          "rankingValue": 45.779
         },
         "strategist": {
           "score": 66.381,
           "rankingQuality": 66.381,
-          "rankingValue": 11.668
+          "rankingValue": 46.469
         },
         "security-reviewer": {
           "score": 66.036,
           "rankingQuality": 66.036,
-          "rankingValue": 11.607
+          "rankingValue": 46.124
         },
         "code-reviewer": {
           "score": 68.352,
           "rankingQuality": 67.959,
-          "rankingValue": 11.945
+          "rankingValue": 48.047
         },
         "implementer": {
           "score": 65.705,
           "rankingQuality": 66.194,
-          "rankingValue": 11.635
+          "rankingValue": 46.282
         },
         "implementer-heavy": {
           "score": 63.809,
           "rankingQuality": 64.93,
-          "rankingValue": 11.413
+          "rankingValue": 45.018
         },
         "synthesizer": {
           "score": 66.185,
           "rankingQuality": 66.185,
-          "rankingValue": 11.633
+          "rankingValue": 46.273
         },
         "researcher": {
           "score": 67.313,
           "rankingQuality": 67.313,
-          "rankingValue": 11.832
+          "rankingValue": 47.401
         }
       },
       "caiStar": {
@@ -6127,42 +6127,42 @@
         "architect": {
           "score": 65.547,
           "rankingQuality": 65.547,
-          "rankingValue": 15.587
+          "rankingValue": 50.828
         },
         "strategist": {
           "score": 65.776,
           "rankingQuality": 65.776,
-          "rankingValue": 15.641
+          "rankingValue": 51.057
         },
         "security-reviewer": {
           "score": 67.213,
           "rankingQuality": 67.213,
-          "rankingValue": 15.983
+          "rankingValue": 52.494
         },
         "code-reviewer": {
           "score": 64.684,
           "rankingQuality": 65.839,
-          "rankingValue": 15.656
+          "rankingValue": 51.12
         },
         "implementer": {
           "score": 61.624,
           "rankingQuality": 63.799,
-          "rankingValue": 15.171
+          "rankingValue": 49.08
         },
         "implementer-heavy": {
           "score": 61.288,
           "rankingQuality": 63.575,
-          "rankingValue": 15.118
+          "rankingValue": 48.856
         },
         "synthesizer": {
           "score": 61.707,
           "rankingQuality": 61.707,
-          "rankingValue": 14.674
+          "rankingValue": 46.988
         },
         "researcher": {
           "score": 65.333,
           "rankingQuality": 65.333,
-          "rankingValue": 15.536
+          "rankingValue": 50.614
         }
       },
       "caiStar": {
@@ -6302,42 +6302,42 @@
         "architect": {
           "score": 56.967,
           "rankingQuality": 56.967,
-          "rankingValue": 99.818
+          "rankingValue": 54.97
         },
         "strategist": {
           "score": 57.501,
           "rankingQuality": 57.501,
-          "rankingValue": 100.753
+          "rankingValue": 55.504
         },
         "security-reviewer": {
           "score": 60.908,
           "rankingQuality": 60.908,
-          "rankingValue": 106.723
+          "rankingValue": 58.911
         },
         "code-reviewer": {
           "score": 60.603,
           "rankingQuality": 61.116,
-          "rankingValue": 107.087
+          "rankingValue": 59.119
         },
         "implementer": {
           "score": 57.585,
           "rankingQuality": 59.104,
-          "rankingValue": 103.562
+          "rankingValue": 57.107
         },
         "implementer-heavy": {
           "score": 54.798,
           "rankingQuality": 57.246,
-          "rankingValue": 100.306
+          "rankingValue": 55.249
         },
         "synthesizer": {
           "score": 53.703,
           "rankingQuality": 53.703,
-          "rankingValue": 94.098
+          "rankingValue": 51.706
         },
         "researcher": {
           "score": 57.633,
           "rankingQuality": 57.633,
-          "rankingValue": 100.985
+          "rankingValue": 55.636
         }
       },
       "caiStar": {
@@ -6477,42 +6477,42 @@
         "architect": {
           "score": 62.302,
           "rankingQuality": 62.302,
-          "rankingValue": 109.166
+          "rankingValue": 60.305
         },
         "strategist": {
           "score": 61.971,
           "rankingQuality": 61.971,
-          "rankingValue": 108.586
+          "rankingValue": 59.974
         },
         "security-reviewer": {
           "score": 56.114,
           "rankingQuality": 56.114,
-          "rankingValue": 98.323
+          "rankingValue": 54.117
         },
         "code-reviewer": {
           "score": 64.89,
           "rankingQuality": 60.454,
-          "rankingValue": 105.928
+          "rankingValue": 58.457
         },
         "implementer": {
           "score": 62.027,
           "rankingQuality": 58.545,
-          "rankingValue": 102.583
+          "rankingValue": 56.548
         },
         "implementer-heavy": {
           "score": 60.342,
           "rankingQuality": 57.422,
-          "rankingValue": 100.615
+          "rankingValue": 55.425
         },
         "synthesizer": {
           "score": 67.606,
           "rankingQuality": 67.606,
-          "rankingValue": 118.459
+          "rankingValue": 65.609
         },
         "researcher": {
           "score": 65.524,
           "rankingQuality": 65.524,
-          "rankingValue": 114.811
+          "rankingValue": 63.527
         }
       },
       "caiStar": {
@@ -6643,37 +6643,37 @@
         "architect": {
           "score": 51.703,
           "rankingQuality": 51.703,
-          "rankingValue": 90.594
+          "rankingValue": 49.706
         },
         "strategist": {
           "score": 52.44,
           "rankingQuality": 52.44,
-          "rankingValue": 91.885
+          "rankingValue": 50.443
         },
         "code-reviewer": {
           "score": 53.551,
           "rankingQuality": 48.25,
-          "rankingValue": 84.544
+          "rankingValue": 46.253
         },
         "implementer": {
           "score": 50.786,
           "rankingQuality": 46.407,
-          "rankingValue": 81.314
+          "rankingValue": 44.41
         },
         "implementer-heavy": {
           "score": 51.02,
           "rankingQuality": 46.563,
-          "rankingValue": 81.588
+          "rankingValue": 44.566
         },
         "synthesizer": {
           "score": 56.354,
           "rankingQuality": 56.354,
-          "rankingValue": 98.743
+          "rankingValue": 54.357
         },
         "researcher": {
           "score": 54.402,
           "rankingQuality": 54.402,
-          "rankingValue": 95.323
+          "rankingValue": 52.405
         }
       },
       "caiStar": {
@@ -6747,37 +6747,37 @@
         "architect": {
           "score": 58.282,
           "rankingQuality": 58.282,
-          "rankingValue": 17.586
+          "rankingValue": 46.683
         },
         "strategist": {
           "score": 57.695,
           "rankingQuality": 57.695,
-          "rankingValue": 17.409
+          "rankingValue": 46.096
         },
         "code-reviewer": {
           "score": 60.851,
           "rankingQuality": 58.474,
-          "rankingValue": 17.644
+          "rankingValue": 46.875
         },
         "implementer": {
           "score": 58.615,
           "rankingQuality": 56.983,
-          "rankingValue": 17.194
+          "rankingValue": 45.384
         },
         "implementer-heavy": {
           "score": 57.111,
           "rankingQuality": 55.981,
-          "rankingValue": 16.892
+          "rankingValue": 44.382
         },
         "synthesizer": {
           "score": 55.584,
           "rankingQuality": 55.584,
-          "rankingValue": 16.772
+          "rankingValue": 43.985
         },
         "researcher": {
           "score": 58.513,
           "rankingQuality": 58.513,
-          "rankingValue": 17.656
+          "rankingValue": 46.914
         }
       },
       "caiStar": {
@@ -6878,37 +6878,37 @@
         "architect": {
           "score": 38.262,
           "rankingQuality": 38.262,
-          "rankingValue": 109.487
+          "rankingValue": 37.039
         },
         "strategist": {
           "score": 41.738,
           "rankingQuality": 41.738,
-          "rankingValue": 119.434
+          "rankingValue": 40.515
         },
         "code-reviewer": {
           "score": 43.598,
           "rankingQuality": 41.948,
-          "rankingValue": 120.035
+          "rankingValue": 40.725
         },
         "implementer": {
           "score": 40.935,
           "rankingQuality": 40.173,
-          "rankingValue": 114.956
+          "rankingValue": 38.95
         },
         "implementer-heavy": {
           "score": 40.002,
           "rankingQuality": 39.551,
-          "rankingValue": 113.176
+          "rankingValue": 38.328
         },
         "synthesizer": {
           "score": 34.02,
           "rankingQuality": 34.02,
-          "rankingValue": 97.349
+          "rankingValue": 32.797
         },
         "researcher": {
           "score": 38.515,
           "rankingQuality": 38.515,
-          "rankingValue": 110.211
+          "rankingValue": 37.292
         }
       },
       "caiStar": {
@@ -7039,37 +7039,37 @@
         "architect": {
           "score": 29.954,
           "rankingQuality": 29.954,
-          "rankingValue": 233.618
+          "rankingValue": 29.505
         },
         "strategist": {
           "score": 36.499,
           "rankingQuality": 36.499,
-          "rankingValue": 284.664
+          "rankingValue": 36.05
         },
         "code-reviewer": {
           "score": 34.108,
           "rankingQuality": 35.669,
-          "rankingValue": 278.19
+          "rankingValue": 35.22
         },
         "implementer": {
           "score": 31.41,
           "rankingQuality": 33.87,
-          "rankingValue": 264.159
+          "rankingValue": 33.421
         },
         "implementer-heavy": {
           "score": 32.373,
           "rankingQuality": 34.512,
-          "rankingValue": 269.167
+          "rankingValue": 34.063
         },
         "synthesizer": {
           "score": 26.217,
           "rankingQuality": 26.217,
-          "rankingValue": 204.472
+          "rankingValue": 25.768
         },
         "researcher": {
           "score": 30.246,
           "rankingQuality": 30.246,
-          "rankingValue": 235.895
+          "rankingValue": 29.797
         }
       },
       "caiStar": {
@@ -7153,42 +7153,42 @@
         "architect": {
           "score": 57.847,
           "rankingQuality": 57.847,
-          "rankingValue": 22.532
+          "rankingValue": 48.861
         },
         "strategist": {
           "score": 59.799,
           "rankingQuality": 59.799,
-          "rankingValue": 23.292
+          "rankingValue": 50.813
         },
         "security-reviewer": {
           "score": 66.608,
           "rankingQuality": 66.608,
-          "rankingValue": 25.945
+          "rankingValue": 57.622
         },
         "code-reviewer": {
           "score": 62.517,
           "rankingQuality": 63.328,
-          "rankingValue": 24.667
+          "rankingValue": 54.342
         },
         "implementer": {
           "score": 59.016,
           "rankingQuality": 60.994,
-          "rankingValue": 23.758
+          "rankingValue": 52.008
         },
         "implementer-heavy": {
           "score": 55.574,
           "rankingQuality": 58.7,
-          "rankingValue": 22.864
+          "rankingValue": 49.714
         },
         "synthesizer": {
           "score": 52.561,
           "rankingQuality": 52.561,
-          "rankingValue": 20.473
+          "rankingValue": 43.575
         },
         "researcher": {
           "score": 58.269,
           "rankingQuality": 58.269,
-          "rankingValue": 22.696
+          "rankingValue": 49.283
         }
       },
       "caiStar": {
@@ -7272,42 +7272,42 @@
         "architect": {
           "score": 55.358,
           "rankingQuality": 55.358,
-          "rankingValue": 49.559
+          "rankingValue": 51.448
         },
         "strategist": {
           "score": 55.51,
           "rankingQuality": 55.51,
-          "rankingValue": 49.695
+          "rankingValue": 51.6
         },
         "security-reviewer": {
           "score": 63.709,
           "rankingQuality": 63.709,
-          "rankingValue": 57.035
+          "rankingValue": 59.799
         },
         "code-reviewer": {
           "score": 59.469,
           "rankingQuality": 61.33,
-          "rankingValue": 54.905
+          "rankingValue": 57.42
         },
         "implementer": {
           "score": 57.223,
           "rankingQuality": 59.833,
-          "rankingValue": 53.565
+          "rankingValue": 55.923
         },
         "implementer-heavy": {
           "score": 54.425,
           "rankingQuality": 57.967,
-          "rankingValue": 51.894
+          "rankingValue": 54.057
         },
         "synthesizer": {
           "score": 44.61,
           "rankingQuality": 44.61,
-          "rankingValue": 39.937
+          "rankingValue": 40.7
         },
         "researcher": {
           "score": 53.212,
           "rankingQuality": 53.212,
-          "rankingValue": 47.637
+          "rankingValue": 49.302
         }
       },
       "caiStar": {
@@ -7411,37 +7411,37 @@
         "architect": {
           "score": 52.48,
           "rankingQuality": 52.48,
-          "rankingValue": 64.442
+          "rankingValue": 49.63
         },
         "strategist": {
           "score": 50.216,
           "rankingQuality": 50.216,
-          "rankingValue": 61.662
+          "rankingValue": 47.366
         },
         "code-reviewer": {
           "score": 57.288,
           "rankingQuality": 58.332,
-          "rankingValue": 71.628
+          "rankingValue": 55.482
         },
         "implementer": {
           "score": 55.906,
           "rankingQuality": 57.411,
-          "rankingValue": 70.497
+          "rankingValue": 54.561
         },
         "implementer-heavy": {
           "score": 52.589,
           "rankingQuality": 55.199,
-          "rankingValue": 67.781
+          "rankingValue": 52.349
         },
         "synthesizer": {
           "score": 41.618,
           "rankingQuality": 41.618,
-          "rankingValue": 51.104
+          "rankingValue": 38.768
         },
         "researcher": {
           "score": 49.939,
           "rankingQuality": 49.939,
-          "rankingValue": 61.322
+          "rankingValue": 47.089
         }
       },
       "caiStar": {
@@ -7545,37 +7545,37 @@
         "architect": {
           "score": 48.877,
           "rankingQuality": 48.877,
-          "rankingValue": 756.618
+          "rankingValue": 48.651
         },
         "strategist": {
           "score": 46.329,
           "rankingQuality": 46.329,
-          "rankingValue": 717.175
+          "rankingValue": 46.103
         },
         "code-reviewer": {
           "score": 53.687,
           "rankingQuality": 54.847,
-          "rankingValue": 849.034
+          "rankingValue": 54.621
         },
         "implementer": {
           "score": 52.684,
           "rankingQuality": 54.178,
-          "rankingValue": 838.677
+          "rankingValue": 53.952
         },
         "implementer-heavy": {
           "score": 49.534,
           "rankingQuality": 52.078,
-          "rankingValue": 806.169
+          "rankingValue": 51.852
         },
         "synthesizer": {
           "score": 34.145,
           "rankingQuality": 34.145,
-          "rankingValue": 528.566
+          "rankingValue": 33.919
         },
         "researcher": {
           "score": 44.839,
           "rankingQuality": 44.839,
-          "rankingValue": 694.109
+          "rankingValue": 44.613
         }
       },
       "caiStar": {
@@ -7706,37 +7706,37 @@
         "architect": {
           "score": 48.029,
           "rankingQuality": 48.029,
-          "rankingValue": 70.493
+          "rankingValue": 45.644
         },
         "strategist": {
           "score": 48.996,
           "rankingQuality": 48.996,
-          "rankingValue": 71.912
+          "rankingValue": 46.611
         },
         "code-reviewer": {
           "score": 56.377,
           "rankingQuality": 57.929,
-          "rankingValue": 85.023
+          "rankingValue": 55.544
         },
         "implementer": {
           "score": 53.808,
           "rankingQuality": 56.216,
-          "rankingValue": 82.509
+          "rankingValue": 53.831
         },
         "implementer-heavy": {
           "score": 48.565,
           "rankingQuality": 52.721,
-          "rankingValue": 77.379
+          "rankingValue": 50.336
         },
         "synthesizer": {
           "score": 38.857,
           "rankingQuality": 38.857,
-          "rankingValue": 57.031
+          "rankingValue": 36.472
         },
         "researcher": {
           "score": 47.25,
           "rankingQuality": 47.25,
-          "rankingValue": 69.349
+          "rankingValue": 44.865
         }
       },
       "caiStar": {
@@ -7867,37 +7867,37 @@
         "architect": {
           "score": 61.679,
           "rankingQuality": 61.679,
-          "rankingValue": 176.496
+          "rankingValue": 60.456
         },
         "strategist": {
           "score": 57.683,
           "rankingQuality": 57.683,
-          "rankingValue": 165.061
+          "rankingValue": 56.46
         },
         "code-reviewer": {
           "score": 63.783,
           "rankingQuality": 59.106,
-          "rankingValue": 169.133
+          "rankingValue": 57.883
         },
         "implementer": {
           "score": 61.698,
           "rankingQuality": 57.716,
-          "rankingValue": 165.155
+          "rankingValue": 56.493
         },
         "implementer-heavy": {
           "score": 59.151,
           "rankingQuality": 56.018,
-          "rankingValue": 160.296
+          "rankingValue": 54.795
         },
         "synthesizer": {
           "score": 64.137,
           "rankingQuality": 64.137,
-          "rankingValue": 183.529
+          "rankingValue": 62.914
         },
         "researcher": {
           "score": 63.489,
           "rankingQuality": 63.489,
-          "rankingValue": 181.675
+          "rankingValue": 62.266
         }
       },
       "caiStar": {
@@ -7998,37 +7998,37 @@
         "architect": {
           "score": 34.678,
           "rankingQuality": 34.678,
-          "rankingValue": 295.998
+          "rankingValue": 34.268
         },
         "strategist": {
           "score": 33.68,
           "rankingQuality": 33.68,
-          "rankingValue": 287.48
+          "rankingValue": 33.27
         },
         "code-reviewer": {
           "score": 44.464,
           "rankingQuality": 42.622,
-          "rankingValue": 363.806
+          "rankingValue": 42.212
         },
         "implementer": {
           "score": 42.543,
           "rankingQuality": 41.341,
-          "rankingValue": 352.871
+          "rankingValue": 40.931
         },
         "implementer-heavy": {
           "score": 36.539,
           "rankingQuality": 37.338,
-          "rankingValue": 318.703
+          "rankingValue": 36.928
         },
         "synthesizer": {
           "score": 22.464,
           "rankingQuality": 22.464,
-          "rankingValue": 191.744
+          "rankingValue": 22.054
         },
         "researcher": {
           "score": 32.704,
           "rankingQuality": 32.704,
-          "rankingValue": 279.149
+          "rankingValue": 32.294
         }
       },
       "caiStar": {
@@ -8129,37 +8129,37 @@
         "architect": {
           "score": 60.791,
           "rankingQuality": 60.791,
-          "rankingValue": 304.929
+          "rankingValue": 60.093
         },
         "strategist": {
           "score": 57.729,
           "rankingQuality": 57.729,
-          "rankingValue": 289.57
+          "rankingValue": 57.031
         },
         "code-reviewer": {
           "score": 63.818,
           "rankingQuality": 58.804,
-          "rankingValue": 294.962
+          "rankingValue": 58.106
         },
         "implementer": {
           "score": 61.44,
           "rankingQuality": 57.218,
-          "rankingValue": 287.007
+          "rankingValue": 56.52
         },
         "implementer-heavy": {
           "score": 58.591,
           "rankingQuality": 55.319,
-          "rankingValue": 277.482
+          "rankingValue": 54.621
         },
         "synthesizer": {
           "score": 65.404,
           "rankingQuality": 65.404,
-          "rankingValue": 328.068
+          "rankingValue": 64.706
         },
         "researcher": {
           "score": 63.614,
           "rankingQuality": 63.614,
-          "rankingValue": 319.089
+          "rankingValue": 62.916
         }
       },
       "caiStar": {
@@ -8243,42 +8243,42 @@
         "architect": {
           "score": 50.98,
           "rankingQuality": 50.98,
-          "rankingValue": 51.811
+          "rankingValue": 47.536
         },
         "strategist": {
           "score": 52.631,
           "rankingQuality": 52.631,
-          "rankingValue": 53.489
+          "rankingValue": 49.187
         },
         "security-reviewer": {
           "score": 62.252,
           "rankingQuality": 62.252,
-          "rankingValue": 63.267
+          "rankingValue": 58.808
         },
         "code-reviewer": {
           "score": 59.029,
           "rankingQuality": 59.141,
-          "rankingValue": 60.105
+          "rankingValue": 55.697
         },
         "implementer": {
           "score": 56.278,
           "rankingQuality": 57.307,
-          "rankingValue": 58.241
+          "rankingValue": 53.863
         },
         "implementer-heavy": {
           "score": 51.415,
           "rankingQuality": 54.065,
-          "rankingValue": 54.946
+          "rankingValue": 50.621
         },
         "synthesizer": {
           "score": 42.912,
           "rankingQuality": 42.912,
-          "rankingValue": 43.612
+          "rankingValue": 39.468
         },
         "researcher": {
           "score": 50.612,
           "rankingQuality": 50.612,
-          "rankingValue": 51.437
+          "rankingValue": 47.168
         }
       },
       "caiStar": {
@@ -8362,42 +8362,42 @@
         "architect": {
           "score": 48.579,
           "rankingQuality": 48.579,
-          "rankingValue": 107.199
+          "rankingValue": 46.993
         },
         "strategist": {
           "score": 50.166,
           "rankingQuality": 50.166,
-          "rankingValue": 110.701
+          "rankingValue": 48.58
         },
         "security-reviewer": {
           "score": 59.307,
           "rankingQuality": 59.307,
-          "rankingValue": 130.873
+          "rankingValue": 57.721
         },
         "code-reviewer": {
           "score": 57.999,
           "rankingQuality": 58.542,
-          "rankingValue": 129.184
+          "rankingValue": 56.956
         },
         "implementer": {
           "score": 55.524,
           "rankingQuality": 56.892,
-          "rankingValue": 125.543
+          "rankingValue": 55.306
         },
         "implementer-heavy": {
           "score": 49.896,
           "rankingQuality": 53.14,
-          "rankingValue": 117.264
+          "rankingValue": 51.554
         },
         "synthesizer": {
           "score": 39.074,
           "rankingQuality": 39.074,
-          "rankingValue": 86.224
+          "rankingValue": 37.488
         },
         "researcher": {
           "score": 47.829,
           "rankingQuality": 47.829,
-          "rankingValue": 105.544
+          "rankingValue": 46.243
         }
       },
       "caiStar": {
@@ -8511,42 +8511,42 @@
         "architect": {
           "score": 45.02,
           "rankingQuality": 45.02,
-          "rankingValue": 76.862
+          "rankingValue": 42.97
         },
         "strategist": {
           "score": 47.211,
           "rankingQuality": 47.211,
-          "rankingValue": 80.603
+          "rankingValue": 45.161
         },
         "security-reviewer": {
           "score": 55.354,
           "rankingQuality": 55.354,
-          "rankingValue": 94.506
+          "rankingValue": 53.304
         },
         "code-reviewer": {
           "score": 54.932,
           "rankingQuality": 52.368,
-          "rankingValue": 89.408
+          "rankingValue": 50.318
         },
         "implementer": {
           "score": 52.187,
           "rankingQuality": 50.538,
-          "rankingValue": 86.283
+          "rankingValue": 48.488
         },
         "implementer-heavy": {
           "score": 46.632,
           "rankingQuality": 46.835,
-          "rankingValue": 79.961
+          "rankingValue": 44.785
         },
         "synthesizer": {
           "score": 37.196,
           "rankingQuality": 37.196,
-          "rankingValue": 63.505
+          "rankingValue": 35.146
         },
         "researcher": {
           "score": 45.003,
           "rankingQuality": 45.003,
-          "rankingValue": 76.833
+          "rankingValue": 42.953
         }
       },
       "caiStar": {
@@ -8686,42 +8686,42 @@
         "architect": {
           "score": 44.71,
           "rankingQuality": 44.71,
-          "rankingValue": 206.306
+          "rankingValue": 43.951
         },
         "strategist": {
           "score": 46.347,
           "rankingQuality": 46.347,
-          "rankingValue": 213.86
+          "rankingValue": 45.588
         },
         "security-reviewer": {
           "score": 53.079,
           "rankingQuality": 53.079,
-          "rankingValue": 244.923
+          "rankingValue": 52.32
         },
         "code-reviewer": {
           "score": 54.98,
           "rankingQuality": 53.902,
-          "rankingValue": 248.721
+          "rankingValue": 53.143
         },
         "implementer": {
           "score": 52.129,
           "rankingQuality": 52.001,
-          "rankingValue": 239.949
+          "rankingValue": 51.242
         },
         "implementer-heavy": {
           "score": 45.898,
           "rankingQuality": 47.847,
-          "rankingValue": 220.781
+          "rankingValue": 47.088
         },
         "synthesizer": {
           "score": 38.217,
           "rankingQuality": 38.217,
-          "rankingValue": 176.345
+          "rankingValue": 37.458
         },
         "researcher": {
           "score": 45.27,
           "rankingQuality": 45.27,
-          "rankingValue": 208.89
+          "rankingValue": 44.511
         }
       },
       "caiStar": {
@@ -8795,37 +8795,37 @@
         "architect": {
           "score": 32.749,
           "rankingQuality": 32.749,
-          "rankingValue": 411.518
+          "rankingValue": 32.47
         },
         "strategist": {
           "score": 36.967,
           "rankingQuality": 36.967,
-          "rankingValue": 464.52
+          "rankingValue": 36.688
         },
         "code-reviewer": {
           "score": 43.588,
           "rankingQuality": 41.887,
-          "rankingValue": 526.344
+          "rankingValue": 41.608
         },
         "implementer": {
           "score": 40.332,
           "rankingQuality": 39.716,
-          "rankingValue": 499.064
+          "rankingValue": 39.437
         },
         "implementer-heavy": {
           "score": 35.518,
           "rankingQuality": 36.507,
-          "rankingValue": 458.74
+          "rankingValue": 36.228
         },
         "synthesizer": {
           "score": 28.554,
           "rankingQuality": 28.554,
-          "rankingValue": 358.804
+          "rankingValue": 28.275
         },
         "researcher": {
           "score": 34.244,
           "rankingQuality": 34.244,
-          "rankingValue": 430.304
+          "rankingValue": 33.965
         }
       },
       "caiStar": {
@@ -8926,37 +8926,37 @@
         "architect": {
           "score": 22.525,
           "rankingQuality": 22.525,
-          "rankingValue": 441.277
+          "rankingValue": 22.346
         },
         "strategist": {
           "score": 23.956,
           "rankingQuality": 23.956,
-          "rankingValue": 469.311
+          "rankingValue": 23.777
         },
         "code-reviewer": {
           "score": 39.361,
           "rankingQuality": 35.584,
-          "rankingValue": 697.11
+          "rankingValue": 35.405
         },
         "implementer": {
           "score": 36.437,
           "rankingQuality": 33.635,
-          "rankingValue": 658.928
+          "rankingValue": 33.456
         },
         "implementer-heavy": {
           "score": 26.779,
           "rankingQuality": 27.196,
-          "rankingValue": 532.785
+          "rankingValue": 27.017
         },
         "synthesizer": {
           "score": 20.207,
           "rankingQuality": 20.207,
-          "rankingValue": 395.866
+          "rankingValue": 20.028
         },
         "researcher": {
           "score": 25.478,
           "rankingQuality": 25.478,
-          "rankingValue": 499.128
+          "rankingValue": 25.299
         }
       },
       "caiStar": {
@@ -9079,42 +9079,42 @@
         "architect": {
           "score": 70.028,
           "rankingQuality": 70.028,
-          "rankingValue": 125.066
+          "rankingValue": 68.068
         },
         "strategist": {
           "score": 67.813,
           "rankingQuality": 67.813,
-          "rankingValue": 121.11
+          "rankingValue": 65.853
         },
         "security-reviewer": {
           "score": 60.31,
           "rankingQuality": 60.31,
-          "rankingValue": 107.71
+          "rankingValue": 58.35
         },
         "code-reviewer": {
           "score": 69.054,
           "rankingQuality": 67.188,
-          "rankingValue": 119.994
+          "rankingValue": 65.228
         },
         "implementer": {
           "score": 67.15,
           "rankingQuality": 65.919,
-          "rankingValue": 117.728
+          "rankingValue": 63.959
         },
         "implementer-heavy": {
           "score": 67.472,
           "rankingQuality": 66.134,
-          "rankingValue": 118.112
+          "rankingValue": 64.174
         },
         "synthesizer": {
           "score": 70.723,
           "rankingQuality": 70.723,
-          "rankingValue": 126.307
+          "rankingValue": 68.763
         },
         "researcher": {
           "score": 70.66,
           "rankingQuality": 70.66,
-          "rankingValue": 126.195
+          "rankingValue": 68.7
         }
       },
       "caiStar": {
@@ -9198,42 +9198,42 @@
         "architect": {
           "score": 70.028,
           "rankingQuality": 70.028,
-          "rankingValue": 3040.994
+          "rankingValue": 69.947
         },
         "strategist": {
           "score": 67.813,
           "rankingQuality": 67.813,
-          "rankingValue": 2944.806
+          "rankingValue": 67.732
         },
         "security-reviewer": {
           "score": 60.31,
           "rankingQuality": 60.31,
-          "rankingValue": 2618.986
+          "rankingValue": 60.229
         },
         "code-reviewer": {
           "score": 69.054,
           "rankingQuality": 67.188,
-          "rankingValue": 2917.665
+          "rankingValue": 67.107
         },
         "implementer": {
           "score": 67.15,
           "rankingQuality": 65.919,
-          "rankingValue": 2862.559
+          "rankingValue": 65.838
         },
         "implementer-heavy": {
           "score": 67.472,
           "rankingQuality": 66.134,
-          "rankingValue": 2871.895
+          "rankingValue": 66.053
         },
         "synthesizer": {
           "score": 70.723,
           "rankingQuality": 70.723,
-          "rankingValue": 3071.174
+          "rankingValue": 70.642
         },
         "researcher": {
           "score": 70.66,
           "rankingQuality": 70.66,
-          "rankingValue": 3068.438
+          "rankingValue": 70.579
         }
       },
       "caiStar": {
@@ -9317,42 +9317,42 @@
         "architect": {
           "score": 53.244,
           "rankingQuality": 53.244,
-          "rankingValue": 146.451
+          "rankingValue": 51.972
         },
         "strategist": {
           "score": 54.91,
           "rankingQuality": 54.91,
-          "rankingValue": 151.033
+          "rankingValue": 53.638
         },
         "security-reviewer": {
           "score": 57.053,
           "rankingQuality": 57.053,
-          "rankingValue": 156.928
+          "rankingValue": 55.781
         },
         "code-reviewer": {
           "score": 59.487,
           "rankingQuality": 60.205,
-          "rankingValue": 165.598
+          "rankingValue": 58.933
         },
         "implementer": {
           "score": 57.218,
           "rankingQuality": 58.692,
-          "rankingValue": 161.436
+          "rankingValue": 57.42
         },
         "implementer-heavy": {
           "score": 53.95,
           "rankingQuality": 56.513,
-          "rankingValue": 155.443
+          "rankingValue": 55.241
         },
         "synthesizer": {
           "score": 47.153,
           "rankingQuality": 47.153,
-          "rankingValue": 129.697
+          "rankingValue": 45.881
         },
         "researcher": {
           "score": 53.014,
           "rankingQuality": 53.014,
-          "rankingValue": 145.818
+          "rankingValue": 51.742
         }
       },
       "caiStar": {
@@ -9466,42 +9466,42 @@
         "architect": {
           "score": 53.244,
           "rankingQuality": 53.244,
-          "rankingValue": 3461.749
+          "rankingValue": 53.19
         },
         "strategist": {
           "score": 54.91,
           "rankingQuality": 54.91,
-          "rankingValue": 3570.066
+          "rankingValue": 54.856
         },
         "security-reviewer": {
           "score": 57.053,
           "rankingQuality": 57.053,
-          "rankingValue": 3709.397
+          "rankingValue": 56.999
         },
         "code-reviewer": {
           "score": 59.487,
           "rankingQuality": 60.205,
-          "rankingValue": 3914.33
+          "rankingValue": 60.151
         },
         "implementer": {
           "score": 57.218,
           "rankingQuality": 58.692,
-          "rankingValue": 3815.959
+          "rankingValue": 58.638
         },
         "implementer-heavy": {
           "score": 53.95,
           "rankingQuality": 56.513,
-          "rankingValue": 3674.288
+          "rankingValue": 56.459
         },
         "synthesizer": {
           "score": 47.153,
           "rankingQuality": 47.153,
-          "rankingValue": 3065.732
+          "rankingValue": 47.099
         },
         "researcher": {
           "score": 53.014,
           "rankingQuality": 53.014,
-          "rankingValue": 3446.795
+          "rankingValue": 52.96
         }
       },
       "caiStar": {
@@ -9641,42 +9641,42 @@
         "architect": {
           "score": 60.289,
           "rankingQuality": 60.289,
-          "rankingValue": 540.103
+          "rankingValue": 59.898
         },
         "strategist": {
           "score": 59.708,
           "rankingQuality": 59.708,
-          "rankingValue": 534.898
+          "rankingValue": 59.317
         },
         "security-reviewer": {
           "score": 54.754,
           "rankingQuality": 54.754,
-          "rankingValue": 490.517
+          "rankingValue": 54.363
         },
         "code-reviewer": {
           "score": 64.887,
           "rankingQuality": 61.565,
-          "rankingValue": 551.534
+          "rankingValue": 61.174
         },
         "implementer": {
           "score": 62.078,
           "rankingQuality": 59.692,
-          "rankingValue": 534.755
+          "rankingValue": 59.301
         },
         "implementer-heavy": {
           "score": 58.756,
           "rankingQuality": 57.478,
-          "rankingValue": 514.92
+          "rankingValue": 57.087
         },
         "synthesizer": {
           "score": 66.56,
           "rankingQuality": 66.56,
-          "rankingValue": 596.282
+          "rankingValue": 66.169
         },
         "researcher": {
           "score": 64.187,
           "rankingQuality": 64.187,
-          "rankingValue": 575.024
+          "rankingValue": 63.796
         }
       },
       "caiStar": {
@@ -9790,42 +9790,42 @@
         "architect": {
           "score": 51.439,
           "rankingQuality": 51.439,
-          "rankingValue": 61.552
+          "rankingValue": 48.514
         },
         "strategist": {
           "score": 54.469,
           "rankingQuality": 54.469,
-          "rankingValue": 65.177
+          "rankingValue": 51.544
         },
         "security-reviewer": {
           "score": 59.167,
           "rankingQuality": 59.167,
-          "rankingValue": 70.799
+          "rankingValue": 56.242
         },
         "code-reviewer": {
           "score": 57.055,
           "rankingQuality": 58.625,
-          "rankingValue": 70.15
+          "rankingValue": 55.7
         },
         "implementer": {
           "score": 54.256,
           "rankingQuality": 56.759,
-          "rankingValue": 67.918
+          "rankingValue": 53.834
         },
         "implementer-heavy": {
           "score": 51.704,
           "rankingQuality": 55.057,
-          "rankingValue": 65.881
+          "rankingValue": 52.132
         },
         "synthesizer": {
           "score": 40.206,
           "rankingQuality": 40.206,
-          "rankingValue": 48.11
+          "rankingValue": 37.281
         },
         "researcher": {
           "score": 49.597,
           "rankingQuality": 49.597,
-          "rankingValue": 59.348
+          "rankingValue": 46.672
         }
       },
       "caiStar": {
@@ -9909,42 +9909,42 @@
         "architect": {
           "score": 47.477,
           "rankingQuality": 47.477,
-          "rankingValue": 144.611
+          "rankingValue": 46.328
         },
         "strategist": {
           "score": 49.809,
           "rankingQuality": 49.809,
-          "rankingValue": 151.714
+          "rankingValue": 48.66
         },
         "security-reviewer": {
           "score": 51.528,
           "rankingQuality": 51.528,
-          "rankingValue": 156.95
+          "rankingValue": 50.379
         },
         "code-reviewer": {
           "score": 56.15,
           "rankingQuality": 58.797,
-          "rankingValue": 179.091
+          "rankingValue": 57.648
         },
         "implementer": {
           "score": 53.474,
           "rankingQuality": 57.013,
-          "rankingValue": 173.657
+          "rankingValue": 55.864
         },
         "implementer-heavy": {
           "score": 48.739,
           "rankingQuality": 53.856,
-          "rankingValue": 164.041
+          "rankingValue": 52.707
         },
         "synthesizer": {
           "score": 38.825,
           "rankingQuality": 38.825,
-          "rankingValue": 118.258
+          "rankingValue": 37.676
         },
         "researcher": {
           "score": 46.956,
           "rankingQuality": 46.956,
-          "rankingValue": 143.024
+          "rankingValue": 45.807
         }
       },
       "caiStar": {
@@ -10048,37 +10048,37 @@
         "architect": {
           "score": 38.65,
           "rankingQuality": 38.65,
-          "rankingValue": 132.405
+          "rankingValue": 37.628
         },
         "strategist": {
           "score": 39.84,
           "rankingQuality": 39.84,
-          "rankingValue": 136.481
+          "rankingValue": 38.818
         },
         "code-reviewer": {
           "score": 48.702,
           "rankingQuality": 46.619,
-          "rankingValue": 159.704
+          "rankingValue": 45.597
         },
         "implementer": {
           "score": 46.292,
           "rankingQuality": 45.012,
-          "rankingValue": 154.199
+          "rankingValue": 43.99
         },
         "implementer-heavy": {
           "score": 40.669,
           "rankingQuality": 41.263,
-          "rankingValue": 141.356
+          "rankingValue": 40.241
         },
         "synthesizer": {
           "score": 30.917,
           "rankingQuality": 30.917,
-          "rankingValue": 105.914
+          "rankingValue": 29.895
         },
         "researcher": {
           "score": 38.492,
           "rankingQuality": 38.492,
-          "rankingValue": 131.863
+          "rankingValue": 37.47
         }
       },
       "caiStar": {
@@ -10189,37 +10189,37 @@
         "architect": {
           "score": 55.72,
           "rankingQuality": 55.72,
-          "rankingValue": 1495.839
+          "rankingValue": 55.59
         },
         "strategist": {
           "score": 51.649,
           "rankingQuality": 51.649,
-          "rankingValue": 1386.55
+          "rankingValue": 51.519
         },
         "code-reviewer": {
           "score": 58.228,
           "rankingQuality": 52.244,
-          "rankingValue": 1402.523
+          "rankingValue": 52.114
         },
         "implementer": {
           "score": 56.232,
           "rankingQuality": 50.913,
-          "rankingValue": 1366.792
+          "rankingValue": 50.783
         },
         "implementer-heavy": {
           "score": 53.868,
           "rankingQuality": 49.337,
-          "rankingValue": 1324.483
+          "rankingValue": 49.207
         },
         "synthesizer": {
           "score": 57.478,
           "rankingQuality": 57.478,
-          "rankingValue": 1543.034
+          "rankingValue": 57.348
         },
         "researcher": {
           "score": 57.254,
           "rankingQuality": 57.254,
-          "rankingValue": 1537.02
+          "rankingValue": 57.124
         }
       },
       "caiStar": {

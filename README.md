@@ -27,13 +27,13 @@ https://getrad.ar/whipit/benchmark/ (compatibility redirect)
 For non-coding roles:
 
 ```text
-Ranking Value = Universal Role Score / Plan-adjusted Cost per Task
+Balanced Score = Universal Role Score − 3.5 × Plan-adjusted Cost per Task
 ```
 
 For `implementer`, `implementer-heavy` and `code-reviewer`:
 
 ```text
-Ranking Value = (2/3 Universal Role Score + 1/3 CAI*) / Plan-adjusted Cost per Task
+Balanced Score = (2/3 Universal Role Score + 1/3 CAI*) − 3.5 × Plan-adjusted Cost per Task
 ```
 
 `CAI*` uses the observed Artificial Analysis Coding Agent Index when available. Missing CAI values are estimated with a reverse-validated 50/50 ensemble of ridge regression and inverse-distance 5-nearest-neighbours.
@@ -44,7 +44,7 @@ Nominal price per million tokens can make verbose models look artificially cheap
 
 The raw credit burn uses CommandCode effective prices after any published discount. The plan-adjusted denominator then converts that credit burn into subscription economics: standard Max credits use the 100/150 ratio, premium credits use 100/100, and free models remain zero. Max 20× has the same ratios, so ordering is unchanged. Discounts are not applied twice.
 
-The plan-adjusted Cost-per-Task denominator has **100% coverage** of the scored model-family universe.
+Plan-adjusted Cost per Task has **100% coverage** of the scored model-family universe and is used as the economic penalty in Balanced scoring.
 
 ## CAI coverage and estimation
 
@@ -111,8 +111,8 @@ Shared rules:
 Mode objectives:
 
 - **Quality**: maximize total Role Quality. Price does not affect ranking or tie-breaking.
-- **Balanced**: start from the Intelligence-qualified pool, remove only models whose **plan-adjusted Cost per Task** is above **mean + 2 population standard deviations**, then maximize total Role Quality. Price does not affect ranking after that filter.
-- **Budget**: maximize the number of complete portfolios that fit inside the separate standard and premium Max monthly allowances. Equivalently, minimize the larger of `standard burn / 150` and `premium burn / 100`; ties use lower plan-adjusted cost, then lower raw credit burn.
+- **Balanced**: start from the Intelligence-qualified pool, remove models whose **plan-adjusted Cost per Task** is above **mean + 2 population standard deviations**, then maximize total `Role Quality − 3.5 × plan-adjusted Cost per Task` across the portfolio.
+- **Budget**: minimize total plan-adjusted task cost while preserving the Intelligence, diversity and coding constraints.
 
 Balanced records its pool mean, sigma, cutoff and excluded outliers in `site/data/lineups.json`. The current v6 snapshot excludes only Claude Fable 5.1 as a Balanced price outlier.
 

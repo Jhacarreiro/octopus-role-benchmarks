@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 9,
+  "schemaVersion": 10,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -25,14 +25,15 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Maximizes role quality per subscription-adjusted task cost after removing statistically extreme effective-cost outliers from the Intelligence-qualified pool.",
+      "description": "Balances role quality against subscription-adjusted task cost using a linear effective-cost penalty after removing statistically extreme effective-cost outliers from the Intelligence-qualified pool.",
       "requestedIntelligenceFloor": 0.85,
-      "objective": "maximize-quality-per-effective-cost",
+      "objective": "maximize-quality-minus-effective-cost-penalty",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
         "costMetric": "planAdjustedCostPerTaskUsd"
-      }
+      },
+      "effectiveCostPenaltyPerUsd": 3.5
     },
     "budget": {
       "label": "Budget",

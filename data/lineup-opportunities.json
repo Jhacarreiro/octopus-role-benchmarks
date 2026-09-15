@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "snapshotDate": "2026-09-07",
   "generatedAt": "2026-09-07T12:39:50.361Z",
-  "policySchemaVersion": 9,
+  "policySchemaVersion": 10,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
   "repetitionRule": "models and benchmark identities may repeat subject to family seat limits and coding-independence rules",
@@ -23,7 +23,7 @@
     },
     "balanced": {
       "classification": "review-only",
-      "objective": "maximize-quality-per-effective-cost",
+      "objective": "maximize-quality-minus-effective-cost-penalty",
       "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.85,
       "effectiveIntelligenceFloor": 0.85,

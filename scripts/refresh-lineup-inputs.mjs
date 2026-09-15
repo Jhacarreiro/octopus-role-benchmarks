@@ -11,6 +11,7 @@ const bin=path.join(root,'node_modules','.bin','opencli');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
 const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const economics=planEconomics(lineupPolicy);
+const balancedPenaltyPerUsd=Number(lineupPolicy.modes?.balanced?.effectiveCostPenaltyPerUsd);
 const cyberConfig=JSON.parse(fs.readFileSync(path.join(root,'config','cyberbench-models.json'),'utf8'));
 const snapshotPath=path.join(root,'data','latest.json');
 const snapshot=JSON.parse(fs.readFileSync(snapshotPath,'utf8'));
@@ -63,7 +64,7 @@ for(const m of snapshot.models||[]){
   }
   if(m.roleScores&&Number.isFinite(adjusted)){
     for(const score of Object.values(m.roleScores)){
-      if(Number.isFinite(score?.rankingQuality))score.rankingValue=adjusted===0?null:round(score.rankingQuality/adjusted,3);
+      if(Number.isFinite(score?.rankingQuality)){const balanced=balancedScore(score.rankingQuality,adjusted,balancedPenaltyPerUsd);score.rankingValue=balanced==null?null:round(balanced,3);}
     }
   }
   commandCodeUpdated++;

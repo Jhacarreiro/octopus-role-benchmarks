@@ -13,6 +13,7 @@ const bin=path.join(root,'node_modules','.bin','opencli');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
 const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const economics=planEconomics(lineupPolicy);
+const balancedPenaltyPerUsd=Number(lineupPolicy.modes?.balanced?.effectiveCostPenaltyPerUsd);
 const aliases=JSON.parse(fs.readFileSync(path.join(root,'config','model-aliases.json'),'utf8')).aliases;
 const benchmarkFallbacks=JSON.parse(fs.readFileSync(path.join(root,"config","benchmark-fallbacks.json"),"utf8"));
 const cyberbenchConfig=JSON.parse(fs.readFileSync(path.join(root,'config','cyberbench-models.json'),'utf8'));
@@ -261,7 +262,8 @@ const models=mapped.map(row=>{
         const direct=benchmarks[role.externalBenchmark];
         if(direct==null)continue;
         const rankingQuality=round(direct,3);
-        const rankingValue=planAdjustedCostUsd===0||planAdjustedCostUsd==null?null:round(rankingQuality/planAdjustedCostUsd,3);
+        const balanced=balancedScore(rankingQuality,planAdjustedCostUsd,balancedPenaltyPerUsd);
+        const rankingValue=balanced==null?null:round(balanced,3);
         roleScores[role.id]={score:rankingQuality,rankingQuality,rankingValue};
         continue;
       }
@@ -269,7 +271,8 @@ const models=mapped.map(row=>{
       for(const [key,w] of Object.entries(role.weights||{})) score+=benchmarks[key]*w;
       score=round(score,3);
       const rankingQuality=role.codingAdjusted?round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*caiStar.value,3):score;
-      const rankingValue=planAdjustedCostUsd===0||planAdjustedCostUsd==null?null:round(rankingQuality/planAdjustedCostUsd,3);
+      const balanced=balancedScore(rankingQuality,planAdjustedCostUsd,balancedPenaltyPerUsd);
+        const rankingValue=balanced==null?null:round(balanced,3);
       roleScores[role.id]={score,rankingQuality,rankingValue};
     }
   }
