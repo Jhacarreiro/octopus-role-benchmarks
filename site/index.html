@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Octopus Role Benchmarks</title>
-  <meta name="description" content="Compare benchmark-vs-cost value or pure role quality for each Claude Octopus role.">
+  <meta name="description" content="Compare quality, balanced value and budget cost for each Claude Octopus role.">
   <link rel="stylesheet" href="./style.css?v=20260907b">
 </head>
 <body><main>
 <header>
-  <div><h1>Octopus Role Benchmarks</h1><p>Rank by benchmark-vs-cost value or pure role quality.</p></div>
+  <div><h1>Octopus Role Benchmarks</h1><p>Rank by pure role quality, balanced value or effective task cost.</p></div>
   <div class="header-links"><a class="repo" href="./methodology.html">Methodology</a><a class="repo" href="https://github.com/Jhacarreiro/octopus-role-benchmarks">GitHub</a></div>
 </header>
 <section class="lineup" aria-labelledby="lineup-title">
@@ -32,6 +32,7 @@
     <div class="segmented ranking-modes" role="group" aria-label="Ranking mode">
       <button type="button" data-mode="quality">Quality</button>
       <button type="button" data-mode="balanced" class="active">Balanced</button>
+      <button type="button" data-mode="budget">Budget</button>
     </div>
   </div>
   <label>Search<input id="search" type="search" placeholder="Model name"></label>
@@ -40,5 +41,5 @@
   <table><thead><tr><th class="num rank">#</th><th data-sort="name">Model</th><th data-sort="value" class="num" id="metricHeading">Balanced Score ↑</th><th>Notes</th></tr></thead><tbody id="rows"></tbody></table>
   <div id="empty" class="empty" hidden>No models match the current filters.</div>
 </section>
-<p class="footnote" id="modeNote">Balanced ranks role quality per CommandCode Cost per Task. Quality ignores price entirely. See <a href="./methodology.html">methodology</a> for the exact role formula, task-cost normalization and CAI estimation validation.</p>
-</main><script src="./app.js?v=20260907b" defer></script></body></html>
+<p class="footnote" id="modeNote">Balanced trades role quality against effective task cost. Budget ranks the cheapest eligible model-level options by plan-adjusted Cost per Task. Quality ignores price entirely. See <a href="./methodology.html">methodology</a> for the exact role formula, task-cost normalization and CAI estimation validation.</p>
+</main><script src="./app.js?v=20260916b" defer></script></body></html>

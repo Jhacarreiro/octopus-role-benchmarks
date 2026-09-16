@@ -19,7 +19,7 @@ class El {
 const els=new Map();
 const one=s=>{if(!els.has(s))els.set(s,new El(s));return els.get(s)};
 const lineupButtons=['quality','balanced','budget'].map(mode=>{const e=new El(`lineup-${mode}`);e.dataset.lineupMode=mode;return e});
-const rankButtons=['quality','balanced'].map(mode=>{const e=new El(`rank-${mode}`);e.dataset.mode=mode;return e});
+const rankButtons=['quality','balanced','budget'].map(mode=>{const e=new El(`rank-${mode}`);e.dataset.mode=mode;return e});
 
 globalThis.document={
   querySelector:one,
@@ -66,5 +66,10 @@ if(!after.includes(expectedQuality)) throw new Error('Quality lineup did not ren
 const rankButton={dataset:{mode:'quality'}};
 one('.ranking-modes').trigger('click',{target:{closest:()=>rankButton}});
 if(one('#metricHeading').textContent!=='Role Quality ↑') throw new Error('ranking mode button did not switch to Quality');
+const budgetButton={dataset:{mode:'budget'}};
+one('.ranking-modes').trigger('click',{target:{closest:()=>budgetButton}});
+if(one('#metricHeading').textContent!=='Effective Cost / Task ↓') throw new Error('ranking mode button did not switch to Budget');
+const budgetRows=one('#rows').innerHTML;
+if(!budgetRows.includes('FREE')&&!/value-main">0.00</.test(budgetRows)) throw new Error('Budget ranking did not render low-cost values');
 
 console.log('ok: site renders from same-origin data with raw GitHub unavailable, and mode buttons work');

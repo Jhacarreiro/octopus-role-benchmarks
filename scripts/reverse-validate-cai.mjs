@@ -28,13 +28,15 @@ function quantile(values,q){const a=[...values].sort((x,y)=>x-y);const x=(a.leng
 function rng(seed=20260824){let s=seed>>>0;return()=>{s=(1664525*s+1013904223)>>>0;return s/4294967296}}
 function shuffleIndexes(n,random){const a=Array.from({length:n},(_,i)=>i);for(let i=n-1;i>0;i--){const j=Math.floor(random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 
+const codingRoleIds=['implementer','implementer-heavy','code-reviewer'];
 const familyBySlug=new Map();
 for(const m of data.models){
   if(!m.aaModel||m.caiStar?.source!=='observed') continue;
+  if(!codingRoleIds.every(roleId=>Number.isFinite(m.roleScores?.[roleId]?.score))) continue;
   const slug=m.aaModel.slug;
   const prior=familyBySlug.get(slug);
   if(!prior){
-    familyBySlug.set(slug,{slug,benchmarks:m.benchmarks,outputTokens:m.taskEfficiency.tokens.output,cai:m.caiStar.value,taskCost:m.taskEfficiency.commandCodeCostPerTaskUsd,roleScores:Object.fromEntries(data.roles.map(r=>[r.id,m.roleScores[r.id].score]))});
+    familyBySlug.set(slug,{slug,benchmarks:m.benchmarks,outputTokens:m.taskEfficiency.tokens.output,cai:m.caiStar.value,taskCost:m.taskEfficiency.commandCodeCostPerTaskUsd,roleScores:Object.fromEntries(codingRoleIds.map(roleId=>[roleId,m.roleScores[roleId].score]))});
   }else{
     prior.taskCost=Math.min(prior.taskCost,m.taskEfficiency.commandCodeCostPerTaskUsd);
   }
@@ -56,16 +58,17 @@ const vendorHoldout={
   ensemble:metrics(actual,ensemblePred)
 };
 
-const random=rng(); const reps=[];
+const random=rng(); const reps=[]; const randomTestCount=Math.min(Math.max(1,Math.round(families.length*0.30)),families.length-8);
+if(randomTestCount<1) throw new Error('Need at least 9 observed CAI families for random holdout validation');
 for(let rep=0;rep<500;rep++){
-  const idx=shuffleIndexes(families.length,random);const n=Math.max(5,Math.round(families.length*0.30));const testSet=new Set(idx.slice(0,n));
+  const idx=shuffleIndexes(families.length,random);const n=randomTestCount;const testSet=new Set(idx.slice(0,n));
   const train=families.filter((_,i)=>!testSet.has(i)),test=families.filter((_,i)=>testSet.has(i));const estimator=fitCaiEstimator(train);
   const a=test.map(t=>t.cai),p=test.map(t=>predictCai(estimator,t).estimate);reps.push(metrics(a,p));
 }
-const randomHoldout={repetitions:500,testFraction:0.30,mae:{median:quantile(reps.map(x=>x.mae),0.5),p90:quantile(reps.map(x=>x.mae),0.9)},spearman:{median:quantile(reps.map(x=>x.spearman),0.5),p10:quantile(reps.map(x=>x.spearman),0.1)},pairwiseAccuracy:{median:quantile(reps.map(x=>x.pairwiseAccuracy),0.5)}};
+const randomHoldout={repetitions:500,testFraction:randomTestCount/families.length,mae:{median:quantile(reps.map(x=>x.mae),0.5),p90:quantile(reps.map(x=>x.mae),0.9)},spearman:{median:quantile(reps.map(x=>x.spearman),0.5),p10:quantile(reps.map(x=>x.spearman),0.1)},pairwiseAccuracy:{median:quantile(reps.map(x=>x.pairwiseAccuracy),0.5)}};
 
 const finalRanking={};
-for(const roleId of ['implementer','implementer-heavy','code-reviewer']){
+for(const roleId of codingRoleIds){
   const a=[],p=[];let qerr=0;
   for(const f of families){
     const base=f.roleScores[roleId],pred=vendorPrediction.get(f.slug);
@@ -105,7 +108,7 @@ const lines=[
   `| Ridge | ${r(clean.vendorHoldout.ridge.mae,2)} | ${r(clean.vendorHoldout.ridge.rmse,2)} | ${r(clean.vendorHoldout.ridge.spearman,3)} | ${r(clean.vendorHoldout.ridge.pairwiseAccuracy*100,1)}% |`,
   `| 5NN | ${r(clean.vendorHoldout.knn.mae,2)} | ${r(clean.vendorHoldout.knn.rmse,2)} | ${r(clean.vendorHoldout.knn.spearman,3)} | ${r(clean.vendorHoldout.knn.pairwiseAccuracy*100,1)}% |`,
   `| **50/50 ensemble** | **${r(e.mae,2)}** | **${r(e.rmse,2)}** | **${r(e.spearman,3)}** | **${r(e.pairwiseAccuracy*100,1)}%** |`,'',
-  '## Random 30% holdout × 500','',
+  '## Random '+r(clean.randomHoldout.testFraction*100,1)+'% holdout × 500','',
   `- MAE median: **${r(rr.mae.median,2)}**; p90: **${r(rr.mae.p90,2)}**.`,
   `- Spearman median: **${r(rr.spearman.median,3)}**; p10: **${r(rr.spearman.p10,3)}**.`,
   `- Pairwise ranking accuracy median: **${r(rr.pairwiseAccuracy.median*100,1)}%**.`,'',
