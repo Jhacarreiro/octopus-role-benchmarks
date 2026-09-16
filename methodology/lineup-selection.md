@@ -15,8 +15,8 @@ Octopus recommends three eight-seat portfolios — **Quality**, **Balanced** and
 ## Shared constraints
 
 1. Only current-generation eligible models are considered.
-2. Eligibility begins with a mode-specific fraction of the best eligible **AA Intelligence Index**.
-3. Before optimization, if the candidate pool has fewer than **5 families**, lower the Intelligence floor by **0.005** until it has at least 5.
+2. Quality measures its Intelligence floor against the best current-generation eligible model. Balanced and Budget first apply their shared effective-cost outlier filter, recompute the best eligible **AA Intelligence Index** among survivors, and measure their requested floors against that filtered baseline.
+3. If a candidate pool cannot support a feasible portfolio, lower the Intelligence floor by **0.005** until the structural constraints can be satisfied.
 4. Final portfolio: **4–8 families**.
 5. Maximum **2 seats per family**.
 6. No mandatory models.
@@ -37,32 +37,32 @@ After the adaptive five-family pre-check, Quality maximizes the sum of `rankingQ
 
 Requested Intelligence floor: **0.85**.
 
-Balanced uses price only to remove extreme cost outliers from the Intelligence-qualified pool:
+Balanced and Budget share the same effective-cost outlier filter. Its reference population is the complete latest-generation scored universe, before mode-specific Intelligence eligibility:
 
 ```text
 cutoff = mean(Plan-adjusted Cost per Task)
        + 2 × population standard deviation(Plan-adjusted Cost per Task)
 ```
 
-Models strictly above that cutoff are excluded. The optimizer then maximizes total Role Quality exactly like Quality. Price does not contribute to the score after the outlier filter.
+Models strictly above that cutoff are excluded. The best eligible Intelligence Index is then recomputed from the surviving universe, and the 0.85 floor is applied to that filtered baseline. If the resulting pool is not feasible, the floor descends by 0.005 without recalculating the cutoff.
 
-The generated lineup records the mean, population sigma, cutoff, and every excluded model/cost.
+Within that pool, Balanced maximizes the sum of:
 
-If this filter makes the structural constraints infeasible, generation fails closed; the optimizer does not silently change the sigma multiplier or diversity rules.
+```text
+Role Quality − 3.5 × Plan-adjusted Cost per Task
+```
+
+The generated lineup records the reference population size, mean, population sigma, cutoff, excluded models, pre-filter best Intelligence and post-filter best Intelligence.
 
 ## Budget
 
 Requested Intelligence floor: **0.80**.
 
-After the adaptive five-family pre-check, Budget maximizes included monthly capacity across the separate standard and premium CommandCode Max credit pools. For an eight-seat portfolio it minimizes:
+Budget applies the same cost cutoff and post-filter Intelligence-baseline recomputation as Balanced, then applies the 0.80 floor. If necessary, the floor descends by 0.005 without recalculating the cutoff.
 
-```text
-monthly utilization = max(standard credit burn / 150, premium credit burn / 100)
-```
+Within the resulting pool, Budget minimizes total **plan-adjusted Cost per Task** across the eight-seat portfolio. Ties prefer higher total Role Quality, then lower raw CommandCode credit burn.
 
-The reciprocal is the estimated number of complete portfolios that fit in Max 10×; Max 20× doubles that capacity. If two portfolios have the same utilization, Budget prefers lower plan-adjusted cost, then lower raw credit burn, then higher Role Quality.
-
-Budget does **not** apply the Balanced outlier filter because subscription capacity is already the direct objective.
+Monthly standard/premium plan utilization and estimated complete-portfolio capacity are still reported as diagnostics, but they are not the Budget optimization objective.
 
 ## Security Reviewer
 

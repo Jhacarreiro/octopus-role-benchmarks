@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 10,
+  "schemaVersion": 11,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -25,7 +25,7 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Balances role quality against subscription-adjusted task cost using a linear effective-cost penalty after removing statistically extreme effective-cost outliers from the Intelligence-qualified pool.",
+      "description": "Balances role quality against subscription-adjusted task cost using a linear effective-cost penalty. Statistical effective-cost outliers are identified from the full latest-generation scored universe; after removing them, the Intelligence baseline is recomputed before final 0.85 eligibility and optimization.",
       "requestedIntelligenceFloor": 0.85,
       "objective": "maximize-quality-minus-effective-cost-penalty",
       "priceOutlierFilter": {
@@ -37,9 +37,14 @@
     },
     "budget": {
       "label": "Budget",
-      "description": "Minimizes total subscription-adjusted task cost while preserving all structural and role-eligibility constraints.",
+      "description": "Minimizes total subscription-adjusted task cost. Statistical effective-cost outliers are identified from the full latest-generation scored universe; after removing them, the Intelligence baseline is recomputed before final 0.80 eligibility and optimization.",
       "requestedIntelligenceFloor": 0.8,
-      "objective": "minimize-effective-task-cost"
+      "objective": "minimize-effective-task-cost",
+      "priceOutlierFilter": {
+        "method": "mean-plus-population-standard-deviations",
+        "standardDeviations": 2,
+        "costMetric": "planAdjustedCostPerTaskUsd"
+      }
     }
   },
   "swapEvaluation": {

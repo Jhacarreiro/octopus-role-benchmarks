@@ -14,10 +14,12 @@
     "update-lineups": "node scripts/build-lineups.mjs && node scripts/evaluate-lineup-swaps.mjs",
     "check:snapshot": "node scripts/validate.mjs",
     "check:lineups": "node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
-    "check:all": "npm run test:commandcode && npm run test:balanced-score && npm run test:site && npm run check:snapshot && npm run check:lineups",
+    "check:all": "npm run test:commandcode && npm run test:balanced-score && npm run test:cai-version-fallback && npm run test:scicode-lkg && npm run test:site && npm run check:snapshot && npm run check:lineups",
     "test:commandcode": "node scripts/test-commandcode-max.mjs",
     "test:site": "node scripts/test-site-runtime.mjs",
-    "test:balanced-score": "node scripts/test-balanced-score.mjs"
+    "test:balanced-score": "node scripts/test-balanced-score.mjs",
+    "test:cai-version-fallback": "node scripts/test-cai-version-fallback.mjs",
+    "test:scicode-lkg": "node scripts/test-scicode-lkg.mjs"
   },
   "dependencies": {
     "@jackwener/opencli": "1.8.6",

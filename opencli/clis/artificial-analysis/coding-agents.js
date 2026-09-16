@@ -53,6 +53,14 @@ export function parseCodingAgents(html) {
   return rows;
 }
 
+export function validateCodingAgentsPage(html) {
+  const sourceRowCount=(html.match(/hostModelSlug\\\":\\\"/g)||[]).length;
+  const rows=parseCodingAgents(html);
+  if(sourceRowCount===0) throw new EmptyResultError('Coding Agent page exposed no source rows');
+  if(rows.length!==sourceRowCount) throw new EmptyResultError(`Coding Agent parser coverage mismatch: parsed ${rows.length}/${sourceRowCount}`);
+  return rows;
+}
+
 cli({
   site:'artificial-analysis', name:'coding-agents',
   description:'Read Artificial Analysis Coding Agent Index variants and pooled efficiency telemetry',
@@ -62,8 +70,6 @@ cli({
   func:async()=>{
     const response=await fetch(URL,{headers:{'User-Agent':UA,'Accept':'text/html,application/xhtml+xml'},signal:AbortSignal.timeout(15000)});
     if(!response.ok) throw new CommandExecutionError(`Coding Agent page returned HTTP ${response.status}`);
-    const rows=parseCodingAgents(await response.text());
-    if(rows.length<40) throw new EmptyResultError(`Unexpected Coding Agent row count: ${rows.length}`);
-    return rows;
+    return validateCodingAgentsPage(await response.text());
   }
 });

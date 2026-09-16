@@ -36,7 +36,7 @@ For `implementer`, `implementer-heavy` and `code-reviewer`:
 Balanced Score = (2/3 Universal Role Score + 1/3 CAI*) − 3.5 × Plan-adjusted Cost per Task
 ```
 
-`CAI*` uses the observed Artificial Analysis Coding Agent Index when available. Missing CAI values are estimated with a reverse-validated 50/50 ensemble of ridge regression and inverse-distance 5-nearest-neighbours.
+`CAI*` uses the current Artificial Analysis Coding Agent Index when observed. If the current CAI version has not yet re-evaluated a family, the last observed prior-version CAI is mapped onto the current scale with a validated overlap-derived degradation factor. Only families with neither observation use the reverse-validated 50/50 Ridge + inverse-distance 5NN estimator.
 
 ## Why plan-adjusted Cost per Task
 
@@ -48,10 +48,11 @@ Plan-adjusted Cost per Task has **100% coverage** of the scored model-family uni
 
 ## CAI coverage and estimation
 
-The current pipeline keeps observed and estimated CAI separate in the raw data, but combines them into one `CAI*` for ranking:
+The current pipeline preserves CAI provenance in the raw data, but combines three supported sources into one `CAI*` for ranking:
 
-- observed CAI where Artificial Analysis has a mapped Coding Agent result;
-- estimated CAI everywhere else;
+- current-version observed CAI where Artificial Analysis has a mapped Coding Agent result;
+- prior-version observed CAI calibrated onto the current version using validated overlapping families;
+- Ridge + 5NN estimated CAI only where neither observation exists;
 - commercial CommandCode variants never count as extra training examples.
 
 The estimator is rerun and reverse-validated every day. The daily job fails closed if the estimator or final-ranking guardrails are breached.
@@ -111,10 +112,10 @@ Shared rules:
 Mode objectives:
 
 - **Quality**: maximize total Role Quality. Price does not affect ranking or tie-breaking.
-- **Balanced**: start from the Intelligence-qualified pool, remove models whose **plan-adjusted Cost per Task** is above **mean + 2 population standard deviations**, then maximize total `Role Quality − 3.5 × plan-adjusted Cost per Task` across the portfolio.
-- **Budget**: minimize total plan-adjusted task cost while preserving the Intelligence, diversity and coding constraints.
+- **Balanced**: compute a plan-adjusted Cost per Task cutoff from the full latest-generation scored universe (`mean + 2` population standard deviations), remove those cost outliers, recompute the best eligible Intelligence Index, then apply the 0.85 floor and maximize total `Role Quality − 3.5 × plan-adjusted Cost per Task` across the portfolio.
+- **Budget**: apply the same cost-outlier cutoff and recomputed Intelligence baseline, then apply the 0.80 floor and minimize total plan-adjusted task cost while preserving the diversity and coding constraints.
 
-Balanced records its pool mean, sigma, cutoff and excluded outliers in `site/data/lineups.json`. The current v6 snapshot excludes only Claude Fable 5.1 as a Balanced price outlier.
+Balanced and Budget publish the cost reference population, mean, sigma, cutoff, excluded models, pre-filter best Intelligence and post-filter best Intelligence in `site/data/lineups.json`. Quality does not use the cost filter.
 
 The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
 
@@ -142,4 +143,4 @@ The benchmark refresh runs once per week via `.github/workflows/weekly.yml` (Mon
 
 Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. The 100% coverage rule applies to the scored universe. No benchmark value is imputed or carried forward except the explicitly documented, validated SciCode fallback below.
 
-When AA temporarily omits SciCode for a mapped model, Octopus may estimate SciCode from the model's other independent AA benchmarks (GPQA, HLE, LCR, GDPval and normalized AA-Omniscience) using a leave-one-out validated Ridge model. Intelligence Index is deliberately excluded to avoid circularity. The estimate is conservatively bounded by a recent last-known target score and any explicitly configured same-series/sibling analogue; provenance and validation error are published in the snapshot. If the estimator guardrails fail or required features are missing, the model becomes `source_incomplete` instead of receiving a score.
+When AA temporarily omits SciCode for a mapped model, Octopus first uses the last observed SciCode only when it is at most 14 days old and when an overlap calibration against current observed families passes the published MAE/max-error guardrails. The overlap-derived factor is capped at 1, so historical fallback never inflates a prior observation. If no eligible calibrated LKG exists, the Ridge estimator may be used only when its original leave-one-out guardrails pass; otherwise the model becomes `source_incomplete`. Intelligence Index remains excluded from the Ridge features to avoid circularity. All fallback provenance, age, calibration factor and validation diagnostics are published in the snapshot.

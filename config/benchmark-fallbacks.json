@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "benchmarks": {
     "scicode": {
-      "lastKnownMaxAgeDays": 7,
+      "lastKnownMaxAgeDays": 14,
       "conservativeMin": true,
       "analogies": {
         "step-3-7-flash": {

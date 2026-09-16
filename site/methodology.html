@@ -14,13 +14,13 @@
   <h2>Role quality and portfolio modes</h2>
   <p>The detailed ranking table exposes role-quality signals and cost-per-quality values. The eight recommendation cards are generated separately as constrained portfolios: <strong>Quality</strong>, <strong>Balanced</strong> and <strong>Budget</strong>.</p>
   <div class="formula"><strong>Quality</strong><code>Intelligence floor 0.90 → adaptive ≥5-family pool → maximize total Role Quality</code></div>
-  <div class="formula"><strong>Balanced</strong><code>Intelligence floor 0.85 → remove plan-adjusted cost &gt; mean + 2σ → maximize Σ(Role Quality − 3.5 × effective task cost)</code></div>
-  <div class="formula"><strong>Budget</strong><code>Intelligence floor 0.80 → maximize included monthly plan capacity</code></div>
-  <p>When an initial Intelligence floor leaves fewer than five candidate families, the floor is lowered in 0.005 steps until five families are available. Every final lineup still requires at least four families and allows at most two seats per family.</p>
+  <div class="formula"><strong>Balanced</strong><code>latest-gen cost cutoff (mean + 2σ) → recompute best Intelligence → floor 0.85 → maximize Σ(Role Quality − 3.5 × effective task cost)</code></div>
+  <div class="formula"><strong>Budget</strong><code>latest-gen cost cutoff (mean + 2σ) → recompute best Intelligence → floor 0.80 → minimize total effective task cost</code></div>
+  <p>For Balanced and Budget, cost outliers are identified first from the full latest-generation scored universe. After those models are removed, the best eligible Intelligence Index is recomputed; the requested 0.85/0.80 floor is then applied to that filtered baseline. If the resulting pool cannot support a feasible portfolio, the floor is lowered in 0.005 steps. Quality uses the unfiltered Intelligence baseline. Every final lineup still requires at least four families and allows at most two seats per family.</p>
   <p>There are no mandatory models, manual Fable blacklist, or per-role quality floor. Code Reviewer must differ from both implementation identities. Implementer Heavy must differ from Implementer and must have at least +2.0 AA Intelligence Index points.</p>
   <h3>Security Reviewer</h3>
   <p><strong>Security Reviewer = Vals AI CyberBench Overall, directly.</strong> The previous SciCode/GPQA/HLE/Omniscience/LCR proxy has been removed. If a model has no direct CyberBench score, it is simply ineligible for this one role.</p>
-  <p>Balanced applies plan-adjusted cost twice: first as the mean + 2σ outlier filter, then as a linear penalty of 3.5 Role Quality points per $1 of effective task cost. Budget minimizes total plan-adjusted task cost while preserving the same structural eligibility constraints.</p>
+  <p>Balanced and Budget share the same mean + 2σ plan-adjusted cost-outlier cutoff. The cutoff is computed from the full latest-generation scored universe, then the Intelligence baseline is recomputed after exclusions. Balanced additionally applies a linear penalty of 3.5 Role Quality points per $1 of effective task cost; Budget minimizes total plan-adjusted task cost.</p>
 </section>
 <section id="coverage" class="methodology"></section>
 <section class="methodology prose">
@@ -30,23 +30,23 @@
   <p>If CommandCode exposes no separate cache rate, normal input price is used. Active CommandCode promotions are retained.</p>
 </section>
 <section class="methodology prose">
-  <h2>CAI*: observed when possible, estimated otherwise</h2>
+  <h2>CAI*: current observation, calibrated history, then estimator</h2>
   <p id="caiCounts"></p>
-  <p>For missing Coding Agent Index values, the estimate is deliberately simple:</p>
+  <p>If the current Coding Agent Index version has not re-evaluated a family, a prior observed CAI may be mapped onto the current scale with a validated overlap-derived degradation factor. Only families with neither current nor calibratable historical CAI use the estimator:</p>
   <code class="formula-code">CAI* = 50% Ridge prediction + 50% inverse-distance 5NN prediction</code>
   <p><strong>Ridge (λ=1)</strong> uses SciCode, GPQA, HLE, LCR, GDPval, AA-Omniscience Index (normalized to 0–100) and log(Output Tokens/Task). <strong>5NN</strong> uses SciCode, GPQA, HLE and LCR, standardized across the observed CAI training set, with Euclidean distance and inverse-distance weighting over the five nearest models.</p>
-  <p>The estimator is trained only on unique model families with observed AA Coding Agent results. Commercial CommandCode variants never count as extra training examples.</p>
+  <p>The estimator is trained only on unique model families with current-version observed AA Coding Agent results. Calibrated historical values never train the estimator, and commercial CommandCode variants never count as extra training examples.</p><p><strong>SciCode fallback:</strong> current observation first; otherwise a last observed value no older than 14 days may be used only after overlap calibration against current observations passes MAE/max-error guardrails. The calibration factor is capped at 1. Ridge is a third-line fallback and is usable only when its original leave-one-out guardrails pass; otherwise the family is source-incomplete.</p>
 </section>
 <section id="validation" class="methodology"></section>
 <section id="rolesMethod" class="methodology"></section>
 <section class="methodology prose">
   <h2>Coverage and failure rules</h2>
   <p>Universal weighted-role components, CommandCode Cost per Task and final CAI* must cover the scored model-family universe according to the published coverage rules. Security Reviewer is role-specific and uses direct CyberBench coverage instead. Stealth/unresolved rows remain visible as UNSCORED. Validation continues to fail closed when estimator/ranking guardrails are breached.</p>
-  <p>Raw model mappings, observed/estimated CAI*, Ridge/5NN components, role scores, task costs and final Ranking Values are all preserved in the public JSON snapshot.</p>
+  <p>Raw model mappings, current/historical-calibrated/estimated CAI*, SciCode fallback provenance and calibration diagnostics, Ridge/5NN components, role scores, task costs and final Ranking Values are all preserved in the public JSON snapshot.</p>
 </section>
 <section>
   <h2>Portfolio regeneration</h2>
   <p>After refreshes, Octopus regenerates the complete Quality, Balanced and Budget portfolios under the current deterministic policy. Review data records portfolio-level changes rather than evaluating independent hand-picked seat swaps.</p>
-  <p>The policy file contains rules, not selected model names. Generated selections and their requested/effective Intelligence floors, family counts, costs and Balanced outlier statistics are published in <code>site/data/lineups.json</code>.</p>
+  <p>The policy file contains rules, not selected model names. Generated selections and their requested/effective Intelligence floors, pre/post-filter Intelligence baselines, family counts, costs and Balanced/Budget outlier statistics are published in <code>site/data/lineups.json</code>.</p>
 </section>
-</main><script src="./methodology.js?v=20260907b" defer></script></body></html>
+</main><script src="./methodology.js?v=20260916a" defer></script></body></html>

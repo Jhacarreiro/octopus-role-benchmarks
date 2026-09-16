@@ -60,51 +60,43 @@ for(const m of generationEligible){
 }
 const bestIntelligence=Math.max(...generationEligible.map(intelligence));
 
-function makePool(modeId,mode){
-  const requested=Number(mode.requestedIntelligenceFloor);
-  if(!Number.isFinite(requested)||requested<=0||requested>1)fail(`${modeId}: invalid requestedIntelligenceFloor`);
-  const step=Number(policy.poolPrecheck?.floorStep??0.005);
-  const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
-  if(!Number.isFinite(step)||step<=0)fail('invalid poolPrecheck.floorStep');
-  let effective=requested;
-  let pool=[];
-  while(effective>=0){
-    const threshold=bestIntelligence*effective;
-    pool=generationEligible.filter(m=>intelligence(m)+EPS>=threshold);
-    if(familyCount(pool)>=requiredFamilies){
-      return {requested,effective:round(effective,3),threshold:round(threshold,6),pool};
-    }
-    effective=round(effective-step,3);
-  }
-  fail(`${modeId}: could not reach ${requiredFamilies} eligible families`);
-}
-
 function populationStats(values){
   const mean=values.reduce((a,b)=>a+b,0)/values.length;
   const variance=values.reduce((sum,x)=>sum+(x-mean)**2,0)/values.length;
   return {mean,sd:Math.sqrt(variance)};
 }
 
-function applyModeFilter(modeId,mode,poolInfo){
-  let pool=poolInfo.pool.slice();
+function prepareModeUniverse(modeId,mode,requested){
+  let universe=generationEligible.slice();
+  let modeBestIntelligence=bestIntelligence;
   let priceFilter=null;
   if(mode.priceOutlierFilter){
+    const referencePool=generationEligible;
     const metric=mode.priceOutlierFilter.costMetric??'commandCodeCostPerTaskUsd';
     const costFn=metric==='planAdjustedCostPerTaskUsd'?planAdjustedCost:creditBurn;
-    const values=pool.map(costFn).filter(x=>Number.isFinite(x)&&x>=0);
-    if(values.length!==pool.length)fail(`${modeId}: price filter requires ${metric} for every eligible model`);
+    const values=referencePool.map(costFn).filter(x=>Number.isFinite(x)&&x>=0);
+    if(values.length!==referencePool.length)fail(`${modeId}: price filter requires ${metric} for every latest-generation scored model`);
     const {mean,sd}=populationStats(values);
     const sigma=Number(mode.priceOutlierFilter.standardDeviations);
+    if(!Number.isFinite(sigma)||sigma<0)fail(`${modeId}: invalid price filter standardDeviations`);
     const cutoff=mean+sigma*sd;
-    const excluded=pool.filter(m=>costFn(m)>cutoff+EPS);
-    pool=pool.filter(m=>costFn(m)<=cutoff+EPS);
+    const excluded=universe.filter(m=>costFn(m)>cutoff+EPS);
+    universe=universe.filter(m=>costFn(m)<=cutoff+EPS);
+    const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
+    if(familyCount(universe)<requiredFamilies)fail(`${modeId}: price filter leaves only ${familyCount(universe)} families (precheck requires ${requiredFamilies})`);
+    modeBestIntelligence=Math.max(...universe.map(intelligence));
     priceFilter={
       method:mode.priceOutlierFilter.method,
       costMetric:metric,
       standardDeviations:sigma,
+      referencePopulation:'latest-generation-scored-universe',
+      referenceModels:referencePool.length,
+      referenceFamilies:familyCount(referencePool),
+      preFilterBestEligibleIntelligenceIndex:round(bestIntelligence,4),
       meanCostPerTaskUsd:round(mean,6),
       populationStdDevCostPerTaskUsd:round(sd,6),
       cutoffCostPerTaskUsd:round(cutoff,6),
+      postFilterBestEligibleIntelligenceIndex:round(modeBestIntelligence,4),
       excluded:excluded.map(m=>({
         model:m.name,
         family:familyOf(m),
@@ -113,10 +105,8 @@ function applyModeFilter(modeId,mode,poolInfo){
         planAdjustedCostPerTaskUsd:round(planAdjustedCost(m),6)
       }))
     };
-    const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
-    if(familyCount(pool)<requiredFamilies)fail(`${modeId}: price filter leaves only ${familyCount(pool)} families (precheck requires ${requiredFamilies})`);
   }
-  return {...poolInfo,pool,priceFilter};
+  return {universe,bestEligibleIntelligence:modeBestIntelligence,priceFilter};
 }
 
 function summarizeAssign(assign){
@@ -319,24 +309,20 @@ function solveMode(modeId,mode){
   if(!Number.isFinite(requested)||requested<=0||requested>1)fail(`${modeId}: invalid requestedIntelligenceFloor`);
   if(!Number.isFinite(step)||step<=0)fail('invalid poolPrecheck.floorStep');
 
+  const prepared=prepareModeUniverse(modeId,mode,requested);
   let effective=requested;
   while(effective>=0){
-    const threshold=bestIntelligence*effective;
-    const rawPool=generationEligible.filter(m=>intelligence(m)+EPS>=threshold);
+    const threshold=prepared.bestEligibleIntelligence*effective;
+    const rawPool=prepared.universe.filter(m=>intelligence(m)+EPS>=threshold);
     if(familyCount(rawPool)>=requiredFamilies){
-      let poolInfo;
-      try{
-        poolInfo=applyModeFilter(modeId,mode,{
-          requested,
-          effective:round(effective,3),
-          threshold:round(threshold,6),
-          pool:rawPool
-        });
-      }catch(err){
-        if(!String(err?.message??'').includes('price filter leaves only'))throw err;
-        effective=round(effective-step,3);
-        continue;
-      }
+      const poolInfo={
+        requested,
+        effective:round(effective,3),
+        threshold:round(threshold,6),
+        pool:rawPool,
+        priceFilter:prepared.priceFilter,
+        bestEligibleIntelligence:prepared.bestEligibleIntelligence
+      };
       const result=optimize(modeId,poolInfo.pool,{allowNoFeasible:true});
       if(result)return {poolInfo,result};
     }
@@ -395,7 +381,7 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
     objective:mode.objective,
     requestedIntelligenceFloor:poolInfo.requested,
     effectiveIntelligenceFloor:poolInfo.effective,
-    bestEligibleIntelligenceIndex:round(bestIntelligence,4),
+    bestEligibleIntelligenceIndex:round(poolInfo.bestEligibleIntelligence,4),
     intelligenceThreshold:poolInfo.threshold,
     candidateModels:poolInfo.pool.length,
     candidateFamilies:familyCount(poolInfo.pool),

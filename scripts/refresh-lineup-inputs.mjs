@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { fetchCyberBench, resolveCyberBenchBySlug } from './cyberbench.mjs';
 import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
+import { balancedScore } from './lib/balanced-score.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');

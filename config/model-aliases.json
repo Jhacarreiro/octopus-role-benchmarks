@@ -90,6 +90,11 @@
       "status": "commercial_variant",
       "slug": "muse-spark-1-3-xhigh",
       "reason": "Contributor is the lower-price CommandCode commercial/data-sharing variant of the same Muse Spark 1.3 benchmark identity."
+    },
+    "Ling 3.0 Flash Sante": {
+      "status": "commercial_variant",
+      "slug": "ling-3-0-flash",
+      "reason": "CommandCode Sante is the commercial/provider label for the same Ling 3.0 Flash model family benchmarked by Artificial Analysis."
     }
   }
 }
