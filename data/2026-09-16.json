@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 6,
   "date": "2026-09-16",
-  "generatedAt": "2026-09-16T11:59:37.502Z",
+  "generatedAt": "2026-09-16T12:39:53.980Z",
   "benchmarkDate": "2026-09-16",
-  "benchmarkGeneratedAt": "2026-09-16T11:59:37.502Z",
-  "lineupInputsRefreshedAt": "2026-09-16T11:59:37.502Z",
+  "benchmarkGeneratedAt": "2026-09-16T12:39:53.980Z",
+  "lineupInputsRefreshedAt": "2026-09-16T12:39:53.980Z",
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
@@ -30,7 +30,7 @@
     },
     "cyberbench": {
       "url": "https://www.vals.ai/benchmarks/cyber",
-      "fetchedAt": "2026-09-16T11:59:37.300Z",
+      "fetchedAt": "2026-09-16T12:39:53.953Z",
       "benchmarkUpdatedAt": "2026-09-10T00:00:00.000Z",
       "directFamilies": 24,
       "missingMappings": [
@@ -211,7 +211,7 @@
       "lastObserved": {
         "value": 34.375,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -232,7 +232,7 @@
       "lastObserved": {
         "value": 45.7176,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -253,7 +253,7 @@
       "lastObserved": {
         "value": 54.5139,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -274,7 +274,7 @@
       "lastObserved": {
         "value": 46.875,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -295,7 +295,7 @@
       "lastObserved": {
         "value": 46.1806,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -316,7 +316,7 @@
       "lastObserved": {
         "value": 53.2407,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -337,7 +337,7 @@
       "lastObserved": {
         "value": 56.5972,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -358,7 +358,7 @@
       "lastObserved": {
         "value": 48.9583,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -379,7 +379,7 @@
       "lastObserved": {
         "value": 42.5926,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -400,7 +400,7 @@
       "lastObserved": {
         "value": 40.7407,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -421,7 +421,7 @@
       "lastObserved": {
         "value": 37.037,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -442,7 +442,7 @@
       "lastObserved": {
         "value": 38.5417,
         "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 11.917
+        "ageDays": 11.945
       },
       "calibration": {
         "method": "median_overlap_ratio_capped_at_1",
@@ -468,8 +468,8 @@
     "observedFamilies": 48,
     "historicalCalibratedFamilies": 12,
     "estimatedFamilies": 0,
-    "validatedAt": "2026-09-16T11:59:37.502Z",
-    "sourceSnapshotGeneratedAt": "2026-09-16T11:59:37.502Z",
+    "validatedAt": "2026-09-16T12:39:53.980Z",
+    "sourceSnapshotGeneratedAt": "2026-09-16T12:39:53.980Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -1286,7 +1286,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K3",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },
@@ -1655,7 +1655,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.6",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-04-20T00:00:00.000Z"
         }
       },
@@ -1795,7 +1795,7 @@
           "lastObserved": {
             "value": 48.9583,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -1812,7 +1812,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.5",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-01-26T00:00:00.000Z"
         }
       },
@@ -2039,7 +2039,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.3",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-08-18T00:00:00.000Z"
         }
       },
@@ -2189,7 +2189,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -2324,7 +2324,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -2584,7 +2584,7 @@
           "lastObserved": {
             "value": 46.1806,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -2708,7 +2708,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M3",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-05-31T00:00:00.000Z"
         }
       },
@@ -2829,7 +2829,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M2.7",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-03-17T00:00:00.000Z"
         }
       },
@@ -2955,7 +2955,7 @@
           "lastObserved": {
             "value": 42.5926,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -3221,7 +3221,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -3484,7 +3484,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -4084,7 +4084,7 @@
           "lastObserved": {
             "value": 37.037,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -4213,7 +4213,7 @@
           "lastObserved": {
             "value": 40.7407,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -4819,7 +4819,7 @@
           "lastObserved": {
             "value": 38.5417,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -5261,7 +5261,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5.1",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-09-01T00:00:00.000Z"
         }
       },
@@ -5418,7 +5418,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-06-09T00:00:00.000Z"
         }
       },
@@ -5553,7 +5553,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 5",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-22T00:00:00.000Z"
         }
       },
@@ -5710,7 +5710,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.8",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-05-28T00:00:00.000Z"
         }
       },
@@ -5850,7 +5850,7 @@
           "lastObserved": {
             "value": 54.5139,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -5867,7 +5867,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.7",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-04-16T00:00:00.000Z"
         }
       },
@@ -6007,7 +6007,7 @@
           "lastObserved": {
             "value": 45.7176,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -6242,7 +6242,7 @@
           "lastObserved": {
             "value": 46.875,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -6385,7 +6385,7 @@
           "lastObserved": {
             "value": 34.375,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -6509,7 +6509,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-6 Astra",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
         }
       },
@@ -6659,7 +6659,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-5.6 Sol",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -7181,7 +7181,7 @@
           "lastObserved": {
             "value": 56.5972,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -7416,7 +7416,7 @@
           "lastObserved": {
             "value": 53.2407,
             "observedAt": "2026-09-04T13:59:41.846Z",
-            "ageDays": 11.917
+            "ageDays": 11.945
           },
           "calibration": {
             "method": "median_overlap_ratio_capped_at_1",
@@ -7540,7 +7540,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.8 Flash",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -7690,7 +7690,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.7 Flash",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-08-13T00:00:00.000Z"
         }
       },
@@ -7825,7 +7825,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.6 Flash",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-21T00:00:00.000Z"
         }
       },
@@ -7960,7 +7960,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.5 Flash",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-05-19T00:00:00.000Z"
         }
       },
@@ -8332,7 +8332,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -8482,7 +8482,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -8632,7 +8632,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -8767,7 +8767,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -8902,7 +8902,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.1",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -9037,7 +9037,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.6",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
         }
       },
@@ -9187,7 +9187,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.5",
-          "fetchedAt": "2026-09-16T11:59:37.300Z",
+          "fetchedAt": "2026-09-16T12:39:53.953Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },

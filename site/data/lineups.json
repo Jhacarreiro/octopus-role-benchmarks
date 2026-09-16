@@ -1,7 +1,7 @@
 {
   "schemaVersion": 11,
   "snapshotDate": "2026-09-16",
-  "generatedAt": "2026-09-16T11:59:37.502Z",
+  "generatedAt": "2026-09-16T12:39:53.980Z",
   "policy": {
     "latestGenerationOnly": true,
     "poolPrecheck": {
@@ -106,7 +106,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-16T11:59:37.300Z",
+            "fetchedAt": "2026-09-16T12:39:53.953Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
@@ -309,7 +309,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-16T11:59:37.300Z",
+            "fetchedAt": "2026-09-16T12:39:53.953Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
@@ -512,7 +512,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "Grok 4.6",
-            "fetchedAt": "2026-09-16T11:59:37.300Z",
+            "fetchedAt": "2026-09-16T12:39:53.953Z",
             "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
           },
           "free": false,

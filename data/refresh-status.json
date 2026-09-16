@@ -1,25 +1,25 @@
 {
   "schemaVersion": 3,
-  "status": "error",
-  "attemptedAt": "2026-09-16T11:43:41.888Z",
+  "status": "success",
+  "attemptedAt": "2026-09-16T12:39:54.745Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-16",
-    "generatedAt": "2026-09-16T05:37:37.289Z"
+    "generatedAt": "2026-09-16T12:39:53.980Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-09-16",
-    "generatedAt": "2026-09-16T05:37:37.289Z",
+    "generatedAt": "2026-09-16T12:39:53.980Z",
     "benchmarkDate": "2026-09-16",
-    "benchmarkGeneratedAt": "2026-09-16T05:37:37.289Z",
-    "lineupInputsRefreshedAt": "2026-09-16T05:37:37.289Z"
+    "benchmarkGeneratedAt": "2026-09-16T12:39:53.980Z",
+    "lineupInputsRefreshedAt": "2026-09-16T12:39:53.980Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-09-16",
-    "generatedAt": "2026-09-16T05:37:37.289Z"
+    "generatedAt": "2026-09-16T12:39:53.980Z"
   },
-  "mode": null,
+  "mode": "full",
   "message": null,
-  "stage": "update",
-  "errorSummary": "\"coverage\": {",
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/35091851971"
+  "stage": null,
+  "errorSummary": null,
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/35097117374"
 }
