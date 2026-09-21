@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-16T12:39:54.796Z",
+  "generatedAt": "2026-09-21T12:53:41.628Z",
   "snapshotDate": "2026-09-16",
   "refresh": {
     "schemaVersion": 3,
-    "status": "success",
-    "attemptedAt": "2026-09-16T12:39:54.745Z",
+    "status": "error",
+    "attemptedAt": "2026-09-21T12:53:41.582Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-16",
       "generatedAt": "2026-09-16T12:39:53.980Z"
@@ -21,12 +21,12 @@
       "date": "2026-09-16",
       "generatedAt": "2026-09-16T12:39:53.980Z"
     },
-    "mode": "full",
+    "mode": null,
     "message": null,
-    "stage": null,
-    "errorSummary": null,
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/35097117374"
+    "stage": "update",
+    "errorSummary": "Error: SciCode estimator invalid and no eligible calibrated LKG for claude-4-5-haiku: MAE=2.543 max=10.592",
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/35602173864"
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-16 → 2026-09-16\n✅ Refresh: success · full\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-16 → 2026-09-16\n❌ Refresh: error\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
