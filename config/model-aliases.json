@@ -95,6 +95,21 @@
       "status": "commercial_variant",
       "slug": "ling-3-0-flash",
       "reason": "CommandCode Sante is the commercial/provider label for the same Ling 3.0 Flash model family benchmarked by Artificial Analysis."
+    },
+    "GLM-5.3 FlashX": {
+      "status": "commercial_variant",
+      "slug": "glm-5-3-flash",
+      "reason": "GLM-5.3 FlashX is the high-speed serving tier of the same underlying GLM-5.3 Flash model; capability benchmark identity is shared while CommandCode pricing remains distinct."
+    },
+    "MiMo V2.6 Pro UltraSpeed": {
+      "status": "commercial_variant",
+      "slug": "mimo-v2-6-pro",
+      "reason": "Xiaomi documents UltraSpeed as the high-speed serving mode of MiMo V2.6 Pro; benchmark identity is shared while CommandCode pricing remains distinct."
+    },
+    "Step 5 Preview": {
+      "status": "exact_alias",
+      "slug": "step-5",
+      "reason": "Artificial Analysis canonical slug step-5 is explicitly titled Step 5 Preview."
     }
   }
 }
