@@ -25,15 +25,18 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Balances role quality against subscription-adjusted task cost using a linear effective-cost penalty. Statistical effective-cost outliers are identified from the full latest-generation scored universe; after removing them, the Intelligence baseline is recomputed before final 0.85 eligibility and optimization.",
+      "description": "Balances relative role quality against relative affordability within the current eligible cohort. Both inputs are percentile scores, so the formula adapts automatically as model quality and prices evolve.",
       "requestedIntelligenceFloor": 0.85,
-      "objective": "maximize-quality-minus-effective-cost-penalty",
+      "objective": "maximize-relative-quality-and-affordability",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
         "costMetric": "planAdjustedCostPerTaskUsd"
       },
-      "effectiveCostPenaltyPerUsd": 3.5
+      "percentileWeights": {
+        "quality": 0.75,
+        "affordability": 0.25
+      }
     },
     "budget": {
       "label": "Budget",

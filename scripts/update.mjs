@@ -6,7 +6,7 @@ import { fitCaiEstimator, predictCai, rowFromModelFamily, RIDGE_FEATURES, KNN_FE
 import { fitScicodeEstimator, predictScicode, validateScicodeEstimator, scicodeRowFromAa, isCompleteScicodeFeatureRow, SCICODE_FEATURES, SCICODE_RIDGE_LAMBDA, SCICODE_VALIDATION_LIMITS } from './scicode-estimator.mjs';
 import { fetchCyberBench, resolveCyberBenchBySlug } from './cyberbench.mjs';
 import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
-import { balancedScore } from './lib/balanced-score.mjs';
+import { applyBalancedScores } from './lib/balanced-score.mjs';
 import { caiIndexPercent, detectCodingAgentVersionFromRows, detectCodingAgentVersionFromSnapshot, historicalCaiAnchor, calibrateHistoricalCai, applyHistoricalCai } from './lib/cai-version-fallback.mjs';
 import { calibrateScicodeLkg, applyScicodeLkg } from './lib/scicode-lkg.mjs';
 
@@ -18,7 +18,7 @@ const normalizedTaskProfile=roles.costBasis?.normalizedTask?.referenceTokenProfi
 if(!normalizedTaskProfile||['nonCacheInput','cacheRead','cacheWrite','output'].some(k=>!Number.isFinite(normalizedTaskProfile[k])))throw new Error('Missing normalized reference token profile');
 const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const economics=planEconomics(lineupPolicy);
-const balancedPenaltyPerUsd=Number(lineupPolicy.modes?.balanced?.effectiveCostPenaltyPerUsd);
+const balancedWeights=lineupPolicy.modes?.balanced?.percentileWeights??{quality:0.75,affordability:0.25};
 const aliases=JSON.parse(fs.readFileSync(path.join(root,'config','model-aliases.json'),'utf8')).aliases;
 const benchmarkFallbacks=JSON.parse(fs.readFileSync(path.join(root,"config","benchmark-fallbacks.json"),"utf8"));
 const cyberbenchConfig=JSON.parse(fs.readFileSync(path.join(root,'config','cyberbench-models.json'),'utf8'));
@@ -360,9 +360,7 @@ const models=mapped.map(row=>{
         const direct=benchmarks[role.externalBenchmark];
         if(direct==null)continue;
         const rankingQuality=round(direct,3);
-        const balanced=balancedScore(rankingQuality,planAdjustedCostUsd,balancedPenaltyPerUsd);
-        const rankingValue=balanced==null?null:round(balanced,3);
-        roleScores[role.id]={score:rankingQuality,rankingQuality,rankingValue};
+        roleScores[role.id]={score:rankingQuality,rankingQuality,rankingValue:null};
         continue;
       }
       let score=0,availableWeight=0,totalWeight=0;
@@ -381,9 +379,7 @@ const models=mapped.map(row=>{
         if(caiStar){rankingQuality=round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*caiStar.value,3);coverageWeight=(1-CODING_ROLE_CAI_WEIGHT)*availableWeight+CODING_ROLE_CAI_WEIGHT}
         else{rankingQuality=round((1-CODING_ROLE_CAI_WEIGHT)*score,3);coverageWeight=(1-CODING_ROLE_CAI_WEIGHT)*availableWeight;missingComponents.push('caiStar')}
       }
-      const balanced=balancedScore(rankingQuality,planAdjustedCostUsd,balancedPenaltyPerUsd);
-      const rankingValue=balanced==null?null:round(balanced,3);
-      roleScores[role.id]={score,rankingQuality,rankingValue,status:missingComponents.length?'partial':'valid',coverageWeight:round(coverageWeight,4),missingComponents};
+      roleScores[role.id]={score,rankingQuality,rankingValue:null,status:missingComponents.length?'partial':'valid',coverageWeight:round(coverageWeight,4),missingComponents};
     }
   }
   const c=source?codingBySlug.get(source.slug):null;
@@ -401,6 +397,8 @@ const models=mapped.map(row=>{
   if(cyberbench)benchmarkProvenance.cyberbench=cyberbench.provenance;
   return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis,costTokenProfile,normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
+applyBalancedScores(models,roles.roles.map(r=>r.id),{qualityWeight:Number(balancedWeights.quality),costWeight:Number(balancedWeights.affordability)});
+for(const m of models){for(const score of Object.values(m.roleScores||{})){if(Number.isFinite(score.rankingValue))score.rankingValue=round(score.rankingValue,3);if(Number.isFinite(score.balancedQualityPercentile))score.balancedQualityPercentile=round(score.balancedQualityPercentile,3);if(Number.isFinite(score.balancedAffordabilityPercentile))score.balancedAffordabilityPercentile=round(score.balancedAffordabilityPercentile,3);}}
 const unscoredModels=models.filter(x=>x.mapping?.status==='unscored'||!x.aaModel);
 for(const model of unscoredModels){
   validationIssues.push({benchmark:'mapping',targetModel:model.name,status:'unavailable',reason:model.mapping?.reason||'No verified benchmark identity for this CommandCode model.'});

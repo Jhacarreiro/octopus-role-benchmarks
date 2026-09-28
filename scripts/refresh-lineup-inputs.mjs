@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { fetchCyberBench, resolveCyberBenchBySlug } from './cyberbench.mjs';
 import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
-import { balancedScore } from './lib/balanced-score.mjs';
+import { applyBalancedScores } from './lib/balanced-score.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
@@ -13,7 +13,7 @@ const opencliHome=path.join(root,'.opencli-home');
 const bin=path.join(root,'node_modules','.bin','opencli');
 const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const economics=planEconomics(lineupPolicy);
-const balancedPenaltyPerUsd=Number(lineupPolicy.modes?.balanced?.effectiveCostPenaltyPerUsd);
+const balancedWeights=lineupPolicy.modes?.balanced?.percentileWeights??{quality:0.75,affordability:0.25};
 const cyberConfig=JSON.parse(fs.readFileSync(path.join(root,'config','cyberbench-models.json'),'utf8'));
 const snapshotPath=path.join(root,'data','latest.json');
 const snapshot=JSON.parse(fs.readFileSync(snapshotPath,'utf8'));
@@ -66,14 +66,11 @@ for(const m of snapshot.models||[]){
     m.taskEfficiency.commandCodeCostPerTaskUsd=cost;
     m.taskEfficiency.planAdjustedCostPerTaskUsd=adjusted;
   }
-  if(m.roleScores&&Number.isFinite(adjusted)){
-    for(const score of Object.values(m.roleScores)){
-      if(Number.isFinite(score?.rankingQuality)){const balanced=balancedScore(score.rankingQuality,adjusted,balancedPenaltyPerUsd);score.rankingValue=balanced==null?null:round(balanced,3);}
-    }
-  }
   commandCodeUpdated++;
 }
 if(commandCodeUpdated!==snapshot.models.length)throw new Error(`CommandCode pricing refresh updated ${commandCodeUpdated}/${snapshot.models.length} rows`);
+applyBalancedScores(snapshot.models,roles.roles.map(r=>r.id),{qualityWeight:Number(balancedWeights.quality),costWeight:Number(balancedWeights.affordability)});
+for(const m of snapshot.models){for(const score of Object.values(m.roleScores||{})){if(Number.isFinite(score.rankingValue))score.rankingValue=round(score.rankingValue,3);if(Number.isFinite(score.balancedQualityPercentile))score.balancedQualityPercentile=round(score.balancedQualityPercentile,3);if(Number.isFinite(score.balancedAffordabilityPercentile))score.balancedAffordabilityPercentile=round(score.balancedAffordabilityPercentile,3);}}
 
 const slugs=[...new Set((snapshot.models||[]).map(m=>m.aaModel?.slug).filter(Boolean))].sort();
 const aaRows=runOpenCLI(['artificial-analysis','models',slugs.join(','),'-f','json']);
