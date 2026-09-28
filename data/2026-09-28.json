@@ -2,44 +2,12 @@
   "schemaVersion": 6,
   "methodologyVersion": 6,
   "date": "2026-09-28",
-  "generatedAt": "2026-09-28T12:48:26.076Z",
+  "generatedAt": "2026-09-28T13:21:03.528Z",
   "benchmarkDate": "2026-09-28",
-  "benchmarkGeneratedAt": "2026-09-28T12:48:26.076Z",
-  "lineupInputsRefreshedAt": "2026-09-28T12:48:26.076Z",
+  "benchmarkGeneratedAt": "2026-09-28T13:21:03.528Z",
+  "lineupInputsRefreshedAt": "2026-09-28T13:21:03.528Z",
   "validationStatus": "partial",
   "validationIssues": [
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-opus-4-7",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-7; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "gpt-5-4",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for gpt-5-4; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "kimi-k2-5",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for kimi-k2-5; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "qwen3-6-plus",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for qwen3-6-plus; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
     {
       "benchmark": "mapping",
       "targetModel": "Space Bunny Alpha",
@@ -108,7 +76,7 @@
     },
     "cyberbench": {
       "url": "https://www.vals.ai/benchmarks/cyber",
-      "fetchedAt": "2026-09-28T12:48:26.018Z",
+      "fetchedAt": "2026-09-28T13:21:03.334Z",
       "benchmarkUpdatedAt": "2026-09-22T00:00:00.000Z",
       "directFamilies": 24,
       "missingMappings": [
@@ -306,82 +274,252 @@
   "benchmarkFallbacksApplied": [
     {
       "benchmark": "scicode",
-      "targetSlug": "claude-opus-4-7",
-      "strategy": "unavailable_after_validation_failure",
-      "provenanceStatus": "unavailable",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-7; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "targetSlug": "claude-4-5-haiku",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 37.2,
+      "lastKnownTarget": null,
       "lastObserved": null,
-      "maxFreshAgeDays": 14
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 37.2
+        }
+      ],
+      "value": 37.2
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "claude-opus-4-6",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 44.2318,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 44.2318
+        }
+      ],
+      "value": 44.2318
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "claude-opus-4-7",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 54.9206,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 54.9206
+        }
+      ],
+      "value": 54.9206
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "claude-sonnet-4-6",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 42.2003,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 42.2003
+        }
+      ],
+      "value": 42.2003
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "glm-5",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 44.8466,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 44.8466
+        }
+      ],
+      "value": 44.8466
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "gpt-5-3-codex",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 52.5669,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 52.5669
+        }
+      ],
+      "value": 52.5669
     },
     {
       "benchmark": "scicode",
       "targetSlug": "gpt-5-4",
-      "strategy": "unavailable_after_validation_failure",
-      "provenanceStatus": "unavailable",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for gpt-5-4; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 52.9547,
+      "lastKnownTarget": null,
       "lastObserved": null,
-      "maxFreshAgeDays": 14
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 52.9547
+        }
+      ],
+      "value": 52.9547
     },
     {
       "benchmark": "scicode",
       "targetSlug": "kimi-k2-5",
-      "strategy": "unavailable_after_validation_failure",
-      "provenanceStatus": "unavailable",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for kimi-k2-5; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 47.6406,
+      "lastKnownTarget": null,
       "lastObserved": null,
-      "maxFreshAgeDays": 14
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 47.6406
+        }
+      ],
+      "value": 47.6406
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "minimax-m2-5",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 43.188,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 43.188
+        }
+      ],
+      "value": 43.188
     },
     {
       "benchmark": "scicode",
       "targetSlug": "qwen3-6-plus",
-      "strategy": "unavailable_after_validation_failure",
-      "provenanceStatus": "unavailable",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for qwen3-6-plus; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 47.2575,
+      "lastKnownTarget": null,
       "lastObserved": null,
-      "maxFreshAgeDays": 14
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 47.2575
+        }
+      ],
+      "value": 47.2575
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "qwen3-max-preview",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 39.3641,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 39.3641
+        }
+      ],
+      "value": 39.3641
+    },
+    {
+      "benchmark": "scicode",
+      "targetSlug": "step-3-5-flash",
+      "strategy": "validated_ridge_with_conservative_bounds",
+      "provenanceStatus": "estimated",
+      "estimate": 42.5991,
+      "lastKnownTarget": null,
+      "lastObserved": null,
+      "analogy": null,
+      "ceiling": null,
+      "candidates": [
+        {
+          "kind": "ridge_current_peers",
+          "value": 42.5991
+        }
+      ],
+      "value": 42.5991
     }
   ],
   "scicodeEstimator": {
     "method": "current_observed_then_calibrated_lkg_then_validated_ridge",
-    "lambda": 2,
+    "lambda": 16,
     "features": [
       "gpqa",
       "hle",
       "lcr",
-      "gdpval",
       "omniscienceIndex"
     ],
-    "observedFamilies": 46,
+    "observedFamilies": 48,
     "historicalCalibratedFamilies": 0,
-    "estimatedFamilies": 0,
-    "validatedAt": "2026-09-28T12:48:26.076Z",
-    "sourceSnapshotGeneratedAt": "2026-09-28T12:48:26.076Z",
+    "estimatedFamilies": 12,
+    "validatedAt": "2026-09-28T13:21:03.528Z",
+    "sourceSnapshotGeneratedAt": "2026-09-28T13:21:03.528Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
-        "valid": false,
+        "valid": true,
         "method": "median_overlap_ratio_capped_at_1",
-        "factor": null,
-        "rawMedianRatio": null,
-        "overlap": 0,
-        "mae": null,
-        "maxError": null,
-        "failures": [
-          "overlap 0 < 20",
-          "invalid factor null",
-          "MAE null > 3",
-          "max error null > 8"
-        ]
+        "factor": 1,
+        "rawMedianRatio": 1,
+        "overlap": 42,
+        "mae": 0,
+        "maxError": 0,
+        "failures": []
       }
     },
     "validation": {
-      "valid": false,
-      "mae": 2.5894,
-      "maxError": 10.7784,
+      "valid": true,
+      "mae": 2.316,
+      "maxError": 7.7995,
       "limits": {
         "mae": 3,
         "maxError": 8,
@@ -390,39 +528,39 @@
       "worstResidual": {
         "slug": "longcat-2-0",
         "actual": 36.3426,
-        "predicted": 47.121,
-        "error": 10.7784
+        "predicted": 44.1421,
+        "error": 7.7995
       },
       "topResiduals": [
         {
           "slug": "longcat-2-0",
           "actual": 36.3426,
-          "predicted": 47.121,
-          "error": 10.7784
-        },
-        {
-          "slug": "gpt-5-4-mini",
-          "actual": 52.0833,
-          "predicted": 44.5982,
-          "error": 7.4851
+          "predicted": 44.1421,
+          "error": 7.7995
         },
         {
           "slug": "nvidia-nemotron-3-ultra-550b-a55b",
           "actual": 40.2778,
-          "predicted": 46.9364,
-          "error": 6.6586
+          "predicted": 48.0426,
+          "error": 7.7648
         },
         {
-          "slug": "muse-spark-1-1",
-          "actual": 58.7963,
-          "predicted": 53.368,
-          "error": 5.4283
+          "slug": "gpt-5-4-mini",
+          "actual": 52.0833,
+          "predicted": 46.181,
+          "error": 5.9024
+        },
+        {
+          "slug": "glm-5-3",
+          "actual": 59.0278,
+          "predicted": 53.5677,
+          "error": 5.4601
         },
         {
           "slug": "minimax-m3",
           "actual": 47.1065,
-          "predicted": 52.1492,
-          "error": 5.0427
+          "predicted": 51.7391,
+          "error": 4.6326
         }
       ]
     }
@@ -431,24 +569,20 @@
     {
       "slug": "claude-4-5-haiku",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
     {
       "slug": "claude-opus-4-6",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
     {
       "slug": "claude-opus-4-7",
-      "missingBenchmarks": [
-        "scicode"
-      ],
+      "missingBenchmarks": [],
       "missingTaskTokens": true
     },
     {
@@ -461,8 +595,7 @@
     {
       "slug": "claude-sonnet-4-6",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
@@ -476,24 +609,20 @@
     {
       "slug": "glm-5",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
     {
       "slug": "gpt-5-3-codex",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
     {
       "slug": "gpt-5-4",
-      "missingBenchmarks": [
-        "scicode"
-      ],
+      "missingBenchmarks": [],
       "missingTaskTokens": true
     },
     {
@@ -531,9 +660,7 @@
     },
     {
       "slug": "kimi-k2-5",
-      "missingBenchmarks": [
-        "scicode"
-      ],
+      "missingBenchmarks": [],
       "missingTaskTokens": true
     },
     {
@@ -565,8 +692,7 @@
     {
       "slug": "minimax-m2-5",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
@@ -577,24 +703,20 @@
     },
     {
       "slug": "qwen3-6-plus",
-      "missingBenchmarks": [
-        "scicode"
-      ],
+      "missingBenchmarks": [],
       "missingTaskTokens": true
     },
     {
       "slug": "qwen3-max-preview",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
     {
       "slug": "step-3-5-flash",
       "missingBenchmarks": [
-        "gdpval",
-        "scicode"
+        "gdpval"
       ],
       "missingTaskTokens": true
     },
@@ -1245,7 +1367,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K3",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },
@@ -1615,7 +1737,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.6",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-04-20T00:00:00.000Z"
         }
       },
@@ -1742,22 +1864,29 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "kimi-k2-5",
-        "reason": "AA source incomplete for active methodology: scicode, taskTokens",
-        "missingBenchmarks": [
-          "scicode"
-        ],
+        "reason": "AA source incomplete for active methodology: taskTokens",
+        "missingBenchmarks": [],
         "missingTaskTokens": true
       },
       "benchmarkProvenance": {
         "scicode": {
-          "status": "unavailable",
+          "status": "estimated",
           "benchmark": "scicode",
           "targetSlug": "kimi-k2-5",
-          "strategy": "unavailable_after_validation_failure",
-          "provenanceStatus": "unavailable",
-          "reason": "Artificial Analysis publishes no current SciCode for kimi-k2-5; estimator fallback failed validation (MAE=2.589, max=10.778).",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 47.6406,
+          "lastKnownTarget": null,
           "lastObserved": null,
-          "maxFreshAgeDays": 14
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 47.6406
+            }
+          ],
+          "value": 47.6406
         }
       },
       "tokenPrices": {
@@ -1954,7 +2083,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.3",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-08-18T00:00:00.000Z"
         }
       },
@@ -2105,7 +2234,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -2240,7 +2369,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -2487,14 +2616,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "glm-5",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "glm-5",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 44.8466,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 44.8466
+            }
+          ],
+          "value": 44.8466
+        }
+      },
       "tokenPrices": {
         "input": 1,
         "output": 3.2,
@@ -2544,7 +2692,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M3",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-05-31T00:00:00.000Z"
         }
       },
@@ -2703,14 +2851,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "minimax-m2-5",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "minimax-m2-5",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 43.188,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 43.188
+            }
+          ],
+          "value": 43.188
+        }
+      },
       "tokenPrices": {
         "input": 0.3,
         "output": 1.2,
@@ -2903,7 +3070,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -3167,7 +3334,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -3796,14 +3963,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "qwen3-max-preview",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "qwen3-max-preview",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 39.3641,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 39.3641
+            }
+          ],
+          "value": 39.3641
+        }
+      },
       "tokenPrices": {
         "input": 1.3,
         "output": 7.8,
@@ -3845,22 +4031,29 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "qwen3-6-plus",
-        "reason": "AA source incomplete for active methodology: scicode, taskTokens",
-        "missingBenchmarks": [
-          "scicode"
-        ],
+        "reason": "AA source incomplete for active methodology: taskTokens",
+        "missingBenchmarks": [],
         "missingTaskTokens": true
       },
       "benchmarkProvenance": {
         "scicode": {
-          "status": "unavailable",
+          "status": "estimated",
           "benchmark": "scicode",
           "targetSlug": "qwen3-6-plus",
-          "strategy": "unavailable_after_validation_failure",
-          "provenanceStatus": "unavailable",
-          "reason": "Artificial Analysis publishes no current SciCode for qwen3-6-plus; estimator fallback failed validation (MAE=2.589, max=10.778).",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 47.2575,
+          "lastKnownTarget": null,
           "lastObserved": null,
-          "maxFreshAgeDays": 14
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 47.2575
+            }
+          ],
+          "value": 47.2575
         }
       },
       "tokenPrices": {
@@ -4466,14 +4659,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "step-3-5-flash",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "step-3-5-flash",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 42.5991,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 42.5991
+            }
+          ],
+          "value": 42.5991
+        }
+      },
       "tokenPrices": {
         "input": 0.09,
         "output": 0.3,
@@ -4916,7 +5128,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5.1",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-09-01T00:00:00.000Z"
         }
       },
@@ -5073,7 +5285,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-06-09T00:00:00.000Z"
         }
       },
@@ -5256,7 +5468,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 5",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-22T00:00:00.000Z"
         }
       },
@@ -5413,7 +5625,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.8",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-05-28T00:00:00.000Z"
         }
       },
@@ -5540,22 +5752,29 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "claude-opus-4-7",
-        "reason": "AA source incomplete for active methodology: scicode, taskTokens",
-        "missingBenchmarks": [
-          "scicode"
-        ],
+        "reason": "AA source incomplete for active methodology: taskTokens",
+        "missingBenchmarks": [],
         "missingTaskTokens": true
       },
       "benchmarkProvenance": {
         "scicode": {
-          "status": "unavailable",
+          "status": "estimated",
           "benchmark": "scicode",
           "targetSlug": "claude-opus-4-7",
-          "strategy": "unavailable_after_validation_failure",
-          "provenanceStatus": "unavailable",
-          "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-7; estimator fallback failed validation (MAE=2.589, max=10.778).",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 54.9206,
+          "lastKnownTarget": null,
           "lastObserved": null,
-          "maxFreshAgeDays": 14
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 54.9206
+            }
+          ],
+          "value": 54.9206
         }
       },
       "tokenPrices": {
@@ -5599,14 +5818,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "claude-opus-4-6",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "claude-opus-4-6",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 44.2318,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 44.2318
+            }
+          ],
+          "value": 44.2318
+        }
+      },
       "tokenPrices": {
         "input": 5,
         "output": 25,
@@ -5754,14 +5992,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "claude-sonnet-4-6",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "claude-sonnet-4-6",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 42.2003,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 42.2003
+            }
+          ],
+          "value": 42.2003
+        }
+      },
       "tokenPrices": {
         "input": 3,
         "output": 15,
@@ -5803,14 +6060,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "claude-4-5-haiku",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "claude-4-5-haiku",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 37.2,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 37.2
+            }
+          ],
+          "value": 37.2
+        }
+      },
       "tokenPrices": {
         "input": 1,
         "output": 5,
@@ -5860,7 +6136,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-6 Astra",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
         }
       },
@@ -6106,7 +6382,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-5.6 Sol",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -6638,22 +6914,29 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "gpt-5-4",
-        "reason": "AA source incomplete for active methodology: scicode, taskTokens",
-        "missingBenchmarks": [
-          "scicode"
-        ],
+        "reason": "AA source incomplete for active methodology: taskTokens",
+        "missingBenchmarks": [],
         "missingTaskTokens": true
       },
       "benchmarkProvenance": {
         "scicode": {
-          "status": "unavailable",
+          "status": "estimated",
           "benchmark": "scicode",
           "targetSlug": "gpt-5-4",
-          "strategy": "unavailable_after_validation_failure",
-          "provenanceStatus": "unavailable",
-          "reason": "Artificial Analysis publishes no current SciCode for gpt-5-4; estimator fallback failed validation (MAE=2.589, max=10.778).",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 52.9547,
+          "lastKnownTarget": null,
           "lastObserved": null,
-          "maxFreshAgeDays": 14
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 52.9547
+            }
+          ],
+          "value": 52.9547
         }
       },
       "tokenPrices": {
@@ -6803,14 +7086,33 @@
       "mapping": {
         "status": "source_incomplete",
         "slug": "gpt-5-3-codex",
-        "reason": "AA source incomplete for active methodology: gdpval, scicode, taskTokens",
+        "reason": "AA source incomplete for active methodology: gdpval, taskTokens",
         "missingBenchmarks": [
-          "gdpval",
-          "scicode"
+          "gdpval"
         ],
         "missingTaskTokens": true
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "scicode": {
+          "status": "estimated",
+          "benchmark": "scicode",
+          "targetSlug": "gpt-5-3-codex",
+          "strategy": "validated_ridge_with_conservative_bounds",
+          "provenanceStatus": "estimated",
+          "estimate": 52.5669,
+          "lastKnownTarget": null,
+          "lastObserved": null,
+          "analogy": null,
+          "ceiling": null,
+          "candidates": [
+            {
+              "kind": "ridge_current_peers",
+              "value": 52.5669
+            }
+          ],
+          "value": 52.5669
+        }
+      },
       "tokenPrices": {
         "input": 2,
         "output": 8,
@@ -6860,7 +7162,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.8 Flash",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -7011,7 +7313,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.7 Flash",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-08-13T00:00:00.000Z"
         }
       },
@@ -7146,7 +7448,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.6 Flash",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-21T00:00:00.000Z"
         }
       },
@@ -7281,7 +7583,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.5 Flash",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-05-19T00:00:00.000Z"
         }
       },
@@ -7653,7 +7955,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -7804,7 +8106,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -7955,7 +8257,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -8090,7 +8392,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -8225,7 +8527,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.1",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -8408,7 +8710,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.6",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
         }
       },
@@ -8558,7 +8860,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.5",
-          "fetchedAt": "2026-09-28T12:48:26.018Z",
+          "fetchedAt": "2026-09-28T13:21:03.334Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },

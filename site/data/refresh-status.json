@@ -1,59 +1,27 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-09-28T12:48:28.726Z",
+  "attemptedAt": "2026-09-28T13:21:07.693Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T12:48:26.076Z"
+    "generatedAt": "2026-09-28T13:21:03.528Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T12:48:26.076Z",
+    "generatedAt": "2026-09-28T13:21:03.528Z",
     "benchmarkDate": "2026-09-28",
-    "benchmarkGeneratedAt": "2026-09-28T12:48:26.076Z",
-    "lineupInputsRefreshedAt": "2026-09-28T12:48:26.076Z"
+    "benchmarkGeneratedAt": "2026-09-28T13:21:03.528Z",
+    "lineupInputsRefreshedAt": "2026-09-28T13:21:03.528Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T12:48:26.076Z"
+    "generatedAt": "2026-09-28T13:21:03.528Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-opus-4-7",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-7; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "gpt-5-4",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for gpt-5-4; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "kimi-k2-5",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for kimi-k2-5; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "qwen3-6-plus",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for qwen3-6-plus; estimator fallback failed validation (MAE=2.589, max=10.778).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
     {
       "benchmark": "mapping",
       "targetModel": "Space Bunny Alpha",
