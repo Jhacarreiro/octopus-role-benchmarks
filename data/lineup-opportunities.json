@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-09-28",
-  "generatedAt": "2026-09-28T14:39:38.818Z",
+  "generatedAt": "2026-09-28T14:47:38.719Z",
   "policySchemaVersion": 11,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -24,9 +24,9 @@
     "balanced": {
       "classification": "review-only",
       "objective": "maximize-quality-minus-effective-cost-penalty",
-      "currentFamilyCount": 5,
+      "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.85,
-      "effectiveIntelligenceFloor": 0.78,
+      "effectiveIntelligenceFloor": 0.85,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
@@ -35,24 +35,24 @@
         "referenceModels": 31,
         "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.072256,
-        "populationStdDevCostPerTaskUsd": 1.810229,
-        "cutoffCostPerTaskUsd": 4.692715,
-        "postFilterBestEligibleIntelligenceIndex": 57.6224,
+        "meanCostPerTaskUsd": 1.385484,
+        "populationStdDevCostPerTaskUsd": 1.908088,
+        "cutoffCostPerTaskUsd": 5.201661,
+        "postFilterBestEligibleIntelligenceIndex": 52.6737,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 6.221286,
-            "planAdjustedCostPerTaskUsd": 6.221286
+            "creditBurnPerTaskUsd": 7.631889,
+            "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
-            "model": "GPT-6 Astra",
-            "family": "GPT",
+            "model": "Claude Opus 5.5",
+            "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 8.605424,
-            "planAdjustedCostPerTaskUsd": 8.605424
+            "creditBurnPerTaskUsd": 5.982012,
+            "planAdjustedCostPerTaskUsd": 5.982012
           }
         ]
       },
@@ -65,9 +65,9 @@
     "budget": {
       "classification": "review-only",
       "objective": "minimize-effective-task-cost",
-      "currentFamilyCount": 5,
+      "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.8,
-      "effectiveIntelligenceFloor": 0.78,
+      "effectiveIntelligenceFloor": 0.8,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
@@ -76,24 +76,24 @@
         "referenceModels": 31,
         "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.072256,
-        "populationStdDevCostPerTaskUsd": 1.810229,
-        "cutoffCostPerTaskUsd": 4.692715,
-        "postFilterBestEligibleIntelligenceIndex": 57.6224,
+        "meanCostPerTaskUsd": 1.385484,
+        "populationStdDevCostPerTaskUsd": 1.908088,
+        "cutoffCostPerTaskUsd": 5.201661,
+        "postFilterBestEligibleIntelligenceIndex": 52.6737,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 6.221286,
-            "planAdjustedCostPerTaskUsd": 6.221286
+            "creditBurnPerTaskUsd": 7.631889,
+            "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
-            "model": "GPT-6 Astra",
-            "family": "GPT",
+            "model": "Claude Opus 5.5",
+            "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 8.605424,
-            "planAdjustedCostPerTaskUsd": 8.605424
+            "creditBurnPerTaskUsd": 5.982012,
+            "planAdjustedCostPerTaskUsd": 5.982012
           }
         ]
       },
