@@ -14,6 +14,8 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');
 const bin=path.join(root,'node_modules','.bin','opencli');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
+const normalizedTaskProfile=roles.costBasis?.normalizedTask?.referenceTokenProfile;
+if(!normalizedTaskProfile||['nonCacheInput','cacheRead','cacheWrite','output'].some(k=>!Number.isFinite(normalizedTaskProfile[k])))throw new Error('Missing normalized reference token profile');
 const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const economics=planEconomics(lineupPolicy);
 const balancedPenaltyPerUsd=Number(lineupPolicy.modes?.balanced?.effectiveCostPenaltyPerUsd);
@@ -237,9 +239,7 @@ const sourceIncomplete=[];
 for(const slug of slugs){
   const source=aa.get(slug);
   const missingBenchmarks=activeBenchmarks.filter(key=>source?.[roles.benchmarks[key].sourceField]==null);
-  const t=source?.intelligenceTask?.tokens;
-  const missingTaskTokens=!t||[t.nonCacheInput,t.cacheRead,t.cacheWrite,t.output].some(v=>v==null);
-  if(missingBenchmarks.length||missingTaskTokens) sourceIncomplete.push({slug,missingBenchmarks,missingTaskTokens});
+  if(missingBenchmarks.length) sourceIncomplete.push({slug,missingBenchmarks});
 }
 const sourceIncompleteBySlug=new Map(sourceIncomplete.map(x=>[x.slug,x]));
 const scoredSlugs=slugs.filter(slug=>!sourceIncompleteBySlug.has(slug));
@@ -247,9 +247,8 @@ const scoredSlugSet=new Set(scoredSlugs);
 if(!scoredSlugs.length)throw new Error('No fully covered AA families remain after source-completeness filtering');
 const coverage={};
 for(const key of activeBenchmarks){const field=roles.benchmarks[key].sourceField;const missing=scoredSlugs.filter(slug=>aa.get(slug)?.[field]==null);coverage[key]={field,total:scoredSlugs.length,present:scoredSlugs.length-missing.length,ratio:round((scoredSlugs.length-missing.length)/scoredSlugs.length,6),missing};if(missing.length)throw new Error(`Coverage failure ${key}/${field}: ${scoredSlugs.length-missing.length}/${scoredSlugs.length}; missing ${missing.join(', ')}`)}
-const efficiencyMissing=scoredSlugs.filter(slug=>{const t=aa.get(slug)?.intelligenceTask?.tokens;return !t||[t.nonCacheInput,t.cacheRead,t.cacheWrite,t.output].some(v=>v==null)});
-if(efficiencyMissing.length)throw new Error(`Per-task token coverage failure: ${scoredSlugs.length-efficiencyMissing.length}/${scoredSlugs.length}; missing ${efficiencyMissing.join(', ')}`);
-const efficiencyCoverage={total:scoredSlugs.length,present:scoredSlugs.length-efficiencyMissing.length,ratio:round((scoredSlugs.length-efficiencyMissing.length)/scoredSlugs.length,6),missing:efficiencyMissing};
+const efficiencyMissing=[];
+const efficiencyCoverage={total:scoredSlugs.length,present:scoredSlugs.length,ratio:1,missing:[],basis:'normalized_reference_v1'};
 
 const codingBySlug=new Map();
 for(const row of codingRows){const base=codingHostBase(row.hostModelSlug);if(!scoredSlugSet.has(base))continue;codingBySlug.set(base,betterCoding(codingBySlug.get(base),row))}
@@ -329,12 +328,12 @@ const models=mapped.map(row=>{
   const rawSource=row.mapping.slug?aa.get(row.mapping.slug):null;
   const incomplete=row.mapping.slug?sourceIncompleteBySlug.get(row.mapping.slug):null;
   const source=incomplete?null:rawSource;
-  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:`AA source incomplete for active methodology: ${[...incomplete.missingBenchmarks,incomplete.missingTaskTokens?'taskTokenProfile':null].filter(Boolean).join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks,missingTaskTokens:incomplete.missingTaskTokens}:row.mapping;
+  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:row.mapping;
   const benchmarks=source?benchmarksForSource(source):{};
   const cyberbench=source?cyberbenchBySlug.get(source.slug):null;
   if(cyberbench)benchmarks.cyberbench=round(cyberbench.value,3);
   const tokenPrices=tokenPriceBases(row);
-  const taskCostUsd=source?repriceTask(source.intelligenceTask?.tokens,row):null;
+  const taskCostUsd=source?repriceTask(normalizedTaskProfile,row):null;
   const planAdjustedCostUsd=source?round(planAdjustedTaskCost(taskCostUsd,row,economics),6):null;
   const caiStar=source?caiBySlug.get(source.slug):null;
   const roleScores={};
@@ -369,7 +368,7 @@ const models=mapped.map(row=>{
   const benchmarkFallback=benchmarkFallbackBySlug.get(row.mapping.slug);
   const benchmarkProvenance=benchmarkFallback?{scicode:{status:benchmarkFallback.provenanceStatus??'estimated',...benchmarkFallback}}:{};
   if(cyberbench)benchmarkProvenance.cyberbench=cyberbench.provenance;
-  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,taskTokenProfile:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
+  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis:'normalized_reference_v1',normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
 const unexpectedUnscored=models.filter(x=>!x.aaModel&&!aliases[x.name]);
 for(const model of unexpectedUnscored){
@@ -379,7 +378,7 @@ const missingTaskRows=models.filter(x=>x.mapping?.status!=='source_incomplete'&&
 
 const now=new Date(),nowIso=now.toISOString(),date=nowIso.slice(0,10);
 const scicodeTopResiduals=scicodeValidationErrors.slice(0,5).map(x=>({slug:x.slug,actual:round(x.actual,4),predicted:round(x.predicted,4),error:round(x.error,4)}));
-const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:nowIso,benchmarkDate:date,benchmarkGeneratedAt:nowIso,lineupInputsRefreshedAt:nowIso,validationStatus:validationIssues.length?'partial':'valid',validationIssues,sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length,planEconomics:economics,billingCategories:{standard:maxRows.filter(x=>x.billingCategory==='standard').length,premium:maxRows.filter(x=>x.billingCategory==='premium').length,free:maxRows.filter(x=>x.billingCategory==='free').length}},artificialAnalysis:{url:'https://artificialanalysis.ai/',parserVersion:2,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{
+const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:nowIso,benchmarkDate:date,benchmarkGeneratedAt:nowIso,lineupInputsRefreshedAt:nowIso,validationStatus:validationIssues.length?'partial':'valid',validationIssues,costBasis:{id:'normalized_reference_v1',profileVersion:roles.costBasis.normalizedTask.profileVersion,referenceTokenProfile:normalizedTaskProfile,priceSource:'CommandCode'},sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length,planEconomics:economics,billingCategories:{standard:maxRows.filter(x=>x.billingCategory==='standard').length,premium:maxRows.filter(x=>x.billingCategory==='premium').length,free:maxRows.filter(x=>x.billingCategory==='free').length}},artificialAnalysis:{url:'https://artificialanalysis.ai/',parserVersion:2,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{
   url:'https://artificialanalysis.ai/agents/coding-agents',
   version:codingAgentVersion,
   variants:codingRows.length,

@@ -38,13 +38,13 @@ Balanced Score = (2/3 Universal Role Score + 1/3 CAI*) − 3.5 × Plan-adjusted 
 
 `CAI*` uses the current Artificial Analysis Coding Agent Index when observed. If the current CAI version has not yet re-evaluated a family, the last observed prior-version CAI is mapped onto the current scale with a validated overlap-derived degradation factor. Only families with neither observation use the reverse-validated 50/50 Ridge + inverse-distance 5NN estimator.
 
-## Why plan-adjusted Cost per Task
+## Why plan-adjusted normalized workload cost
 
-Nominal price per million tokens can make verbose models look artificially cheap. Artificial Analysis publishes the measured token mix consumed per Intelligence Index task. The pipeline reprices that measured non-cached input, cache-read, cache-write and output usage with current effective CommandCode Max prices, including promotions.
+Economic comparison uses one fixed, versioned reference token workload for every model. That workload is repriced with each model’s current effective CommandCode Max input/output/cache prices. Artificial Analysis task-token telemetry is retained only as observational metadata and never determines eligibility or price.
 
-The raw credit burn uses CommandCode effective prices after any published discount. The plan-adjusted denominator then converts that credit burn into subscription economics: standard Max credits use the 100/150 ratio, premium credits use 100/100, and free models remain zero. Max 20× has the same ratios, so ordering is unchanged. Discounts are not applied twice.
+The raw normalized-workload credit burn uses CommandCode effective prices after any published discount. The plan-adjusted denominator then converts that credit burn into subscription economics: standard Max credits use the 100/150 ratio, premium credits use 100/100, and free models remain zero. Max 20× has the same ratios, so ordering is unchanged. Discounts are not applied twice.
 
-Plan-adjusted Cost per Task has **100% coverage** of the scored model-family universe and is used as the economic penalty in Balanced scoring.
+Plan-adjusted normalized workload cost has **100% coverage** of the scored model-family universe and is used as the economic penalty in Balanced scoring.
 
 ## CAI coverage and estimation
 
@@ -140,7 +140,7 @@ MIT.
 
 ### Weekly refresh
 
-CommandCode is the sole source for model pricing, billing category and Max plan allowances. Artificial Analysis contributes benchmark measurements and, where available, the task token profile used only to apply CommandCode token prices to a common workload; AA prices are never used for ranking or cost calculations.
+CommandCode is the sole source for model pricing, billing category and Max plan allowances. Economic comparisons use one versioned normalized reference workload for every model; missing Artificial Analysis task-token telemetry never excludes a model. AA task-token profiles, when present, are retained only as observational telemetry.
 
 The benchmark refresh is designed to be invoked once per week by an external scheduler through `scripts/run-scheduled-weekly.sh`. The repository-owned runner performs the refresh, validation, public-state generation and commit/push as one bounded operation. `.github/workflows/weekly.yml` is retained only as a manual `workflow_dispatch` fallback; GitHub Actions is not the scheduler. Deployment-specific scheduling, credentials and notification targets remain outside this public repository.
 

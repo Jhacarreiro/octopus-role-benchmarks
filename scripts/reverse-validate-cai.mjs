@@ -36,7 +36,7 @@ for(const m of data.models){
   const slug=m.aaModel.slug;
   const prior=familyBySlug.get(slug);
   if(!prior){
-    familyBySlug.set(slug,{slug,benchmarks:m.benchmarks,outputTokens:m.taskEfficiency.tokens.output,cai:m.caiStar.value,taskCost:m.taskEfficiency.commandCodeCostPerTaskUsd,roleScores:Object.fromEntries(codingRoleIds.map(roleId=>[roleId,m.roleScores[roleId].score]))});
+    familyBySlug.set(slug,{slug,benchmarks:m.benchmarks,outputTokens:(m.taskEfficiency.observedTaskTokenProfile?.output??m.taskEfficiency.normalizedTokenProfile?.output),cai:m.caiStar.value,taskCost:m.taskEfficiency.commandCodeCostPerTaskUsd,roleScores:Object.fromEntries(codingRoleIds.map(roleId=>[roleId,m.roleScores[roleId].score]))});
   }else{
     prior.taskCost=Math.min(prior.taskCost,m.taskEfficiency.commandCodeCostPerTaskUsd);
   }

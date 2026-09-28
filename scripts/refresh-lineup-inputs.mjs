@@ -7,9 +7,10 @@ import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
 import { balancedScore } from './lib/balanced-score.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
+const normalizedTaskProfile=roles.costBasis?.normalizedTask?.referenceTokenProfile;
 const opencliHome=path.join(root,'.opencli-home');
 const bin=path.join(root,'node_modules','.bin','opencli');
-const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
 const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const economics=planEconomics(lineupPolicy);
 const balancedPenaltyPerUsd=Number(lineupPolicy.modes?.balanced?.effectiveCostPenaltyPerUsd);
@@ -57,7 +58,7 @@ for(const m of snapshot.models||[]){
   m.max20MonthlyUsageLimitUsd=cc.max20MonthlyUsageLimitUsd;
   m.offPeakShown=cc.offPeakShown===true;
   m.tokenPrices=tokenPriceBases(cc);
-  const cost=repriceTask(m.taskEfficiency?.tokens,cc);
+  const cost=repriceTask(normalizedTaskProfile,cc);
   const adjusted=planAdjustedTaskCost(cost,cc,economics);
   if(m.taskEfficiency&&Number.isFinite(cost)){
     m.taskEfficiency.commandCodeCostPerTaskUsd=cost;

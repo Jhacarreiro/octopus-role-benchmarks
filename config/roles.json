@@ -1,12 +1,8 @@
 {
-  "schemaVersion": 6,
+  "schemaVersion": 7,
   "coveragePolicy": 1.0,
   "costBasis": {
-    "default": "task",
-    "task": {
-      "label": "CommandCode cost per Intelligence Index task",
-      "formula": "AA measured token mix per task repriced with effective CommandCode prices"
-    },
+    "default": "normalizedTask",
     "input": {
       "label": "Input, per 1M tokens",
       "formula": "input_per_m"
@@ -18,6 +14,18 @@
     "blended50": {
       "label": "50/50 input-output, per 1M tokens",
       "formula": "(input_per_m + output_per_m) / 2"
+    },
+    "normalizedTask": {
+      "label": "CommandCode cost on normalized reference workload",
+      "formula": "fixed reference token profile repriced with effective CommandCode prices",
+      "profileVersion": 1,
+      "referenceTokenProfile": {
+        "nonCacheInput": 16564.39,
+        "cacheRead": 3178851.04,
+        "cacheWrite": 214245.16,
+        "output": 51657.3
+      },
+      "provenance": "Frozen robust median of observed Artificial Analysis Intelligence Index task token profiles on 2026-09-28; token quantities define workload only. All prices and plan economics come exclusively from CommandCode."
     }
   },
   "benchmarks": {
@@ -178,7 +186,7 @@
     }
   ],
   "ranking": {
-    "denominator": "commandCodeCostPerTaskUsd",
+    "denominator": "commandCodeNormalizedTaskCostUsd",
     "codingRoles": [
       "code-reviewer",
       "implementer",

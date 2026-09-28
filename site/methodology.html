@@ -24,9 +24,9 @@
 </section>
 <section id="coverage" class="methodology"></section>
 <section class="methodology prose">
-  <h2>CommandCode credit burn and plan-adjusted Cost per Task</h2>
-  <p>Price per million tokens is not used as the primary denominator. Artificial Analysis measures the token mix consumed per Intelligence Index task. Those measured non-cached input, cache-read, cache-write and output tokens are repriced with the current effective CommandCode Max rates.</p>
-  <code class="formula-code">task cost = input tokens × CC input + cache-read × CC cache-read + cache-write × CC cache-write + output × CC output</code>
+  <h2>CommandCode credit burn and normalized reference workload</h2>
+  <p>Every model is priced against the same versioned reference token workload. The workload is fixed; all token prices, discounts, billing categories and Max allowances come from CommandCode. Artificial Analysis task-token telemetry is optional observational metadata and never a price source or eligibility gate.</p>
+  <code class="formula-code">normalized cost = reference input × CC input + reference cache-read × CC cache-read + reference cache-write × CC cache-write + reference output × CC output</code>
   <p>If CommandCode exposes no separate cache rate, normal input price is used. Active CommandCode promotions are retained.</p>
 </section>
 <section class="methodology prose">

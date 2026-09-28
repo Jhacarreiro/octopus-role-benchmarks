@@ -5,7 +5,9 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
 if(roles.schemaVersion<6) throw new Error('Expected methodology schema >=6');
 if(roles.coveragePolicy!==1) throw new Error('coveragePolicy must remain 1.0');
-if(roles.costBasis?.default!=='task') throw new Error('Primary cost basis must be task');
+if(roles.costBasis?.default!=='normalizedTask') throw new Error('Primary cost basis must be normalizedTask');
+const ref=roles.costBasis?.normalizedTask?.referenceTokenProfile;
+if(!ref||['nonCacheInput','cacheRead','cacheWrite','output'].some(k=>!Number.isFinite(ref[k]))) throw new Error('Normalized reference token profile missing');
 if(Math.abs((roles.ranking?.codingAgentWeight??0)-1/3)>1e-12) throw new Error('Coding Agent weight must remain 1/3');
 if(!Array.isArray(roles.roles)||roles.roles.length!==8) throw new Error('Expected 8 canonical Octopus roles');
 for(const role of roles.roles){
