@@ -1,21 +1,21 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-09-28T14:07:47.833Z",
+  "attemptedAt": "2026-09-28T14:22:20.597Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T14:07:44.913Z"
+    "generatedAt": "2026-09-28T14:22:16.020Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T14:07:44.913Z",
+    "generatedAt": "2026-09-28T14:22:16.020Z",
     "benchmarkDate": "2026-09-28",
-    "benchmarkGeneratedAt": "2026-09-28T14:07:44.913Z",
-    "lineupInputsRefreshedAt": "2026-09-28T14:07:44.913Z"
+    "benchmarkGeneratedAt": "2026-09-28T14:22:16.020Z",
+    "lineupInputsRefreshedAt": "2026-09-28T14:22:16.020Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T14:07:44.913Z"
+    "generatedAt": "2026-09-28T14:22:16.020Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",

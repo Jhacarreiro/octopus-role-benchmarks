@@ -7,21 +7,21 @@
     "n": 16,
     "groups": 9,
     "ridge": {
-      "mae": 3.1683,
-      "rmse": 4.3458,
-      "spearman": 0.8235,
-      "pairwiseAccuracy": 0.8333
+      "mae": 3.6062,
+      "rmse": 4.7039,
+      "spearman": 0.7882,
+      "pairwiseAccuracy": 0.8167
     },
     "knn": {
-      "mae": 5.6881,
-      "rmse": 6.8376,
-      "spearman": 0.5618,
-      "pairwiseAccuracy": 0.675
+      "mae": 5.0427,
+      "rmse": 6.0582,
+      "spearman": 0.7206,
+      "pairwiseAccuracy": 0.7583
     },
     "ensemble": {
-      "mae": 4.0999,
-      "rmse": 5.1852,
-      "spearman": 0.7235,
+      "mae": 4.6382,
+      "rmse": 5.5857,
+      "spearman": 0.7471,
       "pairwiseAccuracy": 0.7917
     }
   },
@@ -29,12 +29,12 @@
     "repetitions": 500,
     "testFraction": 0.3125,
     "mae": {
-      "median": 3.6817,
-      "p90": 5.2027
+      "median": 3.9975,
+      "p90": 5.6506
     },
     "spearman": {
       "median": 0.9,
-      "p10": 0.6
+      "p10": 0.7
     },
     "pairwiseAccuracy": {
       "median": 0.9
@@ -42,28 +42,28 @@
   },
   "finalRanking": {
     "implementer": {
-      "mae": 4.5399,
-      "rmse": 10.6816,
-      "spearman": 0.9971,
-      "pairwiseAccuracy": 0.9917,
+      "mae": 3.4881,
+      "rmse": 7.3515,
+      "spearman": 0.9941,
+      "pairwiseAccuracy": 0.9833,
       "top5Hit": 1,
-      "qualityMae": 1.3666
+      "qualityMae": 1.5461
     },
     "implementer-heavy": {
-      "mae": 4.5399,
-      "rmse": 10.6816,
-      "spearman": 0.9971,
-      "pairwiseAccuracy": 0.9917,
+      "mae": 3.4881,
+      "rmse": 7.3515,
+      "spearman": 1,
+      "pairwiseAccuracy": 1,
       "top5Hit": 1,
-      "qualityMae": 1.3666
+      "qualityMae": 1.5461
     },
     "code-reviewer": {
-      "mae": 4.5399,
-      "rmse": 10.6816,
-      "spearman": 0.9971,
-      "pairwiseAccuracy": 0.9917,
+      "mae": 3.4881,
+      "rmse": 7.3515,
+      "spearman": 0.9941,
+      "pairwiseAccuracy": 0.9833,
       "top5Hit": 1,
-      "qualityMae": 1.3666
+      "qualityMae": 1.5461
     }
   },
   "guardrails": {
