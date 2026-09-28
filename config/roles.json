@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 7,
+  "schemaVersion": 8,
   "coveragePolicy": 1.0,
   "costBasis": {
     "default": "normalizedTask",
@@ -47,12 +47,6 @@
       "scale": "0-100",
       "description": "Frontier expert-level academic reasoning across disciplines."
     },
-    "gpqa": {
-      "sourceField": "gpqa",
-      "label": "GPQA Diamond",
-      "scale": "0-100",
-      "description": "Graduate-level scientific reasoning designed to resist simple web lookup."
-    },
     "lcr": {
       "sourceField": "lcr",
       "label": "AA-LCR",
@@ -81,10 +75,9 @@
       "label": "Architect",
       "purpose": "Architecture, decomposition, design trade-offs and high-level technical judgment.",
       "weights": {
-        "gdpval": 0.4,
-        "lcr": 0.25,
-        "gpqa": 0.2,
-        "hle": 0.15
+        "gdpval": 0.5,
+        "lcr": 0.3125,
+        "hle": 0.1875
       },
       "note": "Prioritizes professional deliverables, long-context synthesis and hard reasoning.",
       "codingAgentEvidence": false,
@@ -95,10 +88,9 @@
       "label": "Strategist",
       "purpose": "Arbitration, product/architecture trade-offs and decision quality under ambiguity.",
       "weights": {
-        "gdpval": 0.4,
-        "lcr": 0.2,
-        "omniscienceIndex": 0.3,
-        "gpqa": 0.1
+        "gdpval": 0.444444,
+        "lcr": 0.222222,
+        "omniscienceIndex": 0.333334
       },
       "note": "Balances professional judgment with factuality and long-context reasoning.",
       "codingAgentEvidence": false,
@@ -118,11 +110,10 @@
       "label": "Code Reviewer",
       "purpose": "Independent review of code, edge cases, regressions and implementation quality.",
       "weights": {
-        "scicode": 0.45,
-        "gpqa": 0.2,
-        "lcr": 0.15,
-        "omniscienceIndex": 0.1,
-        "hle": 0.1
+        "scicode": 0.5625,
+        "lcr": 0.1875,
+        "omniscienceIndex": 0.125,
+        "hle": 0.125
       },
       "note": "SciCode is the dominant coding signal; reasoning and context support review quality.",
       "codingAgentEvidence": true,
@@ -133,10 +124,9 @@
       "label": "Implementer",
       "purpose": "Normal coding implementation and iterative patch/test work.",
       "weights": {
-        "scicode": 0.6,
-        "gpqa": 0.15,
-        "lcr": 0.15,
-        "hle": 0.1
+        "scicode": 0.705882,
+        "lcr": 0.176471,
+        "hle": 0.117647
       },
       "note": "Terminal-Bench is intentionally excluded because it does not have 100% coverage of the scored Max universe.",
       "codingAgentEvidence": true,
@@ -147,10 +137,9 @@
       "label": "Implementer Heavy",
       "purpose": "Greenfield builds, large refactors and complex implementation work.",
       "weights": {
-        "scicode": 0.45,
-        "gdpval": 0.25,
-        "lcr": 0.2,
-        "gpqa": 0.1
+        "scicode": 0.5,
+        "gdpval": 0.277778,
+        "lcr": 0.222222
       },
       "note": "Adds professional-deliverable and long-context weight to coding for larger project work.",
       "codingAgentEvidence": true,
@@ -174,11 +163,10 @@
       "label": "Researcher",
       "purpose": "Broad research, evidence synthesis and difficult question answering.",
       "weights": {
-        "lcr": 0.3,
-        "gdpval": 0.25,
-        "omniscienceIndex": 0.2,
-        "gpqa": 0.15,
-        "hle": 0.1
+        "lcr": 0.352941,
+        "gdpval": 0.294118,
+        "omniscienceIndex": 0.235294,
+        "hle": 0.117647
       },
       "note": "Focuses on synthesis, professional research output, factual accuracy and hard reasoning.",
       "codingAgentEvidence": false,

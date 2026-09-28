@@ -1,8 +1,8 @@
-export const RIDGE_FEATURES = ['scicode','gpqa','hle','lcr','gdpval','omniscienceIndex','logOutputTokens'];
-export const KNN_FEATURES = ['scicode','gpqa','hle','lcr'];
-export const RIDGE_LAMBDA = 1;
+export const RIDGE_FEATURES = ['scicode','hle','lcr','gdpval','omniscienceIndex','logOutputTokens'];
+export const KNN_FEATURES = ['scicode','hle','lcr','gdpval','omniscienceIndex','logOutputTokens'];
+export const RIDGE_LAMBDA = 4;
 export const KNN_K = 5;
-export const CAI_BLEND = { ridge: 0.5, knn: 0.5 };
+export const CAI_BLEND = { ridge: 0.25, knn: 0.75 };
 export const CODING_ROLE_CAI_WEIGHT = 1 / 3;
 
 function mean(values){ return values.reduce((a,b)=>a+b,0)/values.length; }
@@ -95,7 +95,6 @@ export function rowFromModelFamily(slug, benchmarks, outputTokens, cai=null){
     slug,
     cai,
     scicode:benchmarks.scicode,
-    gpqa:benchmarks.gpqa,
     hle:benchmarks.hle,
     lcr:benchmarks.lcr,
     gdpval:benchmarks.gdpval,

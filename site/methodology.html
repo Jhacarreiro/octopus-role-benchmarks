@@ -19,7 +19,7 @@
   <p>For Balanced and Budget, cost outliers are identified first from the full latest-generation scored universe. After those models are removed, the best eligible Intelligence Index is recomputed; the requested 0.85/0.80 floor is then applied to that filtered baseline. If the resulting pool cannot support a feasible portfolio, the floor is lowered in 0.005 steps. Quality uses the unfiltered Intelligence baseline. Every final lineup still requires at least four families and allows at most two seats per family.</p>
   <p>There are no mandatory models, manual Fable blacklist, or per-role quality floor. Code Reviewer must differ from both implementation identities. Implementer Heavy must differ from Implementer and must have at least +2.0 AA Intelligence Index points.</p>
   <h3>Security Reviewer</h3>
-  <p><strong>Security Reviewer = Vals AI CyberBench Overall, directly.</strong> The previous SciCode/GPQA/HLE/Omniscience/LCR proxy has been removed. If a model has no direct CyberBench score, it is simply ineligible for this one role.</p>
+  <p><strong>Security Reviewer = Vals AI CyberBench Overall, directly.</strong> The previous SciCode//HLE/Omniscience/LCR proxy has been removed. If a model has no direct CyberBench score, it is simply ineligible for this one role.</p>
   <p>Balanced and Budget share the same mean + 2σ plan-adjusted cost-outlier cutoff. The cutoff is computed from the full latest-generation scored universe, then the Intelligence baseline is recomputed after exclusions. Balanced additionally applies a linear penalty of 3.5 Role Quality points per $1 of effective task cost; Budget minimizes total plan-adjusted task cost.</p>
 </section>
 <section id="coverage" class="methodology"></section>
@@ -34,7 +34,7 @@
   <p id="caiCounts"></p>
   <p>If the current Coding Agent Index version has not re-evaluated a family, a prior observed CAI may be mapped onto the current scale with a validated overlap-derived degradation factor. Only families with neither current nor calibratable historical CAI use the estimator:</p>
   <code class="formula-code">CAI* = 50% Ridge prediction + 50% inverse-distance 5NN prediction</code>
-  <p><strong>Ridge (λ=1)</strong> uses SciCode, GPQA, HLE, LCR, GDPval, AA-Omniscience Index (normalized to 0–100) and log(Output Tokens/Task). <strong>5NN</strong> uses SciCode, GPQA, HLE and LCR, standardized across the observed CAI training set, with Euclidean distance and inverse-distance weighting over the five nearest models.</p>
+  <p><strong>Ridge (λ=1)</strong> uses SciCode, HLE, LCR, GDPval, AA-Omniscience Index (normalized to 0–100) and log(Output Tokens/Task). <strong>5NN</strong> uses SciCode, HLE and LCR, standardized across the observed CAI training set, with Euclidean distance and inverse-distance weighting over the five nearest models.</p>
   <p>The estimator is trained only on unique model families with current-version observed AA Coding Agent results. Calibrated historical values never train the estimator, and commercial CommandCode variants never count as extra training examples.</p><p><strong>SciCode fallback:</strong> current observation first; otherwise a last observed value no older than 14 days may be used only after overlap calibration against current observations passes MAE/max-error guardrails. The calibration factor is capped at 1. Ridge is a third-line fallback and is usable only when its original leave-one-out guardrails pass; otherwise the family is source-incomplete.</p>
 </section>
 <section id="validation" class="methodology"></section>

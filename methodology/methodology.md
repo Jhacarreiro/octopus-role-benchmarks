@@ -21,7 +21,7 @@ Current components:
 - GDPval-AA v2;
 - SciCode;
 - Humanity's Last Exam;
-- GPQA Diamond;
+- ;
 - AA-LCR;
 - AA-Omniscience Index, normalized from native -100..100 to 0..100.
 
@@ -97,7 +97,7 @@ Estimated CAI = 50% Ridge + 50% inverse-distance 5NN
 Ridge regression uses λ=1 and standardized features:
 
 - SciCode;
-- GPQA Diamond;
+- ;
 - Humanity's Last Exam;
 - AA-LCR;
 - GDPval-AA v2;
@@ -109,7 +109,7 @@ Ridge regression uses λ=1 and standardized features:
 5NN uses standardized:
 
 - SciCode;
-- GPQA Diamond;
+- ;
 - Humanity's Last Exam;
 - AA-LCR.
 
@@ -137,28 +137,28 @@ If these fail, the weekly update does not publish a new snapshot.
 ## Role weights
 
 ### Architect
-GDPval-AA v2 40% · AA-LCR 25% · GPQA Diamond 20% · Humanity's Last Exam 15%.
+GDPval-AA v2 40% · AA-LCR 25% ·  20% · Humanity's Last Exam 15%.
 
 ### Strategist
-GDPval-AA v2 40% · AA-LCR 20% · AA-Omniscience Index 30% · GPQA Diamond 10%.
+GDPval-AA v2 40% · AA-LCR 20% · AA-Omniscience Index 30% ·  10%.
 
 ### Security Reviewer
 **Vals AI CyberBench Overall 100%.** No Octopus proxy, regression, or composite formula is applied. Missing CyberBench coverage excludes that model from Security Reviewer only.
 
 ### Code Reviewer
-SciCode 45% · GPQA Diamond 20% · AA-LCR 15% · AA-Omniscience Index 10% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.
+SciCode 45% ·  20% · AA-LCR 15% · AA-Omniscience Index 10% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.
 
 ### Implementer
-SciCode 60% · GPQA Diamond 15% · AA-LCR 15% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.
+SciCode 60% ·  15% · AA-LCR 15% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.
 
 ### Implementer Heavy
-SciCode 45% · GDPval-AA v2 25% · AA-LCR 20% · GPQA Diamond 10%, then blended 2/3 with 1/3 CAI*.
+SciCode 45% · GDPval-AA v2 25% · AA-LCR 20% ·  10%, then blended 2/3 with 1/3 CAI*.
 
 ### Synthesizer
 AA-LCR 45% · AA-Omniscience Index 40% · GDPval-AA v2 15%.
 
 ### Researcher
-AA-LCR 30% · GDPval-AA v2 25% · AA-Omniscience Index 20% · GPQA Diamond 15% · Humanity's Last Exam 10%.
+AA-LCR 30% · GDPval-AA v2 25% · AA-Omniscience Index 20% ·  15% · Humanity's Last Exam 10%.
 
 ## Transparency
 
@@ -176,4 +176,4 @@ The public JSON preserves the intermediate values needed to audit both the per-r
 
 Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. The 100% coverage rule applies to the scored universe. No benchmark value is imputed or carried forward except the explicitly documented, validated SciCode fallback below.
 
-When AA temporarily omits SciCode for a mapped model, Octopus may estimate SciCode from the model's other independent AA benchmarks (GPQA, HLE, LCR, GDPval and normalized AA-Omniscience) using a leave-one-out validated Ridge model. Intelligence Index is deliberately excluded to avoid circularity. The estimate is conservatively bounded by a recent last-known target score and any explicitly configured same-series/sibling analogue; provenance and validation error are published in the snapshot. If the estimator guardrails fail or required features are missing, the model becomes `source_incomplete` instead of receiving a score.
+When AA temporarily omits SciCode for a mapped model, Octopus may estimate SciCode from the model's other independent AA benchmarks (HLE, LCR, GDPval and normalized AA-Omniscience) using a leave-one-out validated Ridge model. Intelligence Index is deliberately excluded to avoid circularity. The estimate is conservatively bounded by a recent last-known target score and any explicitly configured same-series/sibling analogue; provenance and validation error are published in the snapshot. If the estimator guardrails fail or required features are missing, the model becomes `source_incomplete` instead of receiving a score.

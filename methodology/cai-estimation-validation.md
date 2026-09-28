@@ -17,14 +17,14 @@ An entire vendor/family group is removed from training before predicting it. Thi
 
 | Method | MAE | RMSE | Spearman | Pairwise accuracy |
 |---|---:|---:|---:|---:|
-| Ridge | 3.17 | 4.35 | 0.824 | 83.3% |
-| 5NN | 5.69 | 6.84 | 0.562 | 67.5% |
-| **50/50 ensemble** | **4.1** | **5.19** | **0.724** | **79.2%** |
+| Ridge | 3.61 | 4.7 | 0.788 | 81.7% |
+| 5NN | 5.04 | 6.06 | 0.721 | 75.8% |
+| **50/50 ensemble** | **4.64** | **5.59** | **0.747** | **79.2%** |
 
 ## Random 31.3% holdout × 500
 
-- MAE median: **3.68**; p90: **5.2**.
-- Spearman median: **0.9**; p10: **0.6**.
+- MAE median: **4**; p90: **5.65**.
+- Spearman median: **0.9**; p10: **0.7**.
 - Pairwise ranking accuracy median: **90%**.
 
 ## Effect on final ranking
@@ -33,9 +33,9 @@ For each observed family, the real CAI is hidden using leave-one-vendor-out; the
 
 | Role | Spearman | Pairwise accuracy | Top-5 recovered | Quality MAE |
 |---|---:|---:|---:|---:|
-| implementer | 0.997 | 99.2% | 100% | 1.37 |
-| implementer-heavy | 0.997 | 99.2% | 100% | 1.37 |
-| code-reviewer | 0.997 | 99.2% | 100% | 1.37 |
+| implementer | 0.994 | 98.3% | 100% | 1.55 |
+| implementer-heavy | 1 | 100% | 100% | 1.55 |
+| code-reviewer | 0.994 | 98.3% | 100% | 1.55 |
 
 ## Guardrails
 
