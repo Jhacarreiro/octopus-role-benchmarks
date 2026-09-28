@@ -1,21 +1,21 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-09-28T12:29:33.386Z",
+  "attemptedAt": "2026-09-28T12:48:28.726Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T12:29:28.517Z"
+    "generatedAt": "2026-09-28T12:48:26.076Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T12:29:28.517Z",
+    "generatedAt": "2026-09-28T12:48:26.076Z",
     "benchmarkDate": "2026-09-28",
-    "benchmarkGeneratedAt": "2026-09-28T12:29:28.517Z",
-    "lineupInputsRefreshedAt": "2026-09-28T12:29:28.517Z"
+    "benchmarkGeneratedAt": "2026-09-28T12:48:26.076Z",
+    "lineupInputsRefreshedAt": "2026-09-28T12:48:26.076Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T12:29:28.517Z"
+    "generatedAt": "2026-09-28T12:48:26.076Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -24,158 +24,34 @@
   "validationIssues": [
     {
       "benchmark": "scicode",
-      "targetSlug": "claude-4-5-haiku",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 34.375,
-      "lastObserved": {
-        "value": 34.375,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-opus-4-6",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 45.7176,
-      "lastObserved": {
-        "value": 45.7176,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
       "targetSlug": "claude-opus-4-7",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 54.5139,
-      "lastObserved": {
-        "value": 54.5139,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-sonnet-4-6",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 46.875,
-      "lastObserved": {
-        "value": 46.875,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "glm-5",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 46.1806,
-      "lastObserved": {
-        "value": 46.1806,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "gpt-5-3-codex",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 53.2407,
-      "lastObserved": {
-        "value": 53.2407,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-7; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "lastObserved": null,
       "maxFreshAgeDays": 14
     },
     {
       "benchmark": "scicode",
       "targetSlug": "gpt-5-4",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 56.5972,
-      "lastObserved": {
-        "value": 56.5972,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current SciCode for gpt-5-4; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "lastObserved": null,
       "maxFreshAgeDays": 14
     },
     {
       "benchmark": "scicode",
       "targetSlug": "kimi-k2-5",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 48.9583,
-      "lastObserved": {
-        "value": 48.9583,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "minimax-m2-5",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 42.5926,
-      "lastObserved": {
-        "value": 42.5926,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current SciCode for kimi-k2-5; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "lastObserved": null,
       "maxFreshAgeDays": 14
     },
     {
       "benchmark": "scicode",
       "targetSlug": "qwen3-6-plus",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 40.7407,
-      "lastObserved": {
-        "value": 40.7407,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "qwen3-max-preview",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 37.037,
-      "lastObserved": {
-        "value": 37.037,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "step-3-5-flash",
-      "status": "stale",
-      "reason": "SciCode estimator validation failed: MAE=2.529 max=10.568",
-      "value": 38.5417,
-      "lastObserved": {
-        "value": 38.5417,
-        "observedAt": "2026-09-04T13:59:41.846Z",
-        "ageDays": 23.937
-      },
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current SciCode for qwen3-6-plus; estimator fallback failed validation (MAE=2.589, max=10.778).",
+      "lastObserved": null,
       "maxFreshAgeDays": 14
     },
     {

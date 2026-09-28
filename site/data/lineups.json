@@ -1,7 +1,7 @@
 {
   "schemaVersion": 11,
   "snapshotDate": "2026-09-28",
-  "generatedAt": "2026-09-28T12:29:28.517Z",
+  "generatedAt": "2026-09-28T12:48:26.076Z",
   "policy": {
     "latestGenerationOnly": true,
     "poolPrecheck": {
@@ -106,7 +106,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-28T12:29:28.374Z",
+            "fetchedAt": "2026-09-28T12:48:26.018Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
@@ -220,12 +220,12 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 30,
-        "referenceFamilies": 17,
+        "referenceModels": 24,
+        "referenceFamilies": 14,
         "preFilterBestEligibleIntelligenceIndex": 53.3549,
-        "meanCostPerTaskUsd": 1.435685,
-        "populationStdDevCostPerTaskUsd": 1.914155,
-        "cutoffCostPerTaskUsd": 5.263995,
+        "meanCostPerTaskUsd": 1.591915,
+        "populationStdDevCostPerTaskUsd": 2.100197,
+        "cutoffCostPerTaskUsd": 5.79231,
         "postFilterBestEligibleIntelligenceIndex": 52.6737,
         "excluded": [
           {
@@ -309,7 +309,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-28T12:29:28.374Z",
+            "fetchedAt": "2026-09-28T12:48:26.018Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
@@ -423,12 +423,12 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 30,
-        "referenceFamilies": 17,
+        "referenceModels": 24,
+        "referenceFamilies": 14,
         "preFilterBestEligibleIntelligenceIndex": 53.3549,
-        "meanCostPerTaskUsd": 1.435685,
-        "populationStdDevCostPerTaskUsd": 1.914155,
-        "cutoffCostPerTaskUsd": 5.263995,
+        "meanCostPerTaskUsd": 1.591915,
+        "populationStdDevCostPerTaskUsd": 2.100197,
+        "cutoffCostPerTaskUsd": 5.79231,
         "postFilterBestEligibleIntelligenceIndex": 52.6737,
         "excluded": [
           {
@@ -512,7 +512,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "Grok 4.6",
-            "fetchedAt": "2026-09-28T12:29:28.374Z",
+            "fetchedAt": "2026-09-28T12:48:26.018Z",
             "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
           },
           "free": false,
