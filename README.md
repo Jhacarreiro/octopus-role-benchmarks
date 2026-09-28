@@ -75,7 +75,8 @@ See:
 ## Pipeline
 
 ```text
-GitHub Actions weekly
+External weekly scheduler
+  -> scripts/run-scheduled-weekly.sh
   -> OpenCLI CommandCode Max
   -> OpenCLI Artificial Analysis models
   -> OpenCLI Coding Agent Index
@@ -139,8 +140,8 @@ MIT.
 
 ### Weekly refresh
 
-The benchmark refresh runs once per week via `.github/workflows/weekly.yml` (Monday 06:17 UTC). The workflow publishes a valid benchmark snapshot even if the separately curated lineup needs review; lineup audit status is recorded and surfaced rather than used as a benchmark publication gate. Any downstream review or notification automation is deployment-specific and intentionally outside this public repository.
+The benchmark refresh is designed to be invoked once per week by an external scheduler through `scripts/run-scheduled-weekly.sh`. The repository-owned runner performs the refresh, validation, public-state generation and commit/push as one bounded operation. `.github/workflows/weekly.yml` is retained only as a manual `workflow_dispatch` fallback; GitHub Actions is not the scheduler. Deployment-specific scheduling, credentials and notification targets remain outside this public repository.
 
-Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. The 100% coverage rule applies to the scored universe. No benchmark value is imputed or carried forward except the explicitly documented, validated SciCode fallback below.
+Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. The 100% coverage rule applies to the scored universe. Benchmark fallbacks are never silent: every estimated, historical, stale or unavailable value carries explicit provenance in the public snapshot.
 
-When AA temporarily omits SciCode for a mapped model, Octopus first uses the last observed SciCode only when it is at most 14 days old and when an overlap calibration against current observed families passes the published MAE/max-error guardrails. The overlap-derived factor is capped at 1, so historical fallback never inflates a prior observation. If no eligible calibrated LKG exists, the Ridge estimator may be used only when its original leave-one-out guardrails pass; otherwise the model becomes `source_incomplete`. Intelligence Index remains excluded from the Ridge features to avoid circularity. All fallback provenance, age, calibration factor and validation diagnostics are published in the snapshot.
+When AA temporarily omits SciCode for a mapped model, the pipeline first uses the last observed SciCode only when it is at most 14 days old and when an overlap calibration against current observed families passes the published MAE/max-error guardrails. The overlap-derived factor is capped at 1, so the calibrated historical fallback never inflates a prior observation. If no fresh calibrated LKG exists, the Ridge estimator may be used only when its leave-one-out guardrails pass. If those guardrails fail, the refresh no longer aborts globally: an older observed SciCode is carried only as explicitly `stale`, preserving its original observation timestamp and failure reason; if no prior observation exists, SciCode is marked `unavailable` and that family may become `source_incomplete`. The snapshot and public status become `partial`, while unaffected models continue through the refresh. Intelligence Index remains excluded from the Ridge features to avoid circularity.

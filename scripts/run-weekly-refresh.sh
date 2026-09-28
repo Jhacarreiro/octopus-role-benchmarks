@@ -8,7 +8,7 @@ write_error() {
   local stage="$1"
   node scripts/write-refresh-status.mjs --status error --stage "$stage" --log-file /tmp/octopus-refresh.log --run-url "$RUN_URL"
   node scripts/write-public-weekly-review.mjs
-  echo "publish_snapshot=false" >> "$GITHUB_OUTPUT"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "publish_snapshot=false" >> "$GITHUB_OUTPUT"
 }
 
 write_success() {
@@ -20,7 +20,7 @@ write_success() {
     node scripts/write-refresh-status.mjs --status success --mode "$mode" --run-url "$RUN_URL"
   fi
   node scripts/write-public-weekly-review.mjs
-  echo "publish_snapshot=true" >> "$GITHUB_OUTPUT"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "publish_snapshot=true" >> "$GITHUB_OUTPUT"
 }
 
 write_partial() {
@@ -32,7 +32,7 @@ write_partial() {
     node scripts/write-refresh-status.mjs --status partial --mode "$mode" --run-url "$RUN_URL"
   fi
   node scripts/write-public-weekly-review.mjs
-  echo "publish_snapshot=true" >> "$GITHUB_OUTPUT"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "publish_snapshot=true" >> "$GITHUB_OUTPUT"
 }
 
 npm run update 2>&1 | tee -a /tmp/octopus-refresh.log
@@ -40,7 +40,7 @@ update_code=${PIPESTATUS[0]}
 
 if [ "$update_code" -ne 0 ]; then
   if grep -q "SciCode estimator validation failed:" /tmp/octopus-refresh.log; then
-    echo "::warning::Full refresh blocked by SciCode estimator validation; running narrow lineup-input refresh"
+    echo "WARNING: Full refresh blocked by SciCode estimator validation; running narrow lineup-input refresh"
 
     node scripts/refresh-lineup-inputs.mjs 2>&1 | tee -a /tmp/octopus-refresh.log
     narrow_code=${PIPESTATUS[0]}

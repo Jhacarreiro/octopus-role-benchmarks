@@ -42,6 +42,7 @@ function summarizeLog(file){
 }
 
 const latest=readLatest({committed:state==='error'});
+const effectiveState=state==='success'&&latest?.validationStatus==='partial'?'partial':state;
 const generatedAt=latest?.generatedAt??null;
 const benchmarkDate=latest?.benchmarkDate??latest?.date??null;
 const benchmarkGeneratedAt=latest?.benchmarkGeneratedAt??generatedAt;
@@ -59,15 +60,16 @@ const validatedBenchmark=latest?{
 }:null;
 const payload={
   schemaVersion:3,
-  status:state,
+  status:effectiveState,
   attemptedAt,
   lastSuccessfulSnapshot:validatedBenchmark,
   lastPublishedSnapshot:snapshotSummary,
   lastValidatedBenchmark:validatedBenchmark,
-  mode:state==='error'?null:mode,
-  message:message||null,
-  stage:state==='error'?stage:null,
-  errorSummary:state==='error'?(summarizeLog(logFile)||'Refresh failed; see the GitHub Actions run for details.'):null,
+  mode:effectiveState==='error'?null:mode,
+  message:message||(effectiveState==='partial'?'Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.':null),
+  stage:effectiveState==='error'?stage:null,
+  errorSummary:effectiveState==='error'?(summarizeLog(logFile)||'Refresh failed; see run details.'):null,
+  validationIssues:latest?.validationIssues??[],
   runUrl:runUrl||null
 };
 const json=JSON.stringify(payload,null,2)+'\n';

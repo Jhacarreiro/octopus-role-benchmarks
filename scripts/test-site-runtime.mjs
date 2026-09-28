@@ -41,7 +41,18 @@ globalThis.fetch=async (url)=>{
   const rel=u.replace(/^\.\//,'');
   const p=new URL(`../site/${rel}`,import.meta.url);
   const body=fs.readFileSync(p,'utf8');
-  return {ok:true,status:200,json:async()=>JSON.parse(body)};
+  const payload=JSON.parse(body);
+  if(rel==='data/latest.json'){
+    payload.validationStatus='partial';
+    payload.validationIssues=[{benchmark:'scicode',targetSlug:'fixture-model',status:'stale',reason:'fixture validation failure',lastObserved:{observedAt:'2026-09-16T12:39:00.000Z'}}];
+    payload.counts={...payload.counts,partialRows:1};
+  }
+  if(rel==='data/refresh-status.json'){
+    payload.status='partial';
+    payload.message='Published with partial validation.';
+    payload.validationIssues=[{benchmark:'scicode',targetSlug:'fixture-model',status:'stale',reason:'fixture validation failure',lastObserved:{observedAt:'2026-09-16T12:39:00.000Z'}}];
+  }
+  return {ok:true,status:200,json:async()=>payload};
 };
 
 const expectedLineups=JSON.parse(fs.readFileSync(new URL('../site/data/lineups.json',import.meta.url),'utf8'));
@@ -54,6 +65,8 @@ if(rawCalls!==0) throw new Error(`same-origin was not preferred; raw calls=${raw
 const expectedBalanced=expectedLineups.modes.balanced.selections.architect.model;
 if(!one('#lineup').innerHTML.includes(expectedBalanced)) throw new Error('default Balanced lineup did not render expected model: '+expectedBalanced);
 if(one('#rows').innerHTML.length<100) throw new Error('ranking table did not render');
+if(!one('#status').innerHTML.includes('Benchmark partially validated')) throw new Error('partial validation state not shown in status');
+if(!one('#refreshAlert').innerHTML.includes('fixture-model')||!one('#refreshAlert').innerHTML.includes('stale')) throw new Error('partial validation issue details not shown');
 
 const before=one('#lineup').innerHTML;
 const qualityButton={dataset:{lineupMode:'quality'}};
