@@ -1,21 +1,21 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-09-28T14:05:16.044Z",
+  "attemptedAt": "2026-09-28T14:07:47.833Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T14:05:12.327Z"
+    "generatedAt": "2026-09-28T14:07:44.913Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T14:05:12.327Z",
+    "generatedAt": "2026-09-28T14:07:44.913Z",
     "benchmarkDate": "2026-09-28",
-    "benchmarkGeneratedAt": "2026-09-28T14:05:12.327Z",
-    "lineupInputsRefreshedAt": "2026-09-28T14:05:12.327Z"
+    "benchmarkGeneratedAt": "2026-09-28T14:07:44.913Z",
+    "lineupInputsRefreshedAt": "2026-09-28T14:07:44.913Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T14:05:12.327Z"
+    "generatedAt": "2026-09-28T14:07:44.913Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -36,9 +36,33 @@
     },
     {
       "benchmark": "mapping",
+      "targetModel": "Laguna S 2.1",
+      "status": "unavailable",
+      "reason": "Stealth/anonymous model; no verified AA identity."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Tencent Hy4 Preview",
+      "status": "unavailable",
+      "reason": "No verified Artificial Analysis Hy4 model family at publication time; do not proxy to Hy3 Preview."
+    },
+    {
+      "benchmark": "mapping",
       "targetModel": "Qwen 3.8 Omni Flash",
       "status": "unavailable",
       "reason": "No verified AA identity."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Qwen 3.7 Flash",
+      "status": "unavailable",
+      "reason": "No verified matching AA model family at publication time."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Fugu Ultra",
+      "status": "unavailable",
+      "reason": "No verified matching AA model family at publication time."
     },
     {
       "benchmark": "mapping",

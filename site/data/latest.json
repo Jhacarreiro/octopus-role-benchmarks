@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 7,
   "date": "2026-09-28",
-  "generatedAt": "2026-09-28T14:05:12.327Z",
+  "generatedAt": "2026-09-28T14:07:44.913Z",
   "benchmarkDate": "2026-09-28",
-  "benchmarkGeneratedAt": "2026-09-28T14:05:12.327Z",
-  "lineupInputsRefreshedAt": "2026-09-28T14:05:12.327Z",
+  "benchmarkGeneratedAt": "2026-09-28T14:07:44.913Z",
+  "lineupInputsRefreshedAt": "2026-09-28T14:07:44.913Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -22,9 +22,33 @@
     },
     {
       "benchmark": "mapping",
+      "targetModel": "Laguna S 2.1",
+      "status": "unavailable",
+      "reason": "Stealth/anonymous model; no verified AA identity."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Tencent Hy4 Preview",
+      "status": "unavailable",
+      "reason": "No verified Artificial Analysis Hy4 model family at publication time; do not proxy to Hy3 Preview."
+    },
+    {
+      "benchmark": "mapping",
       "targetModel": "Qwen 3.8 Omni Flash",
       "status": "unavailable",
       "reason": "No verified AA identity."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Qwen 3.7 Flash",
+      "status": "unavailable",
+      "reason": "No verified matching AA model family at publication time."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Fugu Ultra",
+      "status": "unavailable",
+      "reason": "No verified matching AA model family at publication time."
     },
     {
       "benchmark": "mapping",
@@ -129,7 +153,7 @@
     },
     "cyberbench": {
       "url": "https://www.vals.ai/benchmarks/cyber",
-      "fetchedAt": "2026-09-28T14:05:12.185Z",
+      "fetchedAt": "2026-09-28T14:07:44.795Z",
       "benchmarkUpdatedAt": "2026-09-22T00:00:00.000Z",
       "directFamilies": 24,
       "missingMappings": [
@@ -735,8 +759,8 @@
     "observedFamilies": 48,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 20,
-    "validatedAt": "2026-09-28T14:05:12.327Z",
-    "sourceSnapshotGeneratedAt": "2026-09-28T14:05:12.327Z",
+    "validatedAt": "2026-09-28T14:07:44.913Z",
+    "sourceSnapshotGeneratedAt": "2026-09-28T14:07:44.913Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -744,7 +768,7 @@
         "method": "median_overlap_ratio_capped_at_1",
         "factor": 1,
         "rawMedianRatio": 1,
-        "overlap": 46,
+        "overlap": 48,
         "mae": 0,
         "maxError": 0,
         "failures": []
@@ -1668,7 +1692,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K3",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },
@@ -2117,7 +2141,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.6",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-04-20T00:00:00.000Z"
         }
       },
@@ -2298,7 +2322,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.5",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-01-26T00:00:00.000Z"
         }
       },
@@ -2712,7 +2736,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.3",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-08-18T00:00:00.000Z"
         }
       },
@@ -2888,7 +2912,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -3050,7 +3074,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -3528,7 +3552,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M3",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-05-31T00:00:00.000Z"
         }
       },
@@ -3676,7 +3700,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M2.7",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-03-17T00:00:00.000Z"
         }
       },
@@ -4161,7 +4185,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -4477,7 +4501,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -7551,7 +7575,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5.1",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-09-01T00:00:00.000Z"
         }
       },
@@ -7734,7 +7758,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-06-09T00:00:00.000Z"
         }
       },
@@ -8079,7 +8103,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 5",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-22T00:00:00.000Z"
         }
       },
@@ -8262,7 +8286,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.8",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-05-28T00:00:00.000Z"
         }
       },
@@ -8443,7 +8467,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.7",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-04-16T00:00:00.000Z"
         }
       },
@@ -9231,7 +9255,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-6 Astra",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
         }
       },
@@ -9773,7 +9797,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-5.6 Sol",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -10873,7 +10897,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.8 Flash",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -11049,7 +11073,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.7 Flash",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-08-13T00:00:00.000Z"
         }
       },
@@ -11211,7 +11235,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.6 Flash",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-21T00:00:00.000Z"
         }
       },
@@ -11373,7 +11397,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.5 Flash",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-05-19T00:00:00.000Z"
         }
       },
@@ -11826,7 +11850,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -12002,7 +12026,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -12178,7 +12202,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -12340,7 +12364,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -12502,7 +12526,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.1",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -12819,7 +12843,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.6",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
         }
       },
@@ -12995,7 +13019,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.5",
-          "fetchedAt": "2026-09-28T14:05:12.185Z",
+          "fetchedAt": "2026-09-28T14:07:44.795Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },

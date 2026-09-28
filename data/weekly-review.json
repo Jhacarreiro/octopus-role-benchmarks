@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T14:05:16.261Z",
+  "generatedAt": "2026-09-28T14:07:47.973Z",
   "snapshotDate": "2026-09-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-28T14:05:16.044Z",
+    "attemptedAt": "2026-09-28T14:07:47.833Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:05:12.327Z"
+      "generatedAt": "2026-09-28T14:07:44.913Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:05:12.327Z",
+      "generatedAt": "2026-09-28T14:07:44.913Z",
       "benchmarkDate": "2026-09-28",
-      "benchmarkGeneratedAt": "2026-09-28T14:05:12.327Z",
-      "lineupInputsRefreshedAt": "2026-09-28T14:05:12.327Z"
+      "benchmarkGeneratedAt": "2026-09-28T14:07:44.913Z",
+      "lineupInputsRefreshedAt": "2026-09-28T14:07:44.913Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:05:12.327Z"
+      "generatedAt": "2026-09-28T14:07:44.913Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -40,9 +40,33 @@
       },
       {
         "benchmark": "mapping",
+        "targetModel": "Laguna S 2.1",
+        "status": "unavailable",
+        "reason": "Stealth/anonymous model; no verified AA identity."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Tencent Hy4 Preview",
+        "status": "unavailable",
+        "reason": "No verified Artificial Analysis Hy4 model family at publication time; do not proxy to Hy3 Preview."
+      },
+      {
+        "benchmark": "mapping",
         "targetModel": "Qwen 3.8 Omni Flash",
         "status": "unavailable",
         "reason": "No verified AA identity."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Qwen 3.7 Flash",
+        "status": "unavailable",
+        "reason": "No verified matching AA model family at publication time."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Fugu Ultra",
+        "status": "unavailable",
+        "reason": "No verified matching AA model family at publication time."
       },
       {
         "benchmark": "mapping",
@@ -114,5 +138,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-28 → 2026-09-28\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• quality/architect: GLM-5.3 → MiMo V2.6 Pro\n• quality/strategist: Claude Fable 5.1 → Grok 4.7\n• quality/code-reviewer: GPT-6 Astra → Grok 4.7\n• quality/implementer: GLM-5.3 → MiMo V2.6 Pro\n• quality/implementer-heavy: Claude Fable 5.1 → GPT-6 Astra\n• quality/synthesizer: Muse Spark 1.3 Contributor → Claude Fable 5.1\n• quality/researcher: Muse Spark 1.3 Contributor → Claude Opus 5.5\n• balanced/architect: GLM-5.3 → MiMo V2.6 Pro\n• balanced/strategist: Claude Opus 5 → Grok 4.7\n• balanced/security-reviewer: Grok 4.6 → Muse Spark 1.3 Contributor\n• balanced/code-reviewer: Kimi K3 → GPT-6 Sol\n• balanced/implementer: GLM-5.3 → MiMo V2.6 Pro\n• balanced/implementer-heavy: Claude Opus 5 → Claude Opus 5.5\n• balanced/researcher: Muse Spark 1.3 Contributor → Claude Opus 5.5\n• budget/architect: GLM-5.3 Flash → MiMo V2.6 Pro\n• budget/strategist: Qwen 3.8 Max 0902 → Grok 4.7\n• budget/security-reviewer: Gemini 3.8 Flash → Muse Spark 1.3 Contributor\n• budget/code-reviewer: Gemini 3.8 Flash → MiMo V2.6 Pro\n• budget/implementer: GLM-5.3 Flash → Qwen 3.8 Max 0902\n• budget/implementer-heavy: Qwen 3.8 Max 0902 → GPT-6 Sol\n• budget/researcher: Muse Spark 1.3 Contributor → Grok 4.7"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-28 → 2026-09-28\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
