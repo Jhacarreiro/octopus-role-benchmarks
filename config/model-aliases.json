@@ -48,12 +48,11 @@
     "Laguna S 2.1": {
       "status": "unscored",
       "identityStatus": "external_verified",
-      "reason": "Public Poolside model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+      "reason": "Public model; no canonical AA entry.",
       "externalSource": {
         "label": "OpenRouter \u2014 Poolside Laguna S 2.1",
         "url": "https://openrouter.ai/poolside/laguna-s-2.1"
-      },
-      "externalEvidence": "Poolside reports Terminal-Bench 2.1 70.2% and DeepSWE 40.4%; kept external to the AA-based Octopus score."
+      }
     },
     "DeepSeek V4 Flash Vision (exp)": {
       "status": "exact_alias",
@@ -63,7 +62,7 @@
     "Qwen 3.7 Flash": {
       "status": "unscored",
       "identityStatus": "external_verified",
-      "reason": "Public Qwen3.7-Flash model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+      "reason": "Public model; no canonical AA entry.",
       "externalSource": {
         "label": "Alibaba Cloud Model Studio \u2014 qwen3.7-flash",
         "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash"
@@ -72,7 +71,7 @@
     "Fugu Ultra": {
       "status": "unscored",
       "identityStatus": "external_verified",
-      "reason": "Public Sakana Fugu Ultra orchestration model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+      "reason": "Public model; no canonical AA entry.",
       "externalSource": {
         "label": "OpenRouter \u2014 Sakana Fugu Ultra",
         "url": "https://openrouter.ai/sakana/fugu-ultra"
@@ -86,12 +85,11 @@
     "Tencent Hy4 Preview": {
       "status": "unscored",
       "identityStatus": "external_verified",
-      "reason": "Public Tencent Hy4 preview model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+      "reason": "Public model; no canonical AA entry.",
       "externalSource": {
         "label": "Tencent Hy4 Preview",
         "url": "https://github.com/Tencent-Hunyuan/Hy4-preview"
-      },
-      "externalEvidence": "Tencent open-sourced Hy4 Preview (770B total / 49B active, 1M context) and publishes its own benchmark appendix."
+      }
     },
     "Qwen 3.8 Max 0902": {
       "status": "exact_alias",
@@ -136,7 +134,7 @@
     "Space Bunny Alpha": {
       "status": "unscored",
       "identityStatus": "stealth_unverified",
-      "reason": "Stealth/anonymous model; no verified Artificial Analysis identity.",
+      "reason": "Stealth model; identity unverified.",
       "externalSource": {
         "label": "Space Bunny Alpha public identity trail",
         "url": "https://spacebunnyai.com/"
@@ -145,17 +143,16 @@
     "Pixel Canary": {
       "status": "unscored",
       "identityStatus": "stealth_unverified",
-      "reason": "Stealth model; provider identity is intentionally undisclosed and no verified Artificial Analysis identity exists.",
+      "reason": "Stealth model; identity unverified.",
       "externalSource": {
         "label": "Vercel AI Gateway announcement",
         "url": "https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway"
-      },
-      "externalEvidence": "Vercel reports 90.3% on its Next.js eval baseline (28/31), 96.8% with Next.js documentation (30/31)."
+      }
     },
     "Qwen 3.8 Omni Flash": {
       "status": "unscored",
       "identityStatus": "external_verified",
-      "reason": "Public Qwen3.8-Omni-Flash model. It is distinct from Qwen3.8-Flash-Next despite identical token pricing, so it is not proxied to that AA entry.",
+      "reason": "Public model; no canonical AA entry.",
       "externalSource": {
         "label": "Qwen3.8-Omni-Flash",
         "url": "https://www.qwencloud.com/models/qwen3.8-omni-flash"
@@ -164,7 +161,7 @@
     "Jev": {
       "status": "unscored",
       "identityStatus": "external_verified_noncomparable",
-      "reason": "Public TypeSafe Jev decision model. It returns typed decisions rather than general free-form generation, so it is not comparable to the AA general-model ranking.",
+      "reason": "Decision model; not comparable to the AA ranking.",
       "externalSource": {
         "label": "OpenRouter \u2014 TypeSafe Jev",
         "url": "https://openrouter.ai/typesafe"
