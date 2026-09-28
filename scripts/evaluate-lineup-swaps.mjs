@@ -18,7 +18,7 @@ const out={
   applyAutomatically:policy.swapEvaluation?.applyAutomatically===true,
   scope:policy.swapEvaluation?.scope||'regenerate-full-portfolio',
   repetitionRule:'models and benchmark identities may repeat subject to family seat limits and coding-independence rules',
-  diversityRule:`final lineup requires ${policy.minFamilies}-${policy.maxFamilies} families with at most ${policy.maxSeatsPerFamily} seats per family`,
+  diversityRule:'final lineup uses per-mode minimum families (falling back to the global minimum), with the global maximum and family seat cap',
   modes:{}
 };
 
@@ -26,6 +26,7 @@ for(const [modeId,mode] of Object.entries(lineups.modes||{})){
   out.modes[modeId]={
     classification:'review-only',
     objective:mode.objective??policy.modes?.[modeId]?.objective??null,
+    minimumFamilies:Number(policy.modes?.[modeId]?.minFamilies??policy.minFamilies??1),
     currentFamilyCount:mode.familyCount??null,
     requestedIntelligenceFloor:mode.requestedIntelligenceFloor??null,
     effectiveIntelligenceFloor:mode.effectiveIntelligenceFloor??null,

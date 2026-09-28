@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 11,
+  "schemaVersion": 12,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -21,7 +21,8 @@
       "label": "Quality",
       "description": "Highest role quality inside the Intelligence-qualified pool. Price does not affect selection.",
       "requestedIntelligenceFloor": 0.9,
-      "objective": "maximize-role-quality"
+      "objective": "maximize-role-quality",
+      "minFamilies": 4
     },
     "balanced": {
       "label": "Balanced",
@@ -36,7 +37,8 @@
       "percentileWeights": {
         "quality": 0.75,
         "affordability": 0.25
-      }
+      },
+      "minFamilies": 5
     },
     "budget": {
       "label": "Budget",
@@ -47,7 +49,8 @@
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
         "costMetric": "planAdjustedCostPerTaskUsd"
-      }
+      },
+      "minFamilies": 5
     }
   },
   "swapEvaluation": {

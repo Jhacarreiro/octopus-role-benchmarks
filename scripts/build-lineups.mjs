@@ -167,7 +167,7 @@ function insertBudgetState(list,state){
 }
 
 function optimize(modeId,pool,{allowNoFeasible=false}={}){
-  const minFamilies=Number(policy.minFamilies??1);
+  const minFamilies=Number(policy.modes?.[modeId]?.minFamilies??policy.minFamilies??1);
   const maxFamilies=Number(policy.maxFamilies??roles.length);
   const maxSeats=Number(policy.maxSeatsPerFamily??roles.length);
   const families=[...new Set(pool.map(familyOf).filter(Boolean))].sort();
@@ -339,6 +339,7 @@ const out={
     latestGenerationOnly:policy.latestGenerationOnly===true,
     poolPrecheck:policy.poolPrecheck,
     minFamilies:policy.minFamilies,
+    modeMinFamilies:Object.fromEntries(Object.entries(policy.modes).map(([id,mode])=>[id,Number(mode.minFamilies??policy.minFamilies??1)])),
     maxFamilies:policy.maxFamilies,
     maxSeatsPerFamily:policy.maxSeatsPerFamily,
     allowRepeatedModel:policy.allowRepeatedModel===true,
@@ -379,6 +380,7 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
     label:mode.label??modeId,
     description:mode.description,
     objective:mode.objective,
+    minFamilies:Number(mode.minFamilies??policy.minFamilies??1),
     requestedIntelligenceFloor:poolInfo.requested,
     effectiveIntelligenceFloor:poolInfo.effective,
     bestEligibleIntelligenceIndex:round(poolInfo.bestEligibleIntelligence,4),
