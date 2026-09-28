@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-09-28",
-  "generatedAt": "2026-09-28T14:47:38.719Z",
+  "generatedAt": "2026-09-28T14:58:24.892Z",
   "policySchemaVersion": 11,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -23,7 +23,7 @@
     },
     "balanced": {
       "classification": "review-only",
-      "objective": "maximize-quality-minus-effective-cost-penalty",
+      "objective": "maximize-relative-quality-and-affordability",
       "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.85,
       "effectiveIntelligenceFloor": 0.85,

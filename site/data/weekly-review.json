@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T14:47:51.692Z",
+  "generatedAt": "2026-09-28T14:58:37.914Z",
   "snapshotDate": "2026-09-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-28T14:47:51.506Z",
+    "attemptedAt": "2026-09-28T14:58:37.678Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:47:38.719Z"
+      "generatedAt": "2026-09-28T14:58:24.892Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:47:38.719Z",
+      "generatedAt": "2026-09-28T14:58:24.892Z",
       "benchmarkDate": "2026-09-28",
-      "benchmarkGeneratedAt": "2026-09-28T14:47:38.719Z",
-      "lineupInputsRefreshedAt": "2026-09-28T14:47:38.719Z"
+      "benchmarkGeneratedAt": "2026-09-28T14:58:24.892Z",
+      "lineupInputsRefreshedAt": "2026-09-28T14:58:24.892Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:47:38.719Z"
+      "generatedAt": "2026-09-28T14:58:24.892Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -138,5 +138,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-28 → 2026-09-28\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nPREÇOS / CRÉDITOS\n• Claude Fable 5.1: créditos/task $6.22→$7.63 (+23%); custo ajustado $6.22→$7.63 (+23%)\n• Claude Opus 4.8: créditos/task $4.30→$4.08 (-5%); custo ajustado $4.30→$4.08 (-5%)\n• Claude Opus 5: créditos/task $4.30→$5.86 (+36%); custo ajustado $4.30→$5.86 (+36%)\n• Claude Opus 5.5: créditos/task $2.81→$5.98 (+113%); custo ajustado $2.81→$5.98 (+113%)\n• Claude Sonnet 5: créditos/task $1.72→$5.09 (+196%); custo ajustado $1.72→$5.09 (+196%)\n• DeepSeek V4 Flash Fast: créditos/task $0.32→$0.39 (+23%); custo ajustado $0.21→$0.26 (+23%)\n• DeepSeek V4 Flash Vision (exp): créditos/task $0.0752→$0.10 (+38%); custo ajustado $0.0501→$0.0692 (+38%)\n• DeepSeek V4.1 Flash: créditos/task $0.0752→$0.13 (+76%); custo ajustado $0.0501→$0.0884 (+76%)\n• GLM-5.1: créditos/task $1.38→$1.08 (-22%); custo ajustado $0.92→$0.72 (-22%)\n• GLM-5.2: créditos/task $1.38→$1.47 (+7%); custo ajustado $0.92→$0.98 (+7%)\n• GLM-5.2 Fast: créditos/task $2.81→$3.14 (+12%); custo ajustado $1.87→$2.09 (+12%)\n• GLM-5.3: créditos/task $1.38→$2.01 (+46%); custo ajustado $0.92→$1.34 (+46%)\n… +40 alterações adicionais\n\nLINEUPS\n• balanced/architect: MiMo V2.6 Pro → GLM-5.3\n• balanced/strategist: Grok 4.7 → MiMo V2.6 Pro\n• balanced/security-reviewer: Muse Spark 1.3 Contributor → GPT-6 Astra\n• balanced/code-reviewer: GPT-6 Sol → MiMo V2.6 Pro\n• balanced/implementer: MiMo V2.6 Pro → GLM-5.3\n• balanced/implementer-heavy: Claude Opus 5.5 → GPT-6 Sol\n• balanced/researcher: Claude Opus 5.5 → Muse Spark 1.3 Contributor\n• budget/strategist: Grok 4.7 → Step 5 Preview\n• budget/code-reviewer: MiMo V2.6 Pro → GPT-6 Sol\n• budget/implementer: Qwen 3.8 Max 0902 → Step 5 Preview\n• budget/implementer-heavy: GPT-6 Sol → MiMo V2.6 Pro\n• budget/researcher: Grok 4.7 → GPT-6 Sol"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-28 → 2026-09-28\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• balanced/architect: GLM-5.3 → MiMo V2.6 Pro\n• balanced/strategist: MiMo V2.6 Pro → GLM-5.3\n• balanced/code-reviewer: MiMo V2.6 Pro → GLM-5.3\n• balanced/implementer: GLM-5.3 → MiMo V2.6 Pro\n• balanced/implementer-heavy: GPT-6 Sol → GPT-6 Astra"
 }
