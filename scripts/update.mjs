@@ -93,6 +93,10 @@ const cyberbenchResolved=resolveCyberBenchBySlug(slugs,cyberbenchConfig.slugToLa
 const cyberbenchBySlug=cyberbenchResolved.values;
 const previousBySlug=new Map((previousSnapshot?.models||[]).filter(m=>m.aaModel?.slug).map(m=>[m.aaModel.slug,m]));
 function previousObservedBenchmark(slug,key){
+  // Snapshots produced before AA parser v2 used an unsafe forward slice that
+  // could mix metrics from adjacent embedded model objects. Do not use them as
+  // observed anchors for benchmark fallbacks.
+  if(previousSnapshot?.sources?.artificialAnalysis?.parserVersion!==2)return null;
   const model=previousBySlug.get(slug);
   if(!model)return null;
   const provenance=model?.benchmarkProvenance?.[key];
@@ -139,7 +143,7 @@ for(const row of scicodeRows){
     continue;
   }
   if(!scicodeEstimatorValid){
-    const reason=`SciCode estimator validation failed: MAE=${scicodeValidation.mae.toFixed(3)} max=${scicodeValidation.maxError.toFixed(3)}`;
+    const reason=`Artificial Analysis publishes no current SciCode for ${row.slug}; estimator fallback failed validation (MAE=${scicodeValidation.mae.toFixed(3)}, max=${scicodeValidation.maxError.toFixed(3)}).`;
     if(Number.isFinite(lkgAnchor?.value)&&lkgAnchor?.observedAt){
       const chosen=round(lkgAnchor.value,4);
       source.scicode=chosen/100;
@@ -376,7 +380,7 @@ const missingTaskRows=models.filter(x=>x.mapping?.status!=='source_incomplete'&&
 
 const now=new Date(),nowIso=now.toISOString(),date=nowIso.slice(0,10);
 const scicodeTopResiduals=scicodeValidationErrors.slice(0,5).map(x=>({slug:x.slug,actual:round(x.actual,4),predicted:round(x.predicted,4),error:round(x.error,4)}));
-const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:nowIso,benchmarkDate:date,benchmarkGeneratedAt:nowIso,lineupInputsRefreshedAt:nowIso,validationStatus:validationIssues.length?'partial':'valid',validationIssues,sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length,planEconomics:economics,billingCategories:{standard:maxRows.filter(x=>x.billingCategory==='standard').length,premium:maxRows.filter(x=>x.billingCategory==='premium').length,free:maxRows.filter(x=>x.billingCategory==='free').length}},artificialAnalysis:{url:'https://artificialanalysis.ai/',mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{
+const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:nowIso,benchmarkDate:date,benchmarkGeneratedAt:nowIso,lineupInputsRefreshedAt:nowIso,validationStatus:validationIssues.length?'partial':'valid',validationIssues,sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length,planEconomics:economics,billingCategories:{standard:maxRows.filter(x=>x.billingCategory==='standard').length,premium:maxRows.filter(x=>x.billingCategory==='premium').length,free:maxRows.filter(x=>x.billingCategory==='free').length}},artificialAnalysis:{url:'https://artificialanalysis.ai/',parserVersion:2,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{
   url:'https://artificialanalysis.ai/agents/coding-agents',
   version:codingAgentVersion,
   variants:codingRows.length,

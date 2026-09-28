@@ -11,10 +11,29 @@ function numberField(block, field) {
   const m = tail.match(/:(null|-?[0-9]+(?:\.[0-9]+)?)/);
   return !m || m[1] === 'null' ? null : Number(m[1]);
 }
-function modelBlock(html, slug) {
-  const marker = '\\"slug\\":\\"' + slug + '\\",\\"name\\":';
-  const i = html.indexOf(marker);
-  return i < 0 ? null : html.slice(i, i + 52000);
+export function currentModelBlock(html, slug) {
+  const startMarker = '\\"currentModel\\":{';
+  const slugMarker = '\\"slug\\":\\"' + slug + '\\"';
+  let from = 0;
+  while (true) {
+    const markerIndex = html.indexOf(startMarker, from);
+    if (markerIndex < 0) return null;
+    const start = html.indexOf('{', markerIndex);
+    let depth = 0;
+    for (let i = start; i < html.length; i++) {
+      if (html[i] === '{') depth++;
+      else if (html[i] === '}') {
+        depth--;
+        if (depth === 0) {
+          const block = html.slice(start, i + 1);
+          if (block.includes(slugMarker)) return block;
+          from = i + 1;
+          break;
+        }
+      }
+    }
+    if (from <= markerIndex) return null;
+  }
 }
 function escapedObject(block, field, length = 2200) {
   const i = block.indexOf(field);
@@ -65,7 +84,7 @@ function intelligenceTask(block) {
 }
 
 export function parseModel(html, slug) {
-  const block = modelBlock(html, slug);
+  const block = currentModelBlock(html, slug);
   if (!block) return null;
   const omni = block.match(/\\"omniscienceBreakdown\\":\{\\"accuracy\\":(null|-?[0-9.]+),\\"hallucinationRate\\":(null|-?[0-9.]+)/);
   const accuracy = !omni || omni[1] === 'null' ? null : Number(omni[1]);

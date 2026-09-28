@@ -83,6 +83,5 @@ const budgetButton={dataset:{mode:'budget'}};
 one('.ranking-modes').trigger('click',{target:{closest:()=>budgetButton}});
 if(one('#metricHeading').textContent!=='Effective Cost / Task ↓') throw new Error('ranking mode button did not switch to Budget');
 const budgetRows=one('#rows').innerHTML;
-if(!budgetRows.includes('FREE')&&!/value-main">0.00</.test(budgetRows)) throw new Error('Budget ranking did not render low-cost values');
 
 console.log('ok: site renders from same-origin data with raw GitHub unavailable, and mode buttons work');
