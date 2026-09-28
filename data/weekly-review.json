@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T14:58:37.914Z",
+  "generatedAt": "2026-09-28T15:26:27.980Z",
   "snapshotDate": "2026-09-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-28T14:58:37.678Z",
+    "attemptedAt": "2026-09-28T15:26:27.825Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:58:24.892Z"
+      "generatedAt": "2026-09-28T15:26:10.947Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:58:24.892Z",
+      "generatedAt": "2026-09-28T15:26:10.947Z",
       "benchmarkDate": "2026-09-28",
-      "benchmarkGeneratedAt": "2026-09-28T14:58:24.892Z",
-      "lineupInputsRefreshedAt": "2026-09-28T14:58:24.892Z"
+      "benchmarkGeneratedAt": "2026-09-28T15:26:10.947Z",
+      "lineupInputsRefreshedAt": "2026-09-28T15:26:10.947Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:58:24.892Z"
+      "generatedAt": "2026-09-28T15:26:10.947Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -138,5 +138,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-28 → 2026-09-28\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• balanced/architect: GLM-5.3 → MiMo V2.6 Pro\n• balanced/strategist: MiMo V2.6 Pro → GLM-5.3\n• balanced/code-reviewer: MiMo V2.6 Pro → GLM-5.3\n• balanced/implementer: GLM-5.3 → MiMo V2.6 Pro\n• balanced/implementer-heavy: GPT-6 Sol → GPT-6 Astra"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-28 → 2026-09-28\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• balanced/strategist: GLM-5.3 → Grok 4.7\n• budget/security-reviewer: Muse Spark 1.3 Contributor → Kimi K3\n• budget/researcher: GPT-6 Sol → Muse Spark 1.3 Contributor"
 }

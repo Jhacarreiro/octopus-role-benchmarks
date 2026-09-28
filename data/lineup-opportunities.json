@@ -1,16 +1,17 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-09-28",
-  "generatedAt": "2026-09-28T14:58:24.892Z",
-  "policySchemaVersion": 11,
+  "generatedAt": "2026-09-28T15:26:10.947Z",
+  "policySchemaVersion": 12,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
   "repetitionRule": "models and benchmark identities may repeat subject to family seat limits and coding-independence rules",
-  "diversityRule": "final lineup requires 4-8 families with at most 2 seats per family",
+  "diversityRule": "final lineup uses per-mode minimum families (falling back to the global minimum), with the global maximum and family seat cap",
   "modes": {
     "quality": {
       "classification": "review-only",
       "objective": "maximize-role-quality",
+      "minimumFamilies": 4,
       "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.9,
       "effectiveIntelligenceFloor": 0.785,
@@ -24,7 +25,8 @@
     "balanced": {
       "classification": "review-only",
       "objective": "maximize-relative-quality-and-affordability",
-      "currentFamilyCount": 4,
+      "minimumFamilies": 5,
+      "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.85,
       "effectiveIntelligenceFloor": 0.85,
       "priceFilter": {
@@ -65,7 +67,8 @@
     "budget": {
       "classification": "review-only",
       "objective": "minimize-effective-task-cost",
-      "currentFamilyCount": 4,
+      "minimumFamilies": 5,
+      "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.8,
       "effectiveIntelligenceFloor": 0.8,
       "priceFilter": {

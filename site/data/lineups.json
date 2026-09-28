@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 11,
+  "schemaVersion": 12,
   "snapshotDate": "2026-09-28",
-  "generatedAt": "2026-09-28T14:58:24.892Z",
+  "generatedAt": "2026-09-28T15:26:10.947Z",
   "policy": {
     "latestGenerationOnly": true,
     "poolPrecheck": {
@@ -9,6 +9,11 @@
       "floorStep": 0.005
     },
     "minFamilies": 4,
+    "modeMinFamilies": {
+      "quality": 4,
+      "balanced": 5,
+      "budget": 5
+    },
     "maxFamilies": 8,
     "maxSeatsPerFamily": 2,
     "allowRepeatedModel": true,
@@ -34,6 +39,7 @@
       "label": "Quality",
       "description": "Highest role quality inside the Intelligence-qualified pool. Price does not affect selection.",
       "objective": "maximize-role-quality",
+      "minFamilies": 4,
       "requestedIntelligenceFloor": 0.9,
       "effectiveIntelligenceFloor": 0.785,
       "bestEligibleIntelligenceIndex": 57.6224,
@@ -106,7 +112,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-28T14:58:24.804Z",
+            "fetchedAt": "2026-09-28T15:26:10.849Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
@@ -209,6 +215,7 @@
       "label": "Balanced",
       "description": "Balances relative role quality against relative affordability within the current eligible cohort. Both inputs are percentile scores, so the formula adapts automatically as model quality and prices evolve.",
       "objective": "maximize-relative-quality-and-affordability",
+      "minFamilies": 5,
       "requestedIntelligenceFloor": 0.85,
       "effectiveIntelligenceFloor": 0.85,
       "bestEligibleIntelligenceIndex": 52.6737,
@@ -244,12 +251,12 @@
           }
         ]
       },
-      "familyCount": 4,
-      "totalRoleQuality": 462.617,
-      "totalCostPerTaskUsd": 10.902256,
-      "totalCreditBurnPerPortfolioUsd": 10.902256,
-      "totalPlanAdjustedCostPerPortfolioUsd": 9.439837,
-      "standardCreditBurnPerPortfolioUsd": 4.387256,
+      "familyCount": 5,
+      "totalRoleQuality": 459.311,
+      "totalCostPerTaskUsd": 11.139614,
+      "totalCreditBurnPerPortfolioUsd": 11.139614,
+      "totalPlanAdjustedCostPerPortfolioUsd": 9.598076,
+      "standardCreditBurnPerPortfolioUsd": 4.624614,
       "premiumCreditBurnPerPortfolioUsd": 6.515,
       "max10MonthlyIncludedUtilization": 0.06515,
       "max10EstimatedCompletePortfoliosPerMonth": 15.349,
@@ -274,17 +281,17 @@
           "mappingStatus": "exact"
         },
         "strategist": {
-          "model": "GLM-5.3",
-          "family": "GLM",
-          "benchmarkIdentity": "aa:glm-5-3",
-          "quality": 55.205,
-          "costPerTaskUsd": 2.005638,
-          "creditBurnPerTaskUsd": 2.005638,
-          "planAdjustedCostPerTaskUsd": 1.337092,
+          "model": "Grok 4.7",
+          "family": "Grok",
+          "benchmarkIdentity": "aa:grok-4-7",
+          "quality": 51.899,
+          "costPerTaskUsd": 2.242996,
+          "creditBurnPerTaskUsd": 2.242996,
+          "planAdjustedCostPerTaskUsd": 1.495331,
           "billingCategory": "standard",
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
-          "intelligenceIndex": 44.7774,
+          "intelligenceIndex": 46.4466,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -309,7 +316,7 @@
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
             "sourceLabel": "GPT-6 Astra",
-            "fetchedAt": "2026-09-28T14:58:24.804Z",
+            "fetchedAt": "2026-09-28T15:26:10.849Z",
             "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
           },
           "free": false,
@@ -412,6 +419,7 @@
       "label": "Budget",
       "description": "Minimizes total subscription-adjusted task cost. Statistical effective-cost outliers are identified from the full latest-generation scored universe; after removing them, the Intelligence baseline is recomputed before final 0.80 eligibility and optimization.",
       "objective": "minimize-effective-task-cost",
+      "minFamilies": 5,
       "requestedIntelligenceFloor": 0.8,
       "effectiveIntelligenceFloor": 0.8,
       "bestEligibleIntelligenceIndex": 52.6737,
@@ -447,16 +455,16 @@
           }
         ]
       },
-      "familyCount": 4,
-      "totalRoleQuality": 415.189,
-      "totalCostPerTaskUsd": 3.923808,
-      "totalCreditBurnPerPortfolioUsd": 3.923808,
-      "totalPlanAdjustedCostPerPortfolioUsd": 3.320155,
-      "standardCreditBurnPerPortfolioUsd": 1.81096,
-      "premiumCreditBurnPerPortfolioUsd": 2.112848,
-      "max10MonthlyIncludedUtilization": 0.021128,
-      "max10EstimatedCompletePortfoliosPerMonth": 47.329,
-      "max20EstimatedCompletePortfoliosPerMonth": 94.659,
+      "familyCount": 5,
+      "totalRoleQuality": 437.846,
+      "totalCostPerTaskUsd": 4.867516,
+      "totalCreditBurnPerPortfolioUsd": 4.867516,
+      "totalPlanAdjustedCostPerPortfolioUsd": 3.597152,
+      "standardCreditBurnPerPortfolioUsd": 3.811092,
+      "premiumCreditBurnPerPortfolioUsd": 1.056424,
+      "max10MonthlyIncludedUtilization": 0.025407,
+      "max10EstimatedCompletePortfoliosPerMonth": 39.359,
+      "max20EstimatedCompletePortfoliosPerMonth": 78.718,
       "selections": {
         "architect": {
           "model": "MiMo V2.6 Pro",
@@ -495,29 +503,29 @@
           "mappingStatus": "exact_alias"
         },
         "security-reviewer": {
-          "model": "Muse Spark 1.3 Contributor",
-          "family": "Muse Spark",
-          "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
-          "quality": 60.31,
-          "costPerTaskUsd": 0.054767,
-          "creditBurnPerTaskUsd": 0.054767,
-          "planAdjustedCostPerTaskUsd": 0.036511,
+          "model": "Kimi K3",
+          "family": "Kimi",
+          "benchmarkIdentity": "aa:kimi-k3",
+          "quality": 57.813,
+          "costPerTaskUsd": 2.000132,
+          "creditBurnPerTaskUsd": 2.000132,
+          "planAdjustedCostPerTaskUsd": 1.333421,
           "billingCategory": "standard",
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
-          "intelligenceIndex": 45.0733,
+          "intelligenceIndex": 43.5938,
           "source": "cyberbench",
           "benchmarkProvenance": {
             "status": "direct",
             "benchmark": "Vals AI CyberBench Overall",
             "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
-            "sourceLabel": "Muse Spark 1.3",
-            "fetchedAt": "2026-09-28T14:58:24.804Z",
-            "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
+            "sourceLabel": "Kimi K3",
+            "fetchedAt": "2026-09-28T15:26:10.849Z",
+            "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
           },
           "free": false,
           "discountPercent": null,
-          "mappingStatus": "commercial_variant"
+          "mappingStatus": "exact"
         },
         "code-reviewer": {
           "model": "GPT-6 Sol",
@@ -592,22 +600,22 @@
           "mappingStatus": "commercial_variant"
         },
         "researcher": {
-          "model": "GPT-6 Sol",
-          "family": "GPT",
-          "benchmarkIdentity": "aa:gpt-6-sol",
-          "quality": 40.792,
-          "costPerTaskUsd": 1.056424,
-          "creditBurnPerTaskUsd": 1.056424,
-          "planAdjustedCostPerTaskUsd": 1.056424,
-          "billingCategory": "premium",
-          "max10MonthlyUsageLimitUsd": 100,
-          "max20MonthlyUsageLimitUsd": 200,
-          "intelligenceIndex": 47.5276,
+          "model": "Muse Spark 1.3 Contributor",
+          "family": "Muse Spark",
+          "benchmarkIdentity": "aa:muse-spark-1-3-xhigh",
+          "quality": 65.946,
+          "costPerTaskUsd": 0.054767,
+          "creditBurnPerTaskUsd": 0.054767,
+          "planAdjustedCostPerTaskUsd": 0.036511,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
+          "intelligenceIndex": 45.0733,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
-          "mappingStatus": "exact"
+          "mappingStatus": "commercial_variant"
         }
       }
     }
