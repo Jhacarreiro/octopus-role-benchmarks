@@ -409,8 +409,8 @@ const models=mapped.map(row=>{
   if(cyberbench)benchmarkProvenance.cyberbench=cyberbench.provenance;
   return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis:'normalized_reference_v1',normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
-const unexpectedUnscored=models.filter(x=>!x.aaModel&&!aliases[x.name]);
-for(const model of unexpectedUnscored){
+const unscoredModels=models.filter(x=>x.mapping?.status==='unscored'||!x.aaModel);
+for(const model of unscoredModels){
   validationIssues.push({benchmark:'mapping',targetModel:model.name,status:'unavailable',reason:model.mapping?.reason||'No verified benchmark identity for this CommandCode model.'});
 }
 for(const model of models.filter(x=>x.mapping?.status==='partial_scored')){for(const key of model.mapping.missingBenchmarks||[])validationIssues.push({benchmark:key,targetSlug:model.aaModel?.slug??model.mapping?.slug,status:'unavailable',reason:`Artificial Analysis publishes no current ${key} value; affected role scores are conservative partial scores.`});}
