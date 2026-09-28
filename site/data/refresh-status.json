@@ -1,26 +1,26 @@
 {
   "schemaVersion": 3,
-  "status": "error",
-  "attemptedAt": "2026-09-28T14:01:32.065Z",
+  "status": "partial",
+  "attemptedAt": "2026-09-28T14:05:16.044Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T13:44:23.674Z"
+    "generatedAt": "2026-09-28T14:05:12.327Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T13:44:23.674Z",
+    "generatedAt": "2026-09-28T14:05:12.327Z",
     "benchmarkDate": "2026-09-28",
-    "benchmarkGeneratedAt": "2026-09-28T13:44:23.674Z",
-    "lineupInputsRefreshedAt": "2026-09-28T13:44:23.674Z"
+    "benchmarkGeneratedAt": "2026-09-28T14:05:12.327Z",
+    "lineupInputsRefreshedAt": "2026-09-28T14:05:12.327Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-09-28",
-    "generatedAt": "2026-09-28T13:44:23.674Z"
+    "generatedAt": "2026-09-28T14:05:12.327Z"
   },
-  "mode": null,
-  "message": null,
-  "stage": "update",
-  "errorSummary": "# opencli artificial-analysis models --trace retain-on-failure",
+  "mode": "full",
+  "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
+  "stage": null,
+  "errorSummary": null,
   "validationIssues": [
     {
       "benchmark": "mapping",
@@ -36,25 +36,7 @@
     },
     {
       "benchmark": "mapping",
-      "targetModel": "GLM-5.3 FlashX",
-      "status": "unavailable",
-      "reason": "No verified AA identity."
-    },
-    {
-      "benchmark": "mapping",
       "targetModel": "Qwen 3.8 Omni Flash",
-      "status": "unavailable",
-      "reason": "No verified AA identity."
-    },
-    {
-      "benchmark": "mapping",
-      "targetModel": "Step 5 Preview",
-      "status": "unavailable",
-      "reason": "No verified AA identity."
-    },
-    {
-      "benchmark": "mapping",
-      "targetModel": "MiMo V2.6 Pro UltraSpeed",
       "status": "unavailable",
       "reason": "No verified AA identity."
     },
@@ -63,6 +45,66 @@
       "targetModel": "Jev",
       "status": "unavailable",
       "reason": "No verified AA identity."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "ling-3-0-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "glm-5",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "minimax-m2-5",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "qwen3-max-preview",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "step-3-5-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "claude-opus-4-6",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "claude-sonnet-4-6",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "claude-4-5-haiku",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "gpt-5-3-codex",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "inkling-small",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
   "runUrl": null

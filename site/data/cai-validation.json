@@ -1,69 +1,69 @@
 {
   "schemaVersion": 1,
   "date": "2026-09-28",
-  "observedFamilies": 13,
+  "observedFamilies": 16,
   "method": "50% ridge + 50% inverse-distance 5NN",
   "vendorHoldout": {
-    "n": 13,
+    "n": 16,
     "groups": 9,
     "ridge": {
-      "mae": 3.4724,
-      "rmse": 4.4749,
-      "spearman": 0.8681,
-      "pairwiseAccuracy": 0.8462
+      "mae": 3.1683,
+      "rmse": 4.3458,
+      "spearman": 0.8235,
+      "pairwiseAccuracy": 0.8333
     },
     "knn": {
-      "mae": 4.5459,
-      "rmse": 6.0522,
-      "spearman": 0.5989,
-      "pairwiseAccuracy": 0.7051
+      "mae": 5.6881,
+      "rmse": 6.8376,
+      "spearman": 0.5618,
+      "pairwiseAccuracy": 0.675
     },
     "ensemble": {
-      "mae": 3.6305,
-      "rmse": 4.6028,
-      "spearman": 0.7802,
-      "pairwiseAccuracy": 0.8205
+      "mae": 4.0999,
+      "rmse": 5.1852,
+      "spearman": 0.7235,
+      "pairwiseAccuracy": 0.7917
     }
   },
   "randomHoldout": {
     "repetitions": 500,
-    "testFraction": 0.3077,
+    "testFraction": 0.3125,
     "mae": {
-      "median": 3.5165,
-      "p90": 5.3747
+      "median": 3.6817,
+      "p90": 5.2027
     },
     "spearman": {
-      "median": 0.8,
-      "p10": 0.4
+      "median": 0.9,
+      "p10": 0.6
     },
     "pairwiseAccuracy": {
-      "median": 0.8333
+      "median": 0.9
     }
   },
   "finalRanking": {
     "implementer": {
-      "mae": 5.4342,
-      "rmse": 13.562,
-      "spearman": 1,
-      "pairwiseAccuracy": 1,
+      "mae": 4.5399,
+      "rmse": 10.6816,
+      "spearman": 0.9971,
+      "pairwiseAccuracy": 0.9917,
       "top5Hit": 1,
-      "qualityMae": 1.2102
+      "qualityMae": 1.3666
     },
     "implementer-heavy": {
-      "mae": 5.4342,
-      "rmse": 13.562,
-      "spearman": 0.9945,
-      "pairwiseAccuracy": 0.9872,
-      "top5Hit": 0.8,
-      "qualityMae": 1.2102
+      "mae": 4.5399,
+      "rmse": 10.6816,
+      "spearman": 0.9971,
+      "pairwiseAccuracy": 0.9917,
+      "top5Hit": 1,
+      "qualityMae": 1.3666
     },
     "code-reviewer": {
-      "mae": 5.4342,
-      "rmse": 13.562,
-      "spearman": 1,
-      "pairwiseAccuracy": 1,
+      "mae": 4.5399,
+      "rmse": 10.6816,
+      "spearman": 0.9971,
+      "pairwiseAccuracy": 0.9917,
       "top5Hit": 1,
-      "qualityMae": 1.2102
+      "qualityMae": 1.3666
     }
   },
   "guardrails": {
