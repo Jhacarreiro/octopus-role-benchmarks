@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
-  "date": "2026-09-16",
-  "observedFamilies": 12,
+  "date": "2026-09-28",
+  "observedFamilies": 13,
   "method": "50% ridge + 50% inverse-distance 5NN",
   "vendorHoldout": {
-    "n": 12,
+    "n": 13,
     "groups": 9,
     "ridge": {
-      "mae": 3.4252,
-      "rmse": 4.4345,
-      "spearman": 0.8601,
-      "pairwiseAccuracy": 0.8485
+      "mae": 3.4724,
+      "rmse": 4.4749,
+      "spearman": 0.8681,
+      "pairwiseAccuracy": 0.8462
     },
     "knn": {
-      "mae": 6.0904,
-      "rmse": 7.4921,
-      "spearman": 0.1888,
-      "pairwiseAccuracy": 0.5909
+      "mae": 4.5459,
+      "rmse": 6.0522,
+      "spearman": 0.5989,
+      "pairwiseAccuracy": 0.7051
     },
     "ensemble": {
-      "mae": 4.4272,
-      "rmse": 5.4162,
-      "spearman": 0.8042,
-      "pairwiseAccuracy": 0.8182
+      "mae": 3.6305,
+      "rmse": 4.6028,
+      "spearman": 0.7802,
+      "pairwiseAccuracy": 0.8205
     }
   },
   "randomHoldout": {
     "repetitions": 500,
-    "testFraction": 0.3333,
+    "testFraction": 0.3077,
     "mae": {
-      "median": 4.7892,
-      "p90": 6.6636
+      "median": 3.5165,
+      "p90": 5.3747
     },
     "spearman": {
       "median": 0.8,
@@ -42,28 +42,28 @@
   },
   "finalRanking": {
     "implementer": {
-      "mae": 2.8748,
-      "rmse": 7.4115,
-      "spearman": 0.965,
-      "pairwiseAccuracy": 0.9394,
+      "mae": 4.4027,
+      "rmse": 10.4071,
+      "spearman": 0.989,
+      "pairwiseAccuracy": 0.9744,
       "top5Hit": 0.8,
-      "qualityMae": 1.4757
+      "qualityMae": 1.2102
     },
     "implementer-heavy": {
-      "mae": 2.8748,
-      "rmse": 7.4115,
-      "spearman": 0.986,
-      "pairwiseAccuracy": 0.9697,
-      "top5Hit": 0.8,
-      "qualityMae": 1.4757
+      "mae": 4.4027,
+      "rmse": 10.4071,
+      "spearman": 0.9945,
+      "pairwiseAccuracy": 0.9872,
+      "top5Hit": 1,
+      "qualityMae": 1.2102
     },
     "code-reviewer": {
-      "mae": 2.8748,
-      "rmse": 7.4115,
-      "spearman": 0.958,
-      "pairwiseAccuracy": 0.9242,
+      "mae": 4.4027,
+      "rmse": 10.4071,
+      "spearman": 0.9725,
+      "pairwiseAccuracy": 0.9487,
       "top5Hit": 0.8,
-      "qualityMae": 1.4757
+      "qualityMae": 1.2102
     }
   },
   "guardrails": {

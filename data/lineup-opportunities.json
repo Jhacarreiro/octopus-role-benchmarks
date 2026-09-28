@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "snapshotDate": "2026-09-16",
-  "generatedAt": "2026-09-16T12:39:53.980Z",
+  "snapshotDate": "2026-09-28",
+  "generatedAt": "2026-09-28T12:29:28.517Z",
   "policySchemaVersion": 11,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -13,7 +13,7 @@
       "objective": "maximize-role-quality",
       "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.9,
-      "effectiveIntelligenceFloor": 0.84,
+      "effectiveIntelligenceFloor": 0.835,
       "priceFilter": null,
       "autoSafeCandidateCount": 0,
       "reviewOnlyCandidateCount": 0,
@@ -24,7 +24,7 @@
     "balanced": {
       "classification": "review-only",
       "objective": "maximize-quality-minus-effective-cost-penalty",
-      "currentFamilyCount": 5,
+      "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.85,
       "effectiveIntelligenceFloor": 0.84,
       "priceFilter": {
@@ -34,11 +34,11 @@
         "referencePopulation": "latest-generation-scored-universe",
         "referenceModels": 30,
         "referenceFamilies": 17,
-        "preFilterBestEligibleIntelligenceIndex": 53.3738,
-        "meanCostPerTaskUsd": 1.358199,
-        "populationStdDevCostPerTaskUsd": 1.948249,
-        "cutoffCostPerTaskUsd": 5.254696,
-        "postFilterBestEligibleIntelligenceIndex": 52.8141,
+        "preFilterBestEligibleIntelligenceIndex": 53.3549,
+        "meanCostPerTaskUsd": 1.435685,
+        "populationStdDevCostPerTaskUsd": 1.914155,
+        "cutoffCostPerTaskUsd": 5.263995,
+        "postFilterBestEligibleIntelligenceIndex": 52.6737,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
@@ -75,11 +75,11 @@
         "referencePopulation": "latest-generation-scored-universe",
         "referenceModels": 30,
         "referenceFamilies": 17,
-        "preFilterBestEligibleIntelligenceIndex": 53.3738,
-        "meanCostPerTaskUsd": 1.358199,
-        "populationStdDevCostPerTaskUsd": 1.948249,
-        "cutoffCostPerTaskUsd": 5.254696,
-        "postFilterBestEligibleIntelligenceIndex": 52.8141,
+        "preFilterBestEligibleIntelligenceIndex": 53.3549,
+        "meanCostPerTaskUsd": 1.435685,
+        "populationStdDevCostPerTaskUsd": 1.914155,
+        "cutoffCostPerTaskUsd": 5.263995,
+        "postFilterBestEligibleIntelligenceIndex": 52.6737,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
