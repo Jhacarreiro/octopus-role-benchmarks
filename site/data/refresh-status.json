@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "status": "partial",
-  "attemptedAt": "2026-09-28T13:44:27.936Z",
+  "status": "error",
+  "attemptedAt": "2026-09-28T14:01:32.065Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-09-28",
     "generatedAt": "2026-09-28T13:44:23.674Z"
@@ -17,10 +17,10 @@
     "date": "2026-09-28",
     "generatedAt": "2026-09-28T13:44:23.674Z"
   },
-  "mode": "full",
-  "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
-  "stage": null,
-  "errorSummary": null,
+  "mode": null,
+  "message": null,
+  "stage": "update",
+  "errorSummary": "# opencli artificial-analysis models --trace retain-on-failure",
   "validationIssues": [
     {
       "benchmark": "mapping",
