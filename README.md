@@ -140,6 +140,8 @@ MIT.
 
 ### Weekly refresh
 
+CommandCode is the sole source for model pricing, billing category and Max plan allowances. Artificial Analysis contributes benchmark measurements and, where available, the task token profile used only to apply CommandCode token prices to a common workload; AA prices are never used for ranking or cost calculations.
+
 The benchmark refresh is designed to be invoked once per week by an external scheduler through `scripts/run-scheduled-weekly.sh`. The repository-owned runner performs the refresh, validation, public-state generation and commit/push as one bounded operation. `.github/workflows/weekly.yml` is retained only as a manual `workflow_dispatch` fallback; GitHub Actions is not the scheduler. Deployment-specific scheduling, credentials and notification targets remain outside this public repository.
 
 Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. Newly discovered CommandCode models without a verified benchmark identity are published as `unscored` rather than aborting the refresh, and the public validation status records the mapping issue. The 100% coverage rule applies to the scored universe. Benchmark fallbacks are never silent: every estimated, historical, stale or unavailable value carries explicit provenance in the public snapshot.

@@ -329,7 +329,7 @@ const models=mapped.map(row=>{
   const rawSource=row.mapping.slug?aa.get(row.mapping.slug):null;
   const incomplete=row.mapping.slug?sourceIncompleteBySlug.get(row.mapping.slug):null;
   const source=incomplete?null:rawSource;
-  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:`AA source incomplete for active methodology: ${[...incomplete.missingBenchmarks,incomplete.missingTaskTokens?'taskTokens':null].filter(Boolean).join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks,missingTaskTokens:incomplete.missingTaskTokens}:row.mapping;
+  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:`AA source incomplete for active methodology: ${[...incomplete.missingBenchmarks,incomplete.missingTaskTokens?'taskTokenProfile':null].filter(Boolean).join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks,missingTaskTokens:incomplete.missingTaskTokens}:row.mapping;
   const benchmarks=source?benchmarksForSource(source):{};
   const cyberbench=source?cyberbenchBySlug.get(source.slug):null;
   if(cyberbench)benchmarks.cyberbench=round(cyberbench.value,3);
@@ -363,14 +363,13 @@ const models=mapped.map(row=>{
     hostModelSlug:c.hostModelSlug,agent:c.agent,displayLabel:c.displayLabel,indexScore:round(caiIndexPercent(c.indexScore),3),
     evaluations:Object.fromEntries(Object.entries(c.evaluations||{}).map(([k,v])=>[k,round(caiIndexPercent(v),3)])),
     tokensPerTask:c.telemetry,totalTokensPerTask:c.telemetry?.totalTokens??null,timePerTaskSec:c.telemetry?.wallTimeSec??null,
-    aaCostPerTaskUsd:c.telemetry?.costUsd??null,sourceUrl:c.sourceUrl,
+    sourceUrl:c.sourceUrl,
     selection:{isHighlighted:c.isHighlighted,isDefault:c.isDefault,rule:'highlighted > default > highest index score'}
   }:null;
-  if(codingAgent?.aaCostPerTaskUsd>0)codingAgent.aaValuePerDollar=round(codingAgent.indexScore/codingAgent.aaCostPerTaskUsd,3);
   const benchmarkFallback=benchmarkFallbackBySlug.get(row.mapping.slug);
   const benchmarkProvenance=benchmarkFallback?{scicode:{status:benchmarkFallback.provenanceStatus??'estimated',...benchmarkFallback}}:{};
   if(cyberbench)benchmarkProvenance.cyberbench=cyberbench.provenance;
-  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,aaCostPerTaskUsd:source.intelligenceTask?.aaCostUsd?.total??null,tokens:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
+  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,taskTokenProfile:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
 const unexpectedUnscored=models.filter(x=>!x.aaModel&&!aliases[x.name]);
 for(const model of unexpectedUnscored){
