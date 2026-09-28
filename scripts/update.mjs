@@ -4,6 +4,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { fitCaiEstimator, predictCai, rowFromModelFamily, RIDGE_FEATURES, KNN_FEATURES, RIDGE_LAMBDA, KNN_K, CAI_BLEND, CODING_ROLE_CAI_WEIGHT } from './cai-estimator.mjs';
 import { fitScicodeEstimator, predictScicode, validateScicodeEstimator, scicodeRowFromAa, isCompleteScicodeFeatureRow, SCICODE_FEATURES, SCICODE_RIDGE_LAMBDA, SCICODE_VALIDATION_LIMITS } from './scicode-estimator.mjs';
+import { fitGpqaEstimator, predictGpqa, validateGpqaEstimator } from './gpqa-estimator.mjs';
 import { fetchCyberBench, resolveCyberBenchBySlug } from './cyberbench.mjs';
 import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
 import { balancedScore } from './lib/balanced-score.mjs';
@@ -232,7 +233,21 @@ for(const row of scicodeRows){
     value:chosen
   });
 }
-const benchmarkFallbackBySlug=new Map(benchmarkFallbacksApplied.map(x=>[x.targetSlug,x]));
+const scicodeFallbackSlugs=new Set(benchmarkFallbacksApplied.filter(x=>x.benchmark==='scicode').map(x=>x.targetSlug));
+const gpqaRows=[...aa.values()].filter(m=>!scicodeFallbackSlugs.has(m.slug)&&m.gpqa!=null&&m.hle!=null&&m.lcr!=null&&m.scicode!=null&&m.omniscience!=null).map(m=>({slug:m.slug,gpqa:m.gpqa*100,hle:m.hle*100,lcr:m.lcr*100,scicode:m.scicode*100,omniscienceIndex:50+m.omniscience/2}));
+const gpqaValidation=validateGpqaEstimator(gpqaRows);
+const gpqaEstimator=gpqaValidation.valid?fitGpqaEstimator(gpqaRows):null;
+const gpqaFallbacks=[];
+for(const row of [...aa.values()].filter(m=>m.gpqa==null&&m.hle!=null&&m.lcr!=null&&m.scicode!=null&&m.omniscience!=null)){
+  if(!gpqaEstimator)continue;
+  const estimate=round(predictGpqa(gpqaEstimator,{slug:row.slug,hle:row.hle*100,lcr:row.lcr*100,scicode:row.scicode*100,omniscienceIndex:50+row.omniscience/2}),4);
+  row.gpqa=estimate/100;
+  const fallback={benchmark:'gpqa',targetSlug:row.slug,strategy:'validated_knn',provenanceStatus:'estimated',value:estimate,validation:{method:gpqaValidation.method,k:gpqaValidation.k,features:gpqaValidation.features,mae:round(gpqaValidation.mae,4),maxError:round(gpqaValidation.maxError,4),observedCount:gpqaValidation.observedCount}};
+  gpqaFallbacks.push(fallback);benchmarkFallbacksApplied.push(fallback);
+}
+const benchmarkFallbackBySlug=new Map();
+for(const item of benchmarkFallbacksApplied){if(!benchmarkFallbackBySlug.has(item.targetSlug))benchmarkFallbackBySlug.set(item.targetSlug,{});benchmarkFallbackBySlug.get(item.targetSlug)[item.benchmark]=item;}
+
 
 const activeBenchmarks=[...new Set(roles.roles.flatMap(r=>Object.keys(r.weights||{})))];
 const sourceIncomplete=[];
@@ -242,11 +257,19 @@ for(const slug of slugs){
   if(missingBenchmarks.length) sourceIncomplete.push({slug,missingBenchmarks});
 }
 const sourceIncompleteBySlug=new Map(sourceIncomplete.map(x=>[x.slug,x]));
-const scoredSlugs=slugs.filter(slug=>!sourceIncompleteBySlug.has(slug));
+const partialScoredBySlug=new Map(sourceIncomplete.filter(x=>x.missingBenchmarks.length>0&&x.missingBenchmarks.every(key=>key==='gdpval')).map(x=>[x.slug,x]));
+const hardIncompleteBySlug=new Map(sourceIncomplete.filter(x=>!partialScoredBySlug.has(x.slug)).map(x=>[x.slug,x]));
+const scoredSlugs=slugs.filter(slug=>!hardIncompleteBySlug.has(slug));
 const scoredSlugSet=new Set(scoredSlugs);
-if(!scoredSlugs.length)throw new Error('No fully covered AA families remain after source-completeness filtering');
+if(!scoredSlugs.length)throw new Error('No scoreable AA families remain after source-completeness filtering');
 const coverage={};
-for(const key of activeBenchmarks){const field=roles.benchmarks[key].sourceField;const missing=scoredSlugs.filter(slug=>aa.get(slug)?.[field]==null);coverage[key]={field,total:scoredSlugs.length,present:scoredSlugs.length-missing.length,ratio:round((scoredSlugs.length-missing.length)/scoredSlugs.length,6),missing};if(missing.length)throw new Error(`Coverage failure ${key}/${field}: ${scoredSlugs.length-missing.length}/${scoredSlugs.length}; missing ${missing.join(', ')}`)}
+for(const key of activeBenchmarks){
+  const field=roles.benchmarks[key].sourceField;
+  const missing=scoredSlugs.filter(slug=>aa.get(slug)?.[field]==null);
+  coverage[key]={field,total:scoredSlugs.length,present:scoredSlugs.length-missing.length,ratio:round((scoredSlugs.length-missing.length)/scoredSlugs.length,6),missing};
+  const hardMissing=missing.filter(slug=>!partialScoredBySlug.has(slug));
+  if(hardMissing.length)throw new Error(`Coverage failure ${key}/${field}: hard-missing ${hardMissing.join(', ')}`);
+}
 const efficiencyMissing=[];
 const efficiencyCoverage={total:scoredSlugs.length,present:scoredSlugs.length,ratio:1,missing:[],basis:'normalized_reference_v1'};
 
@@ -272,7 +295,8 @@ function benchmarksForSource(source){
   for(const key of activeBenchmarks) out[key]=scaleBenchmark(key,source);
   return out;
 }
-const familyRows=scoredSlugs.map(slug=>{
+const caiEligibleSlugs=scoredSlugs.filter(slug=>!partialScoredBySlug.has(slug));
+const familyRows=caiEligibleSlugs.map(slug=>{
   const source=aa.get(slug);
   const benchmarks=benchmarksForSource(source);
   const observed=codingBySlug.get(slug);
@@ -315,9 +339,9 @@ for(const row of familyRows){
   caiBySlug.set(row.slug,{value:round(pred.estimate,3),source:'estimated',version:codingAgentVersion,ridge:round(pred.ridge,3),knn:round(pred.knn,3),historicalAnchor});
 }
 const caiStarCoverage={
-  total:scoredSlugs.length,
+  total:caiEligibleSlugs.length,
   present:caiBySlug.size,
-  ratio:round(caiBySlug.size/scoredSlugs.length,6),
+  ratio:round(caiBySlug.size/Math.max(1,caiEligibleSlugs.length),6),
   observed:observedCaiRows.length,
   historicalCalibrated:caiHistoricalCalibratedFamilies,
   estimated:caiEstimatedFamilies
@@ -326,9 +350,10 @@ if(caiStarCoverage.present!==caiStarCoverage.total) throw new Error(`CAI* covera
 
 const models=mapped.map(row=>{
   const rawSource=row.mapping.slug?aa.get(row.mapping.slug):null;
-  const incomplete=row.mapping.slug?sourceIncompleteBySlug.get(row.mapping.slug):null;
+  const incomplete=row.mapping.slug?hardIncompleteBySlug.get(row.mapping.slug):null;
+  const partial=row.mapping.slug?partialScoredBySlug.get(row.mapping.slug):null;
   const source=incomplete?null:rawSource;
-  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:row.mapping;
+  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:partial?{...row.mapping,status:'partial_scored',reason:`Scored conservatively with unavailable benchmark: ${partial.missingBenchmarks.join(', ')}`,missingBenchmarks:partial.missingBenchmarks}:row.mapping;
   const benchmarks=source?benchmarksForSource(source):{};
   const cyberbench=source?cyberbenchBySlug.get(source.slug):null;
   if(cyberbench)benchmarks.cyberbench=round(cyberbench.value,3);
@@ -348,13 +373,25 @@ const models=mapped.map(row=>{
         roleScores[role.id]={score:rankingQuality,rankingQuality,rankingValue};
         continue;
       }
-      let score=0;
-      for(const [key,w] of Object.entries(role.weights||{})) score+=benchmarks[key]*w;
+      let score=0,availableWeight=0,totalWeight=0;
+      const missingBenchmarks=[];
+      for(const [key,w] of Object.entries(role.weights||{})){
+        totalWeight+=w;
+        const value=benchmarks[key];
+        if(value==null){missingBenchmarks.push(key);continue}
+        score+=value*w;availableWeight+=w;
+      }
       score=round(score,3);
-      const rankingQuality=role.codingAdjusted?round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*caiStar.value,3):score;
+      let rankingQuality=score;
+      let coverageWeight=availableWeight;
+      const missingComponents=[...missingBenchmarks];
+      if(role.codingAdjusted){
+        if(caiStar){rankingQuality=round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*caiStar.value,3);coverageWeight=(1-CODING_ROLE_CAI_WEIGHT)*availableWeight+CODING_ROLE_CAI_WEIGHT}
+        else{rankingQuality=round((1-CODING_ROLE_CAI_WEIGHT)*score,3);coverageWeight=(1-CODING_ROLE_CAI_WEIGHT)*availableWeight;missingComponents.push('caiStar')}
+      }
       const balanced=balancedScore(rankingQuality,planAdjustedCostUsd,balancedPenaltyPerUsd);
-        const rankingValue=balanced==null?null:round(balanced,3);
-      roleScores[role.id]={score,rankingQuality,rankingValue};
+      const rankingValue=balanced==null?null:round(balanced,3);
+      roleScores[role.id]={score,rankingQuality,rankingValue,status:missingComponents.length?'partial':'valid',coverageWeight:round(coverageWeight,4),missingComponents};
     }
   }
   const c=source?codingBySlug.get(source.slug):null;
@@ -365,8 +402,10 @@ const models=mapped.map(row=>{
     sourceUrl:c.sourceUrl,
     selection:{isHighlighted:c.isHighlighted,isDefault:c.isDefault,rule:'highlighted > default > highest index score'}
   }:null;
-  const benchmarkFallback=benchmarkFallbackBySlug.get(row.mapping.slug);
-  const benchmarkProvenance=benchmarkFallback?{scicode:{status:benchmarkFallback.provenanceStatus??'estimated',...benchmarkFallback}}:{};
+  const benchmarkFallback=benchmarkFallbackBySlug.get(row.mapping.slug)||{};
+  const benchmarkProvenance={};
+  for(const [key,fallback] of Object.entries(benchmarkFallback))benchmarkProvenance[key]={status:fallback.provenanceStatus??'estimated',...fallback};
+  if(partial){for(const key of partial.missingBenchmarks)benchmarkProvenance[key]={status:'unavailable',benchmark:key,targetSlug:row.mapping.slug,reason:`Artificial Analysis publishes no current ${key} value for this mapped model; role scores use a conservative zero contribution for this component.`};}
   if(cyberbench)benchmarkProvenance.cyberbench=cyberbench.provenance;
   return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis:'normalized_reference_v1',normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
@@ -374,6 +413,7 @@ const unexpectedUnscored=models.filter(x=>!x.aaModel&&!aliases[x.name]);
 for(const model of unexpectedUnscored){
   validationIssues.push({benchmark:'mapping',targetModel:model.name,status:'unavailable',reason:model.mapping?.reason||'No verified benchmark identity for this CommandCode model.'});
 }
+for(const model of models.filter(x=>x.mapping?.status==='partial_scored')){for(const key of model.mapping.missingBenchmarks||[])validationIssues.push({benchmark:key,targetSlug:model.aaModel?.slug??model.mapping?.slug,status:'unavailable',reason:`Artificial Analysis publishes no current ${key} value; affected role scores are conservative partial scores.`});}
 const missingTaskRows=models.filter(x=>x.mapping?.status!=='source_incomplete'&&x.aaModel&&x.taskEfficiency?.commandCodeCostPerTaskUsd==null);if(missingTaskRows.length)throw new Error(`CommandCode task repricing failed: ${missingTaskRows.map(x=>x.name).join(', ')}`);
 
 const now=new Date(),nowIso=now.toISOString(),date=nowIso.slice(0,10);
@@ -392,7 +432,7 @@ const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,gene
     looMae:round(caiVersionCalibration.looMae,3),
     looMaxError:round(caiVersionCalibration.looMaxError,3)
   }:null
-}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,scicodeEstimator:{method:'current_observed_then_calibrated_lkg_then_validated_ridge',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,historicalCalibratedFamilies:benchmarkFallbacksApplied.filter(x=>x.strategy==='last_known_observed_calibrated').length,estimatedFamilies:benchmarkFallbacksApplied.filter(x=>x.provenanceStatus==='estimated').length,validatedAt:nowIso,sourceSnapshotGeneratedAt:nowIso,lkg:{maxAgeDays:lastKnownMaxAgeDays,calibration:{valid:scicodeLkgCalibration.valid,method:scicodeLkgCalibration.method,factor:scicodeLkgCalibration.factor==null?null:round(scicodeLkgCalibration.factor,6),rawMedianRatio:scicodeLkgCalibration.rawMedianRatio==null?null:round(scicodeLkgCalibration.rawMedianRatio,6),overlap:scicodeLkgCalibration.overlap,mae:scicodeLkgCalibration.mae==null?null:round(scicodeLkgCalibration.mae,4),maxError:scicodeLkgCalibration.maxError==null?null:round(scicodeLkgCalibration.maxError,4),failures:scicodeLkgCalibration.failures}},validation:{valid:scicodeEstimatorValid,mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS,worstResidual:scicodeTopResiduals[0]??null,topResiduals:scicodeTopResiduals}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,historicalCalibratedFamilies:caiHistoricalCalibratedFamilies,estimatedFamilies:caiEstimatedFamilies},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,partialRows:models.filter(x=>x.mapping?.status==='unscored'||x.mapping?.status==='source_incomplete'||Object.values(x.benchmarkProvenance||{}).some(v=>['stale','unavailable'].includes(v?.status))).length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiHistoricalCalibratedFamilies,caiEstimatedFamilies,cyberbenchDirectFamilies:cyberbenchBySlug.size},benchmarks:roles.benchmarks,roles:roles.roles,models};
+}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,gpqaEstimator:{validation:{method:gpqaValidation.method,k:gpqaValidation.k,features:gpqaValidation.features,observedCount:gpqaValidation.observedCount,mae:round(gpqaValidation.mae,4),maxError:round(gpqaValidation.maxError,4),valid:gpqaValidation.valid},estimatedFamilies:gpqaFallbacks.length},scicodeEstimator:{method:'current_observed_then_calibrated_lkg_then_validated_ridge',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,historicalCalibratedFamilies:benchmarkFallbacksApplied.filter(x=>x.strategy==='last_known_observed_calibrated').length,estimatedFamilies:benchmarkFallbacksApplied.filter(x=>x.provenanceStatus==='estimated').length,validatedAt:nowIso,sourceSnapshotGeneratedAt:nowIso,lkg:{maxAgeDays:lastKnownMaxAgeDays,calibration:{valid:scicodeLkgCalibration.valid,method:scicodeLkgCalibration.method,factor:scicodeLkgCalibration.factor==null?null:round(scicodeLkgCalibration.factor,6),rawMedianRatio:scicodeLkgCalibration.rawMedianRatio==null?null:round(scicodeLkgCalibration.rawMedianRatio,6),overlap:scicodeLkgCalibration.overlap,mae:scicodeLkgCalibration.mae==null?null:round(scicodeLkgCalibration.mae,4),maxError:scicodeLkgCalibration.maxError==null?null:round(scicodeLkgCalibration.maxError,4),failures:scicodeLkgCalibration.failures}},validation:{valid:scicodeEstimatorValid,mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS,worstResidual:scicodeTopResiduals[0]??null,topResiduals:scicodeTopResiduals}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,historicalCalibratedFamilies:caiHistoricalCalibratedFamilies,estimatedFamilies:caiEstimatedFamilies},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,partialRows:models.filter(x=>x.mapping?.status==='unscored'||x.mapping?.status==='source_incomplete'||x.mapping?.status==='partial_scored'||Object.values(x.benchmarkProvenance||{}).some(v=>['stale','unavailable'].includes(v?.status))).length,partialScoredRows:models.filter(x=>x.mapping?.status==='partial_scored').length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,partialScoredFamilies:partialScoredBySlug.size,sourceIncompleteFamilies:hardIncompleteBySlug.size,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiHistoricalCalibratedFamilies,caiEstimatedFamilies,cyberbenchDirectFamilies:cyberbenchBySlug.size},benchmarks:roles.benchmarks,roles:roles.roles,models};
 for(const dir of [path.join(root,'data'),path.join(root,'site','data')])fs.mkdirSync(dir,{recursive:true});
 const json=JSON.stringify(snapshot,null,2)+'\n';fs.writeFileSync(path.join(root,'data',`${date}.json`),json);fs.writeFileSync(path.join(root,'data','latest.json'),json);fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
 console.log(JSON.stringify({date,...snapshot.counts,taskCoverage:`${efficiencyCoverage.present}/${efficiencyCoverage.total}`,codingAgentCoverage:`${codingCoverage.present}/${codingCoverage.total}`,caiStarCoverage:`${caiStarCoverage.present}/${caiStarCoverage.total}`,coverage:Object.fromEntries(Object.entries(coverage).map(([k,v])=>[k,`${v.present}/${v.total}`])),unscored:models.filter(x=>!x.aaModel).map(x=>x.name)},null,2));

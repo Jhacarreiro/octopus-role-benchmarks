@@ -22,7 +22,14 @@ for(const role of roles.roles){
 }
 const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'utf8'));
 if(latest.schemaVersion<6) throw new Error('Expected snapshot schema >=6');
-for(const [key,c] of Object.entries(latest.coverage||{})) if(c.ratio!==1||c.present!==c.total) throw new Error(`Snapshot coverage <100% for ${key}`);
+for(const [key,c] of Object.entries(latest.coverage||{})){
+  if(c.ratio===1&&c.present===c.total) continue;
+  for(const slug of c.missing||[]){
+    const model=(latest.models||[]).find(m=>m.aaModel?.slug===slug);
+    if(model?.mapping?.status!=='partial_scored') throw new Error(`Unapproved coverage gap for ${key}/${slug}`);
+    if(model?.benchmarkProvenance?.[key]?.status!=='unavailable') throw new Error(`Coverage gap lacks unavailable provenance for ${key}/${slug}`);
+  }
+}
 for(const c of [latest.efficiencyCoverage,latest.caiStarCoverage]) if(!c||c.ratio!==1||c.present!==c.total) throw new Error('Task-cost and CAI* coverage must both be 100%');
 for(const m of latest.models||[]){
   if(m.mapping?.status==='unscored'&&Object.keys(m.roleScores||{}).length) throw new Error(`Unscored model has role score: ${m.name}`);
@@ -33,7 +40,11 @@ for(const m of latest.models||[]){
   }
   if(!m.aaModel) continue;
   if(m.taskEfficiency?.commandCodeCostPerTaskUsd==null) throw new Error(`Scored model lacks CC task cost: ${m.name}`);
-  if(m.caiStar?.value==null) throw new Error(`Scored model lacks CAI*: ${m.name}`);
+  if(m.mapping?.status==='partial_scored'){
+    for(const key of m.mapping.missingBenchmarks||[]){
+      if(m.benchmarkProvenance?.[key]?.status!=='unavailable') throw new Error(`Partial-scored model lacks provenance: ${m.name}/${key}`);
+    }
+  }else if(m.caiStar?.value==null) throw new Error(`Scored model lacks CAI*: ${m.name}`);
   if(m.aaModel?.intelligenceIndex==null) throw new Error(`Scored model lacks AA Intelligence Index: ${m.name}`);
   if(!["standard","premium","free"].includes(m.billingCategory)) throw new Error("Scored model lacks valid CommandCode billing category: "+m.name);
   if(!Number.isFinite(m.max10MonthlyUsageLimitUsd)||!Number.isFinite(m.max20MonthlyUsageLimitUsd)) throw new Error("Scored model lacks CommandCode Max allowances: "+m.name);
@@ -56,4 +67,4 @@ for(const [role,m] of Object.entries(v.finalRanking)){
   if(m.spearman<v.guardrails.finalRankingSpearmanMin) throw new Error(`${role} final ranking Spearman guardrail failed`);
   if(m.top5Hit<v.guardrails.finalRankingTop5HitMin) throw new Error(`${role} final ranking top5 guardrail failed`);
 }
-console.log(`ok: ${roles.roles.length} roles; scored-universe coverage=100%; source-incomplete=${latest.counts?.sourceIncompleteFamilies??0}; CAI*=100%; reverse-validation guardrails pass`);
+console.log(`ok: ${roles.roles.length} roles; mapped rows scoreable=${latest.counts?.scoredRows??0}; partial-scored=${latest.counts?.partialScoredRows??0}; source-incomplete=${latest.counts?.sourceIncompleteFamilies??0}; declared coverage gaps validated; reverse-validation guardrails pass`);
