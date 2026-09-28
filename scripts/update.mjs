@@ -346,7 +346,11 @@ const models=mapped.map(row=>{
   const cyberbench=source?cyberbenchBySlug.get(source.slug):null;
   if(cyberbench)benchmarks.cyberbench=round(cyberbench.value,3);
   const tokenPrices=tokenPriceBases(row);
-  const taskCostUsd=source?repriceTask(normalizedTaskProfile,row):null;
+  const observedTaskTokenProfile=source?.intelligenceTask?.tokens??null;
+  const hasObservedTaskTokenProfile=observedTaskTokenProfile&&['nonCacheInput','cacheRead','cacheWrite','output'].every(k=>Number.isFinite(observedTaskTokenProfile[k]));
+  const costTokenProfile=hasObservedTaskTokenProfile?observedTaskTokenProfile:normalizedTaskProfile;
+  const costBasis=hasObservedTaskTokenProfile?'observed_aa_task_profile':'normalized_reference_v1';
+  const taskCostUsd=source?repriceTask(costTokenProfile,row):null;
   const planAdjustedCostUsd=source?round(planAdjustedTaskCost(taskCostUsd,row,economics),6):null;
   const caiStar=source?caiBySlug.get(source.slug):null;
   const roleScores={};
@@ -395,7 +399,7 @@ const models=mapped.map(row=>{
   for(const [key,fallback] of Object.entries(benchmarkFallback))benchmarkProvenance[key]={status:fallback.provenanceStatus??'estimated',...fallback};
   if(partial){for(const key of partial.missingBenchmarks)benchmarkProvenance[key]={status:'unavailable',benchmark:key,targetSlug:row.mapping.slug,reason:`Artificial Analysis publishes no current ${key} value for this mapped model; role scores use a conservative zero contribution for this component.`};}
   if(cyberbench)benchmarkProvenance.cyberbench=cyberbench.provenance;
-  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis:'normalized_reference_v1',normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile:source.intelligenceTask?.tokens??null}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
+  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis,costTokenProfile,normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
 const unscoredModels=models.filter(x=>x.mapping?.status==='unscored'||!x.aaModel);
 for(const model of unscoredModels){
@@ -406,7 +410,7 @@ const missingTaskRows=models.filter(x=>x.mapping?.status!=='source_incomplete'&&
 
 const now=new Date(),nowIso=now.toISOString(),date=nowIso.slice(0,10);
 const scicodeTopResiduals=scicodeValidationErrors.slice(0,5).map(x=>({slug:x.slug,actual:round(x.actual,4),predicted:round(x.predicted,4),error:round(x.error,4)}));
-const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:nowIso,benchmarkDate:date,benchmarkGeneratedAt:nowIso,lineupInputsRefreshedAt:nowIso,validationStatus:validationIssues.length?'partial':'valid',validationIssues,costBasis:{id:'normalized_reference_v1',profileVersion:roles.costBasis.normalizedTask.profileVersion,referenceTokenProfile:normalizedTaskProfile,priceSource:'CommandCode'},sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length,planEconomics:economics,billingCategories:{standard:maxRows.filter(x=>x.billingCategory==='standard').length,premium:maxRows.filter(x=>x.billingCategory==='premium').length,free:maxRows.filter(x=>x.billingCategory==='free').length}},artificialAnalysis:{url:'https://artificialanalysis.ai/',parserVersion:2,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{
+const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,generatedAt:nowIso,benchmarkDate:date,benchmarkGeneratedAt:nowIso,lineupInputsRefreshedAt:nowIso,validationStatus:validationIssues.length?'partial':'valid',validationIssues,costBasis:{id:'observed_or_normalized_v1',observedSource:'Artificial Analysis task token telemetry',fallback:'normalized_reference_v1',profileVersion:roles.costBasis.normalizedTask.profileVersion,referenceTokenProfile:normalizedTaskProfile,priceSource:'CommandCode'},sources:{commandCodeMax:{url:'https://commandcode.ai/docs/plans/max',rows:maxRows.length,planEconomics:economics,billingCategories:{standard:maxRows.filter(x=>x.billingCategory==='standard').length,premium:maxRows.filter(x=>x.billingCategory==='premium').length,free:maxRows.filter(x=>x.billingCategory==='free').length}},artificialAnalysis:{url:'https://artificialanalysis.ai/',parserVersion:2,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,sourceIncompleteFamilies:sourceIncomplete.length},cyberbench:{url:cyberbenchDataset.sourceUrl,fetchedAt:cyberbenchDataset.fetchedAt,benchmarkUpdatedAt:cyberbenchDataset.benchmarkUpdatedAt,directFamilies:cyberbenchBySlug.size,missingMappings:cyberbenchResolved.missing},codingAgentIndex:{
   url:'https://artificialanalysis.ai/agents/coding-agents',
   version:codingAgentVersion,
   variants:codingRows.length,

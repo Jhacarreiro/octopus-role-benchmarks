@@ -58,7 +58,9 @@ for(const m of snapshot.models||[]){
   m.max20MonthlyUsageLimitUsd=cc.max20MonthlyUsageLimitUsd;
   m.offPeakShown=cc.offPeakShown===true;
   m.tokenPrices=tokenPriceBases(cc);
-  const cost=repriceTask(normalizedTaskProfile,cc);
+  const observed=m.taskEfficiency?.observedTaskTokenProfile;
+    const hasObserved=observed&&['nonCacheInput','cacheRead','cacheWrite','output'].every(k=>Number.isFinite(observed[k]));
+    const cost=repriceTask(hasObserved?observed:normalizedTaskProfile,cc);
   const adjusted=planAdjustedTaskCost(cost,cc,economics);
   if(m.taskEfficiency&&Number.isFinite(cost)){
     m.taskEfficiency.commandCodeCostPerTaskUsd=cost;

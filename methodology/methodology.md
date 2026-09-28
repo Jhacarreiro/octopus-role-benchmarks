@@ -53,7 +53,7 @@ Rates are converted from per-million-token prices. If CommandCode exposes no sep
 The raw result above is **credit burn per task**. The ranking denominator then adjusts that burn for the Max subscription allowance of the model billing category:
 
 ```text
-Plan-adjusted normalized workload cost = credit burn × monthly subscription price / category monthly usage limit
+Plan-adjusted task cost = credit burn × monthly subscription price / category monthly usage limit
 ```
 
 For the Max 10× reference plan used by the policy: standard = $150 allowance for $100 subscription, premium = $100 for $100, and free = $0. Therefore standard credit burn is multiplied by 2/3, premium by 1, and free remains 0. Max 20× doubles both allowances and the subscription price, so the ratios — and therefore rankings — are identical. Published model discounts are already reflected in the effective token rates and are **not applied again**.
@@ -65,14 +65,14 @@ The plan-adjusted task-cost denominator must have **100% coverage** of the score
 For non-coding roles:
 
 ```text
-Ranking Value = Universal Role Score / Plan-adjusted normalized workload cost
+Ranking Value = Universal Role Score / Plan-adjusted task cost
 ```
 
 For `implementer`, `implementer-heavy` and `code-reviewer`:
 
 ```text
 Coding Quality = 2/3 Universal Role Score + 1/3 CAI*
-Ranking Value  = Coding Quality / Plan-adjusted normalized workload cost
+Ranking Value  = Coding Quality / Plan-adjusted task cost
 ```
 
 The 1/3 CAI weight was reverse-validated against observed Coding Agent families. It materially adds agentic-coding information while leaving the final ranking robust to estimation error.

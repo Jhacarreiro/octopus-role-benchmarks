@@ -25,8 +25,8 @@
 <section id="coverage" class="methodology"></section>
 <section class="methodology prose">
   <h2>CommandCode credit burn and normalized reference workload</h2>
-  <p>Every model is priced against the same versioned reference token workload. The workload is fixed; all token prices, discounts, billing categories and Max allowances come from CommandCode. Artificial Analysis task-token telemetry is optional observational metadata and never a price source or eligibility gate.</p>
-  <code class="formula-code">normalized cost = reference input × CC input + reference cache-read × CC cache-read + reference cache-write × CC cache-write + reference output × CC output</code>
+  <p>When Artificial Analysis publishes a complete task-token profile for a model, that observed workload is repriced with the model’s current CommandCode rates. If the profile is unavailable, the benchmark falls back to a versioned normalized reference workload. All token prices, discounts, billing categories and Max allowances come exclusively from CommandCode.</p>
+  <code class="formula-code">task cost = selected token profile × CommandCode input/cache/output prices</code>
   <p>If CommandCode exposes no separate cache rate, normal input price is used. Active CommandCode promotions are retained.</p>
 </section>
 <section class="methodology prose">
