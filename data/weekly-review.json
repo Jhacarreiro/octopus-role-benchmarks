@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T14:32:23.723Z",
+  "generatedAt": "2026-09-28T14:39:43.612Z",
   "snapshotDate": "2026-09-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-28T14:32:23.532Z",
+    "attemptedAt": "2026-09-28T14:39:43.478Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:32:20.507Z"
+      "generatedAt": "2026-09-28T14:39:38.818Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:32:20.507Z",
+      "generatedAt": "2026-09-28T14:39:38.818Z",
       "benchmarkDate": "2026-09-28",
-      "benchmarkGeneratedAt": "2026-09-28T14:32:20.507Z",
-      "lineupInputsRefreshedAt": "2026-09-28T14:32:20.507Z"
+      "benchmarkGeneratedAt": "2026-09-28T14:39:38.818Z",
+      "lineupInputsRefreshedAt": "2026-09-28T14:39:38.818Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-09-28",
-      "generatedAt": "2026-09-28T14:32:20.507Z"
+      "generatedAt": "2026-09-28T14:39:38.818Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -30,49 +30,49 @@
         "benchmark": "mapping",
         "targetModel": "Space Bunny Alpha",
         "status": "unavailable",
-        "reason": "Stealth/anonymous model; no verified Artificial Analysis identity."
+        "reason": "Stealth model; identity unverified."
       },
       {
         "benchmark": "mapping",
         "targetModel": "Pixel Canary",
         "status": "unavailable",
-        "reason": "Stealth model; provider identity is intentionally undisclosed and no verified Artificial Analysis identity exists."
+        "reason": "Stealth model; identity unverified."
       },
       {
         "benchmark": "mapping",
         "targetModel": "Laguna S 2.1",
         "status": "unavailable",
-        "reason": "Public Poolside model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+        "reason": "Public model; no canonical AA entry."
       },
       {
         "benchmark": "mapping",
         "targetModel": "Tencent Hy4 Preview",
         "status": "unavailable",
-        "reason": "Public Tencent Hy4 preview model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+        "reason": "Public model; no canonical AA entry."
       },
       {
         "benchmark": "mapping",
         "targetModel": "Qwen 3.8 Omni Flash",
         "status": "unavailable",
-        "reason": "Public Qwen3.8-Omni-Flash model. It is distinct from Qwen3.8-Flash-Next despite identical token pricing, so it is not proxied to that AA entry."
+        "reason": "Public model; no canonical AA entry."
       },
       {
         "benchmark": "mapping",
         "targetModel": "Qwen 3.7 Flash",
         "status": "unavailable",
-        "reason": "Public Qwen3.7-Flash model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+        "reason": "Public model; no canonical AA entry."
       },
       {
         "benchmark": "mapping",
         "targetModel": "Fugu Ultra",
         "status": "unavailable",
-        "reason": "Public Sakana Fugu Ultra orchestration model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+        "reason": "Public model; no canonical AA entry."
       },
       {
         "benchmark": "mapping",
         "targetModel": "Jev",
         "status": "unavailable",
-        "reason": "Public TypeSafe Jev decision model. It returns typed decisions rather than general free-form generation, so it is not comparable to the AA general-model ranking."
+        "reason": "Decision model; not comparable to the AA ranking."
       },
       {
         "benchmark": "gdpval",

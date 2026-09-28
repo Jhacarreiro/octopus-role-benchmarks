@@ -2,59 +2,59 @@
   "schemaVersion": 6,
   "methodologyVersion": 8,
   "date": "2026-09-28",
-  "generatedAt": "2026-09-28T14:32:20.507Z",
+  "generatedAt": "2026-09-28T14:39:38.818Z",
   "benchmarkDate": "2026-09-28",
-  "benchmarkGeneratedAt": "2026-09-28T14:32:20.507Z",
-  "lineupInputsRefreshedAt": "2026-09-28T14:32:20.507Z",
+  "benchmarkGeneratedAt": "2026-09-28T14:39:38.818Z",
+  "lineupInputsRefreshedAt": "2026-09-28T14:39:38.818Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
       "benchmark": "mapping",
       "targetModel": "Space Bunny Alpha",
       "status": "unavailable",
-      "reason": "Stealth/anonymous model; no verified Artificial Analysis identity."
+      "reason": "Stealth model; identity unverified."
     },
     {
       "benchmark": "mapping",
       "targetModel": "Pixel Canary",
       "status": "unavailable",
-      "reason": "Stealth model; provider identity is intentionally undisclosed and no verified Artificial Analysis identity exists."
+      "reason": "Stealth model; identity unverified."
     },
     {
       "benchmark": "mapping",
       "targetModel": "Laguna S 2.1",
       "status": "unavailable",
-      "reason": "Public Poolside model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+      "reason": "Public model; no canonical AA entry."
     },
     {
       "benchmark": "mapping",
       "targetModel": "Tencent Hy4 Preview",
       "status": "unavailable",
-      "reason": "Public Tencent Hy4 preview model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+      "reason": "Public model; no canonical AA entry."
     },
     {
       "benchmark": "mapping",
       "targetModel": "Qwen 3.8 Omni Flash",
       "status": "unavailable",
-      "reason": "Public Qwen3.8-Omni-Flash model. It is distinct from Qwen3.8-Flash-Next despite identical token pricing, so it is not proxied to that AA entry."
+      "reason": "Public model; no canonical AA entry."
     },
     {
       "benchmark": "mapping",
       "targetModel": "Qwen 3.7 Flash",
       "status": "unavailable",
-      "reason": "Public Qwen3.7-Flash model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+      "reason": "Public model; no canonical AA entry."
     },
     {
       "benchmark": "mapping",
       "targetModel": "Fugu Ultra",
       "status": "unavailable",
-      "reason": "Public Sakana Fugu Ultra orchestration model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score."
+      "reason": "Public model; no canonical AA entry."
     },
     {
       "benchmark": "mapping",
       "targetModel": "Jev",
       "status": "unavailable",
-      "reason": "Public TypeSafe Jev decision model. It returns typed decisions rather than general free-form generation, so it is not comparable to the AA general-model ranking."
+      "reason": "Decision model; not comparable to the AA ranking."
     },
     {
       "benchmark": "gdpval",
@@ -153,7 +153,7 @@
     },
     "cyberbench": {
       "url": "https://www.vals.ai/benchmarks/cyber",
-      "fetchedAt": "2026-09-28T14:32:20.423Z",
+      "fetchedAt": "2026-09-28T14:39:38.748Z",
       "benchmarkUpdatedAt": "2026-09-22T00:00:00.000Z",
       "directFamilies": 24,
       "missingMappings": [
@@ -582,8 +582,8 @@
     "observedFamilies": 48,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 12,
-    "validatedAt": "2026-09-28T14:32:20.507Z",
-    "sourceSnapshotGeneratedAt": "2026-09-28T14:32:20.507Z",
+    "validatedAt": "2026-09-28T14:39:38.818Z",
+    "sourceSnapshotGeneratedAt": "2026-09-28T14:39:38.818Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -1049,7 +1049,7 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Stealth/anonymous model; no verified Artificial Analysis identity.",
+        "reason": "Stealth model; identity unverified.",
         "identityStatus": "stealth_unverified",
         "externalSource": {
           "label": "Space Bunny Alpha public identity trail",
@@ -1094,13 +1094,13 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Stealth model; provider identity is intentionally undisclosed and no verified Artificial Analysis identity exists.",
+        "reason": "Stealth model; identity unverified.",
         "identityStatus": "stealth_unverified",
         "externalSource": {
           "label": "Vercel AI Gateway announcement",
           "url": "https://vercel.com/changelog/pixel-canary-is-now-available-in-stealth-for-free-on-ai-gateway"
         },
-        "externalEvidence": "Vercel reports 90.3% on its Next.js eval baseline (28/31), 96.8% with Next.js documentation (30/31)."
+        "externalEvidence": null
       },
       "benchmarkProvenance": {},
       "tokenPrices": {
@@ -1139,13 +1139,13 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Public Poolside model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+        "reason": "Public model; no canonical AA entry.",
         "identityStatus": "external_verified",
         "externalSource": {
           "label": "OpenRouter — Poolside Laguna S 2.1",
           "url": "https://openrouter.ai/poolside/laguna-s-2.1"
         },
-        "externalEvidence": "Poolside reports Terminal-Bench 2.1 70.2% and DeepSWE 40.4%; kept external to the AA-based Octopus score."
+        "externalEvidence": null
       },
       "benchmarkProvenance": {},
       "tokenPrices": {
@@ -1336,13 +1336,13 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Public Tencent Hy4 preview model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+        "reason": "Public model; no canonical AA entry.",
         "identityStatus": "external_verified",
         "externalSource": {
           "label": "Tencent Hy4 Preview",
           "url": "https://github.com/Tencent-Hunyuan/Hy4-preview"
         },
-        "externalEvidence": "Tencent open-sourced Hy4 Preview (770B total / 49B active, 1M context) and publishes its own benchmark appendix."
+        "externalEvidence": null
       },
       "benchmarkProvenance": {},
       "tokenPrices": {
@@ -1525,7 +1525,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K3",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },
@@ -1974,7 +1974,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.6",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-04-20T00:00:00.000Z"
         }
       },
@@ -2154,7 +2154,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Kimi K2.5",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-01-26T00:00:00.000Z"
         }
       },
@@ -2568,7 +2568,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.3",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-08-18T00:00:00.000Z"
         }
       },
@@ -2743,7 +2743,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -2907,7 +2907,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GLM 5.2",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-06-13T00:00:00.000Z"
         }
       },
@@ -3382,7 +3382,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M3",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-05-31T00:00:00.000Z"
         }
       },
@@ -3529,7 +3529,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "MiniMax-M2.7",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-03-17T00:00:00.000Z"
         }
       },
@@ -4011,7 +4011,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -4328,7 +4328,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "DeepSeek V4 Flash 0731",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-31T00:00:00.000Z"
         }
       },
@@ -4633,7 +4633,7 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Public Qwen3.8-Omni-Flash model. It is distinct from Qwen3.8-Flash-Next despite identical token pricing, so it is not proxied to that AA entry.",
+        "reason": "Public model; no canonical AA entry.",
         "identityStatus": "external_verified",
         "externalSource": {
           "label": "Qwen3.8-Omni-Flash",
@@ -5883,7 +5883,7 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Public Qwen3.7-Flash model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+        "reason": "Public model; no canonical AA entry.",
         "identityStatus": "external_verified",
         "externalSource": {
           "label": "Alibaba Cloud Model Studio — qwen3.7-flash",
@@ -7305,7 +7305,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5.1",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-09-01T00:00:00.000Z"
         }
       },
@@ -7487,7 +7487,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Fable 5",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-06-09T00:00:00.000Z"
         }
       },
@@ -7808,7 +7808,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 5",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-22T00:00:00.000Z"
         }
       },
@@ -7990,7 +7990,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.8",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-05-28T00:00:00.000Z"
         }
       },
@@ -8170,7 +8170,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Claude Opus 4.7",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-04-16T00:00:00.000Z"
         }
       },
@@ -8956,7 +8956,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-6 Astra",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-09-03T00:00:00.000Z"
         }
       },
@@ -9451,7 +9451,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "GPT-5.6 Sol",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -10544,7 +10544,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.8 Flash",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -10719,7 +10719,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.7 Flash",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-08-13T00:00:00.000Z"
         }
       },
@@ -10880,7 +10880,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.6 Flash",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-21T00:00:00.000Z"
         }
       },
@@ -11041,7 +11041,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Gemini 3.5 Flash",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-05-19T00:00:00.000Z"
         }
       },
@@ -11446,7 +11446,7 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Public Sakana Fugu Ultra orchestration model, but no canonical Artificial Analysis Intelligence entry is available for the Octopus score.",
+        "reason": "Public model; no canonical AA entry.",
         "identityStatus": "external_verified",
         "externalSource": {
           "label": "OpenRouter — Sakana Fugu Ultra",
@@ -11503,7 +11503,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -11681,7 +11681,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.3",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-09-02T00:00:00.000Z"
         }
       },
@@ -11856,7 +11856,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -12020,7 +12020,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.2",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-08-05T00:00:00.000Z"
         }
       },
@@ -12181,7 +12181,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Muse Spark 1.1",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-09T00:00:00.000Z"
         }
       },
@@ -12474,7 +12474,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.6",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-08-12T00:00:00.000Z"
         }
       },
@@ -12649,7 +12649,7 @@
           "benchmark": "Vals AI CyberBench Overall",
           "sourceUrl": "https://www.vals.ai/benchmarks/cyber",
           "sourceLabel": "Grok 4.5",
-          "fetchedAt": "2026-09-28T14:32:20.423Z",
+          "fetchedAt": "2026-09-28T14:39:38.748Z",
           "benchmarkUpdatedAt": "2026-07-16T00:00:00.000Z"
         }
       },
@@ -13082,7 +13082,7 @@
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
       "mapping": {
         "status": "unscored",
-        "reason": "Public TypeSafe Jev decision model. It returns typed decisions rather than general free-form generation, so it is not comparable to the AA general-model ranking.",
+        "reason": "Decision model; not comparable to the AA ranking.",
         "identityStatus": "external_verified_noncomparable",
         "externalSource": {
           "label": "OpenRouter — TypeSafe Jev",
