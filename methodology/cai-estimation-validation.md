@@ -33,9 +33,9 @@ For each observed family, the real CAI is hidden using leave-one-vendor-out; the
 
 | Role | Spearman | Pairwise accuracy | Top-5 recovered | Quality MAE |
 |---|---:|---:|---:|---:|
-| implementer | 0.989 | 97.4% | 80% | 1.21 |
-| implementer-heavy | 0.995 | 98.7% | 100% | 1.21 |
-| code-reviewer | 0.973 | 94.9% | 80% | 1.21 |
+| implementer | 1 | 100% | 100% | 1.21 |
+| implementer-heavy | 0.995 | 98.7% | 80% | 1.21 |
+| code-reviewer | 1 | 100% | 100% | 1.21 |
 
 ## Guardrails
 

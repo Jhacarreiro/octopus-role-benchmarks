@@ -42,27 +42,27 @@
   },
   "finalRanking": {
     "implementer": {
-      "mae": 4.4027,
-      "rmse": 10.4071,
-      "spearman": 0.989,
-      "pairwiseAccuracy": 0.9744,
-      "top5Hit": 0.8,
-      "qualityMae": 1.2102
-    },
-    "implementer-heavy": {
-      "mae": 4.4027,
-      "rmse": 10.4071,
-      "spearman": 0.9945,
-      "pairwiseAccuracy": 0.9872,
+      "mae": 5.4342,
+      "rmse": 13.562,
+      "spearman": 1,
+      "pairwiseAccuracy": 1,
       "top5Hit": 1,
       "qualityMae": 1.2102
     },
-    "code-reviewer": {
-      "mae": 4.4027,
-      "rmse": 10.4071,
-      "spearman": 0.9725,
-      "pairwiseAccuracy": 0.9487,
+    "implementer-heavy": {
+      "mae": 5.4342,
+      "rmse": 13.562,
+      "spearman": 0.9945,
+      "pairwiseAccuracy": 0.9872,
       "top5Hit": 0.8,
+      "qualityMae": 1.2102
+    },
+    "code-reviewer": {
+      "mae": 5.4342,
+      "rmse": 13.562,
+      "spearman": 1,
+      "pairwiseAccuracy": 1,
+      "top5Hit": 1,
       "qualityMae": 1.2102
     }
   },
