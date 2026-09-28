@@ -1,5 +1,7 @@
-export const SCICODE_FEATURES = ['gpqa','hle','lcr','gdpval','omniscienceIndex'];
-export const SCICODE_RIDGE_LAMBDA = 2;
+export const SCICODE_FEATURES = ['gpqa','hle','lcr','omniscienceIndex'];
+export const SCICODE_RIDGE_LAMBDA = 16;
+export const SCICODE_KNN_K = 8;
+export const SCICODE_RIDGE_WEIGHT = 0.5;
 export const SCICODE_VALIDATION_LIMITS = { mae: 3, maxError: 8, minObserved: 20 };
 
 function mean(values){ return values.reduce((a,b)=>a+b,0)/values.length; }
@@ -51,12 +53,34 @@ export function fitScicodeEstimator(rows){
     }
   }
   for(let j=1;j<p;j++) xtx[j][j]+=SCICODE_RIDGE_LAMBDA;
-  return {stats,beta:solveLinear(xtx,xty),observedCount:rows.length};
+  return {stats,beta:solveLinear(xtx,xty),rows:rows.map(r=>({...r})),observedCount:rows.length};
+}
+
+function predictRidge(model,row){
+  const x=[1,...vector(row,model.stats)];
+  return Math.max(0,Math.min(100,x.reduce((sum,v,i)=>sum+v*model.beta[i],0)));
+}
+
+function predictKnn(model,row){
+  const target=vector(row,model.stats);
+  const neighbors=model.rows.map(r=>{
+    const v=vector(r,model.stats);
+    const distance=Math.sqrt(v.reduce((sum,x,i)=>sum+(x-target[i])**2,0));
+    return {distance,value:r.scicode};
+  }).sort((a,b)=>a.distance-b.distance).slice(0,Math.min(SCICODE_KNN_K,model.rows.length));
+  let weighted=0,totalWeight=0;
+  for(const n of neighbors){
+    const w=1/Math.max(n.distance,1e-6)**2;
+    weighted+=n.value*w;
+    totalWeight+=w;
+  }
+  return weighted/totalWeight;
 }
 
 export function predictScicode(model,row){
-  const x=[1,...vector(row,model.stats)];
-  const estimate=x.reduce((sum,v,i)=>sum+v*model.beta[i],0);
+  const ridge=predictRidge(model,row);
+  const knn=predictKnn(model,row);
+  const estimate=SCICODE_RIDGE_WEIGHT*ridge+(1-SCICODE_RIDGE_WEIGHT)*knn;
   return Math.max(0,Math.min(100,estimate));
 }
 
@@ -81,7 +105,6 @@ export function scicodeRowFromAa(model){
     gpqa:model.gpqa==null?null:model.gpqa*100,
     hle:model.hle==null?null:model.hle*100,
     lcr:model.lcr==null?null:model.lcr*100,
-    gdpval:model.gdpvalNormalized==null?null:model.gdpvalNormalized*100,
     omniscienceIndex:omni==null?null:50+omni/2,
   };
 }
