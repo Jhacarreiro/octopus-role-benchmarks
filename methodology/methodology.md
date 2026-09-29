@@ -14,7 +14,7 @@ Each CommandCode row maps to Artificial Analysis as `exact`, `exact_alias`, `com
 
 ## Universal Role Score
 
-Most roles have a weighted score built only from benchmark components with **100% coverage** of the scored model-family universe. `Security Reviewer` is deliberately different: it uses the external Vals AI CyberBench Overall score directly and is role-ineligible when that external result is missing.
+Most roles have a weighted score built only from benchmark components with **100% coverage** of the scored model-family universe. `Security Reviewer` is deliberately different: it uses the external Artificial Analysis Cyber Index v1 score directly and is role-ineligible when that external result is missing.
 
 Current components:
 
@@ -143,7 +143,7 @@ GDPval-AA v2 40% · AA-LCR 25% ·  20% · Humanity's Last Exam 15%.
 GDPval-AA v2 40% · AA-LCR 20% · AA-Omniscience Index 30% ·  10%.
 
 ### Security Reviewer
-**Vals AI CyberBench Overall 100%.** No Octopus proxy, regression, or composite formula is applied. Missing CyberBench coverage excludes that model from Security Reviewer only.
+**Artificial Analysis Cyber Index v1 100%.** No Octopus proxy, regression, or composite formula is applied. Missing CyberBench coverage excludes that model from Security Reviewer only.
 
 ### Code Reviewer
 SciCode 45% ·  20% · AA-LCR 15% · AA-Omniscience Index 10% · Humanity's Last Exam 10%, then blended 2/3 with 1/3 CAI*.

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 8,
+  "schemaVersion": 9,
   "coveragePolicy": 1.0,
   "costBasis": {
     "default": "normalizedTask",
@@ -61,12 +61,12 @@
       "scale": "0-100 normalized from native -100 to 100",
       "description": "Knowledge reliability metric: +1 correct, -1 incorrect, 0 abstain; balances factual accuracy against hallucination without rewarding refusal as success."
     },
-    "cyberbench": {
+    "cyberIndex": {
       "external": true,
-      "label": "Vals AI CyberBench Overall",
+      "label": "Artificial Analysis Cyber Index v1",
       "scale": "0-100",
-      "description": "External cybersecurity benchmark measuring vulnerability reproduction and patching on real software vulnerabilities.",
-      "sourceUrl": "https://www.vals.ai/benchmarks/cyber"
+      "description": "Standalone cyber-defense index averaging CWE-Bench-AA, DeepsecBench-AA and CyberGym-E2E-AA equally.",
+      "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index"
     }
   },
   "roles": [
@@ -100,10 +100,10 @@
       "id": "security-reviewer",
       "label": "Security Reviewer",
       "purpose": "Adversarial review of implementation risks, unsafe assumptions and failure modes.",
-      "note": "Uses the external Vals AI CyberBench Overall score directly; no internal proxy or composite formula.",
+      "note": "Uses Artificial Analysis Cyber Index v1 directly; no internal cyber proxy or composite formula.",
       "codingAgentEvidence": false,
       "codingAdjusted": false,
-      "externalBenchmark": "cyberbench"
+      "externalBenchmark": "cyberIndex"
     },
     {
       "id": "code-reviewer",

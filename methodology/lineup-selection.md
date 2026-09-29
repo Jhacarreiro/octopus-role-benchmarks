@@ -66,7 +66,7 @@ Monthly standard/premium plan utilization and estimated complete-portfolio capac
 
 ## Security Reviewer
 
-Security Reviewer does not use an Octopus proxy. Its Role Quality is the external **Vals AI CyberBench Overall** score directly.
+Security Reviewer does not use an Octopus proxy. Its Role Quality is the standalone **Artificial Analysis Cyber Index v1** score directly.
 
 Production ingestion uses an explicit AA-slug → Vals-label mapping. There is no fuzzy matching, no cross-benchmark arithmetic and no GPQA/SciCode/HLE/Omniscience/LCR security composite.
 

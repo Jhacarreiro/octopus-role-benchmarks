@@ -81,7 +81,7 @@ External weekly scheduler
   -> OpenCLI Artificial Analysis models
   -> OpenCLI Coding Agent Index
   -> AA Intelligence Index refresh
-  -> Vals AI CyberBench refresh
+  -> Artificial Analysis Cyber Index refresh
   -> verified model-family mapping
   -> universal benchmark coverage gate
   -> CommandCode plan-adjusted Cost-per-Task coverage gate
@@ -92,7 +92,7 @@ External weekly scheduler
   -> dated JSON snapshot + public site data
 ```
 
-`Security Reviewer` is the exception to the universal weighted role-score formula: it uses the external **Vals AI CyberBench Overall** score directly. If a model has no direct CyberBench result, that model is simply ineligible for the Security Reviewer seat; other roles remain usable.
+`Security Reviewer` is the exception to the universal weighted role-score formula: it uses the external **Artificial Analysis Cyber Index v1** score directly. If a model has no direct CyberBench result, that model is simply ineligible for the Security Reviewer seat; other roles remain usable.
 
 ## Recommended lineup policy
 

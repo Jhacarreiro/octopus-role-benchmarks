@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { fetchCyberBench, resolveCyberBenchBySlug } from './cyberbench.mjs';
+import { fetchArtificialAnalysisCyberIndex } from './aa-cyber-index.mjs';
 import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
 import { applyBalancedScores } from './lib/balanced-score.mjs';
 
@@ -14,7 +14,6 @@ const bin=path.join(root,'node_modules','.bin','opencli');
 const lineupPolicy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const economics=planEconomics(lineupPolicy);
 const balancedWeights=lineupPolicy.modes?.balanced?.percentileWeights??{quality:0.75,affordability:0.25};
-const cyberConfig=JSON.parse(fs.readFileSync(path.join(root,'config','cyberbench-models.json'),'utf8'));
 const snapshotPath=path.join(root,'data','latest.json');
 const snapshot=JSON.parse(fs.readFileSync(snapshotPath,'utf8'));
 
@@ -69,16 +68,14 @@ for(const m of snapshot.models||[]){
   commandCodeUpdated++;
 }
 if(commandCodeUpdated!==snapshot.models.length)throw new Error(`CommandCode pricing refresh updated ${commandCodeUpdated}/${snapshot.models.length} rows`);
-applyBalancedScores(snapshot.models,roles.roles.map(r=>r.id),{qualityWeight:Number(balancedWeights.quality),costWeight:Number(balancedWeights.affordability)});
-for(const m of snapshot.models){for(const score of Object.values(m.roleScores||{})){if(Number.isFinite(score.rankingValue))score.rankingValue=round(score.rankingValue,3);if(Number.isFinite(score.balancedQualityPercentile))score.balancedQualityPercentile=round(score.balancedQualityPercentile,3);if(Number.isFinite(score.balancedAffordabilityPercentile))score.balancedAffordabilityPercentile=round(score.balancedAffordabilityPercentile,3);}}
 
 const slugs=[...new Set((snapshot.models||[]).map(m=>m.aaModel?.slug).filter(Boolean))].sort();
 const aaRows=runOpenCLI(['artificial-analysis','models',slugs.join(','),'-f','json']);
 const aaBySlug=new Map(aaRows.map(model=>[model.slug,model]));
 if(aaBySlug.size!==slugs.length)throw new Error(`AA Intelligence refresh returned ${aaBySlug.size}/${slugs.length} families`);
 
-const cyber=await fetchCyberBench({url:cyberConfig.sourceUrl});
-const resolved=resolveCyberBenchBySlug(slugs,cyberConfig.slugToLabel,cyber);
+const cyberIndexDataset=await fetchArtificialAnalysisCyberIndex();
+const cyberIndexBySlug=cyberIndexDataset.bySlug;
 let intelligenceUpdated=0,securityUpdated=0;
 for(const m of snapshot.models||[]){
   const slug=m.aaModel?.slug;
@@ -90,23 +87,25 @@ for(const m of snapshot.models||[]){
   }else{
     delete m.aaModel.intelligenceIndex;
   }
-  const cb=resolved.values.get(slug);
+  const cyberIndex=cyberIndexBySlug.get(slug);
   m.benchmarks=m.benchmarks||{};
   m.benchmarkProvenance=m.benchmarkProvenance||{};
   m.roleScores=m.roleScores||{};
-  if(cb && m.mapping?.status!=='source_incomplete'){
-    const score=round(cb.value,3);
-    m.benchmarks.cyberbench=score;
-    m.benchmarkProvenance.cyberbench=cb.provenance;
-    const adjusted=m.taskEfficiency?.planAdjustedCostPerTaskUsd;
-    m.roleScores['security-reviewer']={score,rankingQuality:score,rankingValue:adjusted==null||adjusted===0?null:round(score/adjusted,3)};
+  if(cyberIndex && m.mapping?.status!=='source_incomplete'){
+    const score=round(cyberIndex.value,3);
+    m.benchmarks.cyberIndex=score;
+    m.benchmarkProvenance.cyberIndex={status:'observed',source:'Artificial Analysis Cyber Index v1',sourceUrl:cyberIndexDataset.sourceUrl,value:score,components:Object.fromEntries(Object.entries(cyberIndex.components).map(([k,v])=>[k,v==null?null:round(v*100,3)])),safetyBlocks:Object.fromEntries(Object.entries(cyberIndex.safetyBlocks).map(([k,v])=>[k,v==null?null:round(v*100,3)]))};
+    m.roleScores['security-reviewer']={score,rankingQuality:score,rankingValue:null};
     securityUpdated++;
   }else{
-    delete m.benchmarks.cyberbench;
-    delete m.benchmarkProvenance.cyberbench;
+    delete m.benchmarks.cyberIndex;
+    delete m.benchmarkProvenance.cyberIndex;
     delete m.roleScores['security-reviewer'];
   }
 }
+
+applyBalancedScores(snapshot.models,roles.roles.map(r=>r.id),{qualityWeight:Number(balancedWeights.quality),costWeight:Number(balancedWeights.affordability)});
+for(const m of snapshot.models){for(const score of Object.values(m.roleScores||{})){if(Number.isFinite(score.rankingValue))score.rankingValue=round(score.rankingValue,3);if(Number.isFinite(score.balancedQualityPercentile))score.balancedQualityPercentile=round(score.balancedQualityPercentile,3);if(Number.isFinite(score.balancedAffordabilityPercentile))score.balancedAffordabilityPercentile=round(score.balancedAffordabilityPercentile,3);}}
 
 const now=new Date();
 const nowIso=now.toISOString();
@@ -142,13 +141,14 @@ snapshot.sources.commandCodeMax={
   },
   planEconomics:economics
 };
-snapshot.sources.cyberbench={url:cyber.sourceUrl,fetchedAt:cyber.fetchedAt,benchmarkUpdatedAt:cyber.benchmarkUpdatedAt,directFamilies:resolved.values.size,missingMappings:resolved.missing};
+snapshot.sources.artificialAnalysisCyberIndex={url:cyberIndexDataset.sourceUrl,fetchedAt:cyberIndexDataset.fetchedAt,version:cyberIndexDataset.version,directFamilies:securityUpdated,availableRows:cyberIndexBySlug.size,components:['CWE-Bench-AA','DeepsecBench-AA','CyberGym-E2E-AA'],weighting:'equal thirds'};
+delete snapshot.sources.cyberbench;
 snapshot.sources.artificialAnalysis={...(snapshot.sources.artificialAnalysis||{}),intelligenceIndexFamilies:intelligenceUpdated};
-snapshot.counts={...(snapshot.counts||{}),commandCodePlanRows:commandCodeUpdated,cyberbenchDirectFamilies:resolved.values.size};
+snapshot.counts={...(snapshot.counts||{}),commandCodePlanRows:commandCodeUpdated,cyberIndexDirectFamilies:securityUpdated};
 
 for(const dir of [path.join(root,'data'),path.join(root,'site','data')])fs.mkdirSync(dir,{recursive:true});
 const json=JSON.stringify(snapshot,null,2)+'\n';
 fs.writeFileSync(path.join(root,'data',`${date}.json`),json);
 fs.writeFileSync(path.join(root,'data','latest.json'),json);
 fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
-console.log(JSON.stringify({date,commandCodeUpdated,intelligenceUpdated,securityUpdated,cyberbenchDirectFamilies:resolved.values.size,cyberbenchMissing:resolved.missing.length},null,2));
+console.log(JSON.stringify({date,commandCodeUpdated,intelligenceUpdated,securityUpdated,cyberIndexDirectFamilies:securityUpdated,cyberbenchMissing:resolved.missing.length},null,2));
