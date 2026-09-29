@@ -1,7 +1,7 @@
 {
   "schemaVersion": 12,
   "snapshotDate": "2026-09-29",
-  "generatedAt": "2026-09-29T07:38:49.892Z",
+  "generatedAt": "2026-09-29T11:26:29.020Z",
   "policy": {
     "latestGenerationOnly": true,
     "poolPrecheck": {
@@ -245,7 +245,7 @@
         ]
       },
       "familyCount": 5,
-      "totalRoleQuality": 445.97,
+      "totalRoleQuality": 444.903,
       "totalCostPerTaskUsd": 28.92546,
       "totalCreditBurnPerPortfolioUsd": 28.92546,
       "totalPlanAdjustedCostPerPortfolioUsd": 20.719277,
@@ -310,28 +310,10 @@
           "mappingStatus": "exact"
         },
         "code-reviewer": {
-          "model": "GPT-6 Sol",
-          "family": "GPT",
-          "benchmarkIdentity": "aa:gpt-6-sol",
-          "quality": 51.806,
-          "costPerTaskUsd": 1.049411,
-          "creditBurnPerTaskUsd": 1.049411,
-          "planAdjustedCostPerTaskUsd": 1.049411,
-          "billingCategory": "premium",
-          "max10MonthlyUsageLimitUsd": 100,
-          "max20MonthlyUsageLimitUsd": 200,
-          "intelligenceIndex": 47.5276,
-          "source": "scored",
-          "benchmarkProvenance": null,
-          "free": false,
-          "discountPercent": null,
-          "mappingStatus": "exact"
-        },
-        "implementer": {
           "model": "MiMo V2.6 Pro",
           "family": "MiMo",
           "benchmarkIdentity": "aa:mimo-v2-6-pro",
-          "quality": 51.593,
+          "quality": 50.667,
           "costPerTaskUsd": 0.133223,
           "creditBurnPerTaskUsd": 0.133223,
           "planAdjustedCostPerTaskUsd": 0.088815,
@@ -339,6 +321,24 @@
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 46.3242,
+          "source": "scored",
+          "benchmarkProvenance": null,
+          "free": false,
+          "discountPercent": null,
+          "mappingStatus": "exact"
+        },
+        "implementer": {
+          "model": "GPT-6 Sol",
+          "family": "GPT",
+          "benchmarkIdentity": "aa:gpt-6-sol",
+          "quality": 51.665,
+          "costPerTaskUsd": 1.049411,
+          "creditBurnPerTaskUsd": 1.049411,
+          "planAdjustedCostPerTaskUsd": 1.049411,
+          "billingCategory": "premium",
+          "max10MonthlyUsageLimitUsd": 100,
+          "max20MonthlyUsageLimitUsd": 200,
+          "intelligenceIndex": 47.5276,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,

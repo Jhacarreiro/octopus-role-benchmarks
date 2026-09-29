@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T07:38:54.368Z",
+  "generatedAt": "2026-09-29T11:26:33.589Z",
   "snapshotDate": "2026-09-29",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-29T07:38:54.223Z",
+    "attemptedAt": "2026-09-29T11:26:33.409Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-29",
-      "generatedAt": "2026-09-29T07:38:49.892Z"
+      "generatedAt": "2026-09-29T11:26:29.020Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-09-29",
-      "generatedAt": "2026-09-29T07:38:49.892Z",
+      "generatedAt": "2026-09-29T11:26:29.020Z",
       "benchmarkDate": "2026-09-29",
-      "benchmarkGeneratedAt": "2026-09-29T07:38:49.892Z",
-      "lineupInputsRefreshedAt": "2026-09-29T07:38:49.892Z"
+      "benchmarkGeneratedAt": "2026-09-29T11:26:29.020Z",
+      "lineupInputsRefreshedAt": "2026-09-29T11:26:29.020Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-09-29",
-      "generatedAt": "2026-09-29T07:38:49.892Z"
+      "generatedAt": "2026-09-29T11:26:29.020Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -138,5 +138,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-28 → 2026-09-29\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nMODELOS\nEntraram:\n+ Claude Sonnet 5.5\n+ DeepSeek V4.1 Flash Fast\n\nPREÇOS / CRÉDITOS\n• Grok 4.7: créditos/task $2.24→$3.74 (+67%); custo ajustado $1.50→$2.49 (+67%)\n\nLINEUPS\n• quality/architect: MiMo V2.6 Pro → Claude Sonnet 5.5\n• quality/security-reviewer: GPT-6 Astra → MiMo V2.6 Pro\n• quality/synthesizer: Claude Fable 5.1 → Claude Sonnet 5.5\n• quality/researcher: Claude Opus 5.5 → GPT-6 Astra\n• balanced/strategist: Grok 4.7 → Qwen 3.8 Max 0902\n• balanced/security-reviewer: GPT-6 Astra → Grok 4.7\n• balanced/code-reviewer: GLM-5.3 → GPT-6 Sol\n• balanced/synthesizer: Muse Spark 1.3 Contributor → Claude Sonnet 5.5\n• balanced/researcher: Muse Spark 1.3 Contributor → Claude Sonnet 5.5\n• budget/strategist: Step 5 Preview → GPT-6 Sol\n• budget/security-reviewer: Kimi K3 → Grok 4.7\n• budget/code-reviewer: GPT-6 Sol → MiMo V2.6 Pro\n• budget/implementer: Step 5 Preview → Qwen 3.8 Max 0902\n• budget/implementer-heavy: MiMo V2.6 Pro → GPT-6 Sol"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-29 → 2026-09-29\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• balanced/code-reviewer: GPT-6 Sol → MiMo V2.6 Pro\n• balanced/implementer: MiMo V2.6 Pro → GPT-6 Sol"
 }
