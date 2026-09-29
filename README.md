@@ -107,7 +107,7 @@ Shared rules:
 - each family may occupy at most **2 seats**;
 - there are **no mandatory models** and no manual Fable blacklist;
 - there is **no per-role quality floor**;
-- Code Reviewer must use a different AA benchmark identity from both Implementer and Implementer Heavy;
+- Code Reviewer must use a different model family from both Implementer and Implementer Heavy;
 - Implementer Heavy must differ from Implementer and must have AA Intelligence Index at least **2.0 points higher**.
 
 Mode objectives:

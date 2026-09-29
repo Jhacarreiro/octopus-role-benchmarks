@@ -276,8 +276,8 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
       if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && benchmarkIdentity(heavy)===benchmarkIdentity(impl))continue;
       if(intelligence(heavy)+EPS<intelligence(impl)+heavyDelta)continue;
       for(const reviewer of reviewers){
-        if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && benchmarkIdentity(reviewer)===benchmarkIdentity(impl))continue;
-        if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && benchmarkIdentity(reviewer)===benchmarkIdentity(heavy))continue;
+        if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
+        if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
         const counts=Array(families.length).fill(0);
         let valid=true;
         for(const m of [impl,heavy,reviewer]){

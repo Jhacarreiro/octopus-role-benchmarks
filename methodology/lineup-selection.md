@@ -21,7 +21,7 @@ Octopus recommends three eight-seat portfolios — **Quality**, **Balanced** and
 5. Maximum **2 seats per family**.
 6. No mandatory models.
 7. No per-role quality floor.
-8. Code Reviewer must have a different AA benchmark identity from both Implementer and Implementer Heavy.
+8. Code Reviewer must use a different model family from both Implementer and Implementer Heavy.
 9. Implementer Heavy must have a different AA identity from Implementer.
 10. Implementer Heavy must have AA Intelligence Index at least **Implementer + 2.0**.
 11. A model may occupy multiple seats where allowed by the family cap.
