@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 12,
+  "schemaVersion": 13,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -66,5 +66,23 @@
     "premiumMonthlyUsageLimitUsd": 100,
     "max20Scale": 2,
     "note": "Max 10x and Max 20x have identical price-to-allowance ratios; portfolio ordering is invariant between them."
+  },
+  "premiumPlacement": {
+    "rolePriority": [
+      "security-reviewer",
+      "code-reviewer",
+      "architect",
+      "strategist",
+      "synthesizer",
+      "researcher",
+      "implementer",
+      "implementer-heavy"
+    ],
+    "balancedMaxObjectiveLossPercent": 1,
+    "tieBreakOnlyModes": [
+      "quality",
+      "budget"
+    ],
+    "description": "Prefer expensive models in planning/review and cheaper models in execution. Balanced may trade up to 1% of total Balanced objective for better placement; Quality and Budget use placement only as an exact-objective tie-break."
   }
 }

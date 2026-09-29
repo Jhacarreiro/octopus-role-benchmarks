@@ -22,6 +22,28 @@ function familyOf(m){return modelFamily(m,policy)}
 function familyCount(models){return new Set(models.map(familyOf).filter(Boolean)).size}
 function signature(assign){return roles.map(r=>`${r}:${assign.get(r)?.name||''}`).join('|')}
 
+const placementPriority=policy.premiumPlacement?.rolePriority??[];
+const placementRank=new Map(placementPriority.map((role,index)=>[role,placementPriority.length-index]));
+function placementStats(assign){
+  let inversionCost=0,inversionCount=0;
+  const entries=[...assign.entries()].filter(([role,m])=>placementRank.has(role)&&m&&Number.isFinite(planAdjustedCost(m)));
+  for(const [higherRole,higherModel] of entries){
+    for(const [lowerRole,lowerModel] of entries){
+      if((placementRank.get(higherRole)??0)<=(placementRank.get(lowerRole)??0))continue;
+      const higherCost=planAdjustedCost(higherModel),lowerCost=planAdjustedCost(lowerModel);
+      if(lowerCost>higherCost+EPS){inversionCost+=lowerCost-higherCost;inversionCount++;}
+    }
+  }
+  return {placementInversionCost:inversionCost,placementInversionCount:inversionCount};
+}
+function betterPlacement(a,b){
+  if(!b)return true;
+  if(Math.abs(a.placementInversionCost-b.placementInversionCost)>EPS)return a.placementInversionCost<b.placementInversionCost;
+  if(a.placementInversionCount!==b.placementInversionCount)return a.placementInversionCount<b.placementInversionCount;
+  if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
+  return a.signature<b.signature;
+}
+
 const economics=planEconomics(policy);
 
 function billingCategory(m){
@@ -130,6 +152,7 @@ function summarizeAssign(assign){
     standardBurn,
     premiumBurn,
     monthlyUtilization:utilization,
+    ...placementStats(assign),
     signature:[...assign].sort(([a],[b])=>a.localeCompare(b)).map(([r,m])=>`${r}:${m.name}`).join('|')
   };
 }
@@ -139,6 +162,8 @@ function betterCandidate(modeId,a,b){
   if(modeId==='budget'){
     if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
     if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
+    if(Math.abs(a.placementInversionCost-b.placementInversionCost)>EPS)return a.placementInversionCost<b.placementInversionCost;
+    if(a.placementInversionCount!==b.placementInversionCount)return a.placementInversionCount<b.placementInversionCount;
     if(Math.abs(a.totalCreditBurn-b.totalCreditBurn)>EPS)return a.totalCreditBurn<b.totalCreditBurn;
   }else if(modeId==='balanced'){
     if(Math.abs(a.totalBalanced-b.totalBalanced)>EPS)return a.totalBalanced>b.totalBalanced;
@@ -146,6 +171,8 @@ function betterCandidate(modeId,a,b){
     if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
   }else{
     if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
+    if(Math.abs(a.placementInversionCost-b.placementInversionCost)>EPS)return a.placementInversionCost<b.placementInversionCost;
+    if(a.placementInversionCount!==b.placementInversionCount)return a.placementInversionCount<b.placementInversionCount;
     if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
   }
   return a.signature<b.signature;
@@ -157,6 +184,10 @@ function budgetDominates(a,b){
   if(A.totalPlanAdjustedCost>B.totalPlanAdjustedCost+EPS)return false;
   if(A.totalQuality>B.totalQuality+EPS)return true;
   if(A.totalQuality<B.totalQuality-EPS)return false;
+  if(A.placementInversionCost<B.placementInversionCost-EPS)return true;
+  if(A.placementInversionCost>B.placementInversionCost+EPS)return false;
+  if(A.placementInversionCount<B.placementInversionCount)return true;
+  if(A.placementInversionCount>B.placementInversionCount)return false;
   if(A.totalCreditBurn<B.totalCreditBurn-EPS)return true;
   if(A.totalCreditBurn>B.totalCreditBurn+EPS)return false;
   return A.signature<=B.signature;
@@ -253,8 +284,14 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
             (
               candidate.totalQuality>prev.partial.totalQuality+EPS ||
               (Math.abs(candidate.totalQuality-prev.partial.totalQuality)<=EPS && (
-                candidate.totalPlanAdjustedCost<prev.partial.totalPlanAdjustedCost-EPS ||
-                (Math.abs(candidate.totalPlanAdjustedCost-prev.partial.totalPlanAdjustedCost)<=EPS && candidate.signature<prev.partial.signature)
+                candidate.placementInversionCost<prev.partial.placementInversionCost-EPS ||
+                (Math.abs(candidate.placementInversionCost-prev.partial.placementInversionCost)<=EPS && (
+                  candidate.placementInversionCount<prev.partial.placementInversionCount ||
+                  (candidate.placementInversionCount===prev.partial.placementInversionCount && (
+                    candidate.totalPlanAdjustedCost<prev.partial.totalPlanAdjustedCost-EPS ||
+                    (Math.abs(candidate.totalPlanAdjustedCost-prev.partial.totalPlanAdjustedCost)<=EPS && candidate.signature<prev.partial.signature)
+                  ))
+                ))
               ))
             )
           )){
@@ -298,6 +335,48 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
   if(!best){
     if(allowNoFeasible)return null;
     fail(`${modeId}: no feasible portfolio`);
+  }
+  if(modeId==='balanced' && policy.premiumPlacement?.balancedMaxObjectiveLossPercent!=null){
+    const tolerancePct=Number(policy.premiumPlacement.balancedMaxObjectiveLossPercent);
+    if(!Number.isFinite(tolerancePct)||tolerancePct<0||tolerancePct>=100)fail('premiumPlacement.balancedMaxObjectiveLossPercent must be in [0,100)');
+    const minimumBalanced=best.totalBalanced*(1-tolerancePct/100);
+    const maxRemaining=Object.fromEntries(standardRoles.map(role=>[role,Math.max(...roleCandidates[role].map(m=>roleBalanced(m,role)))]));
+    let placementBest=null;
+    function recurseStandard(index,counts,assign,partialBalanced){
+      if(index===standardRoles.length){
+        const candidate=buildCandidate(assign);
+        if(candidate&&candidate.totalBalanced+EPS>=minimumBalanced&&betterPlacement(candidate,placementBest))placementBest=candidate;
+        return;
+      }
+      let optimistic=partialBalanced;
+      for(let i=index;i<standardRoles.length;i++)optimistic+=maxRemaining[standardRoles[i]];
+      if(optimistic+EPS<minimumBalanced)return;
+      const role=standardRoles[index];
+      for(const m of roleCandidates[role]){
+        const idx=familyIndex.get(familyOf(m));
+        if(idx==null||counts[idx]>=maxSeats)continue;
+        const nextCounts=counts.slice();nextCounts[idx]++;
+        const nextAssign=new Map(assign);nextAssign.set(role,m);
+        recurseStandard(index+1,nextCounts,nextAssign,partialBalanced+roleBalanced(m,role));
+      }
+    }
+    for(const impl of implementers){
+      for(const heavy of heavies){
+        if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && benchmarkIdentity(heavy)===benchmarkIdentity(impl))continue;
+        if(intelligence(heavy)+EPS<intelligence(impl)+heavyDelta)continue;
+        for(const reviewer of reviewers){
+          if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
+          if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
+          const counts=Array(families.length).fill(0);let valid=true;
+          for(const m of [impl,heavy,reviewer]){const idx=familyIndex.get(familyOf(m));if(idx==null){valid=false;break}counts[idx]++;if(counts[idx]>maxSeats){valid=false;break}}
+          if(!valid)continue;
+          const assign=new Map([['implementer',impl],['implementer-heavy',heavy],['code-reviewer',reviewer]]);
+          const partialBalanced=roleBalanced(impl,'implementer')+roleBalanced(heavy,'implementer-heavy')+roleBalanced(reviewer,'code-reviewer');
+          recurseStandard(0,counts,assign,partialBalanced);
+        }
+      }
+    }
+    if(placementBest){placementBest.pureBalancedOptimum=best.totalBalanced;placementBest.balancedObjectiveLossPercent=100*(best.totalBalanced-placementBest.totalBalanced)/best.totalBalanced;best=placementBest;}
   }
   return best;
 }
@@ -390,6 +469,11 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
     priceFilter:poolInfo.priceFilter,
     familyCount:result.familyCount,
     totalRoleQuality:round(result.totalQuality,3),
+    totalBalanced:round(result.totalBalanced,3),
+    placementInversionCost:round(result.placementInversionCost,6),
+    placementInversionCount:result.placementInversionCount,
+    pureBalancedOptimum:result.pureBalancedOptimum==null?null:round(result.pureBalancedOptimum,3),
+    balancedObjectiveLossPercent:result.balancedObjectiveLossPercent==null?null:round(result.balancedObjectiveLossPercent,4),
     totalCostPerTaskUsd:round(result.totalCreditBurn,6),
     totalCreditBurnPerPortfolioUsd:round(result.totalCreditBurn,6),
     totalPlanAdjustedCostPerPortfolioUsd:round(result.totalPlanAdjustedCost,6),

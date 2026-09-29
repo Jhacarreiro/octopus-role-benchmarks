@@ -14,13 +14,13 @@
   <h2>Role quality and portfolio modes</h2>
   <p>The detailed ranking table exposes role-quality signals and cost-per-quality values. The eight recommendation cards are generated separately as constrained portfolios: <strong>Quality</strong>, <strong>Balanced</strong> and <strong>Budget</strong>.</p>
   <div class="formula"><strong>Quality</strong><code>Intelligence floor 0.90 → adaptive ≥5-family pool → maximize total Role Quality</code></div>
-  <div class="formula"><strong>Balanced</strong><code>latest-gen cost cutoff (mean + 2σ) → recompute best Intelligence → floor 0.85 → maximize Σ(Role Quality − 3.5 × effective task cost)</code></div>
+  <div class="formula"><strong>Balanced</strong><code>latest-gen cost cutoff (mean + 2σ) → recompute best Intelligence → floor 0.85 → maximize Σ(75% quality percentile + 25% affordability percentile) → premium-placement pass within 1% of optimum</code></div>
   <div class="formula"><strong>Budget</strong><code>latest-gen cost cutoff (mean + 2σ) → recompute best Intelligence → floor 0.80 → minimize total effective task cost</code></div>
-  <p>For Balanced and Budget, cost outliers are identified first from the full latest-generation scored universe. After those models are removed, the best eligible Intelligence Index is recomputed; the requested 0.85/0.80 floor is then applied to that filtered baseline. If the resulting pool cannot support a feasible portfolio, the floor is lowered in 0.005 steps. Quality uses the unfiltered Intelligence baseline. Every final lineup still requires at least four families and allows at most two seats per family.</p>
+  <p>For Balanced and Budget, cost outliers are identified first from the full latest-generation scored universe. After those models are removed, the best eligible Intelligence Index is recomputed; the requested 0.85/0.80 floor is then applied to that filtered baseline. If the resulting pool cannot support a feasible portfolio, the floor is lowered in 0.005 steps. Quality uses the unfiltered Intelligence baseline. Quality requires at least four families; Balanced and Budget require at least five. Every mode allows at most two seats per family.</p>
   <p>There are no mandatory models, manual Fable blacklist, or per-role quality floor. Code Reviewer must use a different model family from both implementation roles. Implementer Heavy must differ from Implementer and must have at least +2.0 AA Intelligence Index points.</p>
   <h3>Security Reviewer</h3>
-  <p><strong>Security Reviewer = Artificial Analysis Cyber Index v1, directly.</strong> The previous SciCode//HLE/Omniscience/LCR proxy has been removed. If a model has no direct CyberBench score, it is simply ineligible for this one role.</p>
-  <p>Balanced and Budget share the same mean + 2σ plan-adjusted cost-outlier cutoff. The cutoff is computed from the full latest-generation scored universe, then the Intelligence baseline is recomputed after exclusions. Balanced additionally applies a linear penalty of 3.5 Role Quality points per $1 of effective task cost; Budget minimizes total plan-adjusted task cost.</p>
+  <p><strong>Security Reviewer = Artificial Analysis Cyber Index v1, directly.</strong> The previous SciCode//HLE/Omniscience/LCR proxy has been removed. If a model has no direct Cyber Index score, it is simply ineligible for this one role.</p>
+  <p>Balanced and Budget share the same mean + 2σ plan-adjusted cost-outlier cutoff. Balanced combines cohort-relative quality and affordability percentiles (75% / 25%), then may trade up to 1% of the optimum to place expensive models in planning/review and cheaper models in execution. Quality and Budget use that placement rule only as a tie-break; Budget still minimizes total plan-adjusted task cost.</p>
 </section>
 <section id="coverage" class="methodology"></section>
 <section class="methodology prose">
@@ -41,7 +41,7 @@
 <section id="rolesMethod" class="methodology"></section>
 <section class="methodology prose">
   <h2>Coverage and failure rules</h2>
-  <p>Universal weighted-role components, CommandCode Cost per Task and final CAI* must cover the scored model-family universe according to the published coverage rules. Security Reviewer is role-specific and uses direct CyberBench coverage instead. Stealth/unresolved rows remain visible as UNSCORED. Validation continues to fail closed when estimator/ranking guardrails are breached.</p>
+  <p>Universal weighted-role components, CommandCode Cost per Task and final CAI* must cover the scored model-family universe according to the published coverage rules. Security Reviewer is role-specific and uses direct Artificial Analysis Cyber Index coverage instead. Stealth/unresolved rows remain visible as UNSCORED. Validation continues to fail closed when estimator/ranking guardrails are breached.</p>
   <p>Raw model mappings, current/historical-calibrated/estimated CAI*, SciCode fallback provenance and calibration diagnostics, Ridge/5NN components, role scores, task costs and final Ranking Values are all preserved in the public JSON snapshot.</p>
 </section>
 <section>

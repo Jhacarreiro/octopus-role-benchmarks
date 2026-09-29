@@ -27,13 +27,13 @@ https://getrad.ar/whipit/benchmark/ (compatibility redirect)
 For non-coding roles:
 
 ```text
-Balanced Score = Universal Role Score − 3.5 × Plan-adjusted Cost per Task
+Balanced Score = 75% role-quality percentile + 25% affordability percentile
 ```
 
 For `implementer`, `implementer-heavy` and `code-reviewer`:
 
 ```text
-Balanced Score = (2/3 Universal Role Score + 1/3 CAI*) − 3.5 × Plan-adjusted Cost per Task
+Balanced Score = 75% role-quality percentile + 25% affordability percentile
 ```
 
 `CAI*` uses the current Artificial Analysis Coding Agent Index when observed. If the current CAI version has not yet re-evaluated a family, the last observed prior-version CAI is mapped onto the current scale with a validated overlap-derived degradation factor. Only families with neither observation use the reverse-validated 50/50 Ridge + inverse-distance 5NN estimator.
@@ -44,7 +44,7 @@ Economic comparison uses one fixed, versioned reference token workload for every
 
 The raw normalized-workload credit burn uses CommandCode effective prices after any published discount. The plan-adjusted denominator then converts that credit burn into subscription economics: standard Max credits use the 100/150 ratio, premium credits use 100/100, and free models remain zero. Max 20× has the same ratios, so ordering is unchanged. Discounts are not applied twice.
 
-Plan-adjusted normalized workload cost has **100% coverage** of the scored model-family universe and is used as the economic penalty in Balanced scoring.
+Plan-adjusted task cost has **100% coverage** of the scored model-family universe and is converted to an affordability percentile inside each role for Balanced scoring.
 
 ## CAI coverage and estimation
 
@@ -92,7 +92,7 @@ External weekly scheduler
   -> dated JSON snapshot + public site data
 ```
 
-`Security Reviewer` is the exception to the universal weighted role-score formula: it uses the external **Artificial Analysis Cyber Index v1** score directly. If a model has no direct CyberBench result, that model is simply ineligible for the Security Reviewer seat; other roles remain usable.
+`Security Reviewer` is the exception to the universal weighted role-score formula: it uses the external **Artificial Analysis Cyber Index v1** score directly. If a model has no direct Cyber Index result, that model is simply ineligible for the Security Reviewer seat; other roles remain usable.
 
 ## Recommended lineup policy
 
@@ -103,7 +103,7 @@ Shared rules:
 - `latestGenerationOnly = true`;
 - requested Intelligence floors are **Quality 0.90**, **Balanced 0.85**, **Budget 0.80** of the best eligible AA Intelligence Index;
 - before optimization, the floor is lowered in **0.005** steps only if needed until the eligible pool contains at least **5 model families**;
-- the final lineup must contain at least **4 families** and at most 8;
+- Quality requires at least **4 families**; Balanced and Budget require at least **5 families**; all modes allow at most 8;
 - each family may occupy at most **2 seats**;
 - there are **no mandatory models** and no manual Fable blacklist;
 - there is **no per-role quality floor**;
@@ -113,10 +113,12 @@ Shared rules:
 Mode objectives:
 
 - **Quality**: maximize total Role Quality. Price does not affect ranking or tie-breaking.
-- **Balanced**: compute a plan-adjusted Cost per Task cutoff from the full latest-generation scored universe (`mean + 2` population standard deviations), remove those cost outliers, recompute the best eligible Intelligence Index, then apply the 0.85 floor and maximize total `Role Quality − 3.5 × plan-adjusted Cost per Task` across the portfolio.
+- **Balanced**: apply the cost-outlier filter and 0.85 Intelligence floor, maximize the cohort-relative 75% quality / 25% affordability score, then allow at most **1%** loss from that optimum to improve premium placement (expensive models in planning/review; cheaper models in execution).
 - **Budget**: apply the same cost-outlier cutoff and recomputed Intelligence baseline, then apply the 0.80 floor and minimize total plan-adjusted task cost while preserving the diversity and coding constraints.
 
 Balanced and Budget publish the cost reference population, mean, sigma, cutoff, excluded models, pre-filter best Intelligence and post-filter best Intelligence in `site/data/lineups.json`. Quality does not use the cost filter.
+
+Quality uses premium placement only as an exact-objective tie-break. Balanced may trade up to 1% of its optimum for better placement. Budget uses placement only after exact cost/quality ties.
 
 The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
 

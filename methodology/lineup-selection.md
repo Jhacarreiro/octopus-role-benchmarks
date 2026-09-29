@@ -46,13 +46,19 @@ cutoff = mean(Plan-adjusted Cost per Task)
 
 Models strictly above that cutoff are excluded. The best eligible Intelligence Index is then recomputed from the surviving universe, and the 0.85 floor is applied to that filtered baseline. If the resulting pool is not feasible, the floor descends by 0.005 without recalculating the cutoff.
 
-Within that pool, Balanced maximizes the sum of:
+Within that pool, Balanced first maximizes the sum of:
 
 ```text
-Role Quality − 3.5 × Plan-adjusted Cost per Task
+75% role-quality percentile + 25% affordability percentile
 ```
 
 The generated lineup records the reference population size, mean, population sigma, cutoff, excluded models, pre-filter best Intelligence and post-filter best Intelligence.
+After finding the Balanced optimum, the optimizer may accept up to **1%** lower total Balanced objective to improve **premium placement**: expensive models are preferred in planning/review seats and cheaper models in execution seats. Premium placement is measured as cost inversions across this priority order:
+
+`Security Reviewer > Code Reviewer > Architect > Strategist > Synthesizer > Researcher > Implementer > Implementer Heavy`
+
+Quality and Budget do not open such a tolerance band: placement is only an exact-objective tie-break in those modes.
+
 
 ## Budget
 
@@ -70,7 +76,7 @@ Security Reviewer does not use an Octopus proxy. Its Role Quality is the standal
 
 Production ingestion uses an explicit AA-slug → Vals-label mapping. There is no fuzzy matching, no cross-benchmark arithmetic and no GPQA/SciCode/HLE/Omniscience/LCR security composite.
 
-If a model has no direct CyberBench result, it is simply not a Security Reviewer candidate. This does not make the model source-incomplete for other roles.
+If a model has no direct Cyber Index result, it is simply not a Security Reviewer candidate. This does not make the model source-incomplete for other roles.
 
 ## Portfolio regeneration and review
 
