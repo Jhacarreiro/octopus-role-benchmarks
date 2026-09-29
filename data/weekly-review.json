@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T11:26:33.589Z",
+  "generatedAt": "2026-09-29T12:04:04.206Z",
   "snapshotDate": "2026-09-29",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-29T11:26:33.409Z",
+    "attemptedAt": "2026-09-29T12:04:03.812Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-09-29",
-      "generatedAt": "2026-09-29T11:26:29.020Z"
+      "generatedAt": "2026-09-29T12:03:57.907Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-09-29",
-      "generatedAt": "2026-09-29T11:26:29.020Z",
+      "generatedAt": "2026-09-29T12:03:57.907Z",
       "benchmarkDate": "2026-09-29",
-      "benchmarkGeneratedAt": "2026-09-29T11:26:29.020Z",
-      "lineupInputsRefreshedAt": "2026-09-29T11:26:29.020Z"
+      "benchmarkGeneratedAt": "2026-09-29T12:03:57.907Z",
+      "lineupInputsRefreshedAt": "2026-09-29T12:03:57.907Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-09-29",
-      "generatedAt": "2026-09-29T11:26:29.020Z"
+      "generatedAt": "2026-09-29T12:03:57.907Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -138,5 +138,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-29 → 2026-09-29\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• balanced/code-reviewer: GPT-6 Sol → MiMo V2.6 Pro\n• balanced/implementer: MiMo V2.6 Pro → GPT-6 Sol"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-29 → 2026-09-29\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• quality/security-reviewer: MiMo V2.6 Pro → MiMo V2.6 Pro UltraSpeed\n• quality/implementer: MiMo V2.6 Pro → MiMo V2.6 Pro UltraSpeed\n• balanced/code-reviewer: MiMo V2.6 Pro → Claude Sonnet 5.5\n• balanced/implementer: GPT-6 Sol → MiMo V2.6 Pro\n• balanced/researcher: Claude Sonnet 5.5 → GPT-6 Astra"
 }

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-09-29",
-  "generatedAt": "2026-09-29T11:26:29.020Z",
-  "policySchemaVersion": 12,
+  "generatedAt": "2026-09-29T12:03:57.907Z",
+  "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
   "repetitionRule": "models and benchmark identities may repeat subject to family seat limits and coding-independence rules",
