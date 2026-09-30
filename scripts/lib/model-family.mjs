@@ -108,6 +108,24 @@ export function isLatestGenerationModel(model, models, {scoredOnly=true} = {}) {
   return compareGenerationStrings(info.generation, latest) === 0;
 }
 
+export function isLatestGenerationOrBeatsLatest(model, models, scoreFn, {scoredOnly=true} = {}) {
+  if (isLatestGenerationModel(model, models, {scoredOnly})) return true;
+  const info = inferModelGeneration(model);
+  if (!info.series || info.generation == null) return true;
+  const latest = latestEligibleGenerationForSeries(models, info.series, {scoredOnly});
+  if (latest == null) return true;
+  const modelScore = Number(scoreFn?.(model));
+  if (!Number.isFinite(modelScore)) return false;
+  let bestLatest = -Infinity;
+  for (const peer of models || []) {
+    const p = inferModelGeneration(peer);
+    if (p.series !== info.series || p.generation == null || compareGenerationStrings(p.generation, latest) !== 0) continue;
+    const score = Number(scoreFn?.(peer));
+    if (Number.isFinite(score) && score > bestLatest) bestLatest = score;
+  }
+  return bestLatest === -Infinity || modelScore > bestLatest;
+}
+
 export function modelFamily(model, policy = {}) {
   return inferModelFamily(model, policy).family;
 }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { parseMax } from "../opencli/clis/commandcode/max.js";
-import { planEconomics, planAdjustedTaskCost, monthlyUtilization } from "./lib/plan-economics.mjs";
+import { parseMax, parsePricingDeals, parseDealDiscounts, applyDealMetadata } from "../opencli/clis/commandcode/max.js";
+import { planEconomics, planAdjustedTaskCost, monthlyUtilization, effectiveUsage } from "./lib/plan-economics.mjs";
 
 const html=`<!doctype html><table><thead><tr>
 <th>Model</th><th>Context</th><th>Input</th><th>Output</th><th>Cache Read</th><th>Cache Write</th><th>Max 10× Credits</th><th>Max 20× Credits</th>
@@ -55,4 +55,18 @@ assert.throws(
   /allowance drift/
 );
 
-console.log("ok: CommandCode Max parser handles discounts, plan allowances, plan adjustment, and FREE rows");
+const pricingHtml=`<div><div><span><a href="/docs/resources/pricing-limits#minimax-m3-2x-usage">MiniMax M3 effective usage</a></span><span>Credits go up to 2× further</span></div><div><span><a href="/docs/resources/pricing-limits#mimo-v2.5-pro-99-off">MiMo V2.5 effective usage</a></span><span>Credits go up to 5× further</span></div></div>`;
+const limitsHtml=`<div><a href="#minimax-m3-2x-usage" aria-label="View MiniMax M3 deal details">-50%</a><a href="#mimo-v2.5-pro-99-off" aria-label="View MiMo V2.5 deal details">-98%</a><a href="#mimo-v2.5-pro-99-off" aria-label="View MiMo V2.5 Pro deal details">-99%</a></div>`;
+const augmented=applyDealMetadata(rows,parsePricingDeals(pricingHtml),parseDealDiscounts(limitsHtml));
+const groupedPro=applyDealMetadata([{...rows[0],name:'MiMo V2.5 Pro'}],parsePricingDeals(pricingHtml),parseDealDiscounts(limitsHtml))[0];
+assert.equal(groupedPro.dealMultiplier,5);
+assert.equal(groupedPro.dealDiscountPercent,99);
+assert.equal(groupedPro.max10EffectiveUsageUsd,750);
+const dealStd={...augmented[0],name:'MiniMax M3',dealMultiplier:2,max10MonthlyUsageLimitUsd:150,max20MonthlyUsageLimitUsd:300,max10EffectiveUsageUsd:300,max20EffectiveUsageUsd:600};
+assert.equal(effectiveUsage(dealStd).max10EffectiveUsageUsd,300);
+assert.equal(planAdjustedTaskCost(3,dealStd,economics),2); // deal already lives in effective token price; no double count
+const mimo={...dealStd,name:'MiMo V2.5',dealMultiplier:5,max10EffectiveUsageUsd:750,max20EffectiveUsageUsd:1500};
+assert.equal(effectiveUsage(mimo).max10EffectiveUsageUsd,750);
+assert.equal(planAdjustedTaskCost(3,mimo,economics),2);
+
+console.log("ok: CommandCode Max parser handles discounts, deal multipliers, effective usage, plan adjustment, and FREE rows");

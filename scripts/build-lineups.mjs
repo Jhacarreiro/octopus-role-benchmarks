@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isLatestGenerationModel, modelFamily } from './lib/model-family.mjs';
+import { isLatestGenerationModel, isLatestGenerationOrBeatsLatest, modelFamily } from './lib/model-family.mjs';
 import { planEconomics, billingCategory as validatedBillingCategory, planAdjustedTaskCost, monthlyUtilization as planMonthlyUtilization } from './lib/plan-economics.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -75,8 +75,13 @@ const generationEligible=policy.latestGenerationOnly
   ? base.filter(m=>isLatestGenerationModel(m,base,{scoredOnly:true}))
   : base.slice();
 
+function generationEligibleForRole(model,role){
+  if(!policy.latestGenerationOnly)return true;
+  return isLatestGenerationOrBeatsLatest(model,base,m=>roleQuality(m,role),{scoredOnly:true});
+}
+
 if(!generationEligible.length)fail('no scored models with AA Intelligence Index');
-for(const m of generationEligible){
+for(const m of base){
   billingCategory(m);
   if(!Number.isFinite(creditBurn(m))||creditBurn(m)<0)fail(`${m.name}: missing task credit burn`);
 }
@@ -89,7 +94,7 @@ function populationStats(values){
 }
 
 function prepareModeUniverse(modeId,mode,requested){
-  let universe=generationEligible.slice();
+  let universe=base.slice();
   let modeBestIntelligence=bestIntelligence;
   let priceFilter=null;
   if(mode.priceOutlierFilter){
@@ -104,9 +109,10 @@ function prepareModeUniverse(modeId,mode,requested){
     const cutoff=mean+sigma*sd;
     const excluded=universe.filter(m=>costFn(m)>cutoff+EPS);
     universe=universe.filter(m=>costFn(m)<=cutoff+EPS);
+    const latestSurvivors=generationEligible.filter(m=>costFn(m)<=cutoff+EPS);
     const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
-    if(familyCount(universe)<requiredFamilies)fail(`${modeId}: price filter leaves only ${familyCount(universe)} families (precheck requires ${requiredFamilies})`);
-    modeBestIntelligence=Math.max(...universe.map(intelligence));
+    if(familyCount(latestSurvivors)<requiredFamilies)fail(`${modeId}: price filter leaves only ${familyCount(latestSurvivors)} latest-generation families (precheck requires ${requiredFamilies})`);
+    modeBestIntelligence=Math.max(...latestSurvivors.map(intelligence));
     priceFilter={
       method:mode.priceOutlierFilter.method,
       costMetric:metric,
@@ -206,6 +212,7 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
   const roleCandidates={};
   for(const role of roles){
     roleCandidates[role]=pool.filter(m=>
+      generationEligibleForRole(m,role) &&
       Number.isFinite(roleQuality(m,role)) &&
       (modeId!=='balanced'||Number.isFinite(roleBalanced(m,role)))
     );
@@ -416,6 +423,7 @@ const out={
   generatedAt:latest.generatedAt,
   policy:{
     latestGenerationOnly:policy.latestGenerationOnly===true,
+    previousGenerationRoleException:'allow when absolute role quality exceeds the best latest-generation peer in the same series',
     poolPrecheck:policy.poolPrecheck,
     minFamilies:policy.minFamilies,
     modeMinFamilies:Object.fromEntries(Object.entries(policy.modes).map(([id,mode])=>[id,Number(mode.minFamilies??policy.minFamilies??1)])),
@@ -450,6 +458,10 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
       benchmarkProvenance:role==='security-reviewer'?(m.benchmarkProvenance?.cyberbench??null):null,
       free:m.free===true,
       discountPercent:m.discountPercent??null,
+      dealDiscountPercent:m.dealDiscountPercent??null,
+      dealMultiplier:m.dealMultiplier??1,
+      max10EffectiveUsageUsd:m.max10EffectiveUsageUsd??m.max10MonthlyUsageLimitUsd??null,
+      max20EffectiveUsageUsd:m.max20EffectiveUsageUsd??m.max20MonthlyUsageLimitUsd??null,
       mappingStatus:m.mapping?.status??null
     };
   }

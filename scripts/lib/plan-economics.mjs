@@ -13,6 +13,14 @@ export function planEconomics(policy){
 
 function close(a,b){return Math.abs(Number(a)-Number(b))<=1e-9}
 
+export function effectiveUsage(row){
+  const multiplier=Number(row?.dealMultiplier??1);
+  if(!Number.isFinite(multiplier)||multiplier<=0)throw new Error(`${row?.name||row?.rawName||'model'}: invalid CommandCode deal multiplier`);
+  const max10=Number(row?.max10MonthlyUsageLimitUsd);
+  const max20=Number(row?.max20MonthlyUsageLimitUsd);
+  return {dealMultiplier:multiplier,max10EffectiveUsageUsd:max10*multiplier,max20EffectiveUsageUsd:max20*multiplier};
+}
+
 export function billingCategory(row,economics){
   const c=row?.billingCategory;
   if(!['standard','premium','free'].includes(c))throw new Error(`${row?.name||row?.rawName||'model'}: missing/unknown CommandCode billingCategory`);
@@ -28,8 +36,13 @@ export function planAdjustedTaskCost(creditBurn,row,economics){
   if(!Number.isFinite(creditBurn)||creditBurn<0)return null;
   const c=billingCategory(row,economics);
   if(c==='free')return 0;
-  const allowance=c==='standard'?economics.standardMonthlyUsageLimitUsd:economics.premiumMonthlyUsageLimitUsd;
-  return creditBurn*economics.monthlyPriceUsd/allowance;
+  const baseCredits=Number(row.max10MonthlyUsageLimitUsd);
+  const usage=effectiveUsage(row);
+  if(row.max10EffectiveUsageUsd!=null&&!close(row.max10EffectiveUsageUsd,usage.max10EffectiveUsageUsd))throw new Error(`${row?.name||row?.rawName||'model'}: inconsistent Max 10 effective usage`);
+  if(row.max20EffectiveUsageUsd!=null&&!close(row.max20EffectiveUsageUsd,usage.max20EffectiveUsageUsd))throw new Error(`${row?.name||row?.rawName||'model'}: inconsistent Max 20 effective usage`);
+  // creditBurn is already priced at CommandCode's effective deal rate. Dividing by base plan credits
+  // therefore captures the deal exactly once. Multiplying the allowance by dealMultiplier here would double-count it.
+  return creditBurn*economics.monthlyPriceUsd/baseCredits;
 }
 
 export function monthlyUtilization(standardBurn,premiumBurn,economics){

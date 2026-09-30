@@ -100,7 +100,7 @@ The eight recommendation cards are selected as one constrained portfolio rather 
 
 Shared rules:
 
-- `latestGenerationOnly = true`;
+- `latestGenerationOnly = true`, with a per-role exception when an older generation has higher absolute Role Quality than the best latest-generation peer in the same series;
 - requested Intelligence floors are **Quality 0.90**, **Balanced 0.85**, **Budget 0.80** of the best eligible AA Intelligence Index;
 - before optimization, the floor is lowered in **0.005** steps only if needed until the eligible pool contains at least **5 model families**;
 - Quality requires at least **4 families**; Balanced and Budget require at least **5 families**; all modes allow at most 8;
@@ -149,3 +149,6 @@ The benchmark refresh is designed to be invoked once per week by an external sch
 Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. Newly discovered CommandCode models without a verified benchmark identity are published as `unscored` rather than aborting the refresh, and the public validation status records the mapping issue. The 100% coverage rule applies to the scored universe. Benchmark fallbacks are never silent: every estimated, historical, stale or unavailable value carries explicit provenance in the public snapshot.
 
 When AA temporarily omits SciCode for a mapped model, the pipeline first uses the last observed SciCode only when it is at most 14 days old and when an overlap calibration against current observed families passes the published MAE/max-error guardrails. The overlap-derived factor is capped at 1, so the calibrated historical fallback never inflates a prior observation. If no fresh calibrated LKG exists, the Ridge estimator may be used only when its leave-one-out guardrails pass. If those guardrails fail, the refresh no longer aborts globally: an older observed SciCode is carried only as explicitly `stale`, preserving its original observation timestamp and failure reason; if no prior observation exists, SciCode is marked `unavailable` and that family may become `source_incomplete`. The snapshot and public status become `partial`, while unaffected models continue through the refresh. Intelligence Index remains excluded from the Ridge features to avoid circularity.
+
+
+CommandCode pricing stores base Max credits separately from model deal multipliers/effective usage. Effective token prices already include the deal rate, so plan-adjusted task cost applies the deal exactly once.

@@ -14,7 +14,7 @@ Octopus recommends three eight-seat portfolios — **Quality**, **Balanced** and
 
 ## Shared constraints
 
-1. Only current-generation eligible models are considered.
+1. Current-generation models are preferred. A previous-generation model remains eligible for a specific role only when its absolute Role Quality exceeds the best current-generation peer in the same series for that role.
 2. Quality measures its Intelligence floor against the best current-generation eligible model. Balanced and Budget first apply their shared effective-cost outlier filter, recompute the best eligible **AA Intelligence Index** among survivors, and measure their requested floors against that filtered baseline.
 3. If a candidate pool cannot support a feasible portfolio, lower the Intelligence floor by **0.005** until the structural constraints can be satisfied.
 4. Final portfolio: **4–8 families**.
@@ -83,3 +83,8 @@ If a model has no direct Cyber Index result, it is simply not a Security Reviewe
 `scripts/evaluate-lineup-swaps.mjs` regenerates the full portfolio after refreshes and compares it with the currently published lineup. `data/lineup-opportunities.json` is therefore portfolio-level review data, not a list of independent single-seat substitutions.
 
 The evaluator never writes new hand-picked selections back into `config/lineup-policy.json`; the policy contains rules only.
+
+
+### CommandCode plan deals
+
+CommandCode Max base credits and model deals are tracked separately. Token prices use the current effective CommandCode deal rate. Deal multipliers (for example 2× MiniMax or 5× MiMo effective usage) are recorded as explanatory plan metadata and are **not** applied a second time to task cost. Max 10 effective usage equals base credits × deal multiplier; plan-adjusted task cost divides the already-discounted credit burn by the base plan credits.

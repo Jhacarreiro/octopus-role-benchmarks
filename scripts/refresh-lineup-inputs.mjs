@@ -51,10 +51,15 @@ for(const m of snapshot.models||[]){
   const cc=maxByRawName.get(m.rawName);
   if(!cc)continue;
   m.discountPercent=cc.discountPercent;
+  m.dealDiscountPercent=cc.dealDiscountPercent??null;
+  m.dealMultiplier=cc.dealMultiplier??1;
   m.free=cc.free===true;
   m.billingCategory=cc.billingCategory;
   m.max10MonthlyUsageLimitUsd=cc.max10MonthlyUsageLimitUsd;
   m.max20MonthlyUsageLimitUsd=cc.max20MonthlyUsageLimitUsd;
+  m.max10EffectiveUsageUsd=cc.max10EffectiveUsageUsd??cc.max10MonthlyUsageLimitUsd;
+  m.max20EffectiveUsageUsd=cc.max20EffectiveUsageUsd??cc.max20MonthlyUsageLimitUsd;
+  m.dealSourceUrl=cc.dealSourceUrl??null;
   m.offPeakShown=cc.offPeakShown===true;
   m.tokenPrices=tokenPriceBases(cc);
   const observed=m.taskEfficiency?.observedTaskTokenProfile;
@@ -132,6 +137,8 @@ snapshot.sources=snapshot.sources||{};
 snapshot.sources.commandCodeMax={
   ...(snapshot.sources.commandCodeMax||{}),
   url:'https://commandcode.ai/docs/plans/max',
+  pricingUrl:'https://commandcode.ai/pricing',
+  pricingLimitsUrl:'https://commandcode.ai/docs/resources/pricing-limits',
   rows:maxRows.length,
   refreshedAt:nowIso,
   billingCategories:{
@@ -151,4 +158,4 @@ const json=JSON.stringify(snapshot,null,2)+'\n';
 fs.writeFileSync(path.join(root,'data',`${date}.json`),json);
 fs.writeFileSync(path.join(root,'data','latest.json'),json);
 fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
-console.log(JSON.stringify({date,commandCodeUpdated,intelligenceUpdated,securityUpdated,cyberIndexDirectFamilies:securityUpdated,cyberbenchMissing:resolved.missing.length},null,2));
+console.log(JSON.stringify({date,commandCodeUpdated,intelligenceUpdated,securityUpdated,cyberIndexDirectFamilies:securityUpdated},null,2));

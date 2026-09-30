@@ -3,6 +3,8 @@ import { CommandExecutionError, EmptyResultError } from '@jackwener/opencli/erro
 import * as cheerio from 'cheerio';
 
 const URL = 'https://commandcode.ai/docs/plans/max';
+const PRICING_URL = 'https://commandcode.ai/pricing';
+const LIMITS_URL = 'https://commandcode.ai/docs/resources/pricing-limits';
 const UA = 'Mozilla/5.0 (compatible; OctopusRoleBenchmarks/1.0; +https://github.com/Jhacarreiro/octopus-role-benchmarks)';
 
 function dollars(text) {
@@ -66,6 +68,62 @@ function buildRecord(rawName, context, inputText, outputText, cacheReadText, cac
   };
 }
 
+
+export function parsePricingDeals(html) {
+  const $ = cheerio.load(html);
+  const byName = new Map();
+  for (const link of $('a').toArray()) {
+    const label = textOf($, link);
+    const match = label.match(/^(.+?)\s+effective usage$/i);
+    if (!match) continue;
+    const name = match[1].trim();
+    const container = $(link).parent().parent();
+    const detail = container.text().replace(/\s+/g, ' ').trim();
+    const multiplierMatch = detail.match(/(?:up to\s+)?([0-9]+(?:\.[0-9]+)?)×\s+further/i);
+    if (!multiplierMatch) continue;
+    const href = $(link).attr('href') || '';
+    const dealKey = href.includes('#') ? href.slice(href.indexOf('#')) : null;
+    byName.set(name, {dealMultiplier:Number(multiplierMatch[1]), dealKey, dealSourceUrl:PRICING_URL});
+  }
+  return byName;
+}
+
+export function parseDealDiscounts(html) {
+  const $ = cheerio.load(html);
+  const byName = new Map();
+  for (const link of $('a[aria-label*="deal details"]').toArray()) {
+    const aria = $(link).attr('aria-label') || '';
+    const match = aria.match(/^View (.+?) deal details$/i);
+    if (!match) continue;
+    const pctMatch = textOf($, link).match(/-(\d+(?:\.\d+)?)%/);
+    if (!pctMatch) continue;
+    const href = $(link).attr('href') || '';
+    const dealKey = href.includes('#') ? href.slice(href.indexOf('#')) : null;
+    byName.set(match[1].trim(), {dealDiscountPercent:Number(pctMatch[1]), dealKey, dealDetailsUrl:LIMITS_URL});
+  }
+  return byName;
+}
+
+export function applyDealMetadata(rows, pricingDeals=new Map(), dealDiscounts=new Map()) {
+  return rows.map(row => {
+    const discount = dealDiscounts.get(row.name) || null;
+    const directPricing = pricingDeals.get(row.name) || null;
+    const groupedPricing = !directPricing && discount?.dealKey
+      ? [...pricingDeals.values()].find(value => value?.dealKey && value.dealKey===discount.dealKey) ?? null
+      : null;
+    const pricing = directPricing ?? groupedPricing;
+    const dealMultiplier = pricing?.dealMultiplier ?? 1;
+    return {
+      ...row,
+      dealMultiplier,
+      dealDiscountPercent:discount?.dealDiscountPercent ?? row.discountPercent ?? null,
+      max10EffectiveUsageUsd:row.free ? 0 : row.max10MonthlyUsageLimitUsd == null ? null : row.max10MonthlyUsageLimitUsd * dealMultiplier,
+      max20EffectiveUsageUsd:row.free ? 0 : row.max20MonthlyUsageLimitUsd == null ? null : row.max20MonthlyUsageLimitUsd * dealMultiplier,
+      dealSourceUrl:pricing?.dealSourceUrl ?? discount?.dealDetailsUrl ?? null
+    };
+  });
+}
+
 export function parseMax(html) {
   const $ = cheerio.load(html);
   const requiredHeaders = ['model', 'input', 'output', 'cache read', 'cache write', 'max 10× credits', 'max 20× credits'];
@@ -100,9 +158,19 @@ cli({
   strategy: Strategy.PUBLIC, browser: false,
   columns: ['name','inputPerM','outputPerM','cacheReadPerM','discountPercent','billingCategory','max10MonthlyUsageLimitUsd','max20MonthlyUsageLimitUsd'],
   func: async () => {
-    const response = await fetch(URL, {headers:{'User-Agent':UA,'Accept':'text/html,application/xhtml+xml'}, signal:AbortSignal.timeout(15000)});
-    if (!response.ok) throw new CommandExecutionError(`CommandCode Max returned HTTP ${response.status}`);
-    const rows = parseMax(await response.text());
+    const [maxResponse,pricingResponse,limitsResponse] = await Promise.all([
+      fetch(URL, {headers:{'User-Agent':UA,'Accept':'text/html,application/xhtml+xml'}, signal:AbortSignal.timeout(15000)}),
+      fetch(PRICING_URL, {headers:{'User-Agent':UA,'Accept':'text/html,application/xhtml+xml'}, signal:AbortSignal.timeout(15000)}),
+      fetch(LIMITS_URL, {headers:{'User-Agent':UA,'Accept':'text/html,application/xhtml+xml'}, signal:AbortSignal.timeout(15000)})
+    ]);
+    if (!maxResponse.ok) throw new CommandExecutionError(`CommandCode Max returned HTTP ${maxResponse.status}`);
+    if (!pricingResponse.ok) throw new CommandExecutionError(`CommandCode pricing returned HTTP ${pricingResponse.status}`);
+    if (!limitsResponse.ok) throw new CommandExecutionError(`CommandCode pricing limits returned HTTP ${limitsResponse.status}`);
+    const rows = applyDealMetadata(
+      parseMax(await maxResponse.text()),
+      parsePricingDeals(await pricingResponse.text()),
+      parseDealDiscounts(await limitsResponse.text())
+    );
     if (rows.length < 40) throw new EmptyResultError(`Unexpected CommandCode Max row count: ${rows.length}`);
     const unknown=rows.filter(r=>!r.billingCategory);
     if(unknown.length)throw new EmptyResultError(`Unknown Max billing category for: ${unknown.map(x=>x.name).join(', ')}`);
