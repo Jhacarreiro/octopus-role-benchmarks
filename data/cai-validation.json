@@ -7,20 +7,20 @@
     "n": 16,
     "groups": 9,
     "ridge": {
-      "mae": 3.5677,
-      "rmse": 4.676,
+      "mae": 3.5815,
+      "rmse": 4.6943,
       "spearman": 0.8118,
       "pairwiseAccuracy": 0.825
     },
     "knn": {
-      "mae": 5.0394,
-      "rmse": 6.0556,
+      "mae": 5.0387,
+      "rmse": 6.0549,
       "spearman": 0.7206,
       "pairwiseAccuracy": 0.7583
     },
     "ensemble": {
-      "mae": 4.6265,
-      "rmse": 5.5751,
+      "mae": 4.6289,
+      "rmse": 5.5789,
       "spearman": 0.7647,
       "pairwiseAccuracy": 0.8
     }
@@ -29,8 +29,8 @@
     "repetitions": 500,
     "testFraction": 0.3125,
     "mae": {
-      "median": 3.9908,
-      "p90": 5.6368
+      "median": 3.9953,
+      "p90": 5.6375
     },
     "spearman": {
       "median": 0.9,
@@ -42,28 +42,28 @@
   },
   "finalRanking": {
     "implementer": {
-      "mae": 3.1653,
-      "rmse": 6.2356,
+      "mae": 3.1657,
+      "rmse": 6.2378,
       "spearman": 0.9941,
       "pairwiseAccuracy": 0.9833,
       "top5Hit": 1,
-      "qualityMae": 1.5422
+      "qualityMae": 1.543
     },
     "implementer-heavy": {
-      "mae": 3.1653,
-      "rmse": 6.2356,
+      "mae": 3.1657,
+      "rmse": 6.2378,
       "spearman": 0.9941,
       "pairwiseAccuracy": 0.9833,
       "top5Hit": 1,
-      "qualityMae": 1.5422
+      "qualityMae": 1.543
     },
     "code-reviewer": {
-      "mae": 3.1653,
-      "rmse": 6.2356,
+      "mae": 3.1657,
+      "rmse": 6.2378,
       "spearman": 0.9853,
       "pairwiseAccuracy": 0.9667,
       "top5Hit": 1,
-      "qualityMae": 1.5422
+      "qualityMae": 1.543
     }
   },
   "guardrails": {

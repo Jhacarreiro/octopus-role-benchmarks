@@ -1,9 +1,10 @@
 {
   "schemaVersion": 13,
   "snapshotDate": "2026-09-30",
-  "generatedAt": "2026-09-30T08:56:47.946Z",
+  "generatedAt": "2026-09-30T09:18:27.425Z",
   "policy": {
     "latestGenerationOnly": true,
+    "previousGenerationRoleException": "allow when absolute role quality exceeds the best latest-generation peer in the same series",
     "poolPrecheck": {
       "minFamilies": 5,
       "floorStep": 0.005
@@ -44,21 +45,21 @@
       "effectiveIntelligenceFloor": 0.785,
       "bestEligibleIntelligenceIndex": 57.6224,
       "intelligenceThreshold": 45.23356,
-      "candidateModels": 9,
+      "candidateModels": 14,
       "candidateFamilies": 5,
       "priceFilter": null,
       "familyCount": 4,
-      "totalRoleQuality": 447.89,
-      "totalBalanced": 541.337,
-      "placementInversionCost": 19.461265,
-      "placementInversionCount": 8,
+      "totalRoleQuality": 450.904,
+      "totalBalanced": 533.644,
+      "placementInversionCost": 29.466444,
+      "placementInversionCount": 14,
       "pureBalancedOptimum": null,
       "balancedObjectiveLossPercent": null,
-      "totalCostPerTaskUsd": 26.794718,
-      "totalCreditBurnPerPortfolioUsd": 26.794718,
-      "totalPlanAdjustedCostPerPortfolioUsd": 18.345923,
+      "totalCostPerTaskUsd": 31.861384,
+      "totalCreditBurnPerPortfolioUsd": 31.861384,
+      "totalPlanAdjustedCostPerPortfolioUsd": 23.412589,
       "standardCreditBurnPerPortfolioUsd": 25.346384,
-      "premiumCreditBurnPerPortfolioUsd": 1.448334,
+      "premiumCreditBurnPerPortfolioUsd": 6.515,
       "max10MonthlyIncludedUtilization": 0.168976,
       "max10EstimatedCompletePortfoliosPerMonth": 5.918,
       "max20EstimatedCompletePortfoliosPerMonth": 11.836,
@@ -79,6 +80,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "strategist": {
@@ -97,6 +102,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "security-reviewer": {
@@ -115,13 +124,17 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "commercial_variant"
         },
         "code-reviewer": {
           "model": "Grok 4.7",
           "family": "Grok",
           "benchmarkIdentity": "aa:grok-4-7",
-          "quality": 48.515,
+          "quality": 48.513,
           "costPerTaskUsd": 3.738326,
           "creditBurnPerTaskUsd": 3.738326,
           "planAdjustedCostPerTaskUsd": 2.492217,
@@ -133,13 +146,17 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "implementer": {
           "model": "MiMo V2.6 Pro UltraSpeed",
           "family": "MiMo",
           "benchmarkIdentity": "aa:mimo-v2-6-pro",
-          "quality": 51.603,
+          "quality": 51.601,
           "costPerTaskUsd": 1.332232,
           "creditBurnPerTaskUsd": 1.332232,
           "planAdjustedCostPerTaskUsd": 0.888155,
@@ -151,24 +168,32 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "commercial_variant"
         },
         "implementer-heavy": {
-          "model": "GPT-6.1 Sol",
+          "model": "GPT-6 Astra",
           "family": "GPT",
-          "benchmarkIdentity": "aa:gpt-6-1-sol",
-          "quality": 51.52,
-          "costPerTaskUsd": 0.724167,
-          "creditBurnPerTaskUsd": 0.724167,
-          "planAdjustedCostPerTaskUsd": 0.724167,
+          "benchmarkIdentity": "aa:gpt-6-astra",
+          "quality": 54.208,
+          "costPerTaskUsd": 3.2575,
+          "creditBurnPerTaskUsd": 3.2575,
+          "planAdjustedCostPerTaskUsd": 3.2575,
           "billingCategory": "premium",
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
-          "intelligenceIndex": 51.8333,
+          "intelligenceIndex": 52.6737,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 100,
+          "max20EffectiveUsageUsd": 200,
           "mappingStatus": "exact"
         },
         "synthesizer": {
@@ -187,24 +212,32 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "researcher": {
-          "model": "GPT-6.1 Sol",
+          "model": "GPT-6 Astra",
           "family": "GPT",
-          "benchmarkIdentity": "aa:gpt-6-1-sol",
-          "quality": 50.648,
-          "costPerTaskUsd": 0.724167,
-          "creditBurnPerTaskUsd": 0.724167,
-          "planAdjustedCostPerTaskUsd": 0.724167,
+          "benchmarkIdentity": "aa:gpt-6-astra",
+          "quality": 50.978,
+          "costPerTaskUsd": 3.2575,
+          "creditBurnPerTaskUsd": 3.2575,
+          "planAdjustedCostPerTaskUsd": 3.2575,
           "billingCategory": "premium",
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
-          "intelligenceIndex": 51.8333,
+          "intelligenceIndex": 52.6737,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 100,
+          "max20EffectiveUsageUsd": 200,
           "mappingStatus": "exact"
         }
       }
@@ -218,7 +251,7 @@
       "effectiveIntelligenceFloor": 0.81,
       "bestEligibleIntelligenceIndex": 55.978,
       "intelligenceThreshold": 45.342143,
-      "candidateModels": 7,
+      "candidateModels": 10,
       "candidateFamilies": 5,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
@@ -241,16 +274,30 @@
             "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
+            "model": "Claude Fable 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 8.778535,
+            "planAdjustedCostPerTaskUsd": 8.778535
+          },
+          {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 5.982012,
             "planAdjustedCostPerTaskUsd": 5.982012
+          },
+          {
+            "model": "Claude Opus 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.858396,
+            "planAdjustedCostPerTaskUsd": 5.858396
           }
         ]
       },
       "familyCount": 5,
-      "totalRoleQuality": 436.065,
+      "totalRoleQuality": 436.063,
       "totalBalanced": 563.082,
       "placementInversionCost": 18.131136,
       "placementInversionCount": 9,
@@ -281,6 +328,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "strategist": {
@@ -299,6 +350,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact_alias"
         },
         "security-reviewer": {
@@ -317,6 +372,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "code-reviewer": {
@@ -335,13 +394,17 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "implementer": {
           "model": "MiMo V2.6 Pro",
           "family": "MiMo",
           "benchmarkIdentity": "aa:mimo-v2-6-pro",
-          "quality": 51.603,
+          "quality": 51.601,
           "costPerTaskUsd": 0.133223,
           "creditBurnPerTaskUsd": 0.133223,
           "planAdjustedCostPerTaskUsd": 0.088815,
@@ -353,6 +416,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "implementer-heavy": {
@@ -371,6 +438,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 100,
+          "max20EffectiveUsageUsd": 200,
           "mappingStatus": "exact"
         },
         "synthesizer": {
@@ -389,6 +460,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "researcher": {
@@ -407,6 +482,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 100,
+          "max20EffectiveUsageUsd": 200,
           "mappingStatus": "exact"
         }
       }
@@ -420,7 +499,7 @@
       "effectiveIntelligenceFloor": 0.8,
       "bestEligibleIntelligenceIndex": 55.978,
       "intelligenceThreshold": 44.782364,
-      "candidateModels": 9,
+      "candidateModels": 12,
       "candidateFamilies": 6,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
@@ -443,16 +522,30 @@
             "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
+            "model": "Claude Fable 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 8.778535,
+            "planAdjustedCostPerTaskUsd": 8.778535
+          },
+          {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 5.982012,
             "planAdjustedCostPerTaskUsd": 5.982012
+          },
+          {
+            "model": "Claude Opus 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.858396,
+            "planAdjustedCostPerTaskUsd": 5.858396
           }
         ]
       },
       "familyCount": 5,
-      "totalRoleQuality": 442.302,
+      "totalRoleQuality": 442.298,
       "totalBalanced": 602.953,
       "placementInversionCost": 10.419689,
       "placementInversionCount": 10,
@@ -483,6 +576,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact_alias"
         },
         "strategist": {
@@ -501,6 +598,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 100,
+          "max20EffectiveUsageUsd": 200,
           "mappingStatus": "exact"
         },
         "security-reviewer": {
@@ -519,13 +620,17 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "code-reviewer": {
           "model": "Grok 4.7",
           "family": "Grok",
           "benchmarkIdentity": "aa:grok-4-7",
-          "quality": 48.515,
+          "quality": 48.513,
           "costPerTaskUsd": 3.738326,
           "creditBurnPerTaskUsd": 3.738326,
           "planAdjustedCostPerTaskUsd": 2.492217,
@@ -537,13 +642,17 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "implementer": {
           "model": "MiMo V2.6 Pro",
           "family": "MiMo",
           "benchmarkIdentity": "aa:mimo-v2-6-pro",
-          "quality": 51.603,
+          "quality": 51.601,
           "costPerTaskUsd": 0.133223,
           "creditBurnPerTaskUsd": 0.133223,
           "planAdjustedCostPerTaskUsd": 0.088815,
@@ -555,6 +664,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "exact"
         },
         "implementer-heavy": {
@@ -573,6 +686,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 100,
+          "max20EffectiveUsageUsd": 200,
           "mappingStatus": "exact"
         },
         "synthesizer": {
@@ -591,6 +708,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "commercial_variant"
         },
         "researcher": {
@@ -609,6 +730,10 @@
           "benchmarkProvenance": null,
           "free": false,
           "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "commercial_variant"
         }
       }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-09-30",
-  "generatedAt": "2026-09-30T08:56:47.946Z",
+  "generatedAt": "2026-09-30T09:18:27.425Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -50,11 +50,25 @@
             "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
+            "model": "Claude Fable 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 8.778535,
+            "planAdjustedCostPerTaskUsd": 8.778535
+          },
+          {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 5.982012,
             "planAdjustedCostPerTaskUsd": 5.982012
+          },
+          {
+            "model": "Claude Opus 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.858396,
+            "planAdjustedCostPerTaskUsd": 5.858396
           }
         ]
       },
@@ -92,11 +106,25 @@
             "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
+            "model": "Claude Fable 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 8.778535,
+            "planAdjustedCostPerTaskUsd": 8.778535
+          },
+          {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 5.982012,
             "planAdjustedCostPerTaskUsd": 5.982012
+          },
+          {
+            "model": "Claude Opus 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.858396,
+            "planAdjustedCostPerTaskUsd": 5.858396
           }
         ]
       },

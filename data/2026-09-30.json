@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-09-30",
-  "generatedAt": "2026-09-30T08:56:47.946Z",
+  "generatedAt": "2026-09-30T09:18:27.425Z",
   "benchmarkDate": "2026-09-30",
-  "benchmarkGeneratedAt": "2026-09-30T08:56:47.946Z",
-  "lineupInputsRefreshedAt": "2026-09-30T08:56:47.946Z",
+  "benchmarkGeneratedAt": "2026-09-30T09:18:27.425Z",
+  "lineupInputsRefreshedAt": "2026-09-30T09:18:27.425Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -122,11 +122,15 @@
       "cacheWrite": 214245.16,
       "output": 51657.3
     },
-    "priceSource": "CommandCode"
+    "priceSource": "CommandCode",
+    "planAdjustment": "Max 10 base credits; model deal is represented once through CommandCode effective token prices",
+    "dealMetadata": "CommandCode pricing effective-usage multiplier and deal discount metadata"
   },
   "sources": {
     "commandCodeMax": {
       "url": "https://commandcode.ai/docs/plans/max",
+      "pricingUrl": "https://commandcode.ai/pricing",
+      "pricingLimitsUrl": "https://commandcode.ai/docs/resources/pricing-limits",
       "rows": 88,
       "planEconomics": {
         "monthlyPriceUsd": 100,
@@ -149,7 +153,7 @@
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-09-30T08:56:47.869Z",
+      "fetchedAt": "2026-09-30T09:18:27.324Z",
       "version": "v1",
       "directFamilies": 16,
       "availableRows": 17,
@@ -407,8 +411,8 @@
     "observedFamilies": 48,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 12,
-    "validatedAt": "2026-09-30T08:56:47.946Z",
-    "sourceSnapshotGeneratedAt": "2026-09-30T08:56:47.946Z",
+    "validatedAt": "2026-09-30T09:18:27.425Z",
+    "sourceSnapshotGeneratedAt": "2026-09-30T09:18:27.425Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -860,6 +864,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 0,
+      "max20EffectiveUsageUsd": 0,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Stealth model; identity unverified.",
@@ -905,6 +914,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 0,
+      "max20EffectiveUsageUsd": 0,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Stealth model; identity unverified.",
@@ -950,6 +964,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 0,
+      "max20EffectiveUsageUsd": 0,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Public model; no canonical AA entry.",
@@ -995,6 +1014,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 0,
+      "max20EffectiveUsageUsd": 0,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "commercial_variant",
         "slug": "ling-3-0-flash",
@@ -1066,7 +1090,7 @@
         },
         "code-reviewer": {
           "score": 45.413,
-          "rankingQuality": 43.009,
+          "rankingQuality": 43.014,
           "rankingValue": 50.962,
           "status": "valid",
           "coverageWeight": 1,
@@ -1076,7 +1100,7 @@
         },
         "implementer": {
           "score": 45.325,
-          "rankingQuality": 42.951,
+          "rankingQuality": 42.956,
           "rankingValue": 50.962,
           "status": "valid",
           "coverageWeight": 1,
@@ -1086,7 +1110,7 @@
         },
         "implementer-heavy": {
           "score": 43.349,
-          "rankingQuality": 41.633,
+          "rankingQuality": 41.638,
           "rankingValue": 51.923,
           "status": "valid",
           "coverageWeight": 1,
@@ -1116,10 +1140,10 @@
         }
       },
       "caiStar": {
-        "value": 38.202,
+        "value": 38.217,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 28.168,
+        "ridge": 28.231,
         "knn": 41.546,
         "historicalAnchor": null
       },
@@ -1150,6 +1174,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 0,
+      "max20EffectiveUsageUsd": 0,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "No verified AA identity."
@@ -1189,6 +1218,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Public model; no canonical AA entry.",
@@ -1234,6 +1268,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "hy3",
@@ -1307,7 +1346,7 @@
         },
         "code-reviewer": {
           "score": 51.434,
-          "rankingQuality": 47.704,
+          "rankingQuality": 47.709,
           "rankingValue": 59.615,
           "status": "valid",
           "coverageWeight": 1,
@@ -1317,7 +1356,7 @@
         },
         "implementer": {
           "score": 52.191,
-          "rankingQuality": 48.209,
+          "rankingQuality": 48.214,
           "rankingValue": 61.538,
           "status": "valid",
           "coverageWeight": 1,
@@ -1327,7 +1366,7 @@
         },
         "implementer-heavy": {
           "score": 49.432,
-          "rankingQuality": 46.37,
+          "rankingQuality": 46.375,
           "rankingValue": 61.538,
           "status": "valid",
           "coverageWeight": 1,
@@ -1357,10 +1396,10 @@
         }
       },
       "caiStar": {
-        "value": 40.245,
+        "value": 40.26,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 36.288,
+        "ridge": 36.351,
         "knn": 41.564,
         "historicalAnchor": null
       },
@@ -1391,6 +1430,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "kimi-k3",
@@ -1605,6 +1649,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "kimi-k2-7-code",
@@ -1675,7 +1724,7 @@
         },
         "code-reviewer": {
           "score": 39.899,
-          "rankingQuality": 39.869,
+          "rankingQuality": 39.872,
           "rankingValue": 32.853,
           "status": "valid",
           "coverageWeight": 1,
@@ -1685,7 +1734,7 @@
         },
         "implementer": {
           "score": 40.706,
-          "rankingQuality": 40.407,
+          "rankingQuality": 40.41,
           "rankingValue": 33.814,
           "status": "valid",
           "coverageWeight": 1,
@@ -1695,7 +1744,7 @@
         },
         "implementer-heavy": {
           "score": 34.773,
-          "rankingQuality": 36.452,
+          "rankingQuality": 36.455,
           "rankingValue": 30.929,
           "status": "valid",
           "coverageWeight": 1,
@@ -1725,10 +1774,10 @@
         }
       },
       "caiStar": {
-        "value": 39.809,
+        "value": 39.819,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 34.564,
+        "ridge": 34.605,
         "knn": 41.557,
         "historicalAnchor": null
       },
@@ -1759,6 +1808,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "commercial_variant",
         "slug": "kimi-k2-7-code",
@@ -1832,7 +1886,7 @@
         },
         "code-reviewer": {
           "score": 39.899,
-          "rankingQuality": 39.869,
+          "rankingQuality": 39.872,
           "rankingValue": 28.365,
           "status": "valid",
           "coverageWeight": 1,
@@ -1842,7 +1896,7 @@
         },
         "implementer": {
           "score": 40.706,
-          "rankingQuality": 40.407,
+          "rankingQuality": 40.41,
           "rankingValue": 29.327,
           "status": "valid",
           "coverageWeight": 1,
@@ -1852,7 +1906,7 @@
         },
         "implementer-heavy": {
           "score": 34.773,
-          "rankingQuality": 36.452,
+          "rankingQuality": 36.455,
           "rankingValue": 26.442,
           "status": "valid",
           "coverageWeight": 1,
@@ -1882,10 +1936,10 @@
         }
       },
       "caiStar": {
-        "value": 39.809,
+        "value": 39.819,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 34.564,
+        "ridge": 34.605,
         "knn": 41.557,
         "historicalAnchor": null
       },
@@ -1916,6 +1970,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "kimi-k2-6",
@@ -2084,6 +2143,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "kimi-k2-5",
@@ -2172,7 +2236,7 @@
         },
         "code-reviewer": {
           "score": 51.055,
-          "rankingQuality": 53.888,
+          "rankingQuality": 53.883,
           "rankingValue": 77.564,
           "status": "valid",
           "coverageWeight": 1,
@@ -2182,7 +2246,7 @@
         },
         "implementer": {
           "score": 51.008,
-          "rankingQuality": 53.857,
+          "rankingQuality": 53.852,
           "rankingValue": 78.526,
           "status": "valid",
           "coverageWeight": 1,
@@ -2192,7 +2256,7 @@
         },
         "implementer-heavy": {
           "score": 45.654,
-          "rankingQuality": 50.287,
+          "rankingQuality": 50.282,
           "rankingValue": 66.987,
           "status": "valid",
           "coverageWeight": 1,
@@ -2222,10 +2286,10 @@
         }
       },
       "caiStar": {
-        "value": 59.554,
+        "value": 59.539,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 80.217,
+        "ridge": 80.159,
         "knn": 52.666,
         "historicalAnchor": null
       },
@@ -2256,6 +2320,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "glm-5-3-flash",
@@ -2351,7 +2420,7 @@
         },
         "code-reviewer": {
           "score": 50.318,
-          "rankingQuality": 49.224,
+          "rankingQuality": 49.223,
           "rankingValue": 62.66,
           "status": "valid",
           "coverageWeight": 1,
@@ -2361,7 +2430,7 @@
         },
         "implementer": {
           "score": 50.146,
-          "rankingQuality": 49.11,
+          "rankingQuality": 49.109,
           "rankingValue": 61.699,
           "status": "valid",
           "coverageWeight": 1,
@@ -2371,7 +2440,7 @@
         },
         "implementer-heavy": {
           "score": 53.012,
-          "rankingQuality": 51.02,
+          "rankingQuality": 51.019,
           "rankingValue": 74.199,
           "status": "valid",
           "coverageWeight": 1,
@@ -2401,11 +2470,11 @@
         }
       },
       "caiStar": {
-        "value": 47.037,
+        "value": 47.034,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 46.919,
-        "knn": 47.077,
+        "ridge": 46.906,
+        "knn": 47.076,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2435,6 +2504,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "commercial_variant",
         "slug": "glm-5-3-flash",
@@ -2533,7 +2607,7 @@
         },
         "code-reviewer": {
           "score": 50.318,
-          "rankingQuality": 49.224,
+          "rankingQuality": 49.223,
           "rankingValue": 58.814,
           "status": "valid",
           "coverageWeight": 1,
@@ -2543,7 +2617,7 @@
         },
         "implementer": {
           "score": 50.146,
-          "rankingQuality": 49.11,
+          "rankingQuality": 49.109,
           "rankingValue": 57.853,
           "status": "valid",
           "coverageWeight": 1,
@@ -2553,7 +2627,7 @@
         },
         "implementer-heavy": {
           "score": 53.012,
-          "rankingQuality": 51.02,
+          "rankingQuality": 51.019,
           "rankingValue": 70.353,
           "status": "valid",
           "coverageWeight": 1,
@@ -2583,11 +2657,11 @@
         }
       },
       "caiStar": {
-        "value": 47.037,
+        "value": 47.034,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 46.919,
-        "knn": 47.077,
+        "ridge": 46.906,
+        "knn": 47.076,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2617,6 +2691,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "glm-5-3",
@@ -2824,6 +2903,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "glm-5-2",
@@ -2992,6 +3076,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "commercial_variant",
         "slug": "glm-5-2",
@@ -3163,6 +3252,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "glm-5-1",
@@ -3331,6 +3425,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "glm-5",
@@ -3519,6 +3618,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 2,
+      "dealDiscountPercent": 50,
+      "max10EffectiveUsageUsd": 300,
+      "max20EffectiveUsageUsd": 600,
+      "dealSourceUrl": "https://commandcode.ai/pricing",
       "mapping": {
         "status": "exact",
         "slug": "minimax-m3",
@@ -3614,7 +3718,7 @@
         },
         "code-reviewer": {
           "score": 40.932,
-          "rankingQuality": 40.808,
+          "rankingQuality": 40.81,
           "rankingValue": 38.462,
           "status": "valid",
           "coverageWeight": 1,
@@ -3624,7 +3728,7 @@
         },
         "implementer": {
           "score": 40.876,
-          "rankingQuality": 40.771,
+          "rankingQuality": 40.773,
           "rankingValue": 36.538,
           "status": "valid",
           "coverageWeight": 1,
@@ -3634,7 +3738,7 @@
         },
         "implementer-heavy": {
           "score": 37.52,
-          "rankingQuality": 38.534,
+          "rankingQuality": 38.536,
           "rankingValue": 36.538,
           "status": "valid",
           "coverageWeight": 1,
@@ -3664,10 +3768,10 @@
         }
       },
       "caiStar": {
-        "value": 40.561,
+        "value": 40.567,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 37.672,
+        "ridge": 37.696,
         "knn": 41.524,
         "historicalAnchor": null
       },
@@ -3698,6 +3802,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "minimax-m2-7",
@@ -3766,7 +3875,7 @@
         },
         "code-reviewer": {
           "score": 38.814,
-          "rankingQuality": 39.758,
+          "rankingQuality": 39.761,
           "rankingValue": 33.013,
           "status": "valid",
           "coverageWeight": 1,
@@ -3776,7 +3885,7 @@
         },
         "implementer": {
           "score": 39.448,
-          "rankingQuality": 40.181,
+          "rankingQuality": 40.184,
           "rankingValue": 33.013,
           "status": "valid",
           "coverageWeight": 1,
@@ -3786,7 +3895,7 @@
         },
         "implementer-heavy": {
           "score": 32.724,
-          "rankingQuality": 35.698,
+          "rankingQuality": 35.701,
           "rankingValue": 30.128,
           "status": "valid",
           "coverageWeight": 1,
@@ -3816,10 +3925,10 @@
         }
       },
       "caiStar": {
-        "value": 41.647,
+        "value": 41.655,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 34.36,
+        "ridge": 34.39,
         "knn": 44.076,
         "historicalAnchor": null
       },
@@ -3850,6 +3959,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "minimax-m2-5",
@@ -4038,6 +4152,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "deepseek-v4-pro",
@@ -4227,6 +4346,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "deepseek-v4-flash",
@@ -4416,6 +4540,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "deepseek-v4-flash-vision",
@@ -4489,7 +4618,7 @@
         },
         "code-reviewer": {
           "score": 52.637,
-          "rankingQuality": 49.628,
+          "rankingQuality": 49.629,
           "rankingValue": 69.231,
           "status": "valid",
           "coverageWeight": 1,
@@ -4539,10 +4668,10 @@
         }
       },
       "caiStar": {
-        "value": 43.611,
+        "value": 43.612,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 42.889,
+        "ridge": 42.895,
         "knn": 43.851,
         "historicalAnchor": null
       },
@@ -4573,6 +4702,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "deepseek-v4-flash",
@@ -4762,6 +4896,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "deepseek-v4-1-flash",
@@ -4857,7 +4996,7 @@
         },
         "code-reviewer": {
           "score": 44.262,
-          "rankingQuality": 43.516,
+          "rankingQuality": 43.515,
           "rankingValue": 48.878,
           "status": "valid",
           "coverageWeight": 1,
@@ -4867,7 +5006,7 @@
         },
         "implementer": {
           "score": 45.239,
-          "rankingQuality": 44.167,
+          "rankingQuality": 44.166,
           "rankingValue": 48.878,
           "status": "valid",
           "coverageWeight": 1,
@@ -4877,7 +5016,7 @@
         },
         "implementer-heavy": {
           "score": 46.265,
-          "rankingQuality": 44.851,
+          "rankingQuality": 44.85,
           "rankingValue": 53.686,
           "status": "valid",
           "coverageWeight": 1,
@@ -4907,10 +5046,10 @@
         }
       },
       "caiStar": {
-        "value": 42.023,
+        "value": 42.02,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 42.224,
+        "ridge": 42.211,
         "knn": 41.957,
         "historicalAnchor": null
       },
@@ -4941,6 +5080,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "deepseek-v4-1-flash",
@@ -5036,7 +5180,7 @@
         },
         "code-reviewer": {
           "score": 44.262,
-          "rankingQuality": 43.516,
+          "rankingQuality": 43.515,
           "rankingValue": 46.635,
           "status": "valid",
           "coverageWeight": 1,
@@ -5046,7 +5190,7 @@
         },
         "implementer": {
           "score": 45.239,
-          "rankingQuality": 44.167,
+          "rankingQuality": 44.166,
           "rankingValue": 46.635,
           "status": "valid",
           "coverageWeight": 1,
@@ -5056,7 +5200,7 @@
         },
         "implementer-heavy": {
           "score": 46.265,
-          "rankingQuality": 44.851,
+          "rankingQuality": 44.85,
           "rankingValue": 51.442,
           "status": "valid",
           "coverageWeight": 1,
@@ -5086,10 +5230,10 @@
         }
       },
       "caiStar": {
-        "value": 42.023,
+        "value": 42.02,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 42.224,
+        "ridge": 42.211,
         "knn": 41.957,
         "historicalAnchor": null
       },
@@ -5120,6 +5264,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Public model; no canonical AA entry.",
@@ -5165,6 +5314,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "qwen3-8-max",
@@ -5357,6 +5511,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "qwen3-8-max",
@@ -5546,6 +5705,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "qwen3-8-27b",
@@ -5641,7 +5805,7 @@
         },
         "code-reviewer": {
           "score": 40.166,
-          "rankingQuality": 40.168,
+          "rankingQuality": 40.169,
           "rankingValue": 32.692,
           "status": "valid",
           "coverageWeight": 1,
@@ -5651,7 +5815,7 @@
         },
         "implementer": {
           "score": 40.739,
-          "rankingQuality": 40.55,
+          "rankingQuality": 40.551,
           "rankingValue": 33.654,
           "status": "valid",
           "coverageWeight": 1,
@@ -5691,10 +5855,10 @@
         }
       },
       "caiStar": {
-        "value": 40.173,
+        "value": 40.174,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 36.4,
+        "ridge": 36.402,
         "knn": 41.431,
         "historicalAnchor": null
       },
@@ -5725,6 +5889,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "qwen3-max-preview",
@@ -5916,6 +6085,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "qwen3-6-plus",
@@ -6004,7 +6178,7 @@
         },
         "code-reviewer": {
           "score": 51.056,
-          "rankingQuality": 54.03,
+          "rankingQuality": 54.023,
           "rankingValue": 78.846,
           "status": "valid",
           "coverageWeight": 1,
@@ -6014,7 +6188,7 @@
         },
         "implementer": {
           "score": 50.458,
-          "rankingQuality": 53.631,
+          "rankingQuality": 53.624,
           "rankingValue": 77.885,
           "status": "valid",
           "coverageWeight": 1,
@@ -6024,7 +6198,7 @@
         },
         "implementer-heavy": {
           "score": 47.645,
-          "rankingQuality": 51.756,
+          "rankingQuality": 51.749,
           "rankingValue": 75,
           "status": "valid",
           "coverageWeight": 1,
@@ -6054,10 +6228,10 @@
         }
       },
       "caiStar": {
-        "value": 59.977,
+        "value": 59.956,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 81.902,
+        "ridge": 81.821,
         "knn": 52.668,
         "historicalAnchor": null
       },
@@ -6088,6 +6262,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "qwen3-7-max",
@@ -6158,7 +6337,7 @@
         },
         "code-reviewer": {
           "score": 54.832,
-          "rankingQuality": 50.638,
+          "rankingQuality": 50.642,
           "rankingValue": 60.256,
           "status": "valid",
           "coverageWeight": 1,
@@ -6168,7 +6347,7 @@
         },
         "implementer": {
           "score": 53.673,
-          "rankingQuality": 49.865,
+          "rankingQuality": 49.869,
           "rankingValue": 56.41,
           "status": "valid",
           "coverageWeight": 1,
@@ -6178,7 +6357,7 @@
         },
         "implementer-heavy": {
           "score": 50.856,
-          "rankingQuality": 47.987,
+          "rankingQuality": 47.991,
           "rankingValue": 53.526,
           "status": "valid",
           "coverageWeight": 1,
@@ -6208,10 +6387,10 @@
         }
       },
       "caiStar": {
-        "value": 42.249,
+        "value": 42.262,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 44.114,
+        "ridge": 44.168,
         "knn": 41.627,
         "historicalAnchor": null
       },
@@ -6242,6 +6421,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "qwen3-7-plus",
@@ -6410,6 +6594,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "qwen3-8-flash-next",
@@ -6483,7 +6672,7 @@
         },
         "code-reviewer": {
           "score": 53.786,
-          "rankingQuality": 51.215,
+          "rankingQuality": 51.216,
           "rankingValue": 72.756,
           "status": "valid",
           "coverageWeight": 1,
@@ -6503,7 +6692,7 @@
         },
         "implementer-heavy": {
           "score": 58.439,
-          "rankingQuality": 54.317,
+          "rankingQuality": 54.318,
           "rankingValue": 82.372,
           "status": "valid",
           "coverageWeight": 1,
@@ -6533,10 +6722,10 @@
         }
       },
       "caiStar": {
-        "value": 46.074,
+        "value": 46.075,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 44.179,
+        "ridge": 44.184,
         "knn": 46.706,
         "historicalAnchor": null
       },
@@ -6567,6 +6756,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Public model; no canonical AA entry.",
@@ -6612,6 +6806,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "longcat-2-0",
@@ -6682,7 +6881,7 @@
         },
         "code-reviewer": {
           "score": 41.628,
-          "rankingQuality": 40.716,
+          "rankingQuality": 40.722,
           "rankingValue": 44.551,
           "status": "valid",
           "coverageWeight": 1,
@@ -6692,7 +6891,7 @@
         },
         "implementer": {
           "score": 41.088,
-          "rankingQuality": 40.356,
+          "rankingQuality": 40.362,
           "rankingValue": 39.744,
           "status": "valid",
           "coverageWeight": 1,
@@ -6702,7 +6901,7 @@
         },
         "implementer-heavy": {
           "score": 37.563,
-          "rankingQuality": 38.006,
+          "rankingQuality": 38.012,
           "rankingValue": 42.628,
           "status": "valid",
           "coverageWeight": 1,
@@ -6732,10 +6931,10 @@
         }
       },
       "caiStar": {
-        "value": 38.891,
+        "value": 38.909,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 30.875,
+        "ridge": 30.948,
         "knn": 41.563,
         "historicalAnchor": null
       },
@@ -6766,6 +6965,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "step-5",
@@ -6849,7 +7053,7 @@
         },
         "implementer": {
           "score": 49.994,
-          "rankingQuality": 49.954,
+          "rankingQuality": 49.953,
           "rankingValue": 60.897,
           "status": "valid",
           "coverageWeight": 1,
@@ -6889,11 +7093,11 @@
         }
       },
       "caiStar": {
-        "value": 49.873,
+        "value": 49.872,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 49.345,
-        "knn": 50.049,
+        "ridge": 49.338,
+        "knn": 50.051,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -6923,6 +7127,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "step-3-7-flash",
@@ -6991,7 +7200,7 @@
         },
         "code-reviewer": {
           "score": 45.083,
-          "rankingQuality": 49.331,
+          "rankingQuality": 49.325,
           "rankingValue": 65.064,
           "status": "valid",
           "coverageWeight": 1,
@@ -7001,7 +7210,7 @@
         },
         "implementer": {
           "score": 46.483,
-          "rankingQuality": 50.264,
+          "rankingQuality": 50.259,
           "rankingValue": 67.949,
           "status": "valid",
           "coverageWeight": 1,
@@ -7011,7 +7220,7 @@
         },
         "implementer-heavy": {
           "score": 43.093,
-          "rankingQuality": 48.004,
+          "rankingQuality": 47.999,
           "rankingValue": 63.141,
           "status": "valid",
           "coverageWeight": 1,
@@ -7041,10 +7250,10 @@
         }
       },
       "caiStar": {
-        "value": 57.827,
+        "value": 57.81,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 73.393,
+        "ridge": 73.323,
         "knn": 52.639,
         "historicalAnchor": null
       },
@@ -7075,6 +7284,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "step-3-5-flash",
@@ -7263,6 +7477,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "mimo-v2-6-pro",
@@ -7358,7 +7577,7 @@
         },
         "code-reviewer": {
           "score": 50.625,
-          "rankingQuality": 50.676,
+          "rankingQuality": 50.674,
           "rankingValue": 71.635,
           "status": "valid",
           "coverageWeight": 1,
@@ -7368,7 +7587,7 @@
         },
         "implementer": {
           "score": 52.015,
-          "rankingQuality": 51.603,
+          "rankingQuality": 51.601,
           "rankingValue": 77.404,
           "status": "valid",
           "coverageWeight": 1,
@@ -7378,7 +7597,7 @@
         },
         "implementer-heavy": {
           "score": 50.879,
-          "rankingQuality": 50.846,
+          "rankingQuality": 50.844,
           "rankingValue": 74.519,
           "status": "valid",
           "coverageWeight": 1,
@@ -7408,11 +7627,11 @@
         }
       },
       "caiStar": {
-        "value": 50.779,
+        "value": 50.773,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 52.359,
-        "knn": 50.252,
+        "ridge": 52.342,
+        "knn": 50.25,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -7442,6 +7661,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "commercial_variant",
         "slug": "mimo-v2-6-pro",
@@ -7540,7 +7764,7 @@
         },
         "code-reviewer": {
           "score": 50.625,
-          "rankingQuality": 50.676,
+          "rankingQuality": 50.674,
           "rankingValue": 61.378,
           "status": "valid",
           "coverageWeight": 1,
@@ -7550,7 +7774,7 @@
         },
         "implementer": {
           "score": 52.015,
-          "rankingQuality": 51.603,
+          "rankingQuality": 51.601,
           "rankingValue": 67.147,
           "status": "valid",
           "coverageWeight": 1,
@@ -7560,7 +7784,7 @@
         },
         "implementer-heavy": {
           "score": 50.879,
-          "rankingQuality": 50.846,
+          "rankingQuality": 50.844,
           "rankingValue": 64.263,
           "status": "valid",
           "coverageWeight": 1,
@@ -7590,11 +7814,11 @@
         }
       },
       "caiStar": {
-        "value": 50.779,
+        "value": 50.773,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 52.359,
-        "knn": 50.252,
+        "ridge": 52.342,
+        "knn": 50.25,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -7624,6 +7848,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "mimo-v2-6-flash",
@@ -7747,7 +7976,7 @@
         "value": 44.41,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 44.018,
+        "ridge": 44.015,
         "knn": 44.541,
         "historicalAnchor": null
       },
@@ -7778,6 +8007,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 5,
+      "dealDiscountPercent": 99,
+      "max10EffectiveUsageUsd": 750,
+      "max20EffectiveUsageUsd": 1500,
+      "dealSourceUrl": "https://commandcode.ai/pricing",
       "mapping": {
         "status": "exact",
         "slug": "mimo-v2-5-pro",
@@ -7848,7 +8082,7 @@
         },
         "code-reviewer": {
           "score": 41.135,
-          "rankingQuality": 41.512,
+          "rankingQuality": 41.514,
           "rankingValue": 47.436,
           "status": "valid",
           "coverageWeight": 1,
@@ -7858,7 +8092,7 @@
         },
         "implementer": {
           "score": 41.567,
-          "rankingQuality": 41.8,
+          "rankingQuality": 41.802,
           "rankingValue": 47.436,
           "status": "valid",
           "coverageWeight": 1,
@@ -7868,7 +8102,7 @@
         },
         "implementer-heavy": {
           "score": 35.819,
-          "rankingQuality": 37.968,
+          "rankingQuality": 37.97,
           "rankingValue": 42.628,
           "status": "valid",
           "coverageWeight": 1,
@@ -7898,10 +8132,10 @@
         }
       },
       "caiStar": {
-        "value": 42.266,
+        "value": 42.273,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 37.474,
+        "ridge": 37.502,
         "knn": 43.863,
         "historicalAnchor": null
       },
@@ -7932,6 +8166,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 5,
+      "dealDiscountPercent": 98,
+      "max10EffectiveUsageUsd": 750,
+      "max20EffectiveUsageUsd": 1500,
+      "dealSourceUrl": "https://commandcode.ai/pricing",
       "mapping": {
         "status": "exact_alias",
         "slug": "mimo-v2-5-0424",
@@ -8003,7 +8242,7 @@
         },
         "code-reviewer": {
           "score": 47.398,
-          "rankingQuality": 51.394,
+          "rankingQuality": 51.387,
           "rankingValue": 80.449,
           "status": "valid",
           "coverageWeight": 1,
@@ -8013,7 +8252,7 @@
         },
         "implementer": {
           "score": 47.047,
-          "rankingQuality": 51.16,
+          "rankingQuality": 51.153,
           "rankingValue": 77.564,
           "status": "valid",
           "coverageWeight": 1,
@@ -8023,7 +8262,7 @@
         },
         "implementer-heavy": {
           "score": 44.908,
-          "rankingQuality": 49.734,
+          "rankingQuality": 49.727,
           "rankingValue": 73.718,
           "status": "valid",
           "coverageWeight": 1,
@@ -8053,10 +8292,10 @@
         }
       },
       "caiStar": {
-        "value": 59.387,
+        "value": 59.366,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 79.57,
+        "ridge": 79.485,
         "knn": 52.66,
         "historicalAnchor": null
       },
@@ -8087,6 +8326,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "nvidia-nemotron-3-ultra-550b-a55b",
@@ -8185,7 +8429,7 @@
         },
         "code-reviewer": {
           "score": 34.515,
-          "rankingQuality": 35.873,
+          "rankingQuality": 35.876,
           "rankingValue": 25.321,
           "status": "valid",
           "coverageWeight": 1,
@@ -8195,7 +8439,7 @@
         },
         "implementer": {
           "score": 33.734,
-          "rankingQuality": 35.352,
+          "rankingQuality": 35.355,
           "rankingValue": 24.359,
           "status": "valid",
           "coverageWeight": 1,
@@ -8205,12 +8449,12 @@
         },
         "implementer-heavy": {
           "score": 29.557,
-          "rankingQuality": 32.568,
-          "rankingValue": 25.321,
+          "rankingQuality": 32.57,
+          "rankingValue": 25.801,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.821,
+          "balancedQualityPercentile": 13.462,
           "balancedAffordabilityPercentile": 62.821
         },
         "synthesizer": {
@@ -8235,10 +8479,10 @@
         }
       },
       "caiStar": {
-        "value": 38.589,
+        "value": 38.597,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 29.706,
+        "ridge": 29.738,
         "knn": 41.55,
         "historicalAnchor": null
       },
@@ -8269,6 +8513,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-fable-5-1",
@@ -8483,6 +8732,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-fable-5",
@@ -8651,6 +8905,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-opus-5-5",
@@ -8858,6 +9117,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-opus-5",
@@ -9047,6 +9311,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-opus-4-8",
@@ -9215,6 +9484,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-opus-4-7",
@@ -9303,7 +9577,7 @@
         },
         "code-reviewer": {
           "score": 58.885,
-          "rankingQuality": 60.543,
+          "rankingQuality": 60.533,
           "rankingValue": 74.199,
           "status": "valid",
           "coverageWeight": 1,
@@ -9313,7 +9587,7 @@
         },
         "implementer": {
           "score": 57.627,
-          "rankingQuality": 59.704,
+          "rankingQuality": 59.695,
           "rankingValue": 74.199,
           "status": "valid",
           "coverageWeight": 1,
@@ -9323,7 +9597,7 @@
         },
         "implementer-heavy": {
           "score": 56.587,
-          "rankingQuality": 59.011,
+          "rankingQuality": 59.001,
           "rankingValue": 72.276,
           "status": "valid",
           "coverageWeight": 1,
@@ -9353,10 +9627,10 @@
         }
       },
       "caiStar": {
-        "value": 63.858,
+        "value": 63.83,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 97.311,
+        "ridge": 97.197,
         "knn": 52.708,
         "historicalAnchor": null
       },
@@ -9387,6 +9661,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "claude-opus-4-6",
@@ -9575,6 +9854,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-sonnet-5-5",
@@ -9655,7 +9939,7 @@
         },
         "implementer": {
           "score": 62.757,
-          "rankingQuality": 61.67,
+          "rankingQuality": 61.669,
           "rankingValue": 74.679,
           "status": "valid",
           "coverageWeight": 1,
@@ -9695,10 +9979,10 @@
         }
       },
       "caiStar": {
-        "value": 59.495,
+        "value": 59.494,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 57.601,
+        "ridge": 57.598,
         "knn": 60.126,
         "historicalAnchor": null
       },
@@ -9729,6 +10013,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "claude-sonnet-5",
@@ -9799,7 +10088,7 @@
         },
         "code-reviewer": {
           "score": 53.286,
-          "rankingQuality": 50.869,
+          "rankingQuality": 50.871,
           "rankingValue": 54.167,
           "status": "valid",
           "coverageWeight": 1,
@@ -9809,7 +10098,7 @@
         },
         "implementer": {
           "score": 52.88,
-          "rankingQuality": 50.598,
+          "rankingQuality": 50.6,
           "rankingValue": 52.244,
           "status": "valid",
           "coverageWeight": 1,
@@ -9819,7 +10108,7 @@
         },
         "implementer-heavy": {
           "score": 52.547,
-          "rankingQuality": 50.376,
+          "rankingQuality": 50.378,
           "rankingValue": 54.167,
           "status": "valid",
           "coverageWeight": 1,
@@ -9849,10 +10138,10 @@
         }
       },
       "caiStar": {
-        "value": 46.034,
+        "value": 46.04,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 43.914,
+        "ridge": 43.936,
         "knn": 46.741,
         "historicalAnchor": null
       },
@@ -9883,6 +10172,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "claude-sonnet-4-6",
@@ -10071,6 +10365,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "claude-4-5-haiku",
@@ -10262,6 +10561,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-6-astra",
@@ -10469,6 +10773,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-6-1-sol",
@@ -10592,8 +10901,8 @@
         "value": 55.468,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 55.512,
-        "knn": 55.453,
+        "ridge": 55.506,
+        "knn": 55.456,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -10623,6 +10932,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-6-sol",
@@ -10830,6 +11144,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-6-luna",
@@ -11037,6 +11356,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-5-6-sol",
@@ -11226,6 +11550,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-5-6-terra",
@@ -11394,6 +11723,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-5-6-luna",
@@ -11583,6 +11917,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-5-5",
@@ -11751,6 +12090,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-5-4",
@@ -11839,7 +12183,7 @@
         },
         "code-reviewer": {
           "score": 57.242,
-          "rankingQuality": 59.196,
+          "rankingQuality": 59.188,
           "rankingValue": 73.397,
           "status": "valid",
           "coverageWeight": 1,
@@ -11849,7 +12193,7 @@
         },
         "implementer": {
           "score": 56.997,
-          "rankingQuality": 59.033,
+          "rankingQuality": 59.025,
           "rankingValue": 74.359,
           "status": "valid",
           "coverageWeight": 1,
@@ -11859,7 +12203,7 @@
         },
         "implementer-heavy": {
           "score": 54.876,
-          "rankingQuality": 57.619,
+          "rankingQuality": 57.611,
           "rankingValue": 72.436,
           "status": "valid",
           "coverageWeight": 1,
@@ -11889,10 +12233,10 @@
         }
       },
       "caiStar": {
-        "value": 63.104,
+        "value": 63.08,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 94.326,
+        "ridge": 94.229,
         "knn": 52.697,
         "historicalAnchor": null
       },
@@ -11923,6 +12267,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gpt-5-4-mini",
@@ -11993,7 +12342,7 @@
         },
         "code-reviewer": {
           "score": 38.61,
-          "rankingQuality": 38.55,
+          "rankingQuality": 38.553,
           "rankingValue": 26.282,
           "status": "valid",
           "coverageWeight": 1,
@@ -12003,7 +12352,7 @@
         },
         "implementer": {
           "score": 40.76,
-          "rankingQuality": 39.983,
+          "rankingQuality": 39.986,
           "rankingValue": 29.167,
           "status": "valid",
           "coverageWeight": 1,
@@ -12013,7 +12362,7 @@
         },
         "implementer-heavy": {
           "score": 33.853,
-          "rankingQuality": 35.378,
+          "rankingQuality": 35.382,
           "rankingValue": 26.282,
           "status": "valid",
           "coverageWeight": 1,
@@ -12043,10 +12392,10 @@
         }
       },
       "caiStar": {
-        "value": 38.429,
+        "value": 38.439,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 29.169,
+        "ridge": 29.211,
         "knn": 41.515,
         "historicalAnchor": null
       },
@@ -12077,6 +12426,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "partial_scored",
         "slug": "gpt-5-3-codex",
@@ -12265,6 +12619,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gemini-3-8-flash",
@@ -12472,6 +12831,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gemini-3-7-flash",
@@ -12640,6 +13004,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gemini-3-6-flash",
@@ -12808,6 +13177,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gemini-3-5-flash",
@@ -12878,7 +13252,7 @@
         },
         "code-reviewer": {
           "score": 46.685,
-          "rankingQuality": 44.995,
+          "rankingQuality": 44.998,
           "rankingValue": 40.064,
           "status": "valid",
           "coverageWeight": 1,
@@ -12888,7 +13262,7 @@
         },
         "implementer": {
           "score": 46.328,
-          "rankingQuality": 44.757,
+          "rankingQuality": 44.76,
           "rankingValue": 39.103,
           "status": "valid",
           "coverageWeight": 1,
@@ -12898,7 +13272,7 @@
         },
         "implementer-heavy": {
           "score": 40.553,
-          "rankingQuality": 40.907,
+          "rankingQuality": 40.91,
           "rankingValue": 31.41,
           "status": "valid",
           "coverageWeight": 1,
@@ -12928,10 +13302,10 @@
         }
       },
       "caiStar": {
-        "value": 41.616,
+        "value": 41.625,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 41.571,
+        "ridge": 41.607,
         "knn": 41.631,
         "historicalAnchor": null
       },
@@ -12962,6 +13336,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "gemini-3-5-flash-lite",
@@ -13032,7 +13411,7 @@
         },
         "code-reviewer": {
           "score": 33.525,
-          "rankingQuality": 35.728,
+          "rankingQuality": 35.73,
           "rankingValue": 27.244,
           "status": "valid",
           "coverageWeight": 1,
@@ -13042,7 +13421,7 @@
         },
         "implementer": {
           "score": 32.655,
-          "rankingQuality": 35.148,
+          "rankingQuality": 35.15,
           "rankingValue": 26.282,
           "status": "valid",
           "coverageWeight": 1,
@@ -13052,12 +13431,12 @@
         },
         "implementer-heavy": {
           "score": 28.786,
-          "rankingQuality": 32.569,
-          "rankingValue": 30.128,
+          "rankingQuality": 32.57,
+          "rankingValue": 29.647,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 14.103,
+          "balancedQualityPercentile": 13.462,
           "balancedAffordabilityPercentile": 78.205
         },
         "synthesizer": {
@@ -13082,10 +13461,10 @@
         }
       },
       "caiStar": {
-        "value": 40.134,
+        "value": 40.139,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 28.251,
+        "ridge": 28.269,
         "knn": 44.095,
         "historicalAnchor": null
       },
@@ -13116,6 +13495,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "gemini-3-1-flash-lite-preview",
@@ -13189,7 +13573,7 @@
         },
         "code-reviewer": {
           "score": 32.933,
-          "rankingQuality": 34.795,
+          "rankingQuality": 34.802,
           "rankingValue": 29.808,
           "status": "valid",
           "coverageWeight": 1,
@@ -13199,7 +13583,7 @@
         },
         "implementer": {
           "score": 33.738,
-          "rankingQuality": 35.332,
+          "rankingQuality": 35.338,
           "rankingValue": 30.769,
           "status": "valid",
           "coverageWeight": 1,
@@ -13209,7 +13593,7 @@
         },
         "implementer-heavy": {
           "score": 23.059,
-          "rankingQuality": 28.213,
+          "rankingQuality": 28.219,
           "rankingValue": 29.808,
           "status": "valid",
           "coverageWeight": 1,
@@ -13239,10 +13623,10 @@
         }
       },
       "caiStar": {
-        "value": 38.52,
+        "value": 38.539,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 21.332,
+        "ridge": 21.407,
         "knn": 44.25,
         "historicalAnchor": null
       },
@@ -13273,6 +13657,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Public model; no canonical AA entry.",
@@ -13318,6 +13707,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact_alias",
         "slug": "muse-spark-1-3-xhigh",
@@ -13528,6 +13922,11 @@
       "dataTraining": true,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "commercial_variant",
         "slug": "muse-spark-1-3-xhigh",
@@ -13738,6 +14137,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "muse-spark-1-2",
@@ -13906,6 +14310,11 @@
       "dataTraining": true,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "commercial_variant",
         "slug": "muse-spark-1-2",
@@ -14077,6 +14486,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 100,
+      "max20EffectiveUsageUsd": 200,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "muse-spark-1-1",
@@ -14245,6 +14659,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "grok-4-7",
@@ -14340,7 +14759,7 @@
         },
         "code-reviewer": {
           "score": 48.749,
-          "rankingQuality": 48.515,
+          "rankingQuality": 48.513,
           "rankingValue": 45.833,
           "status": "valid",
           "coverageWeight": 1,
@@ -14350,7 +14769,7 @@
         },
         "implementer": {
           "score": 48.245,
-          "rankingQuality": 48.179,
+          "rankingQuality": 48.177,
           "rankingValue": 42.949,
           "status": "valid",
           "coverageWeight": 1,
@@ -14360,7 +14779,7 @@
         },
         "implementer-heavy": {
           "score": 48.637,
-          "rankingQuality": 48.44,
+          "rankingQuality": 48.438,
           "rankingValue": 49.679,
           "status": "valid",
           "coverageWeight": 1,
@@ -14390,11 +14809,11 @@
         }
       },
       "caiStar": {
-        "value": 48.047,
+        "value": 48.04,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 49.486,
-        "knn": 47.567,
+        "ridge": 49.46,
+        "knn": 47.566,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -14424,6 +14843,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "grok-4-6",
@@ -14465,7 +14889,7 @@
         }
       },
       "benchmarks": {
-        "gdpval": 55.2745,
+        "gdpval": 55.452,
         "lcr": 12.2222,
         "hle": 42.9101,
         "omniscienceIndex": 65.2417,
@@ -14473,8 +14897,8 @@
       },
       "roleScores": {
         "architect": {
-          "score": 39.502,
-          "rankingQuality": 39.502,
+          "score": 39.591,
+          "rankingQuality": 39.591,
           "rankingValue": 44.872,
           "status": "valid",
           "coverageWeight": 1,
@@ -14483,8 +14907,8 @@
           "balancedAffordabilityPercentile": 33.333
         },
         "strategist": {
-          "score": 49.03,
-          "rankingQuality": 49.03,
+          "score": 49.109,
+          "rankingQuality": 49.109,
           "rankingValue": 58.333,
           "status": "valid",
           "coverageWeight": 1,
@@ -14513,8 +14937,8 @@
           "balancedAffordabilityPercentile": 33.333
         },
         "implementer-heavy": {
-          "score": 46.311,
-          "rankingQuality": 46.53,
+          "score": 46.36,
+          "rankingQuality": 46.563,
           "rankingValue": 48.718,
           "status": "valid",
           "coverageWeight": 1,
@@ -14523,8 +14947,8 @@
           "balancedAffordabilityPercentile": 33.333
         },
         "synthesizer": {
-          "score": 39.888,
-          "rankingQuality": 39.888,
+          "score": 39.914,
+          "rankingQuality": 39.914,
           "rankingValue": 40.064,
           "status": "valid",
           "coverageWeight": 1,
@@ -14533,8 +14957,8 @@
           "balancedAffordabilityPercentile": 33.333
         },
         "researcher": {
-          "score": 40.97,
-          "rankingQuality": 40.97,
+          "score": 41.022,
+          "rankingQuality": 41.022,
           "rankingValue": 41.987,
           "status": "valid",
           "coverageWeight": 1,
@@ -14606,6 +15030,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "grok-4-5",
@@ -14774,6 +15203,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "inkling",
@@ -14842,7 +15276,7 @@
         },
         "code-reviewer": {
           "score": 39.084,
-          "rankingQuality": 39.244,
+          "rankingQuality": 39.247,
           "rankingValue": 25.321,
           "status": "valid",
           "coverageWeight": 1,
@@ -14852,7 +15286,7 @@
         },
         "implementer": {
           "score": 39.078,
-          "rankingQuality": 39.24,
+          "rankingQuality": 39.243,
           "rankingValue": 24.359,
           "status": "valid",
           "coverageWeight": 1,
@@ -14862,7 +15296,7 @@
         },
         "implementer-heavy": {
           "score": 34.04,
-          "rankingQuality": 35.881,
+          "rankingQuality": 35.884,
           "rankingValue": 26.282,
           "status": "valid",
           "coverageWeight": 1,
@@ -14892,10 +15326,10 @@
         }
       },
       "caiStar": {
-        "value": 39.564,
+        "value": 39.572,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 33.603,
+        "ridge": 33.636,
         "knn": 41.551,
         "historicalAnchor": null
       },
@@ -14926,6 +15360,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "exact",
         "slug": "inkling-small",
@@ -14996,7 +15435,7 @@
         },
         "code-reviewer": {
           "score": 51.974,
-          "rankingQuality": 48.784,
+          "rankingQuality": 48.788,
           "rankingValue": 64.103,
           "status": "valid",
           "coverageWeight": 1,
@@ -15006,7 +15445,7 @@
         },
         "implementer": {
           "score": 52.322,
-          "rankingQuality": 49.016,
+          "rankingQuality": 49.02,
           "rankingValue": 63.141,
           "status": "valid",
           "coverageWeight": 1,
@@ -15016,7 +15455,7 @@
         },
         "implementer-heavy": {
           "score": 50.094,
-          "rankingQuality": 47.531,
+          "rankingQuality": 47.535,
           "rankingValue": 62.179,
           "status": "valid",
           "coverageWeight": 1,
@@ -15046,10 +15485,10 @@
         }
       },
       "caiStar": {
-        "value": 42.405,
+        "value": 42.416,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 39.886,
+        "ridge": 39.932,
         "knn": 43.244,
         "historicalAnchor": null
       },
@@ -15080,6 +15519,11 @@
       "dataTraining": false,
       "offPeakShown": false,
       "sourceUrl": "https://commandcode.ai/docs/plans/max",
+      "dealMultiplier": 1,
+      "dealDiscountPercent": null,
+      "max10EffectiveUsageUsd": 150,
+      "max20EffectiveUsageUsd": 300,
+      "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
         "reason": "Decision model; not comparable to the AA ranking.",

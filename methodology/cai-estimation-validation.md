@@ -17,13 +17,13 @@ An entire vendor/family group is removed from training before predicting it. Thi
 
 | Method | MAE | RMSE | Spearman | Pairwise accuracy |
 |---|---:|---:|---:|---:|
-| Ridge | 3.57 | 4.68 | 0.812 | 82.5% |
-| 5NN | 5.04 | 6.06 | 0.721 | 75.8% |
+| Ridge | 3.58 | 4.69 | 0.812 | 82.5% |
+| 5NN | 5.04 | 6.05 | 0.721 | 75.8% |
 | **50/50 ensemble** | **4.63** | **5.58** | **0.765** | **80%** |
 
 ## Random 31.3% holdout × 500
 
-- MAE median: **3.99**; p90: **5.64**.
+- MAE median: **4**; p90: **5.64**.
 - Spearman median: **0.9**; p10: **0.7**.
 - Pairwise ranking accuracy median: **90%**.
 
