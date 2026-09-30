@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T12:04:04.206Z",
-  "snapshotDate": "2026-09-29",
+  "generatedAt": "2026-09-30T08:56:51.757Z",
+  "snapshotDate": "2026-09-30",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-29T12:04:03.812Z",
+    "attemptedAt": "2026-09-30T08:56:51.622Z",
     "lastSuccessfulSnapshot": {
-      "date": "2026-09-29",
-      "generatedAt": "2026-09-29T12:03:57.907Z"
+      "date": "2026-09-30",
+      "generatedAt": "2026-09-30T08:56:47.946Z"
     },
     "lastPublishedSnapshot": {
-      "date": "2026-09-29",
-      "generatedAt": "2026-09-29T12:03:57.907Z",
-      "benchmarkDate": "2026-09-29",
-      "benchmarkGeneratedAt": "2026-09-29T12:03:57.907Z",
-      "lineupInputsRefreshedAt": "2026-09-29T12:03:57.907Z"
+      "date": "2026-09-30",
+      "generatedAt": "2026-09-30T08:56:47.946Z",
+      "benchmarkDate": "2026-09-30",
+      "benchmarkGeneratedAt": "2026-09-30T08:56:47.946Z",
+      "lineupInputsRefreshedAt": "2026-09-30T08:56:47.946Z"
     },
     "lastValidatedBenchmark": {
-      "date": "2026-09-29",
-      "generatedAt": "2026-09-29T12:03:57.907Z"
+      "date": "2026-09-30",
+      "generatedAt": "2026-09-30T08:56:47.946Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -43,6 +43,12 @@
         "targetModel": "Laguna S 2.1",
         "status": "unavailable",
         "reason": "Public model; no canonical AA entry."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Ling 3.1 Flash",
+        "status": "unavailable",
+        "reason": "No verified AA identity."
       },
       {
         "benchmark": "mapping",
@@ -73,12 +79,6 @@
         "targetModel": "Jev",
         "status": "unavailable",
         "reason": "Decision model; not comparable to the AA ranking."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "ling-3-0-flash",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       },
       {
         "benchmark": "gdpval",
@@ -127,16 +127,10 @@
         "targetSlug": "gpt-5-3-codex",
         "status": "unavailable",
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "inkling-small",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-29 → 2026-09-29\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• quality/security-reviewer: MiMo V2.6 Pro → MiMo V2.6 Pro UltraSpeed\n• quality/implementer: MiMo V2.6 Pro → MiMo V2.6 Pro UltraSpeed\n• balanced/code-reviewer: MiMo V2.6 Pro → Claude Sonnet 5.5\n• balanced/implementer: GPT-6 Sol → MiMo V2.6 Pro\n• balanced/researcher: Claude Sonnet 5.5 → GPT-6 Astra"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-29 → 2026-09-30\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nMODELOS\nEntraram:\n+ GPT-6.1 Sol\n+ Ling 3.1 Flash\n\nPREÇOS / CRÉDITOS\n• Inkling Small: créditos/task $0.50→$0.12 (-75%); custo ajustado $0.33→$0.0833 (-75%)\n\nLINEUPS\n• quality/implementer-heavy: GPT-6 Astra → GPT-6.1 Sol\n• quality/researcher: GPT-6 Astra → GPT-6.1 Sol\n• balanced/implementer-heavy: GPT-6 Astra → GPT-6.1 Sol\n• balanced/researcher: GPT-6 Astra → GPT-6.1 Sol\n• budget/architect: MiMo V2.6 Pro → Qwen 3.8 Max 0902\n• budget/strategist: GPT-6 Sol → GPT-6.1 Sol\n• budget/security-reviewer: Grok 4.7 → MiMo V2.6 Pro\n• budget/code-reviewer: MiMo V2.6 Pro → Grok 4.7\n• budget/implementer: Qwen 3.8 Max 0902 → MiMo V2.6 Pro\n• budget/implementer-heavy: GPT-6 Sol → GPT-6.1 Sol"
 }
