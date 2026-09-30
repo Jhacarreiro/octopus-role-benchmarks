@@ -88,3 +88,11 @@ The evaluator never writes new hand-picked selections back into `config/lineup-p
 ### CommandCode plan deals
 
 CommandCode Max base credits and model deals are tracked separately. Token prices use the current effective CommandCode deal rate. Deal multipliers (for example 2× MiniMax or 5× MiMo effective usage) are recorded as explanatory plan metadata and are **not** applied a second time to task cost. Max 10 effective usage equals base credits × deal multiplier; plan-adjusted task cost divides the already-discounted credit burn by the base plan credits.
+
+## Octopus execution routing
+
+The public Balanced lineup is also materialized as `site/data/octopus-routing.json`. Human-facing model names remain in `lineups.json`; execution identity is resolved separately through `config/octopus-routing-models.json` to an explicit `{provider, model}` pair for every Balanced role.
+
+`node scripts/build-octopus-routing.mjs --check` fails when the routing artifact is stale or a selected Balanced model has no execution mapping. `node scripts/check-octopus-routing-drift.mjs --providers <providers.json>` compares an Octopus configuration with the published artifact and treats non-object role routes as drift rather than silently accepting fallback behavior.
+
+The mapping file contains public provider/model identifiers only. It must not contain credentials, local paths, account identifiers, or operator-specific infrastructure.

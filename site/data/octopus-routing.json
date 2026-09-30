@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-09-30",
+  "generatedAt": "2026-09-30T09:18:27.425Z",
+  "mode": "balanced",
+  "roles": {
+    "architect": {
+      "provider": "commandcode",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "benchmarkModel": "MiMo V2.6 Pro"
+    },
+    "strategist": {
+      "provider": "commandcode",
+      "model": "qwen/qwen3.8-max-0902",
+      "benchmarkModel": "Qwen 3.8 Max 0902"
+    },
+    "security-reviewer": {
+      "provider": "commandcode",
+      "model": "xai/grok-4.7",
+      "benchmarkModel": "Grok 4.7"
+    },
+    "code-reviewer": {
+      "provider": "claude",
+      "model": "claude-sonnet-5-5",
+      "benchmarkModel": "Claude Sonnet 5.5"
+    },
+    "implementer": {
+      "provider": "commandcode",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "benchmarkModel": "MiMo V2.6 Pro"
+    },
+    "implementer-heavy": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "benchmarkModel": "GPT-6.1 Sol"
+    },
+    "synthesizer": {
+      "provider": "claude",
+      "model": "claude-sonnet-5-5",
+      "benchmarkModel": "Claude Sonnet 5.5"
+    },
+    "researcher": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "benchmarkModel": "GPT-6.1 Sol"
+    }
+  }
+}

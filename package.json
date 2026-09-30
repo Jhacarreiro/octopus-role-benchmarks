@@ -11,10 +11,10 @@
     "build-lineups": "node scripts/build-lineups.mjs",
     "evaluate-lineups": "node scripts/evaluate-lineup-swaps.mjs",
     "weekly-report": "node scripts/weekly-change-report.mjs",
-    "update-lineups": "node scripts/build-lineups.mjs && node scripts/evaluate-lineup-swaps.mjs",
+    "update-lineups": "node scripts/build-lineups.mjs && node scripts/build-octopus-routing.mjs && node scripts/evaluate-lineup-swaps.mjs",
     "check:snapshot": "node scripts/validate.mjs",
     "check:lineups": "node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
-    "check:all": "npm run test:commandcode && npm run test:model-generation && npm run test:aa-parser && npm run test:aa-cyber && npm run test:balanced-score && npm run test:cai-version-fallback && npm run test:scicode-lkg && npm run test:scicode-estimator && npm run test:site && npm run check:snapshot && npm run check:lineups && npm run test:lineup-family-separation && npm run test:premium-placement",
+    "check:all": "npm run test:commandcode && npm run test:model-generation && npm run test:aa-parser && npm run test:aa-cyber && npm run test:balanced-score && npm run test:cai-version-fallback && npm run test:scicode-lkg && npm run test:scicode-estimator && npm run test:site && npm run check:snapshot && npm run check:lineups && npm run test:lineup-family-separation && npm run test:premium-placement && npm run check:octopus-routing && npm run test:octopus-routing-drift && npm run audit:public",
     "test:commandcode": "node scripts/test-commandcode-max.mjs",
     "test:aa-parser": "node scripts/test-aa-model-parser.mjs",
     "test:site": "node scripts/test-site-runtime.mjs",
@@ -25,7 +25,13 @@
     "test:aa-cyber": "node scripts/test-aa-cyber-index.mjs",
     "test:lineup-family-separation": "node scripts/test-lineup-family-separation.mjs",
     "test:premium-placement": "node scripts/test-premium-placement.mjs",
-    "test:model-generation": "node scripts/test-model-generation.mjs"
+    "test:model-generation": "node scripts/test-model-generation.mjs",
+    "build:octopus-routing": "node scripts/build-octopus-routing.mjs",
+    "check:octopus-routing": "node scripts/build-octopus-routing.mjs --check",
+    "check:octopus-routing-drift": "node scripts/check-octopus-routing-drift.mjs",
+    "sync:checkout": "node scripts/sync-checkout.mjs",
+    "test:octopus-routing-drift": "node scripts/test-octopus-routing-drift.mjs",
+    "audit:public": "node scripts/audit-public.mjs"
   },
   "dependencies": {
     "@jackwener/opencli": "1.8.6",

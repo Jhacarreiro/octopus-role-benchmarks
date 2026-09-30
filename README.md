@@ -122,6 +122,8 @@ Quality uses premium placement only as an exact-objective tie-break. Balanced ma
 
 The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
 
+The current Balanced portfolio is also published as [`site/data/octopus-routing.json`](site/data/octopus-routing.json), which resolves each human-facing model name to the exact Octopus `{provider, model}` execution identity. `npm run check:octopus-routing-drift -- --providers <providers.json>` verifies that an Octopus config matches that published routing, and `npm run sync:checkout` safely fast-forwards a clean local checkout to `origin/main` while refusing dirty or locally-ahead trees.
+
 After each refresh, `scripts/evaluate-lineup-swaps.mjs` regenerates the entire portfolio under the current rules and records portfolio-level opportunities in `data/lineup-opportunities.json`. It no longer proposes single-seat swaps against static hand-picked selections.
 
 ## Run locally

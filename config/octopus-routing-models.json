@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "models": {
+    "MiMo V2.6 Pro": {"provider": "commandcode", "model": "xiaomi/mimo-v2.6-pro"},
+    "Qwen 3.8 Max 0902": {"provider": "commandcode", "model": "qwen/qwen3.8-max-0902"},
+    "Grok 4.7": {"provider": "commandcode", "model": "xai/grok-4.7"},
+    "Claude Sonnet 5.5": {"provider": "claude", "model": "claude-sonnet-5-5"},
+    "GPT-6.1 Sol": {"provider": "codex", "model": "gpt-6.1-sol"}
+  }
+}
