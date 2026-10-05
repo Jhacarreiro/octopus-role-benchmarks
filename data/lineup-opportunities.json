@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "snapshotDate": "2026-09-30",
-  "generatedAt": "2026-09-30T09:18:27.425Z",
+  "snapshotDate": "2026-10-05",
+  "generatedAt": "2026-10-05T06:17:19.309Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -37,10 +37,10 @@
         "referenceModels": 30,
         "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.340533,
-        "populationStdDevCostPerTaskUsd": 1.922913,
-        "cutoffCostPerTaskUsd": 5.186358,
-        "postFilterBestEligibleIntelligenceIndex": 55.978,
+        "meanCostPerTaskUsd": 1.341961,
+        "populationStdDevCostPerTaskUsd": 1.925687,
+        "cutoffCostPerTaskUsd": 5.193336,
+        "postFilterBestEligibleIntelligenceIndex": 56.0001,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
@@ -93,10 +93,10 @@
         "referenceModels": 30,
         "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.340533,
-        "populationStdDevCostPerTaskUsd": 1.922913,
-        "cutoffCostPerTaskUsd": 5.186358,
-        "postFilterBestEligibleIntelligenceIndex": 55.978,
+        "meanCostPerTaskUsd": 1.341961,
+        "populationStdDevCostPerTaskUsd": 1.925687,
+        "cutoffCostPerTaskUsd": 5.193336,
+        "postFilterBestEligibleIntelligenceIndex": 56.0001,
         "excluded": [
           {
             "model": "Claude Fable 5.1",

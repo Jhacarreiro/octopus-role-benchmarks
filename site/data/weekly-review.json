@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T09:18:34.606Z",
-  "snapshotDate": "2026-09-30",
+  "generatedAt": "2026-10-05T06:17:24.005Z",
+  "snapshotDate": "2026-10-05",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-09-30T09:18:34.454Z",
+    "attemptedAt": "2026-10-05T06:17:23.884Z",
     "lastSuccessfulSnapshot": {
-      "date": "2026-09-30",
-      "generatedAt": "2026-09-30T09:18:27.425Z"
+      "date": "2026-10-05",
+      "generatedAt": "2026-10-05T06:17:19.309Z"
     },
     "lastPublishedSnapshot": {
-      "date": "2026-09-30",
-      "generatedAt": "2026-09-30T09:18:27.425Z",
-      "benchmarkDate": "2026-09-30",
-      "benchmarkGeneratedAt": "2026-09-30T09:18:27.425Z",
-      "lineupInputsRefreshedAt": "2026-09-30T09:18:27.425Z"
+      "date": "2026-10-05",
+      "generatedAt": "2026-10-05T06:17:19.309Z",
+      "benchmarkDate": "2026-10-05",
+      "benchmarkGeneratedAt": "2026-10-05T06:17:19.309Z",
+      "lineupInputsRefreshedAt": "2026-10-05T06:17:19.309Z"
     },
     "lastValidatedBenchmark": {
-      "date": "2026-09-30",
-      "generatedAt": "2026-09-30T09:18:27.425Z"
+      "date": "2026-10-05",
+      "generatedAt": "2026-10-05T06:17:19.309Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -29,12 +29,6 @@
       {
         "benchmark": "mapping",
         "targetModel": "Space Bunny Alpha",
-        "status": "unavailable",
-        "reason": "Stealth model; identity unverified."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Pixel Canary",
         "status": "unavailable",
         "reason": "Stealth model; identity unverified."
       },
@@ -132,5 +126,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-30 → 2026-09-30\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• quality/implementer-heavy: GPT-6.1 Sol → GPT-6 Astra\n• quality/researcher: GPT-6.1 Sol → GPT-6 Astra"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-30 → 2026-10-05\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nMODELOS\nSaíram:\n- Pixel Canary\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
