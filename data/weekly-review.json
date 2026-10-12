@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T06:17:24.005Z",
+  "generatedAt": "2026-10-12T06:17:13.604Z",
   "snapshotDate": "2026-10-05",
   "refresh": {
     "schemaVersion": 3,
-    "status": "partial",
-    "attemptedAt": "2026-10-05T06:17:23.884Z",
+    "status": "error",
+    "attemptedAt": "2026-10-12T06:17:13.491Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-05",
       "generatedAt": "2026-10-05T06:17:19.309Z"
@@ -21,10 +21,10 @@
       "date": "2026-10-05",
       "generatedAt": "2026-10-05T06:17:19.309Z"
     },
-    "mode": "full",
-    "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
-    "stage": null,
-    "errorSummary": null,
+    "mode": null,
+    "message": null,
+    "stage": "update",
+    "errorSummary": "# opencli artificial-analysis models --trace retain-on-failure",
     "validationIssues": [
       {
         "benchmark": "mapping",
@@ -126,5 +126,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-09-30 → 2026-10-05\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nMODELOS\nSaíram:\n- Pixel Canary\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-05 → 2026-10-05\n❌ Refresh: error\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
