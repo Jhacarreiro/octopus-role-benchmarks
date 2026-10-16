@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "error",
-  "attemptedAt": "2026-10-16T08:40:18.343Z",
+  "attemptedAt": "2026-10-16T08:50:54.378Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-05",
     "generatedAt": "2026-10-05T06:17:19.309Z"
@@ -20,7 +20,7 @@
   "mode": null,
   "message": null,
   "stage": "update",
-  "errorSummary": "# opencli artificial-analysis coding-agents --trace retain-on-failure",
+  "errorSummary": "Error: Need at least 20 observed SciCode families, got 10",
   "validationIssues": [
     {
       "benchmark": "mapping",
@@ -119,5 +119,5 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38875213089"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38876383225"
 }
