@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T08:50:54.446Z",
+  "generatedAt": "2026-10-16T08:56:19.728Z",
   "snapshotDate": "2026-10-05",
   "refresh": {
     "schemaVersion": 3,
     "status": "error",
-    "attemptedAt": "2026-10-16T08:50:54.378Z",
+    "attemptedAt": "2026-10-16T08:56:19.663Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-05",
       "generatedAt": "2026-10-05T06:17:19.309Z"
@@ -24,7 +24,7 @@
     "mode": null,
     "message": null,
     "stage": "update",
-    "errorSummary": "Error: Need at least 20 observed SciCode families, got 10",
+    "errorSummary": "Error: CAI version calibration failed: comparable families 2<4; LOO MAE 7.640837983849359",
     "validationIssues": [
       {
         "benchmark": "mapping",
@@ -123,7 +123,7 @@
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38876383225"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38876996902"
   },
   "materialChanges": true,
   "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-05 → 2026-10-05\n❌ Refresh: error\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
