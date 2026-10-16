@@ -280,7 +280,9 @@ const gdpvalReferenceSlugs=new Map([
   ['qwen3-max-preview','qwen3-7-max'],
   ['step-3-5-flash','step-3-7-flash'],
   ['claude-opus-4-6','claude-opus-4-8'],
-  ['claude-sonnet-4-6','claude-sonnet-5']
+  ['claude-sonnet-4-6','claude-sonnet-5'],
+  ['claude-4-5-haiku','claude-haiku-5-5'],
+  ['gpt-5-3-codex','gpt-5-4']
 ]);
 for(const [slug,referenceSlug] of gdpvalReferenceSlugs){
   const target=aa.get(slug),reference=aa.get(referenceSlug);
@@ -292,7 +294,7 @@ for(const [slug,referenceSlug] of gdpvalReferenceSlugs){
   const ratio=target.intelligenceIndex/reference.intelligenceIndex;
   const value=Math.max(0,Math.min(100,reference.gdpvalNormalized*100*ratio));
   target.gdpvalNormalized=round(value,4)/100;
-  benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:'same_family_intelligence_ratio',provenanceStatus:'estimated',sourceSlug:referenceSlug,referenceIntelligenceIndex:round(reference.intelligenceIndex,4),targetIntelligenceIndex:round(target.intelligenceIndex,4),factor:round(ratio,6),referenceGdpval:round(reference.gdpvalNormalized*100,4),value:round(value,4),sourceUrl:reference.sourceUrl});
+  benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:slug==='gpt-5-3-codex'?'cross_variant_intelligence_ratio':'same_family_intelligence_ratio',provenanceStatus:'estimated',sourceSlug:referenceSlug,referenceIntelligenceIndex:round(reference.intelligenceIndex,4),targetIntelligenceIndex:round(target.intelligenceIndex,4),factor:round(ratio,6),referenceGdpval:round(reference.gdpvalNormalized*100,4),value:round(value,4),sourceUrl:reference.sourceUrl});
 }
 const scicodeFallbackSlugs=new Set(benchmarkFallbacksApplied.filter(x=>x.benchmark==='scicode').map(x=>x.targetSlug));
 const benchmarkFallbackBySlug=new Map();
