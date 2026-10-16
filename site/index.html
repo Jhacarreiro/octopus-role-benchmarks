@@ -38,7 +38,7 @@
   <label>Search<input id="search" type="search" placeholder="Model name"></label>
 </section>
 <section class="table-wrap">
-  <table><thead><tr><th class="num rank">#</th><th data-sort="name">Model</th><th data-sort="value" class="num" id="metricHeading">Balanced Score ↑</th><th>Notes</th></tr></thead><tbody id="rows"></tbody></table>
+  <table><thead><tr><th class="num rank">#</th><th data-sort="name">Model</th><th data-sort="value" class="num" id="metricHeading">Balanced Score ↑</th><th class="num">Cost / Task</th><th>Notes</th></tr></thead><tbody id="rows"></tbody></table>
   <div id="empty" class="empty" hidden>No models match the current filters.</div>
 </section>
 <section class="unranked-panel" aria-labelledby="unranked-title">
@@ -46,5 +46,5 @@
   <p>Models present in CommandCode but not included in the AA-based ranking. Verified external identity and stealth status are shown separately; external benchmarks never enter the Octopus score.</p>
   <div id="unranked"></div>
 </section>
-<p class="footnote" id="modeNote">Balanced trades role quality against effective task cost. Budget ranks the cheapest eligible model-level options by plan-adjusted Cost per Task. Quality ignores price entirely. See <a href="./methodology.html">methodology</a> for the exact role formula, task-cost normalization and CAI estimation validation.</p>
-</main><script src="./app.js?v=20260928b" defer></script></body></html>
+<p class="footnote" id="modeNote">Balanced trades role quality against effective task cost. Budget ranks each role using 40% role quality and 60% affordability; task cost remains visible separately. Quality ignores price entirely. See <a href="./methodology.html">methodology</a> for the exact role formula, task-cost normalization and CAI estimation validation.</p>
+</main><script src="./app.js?v=20261016-budget-role" defer></script></body></html>

@@ -81,7 +81,7 @@ one('.ranking-modes').trigger('click',{target:{closest:()=>rankButton}});
 if(one('#metricHeading').textContent!=='Role Quality ↑') throw new Error('ranking mode button did not switch to Quality');
 const budgetButton={dataset:{mode:'budget'}};
 one('.ranking-modes').trigger('click',{target:{closest:()=>budgetButton}});
-if(one('#metricHeading').textContent!=='Effective Cost / Task ↓') throw new Error('ranking mode button did not switch to Budget');
+if(one('#metricHeading').textContent!=='Budget Role Score ↑') throw new Error('ranking mode button did not switch to Budget');
 const budgetRows=one('#rows').innerHTML;
 
 console.log('ok: site renders from same-origin data with raw GitHub unavailable, and mode buttons work');
