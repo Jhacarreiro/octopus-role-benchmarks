@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T10:31:00.004Z",
+  "generatedAt": "2026-10-16T10:45:34.260Z",
   "snapshotDate": "2026-10-16",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T10:30:59.955Z",
+    "attemptedAt": "2026-10-16T10:45:34.197Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T10:30:50.015Z"
+      "generatedAt": "2026-10-16T10:44:51.733Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T10:30:50.015Z",
+      "generatedAt": "2026-10-16T10:44:51.733Z",
       "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T10:30:50.015Z",
-      "lineupInputsRefreshedAt": "2026-10-16T10:30:50.015Z"
+      "benchmarkGeneratedAt": "2026-10-16T10:44:51.733Z",
+      "lineupInputsRefreshedAt": "2026-10-16T10:44:51.733Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T10:30:50.015Z"
+      "generatedAt": "2026-10-16T10:44:51.733Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -183,12 +183,6 @@
       },
       {
         "benchmark": "mapping",
-        "targetModel": "Laguna S 2.1",
-        "status": "unavailable",
-        "reason": "Public model; no canonical AA entry."
-      },
-      {
-        "benchmark": "mapping",
         "targetModel": "Glyph Cluster",
         "status": "unavailable",
         "reason": "No verified AA identity."
@@ -198,36 +192,6 @@
         "targetModel": "Cat Jam",
         "status": "unavailable",
         "reason": "No verified AA identity."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Tencent Hy4 Preview",
-        "status": "unavailable",
-        "reason": "Public model; no canonical AA entry."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Qwen 3.8 Omni Flash",
-        "status": "unavailable",
-        "reason": "Public model; no canonical AA entry."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Qwen 3.8 Max Prime",
-        "status": "unavailable",
-        "reason": "No verified AA identity."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Qwen 3.7 Flash",
-        "status": "unavailable",
-        "reason": "Public model; no canonical AA entry."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Fugu Ultra",
-        "status": "unavailable",
-        "reason": "Public model; no canonical AA entry."
       },
       {
         "benchmark": "mapping",
@@ -290,8 +254,8 @@
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38887696710"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38889224343"
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• budget/strategist: Qwen 3.8 Max 0902 → Muse Spark 1.3 Contributor\n• budget/researcher: Gemini 4 Argon → Muse Spark 1.3 Contributor"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• budget/architect: MiMo V2.6 Pro → Qwen 3.8 Max Prime\n• budget/security-reviewer: Grok 4.7 → MiMo V2.6 Pro"
 }
