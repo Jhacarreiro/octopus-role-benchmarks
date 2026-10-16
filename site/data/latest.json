@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-10-16",
-  "generatedAt": "2026-10-16T11:33:16.964Z",
+  "generatedAt": "2026-10-16T11:40:27.305Z",
   "benchmarkDate": "2026-10-16",
-  "benchmarkGeneratedAt": "2026-10-16T11:33:16.964Z",
-  "lineupInputsRefreshedAt": "2026-10-16T11:33:16.964Z",
+  "benchmarkGeneratedAt": "2026-10-16T11:40:27.305Z",
+  "lineupInputsRefreshedAt": "2026-10-16T11:40:27.305Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -18,7 +18,7 @@
       "benchmark": "mapping",
       "targetModel": "Jev 1.14.0",
       "status": "unavailable",
-      "reason": "No verified AA identity."
+      "reason": "Decision model; not comparable to the AA ranking."
     },
     {
       "benchmark": "gdpval",
@@ -111,7 +111,7 @@
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-10-16T11:33:16.835Z",
+      "fetchedAt": "2026-10-16T11:40:27.101Z",
       "version": "v1",
       "directFamilies": 18,
       "availableRows": 20,
@@ -333,8 +333,8 @@
     "observedFamilies": 48,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 12,
-    "validatedAt": "2026-10-16T11:33:16.964Z",
-    "sourceSnapshotGeneratedAt": "2026-10-16T11:33:16.964Z",
+    "validatedAt": "2026-10-16T11:40:27.305Z",
+    "sourceSnapshotGeneratedAt": "2026-10-16T11:40:27.305Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -17349,7 +17349,13 @@
       "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
-        "reason": "No verified AA identity."
+        "reason": "Decision model; not comparable to the AA ranking.",
+        "identityStatus": "external_verified_noncomparable",
+        "externalSource": {
+          "label": "OpenRouter — TypeSafe Jev",
+          "url": "https://openrouter.ai/typesafe"
+        },
+        "externalEvidence": null
       },
       "benchmarkProvenance": {},
       "tokenPrices": {

@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T11:33:51.044Z",
+  "generatedAt": "2026-10-16T11:41:12.752Z",
   "snapshotDate": "2026-10-16",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T11:33:50.993Z",
+    "attemptedAt": "2026-10-16T11:41:12.691Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:33:16.964Z"
+      "generatedAt": "2026-10-16T11:40:27.305Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:33:16.964Z",
+      "generatedAt": "2026-10-16T11:40:27.305Z",
       "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T11:33:16.964Z",
-      "lineupInputsRefreshedAt": "2026-10-16T11:33:16.964Z"
+      "benchmarkGeneratedAt": "2026-10-16T11:40:27.305Z",
+      "lineupInputsRefreshedAt": "2026-10-16T11:40:27.305Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:33:16.964Z"
+      "generatedAt": "2026-10-16T11:40:27.305Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -36,7 +36,7 @@
         "benchmark": "mapping",
         "targetModel": "Jev 1.14.0",
         "status": "unavailable",
-        "reason": "No verified AA identity."
+        "reason": "Decision model; not comparable to the AA ranking."
       },
       {
         "benchmark": "gdpval",
@@ -87,7 +87,7 @@
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38894514519"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38895294576"
   },
   "materialChanges": true,
   "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
