@@ -449,6 +449,39 @@ const models=mapped.map(row=>{
   if(cyberIndex)benchmarkProvenance.cyberIndex={status:'observed',source:'Artificial Analysis Cyber Index v1',sourceUrl:cyberIndexDataset.sourceUrl,value:round(cyberIndex.value,3),components:Object.fromEntries(Object.entries(cyberIndex.components).map(([k,v])=>[k,v==null?null:round(v*100,3)])),safetyBlocks:Object.fromEntries(Object.entries(cyberIndex.safetyBlocks).map(([k,v])=>[k,v==null?null:round(v*100,3)]))};
   return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis,costTokenProfile,normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
 });
+// Opt-in experimental proxies participate in ordinary rankings, clearly marked.
+// Never use proxy rows as AA observed anchors or estimator training inputs.
+const proxyStudy=JSON.parse(fs.readFileSync(path.join(root,'site/data/experimental-estimates.json'),'utf8'));
+for(const proxy of proxyStudy.models){
+  const target=models.find(m=>m.name===proxy.name);
+  const reference=models.find(m=>m.name===proxy.reference);
+  if(!target||!reference||target.mapping?.status!=='unscored'||!Object.keys(reference.roleScores||{}).length)throw new Error(`Experimental proxy missing valid target/reference: ${proxy.name}`);
+  if(!Number.isFinite(proxy.factor)||proxy.factor<=0)throw new Error(`Invalid factor for ${proxy.name}`);
+  const values=proxy.benchmarksEstimated;
+  const missing=activeBenchmarks.filter(key=>!Number.isFinite(values[key]));
+  if(missing.length)throw new Error(`Incomplete proxy ${proxy.name}: ${missing.join(', ')}`);
+  target.mapping={...target.mapping,status:'estimated',reason:`Experimental proxy of ${proxy.reference} (factor ${proxy.factor}); not an observed AA evaluation.`};
+  target.benchmarks={...values};
+  target.benchmarkProvenance=Object.fromEntries(Object.keys(values).map(key=>[key,{status:'estimated',strategy:'reference_ratio',reference:proxy.reference,factor:proxy.factor,evidence:proxy.evidence,sourceUrl:proxy.sourceUrl,value:values[key],factorType:proxy.factorType}]));
+  target.estimatedBenchmarks={reference:proxy.reference,factor:proxy.factor,method:proxy.factorType,evidence:proxy.evidence,sourceUrl:proxy.sourceUrl,metrics:Object.keys(values)};
+  target.aaModel={slug:`experimental:${normalize(proxy.name)}`,sourceUrl:proxy.sourceUrl,intelligenceIndex:Number.isFinite(reference.aaModel?.intelligenceIndex)?round(reference.aaModel.intelligenceIndex*proxy.factor,4):null,estimated:true};
+  const cost=repriceTask(normalizedTaskProfile,target);
+  if(!Number.isFinite(cost))throw new Error(`No CommandCode cost for estimated model ${proxy.name}`);
+  target.taskEfficiency={commandCodeCostPerTaskUsd:cost,planAdjustedCostPerTaskUsd:round(planAdjustedTaskCost(cost,target,economics),6),costBasis:'normalized_reference_v1',costTokenProfile:normalizedTaskProfile,normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile:null};
+  target.roleScores={};
+  for(const role of roles.roles){
+    if(role.externalBenchmark){if(Number.isFinite(values[role.externalBenchmark])){const q=round(values[role.externalBenchmark],3);target.roleScores[role.id]={score:q,rankingQuality:q,rankingValue:null,status:'estimated'};}continue;}
+    let score=0,weight=0;
+    for(const [key,w] of Object.entries(role.weights||{})){score+=values[key]*w;weight+=w;}
+    score=round(score,3);
+    // A proxy has no independently observed Coding Agent Index; use a clearly
+    // estimated reference CAI* when that role requires it.
+    const proxyCai=role.codingAdjusted&&Number.isFinite(reference.caiStar?.value)?round(Math.min(100,reference.caiStar.value*proxy.factor),4):null;
+    if(proxyCai!=null)target.caiStar={value:proxyCai,status:'estimated',source:'reference_ratio',reference:proxy.reference};
+    const quality=role.codingAdjusted?round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*(proxyCai??0),3):score;
+    target.roleScores[role.id]={score,rankingQuality:quality,rankingValue:null,status:'estimated',coverageWeight:round(role.codingAdjusted&&proxyCai==null?(1-CODING_ROLE_CAI_WEIGHT)*weight:weight,4),missingComponents:proxyCai==null&&role.codingAdjusted?['caiStar']:[]};
+  }
+}
 applyBalancedScores(models,roles.roles.map(r=>r.id),{qualityWeight:Number(balancedWeights.quality),costWeight:Number(balancedWeights.affordability)});
 for(const m of models){for(const score of Object.values(m.roleScores||{})){if(Number.isFinite(score.rankingValue))score.rankingValue=round(score.rankingValue,3);if(Number.isFinite(score.balancedQualityPercentile))score.balancedQualityPercentile=round(score.balancedQualityPercentile,3);if(Number.isFinite(score.balancedAffordabilityPercentile))score.balancedAffordabilityPercentile=round(score.balancedAffordabilityPercentile,3);}}
 const unscoredModels=models.filter(x=>x.mapping?.status==='unscored'||!x.aaModel);

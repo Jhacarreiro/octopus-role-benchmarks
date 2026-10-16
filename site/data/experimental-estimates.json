@@ -1,8 +1,8 @@
 {
   "generatedFrom": "2026-10-16T10:30:50.015Z",
-  "status": "experimental_not_ranked",
+  "status": "estimated_ranked_with_disclosure",
   "method": "reference benchmark multiplied by an explicit scenario factor; values are not Artificial Analysis observations",
-  "warning": "Fugu is a multi-agent system; cross-model comparisons may not be comparable. These approximations must not be published as observed scores or merged into standard rankings.",
+  "warning": "Estimated scenario proxies participate in rankings and portfolios, with explicit estimated provenance and tooltip. They are not observed Artificial Analysis results; factors are uncertain and should not be interpreted as measurements.",
   "models": [
     {
       "name": "Laguna S 2.1",
