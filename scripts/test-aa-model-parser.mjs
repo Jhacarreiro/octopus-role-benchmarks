@@ -16,4 +16,9 @@ if(!parsed) throw new Error('target model did not parse');
 if(parsed.intelligenceIndex!==12.5) throw new Error(`wrong intelligenceIndex ${parsed.intelligenceIndex}`);
 if(parsed.scicode!==null) throw new Error(`expected null SciCode, got ${parsed.scicode}`);
 if(parsed.gpqa!==0.7) throw new Error(`wrong GPQA ${parsed.gpqa}`);
+// Real source objects contain hleDiamond before hle; the fields are independent.
+const hleHtml=String.raw`\"currentModel\":{\"slug\":\"target\",\"hleDiamond\":null,\"hle\":0.411492122335496}`;
+const hleParsed=parseModel(hleHtml,'target');
+if(hleParsed?.hle!==0.411492122335496) throw new Error(`HLE read from incorrect field: ${hleParsed?.hle}`);
+
 console.log(JSON.stringify({ok:true,slug:parsed.slug,intelligenceIndex:parsed.intelligenceIndex,scicode:parsed.scicode,gpqa:parsed.gpqa}));

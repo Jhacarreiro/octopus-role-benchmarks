@@ -5,7 +5,7 @@ const BASE = 'https://artificialanalysis.ai/models/';
 const UA = 'Mozilla/5.0 (compatible; OctopusRoleBenchmarks/1.0; +https://github.com/Jhacarreiro/octopus-role-benchmarks)';
 
 function numberField(block, field) {
-  const i = block.indexOf(field);
+  const i = block.indexOf(String.raw`\"${field}\":`);
   if (i < 0) return null;
   const tail = block.slice(i + field.length, i + field.length + 120);
   const m = tail.match(/:(null|-?[0-9]+(?:\.[0-9]+)?)/);
@@ -105,7 +105,7 @@ function releaseModelBlock(html, slug) {
 }
 
 export function parseModel(html, slug) {
-  const block = currentModelBlock(html, slug) ?? releaseModelBlock(html, slug);
+  const block = releaseModelBlock(html, slug) ?? currentModelBlock(html, slug);
   if (!block) return null;
   const omni = block.match(/\\"omniscienceBreakdown\\":\{\\"accuracy\\":(null|-?[0-9.]+),\\"hallucinationRate\\":(null|-?[0-9.]+)/);
   const accuracy = !omni || omni[1] === 'null' ? null : Number(omni[1]);
