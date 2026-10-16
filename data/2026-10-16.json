@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-10-16",
-  "generatedAt": "2026-10-16T09:55:18.105Z",
+  "generatedAt": "2026-10-16T10:11:04.315Z",
   "benchmarkDate": "2026-10-16",
-  "benchmarkGeneratedAt": "2026-10-16T09:55:18.105Z",
-  "lineupInputsRefreshedAt": "2026-10-16T09:55:18.105Z",
+  "benchmarkGeneratedAt": "2026-10-16T10:11:04.315Z",
+  "lineupInputsRefreshedAt": "2026-10-16T10:11:04.315Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -383,7 +383,7 @@
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-10-16T09:55:18.074Z",
+      "fetchedAt": "2026-10-16T10:11:04.280Z",
       "version": "v1",
       "directFamilies": 18,
       "availableRows": 20,
@@ -536,21 +536,19 @@
     "observedFamilies": 45,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 0,
-    "validatedAt": "2026-10-16T09:55:18.105Z",
-    "sourceSnapshotGeneratedAt": "2026-10-16T09:55:18.105Z",
+    "validatedAt": "2026-10-16T10:11:04.315Z",
+    "sourceSnapshotGeneratedAt": "2026-10-16T10:11:04.315Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
-        "valid": false,
+        "valid": true,
         "method": "median_overlap_ratio_capped_at_1",
         "factor": 1,
         "rawMedianRatio": 1,
-        "overlap": 11,
+        "overlap": 45,
         "mae": 0,
         "maxError": 0,
-        "failures": [
-          "overlap 11 < 20"
-        ]
+        "failures": []
       }
     },
     "validation": {

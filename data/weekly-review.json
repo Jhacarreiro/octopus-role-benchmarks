@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T09:55:21.521Z",
+  "generatedAt": "2026-10-16T10:11:08.733Z",
   "snapshotDate": "2026-10-16",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T09:55:21.433Z",
+    "attemptedAt": "2026-10-16T10:11:08.675Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T09:55:18.105Z"
+      "generatedAt": "2026-10-16T10:11:04.315Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T09:55:18.105Z",
+      "generatedAt": "2026-10-16T10:11:04.315Z",
       "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T09:55:18.105Z",
-      "lineupInputsRefreshedAt": "2026-10-16T09:55:18.105Z"
+      "benchmarkGeneratedAt": "2026-10-16T10:11:04.315Z",
+      "lineupInputsRefreshedAt": "2026-10-16T10:11:04.315Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T09:55:18.105Z"
+      "generatedAt": "2026-10-16T10:11:04.315Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -359,8 +359,8 @@
         "reason": "No verified AA identity."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38883703094"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38885488627"
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• quality/code-reviewer: GPT-6 Astra → Gemini 4 Argon\n• quality/implementer: Gemini 4 Argon → Muse Wonder\n• quality/synthesizer: Gemini 4 Argon → GPT-6.1 Sol\n• quality/researcher: Muse Wonder → GPT-6.1 Sol\n• balanced/architect: Muse Wonder → MiMo V2.6 Pro\n• balanced/strategist: Claude Sonnet 5.5 → Gemini 4 Argon\n• balanced/security-reviewer: MiMo V2.6 Pro → Grok 4.7\n• balanced/code-reviewer: Muse Wonder → Claude Sonnet 5.5\n• balanced/implementer: GPT-6.1 Sol → MiMo V2.6 Pro\n• balanced/implementer-heavy: Claude Sonnet 5.5 → Gemini 4 Argon\n• balanced/synthesizer: Gemini 4 Argon → GPT-6.1 Sol\n• balanced/researcher: Gemini 4 Argon → GPT-6.1 Sol\n• budget/architect: Qwen 3.8 Max 0902 → MiMo V2.6 Pro\n• budget/strategist: GPT-6.1 Sol → Qwen 3.8 Max 0902\n• budget/security-reviewer: MiMo V2.6 Pro → Grok 4.7\n• budget/code-reviewer: Grok 4.7 → Gemini 4 Argon\n• budget/synthesizer: Gemini 4 Argon → GPT-6.1 Sol"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
