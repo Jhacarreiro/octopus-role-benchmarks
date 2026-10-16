@@ -272,6 +272,28 @@ try {
 }catch(error){
   validationIssues.push({benchmark:'gdpval-secondary',status:'unavailable',reason:String(error.message)});
 }
+// Transparent same-family GDPval estimate for older catalogue versions.
+// The Intelligence Index supplies only a proportional proxy, not a GDPval observation.
+const gdpvalReferenceSlugs=new Map([
+  ['glm-5','glm-5-2'],
+  ['minimax-m2-5','minimax-m2-7'],
+  ['qwen3-max-preview','qwen3-7-max'],
+  ['step-3-5-flash','step-3-7-flash'],
+  ['claude-opus-4-6','claude-opus-4-8'],
+  ['claude-sonnet-4-6','claude-sonnet-5']
+]);
+for(const [slug,referenceSlug] of gdpvalReferenceSlugs){
+  const target=aa.get(slug),reference=aa.get(referenceSlug);
+  if(!target||target.sourceUnavailableReason||Number.isFinite(target.gdpvalNormalized))continue;
+  // Reference may be in the actual Max universe; never substitute a different provider.
+  if(!reference||reference.sourceUnavailableReason||!Number.isFinite(reference.gdpvalNormalized)||
+     !Number.isFinite(target.intelligenceIndex)||!Number.isFinite(reference.intelligenceIndex)||
+     target.intelligenceIndex<=0||reference.intelligenceIndex<=0)continue;
+  const ratio=target.intelligenceIndex/reference.intelligenceIndex;
+  const value=Math.max(0,Math.min(100,reference.gdpvalNormalized*100*ratio));
+  target.gdpvalNormalized=round(value,4)/100;
+  benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:'same_family_intelligence_ratio',provenanceStatus:'estimated',sourceSlug:referenceSlug,referenceIntelligenceIndex:round(reference.intelligenceIndex,4),targetIntelligenceIndex:round(target.intelligenceIndex,4),factor:round(ratio,6),referenceGdpval:round(reference.gdpvalNormalized*100,4),value:round(value,4),sourceUrl:reference.sourceUrl});
+}
 const scicodeFallbackSlugs=new Set(benchmarkFallbacksApplied.filter(x=>x.benchmark==='scicode').map(x=>x.targetSlug));
 const benchmarkFallbackBySlug=new Map();
 for(const item of benchmarkFallbacksApplied){if(!benchmarkFallbackBySlug.has(item.targetSlug))benchmarkFallbackBySlug.set(item.targetSlug,{});benchmarkFallbackBySlug.get(item.targetSlug)[item.benchmark]=item;}
