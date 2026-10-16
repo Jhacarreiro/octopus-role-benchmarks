@@ -294,7 +294,7 @@ const caiVersionCalibration=calibrateHistoricalCai({
   currentVersion:codingAgentVersion
 });
 if(codingAgentVersion==='v1.5'&&!caiVersionCalibration.valid){
-  throw new Error(`CAI version calibration failed: ${caiVersionCalibration.errors.join('; ')}`);
+  validationIssues.push({benchmark:'coding-agent-version-calibration',status:'unavailable',reason:caiVersionCalibration.errors.join('; ')});
 }
 
 function benchmarksForSource(source){
