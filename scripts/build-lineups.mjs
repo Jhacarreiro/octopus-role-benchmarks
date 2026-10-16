@@ -18,6 +18,7 @@ function intelligence(m){return Number(m.aaModel?.intelligenceIndex)}
 function creditBurn(m){return Number(m.taskEfficiency?.commandCodeCostPerTaskUsd)}
 function roleQuality(m,role){return Number(m.roleScores?.[role]?.rankingQuality)}
 function roleBalanced(m,role){return Number(m.roleScores?.[role]?.rankingValue)}
+function roleBudget(m,role){const s=m.roleScores?.[role];return Number.isFinite(s?.balancedQualityPercentile)&&Number.isFinite(s?.balancedAffordabilityPercentile)?0.4*s.balancedQualityPercentile+0.6*s.balancedAffordabilityPercentile:NaN}
 function familyOf(m){return modelFamily(m,policy)}
 function familyCount(models){return new Set(models.map(familyOf).filter(Boolean)).size}
 function signature(assign){return roles.map(r=>`${r}:${assign.get(r)?.name||''}`).join('|')}
@@ -138,11 +139,13 @@ function prepareModeUniverse(modeId,mode,requested){
 }
 
 function summarizeAssign(assign){
-  let totalQuality=0,totalBalanced=0,totalCreditBurn=0,totalPlanAdjustedCost=0,standardBurn=0,premiumBurn=0;
+  let totalQuality=0,totalBalanced=0,totalBudget=0,totalCreditBurn=0,totalPlanAdjustedCost=0,standardBurn=0,premiumBurn=0;
   for(const [role,m] of assign){
     totalQuality+=roleQuality(m,role);
     const balanced=roleBalanced(m,role);
     if(Number.isFinite(balanced))totalBalanced+=balanced;
+    const budget=roleBudget(m,role);
+    if(Number.isFinite(budget))totalBudget+=budget;
     totalCreditBurn+=creditBurn(m);
     totalPlanAdjustedCost+=planAdjustedCost(m);
     const b=burnVector(m);
@@ -153,6 +156,7 @@ function summarizeAssign(assign){
   return {
     totalQuality,
     totalBalanced,
+    totalBudget,
     totalCreditBurn,
     totalPlanAdjustedCost,
     standardBurn,
@@ -166,6 +170,7 @@ function summarizeAssign(assign){
 function betterCandidate(modeId,a,b){
   if(!b)return true;
   if(modeId==='budget'){
+    if(Math.abs(a.totalBudget-b.totalBudget)>EPS)return a.totalBudget>b.totalBudget;
     if(Math.abs(a.totalPlanAdjustedCost-b.totalPlanAdjustedCost)>EPS)return a.totalPlanAdjustedCost<b.totalPlanAdjustedCost;
     if(Math.abs(a.totalQuality-b.totalQuality)>EPS)return a.totalQuality>b.totalQuality;
     if(Math.abs(a.placementInversionCost-b.placementInversionCost)>EPS)return a.placementInversionCost<b.placementInversionCost;
@@ -186,6 +191,8 @@ function betterCandidate(modeId,a,b){
 
 function budgetDominates(a,b){
   const A=a.partial,B=b.partial;
+  if(A.totalBudget>B.totalBudget+EPS)return true;
+  if(A.totalBudget<B.totalBudget-EPS)return false;
   if(A.totalPlanAdjustedCost<B.totalPlanAdjustedCost-EPS)return true;
   if(A.totalPlanAdjustedCost>B.totalPlanAdjustedCost+EPS)return false;
   if(A.totalQuality>B.totalQuality+EPS)return true;
@@ -214,7 +221,8 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
     roleCandidates[role]=pool.filter(m=>
       generationEligibleForRole(m,role) &&
       Number.isFinite(roleQuality(m,role)) &&
-      (modeId!=='balanced'||Number.isFinite(roleBalanced(m,role)))
+      (modeId!=='balanced'||Number.isFinite(roleBalanced(m,role))) &&
+      (modeId!=='budget'||Number.isFinite(roleBudget(m,role)))
     );
     if(!roleCandidates[role].length){
       if(allowNoFeasible)return null;

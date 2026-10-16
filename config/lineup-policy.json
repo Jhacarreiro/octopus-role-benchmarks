@@ -42,9 +42,9 @@
     },
     "budget": {
       "label": "Budget",
-      "description": "Minimizes total subscription-adjusted task cost. Statistical effective-cost outliers are identified from the full latest-generation scored universe; after removing them, the Intelligence baseline is recomputed before final 0.80 eligibility and optimization.",
+      "description": "Maximizes total role-specific Budget Score (40% quality percentile / 60% affordability percentile), while retaining the Intelligence floor, cost-outlier filter, and family/coding constraints.",
       "requestedIntelligenceFloor": 0.8,
-      "objective": "minimize-effective-task-cost",
+      "objective": "maximize-role-budget-score-40-quality-60-affordability",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
