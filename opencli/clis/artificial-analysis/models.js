@@ -95,7 +95,7 @@ function releaseModelBlock(html, slug) {
       if (html[i] === '{') depth++;
       else if (html[i] === '}' && --depth === 0) {
         const candidate = html.slice(start, i + 1);
-        if (candidate.includes('\\"chartDefaultSelected\\":true') && candidate.includes('\\"intelligenceIndex\\":')) return candidate;
+        if (candidate.includes(marker) && candidate.includes('\\"intelligenceIndex\\":')) return candidate;
         break;
       }
     }
