@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T12:01:13.416Z",
+  "generatedAt": "2026-10-16T12:05:55.059Z",
   "snapshotDate": "2026-10-16",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T12:01:13.360Z",
+    "attemptedAt": "2026-10-16T12:05:54.998Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T12:00:39.617Z"
+      "generatedAt": "2026-10-16T12:05:21.775Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T12:00:39.617Z",
+      "generatedAt": "2026-10-16T12:05:21.775Z",
       "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T12:00:39.617Z",
-      "lineupInputsRefreshedAt": "2026-10-16T12:00:39.617Z"
+      "benchmarkGeneratedAt": "2026-10-16T12:05:21.775Z",
+      "lineupInputsRefreshedAt": "2026-10-16T12:05:21.775Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T12:00:39.617Z"
+      "generatedAt": "2026-10-16T12:05:21.775Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -37,21 +37,9 @@
         "targetModel": "Jev 1.14.0",
         "status": "unavailable",
         "reason": "Decision model; not comparable to the AA ranking."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "claude-4-5-haiku",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "gpt-5-3-codex",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38897532865"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38898056383"
   },
   "materialChanges": true,
   "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
