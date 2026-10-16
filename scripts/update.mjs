@@ -291,11 +291,31 @@ const efficiencyCoverage={total:scoredSlugs.length,present:scoredSlugs.length,ra
 const codingBySlug=new Map();
 const codingLabelSlugs=new Map();
 for(const slug of slugs){const key=normalize(slug);const matches=codingLabelSlugs.get(key)??[];matches.push(slug);codingLabelSlugs.set(key,matches)}
+// Composite agent systems are not a measurement of one underlying model.
+const compositeCodingRows=[];
 const codingUnresolved=[];
+const codingIdentityAliases=new Map([
+  ['muse spark 1.3 (max)','muse-spark-1-3-xhigh'],
+  ['deepseek v4 flash 0731 (max)','deepseek-v4-flash'],
+  ['deepseek v4 pro 0813 (max)','deepseek-v4-pro']
+]);
 for(const row of codingRows){
   let base;
   if(row.hostModelSlug) base=codingHostBase(row.hostModelSlug);
   else {
+    if(/\s\+\s/.test(row.modelLabel)){
+      compositeCodingRows.push({label:row.modelLabel,reason:'composite_agent_not_individual_model'});
+      continue;
+    }
+    const alias=codingIdentityAliases.get(row.modelLabel.toLowerCase());
+    if(alias){
+      if(!scoredSlugSet.has(alias)){
+        codingUnresolved.push({label:row.modelLabel,reason:'alias_target_not_scored'});
+        continue;
+      }
+      base=alias;
+      row.hostModelSlug=base;
+    }else{
     // AA now publishes a display.model rather than hostModelSlug. Only accept
     // an exact catalogue-family identity with a recognized effort suffix.
     const cleanLabel=row.modelLabel.replace(/\s+\(with fallback\)$/i,'');
@@ -316,6 +336,7 @@ for(const row of codingRows){
     if(candidates.length!==1){codingUnresolved.push({label:row.modelLabel,reason:candidates.length?'ambiguous_identity':'no_exact_identity'});continue}
     base=candidates[0];
     row.hostModelSlug=base;
+    }
   }
   if(!scoredSlugSet.has(base))continue;
   codingBySlug.set(base,betterCoding(codingBySlug.get(base),row));
@@ -332,9 +353,8 @@ const caiVersionCalibration=calibrateHistoricalCai({
   previousObservedAt:previousCodingObservedAt,
   currentVersion:codingAgentVersion
 });
-if(codingAgentVersion==='v1.5'&&!caiVersionCalibration.valid){
-  validationIssues.push({benchmark:'coding-agent-version-calibration',status:'unavailable',reason:caiVersionCalibration.errors.join('; ')});
-}
+// Invalid cross-version calibration is explicitly disabled below. Its detailed
+// diagnostics remain in the snapshot rather than being a source-data error.
 
 function benchmarksForSource(source){
   const out={};
@@ -493,6 +513,7 @@ applyBalancedScores(models,roles.roles.map(r=>r.id),{qualityWeight:Number(balanc
 for(const m of models){for(const score of Object.values(m.roleScores||{})){if(Number.isFinite(score.rankingValue))score.rankingValue=round(score.rankingValue,3);if(Number.isFinite(score.balancedQualityPercentile))score.balancedQualityPercentile=round(score.balancedQualityPercentile,3);if(Number.isFinite(score.balancedAffordabilityPercentile))score.balancedAffordabilityPercentile=round(score.balancedAffordabilityPercentile,3);}}
 const unscoredModels=models.filter(x=>x.mapping?.status==='unscored'||!x.aaModel);
 for(const model of unscoredModels){
+  if(['Glyph Cluster','Cat Jam'].includes(model.name))continue; // known opaque stealth; expected unscored
   validationIssues.push({benchmark:'mapping',targetModel:model.name,status:'unavailable',reason:model.mapping?.reason||'No verified benchmark identity for this CommandCode model.'});
 }
 for(const model of models.filter(x=>x.mapping?.status==='partial_scored')){for(const key of model.mapping.missingBenchmarks||[])validationIssues.push({benchmark:key,targetSlug:model.aaModel?.slug??model.mapping?.slug,status:'unavailable',reason:`Artificial Analysis publishes no current ${key} value; affected role scores are conservative partial scores.`});}
@@ -514,7 +535,7 @@ const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,gene
     looMae:round(caiVersionCalibration.looMae,3),
     looMaxError:round(caiVersionCalibration.looMaxError,3)
   }:null
-}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,scicodeEstimator:{method:'current_observed_then_calibrated_lkg_then_validated_ridge',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,historicalCalibratedFamilies:benchmarkFallbacksApplied.filter(x=>x.strategy==='last_known_observed_calibrated').length,estimatedFamilies:benchmarkFallbacksApplied.filter(x=>x.provenanceStatus==='estimated').length,validatedAt:nowIso,sourceSnapshotGeneratedAt:nowIso,lkg:{maxAgeDays:lastKnownMaxAgeDays,calibration:{valid:scicodeLkgCalibration.valid,method:scicodeLkgCalibration.method,factor:scicodeLkgCalibration.factor==null?null:round(scicodeLkgCalibration.factor,6),rawMedianRatio:scicodeLkgCalibration.rawMedianRatio==null?null:round(scicodeLkgCalibration.rawMedianRatio,6),overlap:scicodeLkgCalibration.overlap,mae:scicodeLkgCalibration.mae==null?null:round(scicodeLkgCalibration.mae,4),maxError:scicodeLkgCalibration.maxError==null?null:round(scicodeLkgCalibration.maxError,4),failures:scicodeLkgCalibration.failures}},validation:{valid:scicodeEstimatorValid,mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS,worstResidual:scicodeTopResiduals[0]??null,topResiduals:scicodeTopResiduals}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,historicalCalibratedFamilies:caiHistoricalCalibratedFamilies,estimatedFamilies:caiEstimatedFamilies},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,partialRows:models.filter(x=>x.mapping?.status==='unscored'||x.mapping?.status==='source_incomplete'||x.mapping?.status==='partial_scored'||Object.values(x.benchmarkProvenance||{}).some(v=>['stale','unavailable'].includes(v?.status))).length,partialScoredRows:models.filter(x=>x.mapping?.status==='partial_scored').length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,partialScoredFamilies:partialScoredBySlug.size,sourceIncompleteFamilies:hardIncompleteBySlug.size,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiHistoricalCalibratedFamilies,caiEstimatedFamilies,cyberIndexDirectFamilies:[...slugs].filter(slug=>cyberIndexBySlug.has(slug)).length},benchmarks:roles.benchmarks,roles:roles.roles,models};
+}},codingAgentDiagnostics:{compositeEvaluationsExcluded:compositeCodingRows,unresolvedIdentityRows:codingUnresolved,historicalVersionCalibration:{valid:caiVersionCalibration.valid,reason:caiVersionCalibration.valid?null:caiVersionCalibration.errors.join('; '),comparableFamilies:caiVersionCalibration.comparableFamilies,looMae:caiVersionCalibration.looMae}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,scicodeEstimator:{method:'current_observed_then_calibrated_lkg_then_validated_ridge',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,historicalCalibratedFamilies:benchmarkFallbacksApplied.filter(x=>x.strategy==='last_known_observed_calibrated').length,estimatedFamilies:benchmarkFallbacksApplied.filter(x=>x.provenanceStatus==='estimated').length,validatedAt:nowIso,sourceSnapshotGeneratedAt:nowIso,lkg:{maxAgeDays:lastKnownMaxAgeDays,calibration:{valid:scicodeLkgCalibration.valid,method:scicodeLkgCalibration.method,factor:scicodeLkgCalibration.factor==null?null:round(scicodeLkgCalibration.factor,6),rawMedianRatio:scicodeLkgCalibration.rawMedianRatio==null?null:round(scicodeLkgCalibration.rawMedianRatio,6),overlap:scicodeLkgCalibration.overlap,mae:scicodeLkgCalibration.mae==null?null:round(scicodeLkgCalibration.mae,4),maxError:scicodeLkgCalibration.maxError==null?null:round(scicodeLkgCalibration.maxError,4),failures:scicodeLkgCalibration.failures}},validation:{valid:scicodeEstimatorValid,mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS,worstResidual:scicodeTopResiduals[0]??null,topResiduals:scicodeTopResiduals}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,historicalCalibratedFamilies:caiHistoricalCalibratedFamilies,estimatedFamilies:caiEstimatedFamilies},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,partialRows:models.filter(x=>x.mapping?.status==='unscored'||x.mapping?.status==='source_incomplete'||x.mapping?.status==='partial_scored'||Object.values(x.benchmarkProvenance||{}).some(v=>['stale','unavailable'].includes(v?.status))).length,partialScoredRows:models.filter(x=>x.mapping?.status==='partial_scored').length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,partialScoredFamilies:partialScoredBySlug.size,sourceIncompleteFamilies:hardIncompleteBySlug.size,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiHistoricalCalibratedFamilies,caiEstimatedFamilies,cyberIndexDirectFamilies:[...slugs].filter(slug=>cyberIndexBySlug.has(slug)).length},benchmarks:roles.benchmarks,roles:roles.roles,models};
 for(const dir of [path.join(root,'data'),path.join(root,'site','data')])fs.mkdirSync(dir,{recursive:true});
 const json=JSON.stringify(snapshot,null,2)+'\n';fs.writeFileSync(path.join(root,'data',`${date}.json`),json);fs.writeFileSync(path.join(root,'data','latest.json'),json);fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
 console.log(JSON.stringify({date,...snapshot.counts,taskCoverage:`${efficiencyCoverage.present}/${efficiencyCoverage.total}`,codingAgentCoverage:`${codingCoverage.present}/${codingCoverage.total}`,caiStarCoverage:`${caiStarCoverage.present}/${caiStarCoverage.total}`,coverage:Object.fromEntries(Object.entries(coverage).map(([k,v])=>[k,`${v.present}/${v.total}`])),unscored:models.filter(x=>!x.aaModel).map(x=>x.name)},null,2));
