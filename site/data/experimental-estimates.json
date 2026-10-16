@@ -1,0 +1,146 @@
+{
+  "generatedFrom": "2026-10-16T10:30:50.015Z",
+  "status": "experimental_not_ranked",
+  "method": "reference benchmark multiplied by an explicit scenario factor; values are not Artificial Analysis observations",
+  "warning": "Fugu is a multi-agent system; cross-model comparisons may not be comparable. These approximations must not be published as observed scores or merged into standard rankings.",
+  "models": [
+    {
+      "name": "Laguna S 2.1",
+      "reference": "Tencent Hy3",
+      "factor": 0.979079,
+      "factorType": "cross-model benchmark ratio",
+      "evidence": "Terminal-Bench 2.1 (Laguna/Hy3), Poolside model card",
+      "sourceUrl": "https://poolside.ai/models",
+      "status": "estimated_experimental",
+      "benchmarksEstimated": {
+        "gdpval": 27.737,
+        "lcr": 77.347,
+        "hle": 32.757,
+        "omniscienceIndex": 39.914,
+        "scicode": 47.594
+      },
+      "commandCodeTokenPrices": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": null,
+        "blended50": 0
+      }
+    },
+    {
+      "name": "Tencent Hy4 Preview",
+      "reference": "Tencent Hy3",
+      "factor": 1.191074,
+      "factorType": "cross-model benchmark ratio",
+      "evidence": "Terminal-Bench 2.1 (Hy4/Hy3), vendor comparison",
+      "sourceUrl": "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/",
+      "status": "estimated_experimental",
+      "benchmarksEstimated": {
+        "gdpval": 33.743,
+        "lcr": 94.095,
+        "hle": 39.85,
+        "omniscienceIndex": 48.556,
+        "scicode": 57.899
+      },
+      "commandCodeTokenPrices": {
+        "input": 0.834,
+        "output": 2.501,
+        "cacheRead": 0.042,
+        "cacheWrite": null,
+        "blended50": 1.6675
+      }
+    },
+    {
+      "name": "Qwen 3.8 Omni Flash",
+      "reference": "Qwen 3.8 Flash",
+      "factor": 0.9,
+      "factorType": "unvalidated assumption",
+      "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+      "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+      "status": "estimated_experimental",
+      "benchmarksEstimated": {
+        "gdpval": 50.754,
+        "lcr": 71.7,
+        "hle": 34.24,
+        "omniscienceIndex": 40.628,
+        "scicode": 45.521
+      },
+      "commandCodeTokenPrices": {
+        "input": 0.15,
+        "output": 0.47,
+        "cacheRead": 0.016,
+        "cacheWrite": null,
+        "blended50": 0.31
+      }
+    },
+    {
+      "name": "Qwen 3.8 Max Prime",
+      "reference": "Qwen 3.8 Max",
+      "factor": 1.0,
+      "factorType": "identity hypothesis",
+      "evidence": "Shared-family capability hypothesis, not independently verified",
+      "sourceUrl": "https://commandcode.ai/models",
+      "status": "estimated_experimental",
+      "benchmarksEstimated": {
+        "gdpval": 58.279,
+        "lcr": 80.333,
+        "hle": 43.096,
+        "omniscienceIndex": 55.992,
+        "scicode": 52.083
+      },
+      "commandCodeTokenPrices": {
+        "input": 4,
+        "output": 12,
+        "cacheRead": 0.5,
+        "cacheWrite": 5,
+        "blended50": 8
+      }
+    },
+    {
+      "name": "Qwen 3.7 Flash",
+      "reference": "Qwen 3.7 Plus",
+      "factor": 0.9,
+      "factorType": "unvalidated assumption",
+      "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+      "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash",
+      "status": "estimated_experimental",
+      "benchmarksEstimated": {
+        "gdpval": 12.043,
+        "lcr": 65.7,
+        "hle": 32.071,
+        "omniscienceIndex": 45.488,
+        "scicode": 41.458
+      },
+      "commandCodeTokenPrices": {
+        "input": 0.03,
+        "output": 0.13,
+        "cacheRead": 0.006,
+        "cacheWrite": 0.038,
+        "blended50": 0.08
+      }
+    },
+    {
+      "name": "Fugu Ultra",
+      "reference": "Claude Opus 4.8",
+      "factor": 1.097196,
+      "factorType": "cross-model benchmark ratio",
+      "evidence": "SciCode vendor cross-model comparison (Fugu Ultra/Opus 4.8)",
+      "sourceUrl": "https://sakana.ai/fugu/",
+      "status": "estimated_experimental",
+      "benchmarksEstimated": {
+        "gdpval": 52.307,
+        "lcr": 85.216,
+        "hle": 53.385,
+        "omniscienceIndex": 70.632,
+        "scicode": 59.685
+      },
+      "commandCodeTokenPrices": {
+        "input": 5,
+        "output": 30,
+        "cacheRead": 0.5,
+        "cacheWrite": null,
+        "blended50": 17.5
+      }
+    }
+  ]
+}
