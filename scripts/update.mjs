@@ -66,7 +66,7 @@ function codingHostBase(host){
   for(const suffix of ['_ai-studio','_fp8','_api-key']) if(s.endsWith(suffix)) s=s.slice(0,-suffix.length);
   return s;
 }
-function codingRank(r){return[(r.isHighlighted?1:0),(r.isDefault?1:0),r.indexScore??-1]}
+function codingRank(r){return[r.indexScore??-1,(r.isHighlighted?1:0),(r.isDefault?1:0)]}
 function betterCoding(a,b){if(!a)return b;const A=codingRank(a),B=codingRank(b);for(let i=0;i<A.length;i++){if(B[i]>A[i])return b;if(B[i]<A[i])return a}return a}
 
 const installer=spawnSync(process.execPath,[path.join(root,'scripts','install-opencli-adapters.mjs')],{cwd:root,env:{...process.env,OPENCLI_HOME:opencliHome},encoding:'utf8'});
@@ -298,14 +298,21 @@ for(const row of codingRows){
   else {
     // AA now publishes a display.model rather than hostModelSlug. Only accept
     // an exact catalogue-family identity with a recognized effort suffix.
-    const effort=row.modelLabel.match(/\s+\((max|high|medium|low|xhigh)\)$/i)?.[1]?.toLowerCase();
-    const label=row.modelLabel.replace(/\s+\((?:max|high|medium|low|xhigh)\)$/i,'');
+    const cleanLabel=row.modelLabel.replace(/\s+\(with fallback\)$/i,'');
+    const effort=cleanLabel.match(/\s+\((max|high|medium|low|xhigh)\)$/i)?.[1]?.toLowerCase();
+    const label=cleanLabel.replace(/\s+\((?:max|high|medium|low|xhigh)\)$/i,'');
     // Prefer a uniquely identified effort variant; the unqualified model
     // is only a fallback for Max, never for Low/Medium/High/XHigh.
+    const nameAliases={
+      'Step 5 Preview':'Step 5',
+      'Muse Wonder Full':'Muse Wonder',
+      'Fable 5.1':'Claude Fable 5.1'
+    };
     const baseNames=/^(?:sonnet|opus|haiku)\s/i.test(label)?[label,`Claude ${label}`]:[label];
+    if(nameAliases[label])baseNames.push(nameAliases[label]);
     const exactKeys=effort?baseNames.map(name=>normalize(`${name}-${effort}`)):[...baseNames.map(normalize)];
     let candidates=[...new Set(exactKeys.flatMap(key=>codingLabelSlugs.get(key)??[]))];
-    if(!candidates.length&&effort==='max')candidates=[...new Set(baseNames.flatMap(name=>codingLabelSlugs.get(normalize(name))??[]))];
+    if(!candidates.length)candidates=[...new Set(baseNames.flatMap(name=>codingLabelSlugs.get(normalize(name))??[]))];
     if(candidates.length!==1){codingUnresolved.push({label:row.modelLabel,reason:candidates.length?'ambiguous_identity':'no_exact_identity'});continue}
     base=candidates[0];
     row.hostModelSlug=base;
@@ -435,11 +442,11 @@ const models=mapped.map(row=>{
   }
   const c=source?codingBySlug.get(source.slug):null;
   const codingAgent=c?{
-    hostModelSlug:c.hostModelSlug,agent:c.agent,displayLabel:c.displayLabel,indexScore:round(caiIndexPercent(c.indexScore),3),
+    hostModelSlug:c.hostModelSlug,modelLabel:c.modelLabel,agent:c.agent,displayLabel:c.displayLabel,indexScore:round(caiIndexPercent(c.indexScore),3),
     evaluations:Object.fromEntries(Object.entries(c.evaluations||{}).map(([k,v])=>[k,round(caiIndexPercent(v),3)])),
     tokensPerTask:c.telemetry,totalTokensPerTask:c.telemetry?.totalTokens??null,timePerTaskSec:c.telemetry?.wallTimeSec??null,
     sourceUrl:c.sourceUrl,
-    selection:{isHighlighted:c.isHighlighted,isDefault:c.isDefault,rule:'highlighted > default > highest index score'}
+    selection:{isHighlighted:c.isHighlighted,isDefault:c.isDefault,rule:'highest comparable index score; highlight/default only break ties'}
   }:null;
   const benchmarkFallback=benchmarkFallbackBySlug.get(row.mapping.slug)||{};
   const benchmarkProvenance={};
