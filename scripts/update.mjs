@@ -126,10 +126,10 @@ const observedScicodeRows=scicodeRows.filter(r=>Number.isFinite(r.scicode));
 const lastKnownMaxAgeDays=scicodePolicy.lastKnownMaxAgeDays??14;
 const scicodeLkgPairs=observedScicodeRows.flatMap(row=>{const anchor=previousObservedBenchmark(row.slug,'scicode');return eligibleObservedAnchor(anchor,lastKnownMaxAgeDays)?[{slug:row.slug,previous:anchor.value,current:row.scicode}]:[];});
 const scicodeLkgCalibration=calibrateScicodeLkg(scicodeLkgPairs);
-const scicodeValidation=validateScicodeEstimator(observedScicodeRows);
+const scicodeValidation=observedScicodeRows.length>SCICODE_VALIDATION_LIMITS.minObserved ? validateScicodeEstimator(observedScicodeRows) : {mae:null,maxError:null,errors:[]};
 const scicodeValidationErrors=[...scicodeValidation.errors].sort((a,b)=>b.error-a.error);
 const scicodeWorst=scicodeValidationErrors[0]??null;
-const scicodeEstimatorValid=scicodeValidation.mae<=SCICODE_VALIDATION_LIMITS.mae&&scicodeValidation.maxError<=SCICODE_VALIDATION_LIMITS.maxError;
+const scicodeEstimatorValid=observedScicodeRows.length>SCICODE_VALIDATION_LIMITS.minObserved&&scicodeValidation.mae<=SCICODE_VALIDATION_LIMITS.mae&&scicodeValidation.maxError<=SCICODE_VALIDATION_LIMITS.maxError;
 const scicodeEstimator=scicodeEstimatorValid?fitScicodeEstimator(observedScicodeRows):null;
 const benchmarkFallbacksApplied=[];
 const validationIssues=[];
@@ -145,7 +145,7 @@ for(const row of scicodeRows){
     continue;
   }
   if(!scicodeEstimatorValid){
-    const reason=`Artificial Analysis publishes no current SciCode for ${row.slug}; estimator fallback failed validation (MAE=${scicodeValidation.mae.toFixed(3)}, max=${scicodeValidation.maxError.toFixed(3)}).`;
+    const reason=`Artificial Analysis publishes no current SciCode for ${row.slug}; estimator unavailable (${observedScicodeRows.length} complete observed families; minimum for leave-one-out validation is ${SCICODE_VALIDATION_LIMITS.minObserved+1}; MAE=${scicodeValidation.mae?.toFixed(3)??"n/a"}, max=${scicodeValidation.maxError?.toFixed(3)??"n/a"}).`;
     if(Number.isFinite(lkgAnchor?.value)&&lkgAnchor?.observedAt){
       const chosen=round(lkgAnchor.value,4);
       source.scicode=chosen/100;
