@@ -10,6 +10,7 @@ import { applyBalancedScores } from './lib/balanced-score.mjs';
 import { caiIndexPercent, detectCodingAgentVersionFromRows } from './lib/cai-version-fallback.mjs';
 import { calibrateScicodeLkg, applyScicodeLkg } from './lib/scicode-lkg.mjs';
 import { fetchScicodeReference, validatedScicodeTwoFeature } from './lib/scicode-live-fallback.mjs';
+import { secondaryGdpvalObservations } from './lib/gdpval-secondary.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');
@@ -257,6 +258,19 @@ for(const row of scicodeRows){
     candidates,
     value:chosen
   });
+}
+// Prefer AA model-page GDPval; retrieve exactly matched observed v2.1 results
+// from a same-benchmark mirror only when the source field is absent.
+try {
+  const secondary=await secondaryGdpvalObservations();
+  for(const [slug,observation] of secondary){
+    const source=aa.get(slug);
+    if(!source||source.sourceUnavailableReason||Number.isFinite(source.gdpvalNormalized))continue;
+    source.gdpvalNormalized=observation.value/100;
+    benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:'observed_same_benchmark_secondary',provenanceStatus:'observed',configuration:observation.configuration,sourceUrl:observation.sourceUrl,value:observation.value});
+  }
+}catch(error){
+  validationIssues.push({benchmark:'gdpval-secondary',status:'unavailable',reason:String(error.message)});
 }
 const scicodeFallbackSlugs=new Set(benchmarkFallbacksApplied.filter(x=>x.benchmark==='scicode').map(x=>x.targetSlug));
 const benchmarkFallbackBySlug=new Map();
