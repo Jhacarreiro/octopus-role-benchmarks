@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T06:17:13.604Z",
+  "generatedAt": "2026-10-16T08:40:18.400Z",
   "snapshotDate": "2026-10-05",
   "refresh": {
     "schemaVersion": 3,
     "status": "error",
-    "attemptedAt": "2026-10-12T06:17:13.491Z",
+    "attemptedAt": "2026-10-16T08:40:18.343Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-05",
       "generatedAt": "2026-10-05T06:17:19.309Z"
@@ -24,7 +24,7 @@
     "mode": null,
     "message": null,
     "stage": "update",
-    "errorSummary": "# opencli artificial-analysis models --trace retain-on-failure",
+    "errorSummary": "# opencli artificial-analysis coding-agents --trace retain-on-failure",
     "validationIssues": [
       {
         "benchmark": "mapping",
@@ -123,7 +123,7 @@
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
-    "runUrl": null
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38875213089"
   },
   "materialChanges": true,
   "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-05 → 2026-10-05\n❌ Refresh: error\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
