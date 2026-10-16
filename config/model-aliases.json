@@ -166,6 +166,15 @@
         "label": "OpenRouter \u2014 TypeSafe Jev",
         "url": "https://openrouter.ai/typesafe"
       }
+    },
+    "Jev 1.14.0": {
+      "status": "unscored",
+      "identityStatus": "external_verified_noncomparable",
+      "reason": "Decision model; not comparable to the AA ranking.",
+      "externalSource": {
+        "label": "OpenRouter \u2014 TypeSafe Jev",
+        "url": "https://openrouter.ai/typesafe"
+      }
     }
   }
 }
