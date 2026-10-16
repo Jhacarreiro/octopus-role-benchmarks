@@ -8,7 +8,6 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const check=process.argv.includes('--check');
 const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'utf8'));
 const policy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
-const routingModels=JSON.parse(fs.readFileSync(path.join(root,'config','octopus-routing-models.json'),'utf8')).models;
 const roles=latest.roles.map(r=>r.id);
 const EPS=1e-12;
 
@@ -95,7 +94,7 @@ function populationStats(values){
 }
 
 function prepareModeUniverse(modeId,mode,requested){
-  let universe=modeId==='balanced' ? base.filter(m=>routingModels[m.name]?.provider&&routingModels[m.name]?.model) : base.slice();
+  let universe=base.slice();
   let modeBestIntelligence=bestIntelligence;
   let priceFilter=null;
   if(mode.priceOutlierFilter){
