@@ -9,6 +9,7 @@ import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
 import { applyBalancedScores } from './lib/balanced-score.mjs';
 import { caiIndexPercent, detectCodingAgentVersionFromRows, detectCodingAgentVersionFromSnapshot, historicalCaiAnchor, calibrateHistoricalCai, applyHistoricalCai } from './lib/cai-version-fallback.mjs';
 import { calibrateScicodeLkg, applyScicodeLkg } from './lib/scicode-lkg.mjs';
+import { fetchScicodeReference, validatedScicodeTwoFeature } from './lib/scicode-live-fallback.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');
@@ -133,8 +134,33 @@ const scicodeEstimatorValid=observedScicodeRows.length>SCICODE_VALIDATION_LIMITS
 const scicodeEstimator=scicodeEstimatorValid?fitScicodeEstimator(observedScicodeRows):null;
 const benchmarkFallbacksApplied=[];
 const validationIssues=[];
+// The benchmark leaderboard includes observed SciCode runs outside the Max plan.
+// Those observations can support an estimator without treating other models as
+// candidates for the Max catalogue or changing portfolio selection.
+try {
+  const reference=await fetchScicodeReference();
+  const referenceBySlug=new Map(reference.rows.map(row=>[row.slug,row]));
+  const validation=validatedScicodeTwoFeature(reference.rows);
+  for(const source of aa.values()){
+    if(source.sourceUnavailableReason||Number.isFinite(source.scicode))continue;
+    const observed=referenceBySlug.get(source.slug);
+    if(observed){
+      source.scicode=observed.scicode;
+      benchmarkFallbacksApplied.push({benchmark:'scicode',targetSlug:source.slug,strategy:'observed_aa_scicode_leaderboard',provenanceStatus:'observed',value:round(source.scicode*100,4),sourceUrl:reference.sourceUrl});
+      continue;
+    }
+    if(!validation.valid||!Number.isFinite(source.hle)||!Number.isFinite(source.lcr))continue;
+    const estimate=validation.predict(source);
+    if(!Number.isFinite(estimate))continue;
+    source.scicode=round(estimate,4)/100;
+    benchmarkFallbacksApplied.push({benchmark:'scicode',targetSlug:source.slug,strategy:'validated_hle_lcr_ridge',provenanceStatus:'estimated',value:round(estimate,4),sourceUrl:reference.sourceUrl,calibration:{method:'ridge_lambda_1_hle_lcr',observed:validation.observed,looMae:round(validation.mae,4),looMaxError:round(validation.maxError,4)}});
+  }
+  if(!validation.valid)validationIssues.push({benchmark:'scicode',status:'estimator_unavailable',reason:`HLE/LCR Ridge rejected (n=${validation.observed}, MAE=${validation.mae}, max=${validation.maxError})`});
+} catch(error) {
+  validationIssues.push({benchmark:'scicode',status:'leaderboard_unavailable',reason:String(error.message)});
+}
 for(const row of scicodeRows){
-  if(Number.isFinite(row.scicode))continue;
+  if(Number.isFinite(row.scicode)||Number.isFinite(aa.get(row.slug)?.scicode))continue;
   const source=aa.get(row.slug);
   const lkgAnchor=previousObservedBenchmark(row.slug,'scicode');
   const calibratedLkg=eligibleObservedAnchor(lkgAnchor,lastKnownMaxAgeDays)?applyScicodeLkg(lkgAnchor,scicodeLkgCalibration):null;
