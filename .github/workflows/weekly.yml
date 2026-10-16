@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+  actions: write
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -45,6 +46,13 @@ jobs:
             git commit -m "status: benchmark refresh failed $(date -u +%F)"
           fi
           git push
+
+      # Pushes made with GITHUB_TOKEN do not trigger the Pages push workflow.
+      # Explicitly dispatch Pages after publishing either a snapshot or error state.
+      - name: Deploy updated public state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
 
       - name: Fail workflow when refresh failed
         if: steps.refresh.outcome == 'failure'
