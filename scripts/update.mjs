@@ -89,6 +89,8 @@ const mappedSlugSet=new Set(slugs);
 const aaRows=runOpenCLI(['artificial-analysis','models',slugs.join(','),'-f','json']);
 const aa=new Map(aaRows.map(x=>[x.slug,{...x}]));
 if(aa.size!==slugs.length)throw new Error(`AA returned ${aa.size}/${slugs.length} requested families`);
+const unavailableAaSources=[...aa.values()].filter(x=>x.sourceUnavailableReason);
+if(unavailableAaSources.length===slugs.length)throw new Error('AA model extraction unavailable for every requested family');
 const cyberIndexDataset=await fetchArtificialAnalysisCyberIndex();
 const cyberIndexBySlug=cyberIndexDataset.bySlug;
 const previousBySlug=new Map((previousSnapshot?.models||[]).filter(m=>m.aaModel?.slug).map(m=>[m.aaModel.slug,m]));
@@ -242,6 +244,7 @@ for(const slug of slugs){
   const missingBenchmarks=activeBenchmarks.filter(key=>source?.[roles.benchmarks[key].sourceField]==null);
   if(missingBenchmarks.length) sourceIncomplete.push({slug,missingBenchmarks});
 }
+for(const source of unavailableAaSources)validationIssues.push({benchmark:'artificial-analysis-model',targetSlug:source.slug,status:'unavailable',reason:source.sourceUnavailableReason,sourceUrl:source.sourceUrl});
 const sourceIncompleteBySlug=new Map(sourceIncomplete.map(x=>[x.slug,x]));
 const partialScoredBySlug=new Map(sourceIncomplete.filter(x=>x.missingBenchmarks.length>0&&x.missingBenchmarks.every(key=>key==='gdpval')).map(x=>[x.slug,x]));
 const hardIncompleteBySlug=new Map(sourceIncomplete.filter(x=>!partialScoredBySlug.has(x.slug)).map(x=>[x.slug,x]));
@@ -339,7 +342,7 @@ const models=mapped.map(row=>{
   const incomplete=row.mapping.slug?hardIncompleteBySlug.get(row.mapping.slug):null;
   const partial=row.mapping.slug?partialScoredBySlug.get(row.mapping.slug):null;
   const source=incomplete?null:rawSource;
-  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:partial?{...row.mapping,status:'partial_scored',reason:`Scored conservatively with unavailable benchmark: ${partial.missingBenchmarks.join(', ')}`,missingBenchmarks:partial.missingBenchmarks}:row.mapping;
+  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:rawSource?.sourceUnavailableReason??`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:partial?{...row.mapping,status:'partial_scored',reason:`Scored conservatively with unavailable benchmark: ${partial.missingBenchmarks.join(', ')}`,missingBenchmarks:partial.missingBenchmarks}:row.mapping;
   const benchmarks=source?benchmarksForSource(source):{};
   const cyberIndex=source?cyberIndexBySlug.get(source.slug):null;
   if(cyberIndex)benchmarks.cyberIndex=round(cyberIndex.value,3);

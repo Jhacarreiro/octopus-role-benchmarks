@@ -117,7 +117,7 @@ async function fetchOne(slug) {
   });
   if (!response.ok) throw new CommandExecutionError(`AA model ${slug} returned HTTP ${response.status}`);
   const model = parseModel(await response.text(), slug);
-  if (!model) throw new EmptyResultError(`AA model state not found for ${slug}`);
+  if (!model) return {slug, name: slug, sourceUnavailableReason: `AA model state not found for ${slug}`, sourceUrl: BASE + slug};
   return model;
 }
 async function pooled(slugs, concurrency = 6) {
