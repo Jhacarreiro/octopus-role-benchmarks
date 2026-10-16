@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#31d5ee"/><stop offset=".52" stop-color="#488dff"/><stop offset="1" stop-color="#8554ff"/></linearGradient><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1827"/><stop offset="1" stop-color="#080a14"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<g opacity=".17" fill="#4385e2"><rect x="130" y="270" width="66" height="175" rx="5"/><rect x="215" y="220" width="66" height="225" rx="5"/><rect x="300" y="173" width="66" height="272" rx="5"/><rect x="385" y="251" width="66" height="194" rx="5"/><rect x="780" y="235" width="66" height="210" rx="5"/><rect x="865" y="167" width="66" height="278" rx="5"/><rect x="950" y="117" width="66" height="328" rx="5"/></g>
+<g transform="translate(600 258)" fill="none" stroke="url(#g)" stroke-width="30" stroke-linecap="round">
+<path d="M-75 24 C-133 72 -157 12 -204 25 S-272 90 -303 47"/><path d="M-60 53 C-116 133 -198 85 -233 132"/><path d="M-29 65 C-45 142 -126 148 -138 193"/><path d="M75 24 C133 72 157 12 204 25 S272 90 303 47"/><path d="M60 53 C116 133 198 85 233 132"/><path d="M29 65 C45 142 126 148 138 193"/></g>
+<path d="M465 251 C459 161 499 91 600 91 S741 161 735 251 Q729 359 600 354 Q471 359 465 251Z" fill="url(#g)"/>
+<circle cx="551" cy="230" r="19" fill="#0a1120"/><circle cx="649" cy="230" r="19" fill="#0a1120"/><circle cx="557" cy="223" r="6" fill="#c9efff"/><circle cx="655" cy="223" r="6" fill="#c9efff"/>
+<text x="600" y="510" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="69" font-weight="800" fill="#f5f8ff" letter-spacing="5">OCTOPUS</text>
+<text x="600" y="567" text-anchor="middle" font-family="DejaVu Sans,Arial,sans-serif" font-size="29" fill="#93bef4" letter-spacing="9">ROLE BENCHMARKS</text>
+</svg>
