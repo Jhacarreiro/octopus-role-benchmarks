@@ -83,8 +83,29 @@ function intelligenceTask(block) {
   return {aaCostUsd: aaCost, aaPricingPerM: pricing, tokens};
 }
 
+function releaseModelBlock(html, slug) {
+  // New AA model pages embed each effort variant as a release model, not currentModel.
+  const marker = '\\"slug\\":\\"' + slug + '\\"';
+  let pos = 0;
+  while ((pos = html.indexOf(marker, pos)) >= 0) {
+    const start = html.lastIndexOf('{\\"id\\":', pos);
+    if (start < 0 || pos - start > 220) {pos += marker.length; continue;}
+    let depth = 0;
+    for (let i = start; i < html.length; i++) {
+      if (html[i] === '{') depth++;
+      else if (html[i] === '}' && --depth === 0) {
+        const candidate = html.slice(start, i + 1);
+        if (candidate.includes('\\"chartDefaultSelected\\":true') && candidate.includes('\\"intelligenceIndex\\":')) return candidate;
+        break;
+      }
+    }
+    pos += marker.length;
+  }
+  return null;
+}
+
 export function parseModel(html, slug) {
-  const block = currentModelBlock(html, slug);
+  const block = currentModelBlock(html, slug) ?? releaseModelBlock(html, slug);
   if (!block) return null;
   const omni = block.match(/\\"omniscienceBreakdown\\":\{\\"accuracy\\":(null|-?[0-9.]+),\\"hallucinationRate\\":(null|-?[0-9.]+)/);
   const accuracy = !omni || omni[1] === 'null' ? null : Number(omni[1]);
