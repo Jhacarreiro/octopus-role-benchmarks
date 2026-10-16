@@ -7,7 +7,7 @@ import { fitScicodeEstimator, predictScicode, validateScicodeEstimator, scicodeR
 import { fetchArtificialAnalysisCyberIndex } from './aa-cyber-index.mjs';
 import { planEconomics, planAdjustedTaskCost } from './lib/plan-economics.mjs';
 import { applyBalancedScores } from './lib/balanced-score.mjs';
-import { caiIndexPercent, detectCodingAgentVersionFromRows, detectCodingAgentVersionFromSnapshot, historicalCaiAnchor, calibrateHistoricalCai, applyHistoricalCai } from './lib/cai-version-fallback.mjs';
+import { caiIndexPercent, detectCodingAgentVersionFromRows } from './lib/cai-version-fallback.mjs';
 import { calibrateScicodeLkg, applyScicodeLkg } from './lib/scicode-lkg.mjs';
 import { fetchScicodeReference, validatedScicodeTwoFeature } from './lib/scicode-live-fallback.mjs';
 
@@ -344,18 +344,6 @@ for(const row of codingRows){
 for(const unresolved of codingUnresolved)validationIssues.push({benchmark:'coding-agent-host',targetSlug:unresolved.label,status:'unresolved',reason:unresolved.reason});
 const codingCoverage={total:scoredSlugs.length,present:codingBySlug.size,ratio:round(codingBySlug.size/scoredSlugs.length,6),missing:scoredSlugs.filter(s=>!codingBySlug.has(s))};
 const codingAgentVersion=detectCodingAgentVersionFromRows(codingRows);
-const previousCodingAgentVersion=detectCodingAgentVersionFromSnapshot(previousSnapshot);
-const previousCodingObservedAt=previousSnapshot?.benchmarkGeneratedAt??previousSnapshot?.generatedAt??null;
-const caiVersionCalibration=calibrateHistoricalCai({
-  currentBySlug:codingBySlug,
-  previousBySlug,
-  previousSnapshotVersion:previousCodingAgentVersion,
-  previousObservedAt:previousCodingObservedAt,
-  currentVersion:codingAgentVersion
-});
-// Invalid cross-version calibration is explicitly disabled below. Its detailed
-// diagnostics remain in the snapshot rather than being a source-data error.
-
 function benchmarksForSource(source){
   const out={};
   for(const key of activeBenchmarks) out[key]=scaleBenchmark(key,source);
@@ -371,38 +359,16 @@ const familyRows=caiEligibleSlugs.map(slug=>{
 const observedCaiRows=familyRows.filter(r=>r.cai!=null);
 const caiEstimator=fitCaiEstimator(observedCaiRows);
 const caiBySlug=new Map();
-let caiHistoricalCalibratedFamilies=0;
+const caiHistoricalCalibratedFamilies=0;
 let caiEstimatedFamilies=0;
 for(const row of familyRows){
-  const previousModel=previousBySlug.get(row.slug);
-  const historicalAnchor=historicalCaiAnchor(previousModel,previousCodingAgentVersion,previousCodingObservedAt);
   if(row.cai!=null){
-    caiBySlug.set(row.slug,{value:round(row.cai,3),source:'observed',version:codingAgentVersion,historicalAnchor});
-    continue;
-  }
-  const migrated=applyHistoricalCai(historicalAnchor,caiVersionCalibration);
-  if(Number.isFinite(migrated)){
-    caiHistoricalCalibratedFamilies++;
-    caiBySlug.set(row.slug,{
-      value:round(migrated,3),
-      source:'historical_calibrated',
-      version:codingAgentVersion,
-      historicalAnchor,
-      calibration:{
-        method:caiVersionCalibration.method,
-        fromVersion:caiVersionCalibration.fromVersion,
-        toVersion:caiVersionCalibration.toVersion,
-        factor:round(caiVersionCalibration.factor,6),
-        comparableFamilies:caiVersionCalibration.comparableFamilies,
-        looMae:round(caiVersionCalibration.looMae,3),
-        looMaxError:round(caiVersionCalibration.looMaxError,3)
-      }
-    });
+    caiBySlug.set(row.slug,{value:round(row.cai,3),source:'observed',version:codingAgentVersion});
     continue;
   }
   const pred=predictCai(caiEstimator,row);
   caiEstimatedFamilies++;
-  caiBySlug.set(row.slug,{value:round(pred.estimate,3),source:'estimated',version:codingAgentVersion,ridge:round(pred.ridge,3),knn:round(pred.knn,3),historicalAnchor});
+  caiBySlug.set(row.slug,{value:round(pred.estimate,3),source:'estimated',version:codingAgentVersion,ridge:round(pred.ridge,3),knn:round(pred.knn,3)});
 }
 const caiStarCoverage={
   total:caiEligibleSlugs.length,
@@ -525,17 +491,8 @@ const snapshot={schemaVersion:6,methodologyVersion:roles.schemaVersion,date,gene
   url:'https://artificialanalysis.ai/agents/coding-agents',
   version:codingAgentVersion,
   variants:codingRows.length,
-  calibration:caiVersionCalibration.valid?{
-    fromVersion:caiVersionCalibration.fromVersion,
-    toVersion:caiVersionCalibration.toVersion,
-    method:caiVersionCalibration.method,
-    factor:round(caiVersionCalibration.factor,6),
-    comparableFamilies:caiVersionCalibration.comparableFamilies,
-    ratioMad:round(caiVersionCalibration.ratioMad,6),
-    looMae:round(caiVersionCalibration.looMae,3),
-    looMaxError:round(caiVersionCalibration.looMaxError,3)
-  }:null
-}},codingAgentDiagnostics:{compositeEvaluationsExcluded:compositeCodingRows,unresolvedIdentityRows:codingUnresolved,historicalVersionCalibration:{valid:caiVersionCalibration.valid,reason:caiVersionCalibration.valid?null:caiVersionCalibration.errors.join('; '),comparableFamilies:caiVersionCalibration.comparableFamilies,looMae:caiVersionCalibration.looMae}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,scicodeEstimator:{method:'current_observed_then_calibrated_lkg_then_validated_ridge',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,historicalCalibratedFamilies:benchmarkFallbacksApplied.filter(x=>x.strategy==='last_known_observed_calibrated').length,estimatedFamilies:benchmarkFallbacksApplied.filter(x=>x.provenanceStatus==='estimated').length,validatedAt:nowIso,sourceSnapshotGeneratedAt:nowIso,lkg:{maxAgeDays:lastKnownMaxAgeDays,calibration:{valid:scicodeLkgCalibration.valid,method:scicodeLkgCalibration.method,factor:scicodeLkgCalibration.factor==null?null:round(scicodeLkgCalibration.factor,6),rawMedianRatio:scicodeLkgCalibration.rawMedianRatio==null?null:round(scicodeLkgCalibration.rawMedianRatio,6),overlap:scicodeLkgCalibration.overlap,mae:scicodeLkgCalibration.mae==null?null:round(scicodeLkgCalibration.mae,4),maxError:scicodeLkgCalibration.maxError==null?null:round(scicodeLkgCalibration.maxError,4),failures:scicodeLkgCalibration.failures}},validation:{valid:scicodeEstimatorValid,mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS,worstResidual:scicodeTopResiduals[0]??null,topResiduals:scicodeTopResiduals}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,historicalCalibratedFamilies:caiHistoricalCalibratedFamilies,estimatedFamilies:caiEstimatedFamilies},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,partialRows:models.filter(x=>x.mapping?.status==='unscored'||x.mapping?.status==='source_incomplete'||x.mapping?.status==='partial_scored'||Object.values(x.benchmarkProvenance||{}).some(v=>['stale','unavailable'].includes(v?.status))).length,partialScoredRows:models.filter(x=>x.mapping?.status==='partial_scored').length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,partialScoredFamilies:partialScoredBySlug.size,sourceIncompleteFamilies:hardIncompleteBySlug.size,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiHistoricalCalibratedFamilies,caiEstimatedFamilies,cyberIndexDirectFamilies:[...slugs].filter(slug=>cyberIndexBySlug.has(slug)).length},benchmarks:roles.benchmarks,roles:roles.roles,models};
+  calibration:null
+}},codingAgentDiagnostics:{compositeEvaluationsExcluded:compositeCodingRows,unresolvedIdentityRows:codingUnresolved,historicalVersionCalibration:{status:'disabled',reason:'Current observed CAI or independently validated current-version estimator only'}},coveragePolicy:roles.coveragePolicy,benchmarkFallbacksApplied,scicodeEstimator:{method:'current_observed_then_calibrated_lkg_then_validated_ridge',lambda:SCICODE_RIDGE_LAMBDA,features:SCICODE_FEATURES,observedFamilies:observedScicodeRows.length,historicalCalibratedFamilies:benchmarkFallbacksApplied.filter(x=>x.strategy==='last_known_observed_calibrated').length,estimatedFamilies:benchmarkFallbacksApplied.filter(x=>x.provenanceStatus==='estimated').length,validatedAt:nowIso,sourceSnapshotGeneratedAt:nowIso,lkg:{maxAgeDays:lastKnownMaxAgeDays,calibration:{valid:scicodeLkgCalibration.valid,method:scicodeLkgCalibration.method,factor:scicodeLkgCalibration.factor==null?null:round(scicodeLkgCalibration.factor,6),rawMedianRatio:scicodeLkgCalibration.rawMedianRatio==null?null:round(scicodeLkgCalibration.rawMedianRatio,6),overlap:scicodeLkgCalibration.overlap,mae:scicodeLkgCalibration.mae==null?null:round(scicodeLkgCalibration.mae,4),maxError:scicodeLkgCalibration.maxError==null?null:round(scicodeLkgCalibration.maxError,4),failures:scicodeLkgCalibration.failures}},validation:{valid:scicodeEstimatorValid,mae:round(scicodeValidation.mae,4),maxError:round(scicodeValidation.maxError,4),limits:SCICODE_VALIDATION_LIMITS,worstResidual:scicodeTopResiduals[0]??null,topResiduals:scicodeTopResiduals}},sourceIncomplete,coverage,efficiencyCoverage,codingAgentCoverage:codingCoverage,caiStarCoverage,caiEstimator:{method:'50% ridge + 50% inverse-distance 5NN',ridge:{lambda:RIDGE_LAMBDA,features:RIDGE_FEATURES},knn:{k:KNN_K,features:KNN_FEATURES},blend:CAI_BLEND,codingRoleWeight:CODING_ROLE_CAI_WEIGHT,observedFamilies:observedCaiRows.length,historicalCalibratedFamilies:caiHistoricalCalibratedFamilies,estimatedFamilies:caiEstimatedFamilies},counts:{commandCodeRows:maxRows.length,mappedRows:models.filter(x=>x.aaModel).length,scoredRows:models.filter(x=>x.aaModel&&x.mapping?.status!=='source_incomplete').length,partialRows:models.filter(x=>x.mapping?.status==='unscored'||x.mapping?.status==='source_incomplete'||x.mapping?.status==='partial_scored'||Object.values(x.benchmarkProvenance||{}).some(v=>['stale','unavailable'].includes(v?.status))).length,partialScoredRows:models.filter(x=>x.mapping?.status==='partial_scored').length,sourceIncompleteRows:models.filter(x=>x.mapping?.status==='source_incomplete').length,unscoredRows:models.filter(x=>!x.aaModel).length,mappedFamilies:slugs.length,scoredFamilies:scoredSlugs.length,partialScoredFamilies:partialScoredBySlug.size,sourceIncompleteFamilies:hardIncompleteBySlug.size,codingAgentFamilies:codingBySlug.size,caiObservedFamilies:observedCaiRows.length,caiHistoricalCalibratedFamilies,caiEstimatedFamilies,cyberIndexDirectFamilies:[...slugs].filter(slug=>cyberIndexBySlug.has(slug)).length},benchmarks:roles.benchmarks,roles:roles.roles,models};
 for(const dir of [path.join(root,'data'),path.join(root,'site','data')])fs.mkdirSync(dir,{recursive:true});
 const json=JSON.stringify(snapshot,null,2)+'\n';fs.writeFileSync(path.join(root,'data',`${date}.json`),json);fs.writeFileSync(path.join(root,'data','latest.json'),json);fs.writeFileSync(path.join(root,'site','data','latest.json'),json);
 console.log(JSON.stringify({date,...snapshot.counts,taskCoverage:`${efficiencyCoverage.present}/${efficiencyCoverage.total}`,codingAgentCoverage:`${codingCoverage.present}/${codingCoverage.total}`,caiStarCoverage:`${caiStarCoverage.present}/${caiStarCoverage.total}`,coverage:Object.fromEntries(Object.entries(coverage).map(([k,v])=>[k,`${v.present}/${v.total}`])),unscored:models.filter(x=>!x.aaModel).map(x=>x.name)},null,2));
