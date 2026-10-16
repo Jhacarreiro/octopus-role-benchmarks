@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-10-16",
-  "generatedAt": "2026-10-16T09:34:52.029Z",
+  "generatedAt": "2026-10-16T09:55:18.105Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -34,12 +34,12 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 25,
-        "referenceFamilies": 16,
+        "referenceModels": 33,
+        "referenceFamilies": 19,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.703664,
-        "populationStdDevCostPerTaskUsd": 2.005801,
-        "cutoffCostPerTaskUsd": 5.715265,
+        "meanCostPerTaskUsd": 1.345401,
+        "populationStdDevCostPerTaskUsd": 1.861505,
+        "cutoffCostPerTaskUsd": 5.068411,
         "postFilterBestEligibleIntelligenceIndex": 56.0001,
         "excluded": [
           {
@@ -50,11 +50,32 @@
             "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
+            "model": "Claude Fable 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 8.778535,
+            "planAdjustedCostPerTaskUsd": 8.778535
+          },
+          {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 5.982012,
             "planAdjustedCostPerTaskUsd": 5.982012
+          },
+          {
+            "model": "Claude Opus 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.858396,
+            "planAdjustedCostPerTaskUsd": 5.858396
+          },
+          {
+            "model": "Claude Sonnet 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.091164,
+            "planAdjustedCostPerTaskUsd": 5.091164
           }
         ]
       },
@@ -76,12 +97,12 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 25,
-        "referenceFamilies": 16,
+        "referenceModels": 33,
+        "referenceFamilies": 19,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.703664,
-        "populationStdDevCostPerTaskUsd": 2.005801,
-        "cutoffCostPerTaskUsd": 5.715265,
+        "meanCostPerTaskUsd": 1.345401,
+        "populationStdDevCostPerTaskUsd": 1.861505,
+        "cutoffCostPerTaskUsd": 5.068411,
         "postFilterBestEligibleIntelligenceIndex": 56.0001,
         "excluded": [
           {
@@ -92,11 +113,32 @@
             "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
+            "model": "Claude Fable 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 8.778535,
+            "planAdjustedCostPerTaskUsd": 8.778535
+          },
+          {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 5.982012,
             "planAdjustedCostPerTaskUsd": 5.982012
+          },
+          {
+            "model": "Claude Opus 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.858396,
+            "planAdjustedCostPerTaskUsd": 5.858396
+          },
+          {
+            "model": "Claude Sonnet 5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.091164,
+            "planAdjustedCostPerTaskUsd": 5.091164
           }
         ]
       },

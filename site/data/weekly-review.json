@@ -1,31 +1,127 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T09:34:55.343Z",
+  "generatedAt": "2026-10-16T09:55:21.521Z",
   "snapshotDate": "2026-10-16",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T09:34:55.298Z",
+    "attemptedAt": "2026-10-16T09:55:21.433Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T09:34:52.029Z"
+      "generatedAt": "2026-10-16T09:55:18.105Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T09:34:52.029Z",
+      "generatedAt": "2026-10-16T09:55:18.105Z",
       "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T09:34:52.029Z",
-      "lineupInputsRefreshedAt": "2026-10-16T09:34:52.029Z"
+      "benchmarkGeneratedAt": "2026-10-16T09:55:18.105Z",
+      "lineupInputsRefreshedAt": "2026-10-16T09:55:18.105Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T09:34:52.029Z"
+      "generatedAt": "2026-10-16T09:55:18.105Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
     "stage": null,
     "errorSummary": null,
     "validationIssues": [
+      {
+        "benchmark": "scicode",
+        "targetSlug": "claude-4-5-haiku",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for claude-4-5-haiku; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "claude-opus-4-6",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-6; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "claude-opus-4-7",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-7; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "claude-sonnet-4-6",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for claude-sonnet-4-6; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "glm-5",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for glm-5; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "gpt-5-3-codex",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for gpt-5-3-codex; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "gpt-5-4",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for gpt-5-4; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "kimi-k2-5",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for kimi-k2-5; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "minimax-m2-5",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for minimax-m2-5; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "qwen3-6-plus",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for qwen3-6-plus; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "qwen3-max-preview",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for qwen3-max-preview; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
+      {
+        "benchmark": "scicode",
+        "targetSlug": "step-3-5-flash",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current SciCode for step-3-5-flash; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
+        "lastObserved": null,
+        "maxFreshAgeDays": 14
+      },
       {
         "benchmark": "artificial-analysis-model",
         "targetSlug": "deepseek-v4-pro",
@@ -263,8 +359,8 @@
         "reason": "No verified AA identity."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38881394136"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38883703094"
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• balanced/architect: Claude Sonnet 5.5 → Muse Wonder\n• balanced/strategist: GPT-6.1 Sol → Claude Sonnet 5.5\n• balanced/code-reviewer: Grok 4.7 → Muse Wonder\n• balanced/implementer: MiMo V2.6 Pro → GPT-6.1 Sol\n• balanced/implementer-heavy: GPT-6.1 Sol → Claude Sonnet 5.5\n• balanced/synthesizer: Qwen 3.8 Max 0902 → Gemini 4 Argon\n• balanced/researcher: Claude Sonnet 5.5 → Gemini 4 Argon"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• quality/code-reviewer: GPT-6 Astra → Gemini 4 Argon\n• quality/implementer: Gemini 4 Argon → Muse Wonder\n• quality/synthesizer: Gemini 4 Argon → GPT-6.1 Sol\n• quality/researcher: Muse Wonder → GPT-6.1 Sol\n• balanced/architect: Muse Wonder → MiMo V2.6 Pro\n• balanced/strategist: Claude Sonnet 5.5 → Gemini 4 Argon\n• balanced/security-reviewer: MiMo V2.6 Pro → Grok 4.7\n• balanced/code-reviewer: Muse Wonder → Claude Sonnet 5.5\n• balanced/implementer: GPT-6.1 Sol → MiMo V2.6 Pro\n• balanced/implementer-heavy: Claude Sonnet 5.5 → Gemini 4 Argon\n• balanced/synthesizer: Gemini 4 Argon → GPT-6.1 Sol\n• balanced/researcher: Gemini 4 Argon → GPT-6.1 Sol\n• budget/architect: Qwen 3.8 Max 0902 → MiMo V2.6 Pro\n• budget/strategist: GPT-6.1 Sol → Qwen 3.8 Max 0902\n• budget/security-reviewer: MiMo V2.6 Pro → Grok 4.7\n• budget/code-reviewer: Grok 4.7 → Gemini 4 Argon\n• budget/synthesizer: Gemini 4 Argon → GPT-6.1 Sol"
 }
