@@ -9,7 +9,31 @@ const fmtDateTime=iso=>{if(!iso)return 'unknown';const d=new Date(iso);return Nu
 const fresh=url=>`${url}${url.includes('?')?'&':'?'}v=${Date.now()}`;
 async function fetchFirst(urls){let err;for(const url of urls){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),4000);try{const r=await fetch(fresh(url),{cache:'no-store',signal:controller.signal});if(!r.ok)throw new Error(`${r.status}`);return await r.json()}catch(e){err=e}finally{clearTimeout(timer)}}throw err}
 async function load(){try{[state.data,state.lineups,state.refreshStatus]=await Promise.all([fetchFirst(['./data/latest.json',DATA_REMOTE]),fetchFirst(['./data/lineups.json',LINEUPS_REMOTE]),fetchFirst(['./data/refresh-status.json',STATUS_REMOTE]).catch(()=>null)])}catch(e){$('#status').textContent='Unable to load current data: '+e;return}renderLineup();renderRoles();render()}
-function estimateIcon(m){const p=m?.estimatedBenchmarks;if(!p)return '';const names=p.metrics.join(', ');const description=`Estimated metrics: ${names}. Reference: ${p.reference}. Factor: ${p.factor}. Method: ${p.method}. ${p.evidence}. Source: ${p.sourceUrl}. Not direct benchmark measurements.`;return `<span class="estimate-icon" tabindex="0" role="img" aria-label="${esc(description)}" title="${esc(description)}">ⓘ</span>`;}
+const INFO_SVG='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".65" fill="currentColor" stroke="none"/></svg>';
+function estimateIcon(m){
+  const p=m?.estimatedBenchmarks;if(!p)return '';
+  const summary=`Estimated benchmarks for ${m.name}`;
+  const details=`${summary}\nMetrics: ${p.metrics.join(', ')}\nReference: ${p.reference}\nFactor: ${p.factor}\nMethod: ${p.method}\nEvidence: ${p.evidence}\nSource: ${p.sourceUrl}\nNot directly observed.`;
+  return `<button type="button" class="estimate-icon" aria-label="${esc(summary)}" data-estimate="${esc(details)}" aria-describedby="estimate-tooltip">${INFO_SVG}</button>`;
+}
+const estimateTooltip=typeof document.createElement==='function'?document.createElement('div'):null;
+if(estimateTooltip){estimateTooltip.id='estimate-tooltip';estimateTooltip.className='estimate-tooltip';estimateTooltip.setAttribute('role','tooltip');estimateTooltip.hidden=true;document.body.append(estimateTooltip);}
+function showEstimateTooltip(button){
+  if(!estimateTooltip)return;
+  estimateTooltip.textContent=button.dataset.estimate||'';
+  estimateTooltip.hidden=false;
+  const rect=button.getBoundingClientRect(), width=estimateTooltip.offsetWidth,height=estimateTooltip.offsetHeight;
+  estimateTooltip.style.left=`${Math.max(8,Math.min(window.innerWidth-width-8,rect.left+rect.width/2-width/2))}px`;
+  estimateTooltip.style.top=`${Math.max(8,rect.top-height-10)}px`;
+  if(rect.top-height<8)estimateTooltip.style.top=`${Math.min(window.innerHeight-height-8,rect.bottom+10)}px`;
+}
+function hideEstimateTooltip(){if(estimateTooltip)estimateTooltip.hidden=true;}
+document.addEventListener?.('pointerover',e=>{const b=e.target.closest?.('.estimate-icon');if(b)showEstimateTooltip(b)});
+document.addEventListener?.('pointerout',e=>{if(e.target.closest?.('.estimate-icon'))hideEstimateTooltip()});
+document.addEventListener?.('focusin',e=>{const b=e.target.closest?.('.estimate-icon');if(b)showEstimateTooltip(b)});
+document.addEventListener?.('focusout',e=>{if(e.target.closest?.('.estimate-icon'))hideEstimateTooltip()});
+document.addEventListener?.('click',e=>{const b=e.target.closest?.('.estimate-icon');if(b){if(estimateTooltip.hidden)showEstimateTooltip(b);else hideEstimateTooltip()}else hideEstimateTooltip()});
+document.addEventListener?.('keydown',e=>{if(e.key==='Escape')hideEstimateTooltip()});
 function renderLineup(){const mode=state.lineups?.modes?.[state.lineupMode];if(!mode)return;const stale=state.lineups?.snapshotDate!==state.data?.date;$('#lineupNote').textContent=mode.description+(stale?` · Approved lineup is from snapshot ${state.lineups.snapshotDate}; current benchmark snapshot is ${state.data.date}.`:'');$('#lineup').innerHTML=state.data.roles.map(r=>{const pick=mode.selections[r.id],badges=(pick?.badges||[]).map(b=>`<span class="lineup-badge ${b==='FREE'?'free':''}">${esc(b)}</span>`).join('');return `<div class="lineup-item"><span class="lineup-role">${esc(r.label)}</span><strong>${esc(pick?.model||'—')}</strong>${estimateIcon(state.data.models.find(m=>m.name===pick?.model))}${badges?`<span class="lineup-badges">${badges}</span>`:''}</div>`}).join('');document.querySelectorAll('[data-lineup-mode]').forEach(b=>b.classList.toggle('active',b.dataset.lineupMode===state.lineupMode))}
 function renderRoles(){$('#roles').innerHTML=state.data.roles.map(r=>`<button data-role="${esc(r.id)}">${esc(r.label)}</button>`).join('');$('#roles').addEventListener('click',e=>{const b=e.target.closest('button[data-role]');if(!b)return;state.role=b.dataset.role;state.sort='value';state.dir=-1;render()})}
 function metricValue(m){const s=m.roleScores?.[state.role];if(state.mode==='quality')return s?.rankingQuality??null;if(state.mode==='budget')return s&&Number.isFinite(m.taskEfficiency?.planAdjustedCostPerTaskUsd)?m.taskEfficiency.planAdjustedCostPerTaskUsd:null;return s?.rankingValue??null}
