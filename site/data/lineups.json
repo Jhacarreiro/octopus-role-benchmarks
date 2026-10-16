@@ -1,7 +1,7 @@
 {
   "schemaVersion": 13,
   "snapshotDate": "2026-10-16",
-  "generatedAt": "2026-10-16T11:27:10.900Z",
+  "generatedAt": "2026-10-16T11:33:16.964Z",
   "policy": {
     "latestGenerationOnly": true,
     "previousGenerationRoleException": "allow when absolute role quality exceeds the best latest-generation peer in the same series",

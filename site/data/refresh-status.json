@@ -1,21 +1,21 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-10-16T11:27:53.639Z",
+  "attemptedAt": "2026-10-16T11:33:50.993Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T11:27:10.900Z"
+    "generatedAt": "2026-10-16T11:33:16.964Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T11:27:10.900Z",
+    "generatedAt": "2026-10-16T11:33:16.964Z",
     "benchmarkDate": "2026-10-16",
-    "benchmarkGeneratedAt": "2026-10-16T11:27:10.900Z",
-    "lineupInputsRefreshedAt": "2026-10-16T11:27:10.900Z"
+    "benchmarkGeneratedAt": "2026-10-16T11:33:16.964Z",
+    "lineupInputsRefreshedAt": "2026-10-16T11:33:16.964Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T11:27:10.900Z"
+    "generatedAt": "2026-10-16T11:33:16.964Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -83,5 +83,5 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38893835111"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38894514519"
 }
