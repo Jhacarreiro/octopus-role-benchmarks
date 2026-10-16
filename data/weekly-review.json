@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T11:41:12.752Z",
+  "generatedAt": "2026-10-16T12:01:13.416Z",
   "snapshotDate": "2026-10-16",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T11:41:12.691Z",
+    "attemptedAt": "2026-10-16T12:01:13.360Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:40:27.305Z"
+      "generatedAt": "2026-10-16T12:00:39.617Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:40:27.305Z",
+      "generatedAt": "2026-10-16T12:00:39.617Z",
       "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T11:40:27.305Z",
-      "lineupInputsRefreshedAt": "2026-10-16T11:40:27.305Z"
+      "benchmarkGeneratedAt": "2026-10-16T12:00:39.617Z",
+      "lineupInputsRefreshedAt": "2026-10-16T12:00:39.617Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:40:27.305Z"
+      "generatedAt": "2026-10-16T12:00:39.617Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -40,42 +40,6 @@
       },
       {
         "benchmark": "gdpval",
-        "targetSlug": "glm-5",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "minimax-m2-5",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "qwen3-max-preview",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "step-3-5-flash",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "claude-opus-4-6",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "claude-sonnet-4-6",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
         "targetSlug": "claude-4-5-haiku",
         "status": "unavailable",
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
@@ -87,7 +51,7 @@
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38895294576"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38897532865"
   },
   "materialChanges": true,
   "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
