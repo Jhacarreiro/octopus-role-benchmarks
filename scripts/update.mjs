@@ -263,7 +263,25 @@ const efficiencyMissing=[];
 const efficiencyCoverage={total:scoredSlugs.length,present:scoredSlugs.length,ratio:1,missing:[],basis:'normalized_reference_v1'};
 
 const codingBySlug=new Map();
-for(const row of codingRows){const base=codingHostBase(row.hostModelSlug);if(!scoredSlugSet.has(base))continue;codingBySlug.set(base,betterCoding(codingBySlug.get(base),row))}
+const codingLabelSlugs=new Map();
+for(const slug of slugs){const key=normalize(slug);const matches=codingLabelSlugs.get(key)??[];matches.push(slug);codingLabelSlugs.set(key,matches)}
+const codingUnresolved=[];
+for(const row of codingRows){
+  let base;
+  if(row.hostModelSlug) base=codingHostBase(row.hostModelSlug);
+  else {
+    // AA now publishes a display.model rather than hostModelSlug. Only accept
+    // an exact catalogue-family identity with a recognized effort suffix.
+    const label=row.modelLabel.replace(/\s+\((?:max|high|medium|low|xhigh)\)$/i,'');
+    const candidates=codingLabelSlugs.get(normalize(row.modelLabel))??codingLabelSlugs.get(normalize(label))??[];
+    if(candidates.length!==1){codingUnresolved.push({label:row.modelLabel,reason:candidates.length?'ambiguous_identity':'no_exact_identity'});continue}
+    base=candidates[0];
+    row.hostModelSlug=base;
+  }
+  if(!scoredSlugSet.has(base))continue;
+  codingBySlug.set(base,betterCoding(codingBySlug.get(base),row));
+}
+for(const unresolved of codingUnresolved)validationIssues.push({benchmark:'coding-agent-host',targetSlug:unresolved.label,status:'unresolved',reason:unresolved.reason});
 const codingCoverage={total:scoredSlugs.length,present:codingBySlug.size,ratio:round(codingBySlug.size/scoredSlugs.length,6),missing:scoredSlugs.filter(s=>!codingBySlug.has(s))};
 const codingAgentVersion=detectCodingAgentVersionFromRows(codingRows);
 const previousCodingAgentVersion=detectCodingAgentVersionFromSnapshot(previousSnapshot);

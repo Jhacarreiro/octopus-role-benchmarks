@@ -43,18 +43,19 @@ export function parseCodingAgents(html) {
   for(let n=0;n<starts.length;n++){
     const block=html.slice(starts[n],starts[n+1]??Math.min(html.length,starts[n]+28000));
     const agent=fieldString(block,'agentName'), hostModelSlug=fieldString(block,'hostModelSlug'), indexScore=fieldNumber(block,'indexScore');
-    if(!agent||!hostModelSlug||indexScore==null) continue;
+    const modelLabel=fieldString(block,'model');
+    if(!agent||(!hostModelSlug&&!modelLabel)||indexScore==null) continue;
     rows.push({
-      agent, hostModelSlug, displayLabel:fieldString(block,'displayLabel'), indexScore,
+      agent, hostModelSlug:hostModelSlug??null, modelLabel:modelLabel??null, displayLabel:fieldString(block,'displayLabel'), indexScore,
       isDefault:fieldBool(block,'isDefault'), isHighlighted:fieldBool(block,'isHighlighted'),
-      telemetry:meanTelemetry(block), evaluations:evalScores(block), sourceUrl:URL
+      telemetry:meanTelemetry(block.slice(block.lastIndexOf('indexScore'))), evaluations:evalScores(block), sourceUrl:URL
     });
   }
   return rows;
 }
 
 export function validateCodingAgentsPage(html) {
-  const sourceRowCount=(html.match(/hostModelSlug\\\":\\\"/g)||[]).length;
+  const sourceRowCount=(html.match(/\\\"id\\\":\\\"[0-9a-f]{32}\\\",\\\"isDefault\\\":/g)||[]).length;
   const rows=parseCodingAgents(html);
   if(sourceRowCount===0) throw new EmptyResultError('Coding Agent page exposed no source rows');
   if(rows.length!==sourceRowCount) throw new EmptyResultError(`Coding Agent parser coverage mismatch: parsed ${rows.length}/${sourceRowCount}`);
