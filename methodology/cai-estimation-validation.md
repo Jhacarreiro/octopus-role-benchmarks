@@ -1,7 +1,7 @@
 # CAI estimation — reverse validation
 
-Snapshot: **2026-10-05**
-Observed Coding Agent families: **16**
+Snapshot: **2026-10-16**
+Observed Coding Agent families: **11**
 
 ## Selected estimator
 
@@ -17,15 +17,15 @@ An entire vendor/family group is removed from training before predicting it. Thi
 
 | Method | MAE | RMSE | Spearman | Pairwise accuracy |
 |---|---:|---:|---:|---:|
-| Ridge | 3.54 | 4.69 | 0.791 | 82.5% |
-| 5NN | 4.94 | 6 | 0.718 | 75% |
-| **50/50 ensemble** | **4.55** | **5.51** | **0.762** | **79.2%** |
+| Ridge | 3.88 | 5.04 | 0.936 | 90.9% |
+| 5NN | 6.43 | 7.52 | 0.836 | 81.8% |
+| **50/50 ensemble** | **5.64** | **6.72** | **0.891** | **87.3%** |
 
-## Random 31.3% holdout × 500
+## Random 27.3% holdout × 500
 
-- MAE median: **4.01**; p90: **5.6**.
-- Spearman median: **0.9**; p10: **0.7**.
-- Pairwise ranking accuracy median: **90%**.
+- MAE median: **6**; p90: **9.88**.
+- Spearman median: **1**; p10: **0.4**.
+- Pairwise ranking accuracy median: **100%**.
 
 ## Effect on final ranking
 
@@ -33,9 +33,9 @@ For each observed family, the real CAI is hidden using leave-one-vendor-out; the
 
 | Role | Spearman | Pairwise accuracy | Top-5 recovered | Quality MAE |
 |---|---:|---:|---:|---:|
-| implementer | 0.994 | 98.3% | 100% | 1.52 |
-| implementer-heavy | 0.994 | 98.3% | 100% | 1.52 |
-| code-reviewer | 0.985 | 96.7% | 100% | 1.52 |
+| implementer | 0.991 | 98.2% | 80% | 1.88 |
+| implementer-heavy | 1 | 100% | 100% | 1.88 |
+| code-reviewer | 0.991 | 98.2% | 80% | 1.88 |
 
 ## Guardrails
 

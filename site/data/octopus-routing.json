@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-05",
-  "generatedAt": "2026-10-05T06:17:19.309Z",
+  "snapshotDate": "2026-10-16",
+  "generatedAt": "2026-10-16T09:12:52.129Z",
   "mode": "balanced",
   "roles": {
     "architect": {
+      "provider": "claude",
+      "model": "claude-sonnet-5-5",
+      "benchmarkModel": "Claude Sonnet 5.5"
+    },
+    "strategist": {
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "benchmarkModel": "GPT-6.1 Sol"
+    },
+    "security-reviewer": {
       "provider": "commandcode",
       "model": "xiaomi/mimo-v2.6-pro",
       "benchmarkModel": "MiMo V2.6 Pro"
     },
-    "strategist": {
-      "provider": "commandcode",
-      "model": "qwen/qwen3.8-max-0902",
-      "benchmarkModel": "Qwen 3.8 Max 0902"
-    },
-    "security-reviewer": {
+    "code-reviewer": {
       "provider": "commandcode",
       "model": "xai/grok-4.7",
       "benchmarkModel": "Grok 4.7"
-    },
-    "code-reviewer": {
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
-      "benchmarkModel": "Claude Sonnet 5.5"
     },
     "implementer": {
       "provider": "commandcode",
@@ -35,14 +35,14 @@
       "benchmarkModel": "GPT-6.1 Sol"
     },
     "synthesizer": {
+      "provider": "commandcode",
+      "model": "qwen/qwen3.8-max-0902",
+      "benchmarkModel": "Qwen 3.8 Max 0902"
+    },
+    "researcher": {
       "provider": "claude",
       "model": "claude-sonnet-5-5",
       "benchmarkModel": "Claude Sonnet 5.5"
-    },
-    "researcher": {
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "benchmarkModel": "GPT-6.1 Sol"
     }
   }
 }

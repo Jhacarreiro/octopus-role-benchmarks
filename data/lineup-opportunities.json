@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "snapshotDate": "2026-10-05",
-  "generatedAt": "2026-10-05T06:17:19.309Z",
+  "snapshotDate": "2026-10-16",
+  "generatedAt": "2026-10-16T09:12:52.129Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -12,9 +12,9 @@
       "classification": "review-only",
       "objective": "maximize-role-quality",
       "minimumFamilies": 4,
-      "currentFamilyCount": 4,
+      "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.9,
-      "effectiveIntelligenceFloor": 0.785,
+      "effectiveIntelligenceFloor": 0.805,
       "priceFilter": null,
       "autoSafeCandidateCount": 0,
       "reviewOnlyCandidateCount": 0,
@@ -34,43 +34,14 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 30,
-        "referenceFamilies": 17,
+        "referenceModels": 25,
+        "referenceFamilies": 16,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.341961,
-        "populationStdDevCostPerTaskUsd": 1.925687,
-        "cutoffCostPerTaskUsd": 5.193336,
+        "meanCostPerTaskUsd": 1.703664,
+        "populationStdDevCostPerTaskUsd": 2.005801,
+        "cutoffCostPerTaskUsd": 5.715265,
         "postFilterBestEligibleIntelligenceIndex": 56.0001,
-        "excluded": [
-          {
-            "model": "Claude Fable 5.1",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 7.631889,
-            "planAdjustedCostPerTaskUsd": 7.631889
-          },
-          {
-            "model": "Claude Fable 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 8.778535,
-            "planAdjustedCostPerTaskUsd": 8.778535
-          },
-          {
-            "model": "Claude Opus 5.5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.982012,
-            "planAdjustedCostPerTaskUsd": 5.982012
-          },
-          {
-            "model": "Claude Opus 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.858396,
-            "planAdjustedCostPerTaskUsd": 5.858396
-          }
-        ]
+        "excluded": []
       },
       "autoSafeCandidateCount": 0,
       "reviewOnlyCandidateCount": 0,
@@ -90,12 +61,12 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 30,
-        "referenceFamilies": 17,
+        "referenceModels": 25,
+        "referenceFamilies": 16,
         "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.341961,
-        "populationStdDevCostPerTaskUsd": 1.925687,
-        "cutoffCostPerTaskUsd": 5.193336,
+        "meanCostPerTaskUsd": 1.703664,
+        "populationStdDevCostPerTaskUsd": 2.005801,
+        "cutoffCostPerTaskUsd": 5.715265,
         "postFilterBestEligibleIntelligenceIndex": 56.0001,
         "excluded": [
           {
@@ -106,25 +77,11 @@
             "planAdjustedCostPerTaskUsd": 7.631889
           },
           {
-            "model": "Claude Fable 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 8.778535,
-            "planAdjustedCostPerTaskUsd": 8.778535
-          },
-          {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 5.982012,
             "planAdjustedCostPerTaskUsd": 5.982012
-          },
-          {
-            "model": "Claude Opus 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.858396,
-            "planAdjustedCostPerTaskUsd": 5.858396
           }
         ]
       },

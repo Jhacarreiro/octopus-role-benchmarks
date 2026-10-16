@@ -1,32 +1,202 @@
 {
   "schemaVersion": 3,
-  "status": "error",
-  "attemptedAt": "2026-10-16T09:05:11.355Z",
+  "status": "partial",
+  "attemptedAt": "2026-10-16T09:12:55.902Z",
   "lastSuccessfulSnapshot": {
-    "date": "2026-10-05",
-    "generatedAt": "2026-10-05T06:17:19.309Z"
+    "date": "2026-10-16",
+    "generatedAt": "2026-10-16T09:12:52.129Z"
   },
   "lastPublishedSnapshot": {
-    "date": "2026-10-05",
-    "generatedAt": "2026-10-05T06:17:19.309Z",
-    "benchmarkDate": "2026-10-05",
-    "benchmarkGeneratedAt": "2026-10-05T06:17:19.309Z",
-    "lineupInputsRefreshedAt": "2026-10-05T06:17:19.309Z"
+    "date": "2026-10-16",
+    "generatedAt": "2026-10-16T09:12:52.129Z",
+    "benchmarkDate": "2026-10-16",
+    "benchmarkGeneratedAt": "2026-10-16T09:12:52.129Z",
+    "lineupInputsRefreshedAt": "2026-10-16T09:12:52.129Z"
   },
   "lastValidatedBenchmark": {
-    "date": "2026-10-05",
-    "generatedAt": "2026-10-05T06:17:19.309Z"
+    "date": "2026-10-16",
+    "generatedAt": "2026-10-16T09:12:52.129Z"
   },
-  "mode": null,
-  "message": null,
-  "stage": "lineup-generation",
-  "errorSummary": "Error: missing Octopus execution identity for Balanced model: Muse Wonder",
+  "mode": "full",
+  "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
+  "stage": null,
+  "errorSummary": null,
   "validationIssues": [
     {
-      "benchmark": "mapping",
-      "targetModel": "Space Bunny Alpha",
+      "benchmark": "artificial-analysis-model",
+      "targetSlug": "deepseek-v4-pro",
       "status": "unavailable",
-      "reason": "Stealth model; identity unverified."
+      "reason": "AA model state not found for deepseek-v4-pro",
+      "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro"
+    },
+    {
+      "benchmark": "artificial-analysis-model",
+      "targetSlug": "gpt-5-6-terra",
+      "status": "unavailable",
+      "reason": "AA model state not found for gpt-5-6-terra",
+      "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra"
+    },
+    {
+      "benchmark": "artificial-analysis-model",
+      "targetSlug": "muse-spark-1-3-xhigh",
+      "status": "unavailable",
+      "reason": "AA model state not found for muse-spark-1-3-xhigh",
+      "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Grok 4.7 (xhigh)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Fable 5.1 (max) (with fallback)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "GPT-6.1 Sol (xhigh)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Sonnet 5.5 (medium)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Sonnet 5.5 (low)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Step 5 Preview",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Haiku 5.5 (medium)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Muse Wonder Full (max)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "GPT-6.1 Sol (medium)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Claude Fable 5.1 XHigh + SWE-2 Medium",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Claude Opus 5.5 Max + GPT-6 Luna High",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Haiku 5.5 (xhigh)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Muse Spark Open (xhigh)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Haiku 5.5 (high)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "GPT-6 Astra XHigh + SWE-2 Medium",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Gemini 3.8 Flash (high)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Sonnet 5.5 (xhigh)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Muse Spark 1.3 (max)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Sonnet 5.5 (high)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "DeepSeek V4 Flash 0731 (max)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "GPT-6.1 Sol (high)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Haiku 5.5 (low)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "GPT-6.1 Sol (low)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Grok 4.6 (xhigh)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "DeepSeek V4 Pro 0813 (max)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-version-calibration",
+      "status": "unavailable",
+      "reason": "comparable families 2<4; LOO MAE 7.640837983849359"
     },
     {
       "benchmark": "mapping",
@@ -36,7 +206,13 @@
     },
     {
       "benchmark": "mapping",
-      "targetModel": "Ling 3.1 Flash",
+      "targetModel": "Glyph Cluster",
+      "status": "unavailable",
+      "reason": "No verified AA identity."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Cat Jam",
       "status": "unavailable",
       "reason": "No verified AA identity."
     },
@@ -51,6 +227,12 @@
       "targetModel": "Qwen 3.8 Omni Flash",
       "status": "unavailable",
       "reason": "Public model; no canonical AA entry."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Qwen 3.8 Max Prime",
+      "status": "unavailable",
+      "reason": "No verified AA identity."
     },
     {
       "benchmark": "mapping",
@@ -71,53 +253,11 @@
       "reason": "Decision model; not comparable to the AA ranking."
     },
     {
-      "benchmark": "gdpval",
-      "targetSlug": "glm-5",
+      "benchmark": "mapping",
+      "targetModel": "Jev 1.14.0",
       "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "minimax-m2-5",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "qwen3-max-preview",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "step-3-5-flash",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "claude-opus-4-6",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "claude-sonnet-4-6",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "claude-4-5-haiku",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "gpt-5-3-codex",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+      "reason": "No verified AA identity."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38877977022"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38878870445"
 }
