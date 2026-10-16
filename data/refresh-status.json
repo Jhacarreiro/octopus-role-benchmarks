@@ -1,21 +1,21 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-10-16T09:12:55.902Z",
+  "attemptedAt": "2026-10-16T09:34:55.298Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T09:12:52.129Z"
+    "generatedAt": "2026-10-16T09:34:52.029Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T09:12:52.129Z",
+    "generatedAt": "2026-10-16T09:34:52.029Z",
     "benchmarkDate": "2026-10-16",
-    "benchmarkGeneratedAt": "2026-10-16T09:12:52.129Z",
-    "lineupInputsRefreshedAt": "2026-10-16T09:12:52.129Z"
+    "benchmarkGeneratedAt": "2026-10-16T09:34:52.029Z",
+    "lineupInputsRefreshedAt": "2026-10-16T09:34:52.029Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T09:12:52.129Z"
+    "generatedAt": "2026-10-16T09:34:52.029Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
@@ -259,5 +259,5 @@
       "reason": "No verified AA identity."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38878870445"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38881394136"
 }

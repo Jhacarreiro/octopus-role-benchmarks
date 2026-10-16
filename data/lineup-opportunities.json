@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-10-16",
-  "generatedAt": "2026-10-16T09:12:52.129Z",
+  "generatedAt": "2026-10-16T09:34:52.029Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -28,7 +28,7 @@
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.85,
-      "effectiveIntelligenceFloor": 0.81,
+      "effectiveIntelligenceFloor": 0.825,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
@@ -41,7 +41,22 @@
         "populationStdDevCostPerTaskUsd": 2.005801,
         "cutoffCostPerTaskUsd": 5.715265,
         "postFilterBestEligibleIntelligenceIndex": 56.0001,
-        "excluded": []
+        "excluded": [
+          {
+            "model": "Claude Fable 5.1",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 7.631889,
+            "planAdjustedCostPerTaskUsd": 7.631889
+          },
+          {
+            "model": "Claude Opus 5.5",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 5.982012,
+            "planAdjustedCostPerTaskUsd": 5.982012
+          }
+        ]
       },
       "autoSafeCandidateCount": 0,
       "reviewOnlyCandidateCount": 0,
