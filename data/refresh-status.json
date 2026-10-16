@@ -1,48 +1,27 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-10-16T10:20:32.264Z",
+  "attemptedAt": "2026-10-16T10:30:59.955Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T10:20:29.373Z"
+    "generatedAt": "2026-10-16T10:30:50.015Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T10:20:29.373Z",
+    "generatedAt": "2026-10-16T10:30:50.015Z",
     "benchmarkDate": "2026-10-16",
-    "benchmarkGeneratedAt": "2026-10-16T10:20:29.373Z",
-    "lineupInputsRefreshedAt": "2026-10-16T10:20:29.373Z"
+    "benchmarkGeneratedAt": "2026-10-16T10:30:50.015Z",
+    "lineupInputsRefreshedAt": "2026-10-16T10:30:50.015Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T10:20:29.373Z"
+    "generatedAt": "2026-10-16T10:30:50.015Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [
-    {
-      "benchmark": "artificial-analysis-model",
-      "targetSlug": "deepseek-v4-pro",
-      "status": "unavailable",
-      "reason": "AA model state not found for deepseek-v4-pro",
-      "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro"
-    },
-    {
-      "benchmark": "artificial-analysis-model",
-      "targetSlug": "gpt-5-6-terra",
-      "status": "unavailable",
-      "reason": "AA model state not found for gpt-5-6-terra",
-      "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra"
-    },
-    {
-      "benchmark": "artificial-analysis-model",
-      "targetSlug": "muse-spark-1-3-xhigh",
-      "status": "unavailable",
-      "reason": "AA model state not found for muse-spark-1-3-xhigh",
-      "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh"
-    },
     {
       "benchmark": "coding-agent-host",
       "targetSlug": "Grok 4.7 (xhigh)",
@@ -307,5 +286,5 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38886543785"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38887696710"
 }

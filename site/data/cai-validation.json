@@ -1,36 +1,36 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-16",
-  "observedFamilies": 15,
+  "observedFamilies": 16,
   "method": "50% ridge + 50% inverse-distance 5NN",
   "vendorHoldout": {
-    "n": 15,
+    "n": 16,
     "groups": 7,
     "ridge": {
-      "mae": 3.0692,
-      "rmse": 4.1597,
-      "spearman": 0.9071,
-      "pairwiseAccuracy": 0.8857
+      "mae": 3.9044,
+      "rmse": 4.8854,
+      "spearman": 0.9,
+      "pairwiseAccuracy": 0.875
     },
     "knn": {
-      "mae": 4.4628,
-      "rmse": 5.7184,
-      "spearman": 0.7786,
-      "pairwiseAccuracy": 0.8095
+      "mae": 4.6062,
+      "rmse": 5.9307,
+      "spearman": 0.8412,
+      "pairwiseAccuracy": 0.8083
     },
     "ensemble": {
-      "mae": 3.7321,
-      "rmse": 4.9628,
-      "spearman": 0.8786,
-      "pairwiseAccuracy": 0.8571
+      "mae": 4.1206,
+      "rmse": 5.3549,
+      "spearman": 0.8853,
+      "pairwiseAccuracy": 0.85
     }
   },
   "randomHoldout": {
     "repetitions": 500,
-    "testFraction": 0.3333,
+    "testFraction": 0.3125,
     "mae": {
-      "median": 4.0974,
-      "p90": 6.5241
+      "median": 4.438,
+      "p90": 6.7179
     },
     "spearman": {
       "median": 0.9,
@@ -42,28 +42,28 @@
   },
   "finalRanking": {
     "implementer": {
-      "mae": 3.7479,
-      "rmse": 8.8478,
+      "mae": 4.7683,
+      "rmse": 10.329,
       "spearman": 1,
       "pairwiseAccuracy": 1,
       "top5Hit": 1,
-      "qualityMae": 1.244
+      "qualityMae": 1.3735
     },
     "implementer-heavy": {
-      "mae": 3.7479,
-      "rmse": 8.8478,
+      "mae": 4.7683,
+      "rmse": 10.329,
       "spearman": 1,
       "pairwiseAccuracy": 1,
       "top5Hit": 1,
-      "qualityMae": 1.244
+      "qualityMae": 1.3735
     },
     "code-reviewer": {
-      "mae": 3.7479,
-      "rmse": 8.8478,
+      "mae": 4.7683,
+      "rmse": 10.329,
       "spearman": 1,
       "pairwiseAccuracy": 1,
       "top5Hit": 1,
-      "qualityMae": 1.244
+      "qualityMae": 1.3735
     }
   },
   "guardrails": {
