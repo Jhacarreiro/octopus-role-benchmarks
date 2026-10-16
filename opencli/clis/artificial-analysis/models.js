@@ -113,6 +113,7 @@ export function parseModel(html, slug) {
   return {
     slug,
     name: slug,
+    aaVariantName: block.match(/\\\"name\\\":\\\"([^\\]+)\\\"/)?.[1] ?? null,
     intelligenceIndex: numberField(block, 'intelligenceIndex'),
     agenticIndex: numberField(block, 'agenticIndex'),
     gdpvalNormalized: numberField(block, 'gdpvalNormalized'),
@@ -141,6 +142,34 @@ async function fetchOne(slug) {
   if (!model) return {slug, name: slug, sourceUnavailableReason: `AA model state not found for ${slug}`, sourceUrl: BASE + slug};
   return model;
 }
+const HLE_BOARD = 'https://artificialanalysis.ai/evaluations/humanitys-last-exam';
+
+async function fillMissingHle(models) {
+  const missing = models.filter(model => model && !model.sourceUnavailableReason && model.hle == null);
+  if (!missing.length) return;
+  // Use a second AA page, not a vendor-reported HLE or a historical value.
+  // Failure to read the leaderboard must not block other benchmark extraction.
+  let html;
+  try {
+    const response = await fetch(HLE_BOARD, {
+      headers: {'User-Agent': UA, 'Accept': 'text/html,application/xhtml+xml'},
+      signal: AbortSignal.timeout(15000)
+    });
+    if (!response.ok) return;
+    html = await response.text();
+  } catch { return; }
+  for (const model of missing) {
+    const block = releaseModelBlock(html, model.slug);
+    if (!block) continue;
+    const leaderboardVariant = block.match(/\\\"name\\\":\\\"([^\\]+)\\\"/)?.[1] ?? null;
+    if (!model.aaVariantName || leaderboardVariant !== model.aaVariantName) continue;
+    const value = numberField(block, 'hle');
+    if (value == null || !Number.isFinite(value) || value < 0 || value > 1) continue;
+    model.hle = value;
+    model.hleProvenance = {status: 'observed', source: 'artificial-analysis-hle-leaderboard', sourceUrl: HLE_BOARD};
+  }
+}
+
 async function pooled(slugs, concurrency = 6) {
   const out = new Array(slugs.length);
   let next = 0;
@@ -152,6 +181,7 @@ async function pooled(slugs, concurrency = 6) {
     }
   }
   await Promise.all(Array.from({length: Math.min(concurrency, slugs.length)}, () => worker()));
+  await fillMissingHle(out);
   return out;
 }
 

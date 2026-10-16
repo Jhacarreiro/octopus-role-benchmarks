@@ -393,6 +393,7 @@ const models=mapped.map(row=>{
   }:null;
   const benchmarkFallback=benchmarkFallbackBySlug.get(row.mapping.slug)||{};
   const benchmarkProvenance={};
+  if(source?.hleProvenance)benchmarkProvenance.hle={...source.hleProvenance,value:round(source.hle*100,3),targetSlug:source.slug};
   for(const [key,fallback] of Object.entries(benchmarkFallback))benchmarkProvenance[key]={status:fallback.provenanceStatus??'estimated',...fallback};
   if(partial){for(const key of partial.missingBenchmarks)benchmarkProvenance[key]={status:'unavailable',benchmark:key,targetSlug:row.mapping.slug,reason:`Artificial Analysis publishes no current ${key} value for this mapped model; role scores use a conservative zero contribution for this component.`};}
   if(cyberIndex)benchmarkProvenance.cyberIndex={status:'observed',source:'Artificial Analysis Cyber Index v1',sourceUrl:cyberIndexDataset.sourceUrl,value:round(cyberIndex.value,3),components:Object.fromEntries(Object.entries(cyberIndex.components).map(([k,v])=>[k,v==null?null:round(v*100,3)])),safetyBlocks:Object.fromEntries(Object.entries(cyberIndex.safetyBlocks).map(([k,v])=>[k,v==null?null:round(v*100,3)]))};
