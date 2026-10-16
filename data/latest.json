@@ -2,66 +2,12 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-10-16",
-  "generatedAt": "2026-10-16T11:10:24.229Z",
+  "generatedAt": "2026-10-16T11:21:54.330Z",
   "benchmarkDate": "2026-10-16",
-  "benchmarkGeneratedAt": "2026-10-16T11:10:24.229Z",
-  "lineupInputsRefreshedAt": "2026-10-16T11:10:24.229Z",
+  "benchmarkGeneratedAt": "2026-10-16T11:21:54.330Z",
+  "lineupInputsRefreshedAt": "2026-10-16T11:21:54.330Z",
   "validationStatus": "partial",
   "validationIssues": [
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Grok 4.7 (xhigh)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Fable 5.1 (max) (with fallback)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "GPT-6.1 Sol (xhigh)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Sonnet 5.5 (medium)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Sonnet 5.5 (low)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Step 5 Preview",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Haiku 5.5 (medium)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Muse Wonder Full (max)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "GPT-6.1 Sol (medium)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
     {
       "benchmark": "coding-agent-host",
       "targetSlug": "Claude Fable 5.1 XHigh + SWE-2 Medium",
@@ -76,37 +22,7 @@
     },
     {
       "benchmark": "coding-agent-host",
-      "targetSlug": "Haiku 5.5 (xhigh)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Muse Spark Open (xhigh)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Haiku 5.5 (high)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
       "targetSlug": "GPT-6 Astra XHigh + SWE-2 Medium",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Gemini 3.8 Flash (high)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Sonnet 5.5 (xhigh)",
       "status": "unresolved",
       "reason": "no_exact_identity"
     },
@@ -118,37 +34,7 @@
     },
     {
       "benchmark": "coding-agent-host",
-      "targetSlug": "Sonnet 5.5 (high)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
       "targetSlug": "DeepSeek V4 Flash 0731 (max)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "GPT-6.1 Sol (high)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Haiku 5.5 (low)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "GPT-6.1 Sol (low)",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Grok 4.6 (xhigh)",
       "status": "unresolved",
       "reason": "no_exact_identity"
     },
@@ -161,7 +47,7 @@
     {
       "benchmark": "coding-agent-version-calibration",
       "status": "unavailable",
-      "reason": "comparable families 2<4; LOO MAE 7.640837983849359"
+      "reason": "comparable families 3<4; LOO MAE 6.521018164218276"
     },
     {
       "benchmark": "mapping",
@@ -278,7 +164,7 @@
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-10-16T11:10:24.064Z",
+      "fetchedAt": "2026-10-16T11:21:54.189Z",
       "version": "v1",
       "directFamilies": 18,
       "availableRows": 20,
@@ -479,8 +365,8 @@
     "observedFamilies": 48,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 12,
-    "validatedAt": "2026-10-16T11:10:24.229Z",
-    "sourceSnapshotGeneratedAt": "2026-10-16T11:10:24.229Z",
+    "validatedAt": "2026-10-16T11:21:54.330Z",
+    "sourceSnapshotGeneratedAt": "2026-10-16T11:21:54.330Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -648,12 +534,11 @@
   },
   "codingAgentCoverage": {
     "total": 76,
-    "present": 16,
-    "ratio": 0.210526,
+    "present": 22,
+    "ratio": 0.289474,
     "missing": [
       "claude-4-5-haiku",
       "claude-fable-5",
-      "claude-fable-5-1",
       "claude-opus-4-6",
       "claude-opus-4-7",
       "claude-opus-4-8",
@@ -668,7 +553,6 @@
       "gemini-3-5-flash-lite",
       "gemini-3-6-flash",
       "gemini-3-7-flash",
-      "gemini-3-8-flash",
       "glm-5",
       "glm-5-1",
       "glm-5-2",
@@ -679,8 +563,6 @@
       "gpt-5-5",
       "gpt-5-6-terra",
       "grok-4-5",
-      "grok-4-6",
-      "grok-4-7",
       "hy3",
       "inkling",
       "inkling-small",
@@ -699,7 +581,6 @@
       "mistral-large-4",
       "muse-spark-1-1",
       "muse-spark-1-2",
-      "muse-spark-open",
       "nemotron-3-5-super-vl",
       "nvidia-nemotron-3-ultra-550b-a55b",
       "qwen3-6-plus",
@@ -709,17 +590,16 @@
       "qwen3-8-flash-next",
       "qwen3-max-preview",
       "step-3-5-flash",
-      "step-3-7-flash",
-      "step-5"
+      "step-3-7-flash"
     ]
   },
   "caiStarCoverage": {
     "total": 68,
     "present": 68,
     "ratio": 1,
-    "observed": 16,
+    "observed": 22,
     "historicalCalibrated": 0,
-    "estimated": 52
+    "estimated": 46
   },
   "caiEstimator": {
     "method": "50% ridge + 50% inverse-distance 5NN",
@@ -750,9 +630,9 @@
       "knn": 0.75
     },
     "codingRoleWeight": 0.3333333333333333,
-    "observedFamilies": 16,
+    "observedFamilies": 22,
     "historicalCalibratedFamilies": 0,
-    "estimatedFamilies": 52
+    "estimatedFamilies": 46
   },
   "counts": {
     "commandCodeRows": 95,
@@ -766,10 +646,10 @@
     "scoredFamilies": 76,
     "partialScoredFamilies": 8,
     "sourceIncompleteFamilies": 0,
-    "codingAgentFamilies": 16,
-    "caiObservedFamilies": 16,
+    "codingAgentFamilies": 22,
+    "caiObservedFamilies": 22,
     "caiHistoricalCalibratedFamilies": 0,
-    "caiEstimatedFamilies": 52,
+    "caiEstimatedFamilies": 46,
     "cyberIndexDirectFamilies": 18
   },
   "benchmarks": {
@@ -1060,17 +940,7 @@
         },
         "code-reviewer": {
           "score": 50.358,
-          "rankingQuality": 46.647,
-          "rankingValue": 38.333,
-          "status": "estimated",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 17.778,
-          "balancedAffordabilityPercentile": 100
-        },
-        "implementer": {
-          "score": 51.099,
-          "rankingQuality": 47.141,
+          "rankingQuality": 45.752,
           "rankingValue": 39.167,
           "status": "estimated",
           "coverageWeight": 1,
@@ -1078,14 +948,24 @@
           "balancedQualityPercentile": 18.889,
           "balancedAffordabilityPercentile": 100
         },
-        "implementer-heavy": {
-          "score": 48.69,
-          "rankingQuality": 45.535,
-          "rankingValue": 38.333,
+        "implementer": {
+          "score": 51.099,
+          "rankingQuality": 46.246,
+          "rankingValue": 40,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 17.778,
+          "balancedQualityPercentile": 20,
+          "balancedAffordabilityPercentile": 100
+        },
+        "implementer-heavy": {
+          "score": 48.69,
+          "rankingQuality": 44.64,
+          "rankingValue": 39.167,
+          "status": "estimated",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 18.889,
           "balancedAffordabilityPercentile": 100
         },
         "synthesizer": {
@@ -1110,7 +990,7 @@
         }
       },
       "caiStar": {
-        "value": 39.2258,
+        "value": 36.5392,
         "status": "estimated",
         "source": "reference_ratio",
         "reference": "Tencent Hy3"
@@ -1367,32 +1247,32 @@
         },
         "code-reviewer": {
           "score": 61.262,
-          "rankingQuality": 56.748,
-          "rankingValue": 64.722,
+          "rankingQuality": 55.658,
+          "rankingValue": 68.889,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.444,
+          "balancedQualityPercentile": 70,
           "balancedAffordabilityPercentile": 65.556
         },
         "implementer": {
           "score": 62.163,
-          "rankingQuality": 57.348,
-          "rankingValue": 67.222,
+          "rankingQuality": 56.259,
+          "rankingValue": 73.056,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 67.778,
+          "balancedQualityPercentile": 75.556,
           "balancedAffordabilityPercentile": 65.556
         },
         "implementer-heavy": {
           "score": 59.233,
-          "rankingQuality": 55.395,
-          "rankingValue": 64.722,
+          "rankingQuality": 54.306,
+          "rankingValue": 59.722,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.444,
+          "balancedQualityPercentile": 57.778,
           "balancedAffordabilityPercentile": 65.556
         },
         "synthesizer": {
@@ -1417,7 +1297,7 @@
         }
       },
       "caiStar": {
-        "value": 47.7192,
+        "value": 44.4509,
         "status": "estimated",
         "source": "reference_ratio",
         "reference": "Tencent Hy3"
@@ -1542,17 +1422,17 @@
         },
         "code-reviewer": {
           "score": 51.434,
-          "rankingQuality": 47.644,
-          "rankingValue": 38.333,
+          "rankingQuality": 46.729,
+          "rankingValue": 39.167,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.111,
+          "balancedQualityPercentile": 22.222,
           "balancedAffordabilityPercentile": 90
         },
         "implementer": {
           "score": 52.191,
-          "rankingQuality": 48.149,
+          "rankingQuality": 47.234,
           "rankingValue": 40,
           "status": "valid",
           "coverageWeight": 1,
@@ -1562,12 +1442,12 @@
         },
         "implementer-heavy": {
           "score": 49.73,
-          "rankingQuality": 46.508,
-          "rankingValue": 38.333,
+          "rankingQuality": 45.593,
+          "rankingValue": 39.167,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.111,
+          "balancedQualityPercentile": 22.222,
           "balancedAffordabilityPercentile": 90
         },
         "synthesizer": {
@@ -1592,11 +1472,11 @@
         }
       },
       "caiStar": {
-        "value": 40.064,
+        "value": 37.32,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 28.773,
-        "knn": 43.827,
+        "ridge": 22.944,
+        "knn": 42.112,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -1727,21 +1607,21 @@
         "code-reviewer": {
           "score": 63.432,
           "rankingQuality": 59.597,
-          "rankingValue": 71.389,
+          "rankingValue": 72.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.444,
+          "balancedQualityPercentile": 85.556,
           "balancedAffordabilityPercentile": 32.222
         },
         "implementer": {
           "score": 63.158,
           "rankingQuality": 59.414,
-          "rankingValue": 71.389,
+          "rankingValue": 72.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.444,
+          "balancedQualityPercentile": 85.556,
           "balancedAffordabilityPercentile": 32.222
         },
         "implementer-heavy": {
@@ -1790,6 +1670,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "kimi-k3",
+        "modelLabel": "Kimi K3",
         "agent": "Kimi Code CLI",
         "displayLabel": "Kimi Code CLI - Kimi K3",
         "indexScore": 51.926,
@@ -1816,7 +1697,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -1920,7 +1801,7 @@
         },
         "code-reviewer": {
           "score": 51.754,
-          "rankingQuality": 48.792,
+          "rankingQuality": 47.653,
           "rankingValue": 36.25,
           "status": "valid",
           "coverageWeight": 1,
@@ -1930,7 +1811,7 @@
         },
         "implementer": {
           "score": 51.863,
-          "rankingQuality": 48.865,
+          "rankingQuality": 47.726,
           "rankingValue": 36.25,
           "status": "valid",
           "coverageWeight": 1,
@@ -1940,7 +1821,7 @@
         },
         "implementer-heavy": {
           "score": 48.995,
-          "rankingQuality": 46.953,
+          "rankingQuality": 45.814,
           "rankingValue": 34.583,
           "status": "valid",
           "coverageWeight": 1,
@@ -1970,11 +1851,11 @@
         }
       },
       "caiStar": {
-        "value": 42.869,
+        "value": 39.452,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 31.136,
-        "knn": 46.78,
+        "ridge": 24.886,
+        "knn": 44.307,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2082,7 +1963,7 @@
         },
         "code-reviewer": {
           "score": 51.754,
-          "rankingQuality": 48.792,
+          "rankingQuality": 47.653,
           "rankingValue": 31.806,
           "status": "valid",
           "coverageWeight": 1,
@@ -2092,7 +1973,7 @@
         },
         "implementer": {
           "score": 51.863,
-          "rankingQuality": 48.865,
+          "rankingQuality": 47.726,
           "rankingValue": 31.806,
           "status": "valid",
           "coverageWeight": 1,
@@ -2102,7 +1983,7 @@
         },
         "implementer-heavy": {
           "score": 48.995,
-          "rankingQuality": 46.953,
+          "rankingQuality": 45.814,
           "rankingValue": 30.139,
           "status": "valid",
           "coverageWeight": 1,
@@ -2132,11 +2013,11 @@
         }
       },
       "caiStar": {
-        "value": 42.869,
+        "value": 39.452,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 31.136,
-        "knn": 46.78,
+        "ridge": 24.886,
+        "knn": 44.307,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2241,27 +2122,27 @@
         },
         "code-reviewer": {
           "score": 55.426,
-          "rankingQuality": 50.831,
-          "rankingValue": 41.944,
+          "rankingQuality": 50.241,
+          "rankingValue": 41.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 37.778,
+          "balancedQualityPercentile": 36.667,
           "balancedAffordabilityPercentile": 54.444
         },
         "implementer": {
           "score": 55.061,
-          "rankingQuality": 50.588,
-          "rankingValue": 41.944,
+          "rankingQuality": 49.998,
+          "rankingValue": 40.278,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 37.778,
+          "balancedQualityPercentile": 35.556,
           "balancedAffordabilityPercentile": 54.444
         },
         "implementer-heavy": {
           "score": 51.229,
-          "rankingQuality": 48.033,
+          "rankingQuality": 47.443,
           "rankingValue": 35.278,
           "status": "valid",
           "coverageWeight": 1,
@@ -2291,11 +2172,11 @@
         }
       },
       "caiStar": {
-        "value": 41.642,
+        "value": 39.872,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 34.466,
-        "knn": 44.034,
+        "ridge": 26.707,
+        "knn": 44.26,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2414,32 +2295,32 @@
         },
         "code-reviewer": {
           "score": 51.301,
-          "rankingQuality": 52.257,
-          "rankingValue": 58.333,
+          "rankingQuality": 51.643,
+          "rankingValue": 50,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 57.778,
+          "balancedQualityPercentile": 46.667,
           "balancedAffordabilityPercentile": 60
         },
         "implementer": {
           "score": 51.317,
-          "rankingQuality": 52.268,
-          "rankingValue": 57.5,
+          "rankingQuality": 51.653,
+          "rankingValue": 50,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 56.667,
+          "balancedQualityPercentile": 46.667,
           "balancedAffordabilityPercentile": 60
         },
         "implementer-heavy": {
           "score": 46.088,
-          "rankingQuality": 48.782,
-          "rankingValue": 39.167,
+          "rankingQuality": 48.167,
+          "rankingValue": 40,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 32.222,
+          "balancedQualityPercentile": 33.333,
           "balancedAffordabilityPercentile": 60
         },
         "synthesizer": {
@@ -2464,11 +2345,11 @@
         }
       },
       "caiStar": {
-        "value": 54.17,
+        "value": 52.326,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 62.37,
-        "knn": 51.437,
+        "ridge": 54.945,
+        "knn": 51.454,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2598,32 +2479,32 @@
         },
         "code-reviewer": {
           "score": 55.735,
-          "rankingQuality": 51.831,
-          "rankingValue": 54.306,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 48.333,
-          "balancedAffordabilityPercentile": 72.222
-        },
-        "implementer": {
-          "score": 55.244,
-          "rankingQuality": 51.504,
-          "rankingValue": 54.306,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 48.333,
-          "balancedAffordabilityPercentile": 72.222
-        },
-        "implementer-heavy": {
-          "score": 59.475,
-          "rankingQuality": 54.325,
+          "rankingQuality": 52.26,
           "rankingValue": 60.972,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 57.222,
+          "balancedAffordabilityPercentile": 72.222
+        },
+        "implementer": {
+          "score": 55.244,
+          "rankingQuality": 51.933,
+          "rankingValue": 59.306,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 55,
+          "balancedAffordabilityPercentile": 72.222
+        },
+        "implementer-heavy": {
+          "score": 59.475,
+          "rankingQuality": 54.753,
+          "rankingValue": 70.139,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 69.444,
           "balancedAffordabilityPercentile": 72.222
         },
         "synthesizer": {
@@ -2648,11 +2529,11 @@
         }
       },
       "caiStar": {
-        "value": 44.024,
+        "value": 45.31,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 45.278,
-        "knn": 43.606,
+        "ridge": 46.636,
+        "knn": 44.868,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2785,32 +2666,32 @@
         },
         "code-reviewer": {
           "score": 55.735,
-          "rankingQuality": 51.831,
-          "rankingValue": 50.417,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 48.333,
-          "balancedAffordabilityPercentile": 56.667
-        },
-        "implementer": {
-          "score": 55.244,
-          "rankingQuality": 51.504,
-          "rankingValue": 50.417,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 48.333,
-          "balancedAffordabilityPercentile": 56.667
-        },
-        "implementer-heavy": {
-          "score": 59.475,
-          "rankingQuality": 54.325,
+          "rankingQuality": 52.26,
           "rankingValue": 57.083,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 57.222,
+          "balancedAffordabilityPercentile": 56.667
+        },
+        "implementer": {
+          "score": 55.244,
+          "rankingQuality": 51.933,
+          "rankingValue": 55.417,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 55,
+          "balancedAffordabilityPercentile": 56.667
+        },
+        "implementer-heavy": {
+          "score": 59.475,
+          "rankingQuality": 54.753,
+          "rankingValue": 66.25,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 69.444,
           "balancedAffordabilityPercentile": 56.667
         },
         "synthesizer": {
@@ -2835,11 +2716,11 @@
         }
       },
       "caiStar": {
-        "value": 44.024,
+        "value": 45.31,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 45.278,
-        "knn": 43.606,
+        "ridge": 46.636,
+        "knn": 44.868,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -2970,16 +2851,6 @@
         "code-reviewer": {
           "score": 60.567,
           "rankingQuality": 58.23,
-          "rankingValue": 62.778,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 73.333,
-          "balancedAffordabilityPercentile": 31.111
-        },
-        "implementer": {
-          "score": 60.697,
-          "rankingQuality": 58.316,
           "rankingValue": 66.944,
           "status": "valid",
           "coverageWeight": 1,
@@ -2987,14 +2858,24 @@
           "balancedQualityPercentile": 78.889,
           "balancedAffordabilityPercentile": 31.111
         },
-        "implementer-heavy": {
-          "score": 63.194,
-          "rankingQuality": 59.981,
-          "rankingValue": 71.944,
+        "implementer": {
+          "score": 60.697,
+          "rankingQuality": 58.316,
+          "rankingValue": 68.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 85.556,
+          "balancedQualityPercentile": 81.111,
+          "balancedAffordabilityPercentile": 31.111
+        },
+        "implementer-heavy": {
+          "score": 63.194,
+          "rankingQuality": 59.981,
+          "rankingValue": 72.778,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 86.667,
           "balancedAffordabilityPercentile": 31.111
         },
         "synthesizer": {
@@ -3026,6 +2907,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "glm-5-3",
+        "modelLabel": "GLM-5.3",
         "agent": "Opencode",
         "displayLabel": "Opencode - GLM-5.3 ({'reasoning_effort': 'max'})",
         "indexScore": 53.555,
@@ -3052,7 +2934,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -3156,32 +3038,32 @@
         },
         "code-reviewer": {
           "score": 55.134,
-          "rankingQuality": 51.038,
-          "rankingValue": 39.583,
+          "rankingQuality": 50.468,
+          "rankingValue": 40.417,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.556,
+          "balancedQualityPercentile": 41.667,
           "balancedAffordabilityPercentile": 36.667
         },
         "implementer": {
           "score": 54.776,
-          "rankingQuality": 50.799,
-          "rankingValue": 39.583,
+          "rankingQuality": 50.229,
+          "rankingValue": 38.75,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.556,
+          "balancedQualityPercentile": 39.444,
           "balancedAffordabilityPercentile": 36.667
         },
         "implementer-heavy": {
           "score": 55.097,
-          "rankingQuality": 51.013,
-          "rankingValue": 37.917,
+          "rankingQuality": 50.443,
+          "rankingValue": 38.75,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 38.333,
+          "balancedQualityPercentile": 39.444,
           "balancedAffordabilityPercentile": 36.667
         },
         "synthesizer": {
@@ -3206,11 +3088,11 @@
         }
       },
       "caiStar": {
-        "value": 42.846,
+        "value": 41.136,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 41.165,
-        "knn": 43.406,
+        "ridge": 38.255,
+        "knn": 42.097,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -3318,32 +3200,32 @@
         },
         "code-reviewer": {
           "score": 55.134,
-          "rankingQuality": 51.038,
-          "rankingValue": 36.528,
+          "rankingQuality": 50.468,
+          "rankingValue": 37.361,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.556,
+          "balancedQualityPercentile": 41.667,
           "balancedAffordabilityPercentile": 24.444
         },
         "implementer": {
           "score": 54.776,
-          "rankingQuality": 50.799,
-          "rankingValue": 36.528,
+          "rankingQuality": 50.229,
+          "rankingValue": 35.694,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.556,
+          "balancedQualityPercentile": 39.444,
           "balancedAffordabilityPercentile": 24.444
         },
         "implementer-heavy": {
           "score": 55.097,
-          "rankingQuality": 51.013,
-          "rankingValue": 34.861,
+          "rankingQuality": 50.443,
+          "rankingValue": 35.694,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 38.333,
+          "balancedQualityPercentile": 39.444,
           "balancedAffordabilityPercentile": 24.444
         },
         "synthesizer": {
@@ -3368,11 +3250,11 @@
         }
       },
       "caiStar": {
-        "value": 42.846,
+        "value": 41.136,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 41.165,
-        "knn": 43.406,
+        "ridge": 38.255,
+        "knn": 42.097,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -3477,27 +3359,27 @@
         },
         "code-reviewer": {
           "score": 49.07,
-          "rankingQuality": 46.169,
-          "rankingValue": 24.444,
+          "rankingQuality": 45.249,
+          "rankingValue": 23.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 16.667,
+          "balancedQualityPercentile": 15.556,
           "balancedAffordabilityPercentile": 47.778
         },
         "implementer": {
           "score": 48.156,
-          "rankingQuality": 45.56,
-          "rankingValue": 24.444,
+          "rankingQuality": 44.64,
+          "rankingValue": 23.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 16.667,
+          "balancedQualityPercentile": 15.556,
           "balancedAffordabilityPercentile": 47.778
         },
         "implementer-heavy": {
           "score": 47.325,
-          "rankingQuality": 45.006,
+          "rankingQuality": 44.086,
           "rankingValue": 24.444,
           "status": "valid",
           "coverageWeight": 1,
@@ -3527,11 +3409,11 @@
         }
       },
       "caiStar": {
-        "value": 40.367,
+        "value": 37.607,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 31.043,
-        "knn": 43.474,
+        "ridge": 24.117,
+        "knn": 42.104,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -3850,7 +3732,7 @@
         },
         "code-reviewer": {
           "score": 53.266,
-          "rankingQuality": 49.365,
+          "rankingQuality": 48.753,
           "rankingValue": 39.444,
           "status": "valid",
           "coverageWeight": 1,
@@ -3860,22 +3742,22 @@
         },
         "implementer": {
           "score": 52.484,
-          "rankingQuality": 48.844,
-          "rankingValue": 35.278,
+          "rankingQuality": 48.231,
+          "rankingValue": 39.028,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25.556,
+          "balancedQualityPercentile": 30.556,
           "balancedAffordabilityPercentile": 64.444
         },
         "implementer-heavy": {
           "score": 52.31,
-          "rankingQuality": 48.728,
-          "rankingValue": 39.444,
+          "rankingQuality": 48.115,
+          "rankingValue": 40.278,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.111,
+          "balancedQualityPercentile": 32.222,
           "balancedAffordabilityPercentile": 64.444
         },
         "synthesizer": {
@@ -3900,11 +3782,11 @@
         }
       },
       "caiStar": {
-        "value": 41.563,
+        "value": 39.726,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 34.932,
-        "knn": 43.773,
+        "ridge": 32.526,
+        "knn": 42.127,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -4007,27 +3889,27 @@
         },
         "code-reviewer": {
           "score": 52.877,
-          "rankingQuality": 49.731,
-          "rankingValue": 44.167,
+          "rankingQuality": 48.36,
+          "rankingValue": 40,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 35.556,
+          "balancedQualityPercentile": 30,
           "balancedAffordabilityPercentile": 70
         },
         "implementer": {
           "score": 52.683,
-          "rankingQuality": 49.602,
-          "rankingValue": 41.667,
+          "rankingQuality": 48.231,
+          "rankingValue": 40.417,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 32.222,
+          "balancedQualityPercentile": 30.556,
           "balancedAffordabilityPercentile": 70
         },
         "implementer-heavy": {
           "score": 49.55,
-          "rankingQuality": 47.513,
+          "rankingQuality": 46.142,
           "rankingValue": 37.5,
           "status": "valid",
           "coverageWeight": 1,
@@ -4057,11 +3939,11 @@
         }
       },
       "caiStar": {
-        "value": 43.44,
+        "value": 39.326,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 32.83,
-        "knn": 46.977,
+        "ridge": 24.185,
+        "knn": 44.373,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -4355,32 +4237,32 @@
         },
         "code-reviewer": {
           "score": 55.202,
-          "rankingQuality": 51.078,
-          "rankingValue": 48.889,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 42.222,
-          "balancedAffordabilityPercentile": 68.889
-        },
-        "implementer": {
-          "score": 55.031,
-          "rankingQuality": 50.964,
-          "rankingValue": 48.889,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 42.222,
-          "balancedAffordabilityPercentile": 68.889
-        },
-        "implementer-heavy": {
-          "score": 56.574,
-          "rankingQuality": 51.993,
+          "rankingQuality": 50.759,
           "rankingValue": 49.722,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 43.333,
+          "balancedAffordabilityPercentile": 68.889
+        },
+        "implementer": {
+          "score": 55.031,
+          "rankingQuality": 50.645,
+          "rankingValue": 48.056,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 41.111,
+          "balancedAffordabilityPercentile": 68.889
+        },
+        "implementer-heavy": {
+          "score": 56.574,
+          "rankingQuality": 51.674,
+          "rankingValue": 50.556,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 44.444,
           "balancedAffordabilityPercentile": 68.889
         },
         "synthesizer": {
@@ -4405,11 +4287,11 @@
         }
       },
       "caiStar": {
-        "value": 42.83,
+        "value": 41.874,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 41.772,
-        "knn": 43.182,
+        "ridge": 40.938,
+        "knn": 42.186,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -4514,7 +4396,7 @@
         },
         "code-reviewer": {
           "score": 53.434,
-          "rankingQuality": 49.557,
+          "rankingQuality": 49.696,
           "rankingValue": 47.639,
           "status": "valid",
           "coverageWeight": 1,
@@ -4524,22 +4406,22 @@
         },
         "implementer": {
           "score": 54.134,
-          "rankingQuality": 50.024,
-          "rankingValue": 48.472,
+          "rankingQuality": 50.163,
+          "rankingValue": 50.139,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 35,
+          "balancedQualityPercentile": 37.222,
           "balancedAffordabilityPercentile": 88.889
         },
         "implementer-heavy": {
           "score": 55.846,
-          "rankingQuality": 51.165,
-          "rankingValue": 52.639,
+          "rankingQuality": 51.304,
+          "rankingValue": 53.472,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.556,
+          "balancedQualityPercentile": 41.667,
           "balancedAffordabilityPercentile": 88.889
         },
         "synthesizer": {
@@ -4564,11 +4446,11 @@
         }
       },
       "caiStar": {
-        "value": 41.804,
+        "value": 42.221,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 37.582,
-        "knn": 43.211,
+        "ridge": 37.246,
+        "knn": 43.879,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -4676,32 +4558,32 @@
         },
         "code-reviewer": {
           "score": 52.637,
-          "rankingQuality": 48.881,
-          "rankingValue": 43.056,
+          "rankingQuality": 49.241,
+          "rankingValue": 45.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.889,
+          "balancedQualityPercentile": 32.222,
           "balancedAffordabilityPercentile": 85.556
         },
         "implementer": {
           "score": 53.458,
-          "rankingQuality": 49.428,
-          "rankingValue": 43.889,
+          "rankingQuality": 49.789,
+          "rankingValue": 47.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 30,
+          "balancedQualityPercentile": 34.444,
           "balancedAffordabilityPercentile": 85.556
         },
         "implementer-heavy": {
           "score": 57.439,
-          "rankingQuality": 52.082,
-          "rankingValue": 54.722,
+          "rankingQuality": 52.443,
+          "rankingValue": 56.389,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 44.444,
+          "balancedQualityPercentile": 46.667,
           "balancedAffordabilityPercentile": 85.556
         },
         "synthesizer": {
@@ -4726,11 +4608,11 @@
         }
       },
       "caiStar": {
-        "value": 41.369,
+        "value": 42.45,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 36.053,
-        "knn": 43.141,
+        "ridge": 38.004,
+        "knn": 43.931,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -4835,7 +4717,7 @@
         },
         "code-reviewer": {
           "score": 53.434,
-          "rankingQuality": 49.557,
+          "rankingQuality": 49.696,
           "rankingValue": 42.083,
           "status": "valid",
           "coverageWeight": 1,
@@ -4845,22 +4727,22 @@
         },
         "implementer": {
           "score": 54.134,
-          "rankingQuality": 50.024,
-          "rankingValue": 42.917,
+          "rankingQuality": 50.163,
+          "rankingValue": 44.583,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 35,
+          "balancedQualityPercentile": 37.222,
           "balancedAffordabilityPercentile": 66.667
         },
         "implementer-heavy": {
           "score": 55.846,
-          "rankingQuality": 51.165,
-          "rankingValue": 47.083,
+          "rankingQuality": 51.304,
+          "rankingValue": 47.917,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.556,
+          "balancedQualityPercentile": 41.667,
           "balancedAffordabilityPercentile": 66.667
         },
         "synthesizer": {
@@ -4885,11 +4767,11 @@
         }
       },
       "caiStar": {
-        "value": 41.804,
+        "value": 42.221,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 37.582,
-        "knn": 43.211,
+        "ridge": 37.246,
+        "knn": 43.879,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -5019,32 +4901,32 @@
         },
         "code-reviewer": {
           "score": 55.742,
-          "rankingQuality": 51.209,
-          "rankingValue": 53.472,
+          "rankingQuality": 51.692,
+          "rankingValue": 56.806,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.889,
+          "balancedQualityPercentile": 48.333,
           "balancedAffordabilityPercentile": 82.222
         },
         "implementer": {
           "score": 56.042,
-          "rankingQuality": 51.409,
-          "rankingValue": 55.139,
+          "rankingQuality": 51.892,
+          "rankingValue": 60.139,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 46.111,
+          "balancedQualityPercentile": 52.778,
           "balancedAffordabilityPercentile": 82.222
         },
         "implementer-heavy": {
           "score": 59.87,
-          "rankingQuality": 53.961,
-          "rankingValue": 61.806,
+          "rankingQuality": 54.444,
+          "rankingValue": 65.972,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 55,
+          "balancedQualityPercentile": 60.556,
           "balancedAffordabilityPercentile": 82.222
         },
         "synthesizer": {
@@ -5069,11 +4951,11 @@
         }
       },
       "caiStar": {
-        "value": 42.144,
+        "value": 43.591,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 40.381,
-        "knn": 42.732,
+        "ridge": 42.792,
+        "knn": 43.857,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -5203,32 +5085,32 @@
         },
         "code-reviewer": {
           "score": 55.742,
-          "rankingQuality": 51.209,
-          "rankingValue": 51.25,
+          "rankingQuality": 51.692,
+          "rankingValue": 54.583,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.889,
+          "balancedQualityPercentile": 48.333,
           "balancedAffordabilityPercentile": 73.333
         },
         "implementer": {
           "score": 56.042,
-          "rankingQuality": 51.409,
-          "rankingValue": 52.917,
+          "rankingQuality": 51.892,
+          "rankingValue": 57.917,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 46.111,
+          "balancedQualityPercentile": 52.778,
           "balancedAffordabilityPercentile": 73.333
         },
         "implementer-heavy": {
           "score": 59.87,
-          "rankingQuality": 53.961,
-          "rankingValue": 59.583,
+          "rankingQuality": 54.444,
+          "rankingValue": 63.75,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 55,
+          "balancedQualityPercentile": 60.556,
           "balancedAffordabilityPercentile": 73.333
         },
         "synthesizer": {
@@ -5253,11 +5135,11 @@
         }
       },
       "caiStar": {
-        "value": 42.144,
+        "value": 43.591,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 40.381,
-        "knn": 42.732,
+        "ridge": 42.792,
+        "knn": 43.857,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -5409,32 +5291,32 @@
         },
         "code-reviewer": {
           "score": 48.408,
-          "rankingQuality": 44.98,
-          "rankingValue": 31.944,
+          "rankingQuality": 45.335,
+          "rankingValue": 33.611,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 14.444,
+          "balancedQualityPercentile": 16.667,
           "balancedAffordabilityPercentile": 84.444
         },
         "implementer": {
           "score": 48.814,
-          "rankingQuality": 45.25,
-          "rankingValue": 31.944,
+          "rankingQuality": 45.606,
+          "rankingValue": 34.444,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 14.444,
+          "balancedQualityPercentile": 17.778,
           "balancedAffordabilityPercentile": 84.444
         },
         "implementer-heavy": {
           "score": 52.792,
-          "rankingQuality": 47.902,
-          "rankingValue": 41.944,
+          "rankingQuality": 48.258,
+          "rankingValue": 46.944,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 27.778,
+          "balancedQualityPercentile": 34.444,
           "balancedAffordabilityPercentile": 84.444
         },
         "synthesizer": {
@@ -5459,7 +5341,7 @@
         }
       },
       "caiStar": {
-        "value": 38.1231,
+        "value": 39.1887,
         "status": "estimated",
         "source": "reference_ratio",
         "reference": "Qwen 3.8 Flash"
@@ -5623,31 +5505,31 @@
         "code-reviewer": {
           "score": 56.745,
           "rankingQuality": 52.252,
-          "rankingValue": 47.222,
+          "rankingValue": 46.389,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 55.556,
+          "balancedQualityPercentile": 54.444,
           "balancedAffordabilityPercentile": 22.222
         },
         "implementer": {
           "score": 56.011,
           "rankingQuality": 51.762,
-          "rankingValue": 45.556,
+          "rankingValue": 43.056,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.333,
+          "balancedQualityPercentile": 50,
           "balancedAffordabilityPercentile": 22.222
         },
         "implementer-heavy": {
           "score": 60.082,
           "rankingQuality": 54.476,
-          "rankingValue": 50.556,
+          "rankingValue": 53.056,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 60,
+          "balancedQualityPercentile": 63.333,
           "balancedAffordabilityPercentile": 22.222
         },
         "synthesizer": {
@@ -5798,31 +5680,31 @@
         "code-reviewer": {
           "score": 56.745,
           "rankingQuality": 52.252,
-          "rankingValue": 45.278,
+          "rankingValue": 44.444,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 55.556,
+          "balancedQualityPercentile": 54.444,
           "balancedAffordabilityPercentile": 14.444
         },
         "implementer": {
           "score": 56.011,
           "rankingQuality": 51.762,
-          "rankingValue": 43.611,
+          "rankingValue": 41.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.333,
+          "balancedQualityPercentile": 50,
           "balancedAffordabilityPercentile": 14.444
         },
         "implementer-heavy": {
           "score": 60.082,
           "rankingQuality": 54.476,
-          "rankingValue": 48.611,
+          "rankingValue": 51.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 60,
+          "balancedQualityPercentile": 63.333,
           "balancedAffordabilityPercentile": 14.444
         },
         "synthesizer": {
@@ -5861,6 +5743,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "qwen3-8-max",
+        "modelLabel": "Qwen3.8 Max",
         "agent": "Claude Code",
         "displayLabel": "Claude Code - Qwen3.8 Max",
         "indexScore": 43.265,
@@ -5887,7 +5770,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -5992,31 +5875,31 @@
         "code-reviewer": {
           "score": 56.745,
           "rankingQuality": 52.252,
-          "rankingValue": 44.444,
+          "rankingValue": 43.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 55.556,
+          "balancedQualityPercentile": 54.444,
           "balancedAffordabilityPercentile": 11.111
         },
         "implementer": {
           "score": 56.011,
           "rankingQuality": 51.762,
-          "rankingValue": 42.778,
+          "rankingValue": 40.278,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.333,
+          "balancedQualityPercentile": 50,
           "balancedAffordabilityPercentile": 11.111
         },
         "implementer-heavy": {
           "score": 60.082,
           "rankingQuality": 54.476,
-          "rankingValue": 47.778,
+          "rankingValue": 50.278,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 60,
+          "balancedQualityPercentile": 63.333,
           "balancedAffordabilityPercentile": 11.111
         },
         "synthesizer": {
@@ -6055,6 +5938,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "qwen3-8-max",
+        "modelLabel": "Qwen3.8 Max",
         "agent": "Claude Code",
         "displayLabel": "Claude Code - Qwen3.8 Max",
         "indexScore": 43.265,
@@ -6081,7 +5965,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -6210,32 +6094,32 @@
         },
         "code-reviewer": {
           "score": 51.478,
-          "rankingQuality": 47.833,
-          "rankingValue": 31.944,
+          "rankingQuality": 47.67,
+          "rankingValue": 36.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 23.333,
+          "balancedQualityPercentile": 28.889,
           "balancedAffordabilityPercentile": 57.778
         },
         "implementer": {
           "score": 51.386,
-          "rankingQuality": 47.772,
-          "rankingValue": 30.278,
+          "rankingQuality": 47.608,
+          "rankingValue": 32.778,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.111,
+          "balancedQualityPercentile": 24.444,
           "balancedAffordabilityPercentile": 57.778
         },
         "implementer-heavy": {
           "score": 54.32,
-          "rankingQuality": 49.728,
-          "rankingValue": 41.111,
+          "rankingQuality": 49.564,
+          "rankingValue": 41.944,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 35.556,
+          "balancedQualityPercentile": 36.667,
           "balancedAffordabilityPercentile": 57.778
         },
         "synthesizer": {
@@ -6260,11 +6144,11 @@
         }
       },
       "caiStar": {
-        "value": 40.543,
+        "value": 40.053,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 33.075,
-        "knn": 43.033,
+        "ridge": 33.541,
+        "knn": 42.223,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -6575,32 +6459,32 @@
         },
         "code-reviewer": {
           "score": 50.73,
-          "rankingQuality": 52.027,
-          "rankingValue": 55.278,
+          "rankingQuality": 51.587,
+          "rankingValue": 49.444,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.333,
+          "balancedQualityPercentile": 45.556,
           "balancedAffordabilityPercentile": 61.111
         },
         "implementer": {
           "score": 50.048,
-          "rankingQuality": 51.572,
-          "rankingValue": 52.778,
+          "rankingQuality": 51.132,
+          "rankingValue": 48.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 50,
+          "balancedQualityPercentile": 44.444,
           "balancedAffordabilityPercentile": 61.111
         },
         "implementer-heavy": {
           "score": 47.555,
-          "rankingQuality": 49.91,
-          "rankingValue": 42.778,
+          "rankingQuality": 49.47,
+          "rankingValue": 41.944,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 36.667,
+          "balancedQualityPercentile": 35.556,
           "balancedAffordabilityPercentile": 61.111
         },
         "synthesizer": {
@@ -6625,11 +6509,11 @@
         }
       },
       "caiStar": {
-        "value": 54.621,
+        "value": 53.3,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 64.137,
-        "knn": 51.449,
+        "ridge": 58.8,
+        "knn": 51.467,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -6734,32 +6618,32 @@
         },
         "code-reviewer": {
           "score": 54.832,
-          "rankingQuality": 51.937,
-          "rankingValue": 47.5,
+          "rankingQuality": 50.379,
+          "rankingValue": 40,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 50,
+          "balancedQualityPercentile": 40,
           "balancedAffordabilityPercentile": 40
         },
         "implementer": {
           "score": 53.673,
-          "rankingQuality": 51.165,
-          "rankingValue": 42.5,
+          "rankingQuality": 49.607,
+          "rankingValue": 35,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.333,
+          "balancedQualityPercentile": 33.333,
           "balancedAffordabilityPercentile": 40
         },
         "implementer-heavy": {
           "score": 51.041,
-          "rankingQuality": 49.41,
-          "rankingValue": 35.833,
+          "rankingQuality": 47.852,
+          "rankingValue": 32.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 34.444,
+          "balancedQualityPercentile": 30,
           "balancedAffordabilityPercentile": 40
         },
         "synthesizer": {
@@ -6784,11 +6668,11 @@
         }
       },
       "caiStar": {
-        "value": 46.148,
+        "value": 41.474,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 39.359,
-        "knn": 48.411,
+        "ridge": 32.823,
+        "knn": 44.358,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -6893,27 +6777,27 @@
         },
         "code-reviewer": {
           "score": 50.371,
-          "rankingQuality": 47.784,
-          "rankingValue": 35.278,
+          "rankingQuality": 45.458,
+          "rankingValue": 31.944,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 22.222,
+          "balancedQualityPercentile": 17.778,
           "balancedAffordabilityPercentile": 74.444
         },
         "implementer": {
           "score": 49.591,
-          "rankingQuality": 47.264,
-          "rankingValue": 33.611,
+          "rankingQuality": 44.938,
+          "rankingValue": 31.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 20,
+          "balancedQualityPercentile": 16.667,
           "balancedAffordabilityPercentile": 74.444
         },
         "implementer-heavy": {
           "score": 42.972,
-          "rankingQuality": 42.851,
+          "rankingQuality": 40.525,
           "rankingValue": 27.778,
           "status": "valid",
           "coverageWeight": 1,
@@ -6943,11 +6827,11 @@
         }
       },
       "caiStar": {
-        "value": 42.609,
+        "value": 35.632,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 28.752,
-        "knn": 47.228,
+        "ridge": 16.287,
+        "knn": 42.08,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -7055,32 +6939,32 @@
         },
         "code-reviewer": {
           "score": 53.786,
-          "rankingQuality": 49.977,
-          "rankingValue": 44.444,
+          "rankingQuality": 50.372,
+          "rankingValue": 46.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 36.667,
+          "balancedQualityPercentile": 38.889,
           "balancedAffordabilityPercentile": 67.778
         },
         "implementer": {
           "score": 54.237,
-          "rankingQuality": 50.278,
-          "rankingValue": 44.444,
+          "rankingQuality": 50.672,
+          "rankingValue": 48.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 36.667,
+          "balancedQualityPercentile": 42.222,
           "balancedAffordabilityPercentile": 67.778
         },
         "implementer-heavy": {
           "score": 58.658,
-          "rankingQuality": 53.225,
-          "rankingValue": 55.278,
+          "rankingQuality": 53.62,
+          "rankingValue": 59.444,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 51.111,
+          "balancedQualityPercentile": 56.667,
           "balancedAffordabilityPercentile": 67.778
         },
         "synthesizer": {
@@ -7105,11 +6989,11 @@
         }
       },
       "caiStar": {
-        "value": 42.359,
+        "value": 43.543,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 39.62,
-        "knn": 43.272,
+        "ridge": 41.768,
+        "knn": 44.134,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -7261,7 +7145,7 @@
         },
         "code-reviewer": {
           "score": 45.334,
-          "rankingQuality": 43.005,
+          "rankingQuality": 40.912,
           "rankingValue": 31.944,
           "status": "estimated",
           "coverageWeight": 1,
@@ -7271,7 +7155,7 @@
         },
         "implementer": {
           "score": 44.632,
-          "rankingQuality": 42.537,
+          "rankingQuality": 40.444,
           "rankingValue": 31.944,
           "status": "estimated",
           "coverageWeight": 1,
@@ -7281,7 +7165,7 @@
         },
         "implementer-heavy": {
           "score": 38.674,
-          "rankingQuality": 38.565,
+          "rankingQuality": 36.472,
           "rankingValue": 31.111,
           "status": "estimated",
           "coverageWeight": 1,
@@ -7311,7 +7195,7 @@
         }
       },
       "caiStar": {
-        "value": 38.3481,
+        "value": 32.0688,
         "status": "estimated",
         "source": "reference_ratio",
         "reference": "Qwen 3.7 Plus"
@@ -7433,7 +7317,7 @@
         },
         "code-reviewer": {
           "score": 41.628,
-          "rankingQuality": 41.849,
+          "rankingQuality": 39.585,
           "rankingValue": 30,
           "status": "valid",
           "coverageWeight": 1,
@@ -7443,7 +7327,7 @@
         },
         "implementer": {
           "score": 41.088,
-          "rankingQuality": 41.489,
+          "rankingQuality": 39.225,
           "rankingValue": 30,
           "status": "valid",
           "coverageWeight": 1,
@@ -7453,7 +7337,7 @@
         },
         "implementer-heavy": {
           "score": 37.751,
-          "rankingQuality": 39.264,
+          "rankingQuality": 37.001,
           "rankingValue": 31.667,
           "status": "valid",
           "coverageWeight": 1,
@@ -7483,11 +7367,11 @@
         }
       },
       "caiStar": {
-        "value": 42.291,
+        "value": 35.5,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 24.44,
-        "knn": 48.241,
+        "ridge": 15.649,
+        "knn": 42.117,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -7592,7 +7476,7 @@
         },
         "code-reviewer": {
           "score": 57.284,
-          "rankingQuality": 52.412,
+          "rankingQuality": 52.885,
           "rankingValue": 56.667,
           "status": "valid",
           "coverageWeight": 1,
@@ -7602,22 +7486,22 @@
         },
         "implementer": {
           "score": 57.44,
-          "rankingQuality": 52.516,
-          "rankingValue": 55.833,
+          "rankingQuality": 52.989,
+          "rankingValue": 59.167,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 57.778,
+          "balancedQualityPercentile": 62.222,
           "balancedAffordabilityPercentile": 50
         },
         "implementer-heavy": {
           "score": 60.996,
-          "rankingQuality": 54.886,
-          "rankingValue": 60,
+          "rankingQuality": 55.36,
+          "rankingValue": 66.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 63.333,
+          "balancedQualityPercentile": 72.222,
           "balancedAffordabilityPercentile": 50
         },
         "synthesizer": {
@@ -7642,11 +7526,11 @@
         }
       },
       "caiStar": {
-        "value": 42.667,
+        "value": 44.087,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 42.922,
-        "knn": 42.582,
+        "ridge": 44.209,
+        "knn": 44.046,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -7779,32 +7663,32 @@
         },
         "code-reviewer": {
           "score": 62.784,
-          "rankingQuality": 58.713,
-          "rankingValue": 71.389,
+          "rankingQuality": 58.924,
+          "rankingValue": 75.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 76.667,
+          "balancedQualityPercentile": 82.222,
           "balancedAffordabilityPercentile": 55.556
         },
         "implementer": {
           "score": 62.641,
-          "rankingQuality": 58.618,
-          "rankingValue": 74.722,
+          "rankingQuality": 58.829,
+          "rankingValue": 77.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.111,
+          "balancedQualityPercentile": 84.444,
           "balancedAffordabilityPercentile": 55.556
         },
         "implementer-heavy": {
           "score": 64.178,
-          "rankingQuality": 59.643,
-          "rankingValue": 74.722,
+          "rankingQuality": 59.854,
+          "rankingValue": 77.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.111,
+          "balancedQualityPercentile": 84.444,
           "balancedAffordabilityPercentile": 55.556
         },
         "synthesizer": {
@@ -7829,14 +7713,43 @@
         }
       },
       "caiStar": {
-        "value": 50.572,
-        "source": "estimated",
+        "value": 51.205,
+        "source": "observed",
         "version": "v1.5",
-        "ridge": 50.121,
-        "knn": 50.722,
         "historicalAnchor": null
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "step-5",
+        "modelLabel": "Step 5 Preview",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Step 5 Preview",
+        "indexScore": 51.205,
+        "evaluations": {
+          "deep-swe-v1.1": 61.947,
+          "swe-atlas-qna": 58.333,
+          "terminal-bench-v4": 33.333
+        },
+        "tokensPerTask": {
+          "reward": 0.5120452310717793,
+          "costUsd": 1.662215663091308,
+          "wallTimeSec": 3381.2690379537976,
+          "steps": 138.5951595159516,
+          "inputTokens": 21619802.918041803,
+          "cacheWriteTokens": null,
+          "outputTokens": 126001.40539053906,
+          "cacheTokens": 21366095.841584135,
+          "cacheHitRate": 0.987035206105383,
+          "totalTokens": 21745804.32343233
+        },
+        "totalTokensPerTask": 21745804.32343233,
+        "timePerTaskSec": 3381.2690379537976,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "step-5",
         "sourceUrl": "https://artificialanalysis.ai/models/step-5",
@@ -7936,32 +7849,32 @@
         },
         "code-reviewer": {
           "score": 45.083,
-          "rankingQuality": 47.334,
-          "rankingValue": 34.167,
+          "rankingQuality": 45.823,
+          "rankingValue": 35,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 20,
+          "balancedQualityPercentile": 21.111,
           "balancedAffordabilityPercentile": 76.667
         },
         "implementer": {
           "score": 46.483,
-          "rankingQuality": 48.267,
-          "rankingValue": 37.5,
+          "rankingQuality": 46.756,
+          "rankingValue": 35.833,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 24.444,
+          "balancedQualityPercentile": 22.222,
           "balancedAffordabilityPercentile": 76.667
         },
         "implementer-heavy": {
           "score": 43.253,
-          "rankingQuality": 46.114,
-          "rankingValue": 34.167,
+          "rankingQuality": 44.603,
+          "rankingValue": 32.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 20,
+          "balancedQualityPercentile": 17.778,
           "balancedAffordabilityPercentile": 76.667
         },
         "synthesizer": {
@@ -7986,11 +7899,11 @@
         }
       },
       "caiStar": {
-        "value": 51.835,
+        "value": 47.303,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 53.228,
-        "knn": 51.371,
+        "ridge": 47.257,
+        "knn": 47.318,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -8309,7 +8222,7 @@
         },
         "code-reviewer": {
           "score": 63.375,
-          "rankingQuality": 60.259,
+          "rankingQuality": 60.318,
           "rankingValue": 86.528,
           "status": "valid",
           "coverageWeight": 1,
@@ -8319,22 +8232,22 @@
         },
         "implementer": {
           "score": 64.015,
-          "rankingQuality": 60.685,
-          "rankingValue": 88.194,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 90.556,
-          "balancedAffordabilityPercentile": 81.111
-        },
-        "implementer-heavy": {
-          "score": 66.074,
-          "rankingQuality": 62.058,
+          "rankingQuality": 60.745,
           "rankingValue": 89.028,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 91.667,
+          "balancedAffordabilityPercentile": 81.111
+        },
+        "implementer-heavy": {
+          "score": 66.074,
+          "rankingQuality": 62.117,
+          "rankingValue": 89.861,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 92.778,
           "balancedAffordabilityPercentile": 81.111
         },
         "synthesizer": {
@@ -8359,11 +8272,11 @@
         }
       },
       "caiStar": {
-        "value": 54.026,
+        "value": 54.204,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 53.463,
-        "knn": 54.214,
+        "ridge": 55.301,
+        "knn": 53.839,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -8496,7 +8409,7 @@
         },
         "code-reviewer": {
           "score": 63.375,
-          "rankingQuality": 60.259,
+          "rankingQuality": 60.318,
           "rankingValue": 75.972,
           "status": "valid",
           "coverageWeight": 1,
@@ -8506,22 +8419,22 @@
         },
         "implementer": {
           "score": 64.015,
-          "rankingQuality": 60.685,
-          "rankingValue": 77.639,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 90.556,
-          "balancedAffordabilityPercentile": 38.889
-        },
-        "implementer-heavy": {
-          "score": 66.074,
-          "rankingQuality": 62.058,
+          "rankingQuality": 60.745,
           "rankingValue": 78.472,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 91.667,
+          "balancedAffordabilityPercentile": 38.889
+        },
+        "implementer-heavy": {
+          "score": 66.074,
+          "rankingQuality": 62.117,
+          "rankingValue": 79.306,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 92.778,
           "balancedAffordabilityPercentile": 38.889
         },
         "synthesizer": {
@@ -8546,11 +8459,11 @@
         }
       },
       "caiStar": {
-        "value": 54.026,
+        "value": 54.204,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 53.463,
-        "knn": 54.214,
+        "ridge": 55.301,
+        "knn": 53.839,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -8655,32 +8568,32 @@
         },
         "code-reviewer": {
           "score": 52.621,
-          "rankingQuality": 49.429,
-          "rankingValue": 47.222,
+          "rankingQuality": 50.293,
+          "rankingValue": 51.389,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 32.222,
+          "balancedQualityPercentile": 37.778,
           "balancedAffordabilityPercentile": 92.222
         },
         "implementer": {
           "score": 53.437,
-          "rankingQuality": 49.973,
-          "rankingValue": 48.056,
+          "rankingQuality": 50.837,
+          "rankingValue": 55.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 33.333,
+          "balancedQualityPercentile": 43.333,
           "balancedAffordabilityPercentile": 92.222
         },
         "implementer-heavy": {
           "score": 57.537,
-          "rankingQuality": 52.707,
-          "rankingValue": 58.056,
+          "rankingQuality": 53.571,
+          "rankingValue": 64.722,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 46.667,
+          "balancedQualityPercentile": 55.556,
           "balancedAffordabilityPercentile": 92.222
         },
         "synthesizer": {
@@ -8705,11 +8618,11 @@
         }
       },
       "caiStar": {
-        "value": 43.046,
+        "value": 45.638,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 40.69,
-        "knn": 43.831,
+        "ridge": 40.905,
+        "knn": 47.216,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -8814,32 +8727,32 @@
         },
         "code-reviewer": {
           "score": 54.301,
-          "rankingQuality": 50.915,
-          "rankingValue": 53.056,
+          "rankingQuality": 49.751,
+          "rankingValue": 50.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 38.889,
+          "balancedQualityPercentile": 35.556,
           "balancedAffordabilityPercentile": 95.556
         },
         "implementer": {
           "score": 53.959,
-          "rankingQuality": 50.687,
-          "rankingValue": 53.056,
+          "rankingQuality": 49.523,
+          "rankingValue": 48.056,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 38.889,
+          "balancedQualityPercentile": 32.222,
           "balancedAffordabilityPercentile": 95.556
         },
         "implementer-heavy": {
           "score": 51.615,
-          "rankingQuality": 49.125,
-          "rankingValue": 48.889,
+          "rankingQuality": 47.96,
+          "rankingValue": 47.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 33.333,
+          "balancedQualityPercentile": 31.111,
           "balancedAffordabilityPercentile": 95.556
         },
         "synthesizer": {
@@ -8864,11 +8777,11 @@
         }
       },
       "caiStar": {
-        "value": 44.144,
+        "value": 40.65,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 36.295,
-        "knn": 46.761,
+        "ridge": 29.84,
+        "knn": 44.253,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -8976,27 +8889,27 @@
         },
         "code-reviewer": {
           "score": 47.398,
-          "rankingQuality": 45.609,
-          "rankingValue": 36.389,
+          "rankingQuality": 43.683,
+          "rankingValue": 34.722,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.556,
+          "balancedQualityPercentile": 13.333,
           "balancedAffordabilityPercentile": 98.889
         },
         "implementer": {
           "score": 47.047,
-          "rankingQuality": 45.375,
-          "rankingValue": 36.389,
+          "rankingQuality": 43.449,
+          "rankingValue": 35.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.556,
+          "balancedQualityPercentile": 14.444,
           "balancedAffordabilityPercentile": 98.889
         },
         "implementer-heavy": {
           "score": 45.06,
-          "rankingQuality": 44.05,
+          "rankingQuality": 42.124,
           "rankingValue": 36.389,
           "status": "valid",
           "coverageWeight": 1,
@@ -9026,11 +8939,11 @@
         }
       },
       "caiStar": {
-        "value": 42.03,
+        "value": 36.253,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 26.865,
-        "knn": 47.085,
+        "ridge": 18.696,
+        "knn": 42.106,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -9163,32 +9076,32 @@
         },
         "code-reviewer": {
           "score": 47.307,
-          "rankingQuality": 44.659,
-          "rankingValue": 24.722,
+          "rankingQuality": 43.721,
+          "rankingValue": 26.389,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.222,
+          "balancedQualityPercentile": 14.444,
           "balancedAffordabilityPercentile": 62.222
         },
         "implementer": {
           "score": 45.773,
-          "rankingQuality": 43.637,
-          "rankingValue": 23.889,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 11.111,
-          "balancedAffordabilityPercentile": 62.222
-        },
-        "implementer-heavy": {
-          "score": 44.897,
-          "rankingQuality": 43.053,
+          "rankingQuality": 42.699,
           "rankingValue": 25.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 13.333,
+          "balancedAffordabilityPercentile": 62.222
+        },
+        "implementer-heavy": {
+          "score": 44.897,
+          "rankingQuality": 42.115,
+          "rankingValue": 26.389,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 14.444,
           "balancedAffordabilityPercentile": 62.222
         },
         "synthesizer": {
@@ -9213,11 +9126,11 @@
         }
       },
       "caiStar": {
-        "value": 39.364,
+        "value": 36.55,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 25.502,
-        "knn": 43.984,
+        "ridge": 19.847,
+        "knn": 42.118,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -9322,32 +9235,32 @@
         },
         "code-reviewer": {
           "score": 49.652,
-          "rankingQuality": 46.821,
-          "rankingValue": 33.056,
+          "rankingQuality": 45.775,
+          "rankingValue": 33.889,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 18.889,
+          "balancedQualityPercentile": 20,
           "balancedAffordabilityPercentile": 75.556
         },
         "implementer": {
           "score": 49.533,
-          "rankingQuality": 46.742,
-          "rankingValue": 32.222,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 17.778,
-          "balancedAffordabilityPercentile": 75.556
-        },
-        "implementer-heavy": {
-          "score": 48.434,
-          "rankingQuality": 46.009,
+          "rankingQuality": 45.695,
           "rankingValue": 33.056,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 18.889,
+          "balancedAffordabilityPercentile": 75.556
+        },
+        "implementer-heavy": {
+          "score": 48.434,
+          "rankingQuality": 44.963,
+          "rankingValue": 33.889,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 20,
           "balancedAffordabilityPercentile": 75.556
         },
         "synthesizer": {
@@ -9372,11 +9285,11 @@
         }
       },
       "caiStar": {
-        "value": 41.16,
+        "value": 38.02,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 33.792,
-        "knn": 43.616,
+        "ridge": 25.787,
+        "knn": 42.098,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -9506,17 +9419,17 @@
         },
         "code-reviewer": {
           "score": 67.838,
-          "rankingQuality": 66.315,
-          "rankingValue": 74.444,
+          "rankingQuality": 65.966,
+          "rankingValue": 73.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 98.889,
+          "balancedQualityPercentile": 97.778,
           "balancedAffordabilityPercentile": 1.111
         },
         "implementer": {
           "score": 66.541,
-          "rankingQuality": 65.451,
+          "rankingQuality": 65.101,
           "rankingValue": 73.611,
           "status": "valid",
           "coverageWeight": 1,
@@ -9526,12 +9439,12 @@
         },
         "implementer-heavy": {
           "score": 67.92,
-          "rankingQuality": 66.37,
-          "rankingValue": 73.611,
+          "rankingQuality": 66.021,
+          "rankingValue": 72.778,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 97.778,
+          "balancedQualityPercentile": 96.667,
           "balancedAffordabilityPercentile": 1.111
         },
         "synthesizer": {
@@ -9556,11 +9469,9 @@
         }
       },
       "caiStar": {
-        "value": 63.27,
-        "source": "estimated",
+        "value": 62.222,
+        "source": "observed",
         "version": "v1.5",
-        "ridge": 64.902,
-        "knn": 62.726,
         "historicalAnchor": {
           "version": "v1.4",
           "value": 70.431,
@@ -9570,7 +9481,38 @@
           "hostModelSlug": "anthropic_claude-fable-5-1"
         }
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "claude-fable-5-1",
+        "modelLabel": "Fable 5.1 (max) (with fallback)",
+        "agent": "Claude Code",
+        "displayLabel": "Claude Code - Fable 5.1 (max) (with fallback)",
+        "indexScore": 62.222,
+        "evaluations": {
+          "deep-swe-v1.1": 64.307,
+          "swe-atlas-qna": 64.785,
+          "terminal-bench-v4": 57.576
+        },
+        "tokensPerTask": {
+          "reward": 0.6222249615769457,
+          "costUsd": 12.388092375137534,
+          "wallTimeSec": 2089.900125412543,
+          "steps": 36.65676567656766,
+          "inputTokens": 5581622.259625964,
+          "cacheWriteTokens": null,
+          "outputTokens": 133631.59955995603,
+          "cacheTokens": 5205555.651265128,
+          "cacheHitRate": 0.9159555838702423,
+          "totalTokens": 5715253.85918592
+        },
+        "totalTokensPerTask": 5715253.85918592,
+        "timePerTaskSec": 2089.900125412543,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "claude-fable-5-1",
         "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1",
@@ -9672,17 +9614,17 @@
         },
         "code-reviewer": {
           "score": 65.637,
-          "rankingQuality": 63.784,
-          "rankingValue": 71.667,
+          "rankingQuality": 63.9,
+          "rankingValue": 70.833,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 95.556,
+          "balancedQualityPercentile": 94.444,
           "balancedAffordabilityPercentile": 0
         },
         "implementer": {
           "score": 64.111,
-          "rankingQuality": 62.767,
+          "rankingQuality": 62.882,
           "rankingValue": 70.833,
           "status": "valid",
           "coverageWeight": 1,
@@ -9692,7 +9634,7 @@
         },
         "implementer-heavy": {
           "score": 64.208,
-          "rankingQuality": 62.832,
+          "rankingQuality": 62.947,
           "rankingValue": 70.833,
           "status": "valid",
           "coverageWeight": 1,
@@ -9722,11 +9664,11 @@
         }
       },
       "caiStar": {
-        "value": 60.079,
+        "value": 60.425,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 61.17,
-        "knn": 59.716,
+        "ridge": 58.929,
+        "knn": 60.924,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -9913,6 +9855,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "claude-opus-5-5",
+        "modelLabel": "Opus 5.5 (max)",
         "agent": "Claude Code",
         "displayLabel": "Claude Code - Opus 5.5 (max)",
         "indexScore": 65.989,
@@ -9939,7 +9882,7 @@
         "selection": {
           "isHighlighted": true,
           "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -10064,11 +10007,11 @@
         "implementer-heavy": {
           "score": 62.773,
           "rankingQuality": 61.757,
-          "rankingValue": 68.333,
+          "rankingValue": 69.167,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90,
+          "balancedQualityPercentile": 91.111,
           "balancedAffordabilityPercentile": 3.333
         },
         "synthesizer": {
@@ -10100,6 +10043,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "claude-opus-5",
+        "modelLabel": "Opus 5 (max)",
         "agent": "Claude Code",
         "displayLabel": "Claude Code - Opus 5 (max)",
         "indexScore": 59.726,
@@ -10126,7 +10070,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -10230,7 +10174,7 @@
         },
         "code-reviewer": {
           "score": 59.29,
-          "rankingQuality": 57.674,
+          "rankingQuality": 55.424,
           "rankingValue": 53.333,
           "status": "valid",
           "coverageWeight": 1,
@@ -10240,22 +10184,22 @@
         },
         "implementer": {
           "score": 57.829,
-          "rankingQuality": 56.7,
-          "rankingValue": 51.667,
+          "rankingQuality": 54.45,
+          "rankingValue": 53.333,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 65.556,
+          "balancedQualityPercentile": 67.778,
           "balancedAffordabilityPercentile": 10
         },
         "implementer-heavy": {
           "score": 57.701,
-          "rankingQuality": 56.615,
-          "rankingValue": 54.167,
+          "rankingQuality": 54.364,
+          "rankingValue": 46.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 68.889,
+          "balancedQualityPercentile": 58.889,
           "balancedAffordabilityPercentile": 10
         },
         "synthesizer": {
@@ -10280,11 +10224,11 @@
         }
       },
       "caiStar": {
-        "value": 54.442,
+        "value": 47.691,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 51.046,
-        "knn": 55.574,
+        "ridge": 47.315,
+        "knn": 47.816,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -10403,32 +10347,32 @@
         },
         "code-reviewer": {
           "score": 58.396,
-          "rankingQuality": 59.787,
-          "rankingValue": 65.972,
+          "rankingQuality": 58.844,
+          "rankingValue": 62.639,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 85.556,
+          "balancedQualityPercentile": 81.111,
           "balancedAffordabilityPercentile": 7.222
         },
         "implementer": {
           "score": 57.013,
-          "rankingQuality": 58.865,
-          "rankingValue": 64.306,
+          "rankingQuality": 57.922,
+          "rankingValue": 60.972,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 83.333,
+          "balancedQualityPercentile": 78.889,
           "balancedAffordabilityPercentile": 7.222
         },
         "implementer-heavy": {
           "score": 56.345,
-          "rankingQuality": 58.42,
-          "rankingValue": 59.306,
+          "rankingQuality": 57.476,
+          "rankingValue": 60.139,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 76.667,
+          "balancedQualityPercentile": 77.778,
           "balancedAffordabilityPercentile": 7.222
         },
         "synthesizer": {
@@ -10453,11 +10397,11 @@
         }
       },
       "caiStar": {
-        "value": 62.569,
+        "value": 59.739,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 84.34,
-        "knn": 55.313,
+        "ridge": 82.131,
+        "knn": 52.275,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -10752,11 +10696,11 @@
         "code-reviewer": {
           "score": 64.948,
           "rankingQuality": 66.085,
-          "rankingValue": 76.667,
+          "rankingValue": 77.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 97.778,
+          "balancedQualityPercentile": 98.889,
           "balancedAffordabilityPercentile": 13.333
         },
         "implementer": {
@@ -10808,6 +10752,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "claude-sonnet-5-5",
+        "modelLabel": "Sonnet 5.5 (max)",
         "agent": "Claude Code",
         "displayLabel": "Claude Code - Sonnet 5.5 (max)",
         "indexScore": 68.358,
@@ -10834,7 +10779,7 @@
         "selection": {
           "isHighlighted": true,
           "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -10938,17 +10883,17 @@
         },
         "code-reviewer": {
           "score": 58.348,
-          "rankingQuality": 53.183,
-          "rankingValue": 46.111,
+          "rankingQuality": 53.242,
+          "rankingValue": 47.778,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 60,
+          "balancedQualityPercentile": 62.222,
           "balancedAffordabilityPercentile": 4.444
         },
         "implementer": {
           "score": 57.645,
-          "rankingQuality": 52.714,
+          "rankingQuality": 52.773,
           "rankingValue": 46.111,
           "status": "valid",
           "coverageWeight": 1,
@@ -10958,7 +10903,7 @@
         },
         "implementer-heavy": {
           "score": 58.75,
-          "rankingQuality": 53.451,
+          "rankingQuality": 53.51,
           "rankingValue": 40.278,
           "status": "valid",
           "coverageWeight": 1,
@@ -10988,11 +10933,11 @@
         }
       },
       "caiStar": {
-        "value": 42.853,
+        "value": 43.03,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 43.139,
-        "knn": 42.757,
+        "ridge": 40.861,
+        "knn": 43.753,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -11286,32 +11231,32 @@
         },
         "code-reviewer": {
           "score": 58.89,
-          "rankingQuality": 51.418,
-          "rankingValue": 54.722,
+          "rankingQuality": 53.073,
+          "rankingValue": 65.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 46.667,
+          "balancedQualityPercentile": 61.111,
           "balancedAffordabilityPercentile": 78.889
         },
         "implementer": {
           "score": 58.618,
-          "rankingQuality": 51.236,
-          "rankingValue": 53.056,
+          "rankingQuality": 52.892,
+          "rankingValue": 65.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 44.444,
+          "balancedQualityPercentile": 61.111,
           "balancedAffordabilityPercentile": 78.889
         },
         "implementer-heavy": {
           "score": 61.391,
-          "rankingQuality": 53.085,
-          "rankingValue": 56.389,
+          "rankingQuality": 54.74,
+          "rankingValue": 70.556,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 48.889,
+          "balancedQualityPercentile": 67.778,
           "balancedAffordabilityPercentile": 78.889
         },
         "synthesizer": {
@@ -11336,40 +11281,41 @@
         }
       },
       "caiStar": {
-        "value": 36.473,
+        "value": 41.439,
         "source": "observed",
         "version": "v1.5",
         "historicalAnchor": null
       },
       "codingAgent": {
         "hostModelSlug": "claude-haiku-5-5",
+        "modelLabel": "Haiku 5.5 (xhigh)",
         "agent": "Claude Code",
-        "displayLabel": "Claude Code - Haiku 5.5 (max)",
-        "indexScore": 36.473,
+        "displayLabel": "Claude Code - Haiku 5.5 (xhigh)",
+        "indexScore": 41.439,
         "evaluations": {
-          "deep-swe-v1.1": 46.018,
-          "swe-atlas-qna": 33.602,
-          "terminal-bench-v4": 29.798
+          "deep-swe-v1.1": 48.968,
+          "swe-atlas-qna": 51.613,
+          "terminal-bench-v4": 23.737
         },
         "tokensPerTask": {
-          "reward": 0.3647260981688613,
-          "costUsd": 2.5803409612582775,
-          "wallTimeSec": 5225.859279249448,
-          "steps": 120.92439293598235,
-          "inputTokens": 12778720.506622517,
+          "reward": 0.414392761951997,
+          "costUsd": 0.6104935163943895,
+          "wallTimeSec": 1552.9344400440023,
+          "steps": 75.22717271727173,
+          "inputTokens": 6891342.883388339,
           "cacheWriteTokens": null,
-          "outputTokens": 990294.6710816775,
-          "cacheTokens": 11449043.743929338,
-          "cacheHitRate": 0.8918200950779239,
-          "totalTokens": 13769015.177704195
+          "outputTokens": 189523.5192519252,
+          "cacheTokens": 6587508.316831686,
+          "cacheHitRate": 0.9502433850815568,
+          "totalTokens": 7080866.402640261
         },
-        "totalTokensPerTask": 13769015.177704195,
-        "timePerTaskSec": 5225.859279249448,
+        "totalTokensPerTask": 7080866.402640261,
+        "timePerTaskSec": 1552.9344400440023,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
           "isHighlighted": false,
-          "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "isDefault": false,
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -11691,21 +11637,21 @@
         "code-reviewer": {
           "score": 62.693,
           "rankingQuality": 62.344,
-          "rankingValue": 73.056,
+          "rankingValue": 73.889,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 92.222,
+          "balancedQualityPercentile": 93.333,
           "balancedAffordabilityPercentile": 15.556
         },
         "implementer": {
           "score": 60.538,
           "rankingQuality": 60.907,
-          "rankingValue": 73.056,
+          "rankingValue": 73.889,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 92.222,
+          "balancedQualityPercentile": 93.333,
           "balancedAffordabilityPercentile": 15.556
         },
         "implementer-heavy": {
@@ -11747,6 +11693,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "gpt-6-astra",
+        "modelLabel": "GPT-6 Astra (max)",
         "agent": "Codex",
         "displayLabel": "Codex - GPT-6 Astra (max)",
         "indexScore": 61.645,
@@ -11773,7 +11720,7 @@
         "selection": {
           "isHighlighted": true,
           "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -11877,7 +11824,17 @@
         },
         "code-reviewer": {
           "score": 61.492,
-          "rankingQuality": 61.044,
+          "rankingQuality": 61.964,
+          "rankingValue": 80,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 92.222,
+          "balancedAffordabilityPercentile": 43.333
+        },
+        "implementer": {
+          "score": 59.108,
+          "rankingQuality": 60.375,
           "rankingValue": 78.333,
           "status": "valid",
           "coverageWeight": 1,
@@ -11885,24 +11842,14 @@
           "balancedQualityPercentile": 90,
           "balancedAffordabilityPercentile": 43.333
         },
-        "implementer": {
-          "score": 59.108,
-          "rankingQuality": 59.455,
-          "rankingValue": 75,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 85.556,
-          "balancedAffordabilityPercentile": 43.333
-        },
         "implementer-heavy": {
           "score": 60.72,
-          "rankingQuality": 60.529,
-          "rankingValue": 76.667,
+          "rankingQuality": 61.449,
+          "rankingValue": 78.333,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.778,
+          "balancedQualityPercentile": 90,
           "balancedAffordabilityPercentile": 43.333
         },
         "synthesizer": {
@@ -11927,40 +11874,41 @@
         }
       },
       "caiStar": {
-        "value": 60.148,
+        "value": 62.908,
         "source": "observed",
         "version": "v1.5",
         "historicalAnchor": null
       },
       "codingAgent": {
         "hostModelSlug": "gpt-6-1-sol",
+        "modelLabel": "GPT-6.1 Sol (xhigh)",
         "agent": "Codex",
-        "displayLabel": "Codex - GPT-6.1 Sol (max)",
-        "indexScore": 60.148,
+        "displayLabel": "Codex - GPT-6.1 Sol (xhigh) ({'reasoning_effort': 'xhigh'})",
+        "indexScore": 62.908,
         "evaluations": {
-          "deep-swe-v1.1": 69.617,
-          "swe-atlas-qna": 57.796,
-          "terminal-bench-v4": 53.03
+          "deep-swe-v1.1": 73.156,
+          "swe-atlas-qna": 61.022,
+          "terminal-bench-v4": 54.545
         },
         "tokensPerTask": {
-          "reward": 0.6014750704302517,
-          "costUsd": 1.554119528390054,
-          "wallTimeSec": 1463.0464224422437,
-          "steps": 40.45654565456545,
-          "inputTokens": 3937843.0564663024,
+          "reward": 0.6290776736822983,
+          "costUsd": 1.0397081014409635,
+          "wallTimeSec": 931.3823091309132,
+          "steps": 40.05500550055005,
+          "inputTokens": 3177125.49569875,
           "cacheWriteTokens": null,
-          "outputTokens": 61658.55432920342,
-          "cacheTokens": 3740552.1873072563,
-          "cacheHitRate": 0.9281954641245814,
-          "totalTokens": 3999501.6107955067
+          "outputTokens": 35402.61375317859,
+          "cacheTokens": 3036065.628757956,
+          "cacheHitRate": 0.9327572280083256,
+          "totalTokens": 3212528.1094519314
         },
-        "totalTokensPerTask": 3999501.6107955067,
-        "timePerTaskSec": 1463.0464224422437,
+        "totalTokensPerTask": 3212528.1094519314,
+        "timePerTaskSec": 931.3823091309132,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
-          "isHighlighted": true,
-          "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -12100,11 +12048,11 @@
         "implementer": {
           "score": 61.088,
           "rankingQuality": 59.613,
-          "rankingValue": 74.444,
+          "rankingValue": 73.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.778,
+          "balancedQualityPercentile": 86.667,
           "balancedAffordabilityPercentile": 34.444
         },
         "implementer-heavy": {
@@ -12146,6 +12094,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "gpt-6-sol",
+        "modelLabel": "GPT-6 Sol (max)",
         "agent": "Codex",
         "displayLabel": "Codex - GPT-6 Sol (max)",
         "indexScore": 56.663,
@@ -12172,7 +12121,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -12302,31 +12251,31 @@
         "code-reviewer": {
           "score": 57.458,
           "rankingQuality": 51.997,
-          "rankingValue": 61.944,
+          "rankingValue": 61.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 52.222,
+          "balancedQualityPercentile": 51.111,
           "balancedAffordabilityPercentile": 91.111
         },
         "implementer": {
           "score": 57.798,
           "rankingQuality": 52.223,
-          "rankingValue": 64.444,
+          "rankingValue": 66.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 55.556,
+          "balancedQualityPercentile": 57.778,
           "balancedAffordabilityPercentile": 91.111
         },
         "implementer-heavy": {
           "score": 58.776,
           "rankingQuality": 52.875,
-          "rankingValue": 58.611,
+          "rankingValue": 59.444,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 47.778,
+          "balancedQualityPercentile": 48.889,
           "balancedAffordabilityPercentile": 91.111
         },
         "synthesizer": {
@@ -12358,6 +12307,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "gpt-6-luna",
+        "modelLabel": "GPT-6 Luna (max)",
         "agent": "Codex",
         "displayLabel": "Codex - GPT-6 Luna (max) ({'reasoning_effort': 'max'})",
         "indexScore": 41.074,
@@ -12384,7 +12334,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -12489,31 +12439,31 @@
         "code-reviewer": {
           "score": 61.656,
           "rankingQuality": 59.29,
-          "rankingValue": 68.333,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 82.222,
-          "balancedAffordabilityPercentile": 26.667
-        },
-        "implementer": {
-          "score": 60.924,
-          "rankingQuality": 58.802,
-          "rankingValue": 68.333,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 82.222,
-          "balancedAffordabilityPercentile": 26.667
-        },
-        "implementer-heavy": {
-          "score": 62.594,
-          "rankingQuality": 59.916,
           "rankingValue": 70,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 84.444,
+          "balancedAffordabilityPercentile": 26.667
+        },
+        "implementer": {
+          "score": 60.924,
+          "rankingQuality": 58.802,
+          "rankingValue": 69.167,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 83.333,
+          "balancedAffordabilityPercentile": 26.667
+        },
+        "implementer-heavy": {
+          "score": 62.594,
+          "rankingQuality": 59.916,
+          "rankingValue": 70.833,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 85.556,
           "balancedAffordabilityPercentile": 26.667
         },
         "synthesizer": {
@@ -12545,6 +12495,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "gpt-5-6-sol",
+        "modelLabel": "GPT-5.6 Sol (max)",
         "agent": "Codex",
         "displayLabel": "Codex - GPT-5.6 Sol (max) ({'reasoning_effort': 'max'})",
         "indexScore": 54.559,
@@ -12571,7 +12522,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -12675,17 +12626,7 @@
         },
         "code-reviewer": {
           "score": 58.104,
-          "rankingQuality": 54.052,
-          "rankingValue": 53.889,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 62.222,
-          "balancedAffordabilityPercentile": 28.889
-        },
-        "implementer": {
-          "score": 58.503,
-          "rankingQuality": 54.318,
+          "rankingQuality": 53.786,
           "rankingValue": 54.722,
           "status": "valid",
           "coverageWeight": 1,
@@ -12693,14 +12634,24 @@
           "balancedQualityPercentile": 63.333,
           "balancedAffordabilityPercentile": 28.889
         },
-        "implementer-heavy": {
-          "score": 59.149,
-          "rankingQuality": 54.748,
-          "rankingValue": 53.889,
+        "implementer": {
+          "score": 58.503,
+          "rankingQuality": 54.052,
+          "rankingValue": 57.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 62.222,
+          "balancedQualityPercentile": 66.667,
+          "balancedAffordabilityPercentile": 28.889
+        },
+        "implementer-heavy": {
+          "score": 59.149,
+          "rankingQuality": 54.482,
+          "rankingValue": 56.389,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 65.556,
           "balancedAffordabilityPercentile": 28.889
         },
         "synthesizer": {
@@ -12725,11 +12676,11 @@
         }
       },
       "caiStar": {
-        "value": 45.947,
+        "value": 45.149,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 45.013,
-        "knn": 46.259,
+        "ridge": 44.121,
+        "knn": 45.492,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -12835,11 +12786,11 @@
         "code-reviewer": {
           "score": 56.373,
           "rankingQuality": 51.99,
-          "rankingValue": 58.333,
+          "rankingValue": 57.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 51.111,
+          "balancedQualityPercentile": 50,
           "balancedAffordabilityPercentile": 80
         },
         "implementer": {
@@ -12855,11 +12806,11 @@
         "implementer-heavy": {
           "score": 58.709,
           "rankingQuality": 53.548,
-          "rankingValue": 60,
+          "rankingValue": 60.833,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.333,
+          "balancedQualityPercentile": 54.444,
           "balancedAffordabilityPercentile": 80
         },
         "synthesizer": {
@@ -12891,6 +12842,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "gpt-5-6-luna",
+        "modelLabel": "GPT-5.6 Luna (max)",
         "agent": "Codex",
         "displayLabel": "Codex - GPT-5.6 Luna (max)",
         "indexScore": 43.225,
@@ -12917,7 +12869,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -13021,32 +12973,32 @@
         },
         "code-reviewer": {
           "score": 60.448,
-          "rankingQuality": 57.271,
-          "rankingValue": 54.444,
+          "rankingQuality": 56.18,
+          "rankingValue": 61.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 66.667,
+          "balancedQualityPercentile": 75.556,
           "balancedAffordabilityPercentile": 17.778
         },
         "implementer": {
           "score": 59.648,
-          "rankingQuality": 56.738,
-          "rankingValue": 54.444,
+          "rankingQuality": 55.647,
+          "rankingValue": 60.278,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 66.667,
+          "balancedQualityPercentile": 74.444,
           "balancedAffordabilityPercentile": 17.778
         },
         "implementer-heavy": {
           "score": 58.45,
-          "rankingQuality": 55.939,
-          "rankingValue": 55.278,
+          "rankingQuality": 54.848,
+          "rankingValue": 57.778,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 67.778,
+          "balancedQualityPercentile": 71.111,
           "balancedAffordabilityPercentile": 17.778
         },
         "synthesizer": {
@@ -13071,11 +13023,11 @@
         }
       },
       "caiStar": {
-        "value": 50.917,
+        "value": 47.644,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 49.334,
-        "knn": 51.445,
+        "ridge": 46.047,
+        "knn": 48.176,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -13194,32 +13146,32 @@
         },
         "code-reviewer": {
           "score": 58.563,
-          "rankingQuality": 59.488,
-          "rankingValue": 68.333,
+          "rankingQuality": 58.588,
+          "rankingValue": 65.833,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 83.333,
+          "balancedQualityPercentile": 80,
           "balancedAffordabilityPercentile": 23.333
         },
         "implementer": {
           "score": 58.656,
-          "rankingQuality": 59.55,
-          "rankingValue": 70.833,
+          "rankingQuality": 58.65,
+          "rankingValue": 67.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 86.667,
+          "balancedQualityPercentile": 82.222,
           "balancedAffordabilityPercentile": 23.333
         },
         "implementer-heavy": {
           "score": 56.239,
-          "rankingQuality": 57.939,
-          "rankingValue": 60.833,
+          "rankingQuality": 57.039,
+          "rankingValue": 63.333,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 73.333,
+          "balancedQualityPercentile": 76.667,
           "balancedAffordabilityPercentile": 23.333
         },
         "synthesizer": {
@@ -13244,11 +13196,11 @@
         }
       },
       "caiStar": {
-        "value": 61.339,
+        "value": 58.638,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 79.541,
-        "knn": 55.272,
+        "ridge": 77.734,
+        "knn": 52.273,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -13353,7 +13305,7 @@
         },
         "code-reviewer": {
           "score": 52.318,
-          "rankingQuality": 48.033,
+          "rankingQuality": 46.985,
           "rankingValue": 33.056,
           "status": "valid",
           "coverageWeight": 1,
@@ -13363,7 +13315,7 @@
         },
         "implementer": {
           "score": 53.662,
-          "rankingQuality": 48.929,
+          "rankingQuality": 47.881,
           "rankingValue": 36.389,
           "status": "valid",
           "coverageWeight": 1,
@@ -13373,12 +13325,12 @@
         },
         "implementer-heavy": {
           "score": 50.263,
-          "rankingQuality": 46.663,
-          "rankingValue": 31.389,
+          "rankingQuality": 45.615,
+          "rankingValue": 32.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 22.222,
+          "balancedQualityPercentile": 23.333,
           "balancedAffordabilityPercentile": 58.889
         },
         "synthesizer": {
@@ -13403,11 +13355,11 @@
         }
       },
       "caiStar": {
-        "value": 39.462,
+        "value": 36.319,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 27.646,
-        "knn": 43.401,
+        "ridge": 19.009,
+        "knn": 42.088,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -13712,11 +13664,11 @@
         "implementer": {
           "score": 64.403,
           "rankingQuality": 64.188,
-          "rankingValue": 78.889,
+          "rankingValue": 78.056,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.667,
+          "balancedQualityPercentile": 95.556,
           "balancedAffordabilityPercentile": 25.556
         },
         "implementer-heavy": {
@@ -13758,6 +13710,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "gemini-4-argon",
+        "modelLabel": "Gemini 4 Argon",
         "agent": "Antigravity CLI",
         "displayLabel": "Antigravity CLI - Gemini 4 Argon (high)",
         "indexScore": 63.758,
@@ -13784,7 +13737,7 @@
         "selection": {
           "isHighlighted": true,
           "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -13913,32 +13866,32 @@
         },
         "code-reviewer": {
           "score": 61.161,
-          "rankingQuality": 58.644,
-          "rankingValue": 63.611,
+          "rankingQuality": 54.728,
+          "rankingValue": 56.944,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75.556,
+          "balancedQualityPercentile": 66.667,
           "balancedAffordabilityPercentile": 27.778
         },
         "implementer": {
           "score": 59.93,
-          "rankingQuality": 57.823,
-          "rankingValue": 62.778,
+          "rankingQuality": 53.908,
+          "rankingValue": 56.111,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 74.444,
+          "balancedQualityPercentile": 65.556,
           "balancedAffordabilityPercentile": 27.778
         },
         "implementer-heavy": {
           "score": 59.377,
-          "rankingQuality": 57.455,
-          "rankingValue": 61.111,
+          "rankingQuality": 53.539,
+          "rankingValue": 46.944,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 72.222,
+          "balancedQualityPercentile": 53.333,
           "balancedAffordabilityPercentile": 27.778
         },
         "synthesizer": {
@@ -13963,14 +13916,43 @@
         }
       },
       "caiStar": {
-        "value": 53.61,
-        "source": "estimated",
+        "value": 41.863,
+        "source": "observed",
         "version": "v1.5",
-        "ridge": 50.595,
-        "knn": 54.615,
         "historicalAnchor": null
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "gemini-3-8-flash",
+        "modelLabel": "Gemini 3.8 Flash (high)",
+        "agent": "Antigravity SDK v0.1.12",
+        "displayLabel": "Antigravity SDK - Gemini 3.8 Flash (high)",
+        "indexScore": 41.863,
+        "evaluations": {
+          "deep-swe-v1.1": 65.782,
+          "swe-atlas-qna": 45.161,
+          "terminal-bench-v4": 14.646
+        },
+        "tokensPerTask": {
+          "reward": 0.4186315529449987,
+          "costUsd": 2.4673922004125437,
+          "wallTimeSec": 702.7110253025301,
+          "steps": 188.4884488448845,
+          "inputTokens": 13395246.748624865,
+          "cacheWriteTokens": null,
+          "outputTokens": 115826.40649064905,
+          "cacheTokens": 11871691.682068229,
+          "cacheHitRate": 0.8697428234581179,
+          "totalTokens": 13511073.155115515
+        },
+        "totalTokensPerTask": 13511073.155115515,
+        "timePerTaskSec": 702.7110253025301,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "gemini-3-8-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash",
@@ -14072,32 +14054,32 @@
         },
         "code-reviewer": {
           "score": 61.363,
-          "rankingQuality": 58.207,
-          "rankingValue": 65.833,
+          "rankingQuality": 56.101,
+          "rankingValue": 67.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 72.222,
+          "balancedQualityPercentile": 74.444,
           "balancedAffordabilityPercentile": 46.667
         },
         "implementer": {
           "score": 60.403,
-          "rankingQuality": 57.567,
-          "rankingValue": 63.333,
+          "rankingQuality": 55.461,
+          "rankingValue": 65,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 68.889,
+          "balancedQualityPercentile": 71.111,
           "balancedAffordabilityPercentile": 46.667
         },
         "implementer-heavy": {
           "score": 59.125,
-          "rankingQuality": 56.715,
-          "rankingValue": 64.167,
+          "rankingQuality": 54.609,
+          "rankingValue": 61.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 70,
+          "balancedQualityPercentile": 66.667,
           "balancedAffordabilityPercentile": 46.667
         },
         "synthesizer": {
@@ -14122,11 +14104,11 @@
         }
       },
       "caiStar": {
-        "value": 51.895,
+        "value": 45.578,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 50.276,
-        "knn": 52.434,
+        "ridge": 46.038,
+        "knn": 45.425,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -14231,32 +14213,32 @@
         },
         "code-reviewer": {
           "score": 57.749,
-          "rankingQuality": 54.697,
-          "rankingValue": 51.667,
+          "rankingQuality": 52.958,
+          "rankingValue": 49.167,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 63.333,
+          "balancedQualityPercentile": 60,
           "balancedAffordabilityPercentile": 16.667
         },
         "implementer": {
           "score": 56.584,
-          "rankingQuality": 53.921,
-          "rankingValue": 50.833,
+          "rankingQuality": 52.182,
+          "rankingValue": 46.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 62.222,
+          "balancedQualityPercentile": 56.667,
           "balancedAffordabilityPercentile": 16.667
         },
         "implementer-heavy": {
           "score": 55.35,
-          "rankingQuality": 53.098,
-          "rankingValue": 41.667,
+          "rankingQuality": 51.359,
+          "rankingValue": 36.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 50,
+          "balancedQualityPercentile": 43.333,
           "balancedAffordabilityPercentile": 16.667
         },
         "synthesizer": {
@@ -14281,11 +14263,11 @@
         }
       },
       "caiStar": {
-        "value": 48.594,
+        "value": 43.377,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 44.4,
-        "knn": 49.992,
+        "ridge": 38.911,
+        "knn": 44.866,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -14390,32 +14372,32 @@
         },
         "code-reviewer": {
           "score": 56.997,
-          "rankingQuality": 53.887,
-          "rankingValue": 48.889,
+          "rankingQuality": 52.24,
+          "rankingValue": 42.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 61.111,
+          "balancedQualityPercentile": 52.222,
           "balancedAffordabilityPercentile": 12.222
         },
         "implementer": {
           "score": 56.034,
-          "rankingQuality": 53.245,
-          "rankingValue": 48.889,
+          "rankingQuality": 51.598,
+          "rankingValue": 37.222,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 61.111,
+          "balancedQualityPercentile": 45.556,
           "balancedAffordabilityPercentile": 12.222
         },
         "implementer-heavy": {
           "score": 53.022,
-          "rankingQuality": 51.237,
-          "rankingValue": 34.722,
+          "rankingQuality": 49.59,
+          "rankingValue": 31.389,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 42.222,
+          "balancedQualityPercentile": 37.778,
           "balancedAffordabilityPercentile": 12.222
         },
         "synthesizer": {
@@ -14440,11 +14422,11 @@
         }
       },
       "caiStar": {
-        "value": 47.667,
+        "value": 42.726,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 45.017,
-        "knn": 48.55,
+        "ridge": 36.383,
+        "knn": 44.84,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -14549,32 +14531,32 @@
         },
         "code-reviewer": {
           "score": 46.421,
-          "rankingQuality": 44.81,
-          "rankingValue": 27.778,
+          "rankingQuality": 43.039,
+          "rankingValue": 26.944,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 13.333,
+          "balancedQualityPercentile": 12.222,
           "balancedAffordabilityPercentile": 71.111
         },
         "implementer": {
           "score": 44.792,
-          "rankingQuality": 43.724,
+          "rankingQuality": 41.953,
+          "rankingValue": 26.944,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 12.222,
+          "balancedAffordabilityPercentile": 71.111
+        },
+        "implementer-heavy": {
+          "score": 44.261,
+          "rankingQuality": 41.599,
           "rankingValue": 27.778,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 13.333,
-          "balancedAffordabilityPercentile": 71.111
-        },
-        "implementer-heavy": {
-          "score": 44.261,
-          "rankingQuality": 43.37,
-          "rankingValue": 28.611,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 14.444,
           "balancedAffordabilityPercentile": 71.111
         },
         "synthesizer": {
@@ -14599,11 +14581,11 @@
         }
       },
       "caiStar": {
-        "value": 41.587,
+        "value": 36.275,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 25.057,
-        "knn": 47.097,
+        "ridge": 16.735,
+        "knn": 42.789,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -14711,7 +14693,7 @@
         },
         "code-reviewer": {
           "score": 45.725,
-          "rankingQuality": 43.606,
+          "rankingQuality": 41.639,
           "rankingValue": 30.278,
           "status": "valid",
           "coverageWeight": 1,
@@ -14721,17 +14703,17 @@
         },
         "implementer": {
           "score": 45.777,
-          "rankingQuality": 43.64,
-          "rankingValue": 31.111,
+          "rankingQuality": 41.673,
+          "rankingValue": 30.278,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.222,
+          "balancedQualityPercentile": 11.111,
           "balancedAffordabilityPercentile": 87.778
         },
         "implementer-heavy": {
           "score": 38.22,
-          "rankingQuality": 38.602,
+          "rankingQuality": 36.635,
           "rankingValue": 29.444,
           "status": "valid",
           "coverageWeight": 1,
@@ -14761,11 +14743,11 @@
         }
       },
       "caiStar": {
-        "value": 39.367,
+        "value": 33.466,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 15.741,
-        "knn": 47.242,
+        "ridge": 0.184,
+        "knn": 44.56,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -14917,32 +14899,32 @@
         },
         "code-reviewer": {
           "score": 65.053,
-          "rankingQuality": 63.28,
-          "rankingValue": 73.056,
+          "rankingQuality": 60.811,
+          "rankingValue": 69.722,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 94.444,
+          "balancedQualityPercentile": 90,
           "balancedAffordabilityPercentile": 8.889
         },
         "implementer": {
           "score": 63.449,
-          "rankingQuality": 62.211,
-          "rankingValue": 72.222,
+          "rankingQuality": 59.741,
+          "rankingValue": 68.056,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.333,
+          "balancedQualityPercentile": 87.778,
           "balancedAffordabilityPercentile": 8.889
         },
         "implementer-heavy": {
           "score": 63.309,
-          "rankingQuality": 62.117,
-          "rankingValue": 72.222,
+          "rankingQuality": 59.648,
+          "rankingValue": 63.056,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.333,
+          "balancedQualityPercentile": 81.111,
           "balancedAffordabilityPercentile": 8.889
         },
         "synthesizer": {
@@ -14967,7 +14949,7 @@
         }
       },
       "caiStar": {
-        "value": 59.7335,
+        "value": 52.3264,
         "status": "estimated",
         "source": "reference_ratio",
         "reference": "Claude Opus 4.8"
@@ -15089,17 +15071,7 @@
         },
         "code-reviewer": {
           "score": 63.149,
-          "rankingQuality": 63.265,
-          "rankingValue": 71.389,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 93.333,
-          "balancedAffordabilityPercentile": 5.556
-        },
-        "implementer": {
-          "score": 62.694,
-          "rankingQuality": 62.962,
+          "rankingQuality": 64.776,
           "rankingValue": 73.056,
           "status": "valid",
           "coverageWeight": 1,
@@ -15107,14 +15079,24 @@
           "balancedQualityPercentile": 95.556,
           "balancedAffordabilityPercentile": 5.556
         },
-        "implementer-heavy": {
-          "score": 65.72,
-          "rankingQuality": 64.979,
+        "implementer": {
+          "score": 62.694,
+          "rankingQuality": 64.473,
           "rankingValue": 73.889,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 96.667,
+          "balancedAffordabilityPercentile": 5.556
+        },
+        "implementer-heavy": {
+          "score": 65.72,
+          "rankingQuality": 66.49,
+          "rankingValue": 74.722,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 97.778,
           "balancedAffordabilityPercentile": 5.556
         },
         "synthesizer": {
@@ -15139,40 +15121,41 @@
         }
       },
       "caiStar": {
-        "value": 63.497,
+        "value": 68.031,
         "source": "observed",
         "version": "v1.5",
         "historicalAnchor": null
       },
       "codingAgent": {
         "hostModelSlug": "muse-wonder",
+        "modelLabel": "Muse Wonder Full (max)",
         "agent": "Muse Code",
-        "displayLabel": "Muse Code - Muse Wonder (max)",
-        "indexScore": 63.497,
+        "displayLabel": "Muse Code - Muse Wonder Full (max)",
+        "indexScore": 68.031,
         "evaluations": {
-          "deep-swe-v1.1": 75.811,
-          "swe-atlas-qna": 67.204,
-          "terminal-bench-v4": 47.475
+          "deep-swe-v1.1": 76.991,
+          "swe-atlas-qna": 68.011,
+          "terminal-bench-v4": 59.091
         },
         "tokensPerTask": {
-          "reward": 0.6349675266318143,
-          "costUsd": 8.052232502530256,
-          "wallTimeSec": 1346.6521254125387,
-          "steps": 191.95514936108992,
-          "inputTokens": 14926250.650165016,
+          "reward": 0.6803093740718634,
+          "costUsd": null,
+          "wallTimeSec": 1725.8832958057408,
+          "steps": 194.96357615894038,
+          "inputTokens": 14917198.823399557,
           "cacheWriteTokens": null,
-          "outputTokens": 90049.02915291529,
-          "cacheTokens": 14066776.495049521,
-          "cacheHitRate": 0.935735212525825,
-          "totalTokens": 15016299.67931794
+          "outputTokens": 85116.84657836644,
+          "cacheTokens": 14564666.8432671,
+          "cacheHitRate": 0.9637709553156532,
+          "totalTokens": 15002315.66997792
         },
-        "totalTokensPerTask": 15016299.67931794,
-        "timePerTaskSec": 1346.6521254125387,
+        "totalTokensPerTask": 15002315.66997792,
+        "timePerTaskSec": 1725.8832958057408,
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "selection": {
-          "isHighlighted": true,
+          "isHighlighted": false,
           "isDefault": true,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -15305,31 +15288,31 @@
         "code-reviewer": {
           "score": 62.782,
           "rankingQuality": 57.954,
-          "rankingValue": 61.528,
+          "rankingValue": 67.361,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 69.444,
+          "balancedQualityPercentile": 77.222,
           "balancedAffordabilityPercentile": 37.778
         },
         "implementer": {
           "score": 62.386,
           "rankingQuality": 57.69,
-          "rankingValue": 64.028,
+          "rankingValue": 67.361,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 72.778,
+          "balancedQualityPercentile": 77.222,
           "balancedAffordabilityPercentile": 37.778
         },
         "implementer-heavy": {
           "score": 63.962,
           "rankingQuality": 58.741,
-          "rankingValue": 68.194,
+          "rankingValue": 69.028,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.333,
+          "balancedQualityPercentile": 79.444,
           "balancedAffordabilityPercentile": 37.778
         },
         "synthesizer": {
@@ -15361,6 +15344,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "muse-spark-1-3-xhigh",
+        "modelLabel": "Muse Spark 1.3 (xhigh)",
         "agent": "Muse Code 1.0.2 RC",
         "displayLabel": "Muse Code - Muse Spark 1.3 (xhigh)",
         "indexScore": 48.299,
@@ -15387,7 +15371,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -15520,31 +15504,31 @@
         "code-reviewer": {
           "score": 62.782,
           "rankingQuality": 57.954,
-          "rankingValue": 75.694,
+          "rankingValue": 81.528,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 69.444,
+          "balancedQualityPercentile": 77.222,
           "balancedAffordabilityPercentile": 94.444
         },
         "implementer": {
           "score": 62.386,
           "rankingQuality": 57.69,
-          "rankingValue": 78.194,
+          "rankingValue": 81.528,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 72.778,
+          "balancedQualityPercentile": 77.222,
           "balancedAffordabilityPercentile": 94.444
         },
         "implementer-heavy": {
           "score": 63.962,
           "rankingQuality": 58.741,
-          "rankingValue": 82.361,
+          "rankingValue": 83.194,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.333,
+          "balancedQualityPercentile": 79.444,
           "balancedAffordabilityPercentile": 94.444
         },
         "synthesizer": {
@@ -15576,6 +15560,7 @@
       },
       "codingAgent": {
         "hostModelSlug": "muse-spark-1-3-xhigh",
+        "modelLabel": "Muse Spark 1.3 (xhigh)",
         "agent": "Muse Code 1.0.2 RC",
         "displayLabel": "Muse Code - Muse Spark 1.3 (xhigh)",
         "indexScore": 48.299,
@@ -15602,7 +15587,7 @@
         "selection": {
           "isHighlighted": false,
           "isDefault": false,
-          "rule": "highlighted > default > highest index score"
+          "rule": "highest comparable index score; highlight/default only break ties"
         }
       },
       "aaModel": {
@@ -15706,32 +15691,32 @@
         },
         "code-reviewer": {
           "score": 60.841,
-          "rankingQuality": 57.969,
-          "rankingValue": 66.667,
+          "rankingQuality": 54.286,
+          "rankingValue": 61.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.111,
+          "balancedQualityPercentile": 64.444,
           "balancedAffordabilityPercentile": 53.333
         },
         "implementer": {
           "score": 60.244,
-          "rankingQuality": 57.571,
-          "rankingValue": 65.833,
+          "rankingQuality": 53.888,
+          "rankingValue": 61.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 70,
+          "balancedQualityPercentile": 64.444,
           "balancedAffordabilityPercentile": 53.333
         },
         "implementer-heavy": {
           "score": 59.147,
-          "rankingQuality": 56.84,
-          "rankingValue": 66.667,
+          "rankingQuality": 53.157,
+          "rankingValue": 50.833,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.111,
+          "balancedQualityPercentile": 50,
           "balancedAffordabilityPercentile": 53.333
         },
         "synthesizer": {
@@ -15756,14 +15741,43 @@
         }
       },
       "caiStar": {
-        "value": 52.225,
-        "source": "estimated",
+        "value": 41.176,
+        "source": "observed",
         "version": "v1.5",
-        "ridge": 51.459,
-        "knn": 52.48,
         "historicalAnchor": null
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "muse-spark-open",
+        "modelLabel": "Muse Spark Open (xhigh)",
+        "agent": "Muse Code",
+        "displayLabel": "Muse Code - Muse Spark Open (xhigh)",
+        "indexScore": 41.176,
+        "evaluations": {
+          "deep-swe-v1.1": 60.177,
+          "swe-atlas-qna": 57.796,
+          "terminal-bench-v4": 5.556
+        },
+        "tokensPerTask": {
+          "reward": 0.41176081876909754,
+          "costUsd": 3.3259927397139704,
+          "wallTimeSec": 1513.8331193619354,
+          "steps": 188.80803080308033,
+          "inputTokens": 16209156.916391637,
+          "cacheWriteTokens": null,
+          "outputTokens": 105277.34433443344,
+          "cacheTokens": 15802620.108360857,
+          "cacheHitRate": 0.9692708877835391,
+          "totalTokens": 16314434.26072608
+        },
+        "totalTokensPerTask": 16314434.26072608,
+        "timePerTaskSec": 1513.8331193619354,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": true,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "muse-spark-open",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-open",
@@ -15865,32 +15879,32 @@
         },
         "code-reviewer": {
           "score": 60.737,
-          "rankingQuality": 58.821,
-          "rankingValue": 71.806,
+          "rankingQuality": 56.093,
+          "rankingValue": 67.639,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.333,
+          "balancedQualityPercentile": 72.778,
           "balancedAffordabilityPercentile": 52.222
         },
         "implementer": {
           "score": 59.812,
-          "rankingQuality": 58.204,
-          "rankingValue": 70.972,
+          "rankingQuality": 55.476,
+          "rankingValue": 67.639,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 77.222,
+          "balancedQualityPercentile": 72.778,
           "balancedAffordabilityPercentile": 52.222
         },
         "implementer-heavy": {
           "score": 59.773,
-          "rankingQuality": 58.178,
-          "rankingValue": 69.306,
+          "rankingQuality": 55.45,
+          "rankingValue": 68.472,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75,
+          "balancedQualityPercentile": 73.889,
           "balancedAffordabilityPercentile": 52.222
         },
         "synthesizer": {
@@ -15915,11 +15929,11 @@
         }
       },
       "caiStar": {
-        "value": 54.988,
+        "value": 46.805,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 52.381,
-        "knn": 55.856,
+        "ridge": 48.431,
+        "knn": 46.263,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -16027,32 +16041,32 @@
         },
         "code-reviewer": {
           "score": 60.737,
-          "rankingQuality": 58.821,
-          "rankingValue": 82.917,
+          "rankingQuality": 56.093,
+          "rankingValue": 78.75,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.333,
+          "balancedQualityPercentile": 72.778,
           "balancedAffordabilityPercentile": 96.667
         },
         "implementer": {
           "score": 59.812,
-          "rankingQuality": 58.204,
-          "rankingValue": 82.083,
+          "rankingQuality": 55.476,
+          "rankingValue": 78.75,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 77.222,
+          "balancedQualityPercentile": 72.778,
           "balancedAffordabilityPercentile": 96.667
         },
         "implementer-heavy": {
           "score": 59.773,
-          "rankingQuality": 58.178,
-          "rankingValue": 80.417,
+          "rankingQuality": 55.45,
+          "rankingValue": 79.583,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75,
+          "balancedQualityPercentile": 73.889,
           "balancedAffordabilityPercentile": 96.667
         },
         "synthesizer": {
@@ -16077,11 +16091,11 @@
         }
       },
       "caiStar": {
-        "value": 54.988,
+        "value": 46.805,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 52.381,
-        "knn": 55.856,
+        "ridge": 48.431,
+        "knn": 46.263,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -16186,32 +16200,32 @@
         },
         "code-reviewer": {
           "score": 61.416,
-          "rankingQuality": 58.838,
-          "rankingValue": 67.5,
+          "rankingQuality": 55.458,
+          "rankingValue": 59.167,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 80,
+          "balancedQualityPercentile": 68.889,
           "balancedAffordabilityPercentile": 30
         },
         "implementer": {
           "score": 60.644,
-          "rankingQuality": 58.323,
-          "rankingValue": 67.5,
+          "rankingQuality": 54.944,
+          "rankingValue": 59.167,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 80,
+          "balancedQualityPercentile": 68.889,
           "balancedAffordabilityPercentile": 30
         },
         "implementer-heavy": {
           "score": 56.553,
-          "rankingQuality": 55.596,
-          "rankingValue": 56.667,
+          "rankingQuality": 52.216,
+          "rankingValue": 41.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 65.556,
+          "balancedQualityPercentile": 45.556,
           "balancedAffordabilityPercentile": 30
         },
         "synthesizer": {
@@ -16236,11 +16250,11 @@
         }
       },
       "caiStar": {
-        "value": 53.681,
+        "value": 43.543,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 48.995,
-        "knn": 55.243,
+        "ridge": 40.169,
+        "knn": 44.668,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -16370,32 +16384,32 @@
         },
         "code-reviewer": {
           "score": 60.311,
-          "rankingQuality": 58.938,
-          "rankingValue": 65.833,
+          "rankingQuality": 58.963,
+          "rankingValue": 67.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.111,
+          "balancedQualityPercentile": 83.333,
           "balancedAffordabilityPercentile": 20
         },
         "implementer": {
           "score": 59.128,
-          "rankingQuality": 58.15,
-          "rankingValue": 61.667,
+          "rankingQuality": 58.175,
+          "rankingValue": 65,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75.556,
+          "balancedQualityPercentile": 80,
           "balancedAffordabilityPercentile": 20
         },
         "implementer-heavy": {
           "score": 62.561,
-          "rankingQuality": 60.438,
-          "rankingValue": 70,
+          "rankingQuality": 60.463,
+          "rankingValue": 70.833,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 86.667,
+          "balancedQualityPercentile": 87.778,
           "balancedAffordabilityPercentile": 20
         },
         "synthesizer": {
@@ -16420,14 +16434,43 @@
         }
       },
       "caiStar": {
-        "value": 56.193,
-        "source": "estimated",
+        "value": 56.268,
+        "source": "observed",
         "version": "v1.5",
-        "ridge": 55.149,
-        "knn": 56.541,
         "historicalAnchor": null
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "grok-4-7",
+        "modelLabel": "Grok 4.7 (xhigh)",
+        "agent": "Grok Build",
+        "displayLabel": "Grok Build - Grok 4.7 (xhigh)",
+        "indexScore": 56.268,
+        "evaluations": {
+          "deep-swe-v1.1": 72.566,
+          "swe-atlas-qna": 62.903,
+          "terminal-bench-v4": 33.333
+        },
+        "tokensPerTask": {
+          "reward": 0.5626764360706693,
+          "costUsd": 8.817468730473037,
+          "wallTimeSec": 2354.367686468646,
+          "steps": 162.64576457645765,
+          "inputTokens": 14201447.955995597,
+          "cacheWriteTokens": null,
+          "outputTokens": 123276.32783278328,
+          "cacheTokens": 13550056.765676552,
+          "cacheHitRate": 0.938882976190201,
+          "totalTokens": 14324724.283828393
+        },
+        "totalTokensPerTask": 14324724.283828393,
+        "timePerTaskSec": 2354.367686468646,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": true,
+          "isDefault": true,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "grok-4-7",
         "sourceUrl": "https://artificialanalysis.ai/models/grok-4-7",
@@ -16529,17 +16572,7 @@
         },
         "code-reviewer": {
           "score": 60.352,
-          "rankingQuality": 58.452,
-          "rankingValue": 64.722,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 74.444,
-          "balancedAffordabilityPercentile": 35.556
-        },
-        "implementer": {
-          "score": 59.094,
-          "rankingQuality": 57.613,
+          "rankingQuality": 55.891,
           "rankingValue": 62.222,
           "status": "valid",
           "coverageWeight": 1,
@@ -16547,14 +16580,24 @@
           "balancedQualityPercentile": 71.111,
           "balancedAffordabilityPercentile": 35.556
         },
-        "implementer-heavy": {
-          "score": 61.622,
-          "rankingQuality": 59.298,
-          "rankingValue": 68.889,
+        "implementer": {
+          "score": 59.094,
+          "rankingQuality": 55.052,
+          "rankingValue": 61.389,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 80,
+          "balancedQualityPercentile": 70,
+          "balancedAffordabilityPercentile": 35.556
+        },
+        "implementer-heavy": {
+          "score": 61.622,
+          "rankingQuality": 56.738,
+          "rankingValue": 65.556,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 75.556,
           "balancedAffordabilityPercentile": 35.556
         },
         "synthesizer": {
@@ -16579,14 +16622,43 @@
         }
       },
       "caiStar": {
-        "value": 54.651,
-        "source": "estimated",
+        "value": 46.969,
+        "source": "observed",
         "version": "v1.5",
-        "ridge": 54.394,
-        "knn": 54.737,
         "historicalAnchor": null
       },
-      "codingAgent": null,
+      "codingAgent": {
+        "hostModelSlug": "grok-4-6",
+        "modelLabel": "Grok 4.6 (xhigh)",
+        "agent": "Grok Build",
+        "displayLabel": "Grok Build - Grok 4.6 (xhigh)",
+        "indexScore": 46.969,
+        "evaluations": {
+          "deep-swe-v1.1": 64.897,
+          "swe-atlas-qna": 58.333,
+          "terminal-bench-v4": 17.677
+        },
+        "tokensPerTask": {
+          "reward": 0.4696895205744764,
+          "costUsd": 3.5701432805280535,
+          "wallTimeSec": 1167.3387480748086,
+          "steps": 112.06160616061608,
+          "inputTokens": 5487669.762376238,
+          "cacheWriteTokens": null,
+          "outputTokens": 55954.83498349835,
+          "cacheTokens": 5160616.836083612,
+          "cacheHitRate": 0.9057792630165156,
+          "totalTokens": 5543624.597359739
+        },
+        "totalTokensPerTask": 5543624.597359739,
+        "timePerTaskSec": 1167.3387480748086,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "grok-4-6",
         "sourceUrl": "https://artificialanalysis.ai/models/grok-4-6",
@@ -16688,7 +16760,7 @@
         },
         "code-reviewer": {
           "score": 58.967,
-          "rankingQuality": 56.842,
+          "rankingQuality": 54.419,
           "rankingValue": 60.278,
           "status": "valid",
           "coverageWeight": 1,
@@ -16698,22 +16770,22 @@
         },
         "implementer": {
           "score": 57.828,
-          "rankingQuality": 56.082,
-          "rankingValue": 59.444,
+          "rankingQuality": 53.659,
+          "rankingValue": 58.611,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.444,
+          "balancedQualityPercentile": 63.333,
           "balancedAffordabilityPercentile": 44.444
         },
         "implementer-heavy": {
           "score": 57.399,
-          "rankingQuality": 55.796,
-          "rankingValue": 61.111,
+          "rankingQuality": 53.373,
+          "rankingValue": 49.444,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 66.667,
+          "balancedQualityPercentile": 51.111,
           "balancedAffordabilityPercentile": 44.444
         },
         "synthesizer": {
@@ -16738,11 +16810,11 @@
         }
       },
       "caiStar": {
-        "value": 52.591,
+        "value": 45.322,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 49.964,
-        "knn": 53.467,
+        "ridge": 45.464,
+        "knn": 45.275,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -16872,32 +16944,32 @@
         },
         "code-reviewer": {
           "score": 56.017,
-          "rankingQuality": 51.298,
-          "rankingValue": 44.722,
+          "rankingQuality": 51.288,
+          "rankingValue": 43.889,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 45.556,
+          "balancedQualityPercentile": 44.444,
           "balancedAffordabilityPercentile": 42.222
         },
         "implementer": {
           "score": 56.71,
-          "rankingQuality": 51.76,
-          "rankingValue": 48.889,
+          "rankingQuality": 51.75,
+          "rankingValue": 46.389,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 51.111,
+          "balancedQualityPercentile": 47.778,
           "balancedAffordabilityPercentile": 42.222
         },
         "implementer-heavy": {
           "score": 57.965,
-          "rankingQuality": 52.597,
-          "rankingValue": 44.722,
+          "rankingQuality": 52.587,
+          "rankingValue": 46.389,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 45.556,
+          "balancedQualityPercentile": 47.778,
           "balancedAffordabilityPercentile": 42.222
         },
         "synthesizer": {
@@ -16922,11 +16994,11 @@
         }
       },
       "caiStar": {
-        "value": 41.86,
+        "value": 41.831,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 38.462,
-        "knn": 42.993,
+        "ridge": 36.438,
+        "knn": 43.629,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -17029,32 +17101,32 @@
         },
         "code-reviewer": {
           "score": 51.292,
-          "rankingQuality": 48.586,
-          "rankingValue": 31.944,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 25.556,
-          "balancedAffordabilityPercentile": 51.111
-        },
-        "implementer": {
-          "score": 50.568,
-          "rankingQuality": 48.103,
-          "rankingValue": 29.444,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 22.222,
-          "balancedAffordabilityPercentile": 51.111
-        },
-        "implementer-heavy": {
-          "score": 48.683,
-          "rankingQuality": 46.846,
+          "rankingQuality": 46.794,
           "rankingValue": 30.278,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 23.333,
+          "balancedAffordabilityPercentile": 51.111
+        },
+        "implementer": {
+          "score": 50.568,
+          "rankingQuality": 46.312,
+          "rankingValue": 28.611,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 21.111,
+          "balancedAffordabilityPercentile": 51.111
+        },
+        "implementer-heavy": {
+          "score": 48.683,
+          "rankingQuality": 45.055,
+          "rankingValue": 28.611,
+          "status": "valid",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 21.111,
           "balancedAffordabilityPercentile": 51.111
         },
         "synthesizer": {
@@ -17079,11 +17151,11 @@
         }
       },
       "caiStar": {
-        "value": 43.173,
+        "value": 37.799,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 31.983,
-        "knn": 46.902,
+        "ridge": 24.937,
+        "knn": 42.087,
         "historicalAnchor": null
       },
       "codingAgent": null,
@@ -17188,32 +17260,32 @@
         },
         "code-reviewer": {
           "score": 51.974,
-          "rankingQuality": 49.234,
-          "rankingValue": 43.333,
+          "rankingQuality": 47.465,
+          "rankingValue": 40,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 30,
+          "balancedQualityPercentile": 25.556,
           "balancedAffordabilityPercentile": 83.333
         },
         "implementer": {
           "score": 52.322,
-          "rankingQuality": 49.466,
-          "rankingValue": 44.167,
+          "rankingQuality": 47.697,
+          "rankingValue": 40,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.111,
+          "balancedQualityPercentile": 25.556,
           "balancedAffordabilityPercentile": 83.333
         },
         "implementer-heavy": {
           "score": 50.306,
-          "rankingQuality": 48.122,
-          "rankingValue": 43.333,
+          "rankingQuality": 46.353,
+          "rankingValue": 41.667,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 30,
+          "balancedQualityPercentile": 27.778,
           "balancedAffordabilityPercentile": 83.333
         },
         "synthesizer": {
@@ -17238,11 +17310,11 @@
         }
       },
       "caiStar": {
-        "value": 43.754,
+        "value": 38.447,
         "source": "estimated",
         "version": "v1.5",
-        "ridge": 34.183,
-        "knn": 46.944,
+        "ridge": 27.535,
+        "knn": 42.084,
         "historicalAnchor": null
       },
       "codingAgent": null,

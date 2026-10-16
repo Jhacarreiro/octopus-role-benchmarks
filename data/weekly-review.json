@@ -1,85 +1,31 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T11:11:20.262Z",
+  "generatedAt": "2026-10-16T11:22:44.843Z",
   "snapshotDate": "2026-10-16",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T11:11:20.201Z",
+    "attemptedAt": "2026-10-16T11:22:44.780Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:10:24.229Z"
+      "generatedAt": "2026-10-16T11:21:54.330Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:10:24.229Z",
+      "generatedAt": "2026-10-16T11:21:54.330Z",
       "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T11:10:24.229Z",
-      "lineupInputsRefreshedAt": "2026-10-16T11:10:24.229Z"
+      "benchmarkGeneratedAt": "2026-10-16T11:21:54.330Z",
+      "lineupInputsRefreshedAt": "2026-10-16T11:21:54.330Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-16",
-      "generatedAt": "2026-10-16T11:10:24.229Z"
+      "generatedAt": "2026-10-16T11:21:54.330Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
     "stage": null,
     "errorSummary": null,
     "validationIssues": [
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Grok 4.7 (xhigh)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Fable 5.1 (max) (with fallback)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "GPT-6.1 Sol (xhigh)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Sonnet 5.5 (medium)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Sonnet 5.5 (low)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Step 5 Preview",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Haiku 5.5 (medium)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Muse Wonder Full (max)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "GPT-6.1 Sol (medium)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
       {
         "benchmark": "coding-agent-host",
         "targetSlug": "Claude Fable 5.1 XHigh + SWE-2 Medium",
@@ -94,37 +40,7 @@
       },
       {
         "benchmark": "coding-agent-host",
-        "targetSlug": "Haiku 5.5 (xhigh)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Muse Spark Open (xhigh)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Haiku 5.5 (high)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
         "targetSlug": "GPT-6 Astra XHigh + SWE-2 Medium",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Gemini 3.8 Flash (high)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Sonnet 5.5 (xhigh)",
         "status": "unresolved",
         "reason": "no_exact_identity"
       },
@@ -136,37 +52,7 @@
       },
       {
         "benchmark": "coding-agent-host",
-        "targetSlug": "Sonnet 5.5 (high)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
         "targetSlug": "DeepSeek V4 Flash 0731 (max)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "GPT-6.1 Sol (high)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Haiku 5.5 (low)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "GPT-6.1 Sol (low)",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Grok 4.6 (xhigh)",
         "status": "unresolved",
         "reason": "no_exact_identity"
       },
@@ -179,7 +65,7 @@
       {
         "benchmark": "coding-agent-version-calibration",
         "status": "unavailable",
-        "reason": "comparable families 2<4; LOO MAE 7.640837983849359"
+        "reason": "comparable families 3<4; LOO MAE 6.521018164218276"
       },
       {
         "benchmark": "mapping",
@@ -254,8 +140,8 @@
         "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38891977530"
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38893249640"
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• balanced/architect: MiMo V2.6 Pro → Claude Sonnet 5.5\n• balanced/strategist: Gemini 4 Argon → GPT-6.1 Sol\n• balanced/researcher: GPT-6.1 Sol → MiMo V2.6 Pro"
 }
