@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "error",
-  "attemptedAt": "2026-10-16T08:56:19.663Z",
+  "attemptedAt": "2026-10-16T08:59:53.576Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-05",
     "generatedAt": "2026-10-05T06:17:19.309Z"
@@ -20,7 +20,7 @@
   "mode": null,
   "message": null,
   "stage": "update",
-  "errorSummary": "Error: CAI version calibration failed: comparable families 2<4; LOO MAE 7.640837983849359",
+  "errorSummary": "Error: CAI estimator Spearman guardrail failed: 0.5363636363636364",
   "validationIssues": [
     {
       "benchmark": "mapping",
@@ -119,5 +119,5 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38876996902"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38877388642"
 }
