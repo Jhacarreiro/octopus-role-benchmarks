@@ -272,8 +272,14 @@ for(const row of codingRows){
   else {
     // AA now publishes a display.model rather than hostModelSlug. Only accept
     // an exact catalogue-family identity with a recognized effort suffix.
+    const effort=row.modelLabel.match(/\s+\((max|high|medium|low|xhigh)\)$/i)?.[1]?.toLowerCase();
     const label=row.modelLabel.replace(/\s+\((?:max|high|medium|low|xhigh)\)$/i,'');
-    const candidates=codingLabelSlugs.get(normalize(row.modelLabel))??codingLabelSlugs.get(normalize(label))??[];
+    // Prefer a uniquely identified effort variant; the unqualified model
+    // is only a fallback for Max, never for Low/Medium/High/XHigh.
+    const baseNames=/^(?:sonnet|opus|haiku)\s/i.test(label)?[label,`Claude ${label}`]:[label];
+    const exactKeys=effort?baseNames.map(name=>normalize(`${name}-${effort}`)):[...baseNames.map(normalize)];
+    let candidates=[...new Set(exactKeys.flatMap(key=>codingLabelSlugs.get(key)??[]))];
+    if(!candidates.length&&effort==='max')candidates=[...new Set(baseNames.flatMap(name=>codingLabelSlugs.get(normalize(name))??[]))];
     if(candidates.length!==1){codingUnresolved.push({label:row.modelLabel,reason:candidates.length?'ambiguous_identity':'no_exact_identity'});continue}
     base=candidates[0];
     row.hostModelSlug=base;
