@@ -1,7 +1,7 @@
 {
   "schemaVersion": 13,
   "snapshotDate": "2026-10-16",
-  "generatedAt": "2026-10-16T10:58:41.594Z",
+  "generatedAt": "2026-10-16T11:10:24.229Z",
   "policy": {
     "latestGenerationOnly": true,
     "previousGenerationRoleException": "allow when absolute role quality exceeds the best latest-generation peer in the same series",
@@ -23,7 +23,7 @@
       "reviewerDifferentFromImplementer": true,
       "reviewerDifferentFromHeavy": true,
       "heavyDifferentFromImplementer": true,
-      "heavyMinimumIntelligenceDelta": 2
+      "heavyMinimumImplementerQualityDelta": 2
     },
     "planEconomics": {
       "sourceUrl": "https://commandcode.ai/docs/plans/max",

@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-10-16",
-  "generatedAt": "2026-10-16T10:58:41.594Z",
+  "generatedAt": "2026-10-16T11:10:24.229Z",
   "benchmarkDate": "2026-10-16",
-  "benchmarkGeneratedAt": "2026-10-16T10:58:41.594Z",
-  "lineupInputsRefreshedAt": "2026-10-16T10:58:41.594Z",
+  "benchmarkGeneratedAt": "2026-10-16T11:10:24.229Z",
+  "lineupInputsRefreshedAt": "2026-10-16T11:10:24.229Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -278,7 +278,7 @@
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-10-16T10:58:41.397Z",
+      "fetchedAt": "2026-10-16T11:10:24.064Z",
       "version": "v1",
       "directFamilies": 18,
       "availableRows": 20,
@@ -479,8 +479,8 @@
     "observedFamilies": 48,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 12,
-    "validatedAt": "2026-10-16T10:58:41.594Z",
-    "sourceSnapshotGeneratedAt": "2026-10-16T10:58:41.594Z",
+    "validatedAt": "2026-10-16T11:10:24.229Z",
+    "sourceSnapshotGeneratedAt": "2026-10-16T11:10:24.229Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
