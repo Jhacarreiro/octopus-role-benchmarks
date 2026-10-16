@@ -1,123 +1,27 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-10-16T10:11:08.675Z",
+  "attemptedAt": "2026-10-16T10:20:32.264Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T10:11:04.315Z"
+    "generatedAt": "2026-10-16T10:20:29.373Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T10:11:04.315Z",
+    "generatedAt": "2026-10-16T10:20:29.373Z",
     "benchmarkDate": "2026-10-16",
-    "benchmarkGeneratedAt": "2026-10-16T10:11:04.315Z",
-    "lineupInputsRefreshedAt": "2026-10-16T10:11:04.315Z"
+    "benchmarkGeneratedAt": "2026-10-16T10:20:29.373Z",
+    "lineupInputsRefreshedAt": "2026-10-16T10:20:29.373Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-16",
-    "generatedAt": "2026-10-16T10:11:04.315Z"
+    "generatedAt": "2026-10-16T10:20:29.373Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-4-5-haiku",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for claude-4-5-haiku; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-opus-4-6",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-6; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-opus-4-7",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for claude-opus-4-7; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "claude-sonnet-4-6",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for claude-sonnet-4-6; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "glm-5",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for glm-5; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "gpt-5-3-codex",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for gpt-5-3-codex; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "gpt-5-4",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for gpt-5-4; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "kimi-k2-5",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for kimi-k2-5; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "minimax-m2-5",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for minimax-m2-5; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "qwen3-6-plus",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for qwen3-6-plus; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "qwen3-max-preview",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for qwen3-max-preview; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
-    {
-      "benchmark": "scicode",
-      "targetSlug": "step-3-5-flash",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current SciCode for step-3-5-flash; estimator unavailable (45 complete observed families; minimum for leave-one-out validation is 21; MAE=2.295, max=8.796).",
-      "lastObserved": null,
-      "maxFreshAgeDays": 14
-    },
     {
       "benchmark": "artificial-analysis-model",
       "targetSlug": "deepseek-v4-pro",
@@ -353,7 +257,55 @@
       "targetModel": "Jev 1.14.0",
       "status": "unavailable",
       "reason": "No verified AA identity."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "glm-5",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "minimax-m2-5",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "qwen3-max-preview",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "step-3-5-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "claude-opus-4-6",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "claude-sonnet-4-6",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "claude-4-5-haiku",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "gpt-5-3-codex",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38885488627"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38886543785"
 }
