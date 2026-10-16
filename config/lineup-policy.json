@@ -14,7 +14,7 @@
     "reviewerDifferentFromImplementer": true,
     "reviewerDifferentFromHeavy": true,
     "heavyDifferentFromImplementer": true,
-    "heavyMinimumIntelligenceDelta": 2
+    "heavyMinimumImplementerQualityDelta": 2
   },
   "modes": {
     "quality": {

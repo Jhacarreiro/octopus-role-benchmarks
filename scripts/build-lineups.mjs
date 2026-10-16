@@ -234,7 +234,8 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
   const heavies=roleCandidates['implementer-heavy'];
   const reviewers=roleCandidates['code-reviewer'];
   const standardRoles=roles.filter(r=>!['implementer','implementer-heavy','code-reviewer'].includes(r));
-  const heavyDelta=Number(policy.codingConstraints?.heavyMinimumIntelligenceDelta??0);
+  const heavyDelta=Number(policy.codingConstraints?.heavyMinimumImplementerQualityDelta);
+  if(!Number.isFinite(heavyDelta)||heavyDelta<=0)fail("invalid heavyMinimumImplementerQualityDelta");
   let best=null;
 
   function buildCandidate(assign){
@@ -326,7 +327,7 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
   for(const impl of implementers){
     for(const heavy of heavies){
       if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && benchmarkIdentity(heavy)===benchmarkIdentity(impl))continue;
-      if(intelligence(heavy)+EPS<intelligence(impl)+heavyDelta)continue;
+      if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<roleQuality(impl,'implementer')+heavyDelta)continue;
       for(const reviewer of reviewers){
         if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
         if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
@@ -378,7 +379,7 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
     for(const impl of implementers){
       for(const heavy of heavies){
         if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && benchmarkIdentity(heavy)===benchmarkIdentity(impl))continue;
-        if(intelligence(heavy)+EPS<intelligence(impl)+heavyDelta)continue;
+        if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<roleQuality(impl,'implementer')+heavyDelta)continue;
         for(const reviewer of reviewers){
           if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
           if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
