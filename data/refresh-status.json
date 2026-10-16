@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "error",
-  "attemptedAt": "2026-10-16T08:59:53.576Z",
+  "attemptedAt": "2026-10-16T09:05:11.355Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-05",
     "generatedAt": "2026-10-05T06:17:19.309Z"
@@ -19,8 +19,8 @@
   },
   "mode": null,
   "message": null,
-  "stage": "update",
-  "errorSummary": "Error: CAI estimator Spearman guardrail failed: 0.5363636363636364",
+  "stage": "lineup-generation",
+  "errorSummary": "Error: missing Octopus execution identity for Balanced model: Muse Wonder",
   "validationIssues": [
     {
       "benchmark": "mapping",
@@ -119,5 +119,5 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38877388642"
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38877977022"
 }
