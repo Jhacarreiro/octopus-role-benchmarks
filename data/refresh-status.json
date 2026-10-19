@@ -1,27 +1,39 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-10-16T12:05:54.998Z",
+  "attemptedAt": "2026-10-19T06:18:12.079Z",
   "lastSuccessfulSnapshot": {
-    "date": "2026-10-16",
-    "generatedAt": "2026-10-16T12:05:21.775Z"
+    "date": "2026-10-19",
+    "generatedAt": "2026-10-19T06:17:18.481Z"
   },
   "lastPublishedSnapshot": {
-    "date": "2026-10-16",
-    "generatedAt": "2026-10-16T12:05:21.775Z",
-    "benchmarkDate": "2026-10-16",
-    "benchmarkGeneratedAt": "2026-10-16T12:05:21.775Z",
-    "lineupInputsRefreshedAt": "2026-10-16T12:05:21.775Z"
+    "date": "2026-10-19",
+    "generatedAt": "2026-10-19T06:17:18.481Z",
+    "benchmarkDate": "2026-10-19",
+    "benchmarkGeneratedAt": "2026-10-19T06:17:18.481Z",
+    "lineupInputsRefreshedAt": "2026-10-19T06:17:18.481Z"
   },
   "lastValidatedBenchmark": {
-    "date": "2026-10-16",
-    "generatedAt": "2026-10-16T12:05:21.775Z"
+    "date": "2026-10-19",
+    "generatedAt": "2026-10-19T06:17:18.481Z"
   },
   "mode": "full",
   "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Beam 1.0",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Beam 1.0",
+      "status": "unavailable",
+      "reason": "No verified AA identity."
+    },
     {
       "benchmark": "mapping",
       "targetModel": "Jev",
@@ -35,5 +47,5 @@
       "reason": "Decision model; not comparable to the AA ranking."
     }
   ],
-  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38898056383"
+  "runUrl": null
 }

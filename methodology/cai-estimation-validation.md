@@ -1,6 +1,6 @@
 # CAI estimation — reverse validation
 
-Snapshot: **2026-10-16**
+Snapshot: **2026-10-19**
 Observed Coding Agent families: **24**
 
 ## Selected estimator

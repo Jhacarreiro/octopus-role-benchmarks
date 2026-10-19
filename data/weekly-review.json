@@ -1,31 +1,43 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T12:05:55.059Z",
-  "snapshotDate": "2026-10-16",
+  "generatedAt": "2026-10-19T06:18:12.182Z",
+  "snapshotDate": "2026-10-19",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-16T12:05:54.998Z",
+    "attemptedAt": "2026-10-19T06:18:12.079Z",
     "lastSuccessfulSnapshot": {
-      "date": "2026-10-16",
-      "generatedAt": "2026-10-16T12:05:21.775Z"
+      "date": "2026-10-19",
+      "generatedAt": "2026-10-19T06:17:18.481Z"
     },
     "lastPublishedSnapshot": {
-      "date": "2026-10-16",
-      "generatedAt": "2026-10-16T12:05:21.775Z",
-      "benchmarkDate": "2026-10-16",
-      "benchmarkGeneratedAt": "2026-10-16T12:05:21.775Z",
-      "lineupInputsRefreshedAt": "2026-10-16T12:05:21.775Z"
+      "date": "2026-10-19",
+      "generatedAt": "2026-10-19T06:17:18.481Z",
+      "benchmarkDate": "2026-10-19",
+      "benchmarkGeneratedAt": "2026-10-19T06:17:18.481Z",
+      "lineupInputsRefreshedAt": "2026-10-19T06:17:18.481Z"
     },
     "lastValidatedBenchmark": {
-      "date": "2026-10-16",
-      "generatedAt": "2026-10-16T12:05:21.775Z"
+      "date": "2026-10-19",
+      "generatedAt": "2026-10-19T06:17:18.481Z"
     },
     "mode": "full",
     "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
     "stage": null,
     "errorSummary": null,
     "validationIssues": [
+      {
+        "benchmark": "coding-agent-host",
+        "targetSlug": "Beam 1.0",
+        "status": "unresolved",
+        "reason": "no_exact_identity"
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Beam 1.0",
+        "status": "unavailable",
+        "reason": "No verified AA identity."
+      },
       {
         "benchmark": "mapping",
         "targetModel": "Jev",
@@ -39,8 +51,8 @@
         "reason": "Decision model; not comparable to the AA ranking."
       }
     ],
-    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/38898056383"
+    "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-16\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-19\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nMODELOS\nEntraram:\n+ Beam 1.0\n+ DeepSeek V4.1 Flash Fast (latest)\nSaíram:\n- DeepSeek V4.1 Flash Fast\n\nPREÇOS / CRÉDITOS\n• DeepSeek V4 Flash (latest): créditos/task $0.0765→$0.0911 (+19%); custo ajustado $0.0510→$0.0607 (+19%)\n• DeepSeek V4 Flash Fast: créditos/task $0.39→$0.41 (+5%); custo ajustado $0.26→$0.27 (+5%)\n• DeepSeek V4 Flash Vision (exp): créditos/task $0.10→$0.35 (+240%); custo ajustado $0.0692→$0.24 (+240%)\n• DeepSeek V4.1 Flash: créditos/task $0.13→$0.24 (+83%); custo ajustado $0.0884→$0.16 (+83%)\n• Nemotron 3.5 Super VL: créditos/task $0.23→$0.16 (-31%); custo ajustado $0.16→$0.11 (-31%)\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
