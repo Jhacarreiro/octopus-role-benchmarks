@@ -1,5 +1,7 @@
 # Octopus Role Benchmarks
 
+Compare model quality and estimated cost for different Claude Octopus agent roles. Explore transparent role rankings and Quality, Balanced and Budget portfolios, then inspect the methodology and inputs below.
+
 Transparent role rankings for Claude Octopus roles using the current CommandCode Max catalogue, plus deterministic Quality/Balanced/Budget portfolio recommendations.
 
 The detailed table exposes **Quality** and cost-adjusted **Balanced** ranking views. Separately, the recommendation cards are generated as constrained **Quality**, **Balanced** and **Budget** portfolios under config/lineup-policy.json.
