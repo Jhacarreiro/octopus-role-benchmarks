@@ -1,27 +1,38 @@
 {
   "schemaVersion": 3,
-  "status": "error",
-  "attemptedAt": "2026-10-26T07:17:19.434Z",
+  "status": "partial",
+  "attemptedAt": "2026-10-26T10:21:37.616Z",
   "lastSuccessfulSnapshot": {
-    "date": "2026-10-19",
-    "generatedAt": "2026-10-19T06:17:18.481Z"
+    "date": "2026-10-26",
+    "generatedAt": "2026-10-26T09:54:56.056Z"
   },
   "lastPublishedSnapshot": {
-    "date": "2026-10-19",
-    "generatedAt": "2026-10-19T06:17:18.481Z",
-    "benchmarkDate": "2026-10-19",
-    "benchmarkGeneratedAt": "2026-10-19T06:17:18.481Z",
-    "lineupInputsRefreshedAt": "2026-10-19T06:17:18.481Z"
+    "date": "2026-10-26",
+    "generatedAt": "2026-10-26T09:54:56.056Z",
+    "benchmarkDate": "2026-10-26",
+    "benchmarkGeneratedAt": "2026-10-26T09:54:56.056Z",
+    "lineupInputsRefreshedAt": "2026-10-26T09:54:56.056Z"
   },
   "lastValidatedBenchmark": {
-    "date": "2026-10-19",
-    "generatedAt": "2026-10-19T06:17:18.481Z"
+    "date": "2026-10-26",
+    "generatedAt": "2026-10-26T09:54:56.056Z"
   },
-  "mode": null,
-  "message": null,
-  "stage": "update",
-  "errorSummary": "Error: Need at least 8 observed CAI families, got 0",
+  "mode": "full",
+  "message": "26 Oct snapshot published with GDPval-AA v2.1 migration and explicitly labelled legacy historical fallbacks; partial benchmark coverage remains.",
+  "stage": null,
+  "errorSummary": null,
   "validationIssues": [
+    {
+      "benchmark": "gdpval-secondary",
+      "status": "unavailable",
+      "reason": "GDPval mirror incomplete: 167 rows"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "DeepSeek V4.1 Flash 1017",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
     {
       "benchmark": "coding-agent-host",
       "targetSlug": "Beam 1.0",
@@ -36,6 +47,18 @@
     },
     {
       "benchmark": "mapping",
+      "targetModel": "Ornith 1.5 122B",
+      "status": "unavailable",
+      "reason": "No verified AA identity."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Ornith 1.5 122B",
+      "status": "unavailable",
+      "reason": "No verified AA identity."
+    },
+    {
+      "benchmark": "mapping",
       "targetModel": "Jev",
       "status": "unavailable",
       "reason": "Decision model; not comparable to the AA ranking."
@@ -45,6 +68,24 @@
       "targetModel": "Jev 1.14.0",
       "status": "unavailable",
       "reason": "Decision model; not comparable to the AA ranking."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "kimi-k3-1-pro",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "minimax-m3-1-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "minimax-m3-1-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
   ],
   "runUrl": null

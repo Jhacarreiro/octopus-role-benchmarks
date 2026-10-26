@@ -111,7 +111,8 @@ function previousObservedBenchmark(slug,key){
   }
   const value=model?.benchmarks?.[key];
   if(!Number.isFinite(value))return null;
-  return {value,observedAt:previousSnapshot?.benchmarkGeneratedAt??previousSnapshot?.generatedAt??null};
+  if(provenance?.status==='historical_fallback')return {value,observedAt:provenance.observedAt??null,metricVersion:provenance.metricVersion??'GDPval-AA v2 (legacy)'};
+  return {value,observedAt:previousSnapshot?.benchmarkGeneratedAt??previousSnapshot?.generatedAt??null,metricVersion:key==='gdpval'?'GDPval-AA v2 (legacy)':null};
 }
 function observedAnchorAgeDays(anchor){
   if(!anchor?.observedAt)return Infinity;
@@ -259,18 +260,26 @@ for(const row of scicodeRows){
     value:chosen
   });
 }
-// Prefer AA model-page GDPval; retrieve exactly matched observed v2.1 results
-// from a same-benchmark mirror only when the source field is absent.
+// Migration: prefer verified GDPval-AA v2.1 observations, then historical values.
+// Historical v2 fallback retains its original version and age in provenance.
 try {
   const secondary=await secondaryGdpvalObservations();
   for(const [slug,observation] of secondary){
     const source=aa.get(slug);
-    if(!source||source.sourceUnavailableReason||Number.isFinite(source.gdpvalNormalized))continue;
+    if(!source||source.sourceUnavailableReason)continue;
     source.gdpvalNormalized=observation.value/100;
-    benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:'observed_same_benchmark_secondary',provenanceStatus:'observed',configuration:observation.configuration,sourceUrl:observation.sourceUrl,value:observation.value});
+    benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:'observed_v2_1_secondary',provenanceStatus:'observed',metricVersion:'GDPval-AA v2.1',configuration:observation.configuration,sourceUrl:observation.sourceUrl,value:observation.value});
   }
 }catch(error){
   validationIssues.push({benchmark:'gdpval-secondary',status:'unavailable',reason:String(error.message)});
+}
+for(const slug of slugs){
+  const source=aa.get(slug);
+  if(!source||source.sourceUnavailableReason||Number.isFinite(source.gdpvalNormalized))continue;
+  const previous=previousObservedBenchmark(slug,'gdpval');
+  if(!previous||!Number.isFinite(previous.value)||previous.value<0||previous.value>100)continue;
+  source.gdpvalNormalized=previous.value/100;
+  benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:'last_known_observed_previous_version',provenanceStatus:'historical_fallback',metricVersion:previous.metricVersion??'GDPval-AA v2 (legacy)',targetMetricVersion:'GDPval-AA v2.1',versionComparable:false,observedAt:previous.observedAt,ageDays:round(observedAnchorAgeDays(previous),3),value:previous.value});
 }
 // Transparent same-family GDPval estimate for older catalogue versions.
 // The Intelligence Index supplies only a proportional proxy, not a GDPval observation.
@@ -294,7 +303,7 @@ for(const [slug,referenceSlug] of gdpvalReferenceSlugs){
   const ratio=target.intelligenceIndex/reference.intelligenceIndex;
   const value=Math.max(0,Math.min(100,reference.gdpvalNormalized*100*ratio));
   target.gdpvalNormalized=round(value,4)/100;
-  benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:slug==='gpt-5-3-codex'?'cross_variant_intelligence_ratio':'same_family_intelligence_ratio',provenanceStatus:'estimated',sourceSlug:referenceSlug,referenceIntelligenceIndex:round(reference.intelligenceIndex,4),targetIntelligenceIndex:round(target.intelligenceIndex,4),factor:round(ratio,6),referenceGdpval:round(reference.gdpvalNormalized*100,4),value:round(value,4),sourceUrl:reference.sourceUrl});
+  benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:slug==='gpt-5-3-codex'?'cross_variant_intelligence_ratio':'same_family_intelligence_ratio',provenanceStatus:'estimated',metricVersion:'GDPval-AA v2.1 proxy (not observed)',sourceSlug:referenceSlug,referenceIntelligenceIndex:round(reference.intelligenceIndex,4),targetIntelligenceIndex:round(target.intelligenceIndex,4),factor:round(ratio,6),referenceGdpval:round(reference.gdpvalNormalized*100,4),value:round(value,4),sourceUrl:reference.sourceUrl});
 }
 const scicodeFallbackSlugs=new Set(benchmarkFallbacksApplied.filter(x=>x.benchmark==='scicode').map(x=>x.targetSlug));
 const benchmarkFallbackBySlug=new Map();
@@ -387,6 +396,9 @@ function benchmarksForSource(source){
   for(const key of activeBenchmarks) out[key]=scaleBenchmark(key,source);
   return out;
 }
+// Direct CAI observations are valid independently of GDPval coverage.
+// Fitting/predicting still requires complete version-consistent feature vectors.
+const observedCaiSlugs=scoredSlugs.filter(slug=>codingBySlug.has(slug));
 const caiEligibleSlugs=scoredSlugs.filter(slug=>!partialScoredBySlug.has(slug));
 const familyRows=caiEligibleSlugs.map(slug=>{
   const source=aa.get(slug);
@@ -395,8 +407,29 @@ const familyRows=caiEligibleSlugs.map(slug=>{
   return rowFromModelFamily(slug,benchmarks,source.intelligenceTask.tokens.output,observed?round(observed.indexScore*100,3):null);
 });
 const observedCaiRows=familyRows.filter(r=>r.cai!=null);
+const refreshDiagnostics={
+  sourceFamilies:slugs.length,
+  scoredFamilies:scoredSlugs.length,
+  partiallyScoredFamilies:partialScoredBySlug.size,
+  hardIncompleteFamilies:hardIncompleteBySlug.size,
+  missingByBenchmark:Object.fromEntries(activeBenchmarks.map(key=>[key,{count:sourceIncomplete.filter(item=>item.missingBenchmarks.includes(key)).length,examples:sourceIncomplete.filter(item=>item.missingBenchmarks.includes(key)).slice(0,8).map(item=>item.slug)}])),
+  versionCompatibility:{gdpvalRequiredField:roles.benchmarks.gdpval.sourceField,missingAfterFallback:sourceIncomplete.filter(item=>item.missingBenchmarks.includes('gdpval')).length,historicalFallbackFamilies:benchmarkFallbacksApplied.filter(item=>item.benchmark==='gdpval'&&item.provenanceStatus==='historical_fallback').length,observedV21Families:benchmarkFallbacksApplied.filter(item=>item.benchmark==='gdpval'&&item.metricVersion==='GDPval-AA v2.1').length,reportedPageVersions:[...new Set([...aa.values()].map(item=>item.sourceMetricVersions?.gdpval).filter(Boolean))],status:sourceIncomplete.some(item=>item.missingBenchmarks.includes('gdpval'))?'incomplete':'complete'},
+  codingAgent:{observedIndependentOfGdpval:observedCaiSlugs.length,sourceRows:codingRows.length,compositeRows:compositeCodingRows.length,unresolvedRows:codingUnresolved.length,matchedScoredFamilies:codingBySlug.size,eligibleFamilies:caiEligibleSlugs.length,observedEligibleFamilies:observedCaiRows.length,excludedPartialCaiFamilies:[...codingBySlug.keys()].filter(slug=>partialScoredBySlug.has(slug)).length}
+};
+console.error(`[benchmark-refresh-diagnostics] ${JSON.stringify(refreshDiagnostics)}`);
+if(observedCaiRows.length<8){
+  const missingGdp=refreshDiagnostics.versionCompatibility.missingAfterFallback;
+  const reason=missingGdp>0&&observedCaiSlugs.length>=8
+    ?`AA model coverage incompatible with configured GDPval ${roles.benchmarks.gdpval.sourceField}: ${missingGdp} source families lack the exact field; current page versions=${refreshDiagnostics.versionCompatibility.reportedPageVersions.join(',')||'unknown'}. CAI observed independently=${observedCaiSlugs.length}, but only ${observedCaiRows.length}/8 have complete estimator features. Do not substitute metric versions.`
+    :`CAI calibration insufficient: ${observedCaiRows.length}/8 complete observed families from ${codingRows.length} source rows, ${observedCaiSlugs.length} independently matched CAI families.`;
+  throw new Error(`${reason} See benchmark-refresh-diagnostics above`);
+}
 const caiEstimator=fitCaiEstimator(observedCaiRows);
 const caiBySlug=new Map();
+for(const slug of observedCaiSlugs){
+  const observed=codingBySlug.get(slug);
+  caiBySlug.set(slug,{value:round(observed.indexScore*100,3),source:'observed',version:codingAgentVersion});
+}
 const caiHistoricalCalibratedFamilies=0;
 let caiEstimatedFamilies=0;
 for(const row of familyRows){

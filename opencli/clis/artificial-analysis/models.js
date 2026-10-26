@@ -116,7 +116,17 @@ export function parseModel(html, slug) {
     aaVariantName: block.match(/\\\"name\\\":\\\"([^\\]+)\\\"/)?.[1] ?? null,
     intelligenceIndex: numberField(block, 'intelligenceIndex'),
     agenticIndex: numberField(block, 'agenticIndex'),
+    // Preserve version fidelity: current v2.1 page copy does not provide the
+    // legacy normalized v2 field. Do not silently substitute versions.
     gdpvalNormalized: numberField(block, 'gdpvalNormalized'),
+    sourceMetricVersions: {
+      gdpval: /GDPval-AA\s+v2\.1/i.test(html) ? 'v2.1' : /GDPval-AA\s+v2(?!\.)/i.test(html) ? 'v2' : null,
+      terminalBench: /Terminal-Bench\s+4\.0/i.test(html) ? '4.0' : /Terminal-Bench\s+2\.1/i.test(html) ? '2.1' : null
+    },
+    sourceFieldDiagnostics: {
+      gdpvalNormalized: numberField(block, 'gdpvalNormalized') == null ? 'missing_exact_versioned_field' : 'present',
+      terminalbenchV21: numberField(block, 'terminalbenchV21') == null ? 'missing_exact_versioned_field' : 'present'
+    },
     tauBanking: numberField(block, 'tauBanking'),
     terminalbenchV21: numberField(block, 'terminalbenchV21'),
     scicode: numberField(block, 'scicode'),
