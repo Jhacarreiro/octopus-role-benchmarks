@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "status": "partial",
-  "attemptedAt": "2026-10-19T06:18:12.079Z",
+  "status": "error",
+  "attemptedAt": "2026-10-26T07:17:19.434Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-19",
     "generatedAt": "2026-10-19T06:17:18.481Z"
@@ -17,10 +17,10 @@
     "date": "2026-10-19",
     "generatedAt": "2026-10-19T06:17:18.481Z"
   },
-  "mode": "full",
-  "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
-  "stage": null,
-  "errorSummary": null,
+  "mode": null,
+  "message": null,
+  "stage": "update",
+  "errorSummary": "Error: Need at least 8 observed CAI families, got 0",
   "validationIssues": [
     {
       "benchmark": "coding-agent-host",

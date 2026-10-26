@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T06:18:12.182Z",
+  "generatedAt": "2026-10-26T07:17:19.546Z",
   "snapshotDate": "2026-10-19",
   "refresh": {
     "schemaVersion": 3,
-    "status": "partial",
-    "attemptedAt": "2026-10-19T06:18:12.079Z",
+    "status": "error",
+    "attemptedAt": "2026-10-26T07:17:19.434Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-19",
       "generatedAt": "2026-10-19T06:17:18.481Z"
@@ -21,10 +21,10 @@
       "date": "2026-10-19",
       "generatedAt": "2026-10-19T06:17:18.481Z"
     },
-    "mode": "full",
-    "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
-    "stage": null,
-    "errorSummary": null,
+    "mode": null,
+    "message": null,
+    "stage": "update",
+    "errorSummary": "Error: Need at least 8 observed CAI families, got 0",
     "validationIssues": [
       {
         "benchmark": "coding-agent-host",
@@ -54,5 +54,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-16 → 2026-10-19\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nMODELOS\nEntraram:\n+ Beam 1.0\n+ DeepSeek V4.1 Flash Fast (latest)\nSaíram:\n- DeepSeek V4.1 Flash Fast\n\nPREÇOS / CRÉDITOS\n• DeepSeek V4 Flash (latest): créditos/task $0.0765→$0.0911 (+19%); custo ajustado $0.0510→$0.0607 (+19%)\n• DeepSeek V4 Flash Fast: créditos/task $0.39→$0.41 (+5%); custo ajustado $0.26→$0.27 (+5%)\n• DeepSeek V4 Flash Vision (exp): créditos/task $0.10→$0.35 (+240%); custo ajustado $0.0692→$0.24 (+240%)\n• DeepSeek V4.1 Flash: créditos/task $0.13→$0.24 (+83%); custo ajustado $0.0884→$0.16 (+83%)\n• Nemotron 3.5 Super VL: créditos/task $0.23→$0.16 (-31%); custo ajustado $0.16→$0.11 (-31%)\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-19 → 2026-10-19\n❌ Refresh: error\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
