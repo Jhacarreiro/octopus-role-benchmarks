@@ -1,92 +1,26 @@
 {
   "schemaVersion": 3,
-  "status": "partial",
-  "attemptedAt": "2026-10-26T10:21:37.616Z",
+  "status": "success",
+  "attemptedAt": "2026-10-26T10:37:59.357Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-26",
-    "generatedAt": "2026-10-26T09:54:56.056Z"
+    "generatedAt": "2026-10-26T10:32:48.627Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-26",
-    "generatedAt": "2026-10-26T09:54:56.056Z",
+    "generatedAt": "2026-10-26T10:32:48.627Z",
     "benchmarkDate": "2026-10-26",
-    "benchmarkGeneratedAt": "2026-10-26T09:54:56.056Z",
-    "lineupInputsRefreshedAt": "2026-10-26T09:54:56.056Z"
+    "benchmarkGeneratedAt": "2026-10-26T10:32:48.627Z",
+    "lineupInputsRefreshedAt": "2026-10-26T10:32:48.627Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-26",
-    "generatedAt": "2026-10-26T09:54:56.056Z"
+    "generatedAt": "2026-10-26T10:32:48.627Z"
   },
   "mode": "full",
-  "message": "26 Oct snapshot published with GDPval-AA v2.1 migration and explicitly labelled legacy historical fallbacks; partial benchmark coverage remains.",
+  "message": null,
   "stage": null,
   "errorSummary": null,
-  "validationIssues": [
-    {
-      "benchmark": "gdpval-secondary",
-      "status": "unavailable",
-      "reason": "GDPval mirror incomplete: 167 rows"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "DeepSeek V4.1 Flash 1017",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "coding-agent-host",
-      "targetSlug": "Beam 1.0",
-      "status": "unresolved",
-      "reason": "no_exact_identity"
-    },
-    {
-      "benchmark": "mapping",
-      "targetModel": "Beam 1.0",
-      "status": "unavailable",
-      "reason": "No verified AA identity."
-    },
-    {
-      "benchmark": "mapping",
-      "targetModel": "Ornith 1.5 122B",
-      "status": "unavailable",
-      "reason": "No verified AA identity."
-    },
-    {
-      "benchmark": "mapping",
-      "targetModel": "Ornith 1.5 122B",
-      "status": "unavailable",
-      "reason": "No verified AA identity."
-    },
-    {
-      "benchmark": "mapping",
-      "targetModel": "Jev",
-      "status": "unavailable",
-      "reason": "Decision model; not comparable to the AA ranking."
-    },
-    {
-      "benchmark": "mapping",
-      "targetModel": "Jev 1.14.0",
-      "status": "unavailable",
-      "reason": "Decision model; not comparable to the AA ranking."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "kimi-k3-1-pro",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "minimax-m3-1-flash",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    },
-    {
-      "benchmark": "gdpval",
-      "targetSlug": "minimax-m3-1-flash",
-      "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-    }
-  ],
+  "validationIssues": [],
   "runUrl": null
 }

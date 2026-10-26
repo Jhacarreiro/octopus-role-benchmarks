@@ -1,99 +1,33 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T10:21:37.717Z",
+  "generatedAt": "2026-10-26T10:37:59.477Z",
   "snapshotDate": "2026-10-26",
   "refresh": {
     "schemaVersion": 3,
-    "status": "partial",
-    "attemptedAt": "2026-10-26T10:21:37.616Z",
+    "status": "success",
+    "attemptedAt": "2026-10-26T10:37:59.357Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T09:54:56.056Z"
+      "generatedAt": "2026-10-26T10:32:48.627Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T09:54:56.056Z",
+      "generatedAt": "2026-10-26T10:32:48.627Z",
       "benchmarkDate": "2026-10-26",
-      "benchmarkGeneratedAt": "2026-10-26T09:54:56.056Z",
-      "lineupInputsRefreshedAt": "2026-10-26T09:54:56.056Z"
+      "benchmarkGeneratedAt": "2026-10-26T10:32:48.627Z",
+      "lineupInputsRefreshedAt": "2026-10-26T10:32:48.627Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T09:54:56.056Z"
+      "generatedAt": "2026-10-26T10:32:48.627Z"
     },
     "mode": "full",
-    "message": "26 Oct snapshot published with GDPval-AA v2.1 migration and explicitly labelled legacy historical fallbacks; partial benchmark coverage remains.",
+    "message": null,
     "stage": null,
     "errorSummary": null,
-    "validationIssues": [
-      {
-        "benchmark": "gdpval-secondary",
-        "status": "unavailable",
-        "reason": "GDPval mirror incomplete: 167 rows"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "DeepSeek V4.1 Flash 1017",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "coding-agent-host",
-        "targetSlug": "Beam 1.0",
-        "status": "unresolved",
-        "reason": "no_exact_identity"
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Beam 1.0",
-        "status": "unavailable",
-        "reason": "No verified AA identity."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Ornith 1.5 122B",
-        "status": "unavailable",
-        "reason": "No verified AA identity."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Ornith 1.5 122B",
-        "status": "unavailable",
-        "reason": "No verified AA identity."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Jev",
-        "status": "unavailable",
-        "reason": "Decision model; not comparable to the AA ranking."
-      },
-      {
-        "benchmark": "mapping",
-        "targetModel": "Jev 1.14.0",
-        "status": "unavailable",
-        "reason": "Decision model; not comparable to the AA ranking."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "kimi-k3-1-pro",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "minimax-m3-1-flash",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      },
-      {
-        "benchmark": "gdpval",
-        "targetSlug": "minimax-m3-1-flash",
-        "status": "unavailable",
-        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
-      }
-    ],
+    "validationIssues": [],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-19 → 2026-10-26\n⚠️ Refresh: partial · full — 26 Oct snapshot published with GDPval-AA v2.1 migration and explicitly labelled legacy historical fallbacks; partial benchmark coverage remains.\n\nMODELOS\nEntraram:\n+ DeepSeek V4.1 Flash (latest)\n+ Kimi K3.1 Pro\n+ MiniMax M3.1 Flash\n+ Ornith 1.5 122B\nSaíram:\n- Cat Jam\n- DeepSeek V4.1 Flash\n- MiMo V2.5\n- MiMo V2.5 Pro\n\nPREÇOS / CRÉDITOS\n• DeepSeek V4 Flash (latest): créditos/task $0.0911→$0.0854 (-6%); custo ajustado $0.0607→$0.0569 (-6%)\n• Gemini 3.7 Flash: créditos/task $1.08→$0.91 (-16%); custo ajustado $0.72→$0.60 (-16%)\n• Nemotron 3 Ultra: créditos/task $0.56→$0.46 (-17%); custo ajustado $0.37→$0.31 (-17%)\n\nLINEUPS\n• quality/security-reviewer: Grok 4.7 → Kimi K3.1 Pro\n• quality/implementer: Muse Wonder → GPT-6 Astra\n• quality/implementer-heavy: Claude Opus 5.5 → Muse Wonder\n• quality/synthesizer: GPT-6.1 Sol → Gemini 4 Argon\n• quality/researcher: GPT-6.1 Sol → Claude Opus 5.5\n• balanced/strategist: GPT-6.1 Sol → Claude Sonnet 5.5\n• balanced/security-reviewer: Grok 4.7 → Kimi K3.1 Pro\n• balanced/code-reviewer: Claude Sonnet 5.5 → Muse Wonder\n• balanced/implementer: MiMo V2.6 Pro → GPT-6.1 Sol\n• balanced/synthesizer: GPT-6.1 Sol → Gemini 4 Argon\n• balanced/researcher: MiMo V2.6 Pro → GPT-6.1 Sol\n• budget/security-reviewer: MiMo V2.6 Pro → Kimi K3.1 Pro\n• budget/code-reviewer: Gemini 4 Argon → Muse Spark 1.3 Contributor\n• budget/implementer: Muse Spark 1.3 Contributor → MiMo V2.6 Pro\n• budget/implementer-heavy: Claude Sonnet 5.5 → Gemini 4 Argon"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-26 → 2026-10-26\n✅ Refresh: success · full\n\nLINEUPS\n• quality/architect: Muse Wonder → Kimi K3.1 Pro\n• quality/strategist: Claude Opus 5.5 → Muse Wonder\n• quality/implementer: GPT-6 Astra → Muse Wonder\n• quality/implementer-heavy: Muse Wonder → Claude Opus 5.5\n• balanced/strategist: Claude Sonnet 5.5 → Gemini 4 Argon\n• balanced/implementer-heavy: Gemini 4 Argon → Kimi K3.1 Pro\n• balanced/synthesizer: Gemini 4 Argon → GPT-6.1 Sol\n• balanced/researcher: GPT-6.1 Sol → Gemini 4 Argon\n• budget/security-reviewer: Kimi K3.1 Pro → MiMo V2.6 Pro\n• budget/code-reviewer: Muse Spark 1.3 Contributor → Gemini 4 Argon\n• budget/implementer: MiMo V2.6 Pro → Muse Spark 1.3 Contributor\n• budget/implementer-heavy: Gemini 4 Argon → Kimi K3.1 Pro"
 }

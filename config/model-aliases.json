@@ -50,7 +50,7 @@
       "identityStatus": "external_verified",
       "reason": "Public model; no canonical AA entry.",
       "externalSource": {
-        "label": "OpenRouter \u2014 Poolside Laguna S 2.1",
+        "label": "OpenRouter — Poolside Laguna S 2.1",
         "url": "https://openrouter.ai/poolside/laguna-s-2.1"
       }
     },
@@ -64,7 +64,7 @@
       "identityStatus": "external_verified",
       "reason": "Public model; no canonical AA entry.",
       "externalSource": {
-        "label": "Alibaba Cloud Model Studio \u2014 qwen3.7-flash",
+        "label": "Alibaba Cloud Model Studio — qwen3.7-flash",
         "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash"
       }
     },
@@ -73,7 +73,7 @@
       "identityStatus": "external_verified",
       "reason": "Public model; no canonical AA entry.",
       "externalSource": {
-        "label": "OpenRouter \u2014 Sakana Fugu Ultra",
+        "label": "OpenRouter — Sakana Fugu Ultra",
         "url": "https://openrouter.ai/sakana/fugu-ultra"
       }
     },
@@ -163,7 +163,7 @@
       "identityStatus": "external_verified_noncomparable",
       "reason": "Decision model; not comparable to the AA ranking.",
       "externalSource": {
-        "label": "OpenRouter \u2014 TypeSafe Jev",
+        "label": "OpenRouter — TypeSafe Jev",
         "url": "https://openrouter.ai/typesafe"
       }
     },
@@ -172,9 +172,19 @@
       "identityStatus": "external_verified_noncomparable",
       "reason": "Decision model; not comparable to the AA ranking.",
       "externalSource": {
-        "label": "OpenRouter \u2014 TypeSafe Jev",
+        "label": "OpenRouter — TypeSafe Jev",
         "url": "https://openrouter.ai/typesafe"
       }
+    },
+    "Beam 1.0": {
+      "status": "unscored",
+      "identityStatus": "stealth_unverified",
+      "reason": "Stealth model; identity unverified. Not comparable to the AA ranking."
+    },
+    "Ornith 1.5 122B": {
+      "status": "unscored",
+      "identityStatus": "stealth_unverified",
+      "reason": "Stealth model; identity unverified. Not comparable to the AA ranking."
     }
   }
 }

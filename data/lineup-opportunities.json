@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-10-26",
-  "generatedAt": "2026-10-26T09:54:56.056Z",
+  "generatedAt": "2026-10-26T10:32:48.627Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -12,7 +12,7 @@
       "classification": "review-only",
       "objective": "maximize-role-quality",
       "minimumFamilies": 4,
-      "currentFamilyCount": 5,
+      "currentFamilyCount": 4,
       "requestedIntelligenceFloor": 0.9,
       "effectiveIntelligenceFloor": 0.9,
       "priceFilter": null,

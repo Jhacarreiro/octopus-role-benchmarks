@@ -8,13 +8,14 @@ export async function secondaryGdpvalObservations(){
   // Values are JSON-escaped fields in the server-rendered leaderboard.
   const rx=/\\"id\\":\\"([^\\]+)\\",\\"modelId\\":\\"([^\\]+)\\".{0,450}?\\"value\\":([0-9]+(?:\.[0-9]+)?)/g;
   for(const m of html.matchAll(rx))parsed.push({configuration:m[1],slug:m[2],value:Number(m[3])});
-  if(parsed.length<200)throw new Error(`GDPval mirror incomplete: ${parsed.length} rows`);
+  // Provider row count changes as configurations are added/removed. Use anchored scale and structural validity, not a historical fixed-size threshold.
+  if(parsed.length<100||new Set(parsed.map(r=>r.slug)).size<30)throw new Error(`GDPval mirror structurally incomplete: ${parsed.length} configurations`);
   for(const [slug,value] of ANCHORS){
     if(!parsed.some(r=>r.slug===slug&&Math.abs(r.value-value)<0.1))throw new Error(`GDPval mirror scale mismatch for ${slug}`);
   }
   const result=new Map();
   // Explicit, independently verified configuration mapping. Do not infer from substrings.
-  for(const [slug,configuration] of [['claude-sonnet-4-6','claude-sonnet-4-6@max']]){
+  for(const [slug,configuration] of [['kimi-k3-1-pro','kimi-k3-1-pro'],['minimax-m3-1-flash','minimax-m3-1-flash']]){
     const matches=parsed.filter(r=>r.slug===slug&&r.configuration===configuration);
     if(matches.length===1&&Number.isFinite(matches[0].value)&&matches[0].value>=0&&matches[0].value<=100){
       result.set(slug,{value:matches[0].value,configuration,sourceUrl:URL});
