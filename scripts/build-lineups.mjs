@@ -5,6 +5,7 @@ import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independen
 import { isLatestGenerationModel, isLatestGenerationOrBeatsLatest, modelFamily } from './lib/model-family.mjs';
 import { planEconomics, billingCategory as validatedBillingCategory, planAdjustedTaskCost, monthlyUtilization as planMonthlyUtilization } from './lib/plan-economics.mjs';
 import {filterPortfolioPrices} from './lib/portfolio-price-filter.mjs';
+import {optimizePostSelectionCost} from './lib/post-selection-cost.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const check=process.argv.includes('--check');
@@ -443,7 +444,13 @@ function solveMode(modeId,mode){
         bestEligibleIntelligence:prepared.bestEligibleIntelligence
       };
       const result=optimize(modeId,poolInfo.pool,{allowNoFeasible:true});
-      if(result)return {poolInfo,result};
+      if(result){
+        if(latest.methodologyVersion>=10&&mode.postSelectionOptimization?.enabled){
+          const refined=optimizePostSelectionCost({roles,initial:result,pool:prepared.universe,policy,modeId,intelligenceThreshold:poolInfo.threshold,generationEligibleForRole,costOf:planAdjustedCost,familyOf,summarizeAssign,estimatedLimit});
+          return {poolInfo,result:refined.result,postSelectionOptimization:refined.report};
+        }
+        return {poolInfo,result,postSelectionOptimization:null};
+      }
     }
     effective=round(effective-step,3);
   }
@@ -472,7 +479,7 @@ const out={
 if(latest.methodologyVersion>=10){out.methodologyVersion=latest.methodologyVersion;out.snapshotGeneratedAt=latest.generatedAt;out.intelligenceIndexVersion='5.0';out.approximationPolicy=latest.approximationPolicy??{enabled:false};}
 
 for(const [modeId,mode] of Object.entries(policy.modes)){
-  const {poolInfo,result}=solveMode(modeId,mode);
+  const {poolInfo,result,postSelectionOptimization}=solveMode(modeId,mode);
   const selections={};
   for(const role of roles){
     const m=result.assign.get(role);
@@ -514,6 +521,7 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
     candidateModels:poolInfo.pool.length,
     candidateFamilies:familyCount(poolInfo.pool),
     priceFilter:poolInfo.priceFilter,
+    ...(postSelectionOptimization?{postSelectionOptimization}:{}),
     familyCount:result.familyCount,
     totalRoleQuality:round(result.totalQuality,3),
     totalBalanced:round(result.totalBalanced,3),

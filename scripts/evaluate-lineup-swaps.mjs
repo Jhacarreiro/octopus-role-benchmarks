@@ -32,6 +32,7 @@ for(const [modeId,mode] of Object.entries(lineups.modes||{})){
     requestedIntelligenceFloor:mode.requestedIntelligenceFloor??null,
     effectiveIntelligenceFloor:mode.effectiveIntelligenceFloor??null,
     priceFilter:mode.priceFilter??null,
+    ...(mode.postSelectionOptimization?{postSelectionOptimization:mode.postSelectionOptimization}:{}),
     autoSafeCandidateCount:0,
     reviewOnlyCandidateCount:0,
     lockedRoles:[],

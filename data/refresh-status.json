@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "success",
-  "attemptedAt": "2026-10-28T16:22:59.227Z",
+  "attemptedAt": "2026-10-28T18:17:27.083Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
     "generatedAt": "2026-10-28T15:13:24.390Z"
@@ -18,7 +18,7 @@
     "generatedAt": "2026-10-28T15:13:24.390Z"
   },
   "mode": "full",
-  "message": "Portfolio price exclusions applied before the statistical cutoff, including all ties: Balanced removes one highest price level and Budget removes two. Intelligence estimator remains disabled.",
+  "message": "Budget cost optimization allows measured Intelligence exceptions with at most 1 point of loss per role on the 0-100 role-quality scale. The initial reference is fixed; Intelligence estimator disabled.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [],
