@@ -313,7 +313,7 @@ for(const [slug,referenceSlug] of gdpvalReferenceSlugs){
 // Use current-version observed AA families to calibrate an explicitly estimated
 // Intelligence Index for models without an official result. Extrapolation is
 // rejected when leave-one-family-out error exceeds predefined limits.
-const intelligenceFeatures=source=>['hle','scicode','omniscience'].map(k=>scaleBenchmark(k,source));
+const intelligenceFeatures=source=>['hle','scicode','omniscienceIndex'].map(k=>scaleBenchmark(k,source));
 const intelligenceProxy=calibrateIntelligenceProxy([...aa.values()].filter(s=>Number.isFinite(s.intelligenceIndex)).map(s=>({slug:s.slug,intelligence:s.intelligenceIndex,features:intelligenceFeatures(s)})));
 const estimatedIntelligenceBySlug=new Map();
 if(intelligenceProxy.usable){
