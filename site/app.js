@@ -11,6 +11,12 @@ async function fetchFirst(urls){let err;for(const url of urls){const controller=
 async function load(){try{[state.data,state.lineups,state.refreshStatus]=await Promise.all([fetchFirst(['./data/latest.json',DATA_REMOTE]),fetchFirst(['./data/lineups.json',LINEUPS_REMOTE]),fetchFirst(['./data/refresh-status.json',STATUS_REMOTE]).catch(()=>null)])}catch(e){$('#status').textContent='Unable to load current data: '+e;return}renderLineup();renderRoles();render()}
 const INFO_SVG='<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".65" fill="currentColor" stroke="none"/></svg>';
 function estimateIcon(m){
+  const intel=m?.benchmarkProvenance?.intelligenceIndex;
+  if(intel?.status==='estimated'){
+    const summary=`Estimated Intelligence Index for ${m.name}`;
+    const details=`${summary}\nPrediction: ${fmt(intel.estimate)} points\nConservative cutoff value: ${fmt(intel.cutoffLowerBound)} points\nHeld-out MAE: ${fmt(intel.loocvMae)} points; 90th-percentile error: ${fmt(intel.loocvP90)} points\nTraining families: ${intel.trainingFamilies}\nFeatures: HLE, SciCode, AA-Omniscience\nNot an observed Artificial Analysis Intelligence Index.`;
+    return `<button type="button" class="estimate-icon" aria-label="${esc(summary)}" data-estimate="${esc(details)}" aria-describedby="estimate-tooltip">${INFO_SVG}</button>`;
+  }
   const p=m?.estimatedBenchmarks;if(!p)return '';
   const summary=`Estimated benchmarks for ${m.name}`;
   const details=`${summary}\nMetrics: ${p.metrics.join(', ')}\nReference: ${p.reference}\nFactor: ${p.factor}\nMethod: ${p.method}\nEvidence: ${p.evidence}\nSource: ${p.sourceUrl}\nNot directly observed.`;

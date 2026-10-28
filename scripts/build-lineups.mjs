@@ -14,7 +14,7 @@ const EPS=1e-12;
 function fail(msg){throw new Error(`lineup policy: ${msg}`)}
 function round(n,d=6){const p=10**d;return Math.round((n+Number.EPSILON)*p)/p}
 function benchmarkIdentity(m){return m.aaModel?.slug?`aa:${m.aaModel.slug}`:`model:${m.name}`}
-function intelligence(m){return Number(m.aaModel?.intelligenceIndex)}
+function intelligence(m){return Number(m.aaModel?.estimated?m.aaModel.cutoffLowerBound:m.aaModel?.intelligenceIndex)}
 function creditBurn(m){return Number(m.taskEfficiency?.commandCodeCostPerTaskUsd)}
 function roleQuality(m,role){return Number(m.roleScores?.[role]?.rankingQuality)}
 function roleBalanced(m,role){return Number(m.roleScores?.[role]?.rankingValue)}

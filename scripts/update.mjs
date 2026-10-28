@@ -11,6 +11,7 @@ import { caiIndexPercent, detectCodingAgentVersionFromRows } from './lib/cai-ver
 import { calibrateScicodeLkg, applyScicodeLkg } from './lib/scicode-lkg.mjs';
 import { fetchScicodeReference, validatedScicodeTwoFeature } from './lib/scicode-live-fallback.mjs';
 import { secondaryGdpvalObservations } from './lib/gdpval-secondary.mjs';
+import { calibrateIntelligenceProxy, estimateIntelligence } from './lib/intelligence-proxy.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const opencliHome=path.join(root,'.opencli-home');
@@ -309,6 +310,21 @@ for(const [slug,referenceSlug] of gdpvalReferenceSlugs){
   target.gdpvalNormalized=round(value,4)/100;
   benchmarkFallbacksApplied.push({benchmark:'gdpval',targetSlug:slug,strategy:slug==='gpt-5-3-codex'?'cross_variant_intelligence_ratio':'same_family_intelligence_ratio',provenanceStatus:'estimated',metricVersion:'GDPval-AA v2.1 proxy (not observed)',sourceSlug:referenceSlug,referenceIntelligenceIndex:round(reference.intelligenceIndex,4),targetIntelligenceIndex:round(target.intelligenceIndex,4),factor:round(ratio,6),referenceGdpval:round(reference.gdpvalNormalized*100,4),value:round(value,4),sourceUrl:reference.sourceUrl});
 }
+// Use current-version observed AA families to calibrate an explicitly estimated
+// Intelligence Index for models without an official result. Extrapolation is
+// rejected when leave-one-family-out error exceeds predefined limits.
+const intelligenceFeatures=source=>['hle','scicode','omniscience'].map(k=>scaleBenchmark(k,source));
+const intelligenceProxy=calibrateIntelligenceProxy([...aa.values()].filter(s=>Number.isFinite(s.intelligenceIndex)).map(s=>({slug:s.slug,intelligence:s.intelligenceIndex,features:intelligenceFeatures(s)})));
+const estimatedIntelligenceBySlug=new Map();
+if(intelligenceProxy.usable){
+  for(const [slug,source] of aa){
+    if(source.sourceUnavailableReason||Number.isFinite(source.intelligenceIndex))continue;
+    const estimate=estimateIntelligence(intelligenceProxy,intelligenceFeatures(source));
+    if(!estimate)continue;
+    source.intelligenceIndex=round(estimate.estimate,4);
+    estimatedIntelligenceBySlug.set(slug,{status:'estimated',strategy:'held_out_calibrated_hle_scicode_omniscience',source:'Artificial Analysis current benchmark fields',trainingFamilies:intelligenceProxy.count,loocvMae:round(intelligenceProxy.mae,3),loocvP90:round(intelligenceProxy.p90,3),estimate:round(estimate.estimate,4),cutoffLowerBound:round(estimate.cutoffLowerBound,4),notice:'Not an observed AA Intelligence Index; cutoff uses the conservative lower bound.'});
+  }
+}else console.warn(`Intelligence proxy disabled: ${intelligenceProxy.reason}`);
 const scicodeFallbackSlugs=new Set(benchmarkFallbacksApplied.filter(x=>x.benchmark==='scicode').map(x=>x.targetSlug));
 const benchmarkFallbackBySlug=new Map();
 for(const item of benchmarkFallbacksApplied){if(!benchmarkFallbackBySlug.has(item.targetSlug))benchmarkFallbackBySlug.set(item.targetSlug,{});benchmarkFallbackBySlug.get(item.targetSlug)[item.benchmark]=item;}
@@ -518,8 +534,9 @@ const models=mapped.map(row=>{
   if(source?.hleProvenance)benchmarkProvenance.hle={...source.hleProvenance,value:round(source.hle*100,3),targetSlug:source.slug};
   for(const [key,fallback] of Object.entries(benchmarkFallback))benchmarkProvenance[key]={status:fallback.provenanceStatus??'estimated',...fallback};
   if(partial){for(const key of partial.missingBenchmarks)benchmarkProvenance[key]={status:'unavailable',benchmark:key,targetSlug:row.mapping.slug,reason:`Artificial Analysis publishes no current ${key} value for this mapped model; role scores use a conservative zero contribution for this component.`};}
+  if(estimatedIntelligenceBySlug.has(row.mapping.slug))benchmarkProvenance.intelligenceIndex=estimatedIntelligenceBySlug.get(row.mapping.slug);
   if(cyberIndex)benchmarkProvenance.cyberIndex={status:'observed',source:'Artificial Analysis Cyber Index v1',sourceUrl:cyberIndexDataset.sourceUrl,value:round(cyberIndex.value,3),components:Object.fromEntries(Object.entries(cyberIndex.components).map(([k,v])=>[k,v==null?null:round(v*100,3)])),safetyBlocks:Object.fromEntries(Object.entries(cyberIndex.safetyBlocks).map(([k,v])=>[k,v==null?null:round(v*100,3)]))};
-  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis,costTokenProfile,normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null}:null};
+  return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis,costTokenProfile,normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null,...(estimatedIntelligenceBySlug.has(row.mapping.slug)?{estimated:true,cutoffLowerBound:estimatedIntelligenceBySlug.get(row.mapping.slug).cutoffLowerBound}:{} )}:null};
 });
 // Opt-in experimental proxies participate in ordinary rankings, clearly marked.
 // Never use proxy rows as AA observed anchors or estimator training inputs.
