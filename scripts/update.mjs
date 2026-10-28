@@ -430,7 +430,7 @@ if(observedCaiRows.length<8){
 }
 const caiEstimator=fitCaiEstimator(observedCaiRows);
 const caiBySlug=new Map();
-for(const slug of observedCaiSlugs){
+for(const slug of observedCaiSlugs.filter(slug=>caiEligibleSlugs.includes(slug))){
   const observed=codingBySlug.get(slug);
   caiBySlug.set(slug,{value:round(observed.indexScore*100,3),source:'observed',version:codingAgentVersion});
 }
