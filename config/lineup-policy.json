@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 18,
+  "schemaVersion": 19,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -27,17 +27,13 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Starts with 75% role quality and 25% affordability. Then each quality point lost requires at least 15% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
-      "requestedIntelligenceFloor": 0.8,
-      "objective": "initial-balanced-score-then-score-price-exchange",
+      "description": "Starts with the highest role quality within the price and diversity rules, with no relative Intelligence cutoff. Each quality point lost then requires at least 15% lower cost for that role against the fixed initial selection. Known Intelligence, coding independence and the Heavy/Reviewer +2 rules remain required.",
+      "requestedIntelligenceFloor": 0,
+      "objective": "initial-role-quality-then-score-price-exchange",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
         "costMetric": "planAdjustedCostPerTaskUsd"
-      },
-      "percentileWeights": {
-        "quality": 0.75,
-        "affordability": 0.25
       },
       "minFamilies": 5,
       "priceRankFilter": {
@@ -54,13 +50,18 @@
         "maxIntelligenceExceptions": null,
         "maxSwaps": null,
         "maxSearchNodes": 1000000
+      },
+      "initialSelection": "quality",
+      "percentileWeights": {
+        "quality": 0.75,
+        "affordability": 0.25
       }
     },
     "budget": {
       "label": "Budget",
-      "description": "Starts with 40% role quality and 60% affordability. Then each quality point lost requires at least 10% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
-      "requestedIntelligenceFloor": 0.75,
-      "objective": "initial-role-budget-score-then-score-price-exchange",
+      "description": "Starts with the highest role quality within the price and diversity rules, with no relative Intelligence cutoff. Each quality point lost then requires at least 10% lower cost for that role against the fixed initial selection. Known Intelligence, coding independence and the Heavy/Reviewer +2 rules remain required.",
+      "requestedIntelligenceFloor": 0,
+      "objective": "initial-role-quality-then-score-price-exchange",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
@@ -81,7 +82,8 @@
         "maxIntelligenceExceptions": null,
         "maxSwaps": null,
         "maxSearchNodes": 1000000
-      }
+      },
+      "initialSelection": "quality"
     }
   },
   "swapEvaluation": {
@@ -109,11 +111,11 @@
       "implementer",
       "implementer-heavy"
     ],
-    "balancedMaxObjectiveLossPercent": 1,
+    "balancedMaxObjectiveLossPercent": 0,
     "tieBreakOnlyModes": [
       "quality",
       "budget"
     ],
-    "description": "Prefer expensive models in planning/review and cheaper models in execution. Balanced may trade up to 1% of total Balanced objective for better placement; Quality and Budget use placement only as an exact-objective tie-break."
+    "description": "Placement breaks exact quality ties in initial Quality-first portfolios; it cannot sacrifice quality. Subsequent Balanced/Budget exchanges follow their explicit rates."
   }
 }

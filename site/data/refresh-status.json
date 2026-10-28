@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "success",
-  "attemptedAt": "2026-10-28T18:56:03.314Z",
+  "attemptedAt": "2026-10-28T19:14:18.125Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
     "generatedAt": "2026-10-28T18:47:36.906Z"
@@ -18,7 +18,7 @@
     "generatedAt": "2026-10-28T18:47:36.906Z"
   },
   "mode": "full",
-  "message": "Policy v18: Balanced requires 15% and Budget 10% role-cost savings per quality point lost. Heavy and Reviewer +2 guards retained; source observations and prices unchanged; estimators disabled.",
+  "message": "Policy v19: quality-first Balanced/Budget with no relative Intelligence floor; known Intelligence required; exchanges remain 15%/10%; coding +2 guards and disabled estimators retained. Source observations unchanged.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [],

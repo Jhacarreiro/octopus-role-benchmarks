@@ -21,8 +21,8 @@
     },
     "code-reviewer": {
       "provider": "commandcode",
-      "model": "google/gemini-4-argon",
-      "benchmarkModel": "Gemini 4 Argon"
+      "model": "moonshotai/kimi-k3.1-pro",
+      "benchmarkModel": "Kimi K3.1 Pro"
     },
     "implementer": {
       "provider": "commandcode",
@@ -30,9 +30,9 @@
       "benchmarkModel": "Muse Wonder"
     },
     "implementer-heavy": {
-      "provider": "codex",
-      "model": "gpt-6.1-terra",
-      "benchmarkModel": "GPT-6.1 Terra"
+      "provider": "commandcode",
+      "model": "google/gemini-4-argon",
+      "benchmarkModel": "Gemini 4 Argon"
     },
     "synthesizer": {
       "provider": "codex",
@@ -40,9 +40,9 @@
       "benchmarkModel": "GPT-6.1 Terra"
     },
     "researcher": {
-      "provider": "commandcode",
-      "model": "moonshotai/kimi-k3.1-pro",
-      "benchmarkModel": "Kimi K3.1 Pro"
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "benchmarkModel": "GPT-6.1 Sol"
     }
   }
 }

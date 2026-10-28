@@ -5,7 +5,11 @@ for(const [mode,p] of Object.entries(d.modes||{})){
   if(!Number.isInteger(p.placementInversionCount)||p.placementInversionCount<0)throw new Error(`${mode}: invalid placement inversion count`);
 }
 const b=d.modes?.balanced;
+if(b?.initialSelection==='quality'){
+  if(b.pureBalancedOptimum!==null||b.balancedObjectiveLossPercent!==null)throw new Error('Quality-first Balanced must not use a weighted-score placement tolerance');
+}else{
 if(!b||!Number.isFinite(b.pureBalancedOptimum)||!Number.isFinite(b.balancedObjectiveLossPercent))throw new Error('balanced placement metadata missing');
 const initialLoss=b.postSelectionOptimization?.initialBalancedObjectiveLossPercent??b.balancedObjectiveLossPercent;
 if(initialLoss>1+1e-6)throw new Error(`initial balanced placement exceeds 1% objective tolerance: ${initialLoss}`);
+}
 console.log('ok: premium placement metadata and initial Balanced tolerance before price exchanges');

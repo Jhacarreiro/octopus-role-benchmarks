@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T18:56:03.492Z",
+  "generatedAt": "2026-10-28T19:14:18.299Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "success",
-    "attemptedAt": "2026-10-28T18:56:03.314Z",
+    "attemptedAt": "2026-10-28T19:14:18.125Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-28",
       "generatedAt": "2026-10-28T18:47:36.906Z"
@@ -22,12 +22,12 @@
       "generatedAt": "2026-10-28T18:47:36.906Z"
     },
     "mode": "full",
-    "message": "Policy v18: Balanced requires 15% and Budget 10% role-cost savings per quality point lost. Heavy and Reviewer +2 guards retained; source observations and prices unchanged; estimators disabled.",
+    "message": "Policy v19: quality-first Balanced/Budget with no relative Intelligence floor; known Intelligence required; exchanges remain 15%/10%; coding +2 guards and disabled estimators retained. Source observations unchanged.",
     "stage": null,
     "errorSummary": null,
     "validationIssues": [],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n✅ Refresh: success · full — Policy v18: Balanced requires 15% and Budget 10% role-cost savings per quality point lost. Heavy and Reviewer +2 guards retained; source observations and prices unchanged; estimators disabled.\n\nLINEUPS\n• balanced/architect: DeepSeek V4.1 Flash (latest) → Claude Sonnet 5.5\n• balanced/security-reviewer: MiMo V2.6 Pro → Kimi K3.1 Pro\n• balanced/code-reviewer: Kimi K3.1 Pro → Gemini 4 Argon\n• balanced/implementer: MiMo V2.6 Pro → Muse Wonder\n• balanced/researcher: Claude Haiku 5.5 → Kimi K3.1 Pro\n• budget/architect: MiniMax M3.1 Flash → Claude Haiku 5.5\n• budget/strategist: MiMo V2.6 Flash → DeepSeek V4.1 Flash (latest)\n• budget/code-reviewer: MiMo V2.6 Pro → Kimi K3.1 Pro\n• budget/synthesizer: Beam 1.0 → Claude Haiku 5.5\n• budget/researcher: Beam 1.0 → MiniMax M3.1 Flash"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n✅ Refresh: success · full — Policy v19: quality-first Balanced/Budget with no relative Intelligence floor; known Intelligence required; exchanges remain 15%/10%; coding +2 guards and disabled estimators retained. Source observations unchanged.\n\nLINEUPS\n• balanced/code-reviewer: Gemini 4 Argon → Kimi K3.1 Pro\n• balanced/implementer-heavy: GPT-6.1 Terra → Gemini 4 Argon\n• balanced/researcher: Kimi K3.1 Pro → GPT-6.1 Sol\n• budget/architect: Claude Haiku 5.5 → DeepSeek V4.1 Flash (latest)\n• budget/strategist: DeepSeek V4.1 Flash (latest) → Claude Sonnet 5.5\n• budget/security-reviewer: GPT-6 Luna → MiMo V2.6 Pro\n• budget/researcher: MiniMax M3.1 Flash → MiMo V2.6 Pro"
 }
