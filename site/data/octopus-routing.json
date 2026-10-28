@@ -6,43 +6,43 @@
   "roles": {
     "architect": {
       "provider": "commandcode",
-      "model": "meta/muse-wonder-1.0",
-      "benchmarkModel": "Muse Wonder"
+      "model": "minimax/minimax-m3.1-flash",
+      "benchmarkModel": "MiniMax M3.1 Flash"
     },
     "strategist": {
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
-      "benchmarkModel": "Claude Sonnet 5.5"
+      "provider": "commandcode",
+      "model": "xiaomi/mimo-v2.6-flash",
+      "benchmarkModel": "MiMo V2.6 Flash"
     },
     "security-reviewer": {
       "provider": "commandcode",
-      "model": "moonshotai/kimi-k3.1-pro",
-      "benchmarkModel": "Kimi K3.1 Pro"
+      "model": "gpt-6-luna",
+      "benchmarkModel": "GPT-6 Luna"
     },
     "code-reviewer": {
       "provider": "commandcode",
-      "model": "google/gemini-4-argon",
-      "benchmarkModel": "Gemini 4 Argon"
+      "model": "minimax/minimax-m3.1-flash",
+      "benchmarkModel": "MiniMax M3.1 Flash"
     },
     "implementer": {
+      "provider": "commandcode",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "benchmarkModel": "MiMo V2.6 Pro"
+    },
+    "implementer-heavy": {
       "provider": "claude",
       "model": "claude-sonnet-5-5",
       "benchmarkModel": "Claude Sonnet 5.5"
     },
-    "implementer-heavy": {
-      "provider": "commandcode",
-      "model": "moonshotai/kimi-k3.1-pro",
-      "benchmarkModel": "Kimi K3.1 Pro"
-    },
     "synthesizer": {
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "benchmarkModel": "GPT-6.1 Sol"
+      "provider": "commandcode",
+      "model": "reflection/beam:free",
+      "benchmarkModel": "Beam 1.0"
     },
     "researcher": {
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "benchmarkModel": "GPT-6.1 Sol"
+      "provider": "commandcode",
+      "model": "reflection/beam:free",
+      "benchmarkModel": "Beam 1.0"
     }
   }
 }

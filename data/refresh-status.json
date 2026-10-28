@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "success",
-  "attemptedAt": "2026-10-28T18:17:27.083Z",
+  "attemptedAt": "2026-10-28T18:35:16.221Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
     "generatedAt": "2026-10-28T15:13:24.390Z"
@@ -18,7 +18,7 @@
     "generatedAt": "2026-10-28T15:13:24.390Z"
   },
   "mode": "full",
-  "message": "Budget cost optimization allows measured Intelligence exceptions with at most 1 point of loss per role on the 0-100 role-quality scale. The initial reference is fixed; Intelligence estimator disabled.",
+  "message": "Published policy v16: Budget 2% and Balanced 5% role-price savings per quality point, against fixed initial selections. Same source snapshot; statistical estimators disabled.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [],

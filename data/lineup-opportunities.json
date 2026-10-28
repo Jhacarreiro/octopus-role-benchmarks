@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "snapshotDate": "2026-10-28",
   "generatedAt": "2026-10-28T15:13:24.390Z",
-  "policySchemaVersion": 15,
+  "policySchemaVersion": 16,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
   "repetitionRule": "models and benchmark identities may repeat subject to family seat limits and coding-independence rules",
@@ -24,7 +24,7 @@
     },
     "balanced": {
       "classification": "review-only",
-      "objective": "maximize-relative-quality-and-affordability",
+      "objective": "initial-balanced-score-then-score-price-exchange",
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.8,
@@ -79,6 +79,216 @@
           }
         ]
       },
+      "postSelectionOptimization": {
+        "enabled": true,
+        "status": "applied",
+        "reference": "fixed-initial-portfolio-per-snapshot",
+        "exchangeRule": "price-saving-percent-per-quality-point",
+        "savingPercentPerPoint": 5,
+        "maxSwaps": null,
+        "measuredReplacementsOnly": true,
+        "maxIntelligenceExceptions": null,
+        "searchCompleted": true,
+        "visitedNodes": 158,
+        "initialCostUsd": 10.717514,
+        "optimizedCostUsd": 1.13448,
+        "savingPercent": 89.414709,
+        "positivePointLoss": 100.636845,
+        "meanPositivePointLoss": 12.579606,
+        "initialBalancedObjectiveLossPercent": 0.332453,
+        "intelligenceExceptions": [
+          {
+            "role": "architect",
+            "model": "MiniMax M3.1 Flash",
+            "observedIntelligence": 28.9095214290458,
+            "initialThreshold": 43.220465
+          },
+          {
+            "role": "strategist",
+            "model": "MiMo V2.6 Flash",
+            "observedIntelligence": 26.7276981444568,
+            "initialThreshold": 43.220465
+          },
+          {
+            "role": "security-reviewer",
+            "model": "GPT-6 Luna",
+            "observedIntelligence": 27.7552004938153,
+            "initialThreshold": 43.220465
+          },
+          {
+            "role": "code-reviewer",
+            "model": "MiniMax M3.1 Flash",
+            "observedIntelligence": 28.9095214290458,
+            "initialThreshold": 43.220465
+          },
+          {
+            "role": "implementer",
+            "model": "MiMo V2.6 Pro",
+            "observedIntelligence": 29.8897833093321,
+            "initialThreshold": 43.220465
+          },
+          {
+            "role": "synthesizer",
+            "model": "Beam 1.0",
+            "observedIntelligence": 17.7307282547205,
+            "initialThreshold": 43.220465
+          },
+          {
+            "role": "researcher",
+            "model": "Beam 1.0",
+            "observedIntelligence": 17.7307282547205,
+            "initialThreshold": 43.220465
+          }
+        ],
+        "changes": [
+          {
+            "role": "architect",
+            "from": "Muse Wonder",
+            "to": "MiniMax M3.1 Flash",
+            "initialQuality": 54.862226,
+            "quality": 47.830266,
+            "pointLoss": 7.03196,
+            "initialCostUsd": 2.592154,
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 35.1598,
+            "observedIntelligence": 28.9095214290458
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Sonnet 5.5",
+            "to": "MiMo V2.6 Flash",
+            "initialQuality": 58.48794,
+            "quality": 42.510769,
+            "pointLoss": 15.977171,
+            "initialCostUsd": 0.935467,
+            "costUsd": 0.037119,
+            "savingPercent": 96.03207,
+            "requiredSavingPercent": 79.885855,
+            "observedIntelligence": 26.7276981444568
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "GPT-6 Luna",
+            "initialQuality": 64.065108,
+            "quality": 52.685359,
+            "pointLoss": 11.379749,
+            "initialCostUsd": 1.075975,
+            "costUsd": 0.057369,
+            "savingPercent": 94.668152,
+            "requiredSavingPercent": 56.898745,
+            "observedIntelligence": 27.7552004938153
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "MiniMax M3.1 Flash",
+            "initialQuality": 65.407248,
+            "quality": 47.975429,
+            "pointLoss": 17.431819,
+            "initialCostUsd": 1.296077,
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 87.159095,
+            "observedIntelligence": 28.9095214290458
+          },
+          {
+            "role": "implementer",
+            "from": "Claude Sonnet 5.5",
+            "to": "MiMo V2.6 Pro",
+            "initialQuality": 67.092229,
+            "quality": 49.895112,
+            "pointLoss": 17.197117,
+            "initialCostUsd": 0.935467,
+            "costUsd": 0.104525,
+            "savingPercent": 88.826397,
+            "requiredSavingPercent": 85.985585,
+            "observedIntelligence": 29.8897833093321
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Claude Sonnet 5.5",
+            "initialQuality": 68.105264,
+            "quality": 68.126547,
+            "pointLoss": 0,
+            "initialCostUsd": 1.075975,
+            "costUsd": 0.935467,
+            "savingPercent": 13.058672,
+            "requiredSavingPercent": 0,
+            "observedIntelligence": 54.24133407109
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "Beam 1.0",
+            "initialQuality": 56.005,
+            "quality": 40.07,
+            "pointLoss": 15.935,
+            "initialCostUsd": 1.4032,
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 79.675,
+            "observedIntelligence": 17.7307282547205
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "Beam 1.0",
+            "initialQuality": 58.388041,
+            "quality": 42.704012,
+            "pointLoss": 15.684029,
+            "initialCostUsd": 1.4032,
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 78.420145,
+            "observedIntelligence": 17.7307282547205
+          }
+        ],
+        "initialSelections": {
+          "architect": {
+            "model": "Muse Wonder",
+            "quality": 54.862226,
+            "costUsd": 2.592154
+          },
+          "strategist": {
+            "model": "Claude Sonnet 5.5",
+            "quality": 58.48794,
+            "costUsd": 0.935467
+          },
+          "security-reviewer": {
+            "model": "Kimi K3.1 Pro",
+            "quality": 64.065108,
+            "costUsd": 1.075975
+          },
+          "code-reviewer": {
+            "model": "Gemini 4 Argon",
+            "quality": 65.407248,
+            "costUsd": 1.296077
+          },
+          "implementer": {
+            "model": "Claude Sonnet 5.5",
+            "quality": 67.092229,
+            "costUsd": 0.935467
+          },
+          "implementer-heavy": {
+            "model": "Kimi K3.1 Pro",
+            "quality": 68.105264,
+            "costUsd": 1.075975
+          },
+          "synthesizer": {
+            "model": "GPT-6.1 Sol",
+            "quality": 56.005,
+            "costUsd": 1.4032
+          },
+          "researcher": {
+            "model": "GPT-6.1 Sol",
+            "quality": 58.388041,
+            "costUsd": 1.4032
+          }
+        }
+      },
       "autoSafeCandidateCount": 0,
       "reviewOnlyCandidateCount": 0,
       "lockedRoles": [],
@@ -87,7 +297,7 @@
     },
     "budget": {
       "classification": "review-only",
-      "objective": "initial-role-budget-score-then-bounded-cost-minimization",
+      "objective": "initial-role-budget-score-then-score-price-exchange",
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.75,
@@ -164,35 +374,59 @@
         "enabled": true,
         "status": "applied",
         "reference": "fixed-initial-portfolio-per-snapshot",
-        "maxRolePointLoss": 1,
-        "maxMeanPointLoss": 0.25,
-        "minSavingsPercent": 10,
+        "exchangeRule": "price-saving-percent-per-quality-point",
+        "savingPercentPerPoint": 2,
+        "maxSwaps": null,
         "measuredReplacementsOnly": true,
         "maxIntelligenceExceptions": null,
         "searchCompleted": true,
-        "visitedNodes": 90,
+        "visitedNodes": 9226,
         "initialCostUsd": 6.539957,
-        "optimizedCostUsd": 4.911977,
-        "savingPercent": 24.892829,
-        "positivePointLoss": 0.993326,
-        "meanPositivePointLoss": 0.124166,
+        "optimizedCostUsd": 0.188976,
+        "savingPercent": 97.11044,
+        "positivePointLoss": 96.026241,
+        "meanPositivePointLoss": 12.00328,
         "intelligenceExceptions": [
           {
             "role": "architect",
-            "model": "MiMo V2.6 Pro",
-            "observedIntelligence": 29.8897833093321,
+            "model": "MiniMax M3.1 Flash",
+            "observedIntelligence": 28.9095214290458,
+            "initialThreshold": 34.067959
+          },
+          {
+            "role": "strategist",
+            "model": "MiMo V2.6 Flash",
+            "observedIntelligence": 26.7276981444568,
             "initialThreshold": 34.067959
           },
           {
             "role": "security-reviewer",
-            "model": "MiMo V2.6 Pro",
-            "observedIntelligence": 29.8897833093321,
+            "model": "GPT-6 Luna",
+            "observedIntelligence": 27.7552004938153,
+            "initialThreshold": 34.067959
+          },
+          {
+            "role": "code-reviewer",
+            "model": "MiMo V2.6 Flash",
+            "observedIntelligence": 26.7276981444568,
+            "initialThreshold": 34.067959
+          },
+          {
+            "role": "implementer",
+            "model": "MiniMax M3.1 Flash",
+            "observedIntelligence": 28.9095214290458,
+            "initialThreshold": 34.067959
+          },
+          {
+            "role": "synthesizer",
+            "model": "Beam 1.0",
+            "observedIntelligence": 17.7307282547205,
             "initialThreshold": 34.067959
           },
           {
             "role": "researcher",
-            "model": "Step 5 Preview",
-            "observedIntelligence": 28.5283090216016,
+            "model": "Beam 1.0",
+            "observedIntelligence": 17.7307282547205,
             "initialThreshold": 34.067959
           }
         ],
@@ -200,57 +434,106 @@
           {
             "role": "architect",
             "from": "Claude Haiku 5.5",
-            "to": "MiMo V2.6 Pro",
+            "to": "MiniMax M3.1 Flash",
             "initialQuality": 50.368454,
-            "quality": 49.741867,
-            "pointLoss": 0.626587,
+            "quality": 47.830266,
+            "pointLoss": 2.538188,
             "initialCostUsd": 0.057369,
-            "costUsd": 0.104525,
-            "observedIntelligence": 29.8897833093321
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 5.076376,
+            "observedIntelligence": 28.9095214290458
           },
           {
             "role": "strategist",
             "from": "Kimi K3.1 Pro",
-            "to": "Claude Sonnet 5.5",
+            "to": "MiMo V2.6 Flash",
             "initialQuality": 56.761598,
-            "quality": 58.48794,
-            "pointLoss": 0,
+            "quality": 42.510769,
+            "pointLoss": 14.250829,
             "initialCostUsd": 1.075975,
-            "costUsd": 0.935467,
-            "observedIntelligence": 54.24133407109
+            "costUsd": 0.037119,
+            "savingPercent": 96.550229,
+            "requiredSavingPercent": 28.501658,
+            "observedIntelligence": 26.7276981444568
           },
           {
             "role": "security-reviewer",
             "from": "Grok 4.7",
-            "to": "MiMo V2.6 Pro",
+            "to": "GPT-6 Luna",
             "initialQuality": 56.432341,
-            "quality": 56.065602,
-            "pointLoss": 0.366739,
+            "quality": 52.685359,
+            "pointLoss": 3.746982,
             "initialCostUsd": 1.573992,
-            "costUsd": 0.104525,
-            "observedIntelligence": 29.8897833093321
+            "costUsd": 0.057369,
+            "savingPercent": 96.35517,
+            "requiredSavingPercent": 7.493964,
+            "observedIntelligence": 27.7552004938153
+          },
+          {
+            "role": "code-reviewer",
+            "from": "GPT-6.1 Terra",
+            "to": "MiMo V2.6 Flash",
+            "initialQuality": 62.223056,
+            "quality": 44.890657,
+            "pointLoss": 17.332399,
+            "initialCostUsd": 0.7016,
+            "costUsd": 0.037119,
+            "savingPercent": 94.709426,
+            "requiredSavingPercent": 34.664798,
+            "observedIntelligence": 26.7276981444568
           },
           {
             "role": "implementer",
             "from": "Gemini 4 Argon",
-            "to": "Claude Sonnet 5.5",
+            "to": "MiniMax M3.1 Flash",
             "initialQuality": 62.722576,
-            "quality": 67.092229,
-            "pointLoss": 0,
+            "quality": 42.565374,
+            "pointLoss": 20.157202,
             "initialCostUsd": 1.296077,
-            "costUsd": 0.935467,
-            "observedIntelligence": 54.24133407109
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 40.314404,
+            "observedIntelligence": 28.9095214290458
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Claude Haiku 5.5",
+            "initialQuality": 68.105264,
+            "quality": 50.125036,
+            "pointLoss": 17.980228,
+            "initialCostUsd": 1.075975,
+            "costUsd": 0.057369,
+            "savingPercent": 94.668152,
+            "requiredSavingPercent": 35.960456,
+            "observedIntelligence": 36.2345435880142
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Terra",
+            "to": "Beam 1.0",
+            "initialQuality": 52.971667,
+            "quality": 40.07,
+            "pointLoss": 12.901667,
+            "initialCostUsd": 0.7016,
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 25.803334,
+            "observedIntelligence": 17.7307282547205
           },
           {
             "role": "researcher",
             "from": "Claude Haiku 5.5",
-            "to": "Step 5 Preview",
+            "to": "Beam 1.0",
             "initialQuality": 49.822758,
-            "quality": 50.373144,
-            "pointLoss": 0,
+            "quality": 42.704012,
+            "pointLoss": 7.118746,
             "initialCostUsd": 0.057369,
-            "costUsd": 0.352818,
-            "observedIntelligence": 28.5283090216016
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 14.237492,
+            "observedIntelligence": 17.7307282547205
           }
         ],
         "initialSelections": {

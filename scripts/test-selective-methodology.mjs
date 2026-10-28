@@ -193,7 +193,9 @@ try{
       const model=snapshot.models.find(m=>m.name===p.model),before=refinement.initialSelections[role];
       assert.equal(model.roleScores[role].status,'valid');
       assert.equal(model.aaModel.intelligenceIndexVersion,'5.0');
-      assert.ok(before.quality-model.roleScores[role].rankingQuality<=refinement.maxRolePointLoss+1e-5);
+      const loss=Math.max(0,before.quality-model.roleScores[role].rankingQuality);
+      const saving=before.costUsd>0?100*(1-p.planAdjustedCostPerTaskUsd/before.costUsd):0;
+      assert.ok(saving+1e-3>=loss*refinement.savingPercentPerPoint,'An Intelligence exception must pay the required per-role price reduction');
       assert.ok(!mode.priceFilter.excluded.some(e=>e.model===p.model),'An Intelligence exception cannot bypass price exclusions');
     }
   }

@@ -1,6 +1,22 @@
 {
   "schemaVersion": 1,
   "models": {
+    "MiniMax M3.1 Flash": {
+      "provider": "commandcode",
+      "model": "minimax/minimax-m3.1-flash"
+    },
+    "MiMo V2.6 Flash": {
+      "provider": "commandcode",
+      "model": "xiaomi/mimo-v2.6-flash"
+    },
+    "GPT-6 Luna": {
+      "provider": "commandcode",
+      "model": "gpt-6-luna"
+    },
+    "Beam 1.0": {
+      "provider": "commandcode",
+      "model": "reflection/beam:free"
+    },
     "MiMo V2.6 Pro": {
       "provider": "commandcode",
       "model": "xiaomi/mimo-v2.6-pro"

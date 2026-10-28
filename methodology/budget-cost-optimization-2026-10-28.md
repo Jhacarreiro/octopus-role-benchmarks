@@ -1,5 +1,7 @@
 # Budget cost optimization
 
+Historical policy v15. Superseded by the [v16 score/price exchange](score-price-exchange-2026-10-28.md); the figures below preserve the earlier comparison.
+
 Policy v15 keeps the initial Budget selection and then searches for the cheapest complete portfolio within a fixed quality envelope. Each selected role may lose at most one point on its 0–100 quality-score scale, with at most 0.25 points of average positive loss across eight roles. Gains do not cancel losses. The initial reference is regenerated from the snapshot's original selection rules on every run; a preceding optimized portfolio is never the reference.
 
 New replacements require a directly measured role score and observed Intelligence v5. Any number may fall below the initial Intelligence cutoff. The price-level exclusions, subsequent statistical cutoff, generation rules, family limits, independent coding review and Heavy improvement remain enforced. Existing estimated-seat limits are unchanged. Changes require at least 10% overall plan-adjusted cost savings. The exact search is bounded at one million visited states; an incomplete search retains the initial portfolio.
