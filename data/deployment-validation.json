@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "methodologyVersion": 10,
+  "snapshotGeneratedAt": "2026-10-28T14:35:30.344Z",
+  "sourceBaseRevision": "e879657b4df9769089f55a769dc81682a0cab2f4",
+  "sourceSha256": {
+    "scripts/refresh.mjs": "50efb76725e5d9c8ff30d85cfa7e006b260948577b632c9c0f2513ac541623dc",
+    "scripts/update.mjs": "d0b66d76fa532ce23a20ea8217b8bc98bb89151295d9663b81a80395e159cb1f",
+    "scripts/selective-update.mjs": "73b68135c07b8d89de65ca22fcf8b7a095a111dcec46832517fa44ab5bc17633",
+    "scripts/lib/role-scoring.mjs": "1bf16a6705e45d69f88b37a01c6bb31863352711214b2d82bc7e55dd4978f375",
+    "scripts/lib/role-approximations.mjs": "1d9296db096766adc989addb0c0b0913ab523f5b7ab710498ee505cfba012d2b",
+    "scripts/build-lineups.mjs": "bc4d1053dbd85f307b622f0cb63e53ec1d45f301d4ad47e7caa46f6fc2507d61",
+    "scripts/evaluate-lineup-swaps.mjs": "41e4abb2a6afaf9811cfa3f07cf40b49e8783a69aaf2a2906810749c865df96e",
+    "scripts/build-octopus-routing.mjs": "87a84da93d4f194bb752bd4a411a08e4fa98aeb77577c1d5193531f306535b1e",
+    "config/roles-v10.json": "a17974457873afd9e8668cbd449c1df40db51e991933ed341b3683f3c28546c0",
+    "config/active-methodology.json": "1f7f8e8452bcf8d5fa2e8fe9b3a32a7ae1770ad51f37c791efe2218c5fa480f4",
+    "config/lineup-policy.json": "cfc64d57f82f9a5d25fc6f1c52bfc95d9a620a7ab892b19715f163eca7e4f34b",
+    "config/octopus-routing-models.json": "87179509b2ababdb3c47d934ca67459b58ff7259c398a2a9b3aa43048cef7cae",
+    "package.json": "7d46a4c975df721d059aaf07f44baf4fa531fccaeeb522258bbb250630e90107"
+  },
+  "statisticalIntelligenceEstimator": false,
+  "previousSnapshotSha256": "9a3c3181fad2aae4bb7900d805a6e1c9dd2340b29b3f0fc9564618a3efedb451",
+  "artifactSha256": {
+    "data/2026-10-28.json": "583e240f2688778685ffcf2ad3ec34fb294712ef8b88345550e0a3e98cc7ec9c",
+    "data/latest.json": "583e240f2688778685ffcf2ad3ec34fb294712ef8b88345550e0a3e98cc7ec9c",
+    "site/data/latest.json": "583e240f2688778685ffcf2ad3ec34fb294712ef8b88345550e0a3e98cc7ec9c",
+    "site/data/lineups.json": "b4b54abb0423813c2ebd15b194cff17e34ba50915941ee4fb1b1c9d37fa89a4e",
+    "data/lineup-opportunities.json": "6e2ddf3179a41240e576eaf864f34c96e7f32d7d0a60981b32d7964355ea52c4",
+    "site/data/octopus-routing.json": "86055d5ad9283e0c16b91c4105de747354fce76070b259ad2107f6ed22d3feb4"
+  },
+  "counts": {
+    "commandCodeRows": 99,
+    "retainedRows": 97,
+    "activeRows": 68,
+    "historicalRows": 29,
+    "approximatedRows": 10,
+    "approximationPortfolioCandidates": 8,
+    "mappedRows": 58,
+    "mappedFamilies": 50,
+    "observedOnlyRows": 56,
+    "hybridRows": 2,
+    "scoredRows": 56,
+    "scoredFamilies": 48,
+    "partialScoredRows": 36,
+    "partialRows": 48,
+    "sourceIncompleteRows": 0,
+    "unmatchedRows": 10,
+    "unscoredRows": 2,
+    "unrankedRows": 2
+  }
+}

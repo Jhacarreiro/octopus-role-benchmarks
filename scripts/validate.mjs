@@ -2,6 +2,27 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const current=JSON.parse(fs.readFileSync(path.join(root,'data/latest.json'),'utf8'));
+if(!process.argv.includes('--snapshot')&&current.methodologyVersion>=10){
+  const {validateRoleSnapshot}=await import('./lib/role-scoring.mjs');
+  const config=JSON.parse(fs.readFileSync(path.join(root,'config/roles-v10.json'),'utf8'));
+  validateRoleSnapshot(current,config);
+  const mirror=fs.readFileSync(path.join(root,'site/data/latest.json'),'utf8');
+  if(mirror!==fs.readFileSync(path.join(root,'data/latest.json'),'utf8'))throw new Error('Published snapshot mirrors differ');
+  const lineups=JSON.parse(fs.readFileSync(path.join(root,'site/data/lineups.json'),'utf8'));
+  if(lineups.methodologyVersion!==10||lineups.snapshotGeneratedAt!==current.generatedAt)throw new Error('Published portfolio generation mismatch');
+  console.log(`ok: active v10; ${current.counts.scoredFamilies} measured identities; ${current.counts.approximatedRows} analogies; statistical estimators disabled`);
+  process.exit(0);
+}
+const inputIndex=process.argv.indexOf('--snapshot');
+if(inputIndex>=0){
+  const snapshot=JSON.parse(fs.readFileSync(process.argv[inputIndex+1],'utf8'));
+  const config=JSON.parse(fs.readFileSync(path.join(root,'config/roles-v10.json'),'utf8'));
+  const {validateRoleSnapshot}=await import('./lib/role-scoring.mjs');
+  validateRoleSnapshot(snapshot,config);
+  console.log(`ok: v10 role completeness/provenance validated; statistical estimators disabled; ${snapshot.counts.scoredFamilies} measured identities; ${snapshot.counts.approximatedRows??0} approximated offers`);
+  process.exit(0);
+}
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
 if(roles.schemaVersion<6) throw new Error('Expected methodology schema >=6');
 if(roles.coveragePolicy!==1) throw new Error('coveragePolicy must remain 1.0');

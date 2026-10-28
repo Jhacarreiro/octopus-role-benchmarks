@@ -1,0 +1,187 @@
+{
+  "capturedOn": "2026-10-28",
+  "purpose": "Source verification for six previously unranked non-Decision offers. This verifies published identity/results and implementation provenance, not independent replication or statistical transfer accuracy.",
+  "cases": [
+    {
+      "model": "Beam 1.0",
+      "resolution": "observed-aa",
+      "identity": {
+        "catalogRoute": "reflection/beam:free",
+        "aaSlug": "reflection-beam",
+        "aaUuid": "69468cce-7b5c-414a-b498-41df4c34df85",
+        "releaseDate": "2026-10-16",
+        "underlyingModel": "Reflection Beam-1.0-501B-A23B"
+      },
+      "sources": [
+        "https://commandcode.ai/models/beam-free",
+        "https://artificialanalysis.ai/models/reflection-beam",
+        "https://huggingface.co/reflection/Beam-1.0-501B-A23B"
+      ],
+      "facts": {
+        "intelligenceV5": 17.7307282547205,
+        "aaTerminalBench40": 0.0303030303030303,
+        "aaBriefcaseElo": 976.2,
+        "gdpPdfAllPass": 0.116
+      },
+      "verification": "Exact slug/UUID in original captured AA model data, independently rechecked through the live AA model provider. Serving precision/effort is not asserted identical across all hosts."
+    },
+    {
+      "model": "Step 3.7 Flash",
+      "resolution": "partial-observed-analogy",
+      "aaSlug": "step-3-7-flash",
+      "testedEffort": "high",
+      "preservedFields": [
+        "hle",
+        "lcr",
+        "scicode"
+      ],
+      "scope": [
+        "implementer",
+        "implementer-heavy",
+        "code-reviewer"
+      ],
+      "sources": [
+        "https://artificialanalysis.ai/models/step-3-7-flash",
+        "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+        "https://static.stepfun.com/blog/step-3.7-flash/"
+      ],
+      "facts": {
+        "aaHle": 0.214087117701576,
+        "aaLcr": 0.736666666666667,
+        "aaSciCode": 0.438657407407407,
+        "aaLegacyTerminalBench21": 0.393258426966292,
+        "vendorTerminalBench21": 59.5,
+        "vendorSweBenchPro": 56.3
+      },
+      "limitations": [
+        "AA legacy and provider coding results have different harnesses.",
+        "Advisor-mode scores are excluded.",
+        "Raw missing TB4, Briefcase and Omniscience remain absent."
+      ]
+    },
+    {
+      "model": "Claude Haiku 4.5",
+      "resolution": "partial-observed-analogy",
+      "aaSlug": "claude-4-5-haiku",
+      "testedEffort": "non-reasoning",
+      "preservedFields": [
+        "hle",
+        "lcr"
+      ],
+      "scope": [
+        "implementer",
+        "implementer-heavy"
+      ],
+      "sources": [
+        "https://artificialanalysis.ai/models/claude-4-5-haiku",
+        "https://www.anthropic.com/news/claude-haiku-4-5"
+      ],
+      "facts": {
+        "aaHle": 0.0421686746987952,
+        "aaLcr": 0.496666666666667,
+        "officialOriginalTerminalBenchNoThinking": 40.21,
+        "officialOriginalTerminalBenchThinking": 41.75,
+        "officialNoThinkingRuns": 6,
+        "officialThinkingRuns": 5
+      },
+      "limitations": [
+        "Do not import the 73.3 SWE-bench headline: it uses a 128K thinking budget.",
+        "Original Terminal-Bench is not TB4.",
+        "Haiku 5.5 is an upper reference with a 45-point haircut, not a replacement observation."
+      ]
+    },
+    {
+      "model": "Qwen 3.7 Flash",
+      "resolution": "external-reasoning-analogy",
+      "catalogRoute": "qwen/qwen3.7-flash",
+      "scope": [
+        "researcher"
+      ],
+      "sources": [
+        "https://epoch.ai/models/qwen3-7-flash",
+        "https://playground.roboflow.com/models/qwen/qwen3-7-flash",
+        "https://commandcode.ai/models/qwen3-7-flash"
+      ],
+      "facts": {
+        "epochGpqaThinking": 0.8232323232323232,
+        "epochGpqaNoThinking": 0.8080808080808081,
+        "epochFrontierMathTiers1To3V2": 0.19298245614035087,
+        "roboflowVisionOverall": 52.4,
+        "roboflowReasoningLow": 34.4,
+        "roboflowReasoningHigh": 61.6
+      },
+      "limitations": [
+        "Epoch capabilities index is not AA Intelligence.",
+        "Roboflow reports a single run per task; a three-run rerun is pending.",
+        "No coding, security or professional-deliverable observation is invented."
+      ]
+    },
+    {
+      "model": "Glyph Cluster",
+      "resolution": "external-task-suite-analogy",
+      "catalogRoute": "stealth/glyph-cluster:free",
+      "testedRoute": "stealth/glyph-cluster",
+      "underlyingProvider": "unverified",
+      "scope": [
+        "implementer"
+      ],
+      "sources": [
+        "https://stealthmodels.com/benchmarks/models/glyph-cluster",
+        "https://stealthmodels.com/benchmarks",
+        "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway",
+        "https://commandcode.ai/models/glyph-cluster-free"
+      ],
+      "facts": {
+        "stealthMarkVersion": "1.8.8",
+        "svgTasks": 7,
+        "games": 2,
+        "overall": 18.9,
+        "general": 12,
+        "visual": 29.8,
+        "referenceNemotron3Ultra": 16.7,
+        "referenceInklingSmall": 27.6,
+        "gpqaSubsetQuestions": 55,
+        "gpqaSubsetCorrect": 31
+      },
+      "limitations": [
+        "Small original task suite with private prompts and judgment-based SVG scoring.",
+        "The model provider is not inferred from tokenizer or visual similarities.",
+        "No general AA Intelligence equivalence or heavy-agent capability is asserted."
+      ]
+    },
+    {
+      "model": "Fugu Ultra",
+      "resolution": "launch-version-analogy",
+      "catalogRoute": "sakana/fugu-ultra",
+      "referenceRevision": "Original June 2026 technical report, arXiv v1",
+      "currentServedRevision": "unconfirmed",
+      "scope": [
+        "implementer",
+        "implementer-heavy"
+      ],
+      "sources": [
+        "https://arxiv.org/html/2606.21228v1",
+        "https://commandcode.ai/blog/fugu-ultra-by-sakana-ai-is-live-in-command-code",
+        "https://sakana.ai/fugu-1-1-claude-code-interface/"
+      ],
+      "facts": {
+        "sweBenchPro": 73.7,
+        "terminalBench21": 82.1,
+        "sciCode": 58.7,
+        "hle": 50,
+        "lcr": 73.3,
+        "workerFamilies": [
+          "Claude",
+          "GPT",
+          "Gemini"
+        ]
+      },
+      "limitations": [
+        "Do not import current v2 results into the unversioned catalog route.",
+        "Original report uses heterogeneous harnesses and multimodal HLE; no conversion to text-only HLE or TB4 is made.",
+        "Anchor Fable 5 has no observed AA Intelligence v5, so Fugu remains ineligible for portfolios.",
+        "Shared worker families cannot satisfy coding independence."
+      ]
+    }
+  ]
+}

@@ -6,20 +6,23 @@ export function percentileScore(values,value,{higherIsBetter=true}={}){
   let less=0,equal=0;
   for(const v of finite){if(v<value)less++;else if(v===value)equal++;}
   const rank=(less+(Math.max(1,equal)-1)/2)/(finite.length-1);
-  return 100*(higherIsBetter?rank:1-rank);
+  return Math.max(0,Math.min(100,100*(higherIsBetter?rank:1-rank)));
 }
 
 export function applyBalancedScores(models,roleIds,{qualityWeight=0.75,costWeight=0.25}={}){
   if(!Number.isFinite(qualityWeight)||!Number.isFinite(costWeight)||qualityWeight<0||costWeight<0||Math.abs(qualityWeight+costWeight-1)>1e-9)throw new Error('Balanced percentile weights must be finite, non-negative and sum to 1');
   for(const roleId of roleIds){
-    const eligible=models.filter(m=>Number.isFinite(m.roleScores?.[roleId]?.rankingQuality)&&Number.isFinite(m.taskEfficiency?.planAdjustedCostPerTaskUsd));
-    const qualities=eligible.map(m=>m.roleScores[roleId].rankingQuality);
-    const costs=eligible.map(m=>m.taskEfficiency.planAdjustedCostPerTaskUsd);
+    const eligible=models.filter(m=>m.generationEligibility?.eligible!==false&&Number.isFinite(m.roleScores?.[roleId]?.rankingQuality)&&Number.isFinite(m.taskEfficiency?.planAdjustedCostPerTaskUsd));
+    // Proxies are placed against the observed cohort; they cannot move observed percentiles.
+    const reference=eligible.filter(m=>m.roleScores[roleId].status!=='estimated');
+    const qualities=reference.map(m=>m.roleScores[roleId].rankingQuality);
+    const costs=reference.map(m=>m.taskEfficiency.planAdjustedCostPerTaskUsd);
     for(const m of eligible){
       const qualityPercentile=percentileScore(qualities,m.roleScores[roleId].rankingQuality,{higherIsBetter:true});
       const affordabilityPercentile=percentileScore(costs,m.taskEfficiency.planAdjustedCostPerTaskUsd,{higherIsBetter:false});
       m.roleScores[roleId].balancedQualityPercentile=qualityPercentile;
       m.roleScores[roleId].balancedAffordabilityPercentile=affordabilityPercentile;
+      if(qualityPercentile==null||affordabilityPercentile==null)continue;
       m.roleScores[roleId].rankingValue=qualityWeight*qualityPercentile+costWeight*affordabilityPercentile;
     }
   }

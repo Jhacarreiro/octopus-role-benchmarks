@@ -4,7 +4,8 @@ import {fileURLToPath} from "node:url";
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const check=process.argv.includes("--check");
-const lineups=JSON.parse(fs.readFileSync(path.join(root,"site","data","lineups.json"),"utf8"));
+const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1]};
+const lineups=JSON.parse(fs.readFileSync(arg("--lineups")??path.join(root,"site","data","lineups.json"),"utf8"));
 const mapping=JSON.parse(fs.readFileSync(path.join(root,"config","octopus-routing-models.json"),"utf8"));
 const balanced=lineups?.modes?.balanced?.selections;
 if(!balanced||typeof balanced!=="object")throw new Error("balanced lineup missing");
@@ -16,7 +17,7 @@ for(const [role,selection] of Object.entries(balanced)){
 }
 const out={schemaVersion:1,snapshotDate:lineups.snapshotDate,generatedAt:lineups.generatedAt,mode:"balanced",roles};
 const text=JSON.stringify(out,null,2)+"\n";
-const target=path.join(root,"site","data","octopus-routing.json");
+const target=arg("--output")??path.join(root,"site","data","octopus-routing.json");
 if(check){
   const current=fs.existsSync(target)?fs.readFileSync(target,"utf8"):"";
   if(current!==text)throw new Error("site/data/octopus-routing.json is stale; run npm run build:octopus-routing");

@@ -1,0 +1,672 @@
+{
+  "schemaVersion": 10,
+  "coveragePolicy": 1.0,
+  "costBasis": {
+    "default": "normalizedTask",
+    "input": {
+      "label": "Input, per 1M tokens",
+      "formula": "input_per_m"
+    },
+    "output": {
+      "label": "Output, per 1M tokens",
+      "formula": "output_per_m"
+    },
+    "blended50": {
+      "label": "50/50 input-output, per 1M tokens",
+      "formula": "(input_per_m + output_per_m) / 2"
+    },
+    "normalizedTask": {
+      "label": "CommandCode cost on normalized reference workload",
+      "formula": "fixed reference token profile repriced with effective CommandCode prices",
+      "profileVersion": 1,
+      "referenceTokenProfile": {
+        "nonCacheInput": 16564.39,
+        "cacheRead": 3178851.04,
+        "cacheWrite": 214245.16,
+        "output": 51657.3
+      },
+      "provenance": "Frozen robust median of observed Artificial Analysis Intelligence Index task token profiles on 2026-09-28; token quantities define workload only. All prices and plan economics come exclusively from CommandCode."
+    }
+  },
+  "benchmarks": {
+    "briefcase": {
+      "sourceField": "briefcaseElo",
+      "label": "AA-Briefcase v1.1",
+      "version": "1.1",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        10000
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": false,
+      "normalization": "briefcase-elo-v1.1"
+    },
+    "gdpPdfAllPass": {
+      "sourceField": "gdpPdfAllPass",
+      "label": "GDP.pdf (AA all-pass)",
+      "version": "AA-2026-10",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": false
+    },
+    "automationBenchPartialScore": {
+      "sourceField": "automationBenchPartialScore",
+      "label": "AutomationBench-AA",
+      "version": "1.0.6",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": false
+    },
+    "terminalBench40": {
+      "sourceField": "terminalBench40",
+      "label": "Terminal-Bench 4.0 (AA)",
+      "version": "4.0",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": false
+    },
+    "lcr": {
+      "sourceField": "lcr",
+      "label": "AA-LCR v1.1 (legacy)",
+      "version": "1.1",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "legacy",
+      "experimental": false
+    },
+    "hle": {
+      "sourceField": "hle",
+      "label": "HLE text-only (legacy)",
+      "version": "AA-text-only",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "legacy",
+      "experimental": false
+    },
+    "scicode": {
+      "sourceField": "scicode",
+      "label": "SciCode 1.0.1 (legacy)",
+      "version": "1.0.1",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "legacy",
+      "experimental": false
+    },
+    "omniscience": {
+      "sourceField": "omniscience",
+      "label": "AA-Omniscience v1.1",
+      "version": "1.1",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        -100,
+        100
+      ],
+      "multiplier": 0.5,
+      "offset": 50,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": false
+    },
+    "cyberIndex": {
+      "sourceField": "cyberIndex",
+      "label": "Artificial Analysis Cyber Index v1",
+      "version": "1",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        100
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": false,
+      "external": true,
+      "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index"
+    },
+    "frontierCode20": {
+      "sourceField": "frontierCode20",
+      "label": "FrontierCode 2.0 (AA)",
+      "version": "2.0",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": true
+    },
+    "hleDiamond": {
+      "sourceField": "hleDiamond",
+      "label": "HLE-Diamond (AA)",
+      "version": "2026-09",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": true
+    },
+    "terminalBenchScience": {
+      "sourceField": "terminalBenchScience",
+      "label": "Terminal-Bench-Science (AA)",
+      "version": "0.1.0",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": true
+    },
+    "critptAgenticHard": {
+      "sourceField": "critptAgenticHard",
+      "label": "CritPt v2 hard subset (AA)",
+      "version": "2-hard-40",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        1
+      ],
+      "multiplier": 100,
+      "offset": 0,
+      "scale": "0-100",
+      "lifecycle": "current",
+      "experimental": true
+    },
+    "gdpval": {
+      "sourceField": "gdpval",
+      "label": "GDPval-AA v2.1 raw Elo comparator",
+      "version": "2.1",
+      "implementation": "Artificial Analysis",
+      "rawRange": [
+        0,
+        10000
+      ],
+      "multiplier": 1,
+      "offset": 0,
+      "scale": "native Elo comparator",
+      "lifecycle": "current",
+      "experimental": true,
+      "normalization": "raw-comparator"
+    }
+  },
+  "roles": [
+    {
+      "id": "architect",
+      "label": "Architect",
+      "purpose": "Architecture, decomposition, design trade-offs and high-level technical judgment.",
+      "weights": {
+        "briefcase": 0.45,
+        "gdpPdfAllPass": 0.25,
+        "lcr": 0.2,
+        "hle": 0.1
+      },
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
+    },
+    {
+      "id": "strategist",
+      "label": "Strategist",
+      "purpose": "Arbitration, product/architecture trade-offs and decision quality under ambiguity.",
+      "weights": {
+        "briefcase": 0.45,
+        "gdpPdfAllPass": 0.2,
+        "automationBenchPartialScore": 0.15,
+        "omniscience": 0.2
+      },
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
+    },
+    {
+      "id": "security-reviewer",
+      "label": "Security Reviewer",
+      "purpose": "Adversarial review of implementation risks, unsafe assumptions and failure modes.",
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false,
+      "externalBenchmark": "cyberIndex"
+    },
+    {
+      "id": "code-reviewer",
+      "label": "Code Reviewer",
+      "purpose": "Independent review of code, edge cases, regressions and implementation quality.",
+      "weights": {
+        "terminalBench40": 0.35,
+        "scicode": 0.3,
+        "lcr": 0.2,
+        "omniscience": 0.15
+      },
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
+    },
+    {
+      "id": "implementer",
+      "label": "Implementer",
+      "purpose": "Normal coding implementation and iterative patch/test work.",
+      "weights": {
+        "terminalBench40": 0.6,
+        "lcr": 0.25,
+        "hle": 0.15
+      },
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
+    },
+    {
+      "id": "implementer-heavy",
+      "label": "Implementer Heavy",
+      "purpose": "Greenfield builds, large refactors and complex implementation work.",
+      "weights": {
+        "terminalBench40": 0.45,
+        "briefcase": 0.35,
+        "lcr": 0.2
+      },
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
+    },
+    {
+      "id": "synthesizer",
+      "label": "Synthesizer",
+      "purpose": "Aggregate many inputs into a coherent, faithful final output.",
+      "weights": {
+        "gdpPdfAllPass": 0.45,
+        "lcr": 0.25,
+        "omniscience": 0.3
+      },
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
+    },
+    {
+      "id": "researcher",
+      "label": "Researcher",
+      "purpose": "Broad research, evidence synthesis and difficult question answering.",
+      "weights": {
+        "gdpPdfAllPass": 0.3,
+        "lcr": 0.25,
+        "omniscience": 0.25,
+        "hle": 0.2
+      },
+      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "codingAgentEvidence": false,
+      "codingAdjusted": false
+    }
+  ],
+  "ranking": {
+    "codingRoles": [],
+    "baseRoleWeight": 1,
+    "codingAgentWeight": 0
+  },
+  "coverageScope": "per-role",
+  "intelligenceEstimator": {
+    "enabled": false,
+    "targetVersion": "5.0"
+  },
+  "generationPolicy": {
+    "enabled": true,
+    "retainedGenerations": 2,
+    "referenceUniverse": "full-retained-catalog"
+  },
+  "approximations": {
+    "enabled": true,
+    "method": "anchor-envelope-v1",
+    "maxSeatsPerPortfolio": 1,
+    "note": "User-authorized isolated v10 analogies, also available to portfolios with conservative values. Residual Intelligence estimator remains disabled. Margins are policy haircuts, not calibrated error bounds.",
+    "recipes": [
+      {
+        "model": "Qwen 3.8 Max Prime",
+        "kind": "serving-variant",
+        "anchors": [
+          "qwen3-8-max"
+        ],
+        "roles": [
+          "architect",
+          "strategist",
+          "code-reviewer",
+          "implementer",
+          "implementer-heavy",
+          "synthesizer",
+          "researcher"
+        ],
+        "margin": 5,
+        "reviewAfter": "2026-11-27",
+        "reason": "Catalog describes a high-speed Qwen 3.8 Max offering; capacity equivalence is a heuristic until exact serving identity is verified.",
+        "sources": [
+          {
+            "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+            "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Qwen 3.8 Omni Flash",
+        "kind": "related-architecture",
+        "anchors": [
+          "qwen3-8-flash-next"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 15,
+        "reviewAfter": "2026-11-27",
+        "reason": "Official related architecture supports a conservative coding analogy; multimodal transfer and exact serving weights remain uncertain.",
+        "sources": [
+          {
+            "url": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+            "summary": "Official model is built on Qwen3.8 Flash Next architecture; this does not establish identical evaluation results.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Laguna S 2.1",
+        "kind": "external-comparison",
+        "anchors": [
+          "inkling"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Vendor table includes Laguna and Inkling on Terminal-Bench 2.1 and SWE-bench Pro. Use the lower comparator without a benchmark-version conversion.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+            "summary": "Laguna exceeds Inkling on the reported shared coding tests. Harness differences and transfer to AA v10 roles remain uncertain.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Tencent Hy4 Preview",
+        "kind": "external-comparison",
+        "anchors": [
+          "glm-5-3"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Official blind engineering comparison with GLM 5.3 supports only coding-role analogies, without claiming general reasoning or factuality equivalence.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/tencent/Hy4-preview",
+            "summary": "203 engineering tasks, 163 internal experts; average 2.99 versus GLM 5.3 at 2.92. Vendor evaluation, not AA.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Ornith 1.5 122B",
+        "kind": "external-comparison",
+        "anchors": [
+          "qwen3-8-27b",
+          "nemotron-3-5-super-vl"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy",
+          "code-reviewer"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Vendor table compares coding, SciCode and agentic tasks with the observed anchors. Use their minimum with a wide haircut; keep all raw target benchmark fields absent.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+            "summary": "Developer-reported TerminalBench 2.1, SWE-bench and SciCode comparisons; CyberGym is not Cyber Index and is never transferred.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Step 3.7 Flash",
+        "targetSlug": "step-3-7-flash",
+        "requiredObserved": [
+          "lcr",
+          "hle",
+          "scicode"
+        ],
+        "kind": "partial-observed-profile",
+        "anchors": [
+          "inkling",
+          "nvidia-nemotron-3-ultra-550b-a55b"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy",
+          "code-reviewer"
+        ],
+        "margin": 25,
+        "reviewAfter": "2026-11-27",
+        "reason": "Preserve exact AA target LCR/HLE/SciCode contributions. Only missing role contributions use low-capability observed coding anchors with a wide policy margin; vendor TB2.1 is never substituted for AA TB4.",
+        "sources": [
+          {
+            "url": "https://artificialanalysis.ai/models/step-3-7-flash",
+            "summary": "Exact high-effort target has observed LCR, HLE, SciCode and legacy Terminal-Bench; no v5 Intelligence.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+            "summary": "Vendor reports SWE-bench Pro 56.3 and Terminal-Bench 2.1 at 59.5. These establish coding relevance, not metric equivalence.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+            "summary": "Low-tier coding reference table includes Inkling TB2.1 63.8 and Nemotron 3 Ultra 56.4. Harness differences require a wide policy range.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Claude Haiku 4.5",
+        "targetSlug": "claude-4-5-haiku",
+        "requiredObserved": [
+          "lcr",
+          "hle"
+        ],
+        "kind": "partial-observed-profile",
+        "anchors": [
+          "claude-haiku-5-5"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 45,
+        "reviewAfter": "2026-11-27",
+        "reason": "Exact non-reasoning AA target measurements stay intact. Later Haiku is only a same-line upper reference with a 45-point haircut for missing contributions; no reasoning-effort score is copied into the non-reasoning row.",
+        "sources": [
+          {
+            "url": "https://artificialanalysis.ai/models/claude-4-5-haiku",
+            "summary": "Exact non-reasoning target has observed HLE and LCR; other core fields and Intelligence v5 remain absent.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+            "summary": "Official Terminal-Bench footnote distinguishes no-thinking 40.21 and thinking 41.75, with 11 runs in total. Other coding headlines use extended thinking and cannot be transferred as observations.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Qwen 3.7 Flash",
+        "kind": "external-reasoning",
+        "anchors": [
+          "inkling",
+          "nvidia-nemotron-3-ultra-550b-a55b"
+        ],
+        "roles": [
+          "researcher"
+        ],
+        "margin": 25,
+        "reviewAfter": "2026-11-04",
+        "reason": "Independent mathematics/science evaluations support a narrow hard-question-answering analogy only. Lower-scoring target GPQA and unvalidated cross-task transfer receive a wide haircut; no coding or professional-deliverable score is inferred.",
+        "sources": [
+          {
+            "url": "https://epoch.ai/models/qwen3-7-flash",
+            "summary": "Epoch publishes GPQA 82.323% thinking and 80.808% no-thinking, FrontierMath tiers1-3 v2 19.298%, OTIS mock AIME and game results, with execution logs.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://playground.roboflow.com/models/qwen/qwen3-7-flash",
+            "summary": "Independent ground-truth vision tests: 52.4 overall, reasoning low/high 34.4/61.6. Single run per task; these remain diagnostics rather than AA role observations.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://commandcode.ai/models/qwen3-7-flash",
+            "summary": "Exact catalog route qwen/qwen3.7-flash; no AA score is asserted.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Glyph Cluster",
+        "kind": "external-task-suite",
+        "anchors": [
+          "nvidia-nemotron-3-ultra-550b-a55b",
+          "inkling-small"
+        ],
+        "roles": [
+          "implementer"
+        ],
+        "margin": 30,
+        "reviewAfter": "2026-11-04",
+        "reason": "Nine published task results include SVG construction and sequential games. Only a weak normal-implementation analogy is permitted; hidden provider identity is not guessed, and no broad intelligence, heavy-agent or security measurement is asserted.",
+        "sources": [
+          {
+            "url": "https://stealthmodels.com/benchmarks/models/glyph-cluster",
+            "summary": "StealthMark 18.9, General12.0, Visual29.8 across 7 SVG tasks and 2 games, with per-task artifacts. Small task suite and evaluator subjectivity limit transfer.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://stealthmodels.com/benchmarks",
+            "summary": "Same benchmark scores Nemotron3Ultra16.7 and InklingSmall27.6. They are conservative reference points, not equivalent AA measurements.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway",
+            "summary": "Published stable route stealth/glyph-cluster; underlying provider remains unverified.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://commandcode.ai/models/glyph-cluster-free",
+            "summary": "Catalog route stealth/glyph-cluster:free matches the evaluated named product.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Fugu Ultra",
+        "kind": "external-launch-version",
+        "anchors": [
+          "claude-fable-5"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 30,
+        "reviewAfter": "2026-11-04",
+        "evidenceFamilies": [
+          "Claude",
+          "GPT",
+          "Gemini"
+        ],
+        "reason": "Use the original June launch technical report as an explicitly uncertain coding analogy to its frontier reference class. The unversioned catalog route is verified, but the current revision is unconfirmed; v2 results are not imported. Anchor Intelligence v5 is unavailable, so portfolios remain blocked.",
+        "sources": [
+          {
+            "url": "https://arxiv.org/html/2606.21228v1",
+            "summary": "Original report: Ultra SWE-bench Pro73.7, TB2.1 82.1, SciCode58.7, HLE50.0 and LCR73.3; comparisons include Fable5/Mythos and an Opus4.8/GPT5.5/Gemini3.1 worker pool. Preserve that revision.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://commandcode.ai/blog/fugu-ultra-by-sakana-ai-is-live-in-command-code",
+            "summary": "June23 catalog launch establishes sakana/fugu-ultra route and 1M context. It does not verify the current serving revision.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://sakana.ai/fugu-1-1-claude-code-interface/",
+            "summary": "Later official v1.1 improves coding benchmarks by up to7.9 points. This verifies version drift rather than equivalence to the unversioned route.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      }
+    ],
+    "pending": []
+  },
+  "verifiedIdentities": [
+    {
+      "model": "Beam 1.0",
+      "slug": "reflection-beam",
+      "id": "69468cce-7b5c-414a-b498-41df4c34df85",
+      "label": "Reflection Beam 1.0, verified CommandCode route and AA identity",
+      "sourceUrl": "https://commandcode.ai/models/beam-free",
+      "reason": "CommandCode serves reflection/beam:free, released 2026-10-16. AA reflection-beam and Reflection model card confirm the public 501B/23B model; previous stealth classification was incorrect."
+    }
+  ]
+}

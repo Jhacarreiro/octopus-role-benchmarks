@@ -4,9 +4,10 @@ import { fileURLToPath } from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const check=process.argv.includes('--check');
-const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'utf8'));
+const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1]};
+const latest=JSON.parse(fs.readFileSync(arg('--snapshot')??path.join(root,'data','latest.json'),'utf8'));
 const policy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
-const lineups=JSON.parse(fs.readFileSync(path.join(root,'site','data','lineups.json'),'utf8'));
+const lineups=JSON.parse(fs.readFileSync(arg('--lineups')??path.join(root,'site','data','lineups.json'),'utf8'));
 
 function fail(msg){throw new Error(`lineup evaluation: ${msg}`)}
 
@@ -35,12 +36,12 @@ for(const [modeId,mode] of Object.entries(lineups.modes||{})){
     reviewOnlyCandidateCount:0,
     lockedRoles:[],
     opportunities:[],
-    note:'v6 regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled.'
+    note:`v${latest.methodologyVersion} regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled.`
   };
 }
 
 const text=JSON.stringify(out,null,2)+'\n';
-const target=path.join(root,'data','lineup-opportunities.json');
+const target=arg('--output')??path.join(root,'data','lineup-opportunities.json');
 if(check){
   const current=fs.existsSync(target)?fs.readFileSync(target,'utf8'):'';
   if(current!==text)fail('data/lineup-opportunities.json is stale; run node scripts/evaluate-lineup-swaps.mjs');

@@ -66,7 +66,7 @@ const payload={
   lastPublishedSnapshot:snapshotSummary,
   lastValidatedBenchmark:validatedBenchmark,
   mode:effectiveState==='error'?null:mode,
-  message:message||(effectiveState==='partial'?'Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.':null),
+  message:message||(effectiveState==='partial'?(latest?.methodologyVersion>=10?'Published v10 with explicit per-role coverage gaps and labeled conservative analogies. Statistical estimators disabled.':'Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.'):null),
   stage:effectiveState==='error'?stage:null,
   errorSummary:effectiveState==='error'?(summarizeLog(logFile)||'Refresh failed; see run details.'):null,
   validationIssues:latest?.validationIssues??[],
