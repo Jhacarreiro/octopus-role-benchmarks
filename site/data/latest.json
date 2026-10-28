@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-10-28",
-  "generatedAt": "2026-10-28T10:21:28.467Z",
+  "generatedAt": "2026-10-28T10:32:54.494Z",
   "benchmarkDate": "2026-10-28",
-  "benchmarkGeneratedAt": "2026-10-28T10:21:28.467Z",
-  "lineupInputsRefreshedAt": "2026-10-28T10:21:28.467Z",
+  "benchmarkGeneratedAt": "2026-10-28T10:32:54.494Z",
+  "lineupInputsRefreshedAt": "2026-10-28T10:32:54.494Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -141,7 +141,7 @@
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-10-28T10:21:28.068Z",
+      "fetchedAt": "2026-10-28T10:32:54.065Z",
       "version": "v1",
       "directFamilies": 19,
       "availableRows": 23,
@@ -396,7 +396,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 62.7035
     },
     {
@@ -408,7 +408,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 55.9165
     },
     {
@@ -420,7 +420,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 68.3135
     },
     {
@@ -432,7 +432,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 66.891
     },
     {
@@ -444,7 +444,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 47.5235
     },
     {
@@ -456,7 +456,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 24.164
     },
     {
@@ -468,7 +468,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 46.815
     },
     {
@@ -480,7 +480,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 56.1995
     },
     {
@@ -492,7 +492,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 57.5155
     },
     {
@@ -504,7 +504,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 54.6925
     },
     {
@@ -516,7 +516,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 53.642
     },
     {
@@ -528,7 +528,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 46.593
     },
     {
@@ -540,7 +540,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 60.5535
     },
     {
@@ -552,7 +552,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 28.8095
     },
     {
@@ -564,7 +564,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 31.195
     },
     {
@@ -576,7 +576,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 55.3755
     },
     {
@@ -588,7 +588,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 59.217
     },
     {
@@ -600,7 +600,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 37.1235
     },
     {
@@ -612,7 +612,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 46.1085
     },
     {
@@ -624,7 +624,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 45.056
     },
     {
@@ -636,7 +636,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 63.517
     },
     {
@@ -648,7 +648,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 33.1205
     },
     {
@@ -660,7 +660,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 25.6625
     },
     {
@@ -672,7 +672,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 45.994
     },
     {
@@ -684,7 +684,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 58.279
     },
     {
@@ -696,7 +696,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.17,
+      "ageDays": 9.177,
       "value": 54.3315
     }
   ],
@@ -712,8 +712,8 @@
     "observedFamilies": 17,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 12,
-    "validatedAt": "2026-10-28T10:21:28.467Z",
-    "sourceSnapshotGeneratedAt": "2026-10-28T10:21:28.467Z",
+    "validatedAt": "2026-10-28T10:32:54.494Z",
+    "sourceSnapshotGeneratedAt": "2026-10-28T10:32:54.494Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -2250,7 +2250,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 57.5155
         },
         "cyberIndex": {
@@ -3046,7 +3046,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 37.1235
         },
         "cyberIndex": {
@@ -3458,7 +3458,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 47.5235
         }
       },
@@ -4164,7 +4164,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 58.279
         }
       },
@@ -4365,7 +4365,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 58.279
         }
       },
@@ -4566,7 +4566,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 45.994
         },
         "cyberIndex": {
@@ -5230,7 +5230,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 54.3315
         },
         "cyberIndex": {
@@ -5577,7 +5577,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 59.217
         },
         "cyberIndex": {
@@ -5776,7 +5776,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 59.217
         },
         "cyberIndex": {
@@ -5972,7 +5972,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 55.3755
         }
       },
@@ -6147,7 +6147,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 25.6625
         },
         "cyberIndex": {
@@ -6343,7 +6343,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 33.1205
         }
       },
@@ -6515,7 +6515,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 62.7035
         },
         "cyberIndex": {
@@ -6764,7 +6764,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 68.3135
         },
         "cyberIndex": {
@@ -7204,7 +7204,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 66.891
         }
       },
@@ -7498,7 +7498,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 55.9165
         }
       },
@@ -7771,7 +7771,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 53.642
         },
         "cyberIndex": {
@@ -7996,7 +7996,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 54.6925
         }
       },
@@ -8457,7 +8457,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 46.593
         },
         "cyberIndex": {
@@ -9091,7 +9091,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 56.1995
         }
       },
@@ -9292,7 +9292,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 46.815
         },
         "cyberIndex": {
@@ -9676,7 +9676,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 24.164
         }
       },
@@ -9954,7 +9954,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 63.517
         }
       },
@@ -10279,7 +10279,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 45.056
         }
       },
@@ -10642,7 +10642,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 60.5535
         },
         "cyberIndex": {
@@ -10973,7 +10973,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 46.1085
         },
         "cyberIndex": {
@@ -11169,7 +11169,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 28.8095
         }
       },
@@ -11341,7 +11341,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.17,
+          "ageDays": 9.177,
           "value": 31.195
         }
       },
