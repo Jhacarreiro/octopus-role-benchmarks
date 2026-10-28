@@ -68,14 +68,15 @@ export function portfolioIntelligence(m){
   return finite(n)?n:NaN;
 }
 export function portfolioRoleQuality(m,role){
+  if(m.modelEligibility?.eligible===false)return NaN;
   const s=m.roleScores?.[role];
-  if(s?.completeness==='estimated')return m.approximation?.portfolioAllowed===true&&m.approximation.scope.includes(role)&&role!=='security-reviewer'&&s.measurementKind==='estimated'&&s.rankingQuality===s.scoreRange?.lower?s.rankingQuality:NaN;
+  if(s?.completeness==='estimated')return m.approximation?.portfolioAllowed===true&&m.approximation.scope.includes(role)&&s.measurementKind==='estimated'&&s.rankingQuality===s.scoreRange?.lower?s.rankingQuality:NaN;
   return s?.completeness&&s.completeness!=='complete'?NaN:finite(s?.rankingQuality)?s.rankingQuality:NaN;
 }
 export const approximationSeats=assign=>[...assign].filter(([role,m])=>m.roleScores?.[role]?.status==='estimated'||m.approximation&&!finite(m.aaModel?.intelligenceIndex)).length;
-export function independentEvidence(a,b){
-  const ids=m=>m.approximation?.evidenceIds??[m.aaModel?.slug?'aa:'+m.aaModel.slug:'model:'+m.name];
+export function independentEvidence(a,b,roleA=null,roleB=null){
+  const ids=(m,role)=>role&&m.aaModel&&m.roleScores[role]?.status==='valid'?['aa:'+m.aaModel.slug]:role&&m.roleScores[role]?.provenance?.anchors?[...(m.aaModel?['aa:'+m.aaModel.slug]:[]),...m.roleScores[role].provenance.anchors.map(s=>'aa:'+s)]:m.approximation?.evidenceIds??[m.aaModel?.slug?'aa:'+m.aaModel.slug:'model:'+m.name];
   const family=m=>/^Claude\b/.test(m.name)?'Claude':/^GPT-/.test(m.name)?'GPT':/^Gemini\b/.test(m.name)?'Gemini':null;
   if(a.approximation?.evidenceFamilies?.includes(family(b))||b.approximation?.evidenceFamilies?.includes(family(a)))return false;
-  return !ids(a).some(id=>ids(b).includes(id));
+  return !ids(a,roleA).some(id=>ids(b,roleB).includes(id));
 }

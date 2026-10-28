@@ -5,7 +5,7 @@ import {fileURLToPath} from "node:url";
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const read=(rel)=>JSON.parse(fs.readFileSync(path.join(root,rel),"utf8"));
-const show=(rel)=>{try{return JSON.parse(execFileSync("git",["show",`HEAD:${rel}`],{cwd:root,encoding:"utf8"}))}catch{return null}};
+const show=(rel)=>{try{return JSON.parse(execFileSync("git",["show",`HEAD:${rel}`],{cwd:root,encoding:"utf8",maxBuffer:16*1024*1024}))}catch{return null}};
 const money=v=>v==null?"—":v===0?"$0":`$${Number(v).toFixed(Number(v)<0.1?4:2)}`;
 const pct=(a,b)=>a==null||b==null||a===0?null:(b-a)/a;
 const clip=(xs,n=10)=>({shown:xs.slice(0,n),more:Math.max(0,xs.length-n)});

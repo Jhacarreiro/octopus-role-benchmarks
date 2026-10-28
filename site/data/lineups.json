@@ -1,7 +1,7 @@
 {
   "schemaVersion": 13,
   "snapshotDate": "2026-10-28",
-  "generatedAt": "2026-10-28T14:53:36.163Z",
+  "generatedAt": "2026-10-28T15:13:24.390Z",
   "policy": {
     "latestGenerationOnly": true,
     "previousGenerationRoleException": "allow when absolute role quality exceeds the best latest-generation peer in the same series",
@@ -76,6 +76,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 43.3248,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "kimi-k3-1-pro",
+              "claude-fable-5-1"
+            ],
+            "evidenceIds": [
+              "aa:muse-wonder",
+              "aa:gpt-6-astra",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-fable-5-1"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 57.9325,
+                "gdpPdfAllPass": 30.6,
+                "automationBenchPartialScore": 68.094551,
+                "terminalBench40": 52.020202,
+                "lcr": 80.666667,
+                "hle": 50.092678,
+                "scicode": 60.300926,
+                "omniscience": 62.55
+              },
+              "seedIdentities": [
+                "muse-wonder"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 3.683387,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 4.123492,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 5.090194,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 54.862226,
+            "rankingQuality": 54.862226,
+            "rankingValue": 71.81818181818181,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 54.862226,
+              "upper": 54.862226
+            },
+            "balancedQualityPercentile": 92.72727272727272,
+            "balancedAffordabilityPercentile": 9.090909090909093
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -84,7 +214,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "strategist": {
           "model": "Claude Opus 5.5",
@@ -137,7 +267,7 @@
             "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
             "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
             "effort": null,
-            "capturedAt": "2026-10-28T14:53:36.163Z",
+            "capturedAt": "2026-10-28T15:13:24.390Z",
             "evaluatedAt": null
           },
           "free": false,
@@ -160,6 +290,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 50.4122,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "claude-opus-5-5"
+            ],
+            "evidenceIds": [
+              "aa:gemini-4-argon",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:claude-opus-5-5"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 49.164,
+                "gdpPdfAllPass": 21.8,
+                "automationBenchPartialScore": 77.513469,
+                "terminalBench40": 57.070707,
+                "lcr": 79.666667,
+                "hle": 57.089898,
+                "scicode": 61.805556,
+                "omniscience": 73.05
+              },
+              "seedIdentities": [
+                "gemini-4-argon"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.381496,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 5.744704,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 5.761376,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 65.407248,
+            "rankingQuality": 65.407248,
+            "rankingValue": 72.85714285714286,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 65.407248,
+              "upper": 65.407248
+            },
+            "balancedQualityPercentile": 91.42857142857143,
+            "balancedAffordabilityPercentile": 17.14285714285714
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -168,7 +428,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "implementer": {
           "model": "Claude Sonnet 5.5",
@@ -182,6 +442,136 @@
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 54.2413,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "kimi-k3-1-pro",
+              "claude-opus-5-5",
+              "gpt-6-astra"
+            ],
+            "evidenceIds": [
+              "aa:claude-sonnet-5-5",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-opus-5-5",
+              "aa:gpt-6-astra"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 65.591,
+                "gdpPdfAllPass": 25.8,
+                "automationBenchPartialScore": 71.768821,
+                "terminalBench40": 63.636364,
+                "lcr": 82.666667,
+                "hle": 54.958295,
+                "scicode": 60.99537,
+                "omniscience": 65.233333
+              },
+              "seedIdentities": [
+                "claude-sonnet-5-5"
+              ],
+              "anchors": [
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 3.008276,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 3.801246,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.747723,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 67.092229,
+            "rankingQuality": 67.092229,
+            "rankingValue": 82.27272727272728,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 67.092229,
+              "upper": 67.092229
+            },
+            "balancedQualityPercentile": 98.18181818181819,
+            "balancedAffordabilityPercentile": 34.54545454545455
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -190,7 +580,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 150,
           "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "implementer-heavy": {
           "model": "Kimi K3.1 Pro",
@@ -226,6 +616,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.5087,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "kimi-k3-1-pro"
+            ],
+            "evidenceIds": [
+              "aa:gpt-6-1-sol",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:kimi-k3-1-pro"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 52.755,
+                "gdpPdfAllPass": 31,
+                "automationBenchPartialScore": 64.868449,
+                "terminalBench40": 56.060606,
+                "lcr": 83,
+                "hle": 52.91937,
+                "scicode": 54.166667,
+                "omniscience": 71.016667
+              },
+              "seedIdentities": [
+                "gpt-6-1-sol"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 1.73933,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 4.952616,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 5.319019,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 56.005,
+            "rankingQuality": 56.005,
+            "rankingValue": 78.57142857142857,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 56.005,
+              "upper": 56.005
+            },
+            "balancedQualityPercentile": 100,
+            "balancedAffordabilityPercentile": 14.28571428571429
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -234,7 +754,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "researcher": {
           "model": "GPT-6.1 Sol",
@@ -248,6 +768,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.5087,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "kimi-k3-1-pro"
+            ],
+            "evidenceIds": [
+              "aa:gpt-6-1-sol",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:kimi-k3-1-pro"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 52.755,
+                "gdpPdfAllPass": 31,
+                "automationBenchPartialScore": 64.868449,
+                "terminalBench40": 56.060606,
+                "lcr": 83,
+                "hle": 52.91937,
+                "scicode": 54.166667,
+                "omniscience": 71.016667
+              },
+              "seedIdentities": [
+                "gpt-6-1-sol"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 1.73933,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 4.952616,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 5.319019,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 58.388041,
+            "rankingQuality": 58.388041,
+            "rankingValue": 74.28571428571428,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 58.388041,
+              "upper": 58.388041
+            },
+            "balancedQualityPercentile": 94.28571428571428,
+            "balancedAffordabilityPercentile": 14.28571428571429
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -256,7 +906,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         }
       }
     },
@@ -328,6 +978,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 43.3248,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "kimi-k3-1-pro",
+              "claude-fable-5-1"
+            ],
+            "evidenceIds": [
+              "aa:muse-wonder",
+              "aa:gpt-6-astra",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-fable-5-1"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 57.9325,
+                "gdpPdfAllPass": 30.6,
+                "automationBenchPartialScore": 68.094551,
+                "terminalBench40": 52.020202,
+                "lcr": 80.666667,
+                "hle": 50.092678,
+                "scicode": 60.300926,
+                "omniscience": 62.55
+              },
+              "seedIdentities": [
+                "muse-wonder"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 3.683387,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 4.123492,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 5.090194,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 54.862226,
+            "rankingQuality": 54.862226,
+            "rankingValue": 71.81818181818181,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 54.862226,
+              "upper": 54.862226
+            },
+            "balancedQualityPercentile": 92.72727272727272,
+            "balancedAffordabilityPercentile": 9.090909090909093
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -336,7 +1116,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "strategist": {
           "model": "Claude Sonnet 5.5",
@@ -350,6 +1130,136 @@
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 54.2413,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "kimi-k3-1-pro",
+              "claude-opus-5-5",
+              "gpt-6-astra"
+            ],
+            "evidenceIds": [
+              "aa:claude-sonnet-5-5",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-opus-5-5",
+              "aa:gpt-6-astra"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 65.591,
+                "gdpPdfAllPass": 25.8,
+                "automationBenchPartialScore": 71.768821,
+                "terminalBench40": 63.636364,
+                "lcr": 82.666667,
+                "hle": 54.958295,
+                "scicode": 60.99537,
+                "omniscience": 65.233333
+              },
+              "seedIdentities": [
+                "claude-sonnet-5-5"
+              ],
+              "anchors": [
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 3.008276,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 3.801246,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.747723,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 58.48794,
+            "rankingQuality": 58.48794,
+            "rankingValue": 80.71428571428572,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 58.48794,
+              "upper": 58.48794
+            },
+            "balancedQualityPercentile": 97.14285714285714,
+            "balancedAffordabilityPercentile": 31.428571428571427
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -358,7 +1268,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 150,
           "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "security-reviewer": {
           "model": "Kimi K3.1 Pro",
@@ -389,7 +1299,7 @@
             "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
             "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
             "effort": null,
-            "capturedAt": "2026-10-28T14:53:36.163Z",
+            "capturedAt": "2026-10-28T15:13:24.390Z",
             "evaluatedAt": null
           },
           "free": false,
@@ -412,6 +1322,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 50.4122,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "claude-opus-5-5"
+            ],
+            "evidenceIds": [
+              "aa:gemini-4-argon",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:claude-opus-5-5"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 49.164,
+                "gdpPdfAllPass": 21.8,
+                "automationBenchPartialScore": 77.513469,
+                "terminalBench40": 57.070707,
+                "lcr": 79.666667,
+                "hle": 57.089898,
+                "scicode": 61.805556,
+                "omniscience": 73.05
+              },
+              "seedIdentities": [
+                "gemini-4-argon"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.381496,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 5.744704,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 5.761376,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 65.407248,
+            "rankingQuality": 65.407248,
+            "rankingValue": 72.85714285714286,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 65.407248,
+              "upper": 65.407248
+            },
+            "balancedQualityPercentile": 91.42857142857143,
+            "balancedAffordabilityPercentile": 17.14285714285714
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -420,7 +1460,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "implementer": {
           "model": "Claude Sonnet 5.5",
@@ -434,6 +1474,136 @@
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 54.2413,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "kimi-k3-1-pro",
+              "claude-opus-5-5",
+              "gpt-6-astra"
+            ],
+            "evidenceIds": [
+              "aa:claude-sonnet-5-5",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-opus-5-5",
+              "aa:gpt-6-astra"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 65.591,
+                "gdpPdfAllPass": 25.8,
+                "automationBenchPartialScore": 71.768821,
+                "terminalBench40": 63.636364,
+                "lcr": 82.666667,
+                "hle": 54.958295,
+                "scicode": 60.99537,
+                "omniscience": 65.233333
+              },
+              "seedIdentities": [
+                "claude-sonnet-5-5"
+              ],
+              "anchors": [
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 3.008276,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 3.801246,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.747723,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 67.092229,
+            "rankingQuality": 67.092229,
+            "rankingValue": 82.27272727272728,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 67.092229,
+              "upper": 67.092229
+            },
+            "balancedQualityPercentile": 98.18181818181819,
+            "balancedAffordabilityPercentile": 34.54545454545455
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -442,7 +1612,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 150,
           "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "implementer-heavy": {
           "model": "Kimi K3.1 Pro",
@@ -478,6 +1648,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.5087,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "kimi-k3-1-pro"
+            ],
+            "evidenceIds": [
+              "aa:gpt-6-1-sol",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:kimi-k3-1-pro"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 52.755,
+                "gdpPdfAllPass": 31,
+                "automationBenchPartialScore": 64.868449,
+                "terminalBench40": 56.060606,
+                "lcr": 83,
+                "hle": 52.91937,
+                "scicode": 54.166667,
+                "omniscience": 71.016667
+              },
+              "seedIdentities": [
+                "gpt-6-1-sol"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 1.73933,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 4.952616,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 5.319019,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 56.005,
+            "rankingQuality": 56.005,
+            "rankingValue": 78.57142857142857,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 56.005,
+              "upper": 56.005
+            },
+            "balancedQualityPercentile": 100,
+            "balancedAffordabilityPercentile": 14.28571428571429
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -486,7 +1786,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "researcher": {
           "model": "GPT-6.1 Sol",
@@ -500,6 +1800,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 54.5087,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "kimi-k3-1-pro"
+            ],
+            "evidenceIds": [
+              "aa:gpt-6-1-sol",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:kimi-k3-1-pro"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 52.755,
+                "gdpPdfAllPass": 31,
+                "automationBenchPartialScore": 64.868449,
+                "terminalBench40": 56.060606,
+                "lcr": 83,
+                "hle": 52.91937,
+                "scicode": 54.166667,
+                "omniscience": 71.016667
+              },
+              "seedIdentities": [
+                "gpt-6-1-sol"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 1.73933,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 4.952616,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 5.319019,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 58.388041,
+            "rankingQuality": 58.388041,
+            "rankingValue": 74.28571428571428,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 58.388041,
+              "upper": 58.388041
+            },
+            "balancedQualityPercentile": 94.28571428571428,
+            "balancedAffordabilityPercentile": 14.28571428571429
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -508,7 +1938,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         }
       }
     },
@@ -580,6 +2010,136 @@
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 54.2413,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "kimi-k3-1-pro",
+              "claude-opus-5-5",
+              "gpt-6-astra"
+            ],
+            "evidenceIds": [
+              "aa:claude-sonnet-5-5",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-opus-5-5",
+              "aa:gpt-6-astra"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 65.591,
+                "gdpPdfAllPass": 25.8,
+                "automationBenchPartialScore": 71.768821,
+                "terminalBench40": 63.636364,
+                "lcr": 82.666667,
+                "hle": 54.958295,
+                "scicode": 60.99537,
+                "omniscience": 65.233333
+              },
+              "seedIdentities": [
+                "claude-sonnet-5-5"
+              ],
+              "anchors": [
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 3.008276,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 3.801246,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.747723,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 57.995113,
+            "rankingQuality": 57.995113,
+            "rankingValue": 82.27272727272728,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 57.995113,
+              "upper": 57.995113
+            },
+            "balancedQualityPercentile": 98.18181818181819,
+            "balancedAffordabilityPercentile": 34.54545454545455
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -588,7 +2148,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 150,
           "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "strategist": {
           "model": "Muse Wonder",
@@ -602,6 +2162,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 43.3248,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "kimi-k3-1-pro",
+              "claude-fable-5-1"
+            ],
+            "evidenceIds": [
+              "aa:muse-wonder",
+              "aa:gpt-6-astra",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-fable-5-1"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 57.9325,
+                "gdpPdfAllPass": 30.6,
+                "automationBenchPartialScore": 68.094551,
+                "terminalBench40": 52.020202,
+                "lcr": 80.666667,
+                "hle": 50.092678,
+                "scicode": 60.300926,
+                "omniscience": 62.55
+              },
+              "seedIdentities": [
+                "muse-wonder"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 3.683387,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 4.123492,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 5.090194,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 54.913808,
+            "rankingQuality": 54.913808,
+            "rankingValue": 68.57142857142857,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 54.913808,
+              "upper": 54.913808
+            },
+            "balancedQualityPercentile": 88.57142857142857,
+            "balancedAffordabilityPercentile": 8.571428571428575
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -610,7 +2300,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "security-reviewer": {
           "model": "Kimi K3.1 Pro",
@@ -641,7 +2331,7 @@
             "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
             "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
             "effort": null,
-            "capturedAt": "2026-10-28T14:53:36.163Z",
+            "capturedAt": "2026-10-28T15:13:24.390Z",
             "evaluatedAt": null
           },
           "free": false,
@@ -686,6 +2376,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 50.4122,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "claude-opus-5-5"
+            ],
+            "evidenceIds": [
+              "aa:gemini-4-argon",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:claude-opus-5-5"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 49.164,
+                "gdpPdfAllPass": 21.8,
+                "automationBenchPartialScore": 77.513469,
+                "terminalBench40": 57.070707,
+                "lcr": 79.666667,
+                "hle": 57.089898,
+                "scicode": 61.805556,
+                "omniscience": 73.05
+              },
+              "seedIdentities": [
+                "gemini-4-argon"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.381496,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 5.744704,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 5.761376,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 62.722576,
+            "rankingQuality": 62.722576,
+            "rankingValue": 75.90909090909089,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 62.722576,
+              "upper": 62.722576
+            },
+            "balancedQualityPercentile": 92.72727272727272,
+            "balancedAffordabilityPercentile": 25.454545454545453
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -694,7 +2514,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "implementer-heavy": {
           "model": "Claude Sonnet 5.5",
@@ -708,6 +2528,136 @@
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
           "intelligenceIndex": 54.2413,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "kimi-k3-1-pro",
+              "claude-opus-5-5",
+              "gpt-6-astra"
+            ],
+            "evidenceIds": [
+              "aa:claude-sonnet-5-5",
+              "aa:kimi-k3-1-pro",
+              "aa:claude-opus-5-5",
+              "aa:gpt-6-astra"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 65.591,
+                "gdpPdfAllPass": 25.8,
+                "automationBenchPartialScore": 71.768821,
+                "terminalBench40": 63.636364,
+                "lcr": 82.666667,
+                "hle": 54.958295,
+                "scicode": 60.99537,
+                "omniscience": 65.233333
+              },
+              "seedIdentities": [
+                "claude-sonnet-5-5"
+              ],
+              "anchors": [
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 3.008276,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-opus-5-5",
+                  "distance": 3.801246,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 4.747723,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 68.126547,
+            "rankingQuality": 68.126547,
+            "rankingValue": 83.63636363636364,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 68.126547,
+              "upper": 68.126547
+            },
+            "balancedQualityPercentile": 100,
+            "balancedAffordabilityPercentile": 34.54545454545455
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -716,7 +2666,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 150,
           "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "synthesizer": {
           "model": "GPT-6.1 Terra",
@@ -730,6 +2680,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 50.9765,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "kimi-k3-1-pro"
+            ],
+            "evidenceIds": [
+              "aa:gpt-6-1-terra",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:kimi-k3-1-pro"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 45.084,
+                "gdpPdfAllPass": 28.6,
+                "automationBenchPartialScore": 60.167623,
+                "terminalBench40": 55.555556,
+                "lcr": 82.666667,
+                "hle": 46.246525,
+                "scicode": 55.092593,
+                "omniscience": 64.783333
+              },
+              "seedIdentities": [
+                "gpt-6-1-terra"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 5.104804,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 6.499954,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 7.131146,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 52.971667,
+            "rankingQuality": 52.971667,
+            "rankingValue": 74.28571428571428,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 52.971667,
+              "upper": 52.971667
+            },
+            "balancedQualityPercentile": 85.71428571428571,
+            "balancedAffordabilityPercentile": 40
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -738,7 +2818,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         },
         "researcher": {
           "model": "GPT-6.1 Terra",
@@ -752,6 +2832,136 @@
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
           "intelligenceIndex": 50.9765,
+          "measurementKind": "observed",
+          "approximation": {
+            "status": "estimated",
+            "method": "observed-profile-envelope-v1",
+            "kind": "partial-observed-profile",
+            "anchors": [
+              "gpt-6-astra",
+              "claude-fable-5-1",
+              "kimi-k3-1-pro"
+            ],
+            "evidenceIds": [
+              "aa:gpt-6-1-terra",
+              "aa:gpt-6-astra",
+              "aa:claude-fable-5-1",
+              "aa:kimi-k3-1-pro"
+            ],
+            "margin": 25,
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "reviewAfter": "2026-11-27",
+            "scope": [
+              "security-reviewer"
+            ],
+            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
+            "portfolioAllowed": true,
+            "intelligence": {
+              "status": "unavailable",
+              "referenceVersion": "5.0",
+              "estimate": null,
+              "cutoffLowerBound": null,
+              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
+            },
+            "profileCompletion": {
+              "method": "observed-profile-envelope-v1",
+              "features": {
+                "briefcase": 45.084,
+                "gdpPdfAllPass": 28.6,
+                "automationBenchPartialScore": 60.167623,
+                "terminalBench40": 55.555556,
+                "lcr": 82.666667,
+                "hle": 46.246525,
+                "scicode": 55.092593,
+                "omniscience": 64.783333
+              },
+              "seedIdentities": [
+                "gpt-6-1-terra"
+              ],
+              "anchors": [
+                {
+                  "slug": "gpt-6-astra",
+                  "distance": 5.104804,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "claude-fable-5-1",
+                  "distance": 6.499954,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 7.131146,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                }
+              ],
+              "scope": [
+                "security-reviewer"
+              ],
+              "margin": 25,
+              "securityMargin": 35,
+              "externalMargin": 40,
+              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
+            }
+          },
+          "roleEstimate": {
+            "status": "valid",
+            "completeness": "complete",
+            "score": 54.691805,
+            "rankingQuality": 54.691805,
+            "rankingValue": 67.85714285714286,
+            "coverageWeight": 1,
+            "missingComponents": [],
+            "scoreRange": {
+              "lower": 54.691805,
+              "upper": 54.691805
+            },
+            "balancedQualityPercentile": 77.14285714285715,
+            "balancedAffordabilityPercentile": 40
+          },
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -760,13 +2970,13 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
-          "mappingStatus": "partial_scored"
+          "mappingStatus": "partial_approximated"
         }
       }
     }
   },
   "methodologyVersion": 10,
-  "snapshotGeneratedAt": "2026-10-28T14:53:36.163Z",
+  "snapshotGeneratedAt": "2026-10-28T15:13:24.390Z",
   "intelligenceIndexVersion": "5.0",
   "approximationPolicy": {
     "enabled": true,

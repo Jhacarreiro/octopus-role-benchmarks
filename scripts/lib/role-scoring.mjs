@@ -2,6 +2,7 @@ import {applyBalancedScores} from './balanced-score.mjs';
 import {planEconomics,planAdjustedTaskCost} from './plan-economics.mjs';
 import {applyRoleApproximations,validateApproximationPolicy} from './role-approximations.mjs';
 import {generationWindows,generationEligibility} from './generation-window.mjs';
+import {applyModelProfiles} from './model-profile.mjs';
 
 const finite=Number.isFinite;
 const round=(n,d=6)=>Math.round((n+Number.EPSILON)*10**d)/10**d;
@@ -28,6 +29,10 @@ export function validateRoleConfig(config){
   if(config.schemaVersion!==10||config.roles?.length!==8)throw new Error('Expected eight v10 roles');
   if(config.intelligenceEstimator?.enabled!==false||config.ranking?.codingAgentWeight!==0)throw new Error('v10 estimators and CAI overlay must remain disabled');
   validateApproximationPolicy(config.approximations,config.roles);
+  if(config.profileCompletion?.enabled){
+    const p=config.profileCompletion;
+    if(!config.approximations?.enabled||config.coverageScope!=='all-roles'||p.method!=='observed-profile-envelope-v1'||[p.minSharedBenchmarks,p.minAnchors,p.maxAnchors,p.reviewDays].some(n=>!Number.isInteger(n)||n<1)||[p.margin,p.securityMargin,p.externalMargin].some(n=>!finite(n)||n>100)||p.minSharedBenchmarks<2||p.minAnchors<2||p.maxAnchors<p.minAnchors||p.maxAnchors>5||p.reviewDays>30||p.margin<25||p.securityMargin<35||p.externalMargin<40)throw new Error('Invalid complete-model profile policy');
+  }
   const identityNames=new Set();
   for(const v of config.verifiedIdentities??[]){if(identityNames.has(v.model)||!v.slug||!v.id||!/^https:\/\//.test(v.sourceUrl))throw new Error('Invalid verified selective identity');identityNames.add(v.model);}
   for(const r of config.roles){
@@ -59,6 +64,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
     const m={...offer,mapping,aaModel:source&&!source.sourceUnavailableReason?{slug:source.slug,id:source.id,variantName:source.name,release:source.release,effort:source.effort,intelligenceIndex:null,intelligenceIndexVersion:null}:null,benchmarks:{},benchmarkProvenance:{},roleScores:{},experimentalBenchmarks:{},diagnostics:{codingAgent:source?.codingAgentObserved?.status==='observed'?source.codingAgentObserved:null},taskEfficiency:null,caiStar:null,codingAgent:null};
     if(generation)m.generationEligibility=generation;
     if(!source||source.sourceUnavailableReason){
+      m.sourceUnavailableReason=source?.sourceUnavailableReason??mapping.reason??'No verified AA identity';
       m.mapping.status=mapping.status==='outdated_unscored'?'outdated_unscored':mapping.slug?'source_incomplete':'unscored';
       if(generation?.eligible!==false)validationIssues.push({targetModel:m.name,benchmark:'identity',status:'unavailable',reason:source?.sourceUnavailableReason??mapping.reason??'No verified AA identity'});return m;
     }
@@ -89,6 +95,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
     return m;
   });
   applyRoleApproximations(models,config.approximations,generatedAt,config.roles);
+  applyModelProfiles(models,config,generatedAt);
   for(const issue of validationIssues){
     const model=models.find(m=>issue.targetModel&&m.name===issue.targetModel||issue.targetSlug&&m.aaModel?.slug===issue.targetSlug);
     if(!model?.approximation)continue;
@@ -101,20 +108,32 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
     if(!finite(burn)||burn<0)throw new Error('Invalid approximation pricing');
     m.taskEfficiency=frozenCosts?.[m.name]?structuredClone(frozenCosts[m.name]):{commandCodeCostPerTaskUsd:burn,planAdjustedCostPerTaskUsd:round(planAdjustedTaskCost(burn,m,economics)),costBasis:'normalized_reference_v1',costTokenProfile:profile,normalizedTokenProfile:profile,observedTaskTokenProfile:null};
   }
+  const observationGaps=validationIssues.splice(0);
+  if(config.profileCompletion?.enabled){
+    const excluded=new Map();
+    for(const m of models.filter(m=>m.generationEligibility?.eligible!==false&&!m.modelEligibility.eligible&&m.mapping.identityStatus!=='external_verified_noncomparable')){
+      const key=m.aaModel?.slug??m.mapping.slug??m.name;
+      if(!excluded.has(key))excluded.set(key,{targetModel:m.name,targetSlug:m.aaModel?.slug??m.mapping.slug,offers:[],benchmark:'complete-profile',status:'excluded',missingRoles:m.modelEligibility.missingRoles,reason:m.modelEligibility.reason});
+      excluded.get(key).offers.push(m.name);
+    }
+    validationIssues.push(...excluded.values());
+  }else validationIssues.push(...observationGaps);
   applyBalancedScores(models,config.roles.map(r=>r.id),{qualityWeight:policy.modes.balanced.percentileWeights.quality,costWeight:policy.modes.balanced.percentileWeights.affordability});
   const mapped=models.filter(m=>m.aaModel&&m.generationEligibility?.eligible!==false),unique=(rows)=>new Set(rows.map(m=>m.aaModel.slug)).size;
   const scored=mapped.filter(m=>Object.values(m.roleScores).some(s=>s.status==='valid'));
   const roleCoverage=Object.fromEntries(config.roles.map(r=>{const complete=mapped.filter(m=>m.roleScores[r.id].status==='valid');return[r.id,{total:unique(mapped),present:unique(complete),offers:complete.length,observedIntelligence:unique(complete.filter(m=>finite(m.aaModel.intelligenceIndex))),estimatedOffers:models.filter(m=>m.approximation&&m.roleScores[r.id]?.status==='estimated').length}];}));
   const coverage=Object.fromEntries(Object.keys(config.benchmarks).filter(k=>!config.benchmarks[k].experimental).map(k=>[k,{total:unique(mapped),present:unique(mapped.filter(m=>finite(m.benchmarks[k]))),missing:[...new Set(mapped.filter(m=>!finite(m.benchmarks[k])).map(m=>m.aaModel.slug))]}]));
   for(const c of Object.values(coverage))c.ratio=c.total?c.present/c.total:0;
-  return {schemaVersion:7,methodologyVersion:10,date:generatedAt.slice(0,10),generatedAt,benchmarkGeneratedAt:generatedAt,benchmarkDate:generatedAt.slice(0,10),lineupInputsRefreshedAt:generatedAt,validationStatus:validationIssues.length?'partial':'valid',validationIssues,coveragePolicy:1,coverageScope:'per-role',intelligenceEstimator:{enabled:false},generationPolicy:config.generationPolicy,approximationPolicy:config.approximations?.enabled?{enabled:true,method:config.approximations.method,maxSeatsPerPortfolio:1}: {enabled:false},costBasis:{id:frozenCosts?'frozen-comparison':'normalized_reference_v1'},benchmarks:config.benchmarks,roles:config.roles,models,roleCoverage,coverage,
+  const modelCoverage={policy:'all-eight-roles-v1',activeOffers:models.filter(m=>m.generationEligibility?.eligible!==false).length,completeOffers:models.filter(m=>m.modelEligibility?.eligible).length,observedCompleteOffers:models.filter(m=>m.modelEligibility?.eligible&&config.roles.every(r=>m.roleScores[r.id].status==='valid')).length,excludedOffers:models.filter(m=>m.generationEligibility?.eligible!==false&&m.modelEligibility?.eligible===false).length};
+  return {schemaVersion:7,methodologyVersion:10,date:generatedAt.slice(0,10),generatedAt,benchmarkGeneratedAt:generatedAt,benchmarkDate:generatedAt.slice(0,10),lineupInputsRefreshedAt:generatedAt,validationStatus:validationIssues.length?'partial':'valid',validationIssues,observationGaps,modelCoverage,coveragePolicy:1,coverageScope:config.coverageScope,intelligenceEstimator:{enabled:false},generationPolicy:config.generationPolicy,approximationPolicy:config.approximations?.enabled?{enabled:true,method:config.approximations.method,maxSeatsPerPortfolio:1}: {enabled:false},costBasis:{id:frozenCosts?'frozen-comparison':'normalized_reference_v1'},benchmarks:config.benchmarks,roles:config.roles,models,roleCoverage,coverage,
     sources:{commandCodeMax:{rows:rawOfferCount,url:'https://commandcode.ai/docs/plans/max'},artificialAnalysis:{parserVersion:3,intelligenceIndexVersion:'5.0',url:'https://artificialanalysis.ai/'}},
-    counts:{commandCodeRows:rawOfferCount,retainedRows:models.length,activeRows:models.filter(m=>m.generationEligibility?.eligible!==false).length,historicalRows:models.filter(m=>m.generationEligibility?.eligible===false).length,approximatedRows:models.filter(m=>m.approximation).length,approximationPortfolioCandidates:models.filter(m=>m.approximation?.intelligence.status==='estimated').length,mappedRows:mapped.length,mappedFamilies:unique(mapped),observedOnlyRows:scored.filter(m=>!m.approximation).length,hybridRows:models.filter(m=>m.aaModel&&m.approximation).length,scoredRows:scored.length,scoredFamilies:unique(scored),partialScoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='partial_scored').length,partialRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status!=='exact').length,sourceIncompleteRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='source_incomplete').length,unmatchedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel).length,unscoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel&&!m.approximation).length,unrankedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!Object.values(m.roleScores).some(s=>Number.isFinite(s.rankingQuality))).length},
+    counts:{commandCodeRows:rawOfferCount,retainedRows:models.length,activeRows:models.filter(m=>m.generationEligibility?.eligible!==false).length,historicalRows:models.filter(m=>m.generationEligibility?.eligible===false).length,approximatedRows:models.filter(m=>m.approximation).length,approximationPortfolioCandidates:models.filter(m=>m.approximation?.intelligence.status==='estimated').length,mappedRows:mapped.length,mappedFamilies:unique(mapped),observedOnlyRows:scored.filter(m=>!m.approximation).length,hybridRows:models.filter(m=>m.aaModel&&m.approximation).length,scoredRows:scored.length,scoredFamilies:unique(scored),partialScoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='partial_scored').length,partialRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status!=='exact').length,sourceIncompleteRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='source_incomplete').length,unmatchedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel).length,unscoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel&&!m.approximation).length,unrankedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&(m.modelEligibility?.eligible===false||!Object.values(m.roleScores).some(s=>Number.isFinite(s.rankingQuality)))).length},
     efficiencyCoverage:{total:unique(mapped),present:unique(mapped.filter(m=>m.taskEfficiency)),ratio:1},caiStarCoverage:{total:unique(mapped),present:0,observed:0,estimated:0,historicalCalibrated:0,ratio:0,required:false},caiEstimator:{enabled:false},benchmarkFallbacksApplied:[]};
 }
 export function validateRoleSnapshot(snapshot,config){
   validateRoleConfig(config);
   if(snapshot.methodologyVersion!==10||snapshot.intelligenceEstimator?.enabled!==false||snapshot.caiEstimator?.enabled!==false)throw new Error('Invalid v10 estimator state');
+  if(snapshot.coverageScope!==config.coverageScope)throw new Error('Invalid model coverage scope');
   const expectedApproximationPolicy=config.approximations?.enabled?{enabled:true,method:config.approximations.method,maxSeatsPerPortfolio:1}:{enabled:false};
   if(JSON.stringify(snapshot.approximationPolicy)!==JSON.stringify(expectedApproximationPolicy))throw new Error('Inconsistent approximation policy');
   const windows=config.generationPolicy?.enabled?generationWindows(snapshot.models,config.generationPolicy):null;
@@ -124,10 +143,12 @@ export function validateRoleSnapshot(snapshot,config){
     return copy;
   });
   applyRoleApproximations(expected,config.approximations,snapshot.generatedAt,config.roles);
+  applyModelProfiles(expected,config,snapshot.generatedAt);
   for(const [index,m]of snapshot.models.entries()){
     const projected=expected[index];
     if(windows&&JSON.stringify(m.generationEligibility)!==JSON.stringify(generationEligibility(m,windows,config.generationPolicy)))throw new Error('Invalid catalog generation eligibility');
     if(JSON.stringify(m.approximation)!==JSON.stringify(projected.approximation))throw new Error('Invalid approximation identity or policy');
+    if(JSON.stringify(m.modelEligibility)!==JSON.stringify(projected.modelEligibility))throw new Error('Invalid complete-model eligibility');
     if(!m.aaModel){
       if(Object.keys(m.benchmarks).length||Object.keys(m.benchmarkProvenance).length)throw new Error('Invalid approximation observations');
       if(m.approximation&&m.mapping.slug)throw new Error('Invalid approximation identity');

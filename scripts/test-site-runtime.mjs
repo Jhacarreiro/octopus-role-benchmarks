@@ -81,6 +81,14 @@ if(isSelective){
   const snapshot=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT??new URL('../site/data/latest.json',import.meta.url),'utf8'));
   for(const m of snapshot.models.filter(m=>m.generationEligibility?.eligible===false))if(one('#rows').innerHTML.includes(`>${m.name}</span>`))throw new Error('Historical model leaked into current ranking');
   if(snapshot.models.some(m=>m.roleScores.implementer?.status==='estimated')&&!one('#rows').innerHTML.includes('ESTIMATED'))throw new Error('Role approximations must be visibly labeled');
+  if(snapshot.coverageScope==='all-roles'){
+    const expected=snapshot.models.filter(m=>m.modelEligibility?.eligible).length;
+    for(const role of snapshot.roles){
+      one('#roles').trigger('click',{target:{closest:()=>({dataset:{role:role.id}})}});
+      if((one('#rows').innerHTML.match(/<tr>/g)||[]).length!==expected)throw new Error('A model disappeared when switching role: '+role.id);
+    }
+    one('#roles').trigger('click',{target:{closest:()=>({dataset:{role:'implementer'}})}});
+  }
 }else if(!one('#status').innerHTML.includes('Benchmark partially validated')) throw new Error('partial validation state not shown in status');
 if(!one('#refreshAlert').innerHTML.includes('fixture-model')||!one('#refreshAlert').innerHTML.includes('stale')) throw new Error('partial validation issue details not shown');
 
