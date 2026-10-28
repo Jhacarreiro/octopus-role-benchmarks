@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T10:06:52.643Z",
+  "generatedAt": "2026-10-28T10:21:29.053Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "error",
-    "attemptedAt": "2026-10-28T10:06:52.544Z",
+    "attemptedAt": "2026-10-28T10:21:28.937Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T09:14:50.337Z"
+      "generatedAt": "2026-10-28T10:06:52.054Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T09:14:50.337Z",
+      "generatedAt": "2026-10-28T10:06:52.054Z",
       "benchmarkDate": "2026-10-28",
-      "benchmarkGeneratedAt": "2026-10-28T09:14:50.337Z",
-      "lineupInputsRefreshedAt": "2026-10-28T09:14:50.337Z"
+      "benchmarkGeneratedAt": "2026-10-28T10:06:52.054Z",
+      "lineupInputsRefreshedAt": "2026-10-28T10:06:52.054Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T09:14:50.337Z"
+      "generatedAt": "2026-10-28T10:06:52.054Z"
     },
     "mode": null,
     "message": null,
