@@ -84,17 +84,17 @@
         "status": "applied",
         "reference": "fixed-initial-portfolio-per-snapshot",
         "exchangeRule": "price-saving-percent-per-quality-point",
-        "savingPercentPerPoint": 5,
+        "savingPercentPerPoint": 10,
         "maxSwaps": null,
         "measuredReplacementsOnly": true,
         "maxIntelligenceExceptions": null,
         "searchCompleted": true,
-        "visitedNodes": 158,
+        "visitedNodes": 25,
         "initialCostUsd": 10.717514,
-        "optimizedCostUsd": 1.13448,
-        "savingPercent": 89.414709,
-        "positivePointLoss": 100.636845,
-        "meanPositivePointLoss": 12.579606,
+        "optimizedCostUsd": 4.559159,
+        "savingPercent": 57.460669,
+        "positivePointLoss": 30.481782,
+        "meanPositivePointLoss": 3.810223,
         "initialBalancedObjectiveLossPercent": 0.332453,
         "intelligenceExceptions": [
           {
@@ -104,39 +104,15 @@
             "initialThreshold": 43.220465
           },
           {
-            "role": "strategist",
-            "model": "MiMo V2.6 Flash",
-            "observedIntelligence": 26.7276981444568,
-            "initialThreshold": 43.220465
-          },
-          {
             "role": "security-reviewer",
-            "model": "GPT-6 Luna",
-            "observedIntelligence": 27.7552004938153,
-            "initialThreshold": 43.220465
-          },
-          {
-            "role": "code-reviewer",
-            "model": "MiniMax M3.1 Flash",
-            "observedIntelligence": 28.9095214290458,
-            "initialThreshold": 43.220465
-          },
-          {
-            "role": "implementer",
             "model": "MiMo V2.6 Pro",
             "observedIntelligence": 29.8897833093321,
             "initialThreshold": 43.220465
           },
           {
-            "role": "synthesizer",
-            "model": "Beam 1.0",
-            "observedIntelligence": 17.7307282547205,
-            "initialThreshold": 43.220465
-          },
-          {
             "role": "researcher",
-            "model": "Beam 1.0",
-            "observedIntelligence": 17.7307282547205,
+            "model": "MiMo V2.6 Pro",
+            "observedIntelligence": 29.8897833093321,
             "initialThreshold": 43.220465
           }
         ],
@@ -151,99 +127,60 @@
             "initialCostUsd": 2.592154,
             "costUsd": 0,
             "savingPercent": 100,
-            "requiredSavingPercent": 35.1598,
+            "requiredSavingPercent": 70.3196,
             "observedIntelligence": 28.9095214290458
-          },
-          {
-            "role": "strategist",
-            "from": "Claude Sonnet 5.5",
-            "to": "MiMo V2.6 Flash",
-            "initialQuality": 58.48794,
-            "quality": 42.510769,
-            "pointLoss": 15.977171,
-            "initialCostUsd": 0.935467,
-            "costUsd": 0.037119,
-            "savingPercent": 96.03207,
-            "requiredSavingPercent": 79.885855,
-            "observedIntelligence": 26.7276981444568
           },
           {
             "role": "security-reviewer",
             "from": "Kimi K3.1 Pro",
-            "to": "GPT-6 Luna",
+            "to": "MiMo V2.6 Pro",
             "initialQuality": 64.065108,
-            "quality": 52.685359,
-            "pointLoss": 11.379749,
+            "quality": 56.065602,
+            "pointLoss": 7.999506,
             "initialCostUsd": 1.075975,
-            "costUsd": 0.057369,
-            "savingPercent": 94.668152,
-            "requiredSavingPercent": 56.898745,
-            "observedIntelligence": 27.7552004938153
+            "costUsd": 0.104525,
+            "savingPercent": 90.285521,
+            "requiredSavingPercent": 79.99506,
+            "observedIntelligence": 29.8897833093321
           },
           {
             "role": "code-reviewer",
             "from": "Gemini 4 Argon",
-            "to": "MiniMax M3.1 Flash",
+            "to": "GPT-6.1 Terra",
             "initialQuality": 65.407248,
-            "quality": 47.975429,
-            "pointLoss": 17.431819,
+            "quality": 62.223056,
+            "pointLoss": 3.184192,
             "initialCostUsd": 1.296077,
-            "costUsd": 0,
-            "savingPercent": 100,
-            "requiredSavingPercent": 87.159095,
-            "observedIntelligence": 28.9095214290458
-          },
-          {
-            "role": "implementer",
-            "from": "Claude Sonnet 5.5",
-            "to": "MiMo V2.6 Pro",
-            "initialQuality": 67.092229,
-            "quality": 49.895112,
-            "pointLoss": 17.197117,
-            "initialCostUsd": 0.935467,
-            "costUsd": 0.104525,
-            "savingPercent": 88.826397,
-            "requiredSavingPercent": 85.985585,
-            "observedIntelligence": 29.8897833093321
-          },
-          {
-            "role": "implementer-heavy",
-            "from": "Kimi K3.1 Pro",
-            "to": "Claude Sonnet 5.5",
-            "initialQuality": 68.105264,
-            "quality": 68.126547,
-            "pointLoss": 0,
-            "initialCostUsd": 1.075975,
-            "costUsd": 0.935467,
-            "savingPercent": 13.058672,
-            "requiredSavingPercent": 0,
-            "observedIntelligence": 54.24133407109
+            "costUsd": 0.7016,
+            "savingPercent": 45.867414,
+            "requiredSavingPercent": 31.84192,
+            "observedIntelligence": 50.9765188577015
           },
           {
             "role": "synthesizer",
             "from": "GPT-6.1 Sol",
-            "to": "Beam 1.0",
+            "to": "GPT-6.1 Terra",
             "initialQuality": 56.005,
-            "quality": 40.07,
-            "pointLoss": 15.935,
+            "quality": 52.971667,
+            "pointLoss": 3.033333,
             "initialCostUsd": 1.4032,
-            "costUsd": 0,
-            "savingPercent": 100,
-            "requiredSavingPercent": 79.675,
-            "observedIntelligence": 17.7307282547205
+            "costUsd": 0.7016,
+            "savingPercent": 50,
+            "requiredSavingPercent": 30.33333,
+            "observedIntelligence": 50.9765188577015
           },
           {
             "role": "researcher",
             "from": "GPT-6.1 Sol",
-            "to": "Beam 1.0",
+            "to": "MiMo V2.6 Pro",
             "initialQuality": 58.388041,
-            "quality": 42.704012,
-            "pointLoss": 15.684029,
+            "quality": 49.15525,
+            "pointLoss": 9.232791,
             "initialCostUsd": 1.4032,
-            "costUsd": 0,
-            "savingPercent": 100,
-            "requiredSavingPercent": 78.420145,
-            "observedIntelligence": 17.7307282547205
+            "costUsd": 0.104525,
+            "savingPercent": 92.550931,
+            "requiredSavingPercent": 92.32791,
+            "observedIntelligence": 29.8897833093321
           }
         ],
         "initialSelections": {
@@ -375,17 +312,17 @@
         "status": "applied",
         "reference": "fixed-initial-portfolio-per-snapshot",
         "exchangeRule": "price-saving-percent-per-quality-point",
-        "savingPercentPerPoint": 2,
+        "savingPercentPerPoint": 5,
         "maxSwaps": null,
         "measuredReplacementsOnly": true,
         "maxIntelligenceExceptions": null,
         "searchCompleted": true,
-        "visitedNodes": 9226,
+        "visitedNodes": 87,
         "initialCostUsd": 6.539957,
-        "optimizedCostUsd": 0.188976,
-        "savingPercent": 97.11044,
-        "positivePointLoss": 96.026241,
-        "meanPositivePointLoss": 12.00328,
+        "optimizedCostUsd": 0.256383,
+        "savingPercent": 96.07975,
+        "positivePointLoss": 87.974089,
+        "meanPositivePointLoss": 10.996761,
         "intelligenceExceptions": [
           {
             "role": "architect",
@@ -407,14 +344,14 @@
           },
           {
             "role": "code-reviewer",
-            "model": "MiMo V2.6 Flash",
-            "observedIntelligence": 26.7276981444568,
+            "model": "MiniMax M3.1 Flash",
+            "observedIntelligence": 28.9095214290458,
             "initialThreshold": 34.067959
           },
           {
-            "role": "implementer",
-            "model": "MiniMax M3.1 Flash",
-            "observedIntelligence": 28.9095214290458,
+            "role": "implementer-heavy",
+            "model": "MiMo V2.6 Pro",
+            "observedIntelligence": 29.8897833093321,
             "initialThreshold": 34.067959
           },
           {
@@ -441,7 +378,7 @@
             "initialCostUsd": 0.057369,
             "costUsd": 0,
             "savingPercent": 100,
-            "requiredSavingPercent": 5.076376,
+            "requiredSavingPercent": 12.69094,
             "observedIntelligence": 28.9095214290458
           },
           {
@@ -454,7 +391,7 @@
             "initialCostUsd": 1.075975,
             "costUsd": 0.037119,
             "savingPercent": 96.550229,
-            "requiredSavingPercent": 28.501658,
+            "requiredSavingPercent": 71.254145,
             "observedIntelligence": 26.7276981444568
           },
           {
@@ -467,47 +404,47 @@
             "initialCostUsd": 1.573992,
             "costUsd": 0.057369,
             "savingPercent": 96.35517,
-            "requiredSavingPercent": 7.493964,
+            "requiredSavingPercent": 18.73491,
             "observedIntelligence": 27.7552004938153
           },
           {
             "role": "code-reviewer",
             "from": "GPT-6.1 Terra",
-            "to": "MiMo V2.6 Flash",
+            "to": "MiniMax M3.1 Flash",
             "initialQuality": 62.223056,
-            "quality": 44.890657,
-            "pointLoss": 17.332399,
+            "quality": 47.975429,
+            "pointLoss": 14.247627,
             "initialCostUsd": 0.7016,
-            "costUsd": 0.037119,
-            "savingPercent": 94.709426,
-            "requiredSavingPercent": 34.664798,
-            "observedIntelligence": 26.7276981444568
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 71.238135,
+            "observedIntelligence": 28.9095214290458
           },
           {
             "role": "implementer",
             "from": "Gemini 4 Argon",
-            "to": "MiniMax M3.1 Flash",
+            "to": "Claude Haiku 5.5",
             "initialQuality": 62.722576,
-            "quality": 42.565374,
-            "pointLoss": 20.157202,
+            "quality": 47.02258,
+            "pointLoss": 15.699996,
             "initialCostUsd": 1.296077,
-            "costUsd": 0,
-            "savingPercent": 100,
-            "requiredSavingPercent": 40.314404,
-            "observedIntelligence": 28.9095214290458
+            "costUsd": 0.057369,
+            "savingPercent": 95.573617,
+            "requiredSavingPercent": 78.49998,
+            "observedIntelligence": 36.2345435880142
           },
           {
             "role": "implementer-heavy",
             "from": "Kimi K3.1 Pro",
-            "to": "Claude Haiku 5.5",
+            "to": "MiMo V2.6 Pro",
             "initialQuality": 68.105264,
-            "quality": 50.125036,
-            "pointLoss": 17.980228,
+            "quality": 50.63521,
+            "pointLoss": 17.470054,
             "initialCostUsd": 1.075975,
-            "costUsd": 0.057369,
-            "savingPercent": 94.668152,
-            "requiredSavingPercent": 35.960456,
-            "observedIntelligence": 36.2345435880142
+            "costUsd": 0.104525,
+            "savingPercent": 90.285521,
+            "requiredSavingPercent": 87.35027,
+            "observedIntelligence": 29.8897833093321
           },
           {
             "role": "synthesizer",
@@ -519,7 +456,7 @@
             "initialCostUsd": 0.7016,
             "costUsd": 0,
             "savingPercent": 100,
-            "requiredSavingPercent": 25.803334,
+            "requiredSavingPercent": 64.508335,
             "observedIntelligence": 17.7307282547205
           },
           {
@@ -532,7 +469,7 @@
             "initialCostUsd": 0.057369,
             "costUsd": 0,
             "savingPercent": 100,
-            "requiredSavingPercent": 14.237492,
+            "requiredSavingPercent": 35.59373,
             "observedIntelligence": 17.7307282547205
           }
         ],

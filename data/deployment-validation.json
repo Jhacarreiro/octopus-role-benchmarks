@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "methodologyVersion": 10,
   "snapshotGeneratedAt": "2026-10-28T15:13:24.390Z",
-  "sourceBaseRevision": "bd8da62ada7a00a3b65cff75dc9156bfb31c9c3b",
+  "sourceBaseRevision": "befee99e1fabf7f2294ee8b5160538310f815cf9",
   "sourceSha256": {
     "scripts/refresh.mjs": "7a1330d6dc2fc42344939ceb19f997efb50469a7cee0b1d7baf5e978ccb87266",
     "scripts/update.mjs": "d0b66d76fa532ce23a20ea8217b8bc98bb89151295d9663b81a80395e159cb1f",
@@ -18,8 +18,8 @@
     "scripts/build-octopus-routing.mjs": "87a84da93d4f194bb752bd4a411a08e4fa98aeb77577c1d5193531f306535b1e",
     "config/roles-v10.json": "4335ca4986c4f769fc688797e9a21f8bb789d12afecc3905587f60a1df53ffec",
     "config/active-methodology.json": "1f7f8e8452bcf8d5fa2e8fe9b3a32a7ae1770ad51f37c791efe2218c5fa480f4",
-    "config/lineup-policy.json": "3e85bf1756dd7465927a77a7eb3040ae656cf22d16f68ec2ba474b6b019e2939",
-    "config/octopus-routing-models.json": "366f88cd5e1da94cad6b47034abf2dc8796565eefa7cccac5901a237cdb3e78c",
+    "config/lineup-policy.json": "07b4c0be4d54321d0689f231495228337895cdaa342793f9090fbd17e9d62e49",
+    "config/octopus-routing-models.json": "783c44a9247af2a3f45b68ec942c41dd85032c869b666c865163ea177881db53",
     "package.json": "a5b55917a85b3c848b70412d92f4cf23163e03c3a6dbb5d59e54203350e8d1ae"
   },
   "statisticalIntelligenceEstimator": false,
@@ -28,9 +28,9 @@
     "data/2026-10-28.json": "d1a6473a3a32e833ea823b632447dbf6e8f4d29e29e59431dfad2a0f049ec878",
     "data/latest.json": "d1a6473a3a32e833ea823b632447dbf6e8f4d29e29e59431dfad2a0f049ec878",
     "site/data/latest.json": "d1a6473a3a32e833ea823b632447dbf6e8f4d29e29e59431dfad2a0f049ec878",
-    "site/data/lineups.json": "221ab89273aa4220538631cfa39370321c145221314283a2f8070a57d47d3b01",
-    "data/lineup-opportunities.json": "38295b0bba0d329c715a6d3c598725d4773090b43486447345e2d4ecda5bfd37",
-    "site/data/octopus-routing.json": "96d2f2d3b70f4ff5ab7e763ae45b20ef8ed0dd44551139b9a9da1d1a55485a3d"
+    "site/data/lineups.json": "66fe42a3e3d74fe1e139d2df99259de9e4343b7c6bcdd21de001aca197fa0eb2",
+    "data/lineup-opportunities.json": "768ee8e5c4b660462116b2761f79a1f9a2d2feabadc8ac8984d5ef9a64830773",
+    "site/data/octopus-routing.json": "c9f09a8e3eb857ca18b9eb21c8bae2b5851fa0cd48364292f8dd141c0ab12d6c"
   },
   "counts": {
     "commandCodeRows": 99,

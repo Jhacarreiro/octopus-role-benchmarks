@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "success",
-  "attemptedAt": "2026-10-28T18:35:16.221Z",
+  "attemptedAt": "2026-10-28T18:38:59.804Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
     "generatedAt": "2026-10-28T15:13:24.390Z"
@@ -18,7 +18,7 @@
     "generatedAt": "2026-10-28T15:13:24.390Z"
   },
   "mode": "full",
-  "message": "Published policy v16: Budget 2% and Balanced 5% role-price savings per quality point, against fixed initial selections. Same source snapshot; statistical estimators disabled.",
+  "message": "Policy v16: Budget 5% and Balanced 10% role-price savings per quality point; fixed initial selections; estimators disabled.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [],
