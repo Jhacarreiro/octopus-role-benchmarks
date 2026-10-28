@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "status": "success",
-  "attemptedAt": "2026-10-26T10:37:59.357Z",
+  "status": "error",
+  "attemptedAt": "2026-10-28T08:59:01.452Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-26",
     "generatedAt": "2026-10-26T10:32:48.627Z"
@@ -17,10 +17,10 @@
     "date": "2026-10-26",
     "generatedAt": "2026-10-26T10:32:48.627Z"
   },
-  "mode": "full",
+  "mode": null,
   "message": null,
-  "stage": null,
-  "errorSummary": null,
+  "stage": "update",
+  "errorSummary": "Error: CAI* coverage failure: 33/32",
   "validationIssues": [],
   "runUrl": null
 }
