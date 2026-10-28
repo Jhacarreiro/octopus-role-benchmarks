@@ -25,7 +25,7 @@ All current offers are repriced on the same fixed reference token workload. Comm
 
 ## Portfolios
 
-The rules live in `config/lineup-policy.json`: requested Intelligence floors 85/80/75%, adaptive descent by 0.005 to a feasible pool, at least four families for Quality and five for Balanced/Budget, at most two seats per family, independent reviewer families, and a Heavy model that improves the same Implementer quality metric by at least two points. Balanced excludes the highest distinct plan-adjusted task-price level; Budget excludes the two highest levels, including every tie at six-decimal USD precision. Each mode then recalculates mean + 2 population standard deviations on its remaining latest-generation reference models and excludes further price outliers. Price exclusions cannot be relaxed by the Intelligence adjustment. Conservative analogies enforce a one-estimated-seat maximum and keep estimated security distinct from direct security measurements.
+The rules live in `config/lineup-policy.json`: requested Intelligence floors 85/80/75%, adaptive descent by 0.005 to a feasible pool, at least four families for Quality and five for Balanced/Budget, at most two seats per family, independent reviewer families whose Reviewer quality exceeds both workers by at least two points, and a Heavy model that improves the same Implementer quality metric by at least two points. Balanced excludes the highest distinct plan-adjusted task-price level; Budget excludes the two highest levels, including every tie at six-decimal USD precision. Each mode then recalculates mean + 2 population standard deviations on its remaining latest-generation reference models and excludes further price outliers. Price exclusions cannot be relaxed by the Intelligence adjustment. Conservative analogies enforce a one-estimated-seat maximum and keep estimated security distinct from direct security measurements.
 
 Recommendations are published in `site/data/lineups.json`. The machine-readable intended Balanced identities are in `site/data/octopus-routing.json`; generating that artifact does not apply runtime configuration or execute any models.
 
@@ -67,3 +67,5 @@ Versioned source provenance records exact AA identity, effort, raw scale, implem
 Before publication run `npm run check:all`, `npm run audit:public` and `git diff --check`. Revert an activation publication as one coherent code/data/frontend change and redeploy Pages; preserve the prior revision and manifest hashes. Do not repair a failed refresh by weakening estimator, identity or portfolio constraints.
 
 See [the data contract](docs/data-contract.md) and [architecture](docs/architecture.md).
+
+CommandCode DeepSeek V4.1 Flash latest aliases follow the newest dated AA release within that series at collection time, with an explicit latest-serving assumption authorized by the owner. The current resolved release is 1017; this is not independent serving attestation.

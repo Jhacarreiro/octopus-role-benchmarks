@@ -13,7 +13,7 @@ function setup(modeId='budget'){
   const assign=new Map(roles.map((r,i)=>[r,originals[i]]));
   const summarizeAssign=assign=>({totalPlanAdjustedCost:[...assign.values()].reduce((sum,m)=>sum+m.cost,0),totalQuality:[...assign].reduce((sum,[r,m])=>sum+portfolioRoleQuality(m,r),0),placementInversionCost:0,signature:roles.map(r=>assign.get(r)?.name??'').join('|')});
   const settings={enabled:true,objective:'minimize-plan-adjusted-cost',exchangeRule:'price-saving-percent-per-quality-point',savingPercentPerPoint:modeId==='budget'?5:10,measuredReplacementsOnly:true,maxIntelligenceExceptions:null,maxSwaps:null,maxSearchNodes:100000};
-  const policy={minFamilies:5,maxFamilies:8,maxSeatsPerFamily:2,codingConstraints:{heavyDifferentFromImplementer:true,reviewerDifferentFromImplementer:true,reviewerDifferentFromHeavy:true,heavyMinimumImplementerQualityDelta:2},modes:{[modeId]:{minFamilies:5,postSelectionOptimization:settings}}};
+  const policy={minFamilies:5,maxFamilies:8,maxSeatsPerFamily:2,codingConstraints:{heavyDifferentFromImplementer:true,reviewerDifferentFromImplementer:true,reviewerDifferentFromHeavy:true,heavyMinimumImplementerQualityDelta:2,reviewerMinimumReviewerQualityDelta:2},modes:{[modeId]:{minFamilies:5,postSelectionOptimization:settings}}};
   return {roles,originals,initial:{...summarizeAssign(assign),assign,familyCount:8},pool:originals.slice(),policy,modeId,intelligenceThreshold:60,generationEligibleForRole:()=>true,costOf:m=>m.cost,familyOf:m=>m.family,summarizeAssign,estimatedLimit:1};
 }
 
@@ -86,3 +86,11 @@ assert.equal(optimizePostSelectionCost(structural).result,structural.initial,'Co
 const historical=setup();historical.pool.push(model('old-generation','architect',{cost:0}));historical.generationEligibleForRole=m=>m.name!=='old-generation';
 assert.equal(optimizePostSelectionCost(historical).result,historical.initial,'Cheap historical generations remain excluded');
 console.log('ok: proportional 5%/10% exchanges, fractional and free-price boundaries, unlimited swaps, measured exceptions, joint family constraints and fixed-reference fallback');
+
+const reviewGuard=setup();
+reviewGuard.originals[4].roleScores['code-reviewer'].rankingQuality=70;
+reviewGuard.originals[5].roleScores['code-reviewer'].rankingQuality=75;
+reviewGuard.pool.push(model('underqualified-reviewer','code-reviewer',{cost:.01,quality:76.999}));
+assert.equal(optimizePostSelectionCost(reviewGuard).result.assign.get('code-reviewer').name,'initial-code-reviewer','A reviewer above Implementer but less than two above Heavy must fail');
+reviewGuard.pool.push(model('qualified-reviewer','code-reviewer',{cost:.05,quality:77}));
+assert.equal(optimizePostSelectionCost(reviewGuard).result.assign.get('code-reviewer').name,'qualified-reviewer','Exactly two points above the stronger worker qualifies');

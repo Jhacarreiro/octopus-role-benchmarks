@@ -80,3 +80,13 @@ export function independentEvidence(a,b,roleA=null,roleB=null){
   if(a.approximation?.evidenceFamilies?.includes(family(b))||b.approximation?.evidenceFamilies?.includes(family(a)))return false;
   return !ids(a,roleA).some(id=>ids(b,roleB).includes(id));
 }
+
+export function reviewerQualityPasses(reviewer,workers,delta){
+  if(!Number.isFinite(delta)||delta<=0)throw new Error('Invalid reviewer quality delta');
+  const quality=portfolioRoleQuality(reviewer,'code-reviewer');
+  return Number.isFinite(quality)&&workers.filter(Boolean).every(worker=>{
+    const score=worker.roleScores['code-reviewer'];
+    const upper=score?.status==='estimated'?score.scoreRange.upper:portfolioRoleQuality(worker,'code-reviewer');
+    return Number.isFinite(upper)&&quality+1e-9>=upper+delta;
+  });
+}

@@ -41,7 +41,15 @@ export function validateRoleConfig(config){
     for(const key of Object.keys(weights))if(!config.benchmarks[key])throw new Error(`Unknown benchmark ${key}`);
   }
 }
+export function latestCatalogMapping(offer,catalog,config){
+  const rule=config.latestCatalogAliases?.find(r=>r.model===offer.name);
+  if(!rule)return null;
+  const dated=catalog.map(r=>r.slug).filter(slug=>slug.startsWith(rule.baseSlug+'-')&&/^\d{4}$/.test(slug.slice(rule.baseSlug.length+1))).sort();
+  return {slug:dated.at(-1)??rule.fallbackSlug,status:'exact',latestCatalogResolved:true,identityStatus:'latest-serving-assumption',reason:rule.reason};
+}
 export function selectiveMapping(offer,config){
+  const latest=config.latestCatalogAliases?.find(r=>r.model===offer.name);
+  if(latest)return offer.mapping?.latestCatalogResolved?{...offer.mapping}:latestCatalogMapping(offer,[],config);
   const verified=config.verifiedIdentities?.find(v=>v.model===offer.name);
   if(!verified)return {...offer.mapping};
   if(offer.mapping?.slug&&offer.mapping.slug!==verified.slug)throw new Error('Conflicting selective identity');

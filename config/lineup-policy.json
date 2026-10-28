@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 16,
+  "schemaVersion": 17,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -14,7 +14,8 @@
     "reviewerDifferentFromImplementer": true,
     "reviewerDifferentFromHeavy": true,
     "heavyDifferentFromImplementer": true,
-    "heavyMinimumImplementerQualityDelta": 2
+    "heavyMinimumImplementerQualityDelta": 2,
+    "reviewerMinimumReviewerQualityDelta": 2
   },
   "modes": {
     "quality": {

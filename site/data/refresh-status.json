@@ -1,24 +1,24 @@
 {
   "schemaVersion": 3,
   "status": "success",
-  "attemptedAt": "2026-10-28T18:38:59.804Z",
+  "attemptedAt": "2026-10-28T18:49:34.008Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T15:13:24.390Z"
+    "generatedAt": "2026-10-28T18:47:36.906Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T15:13:24.390Z",
+    "generatedAt": "2026-10-28T18:47:36.906Z",
     "benchmarkDate": "2026-10-28",
-    "benchmarkGeneratedAt": "2026-10-28T15:13:24.390Z",
-    "lineupInputsRefreshedAt": "2026-10-28T15:13:24.390Z"
+    "benchmarkGeneratedAt": "2026-10-28T18:47:36.906Z",
+    "lineupInputsRefreshedAt": "2026-10-28T18:47:36.906Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T15:13:24.390Z"
+    "generatedAt": "2026-10-28T18:47:36.906Z"
   },
   "mode": "full",
-  "message": "Policy v16: Budget 5% and Balanced 10% role-price savings per quality point; fixed initial selections; estimators disabled.",
+  "message": "Reviewer exceeds both workers by 2 points; DeepSeek latest resolves to AA 1017 under owner-authorized latest-serving assumption. Other observations retained; estimators disabled.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [],

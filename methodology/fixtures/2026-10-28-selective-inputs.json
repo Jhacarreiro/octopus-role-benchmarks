@@ -28,7 +28,7 @@
         "reason": "No verified AA benchmark identity; experimental proxies disabled",
         "identityStatus": "external_verified",
         "externalSource": {
-          "label": "OpenRouter — Poolside Laguna S 2.1",
+          "label": "OpenRouter \u00e2\u20ac\u201d Poolside Laguna S 2.1",
           "url": "https://openrouter.ai/poolside/laguna-s-2.1"
         },
         "externalEvidence": null
@@ -59,7 +59,7 @@
         "reason": "No verified AA benchmark identity; experimental proxies disabled",
         "identityStatus": "stealth_unverified",
         "externalSource": {
-          "label": "Vercel AI Gateway — Glyph Cluster",
+          "label": "Vercel AI Gateway \u00e2\u20ac\u201d Glyph Cluster",
           "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway"
         },
         "externalEvidence": {
@@ -780,9 +780,11 @@
       "max10EffectiveUsageUsd": 150,
       "max20EffectiveUsageUsd": 300,
       "mapping": {
-        "slug": "deepseek-v4-1-flash",
+        "slug": "deepseek-v4-1-flash-1017",
         "status": "exact",
-        "identityStatus": null
+        "latestCatalogResolved": true,
+        "identityStatus": "latest-serving-assumption",
+        "reason": "Owner policy: latest serving follows latest dated release."
       }
     },
     {
@@ -806,9 +808,11 @@
       "max10EffectiveUsageUsd": 150,
       "max20EffectiveUsageUsd": 300,
       "mapping": {
-        "slug": "deepseek-v4-1-flash",
+        "slug": "deepseek-v4-1-flash-1017",
         "status": "exact",
-        "identityStatus": null
+        "latestCatalogResolved": true,
+        "identityStatus": "latest-serving-assumption",
+        "reason": "Owner policy: latest serving follows latest dated release."
       }
     },
     {
@@ -1105,7 +1109,7 @@
         "reason": "No verified AA benchmark identity; experimental proxies disabled",
         "identityStatus": "external_verified",
         "externalSource": {
-          "label": "Alibaba Cloud Model Studio — qwen3.7-flash",
+          "label": "Alibaba Cloud Model Studio \u00e2\u20ac\u201d qwen3.7-flash",
           "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash"
         },
         "externalEvidence": null
@@ -2202,7 +2206,7 @@
         "reason": "No verified AA benchmark identity; experimental proxies disabled",
         "identityStatus": "external_verified",
         "externalSource": {
-          "label": "OpenRouter — Sakana Fugu Ultra",
+          "label": "OpenRouter \u00e2\u20ac\u201d Sakana Fugu Ultra",
           "url": "https://openrouter.ai/sakana/fugu-ultra"
         },
         "externalEvidence": null
@@ -2571,7 +2575,7 @@
         "reason": "No verified AA benchmark identity; experimental proxies disabled",
         "identityStatus": "external_verified_noncomparable",
         "externalSource": {
-          "label": "OpenRouter — TypeSafe Jev",
+          "label": "OpenRouter \u00e2\u20ac\u201d TypeSafe Jev",
           "url": "https://openrouter.ai/typesafe"
         },
         "externalEvidence": null
@@ -2602,7 +2606,7 @@
         "reason": "No verified AA benchmark identity; experimental proxies disabled",
         "identityStatus": "external_verified_noncomparable",
         "externalSource": {
-          "label": "OpenRouter — TypeSafe Jev",
+          "label": "OpenRouter \u00e2\u20ac\u201d TypeSafe Jev",
           "url": "https://openrouter.ai/typesafe"
         },
         "externalEvidence": null
@@ -6849,6 +6853,97 @@
       "sourceUrl": "https://artificialanalysis.ai/models/reflection-beam",
       "cyberIndex": null,
       "recordRetrievedFromUrl": "https://artificialanalysis.ai/models/claude-fable-5"
+    },
+    {
+      "slug": "deepseek-v4-1-flash-1017",
+      "id": "f151fd0b-2139-40cf-a3ec-995e8cedc592",
+      "name": "DeepSeek V4.1 Flash 1017 (Max)",
+      "release": "deepseek-v4-1-flash-1017",
+      "effort": "max",
+      "deprecated": false,
+      "intelligenceIndex": 32.4896393532027,
+      "intelligenceIndexIsEstimated": false,
+      "scicode": 0.559027777777778,
+      "hle": 0.433271547729379,
+      "gpqa": null,
+      "lcr": 0.826666666666667,
+      "gdpval": 1745.77,
+      "briefcaseElo": 1570.42,
+      "automationBenchPartialScore": 0.6664095364949257,
+      "gdpPdfAllPass": 0.172,
+      "terminalBench40": 0.338383838383838,
+      "frontierCode20": 0.284711616161616,
+      "hleDiamond": 0.253,
+      "terminalBenchScience": 0.128571428571429,
+      "critptAgenticHard": 0.24,
+      "omniscience": 0.9,
+      "intelligenceIndexEvaluations": [
+        {
+          "costPerTask": 0.0018082822,
+          "outputTokensPerTask": 1471.5463333333332,
+          "score": 0.9,
+          "slug": "omniscience",
+          "timePerTask": 5.508084920560953
+        },
+        {
+          "costPerTask": 0.042338361,
+          "outputTokensPerTask": 16371.83,
+          "score": 0.172,
+          "slug": "gdp-pdf",
+          "timePerTask": 61.2807275600479
+        },
+        {
+          "costPerTask": 0.061689722399999994,
+          "outputTokensPerTask": 51306.156,
+          "score": 0.253,
+          "slug": "hle-diamond",
+          "timePerTask": 192.04197502596332
+        },
+        {
+          "costPerTask": 0.17390905332166257,
+          "outputTokensPerTask": 63396.38812785388,
+          "score": 0.6664095364949257,
+          "slug": "automationbench-aa",
+          "timePerTask": 237.29642863101247
+        },
+        {
+          "costPerTask": 0.20002991725989816,
+          "outputTokensPerTask": 119219.675,
+          "score": 0.24,
+          "slug": "critpt-v2-hard",
+          "timePerTask": 446.24629155521734
+        },
+        {
+          "costPerTask": 0.5188480343409602,
+          "outputTokensPerTask": 116101.5,
+          "score": 0.284711616161616,
+          "slug": "frontiercode-2-0",
+          "timePerTask": 434.5747781899092
+        },
+        {
+          "costPerTask": 0.6782852929995619,
+          "outputTokensPerTask": 201620.4835164835,
+          "score": 1570.42,
+          "slug": "aa-briefcase",
+          "timePerTask": 754.6773892044295
+        },
+        {
+          "costPerTask": 0.8800788931797693,
+          "outputTokensPerTask": 218213.04545454544,
+          "score": 0.338383838383838,
+          "slug": "terminalbench-4-0",
+          "timePerTask": 816.7843294578765
+        },
+        {
+          "costPerTask": 1.9818112160323458,
+          "outputTokensPerTask": 321469.1857142857,
+          "score": 0.128571428571429,
+          "slug": "terminal-bench-science",
+          "timePerTask": 1203.278166747858
+        }
+      ],
+      "intelligenceIndexVersion": "5.0",
+      "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017"
     }
   ],
   "sourceHashes": [

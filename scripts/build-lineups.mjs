@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independentEvidence} from './lib/role-approximations.mjs';
+import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independentEvidence,reviewerQualityPasses} from './lib/role-approximations.mjs';
 import { isLatestGenerationModel, isLatestGenerationOrBeatsLatest, modelFamily } from './lib/model-family.mjs';
 import { planEconomics, billingCategory as validatedBillingCategory, planAdjustedTaskCost, monthlyUtilization as planMonthlyUtilization } from './lib/plan-economics.mjs';
 import {filterPortfolioPrices} from './lib/portfolio-price-filter.mjs';
@@ -351,6 +351,7 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
       if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl,'implementer-heavy','implementer'))continue;
       if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<implementerUpper(impl)+heavyDelta)continue;
       for(const reviewer of reviewers){
+        if(!reviewerQualityPasses(reviewer,[impl,heavy],policy.codingConstraints.reviewerMinimumReviewerQualityDelta))continue;
         if(!independentEvidence(reviewer,impl,'code-reviewer','implementer')||!independentEvidence(reviewer,heavy,'code-reviewer','implementer-heavy'))continue;
         if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
         if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
@@ -405,6 +406,7 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
         if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl,'implementer-heavy','implementer'))continue;
         if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<implementerUpper(impl)+heavyDelta)continue;
         for(const reviewer of reviewers){
+        if(!reviewerQualityPasses(reviewer,[impl,heavy],policy.codingConstraints.reviewerMinimumReviewerQualityDelta))continue;
           if(!independentEvidence(reviewer,impl,'code-reviewer','implementer')||!independentEvidence(reviewer,heavy,'code-reviewer','implementer-heavy'))continue;
           if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
           if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
