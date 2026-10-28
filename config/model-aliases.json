@@ -16,11 +16,6 @@
       "slug": "glm-5-2",
       "reason": "Fast is a CommandCode commercial variant of GLM-5.2."
     },
-    "Qwen 3.6 Max Preview": {
-      "status": "exact_alias",
-      "slug": "qwen3-max-preview",
-      "reason": "AA canonical slug omits the CommandCode 3.6 display qualifier."
-    },
     "Nemotron 3 Ultra": {
       "status": "exact_alias",
       "slug": "nvidia-nemotron-3-ultra-550b-a55b",

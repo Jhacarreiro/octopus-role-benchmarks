@@ -82,7 +82,7 @@ for(const row of catalog){const k=normalize(row.slug),list=byNorm.get(k)||[];lis
 const mapped=maxRows.map(row=>{
   const override=aliases[row.name];
   if(override){const meta={identityStatus:override.identityStatus??null,externalSource:override.externalSource??null,externalEvidence:override.externalEvidence??null};if(override.status==='unscored')return{...row,mapping:{status:'unscored',reason:override.reason,...meta}};return{...row,mapping:{status:override.status,slug:override.slug,reason:override.reason,...meta}}}
-  const candidates=byNorm.get(normalize(row.name))||[];
+  const candidates=byNorm.get(normalize(row.name.replace(/\s+preview$/i,'')))||[];
   if(candidates.length===1)return{...row,mapping:{status:'exact',slug:candidates[0],reason:'Unique normalized match to AA canonical slug.'}};
   return{...row,mapping:{status:'unscored',reason:candidates.length?`Ambiguous AA identity: ${candidates.join(', ')}`:'No verified AA identity.'}}
 });
