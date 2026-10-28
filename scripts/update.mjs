@@ -79,7 +79,11 @@ const codingRows=runOpenCLI(['artificial-analysis','coding-agents','-f','json'])
 const byNorm=new Map();
 for(const row of catalog){const k=normalize(row.slug),list=byNorm.get(k)||[];list.push(row.slug);byNorm.set(k,list)}
 
-const mapped=maxRows.map(row=>{
+// A free offering of the same named model supersedes paid offerings in
+// the benchmark catalog. Keep the raw source rows for pricing diagnostics.
+const freeModelNames=new Set(maxRows.filter(row=>row.free).map(row=>normalize(row.name)));
+const benchmarkRows=maxRows.filter(row=>row.free||!freeModelNames.has(normalize(row.name)));
+const mapped=benchmarkRows.map(row=>{
   const override=aliases[row.name];
   if(override){const meta={identityStatus:override.identityStatus??null,externalSource:override.externalSource??null,externalEvidence:override.externalEvidence??null};if(['unscored','outdated_unscored'].includes(override.status))return{...row,mapping:{status:override.status,reason:override.reason,...meta}};return{...row,mapping:{status:override.status,slug:override.slug,reason:override.reason,...meta}}}
   const candidates=byNorm.get(normalize(row.name.replace(/\s+preview$/i,'')))||[];

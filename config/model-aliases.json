@@ -178,8 +178,16 @@
     },
     "Ornith 1.5 122B": {
       "status": "unscored",
-      "identityStatus": "stealth_unverified",
-      "reason": "Stealth model; identity unverified. Not comparable to the AA ranking."
+      "identityStatus": "public_model_unmatched",
+      "reason": "Publicly documented open-weight model; primary developer reports task benchmarks, but no matching AA intelligence record. Do not treat it as anonymous stealth or directly comparable AA role scores.",
+      "externalSource": {
+        "label": "Ornith 1.5 122B official model card",
+        "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+      },
+      "externalEvidence": {
+        "label": "Developer-reported TerminalBench 2.1, CyberGym, SWE-bench, BrowseComp and other results",
+        "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+      }
     },
     "Qwen 3.6 Max Preview": {
       "status": "outdated_unscored",
