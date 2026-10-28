@@ -77,6 +77,9 @@ if(one('#rows').innerHTML.length<100) throw new Error('ranking table did not ren
 if(process.env.SELECTIVE_SNAPSHOT){
   if(!one('#status').innerHTML.includes('estimators disabled'))throw new Error('v10 status/provenance not shown');
   if(!one('#rows').innerHTML.includes('Benchmark provenance'))throw new Error('v10 observation provenance missing');
+  const snapshot=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT,'utf8'));
+  for(const m of snapshot.models.filter(m=>m.generationEligibility?.eligible===false))if(one('#rows').innerHTML.includes(`>${m.name}</span>`))throw new Error('Historical model leaked into current ranking');
+  if(snapshot.models.some(m=>m.roleScores.implementer?.status==='estimated')&&!one('#rows').innerHTML.includes('ESTIMATED'))throw new Error('Role approximations must be visibly labeled');
 }else if(!one('#status').innerHTML.includes('Benchmark partially validated')) throw new Error('partial validation state not shown in status');
 if(!one('#refreshAlert').innerHTML.includes('fixture-model')||!one('#refreshAlert').innerHTML.includes('stale')) throw new Error('partial validation issue details not shown');
 
@@ -95,5 +98,12 @@ const budgetButton={dataset:{mode:'budget'}};
 one('.ranking-modes').trigger('click',{target:{closest:()=>budgetButton}});
 if(one('#metricHeading').textContent!=='Budget Role Score ↑') throw new Error('ranking mode button did not switch to Budget');
 const budgetRows=one('#rows').innerHTML;
+
+if(process.env.SELECTIVE_SNAPSHOT){
+  eval(fs.readFileSync(new URL('../site/methodology.js',import.meta.url),'utf8'));
+  await new Promise(r=>setTimeout(r,25));
+  if(!one('#coverage').innerHTML.includes('Estimated offers'))throw new Error('Measured and estimated coverage must remain separate');
+  if(!one('#validation').innerHTML.includes('confidence intervals'))throw new Error('Heuristic uncertainty must be explained');
+}
 
 console.log('ok: site renders from same-origin data with raw GitHub unavailable, and mode buttons work');

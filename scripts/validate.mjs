@@ -8,7 +8,7 @@ if(inputIndex>=0){
   const config=JSON.parse(fs.readFileSync(path.join(root,'config/roles-v10.json'),'utf8'));
   const {validateRoleSnapshot}=await import('./lib/role-scoring.mjs');
   validateRoleSnapshot(snapshot,config);
-  console.log(`ok: v10 role completeness/provenance validated; estimators disabled; ${snapshot.counts.scoredFamilies} identities`);
+  console.log(`ok: v10 role completeness/provenance validated; statistical estimators disabled; ${snapshot.counts.scoredFamilies} measured identities; ${snapshot.counts.approximatedRows??0} approximated offers`);
   process.exit(0);
 }
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));

@@ -62,5 +62,5 @@ export async function runSelectiveUpdate(root,args){
   fs.mkdirSync(output,{recursive:true});
   fs.writeFileSync(path.join(output,'inputs.json'),JSON.stringify(inputs,null,2)+'\n');
   fs.writeFileSync(path.join(output,'latest.json'),JSON.stringify(snapshot,null,2)+'\n');
-  console.log(JSON.stringify({methodologyVersion:10,output,estimatorsEnabled:false,counts:snapshot.counts,roleCoverage:snapshot.roleCoverage},null,2));
+  console.log(JSON.stringify({methodologyVersion:10,output,statisticalEstimatorsEnabled:false,roleApproximationsEnabled:snapshot.approximationPolicy.enabled,counts:snapshot.counts,roleCoverage:snapshot.roleCoverage},null,2));
 }

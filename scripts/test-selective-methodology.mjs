@@ -6,6 +6,8 @@ import {spawnSync} from 'node:child_process';
 import {parseModelObservations} from './lib/aa-observations.mjs';
 import {buildRoleSnapshot,normalizeObservation,validateRoleSnapshot} from './lib/role-scoring.mjs';
 import {isolatedOutput} from './selective-update.mjs';
+import {generationWindows,generationEligibility} from './lib/generation-window.mjs';
+import {portfolioIntelligence,portfolioRoleQuality,independentEvidence} from './lib/role-approximations.mjs';
 const root=path.resolve(import.meta.dirname,'..');
 const inputs=JSON.parse(fs.readFileSync(path.join(root,'methodology/fixtures/2026-10-28-selective-inputs.json')));
 const config=JSON.parse(fs.readFileSync(path.join(root,'config/roles-v10.json')));
@@ -31,6 +33,14 @@ assert.equal(parseModelObservations(html,'fixture-low').scicode,null,'Do not bor
 assert.equal(parseModelObservations(html,'fixture-low').name,'name with {braces}','String braces do not end source objects');
 const conflict=`<script>self.__next_f.push(${JSON.stringify([1,JSON.stringify({models:[target,{...target,scicode:.2}]})])})</script>`;
 assert.throws(()=>parseModelObservations(conflict,'fixture-low'),/Conflicting AA/);
+const duplicateHtml=rows=>`<script>self.__next_f.push(${JSON.stringify([1,JSON.stringify({models:rows})])})</script>`;
+const breakdown={...target,briefcaseElo:null,briefcaseBreakdown:{overall:{elo:1200}}};
+assert.throws(()=>parseModelObservations(duplicateHtml([breakdown,{...breakdown,briefcaseBreakdown:{overall:{elo:1400}}}]),target.slug),/Conflicting AA/,'Fallback-only duplicates must not depend on stream order');
+assert.equal(parseModelObservations(duplicateHtml([breakdown,{...breakdown,briefcaseElo:1200,briefcaseBreakdown:null}]),target.slug).briefcaseElo,1200,'Equivalent supported source shapes resolve to the same observation');
+assert.throws(()=>parseModelObservations(duplicateHtml([{...breakdown,briefcaseBreakdown:{overall:{elo:1200},elo:1400}}]),target.slug),/Conflicting Briefcase/);
+const bound={...target,intelligenceIndexEvaluations:[{slug:'frontiercode-2-0'},{slug:'hle-diamond'}]};
+assert.equal(parseModelObservations(duplicateHtml([bound,{...bound,intelligenceIndexEvaluations:[...bound.intelligenceIndexEvaluations].reverse()}]),target.slug).intelligenceIndexVersion,'5.0');
+assert.throws(()=>parseModelObservations(duplicateHtml([bound,{...bound,intelligenceIndexEvaluations:[{slug:'hle-diamond'}]}]),target.slug),/Conflicting AA/,'Conflicting version bindings cannot select Intelligence eligibility by stream order');
 assert.equal(normalizeObservation(1500,config.benchmarks.briefcase),50);
 assert.equal(normalizeObservation(-100,config.benchmarks.omniscience),0);
 assert.equal(normalizeObservation(0,config.benchmarks.omniscience),50);
@@ -53,6 +63,42 @@ assert.throws(()=>isolatedOutput(root,path.join(root,'site/data')),/outside/);
 assert.throws(()=>isolatedOutput(root,null),/requires/);
 const changed=structuredClone(config);changed.intelligenceEstimator.enabled=true;
 assert.throws(()=>build(inputs,changed),/disabled/);
+
+// New, unmeasured releases must advance the age window too. Scores cannot
+// rescue a release outside it; Claude tiers have independent release series.
+const catalog=[{name:'GPT-5.4'},{name:'GPT-6 Sol'},{name:'GPT-6.1 Terra'},{name:'GPT-6.1 Sol'},{name:'Claude Haiku 4.5'},{name:'Claude Opus 5.5'}];
+const windows=generationWindows(catalog);
+assert.equal(generationEligibility(catalog[0],windows).eligible,false);
+assert.equal(generationEligibility(catalog[1],windows).eligible,true);
+assert.equal(generationEligibility(catalog[4],windows).eligible,true);
+assert.equal(generationEligibility(catalog[1],generationWindows([...catalog,{name:'GPT-6.2 Unmeasured',mapping:{status:'unscored'}}])).eligible,false);
+assert.equal(generationEligibility({name:'Unversioned public model'},windows).eligible,true);
+const old=snapshot.models.find(m=>m.name==='GPT-5.4');
+assert.equal(old.generationEligibility.eligible,false);
+assert.ok(Object.values(old.roleScores).every(s=>s.rankingValue==null),'Historical scores cannot define active percentiles');
+
+const prime=snapshot.models.find(m=>m.name==='Qwen 3.8 Max Prime');
+assert.equal(prime.aaModel,null,'An approximation must not create an AA identity');
+assert.deepEqual(prime.benchmarks,{},'No raw AA benchmark may be invented');
+assert.ok(portfolioIntelligence(prime)<prime.approximation.intelligence.estimate);
+assert.ok(portfolioRoleQuality(prime,'implementer')<prime.roleScores.implementer.score);
+assert.ok(Number.isNaN(portfolioRoleQuality(prime,'security-reviewer')));
+assert.equal(independentEvidence(prime,snapshot.models.find(m=>m.name==='Qwen 3.8 Max')),false,'A proxy and its anchor are not independent coding evidence');
+const omni=snapshot.models.find(m=>m.name==='Qwen 3.8 Omni Flash');
+assert.ok(Number.isNaN(portfolioIntelligence(omni)),'Missing anchor Intelligence cannot become zero or use the residual estimator');
+const withoutApproximations=structuredClone(config);withoutApproximations.approximations.enabled=false;
+const measuredOnly=build(inputs,withoutApproximations);
+assert.deepEqual(snapshot.models.filter(m=>m.aaModel).map(m=>m.roleScores),measuredOnly.models.filter(m=>m.aaModel).map(m=>m.roleScores),'Adding proxies must not move observed percentiles');
+const expired=build({...inputs,generatedAt:'2026-11-28T00:00:00.000Z'});
+assert.equal(expired.models.find(m=>m.name===prime.name).approximation,undefined,'Expired evidence fails closed');
+const missingAnchor=structuredClone(inputs);missingAnchor.observations=missingAnchor.observations.filter(r=>r.slug!=='qwen3-8-max');
+assert.equal(build(missingAnchor).models.find(m=>m.name===prime.name).approximation,undefined,'Missing source is not another proxy opportunity');
+const badEstimate=structuredClone(snapshot);badEstimate.models.find(m=>m.name===prime.name).roleScores.implementer.rankingQuality=99;
+assert.throws(()=>validateRoleSnapshot(badEstimate,config),/approximation/);
+const fakeRaw=structuredClone(snapshot);fakeRaw.models.find(m=>m.name===prime.name).benchmarks.terminalBench40=90;
+assert.throws(()=>validateRoleSnapshot(fakeRaw,config),/approximation/);
+const badSecurity=structuredClone(config);badSecurity.approximations.recipes[0].roles.push('security-reviewer');
+assert.throws(()=>build(inputs,badSecurity),/evidence or role/);
 
 const temp=fs.mkdtempSync(path.join(os.tmpdir(),'octopus-v10-'));
 try{
@@ -88,6 +134,31 @@ try{
     const impl=snapshot.models.find(m=>m.name===picks.implementer.model),heavy=snapshot.models.find(m=>m.name===picks['implementer-heavy'].model);
     assert.ok(heavy.roleScores.implementer.rankingQuality+1e-6>=impl.roleScores.implementer.rankingQuality+2,'Heavy must improve the Implementer score by two points');
     for(const p of Object.values(picks))assert.ok(p.intelligenceIndex+1e-4>=mode.intelligenceThreshold);
+  }
+  // A deliberately strong hypothetical candidate proves that estimates can
+  // actually be selected, while a second attractive estimate cannot take a
+  // second seat. These values are test inputs, not published model claims.
+  const stress=structuredClone(snapshot);
+  for(const [i,name] of ['Hypothetical candidate A','Hypothetical candidate B'].entries()){
+    const m=structuredClone(prime);m.name=name;m.free=true;m.billingCategory='free';
+    m.max10MonthlyUsageLimitUsd=0;m.max20MonthlyUsageLimitUsd=0;m.max10EffectiveUsageUsd=0;m.max20EffectiveUsageUsd=0;
+    m.taskEfficiency.commandCodeCostPerTaskUsd=0;m.taskEfficiency.planAdjustedCostPerTaskUsd=0;
+    m.approximation.intelligence.cutoffLowerBound=58;
+    m.approximation.scope=['architect','strategist','synthesizer','researcher'];
+    m.approximation.evidenceIds=['test-independent-evidence-'+i];
+    m.roleScores=Object.fromEntries(m.approximation.scope.map(role=>[role,{status:'estimated',completeness:'estimated',measurementKind:'estimated',rankingQuality:95,rankingValue:100,balancedQualityPercentile:100,balancedAffordabilityPercentile:100,scoreRange:{lower:95,upper:100}}]));
+    stress.models.push(m);
+  }
+  const stressFile=path.join(temp,'hypothetical.json'),stressOutput=path.join(temp,'hypothetical-lineups.json');
+  fs.writeFileSync(stressFile,JSON.stringify(stress));
+  const stressRun=spawnSync(process.execPath,[path.join(root,'scripts/build-lineups.mjs'),'--snapshot',stressFile,'--output',stressOutput],{encoding:'utf8',timeout:45000});
+  assert.equal(stressRun.status,0,stressRun.stderr);
+  for(const mode of Object.values(JSON.parse(fs.readFileSync(stressOutput)).modes)){
+    const picks=Object.values(mode.selections).filter(s=>s.measurementKind==='estimated');
+    assert.equal(picks.length,1,'A qualifying estimate can win, but never two seats');
+    assert.equal(picks[0].source,'conservative-role-approximation');
+    assert.equal(picks[0].intelligenceIndex,58,'Portfolio uses the conservative value');
+    assert.ok(mode.selections['security-reviewer'].measurementKind!=='estimated');
   }
 }finally{assert.equal(path.dirname(path.resolve(temp)),path.resolve(os.tmpdir()));fs.rmSync(temp,{recursive:true,force:true});}
 console.log('ok: selective per-role missingness, versions, scales, identity, disabled estimators, free offers, isolated output and portfolio eligibility');

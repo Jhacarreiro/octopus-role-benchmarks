@@ -359,5 +359,159 @@
   "intelligenceEstimator": {
     "enabled": false,
     "targetVersion": "5.0"
+  },
+  "generationPolicy": {
+    "enabled": true,
+    "retainedGenerations": 2,
+    "referenceUniverse": "full-retained-catalog"
+  },
+  "approximations": {
+    "enabled": true,
+    "method": "anchor-envelope-v1",
+    "maxSeatsPerPortfolio": 1,
+    "note": "User-authorized isolated v10 analogies, also available to portfolios with conservative values. Residual Intelligence estimator remains disabled. Margins are policy haircuts, not calibrated error bounds.",
+    "recipes": [
+      {
+        "model": "Qwen 3.8 Max Prime",
+        "kind": "serving-variant",
+        "anchors": [
+          "qwen3-8-max"
+        ],
+        "roles": [
+          "architect",
+          "strategist",
+          "code-reviewer",
+          "implementer",
+          "implementer-heavy",
+          "synthesizer",
+          "researcher"
+        ],
+        "margin": 5,
+        "reviewAfter": "2026-11-27",
+        "reason": "Catalog describes a high-speed Qwen 3.8 Max offering; capacity equivalence is a heuristic until exact serving identity is verified.",
+        "sources": [
+          {
+            "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+            "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Qwen 3.8 Omni Flash",
+        "kind": "related-architecture",
+        "anchors": [
+          "qwen3-8-flash-next"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 15,
+        "reviewAfter": "2026-11-27",
+        "reason": "Official related architecture supports a conservative coding analogy; multimodal transfer and exact serving weights remain uncertain.",
+        "sources": [
+          {
+            "url": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+            "summary": "Official model is built on Qwen3.8 Flash Next architecture; this does not establish identical evaluation results.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Laguna S 2.1",
+        "kind": "external-comparison",
+        "anchors": [
+          "inkling"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Vendor table includes Laguna and Inkling on Terminal-Bench 2.1 and SWE-bench Pro. Use the lower comparator without a benchmark-version conversion.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+            "summary": "Laguna exceeds Inkling on the reported shared coding tests. Harness differences and transfer to AA v10 roles remain uncertain.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Tencent Hy4 Preview",
+        "kind": "external-comparison",
+        "anchors": [
+          "glm-5-3"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Official blind engineering comparison with GLM 5.3 supports only coding-role analogies, without claiming general reasoning or factuality equivalence.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/tencent/Hy4-preview",
+            "summary": "203 engineering tasks, 163 internal experts; average 2.99 versus GLM 5.3 at 2.92. Vendor evaluation, not AA.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Ornith 1.5 122B",
+        "kind": "external-comparison",
+        "anchors": [
+          "qwen3-8-27b",
+          "nemotron-3-5-super-vl"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy",
+          "code-reviewer"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Vendor table compares coding, SciCode and agentic tasks with the observed anchors. Use their minimum with a wide haircut; keep all raw target benchmark fields absent.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+            "summary": "Developer-reported TerminalBench 2.1, SWE-bench and SciCode comparisons; CyberGym is not Cyber Index and is never transferred.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      }
+    ],
+    "pending": [
+      {
+        "model": "Qwen 3.7 Flash",
+        "reason": "Public identity verified; sibling branding and a qualitative improvement claim do not establish a numeric coding reference. Await comparable public results.",
+        "sources": [
+          {
+            "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash",
+            "summary": "Official successor to Qwen3.6 Flash; no numerical benchmark comparison retrieved.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Fugu Ultra",
+        "reason": "The catalog route is unversioned multi-agent orchestration; current Fugu v2 results cannot be bound to that route or its underlying model pool. Await version binding.",
+        "sources": [
+          {
+            "url": "https://commandcode.ai/models/fugu-ultra",
+            "summary": "Unversioned sakana/fugu-ultra route; no observed scores.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://sakana.ai/fugu/",
+            "summary": "Current product documents v2; no verified equivalence to the catalog route.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      }
+    ]
   }
 }

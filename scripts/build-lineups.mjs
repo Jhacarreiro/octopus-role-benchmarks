@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independentEvidence} from './lib/role-approximations.mjs';
 import { isLatestGenerationModel, isLatestGenerationOrBeatsLatest, modelFamily } from './lib/model-family.mjs';
 import { planEconomics, billingCategory as validatedBillingCategory, planAdjustedTaskCost, monthlyUtilization as planMonthlyUtilization } from './lib/plan-economics.mjs';
 
@@ -18,9 +19,14 @@ const EPS=1e-12;
 function fail(msg){throw new Error(`lineup policy: ${msg}`)}
 function round(n,d=6){const p=10**d;return Math.round((n+Number.EPSILON)*p)/p}
 function benchmarkIdentity(m){return m.aaModel?.slug?`aa:${m.aaModel.slug}`:`model:${m.name}`}
-function intelligence(m){const n=m.aaModel?.estimated?m.aaModel.cutoffLowerBound:m.aaModel?.intelligenceIndex;return Number.isFinite(n)?n:NaN}
+const intelligence=portfolioIntelligence;
 function creditBurn(m){return Number(m.taskEfficiency?.commandCodeCostPerTaskUsd)}
-function roleQuality(m,role){const s=m.roleScores?.[role];return s?.completeness&&s.completeness!=='complete'?NaN:Number.isFinite(s?.rankingQuality)?s.rankingQuality:NaN}
+const roleQuality=portfolioRoleQuality;
+const estimatedLimit=latest.approximationPolicy?.enabled?latest.approximationPolicy.maxSeatsPerPortfolio:0;
+if(latest.methodologyVersion>=10&&estimatedLimit!==0&&estimatedLimit!==1)fail('Invalid approximation seat limit');
+const withinApproximationLimit=assign=>approximationSeats(assign)<=estimatedLimit;
+const stateKey=(counts,assign)=>counts.join(',')+(estimatedLimit?'|'+approximationSeats(assign):'');
+const implementerUpper=m=>m.approximation?m.roleScores?.implementer?.scoreRange?.upper:roleQuality(m,'implementer');
 function roleBalanced(m,role){const n=m.roleScores?.[role]?.rankingValue;return Number.isFinite(n)?n:NaN}
 function roleBudget(m,role){const s=m.roleScores?.[role];return Number.isFinite(s?.balancedQualityPercentile)&&Number.isFinite(s?.balancedAffordabilityPercentile)?0.4*s.balancedQualityPercentile+0.6*s.balancedAffordabilityPercentile:NaN}
 function familyOf(m){return modelFamily(m,policy)}
@@ -71,18 +77,20 @@ function portfolioUtilization(standardBurn,premiumBurn){
 }
 
 const base=latest.models.filter(m=>
+  m.generationEligibility?.eligible!==false &&
   m.mapping?.status!=='unscored' &&
   m.mapping?.status!=='source_incomplete' &&
   Number.isFinite(intelligence(m)) &&
   m.roleScores
 );
+const referenceBase=base.filter(m=>!m.approximation);
 const generationEligible=policy.latestGenerationOnly
-  ? base.filter(m=>isLatestGenerationModel(m,base,{scoredOnly:true}))
-  : base.slice();
+  ? referenceBase.filter(m=>isLatestGenerationModel(m,referenceBase,{scoredOnly:true}))
+  : referenceBase.slice();
 
 function generationEligibleForRole(model,role){
   if(!policy.latestGenerationOnly)return true;
-  return isLatestGenerationOrBeatsLatest(model,base,m=>roleQuality(m,role),{scoredOnly:true});
+  return isLatestGenerationOrBeatsLatest(model,referenceBase,m=>roleQuality(m,role),{scoredOnly:true});
 }
 
 if(!generationEligible.length)fail('no scored models with AA Intelligence Index');
@@ -244,6 +252,7 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
 
   function buildCandidate(assign){
     const selected=roles.map(r=>assign.get(r));
+    if(!withinApproximationLimit(assign))return null;
     const famCount=familyCount(selected);
     if(famCount<minFamilies||famCount>maxFamilies)return null;
     return {...summarizeAssign(assign),assign,familyCount:famCount,signature:signature(assign)};
@@ -252,8 +261,9 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
   function buildCandidatePartial(assign){return summarizeAssign(assign)}
 
   function fillStandard(initialCounts,initialAssign){
+    if(!withinApproximationLimit(initialAssign))return;
     if(modeId==='budget'){
-      let states=new Map([[initialCounts.join(','),[{counts:initialCounts,assign:initialAssign,partial:buildCandidatePartial(initialAssign)}]]]);
+      let states=new Map([[stateKey(initialCounts,initialAssign),[{counts:initialCounts,assign:initialAssign,partial:buildCandidatePartial(initialAssign)}]]]);
       for(const role of standardRoles){
         const next=new Map();
         for(const list of states.values()){
@@ -265,7 +275,8 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
               counts[idx]++;
               const assign=new Map(st.assign);
               assign.set(role,m);
-              const key=counts.join(',');
+              if(!withinApproximationLimit(assign))continue;
+              const key=stateKey(counts,assign);
               const state={counts,assign,partial:buildCandidatePartial(assign)};
               next.set(key,insertBudgetState(next.get(key)||[],state));
             }
@@ -283,7 +294,7 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
       return;
     }
 
-    let states=new Map([[initialCounts.join(','),{counts:initialCounts,assign:initialAssign,partial:buildCandidatePartial(initialAssign)}]]);
+    let states=new Map([[stateKey(initialCounts,initialAssign),{counts:initialCounts,assign:initialAssign,partial:buildCandidatePartial(initialAssign)}]]);
     for(const role of standardRoles){
       const next=new Map();
       for(const st of states.values()){
@@ -294,7 +305,8 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
           counts[idx]++;
           const assign=new Map(st.assign);
           assign.set(role,m);
-          const key=counts.join(',');
+          if(!withinApproximationLimit(assign))continue;
+          const key=stateKey(counts,assign);
           const candidate=buildCandidatePartial(assign);
           const prev=next.get(key);
           const candidateMetric=modeId==='balanced'?candidate.totalBalanced:candidate.totalQuality;
@@ -330,9 +342,10 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
 
   for(const impl of implementers){
     for(const heavy of heavies){
-      if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && benchmarkIdentity(heavy)===benchmarkIdentity(impl))continue;
-      if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<roleQuality(impl,'implementer')+heavyDelta)continue;
+      if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl))continue;
+      if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<implementerUpper(impl)+heavyDelta)continue;
       for(const reviewer of reviewers){
+        if(!independentEvidence(reviewer,impl)||!independentEvidence(reviewer,heavy))continue;
         if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
         if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
         const counts=Array(families.length).fill(0);
@@ -377,14 +390,16 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
         if(idx==null||counts[idx]>=maxSeats)continue;
         const nextCounts=counts.slice();nextCounts[idx]++;
         const nextAssign=new Map(assign);nextAssign.set(role,m);
+        if(!withinApproximationLimit(nextAssign))continue;
         recurseStandard(index+1,nextCounts,nextAssign,partialBalanced+roleBalanced(m,role));
       }
     }
     for(const impl of implementers){
       for(const heavy of heavies){
-        if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && benchmarkIdentity(heavy)===benchmarkIdentity(impl))continue;
-        if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<roleQuality(impl,'implementer')+heavyDelta)continue;
+        if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl))continue;
+        if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<implementerUpper(impl)+heavyDelta)continue;
         for(const reviewer of reviewers){
+          if(!independentEvidence(reviewer,impl)||!independentEvidence(reviewer,heavy))continue;
           if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
           if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
           const counts=Array(families.length).fill(0);let valid=true;
@@ -449,7 +464,7 @@ const out={
   },
   modes:{}
 };
-if(latest.methodologyVersion>=10){out.methodologyVersion=latest.methodologyVersion;out.snapshotGeneratedAt=latest.generatedAt;out.intelligenceIndexVersion='5.0';}
+if(latest.methodologyVersion>=10){out.methodologyVersion=latest.methodologyVersion;out.snapshotGeneratedAt=latest.generatedAt;out.intelligenceIndexVersion='5.0';out.approximationPolicy=latest.approximationPolicy??{enabled:false};}
 
 for(const [modeId,mode] of Object.entries(policy.modes)){
   const {poolInfo,result}=solveMode(modeId,mode);
@@ -468,7 +483,8 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
       max10MonthlyUsageLimitUsd:m.max10MonthlyUsageLimitUsd??null,
       max20MonthlyUsageLimitUsd:m.max20MonthlyUsageLimitUsd??null,
       intelligenceIndex:round(intelligence(m),4),
-      source:role==='security-reviewer'?(latest.methodologyVersion>=10?'cyberIndex':'cyberbench'):'scored',
+      ...(m.approximation?{measurementKind:'estimated',approximation:m.approximation,roleEstimate:m.roleScores[role]}:{}),
+      source:role==='security-reviewer'?(latest.methodologyVersion>=10?'cyberIndex':'cyberbench'):(m.approximation?'conservative-role-approximation':'scored'),
       benchmarkProvenance:role==='security-reviewer'?(latest.methodologyVersion>=10?m.benchmarkProvenance?.cyberIndex??null:m.benchmarkProvenance?.cyberbench??null):null,
       free:m.free===true,
       discountPercent:m.discountPercent??null,

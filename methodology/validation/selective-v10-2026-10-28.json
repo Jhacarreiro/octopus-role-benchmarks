@@ -8,69 +8,1463 @@
   "policySha256": "cfc64d57f82f9a5d25fc6f1c52bfc95d9a620a7ab892b19715f163eca7e4f34b",
   "baselineSha256": "9a3c3181fad2aae4bb7900d805a6e1c9dd2340b29b3f0fc9564618a3efedb451",
   "comparisonDesign": {
-    "methodology": "aligned-v9 versus aligned-v10: same 29 observed v5 identities, exact existing task costs, unchanged policy",
-    "coverage": "aligned-v10 versus expanded-v10: expanded role scoring universe; unknown Intelligence remains excluded from portfolios",
+    "methodology": "aligned-v9 versus aligned-v10: same 28 active observed v5 identities, exact existing task costs, unchanged base policy",
+    "coverage": "aligned-v10 versus observed-v10: expanded active observed role scoring universe; unknown Intelligence remains excluded from portfolios",
+    "approximation": "observed-v10 versus expanded-v10: separately labeled role analogies, conservative role/Intelligence values, one estimated seat maximum. Proxies do not define observed percentiles, Intelligence references or cost cutoffs",
     "price": "Existing per-offer task cost copied exactly. Newly scored offers use the frozen reference workload and frozen rates; no new task telemetry.",
     "baseline": "Published v9 scores retain their existing historical/proxy provenance; partial old scores are labeled in rank moves."
   },
+  "counts": {
+    "commandCodeRows": 99,
+    "retainedRows": 97,
+    "activeRows": 68,
+    "historicalRows": 29,
+    "approximatedRows": 5,
+    "approximationPortfolioCandidates": 4,
+    "mappedRows": 57,
+    "mappedFamilies": 49,
+    "scoredRows": 55,
+    "scoredFamilies": 47,
+    "partialScoredRows": 36,
+    "partialRows": 49,
+    "sourceIncompleteRows": 2,
+    "unmatchedRows": 11,
+    "unscoredRows": 6,
+    "unrankedRows": 8
+  },
+  "generationPolicy": {
+    "enabled": true,
+    "retainedGenerations": 2,
+    "referenceUniverse": "full-retained-catalog"
+  },
+  "historicalOffers": [
+    {
+      "model": "Kimi K2.7 Code",
+      "eligible": false,
+      "status": "historical",
+      "series": "Kimi K",
+      "generation": "2.7",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.1",
+        "3"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 3.1, 3"
+    },
+    {
+      "model": "Kimi K2.7 Code HighSpeed",
+      "eligible": false,
+      "status": "historical",
+      "series": "Kimi K",
+      "generation": "2.7",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.1",
+        "3"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 3.1, 3"
+    },
+    {
+      "model": "Kimi K2.6",
+      "eligible": false,
+      "status": "historical",
+      "series": "Kimi K",
+      "generation": "2.6",
+      "generationRank": 3,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.1",
+        "3"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 3.1, 3"
+    },
+    {
+      "model": "Kimi K2.5",
+      "eligible": false,
+      "status": "historical",
+      "series": "Kimi K",
+      "generation": "2.5",
+      "generationRank": 4,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.1",
+        "3"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 3.1, 3"
+    },
+    {
+      "model": "GLM-5.1",
+      "eligible": false,
+      "status": "historical",
+      "series": "GLM",
+      "generation": "5.1",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "5.3",
+        "5.2"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 5.3, 5.2"
+    },
+    {
+      "model": "GLM-5",
+      "eligible": false,
+      "status": "historical",
+      "series": "GLM",
+      "generation": "5",
+      "generationRank": 3,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "5.3",
+        "5.2"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 5.3, 5.2"
+    },
+    {
+      "model": "MiniMax M2.7",
+      "eligible": false,
+      "status": "historical",
+      "series": "MiniMax M",
+      "generation": "2.7",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.1",
+        "3"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 3.1, 3"
+    },
+    {
+      "model": "MiniMax M2.5",
+      "eligible": false,
+      "status": "historical",
+      "series": "MiniMax M",
+      "generation": "2.5",
+      "generationRank": 3,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.1",
+        "3"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 3.1, 3"
+    },
+    {
+      "model": "Qwen 3.6 Max Preview",
+      "eligible": false,
+      "status": "historical",
+      "series": "Qwen",
+      "generation": "3.6",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.8",
+        "3.7"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Explicitly superseded release"
+    },
+    {
+      "model": "Qwen 3.6 Plus",
+      "eligible": false,
+      "status": "historical",
+      "series": "Qwen",
+      "generation": "3.6",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "3.8",
+        "3.7"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 3.8, 3.7"
+    },
+    {
+      "model": "Step 3.5 Flash",
+      "eligible": false,
+      "status": "historical",
+      "series": "Step",
+      "generation": "3.5",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "5",
+        "3.7"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 5, 3.7"
+    },
+    {
+      "model": "Claude Opus 4.8",
+      "eligible": false,
+      "status": "historical",
+      "series": "Claude Opus",
+      "generation": "4.8",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "5.5",
+        "5"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 5.5, 5"
+    },
+    {
+      "model": "Claude Opus 4.7",
+      "eligible": false,
+      "status": "historical",
+      "series": "Claude Opus",
+      "generation": "4.7",
+      "generationRank": 3,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "5.5",
+        "5"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 5.5, 5"
+    },
+    {
+      "model": "Claude Opus 4.6",
+      "eligible": false,
+      "status": "historical",
+      "series": "Claude Opus",
+      "generation": "4.6",
+      "generationRank": 4,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "5.5",
+        "5"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 5.5, 5"
+    },
+    {
+      "model": "Claude Sonnet 4.6",
+      "eligible": false,
+      "status": "historical",
+      "series": "Claude Sonnet",
+      "generation": "4.6",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "5.5",
+        "5"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 5.5, 5"
+    },
+    {
+      "model": "GPT-5.6 Sol",
+      "eligible": false,
+      "status": "historical",
+      "series": "GPT",
+      "generation": "5.6",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "6.1",
+        "6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 6.1, 6"
+    },
+    {
+      "model": "GPT-5.6 Terra",
+      "eligible": false,
+      "status": "historical",
+      "series": "GPT",
+      "generation": "5.6",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "6.1",
+        "6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 6.1, 6"
+    },
+    {
+      "model": "GPT-5.6 Luna",
+      "eligible": false,
+      "status": "historical",
+      "series": "GPT",
+      "generation": "5.6",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "6.1",
+        "6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 6.1, 6"
+    },
+    {
+      "model": "GPT-5.5",
+      "eligible": false,
+      "status": "historical",
+      "series": "GPT",
+      "generation": "5.5",
+      "generationRank": 3,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "6.1",
+        "6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 6.1, 6"
+    },
+    {
+      "model": "GPT-5.4",
+      "eligible": false,
+      "status": "historical",
+      "series": "GPT",
+      "generation": "5.4",
+      "generationRank": 4,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "6.1",
+        "6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 6.1, 6"
+    },
+    {
+      "model": "GPT-5.4 Mini",
+      "eligible": false,
+      "status": "historical",
+      "series": "GPT",
+      "generation": "5.4",
+      "generationRank": 4,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "6.1",
+        "6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 6.1, 6"
+    },
+    {
+      "model": "GPT-5.3 Codex",
+      "eligible": false,
+      "status": "historical",
+      "series": "GPT",
+      "generation": "5.3",
+      "generationRank": 5,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "6.1",
+        "6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 6.1, 6"
+    },
+    {
+      "model": "Gemini 3.7 Flash",
+      "eligible": false,
+      "status": "historical",
+      "series": "Gemini",
+      "generation": "3.7",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "4",
+        "3.8"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 4, 3.8"
+    },
+    {
+      "model": "Gemini 3.6 Flash",
+      "eligible": false,
+      "status": "historical",
+      "series": "Gemini",
+      "generation": "3.6",
+      "generationRank": 3,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "4",
+        "3.8"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 4, 3.8"
+    },
+    {
+      "model": "Gemini 3.5 Flash",
+      "eligible": false,
+      "status": "historical",
+      "series": "Gemini",
+      "generation": "3.5",
+      "generationRank": 4,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "4",
+        "3.8"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 4, 3.8"
+    },
+    {
+      "model": "Gemini 3.5 Flash Lite",
+      "eligible": false,
+      "status": "historical",
+      "series": "Gemini",
+      "generation": "3.5",
+      "generationRank": 4,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "4",
+        "3.8"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 4, 3.8"
+    },
+    {
+      "model": "Gemini 3.1 Flash Lite",
+      "eligible": false,
+      "status": "historical",
+      "series": "Gemini",
+      "generation": "3.1",
+      "generationRank": 5,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "4",
+        "3.8"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 4, 3.8"
+    },
+    {
+      "model": "Muse Spark 1.1",
+      "eligible": false,
+      "status": "historical",
+      "series": "Muse Spark",
+      "generation": "1.1",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "1.3",
+        "1.2"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 1.3, 1.2"
+    },
+    {
+      "model": "Grok 4.5",
+      "eligible": false,
+      "status": "historical",
+      "series": "Grok",
+      "generation": "4.5",
+      "generationRank": 2,
+      "retainedGenerations": 2,
+      "latestGenerations": [
+        "4.7",
+        "4.6"
+      ],
+      "source": "full-retained-catalog",
+      "reason": "Outside the 2-generation window; newer catalog generations: 4.7, 4.6"
+    }
+  ],
+  "approximationPolicy": {
+    "enabled": true,
+    "method": "anchor-envelope-v1",
+    "maxSeatsPerPortfolio": 1,
+    "note": "User-authorized isolated v10 analogies, also available to portfolios with conservative values. Residual Intelligence estimator remains disabled. Margins are policy haircuts, not calibrated error bounds.",
+    "recipes": [
+      {
+        "model": "Qwen 3.8 Max Prime",
+        "kind": "serving-variant",
+        "anchors": [
+          "qwen3-8-max"
+        ],
+        "roles": [
+          "architect",
+          "strategist",
+          "code-reviewer",
+          "implementer",
+          "implementer-heavy",
+          "synthesizer",
+          "researcher"
+        ],
+        "margin": 5,
+        "reviewAfter": "2026-11-27",
+        "reason": "Catalog describes a high-speed Qwen 3.8 Max offering; capacity equivalence is a heuristic until exact serving identity is verified.",
+        "sources": [
+          {
+            "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+            "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Qwen 3.8 Omni Flash",
+        "kind": "related-architecture",
+        "anchors": [
+          "qwen3-8-flash-next"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 15,
+        "reviewAfter": "2026-11-27",
+        "reason": "Official related architecture supports a conservative coding analogy; multimodal transfer and exact serving weights remain uncertain.",
+        "sources": [
+          {
+            "url": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+            "summary": "Official model is built on Qwen3.8 Flash Next architecture; this does not establish identical evaluation results.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Laguna S 2.1",
+        "kind": "external-comparison",
+        "anchors": [
+          "inkling"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Vendor table includes Laguna and Inkling on Terminal-Bench 2.1 and SWE-bench Pro. Use the lower comparator without a benchmark-version conversion.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+            "summary": "Laguna exceeds Inkling on the reported shared coding tests. Harness differences and transfer to AA v10 roles remain uncertain.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Tencent Hy4 Preview",
+        "kind": "external-comparison",
+        "anchors": [
+          "glm-5-3"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Official blind engineering comparison with GLM 5.3 supports only coding-role analogies, without claiming general reasoning or factuality equivalence.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/tencent/Hy4-preview",
+            "summary": "203 engineering tasks, 163 internal experts; average 2.99 versus GLM 5.3 at 2.92. Vendor evaluation, not AA.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Ornith 1.5 122B",
+        "kind": "external-comparison",
+        "anchors": [
+          "qwen3-8-27b",
+          "nemotron-3-5-super-vl"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy",
+          "code-reviewer"
+        ],
+        "margin": 20,
+        "reviewAfter": "2026-11-27",
+        "reason": "Vendor table compares coding, SciCode and agentic tasks with the observed anchors. Use their minimum with a wide haircut; keep all raw target benchmark fields absent.",
+        "sources": [
+          {
+            "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+            "summary": "Developer-reported TerminalBench 2.1, SWE-bench and SciCode comparisons; CyberGym is not Cyber Index and is never transferred.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      }
+    ],
+    "pending": [
+      {
+        "model": "Qwen 3.7 Flash",
+        "reason": "Public identity verified; sibling branding and a qualitative improvement claim do not establish a numeric coding reference. Await comparable public results.",
+        "sources": [
+          {
+            "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash",
+            "summary": "Official successor to Qwen3.6 Flash; no numerical benchmark comparison retrieved.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Fugu Ultra",
+        "reason": "The catalog route is unversioned multi-agent orchestration; current Fugu v2 results cannot be bound to that route or its underlying model pool. Await version binding.",
+        "sources": [
+          {
+            "url": "https://commandcode.ai/models/fugu-ultra",
+            "summary": "Unversioned sakana/fugu-ultra route; no observed scores.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://sakana.ai/fugu/",
+            "summary": "Current product documents v2; no verified equivalence to the catalog route.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      }
+    ]
+  },
+  "approximations": [
+    {
+      "model": "Laguna S 2.1",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "external-comparison",
+      "anchors": [
+        "inkling"
+      ],
+      "evidenceIds": [
+        "aa:inkling"
+      ],
+      "margin": 20,
+      "sources": [
+        {
+          "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+          "summary": "Laguna exceeds Inkling on the reported shared coding tests. Harness differences and transfer to AA v10 roles remain uncertain.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-27",
+      "scope": [
+        "implementer",
+        "implementer-heavy"
+      ],
+      "reason": "Vendor table includes Laguna and Inkling on Terminal-Bench 2.1 and SWE-bench Pro. Use the lower comparator without a benchmark-version conversion.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 12.47817,
+        "cutoffLowerBound": 0,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 24.7216,
+          "rankingQuality": 4.7216,
+          "rankingValue": 25,
+          "scoreRange": {
+            "lower": 4.7216,
+            "upper": 44.7216
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "inkling"
+            ],
+            "sources": [
+              {
+                "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+                "summary": "Laguna exceeds Inkling on the reported shared coding tests. Harness differences and transfer to AA v10 roles remain uncertain.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 20,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 100
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 21.749762,
+          "rankingQuality": 1.749762,
+          "rankingValue": 25,
+          "scoreRange": {
+            "lower": 1.749762,
+            "upper": 41.749762
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "inkling"
+            ],
+            "sources": [
+              {
+                "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+                "summary": "Laguna exceeds Inkling on the reported shared coding tests. Harness differences and transfer to AA v10 roles remain uncertain.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 20,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 100
+        }
+      }
+    },
+    {
+      "model": "Tencent Hy4 Preview",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "external-comparison",
+      "anchors": [
+        "glm-5-3"
+      ],
+      "evidenceIds": [
+        "aa:glm-5-3"
+      ],
+      "margin": 20,
+      "sources": [
+        {
+          "url": "https://huggingface.co/tencent/Hy4-preview",
+          "summary": "203 engineering tasks, 163 internal experts; average 2.99 versus GLM 5.3 at 2.92. Vendor evaluation, not AA.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-27",
+      "scope": [
+        "implementer",
+        "implementer-heavy"
+      ],
+      "reason": "Official blind engineering comparison with GLM 5.3 supports only coding-role analogies, without claiming general reasoning or factuality equivalence.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 31.653382,
+        "cutoffLowerBound": 11.653382,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 51.407385,
+          "rankingQuality": 31.407385,
+          "rankingValue": 36.574074074074076,
+          "scoreRange": {
+            "lower": 31.407385,
+            "upper": 71.407385
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "glm-5-3"
+            ],
+            "sources": [
+              {
+                "url": "https://huggingface.co/tencent/Hy4-preview",
+                "summary": "203 engineering tasks, 163 internal experts; average 2.99 versus GLM 5.3 at 2.92. Vendor evaluation, not AA.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 20,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 27.77777777777778,
+          "balancedAffordabilityPercentile": 62.96296296296296
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 52.366795,
+          "rankingQuality": 32.366795,
+          "rankingValue": 31.01851851851852,
+          "scoreRange": {
+            "lower": 32.366795,
+            "upper": 72.366795
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "glm-5-3"
+            ],
+            "sources": [
+              {
+                "url": "https://huggingface.co/tencent/Hy4-preview",
+                "summary": "203 engineering tasks, 163 internal experts; average 2.99 versus GLM 5.3 at 2.92. Vendor evaluation, not AA.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 20,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 20.37037037037037,
+          "balancedAffordabilityPercentile": 62.96296296296296
+        }
+      }
+    },
+    {
+      "model": "Ornith 1.5 122B",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "external-comparison",
+      "anchors": [
+        "qwen3-8-27b",
+        "nemotron-3-5-super-vl"
+      ],
+      "evidenceIds": [
+        "aa:qwen3-8-27b",
+        "aa:nemotron-3-5-super-vl"
+      ],
+      "margin": 20,
+      "sources": [
+        {
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+          "summary": "Developer-reported TerminalBench 2.1, SWE-bench and SciCode comparisons; CyberGym is not Cyber Index and is never transferred.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-27",
+      "scope": [
+        "implementer",
+        "implementer-heavy",
+        "code-reviewer"
+      ],
+      "reason": "Vendor table compares coding, SciCode and agentic tasks with the observed anchors. Use their minimum with a wide haircut; keep all raw target benchmark fields absent.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 13.620342,
+        "cutoffLowerBound": 0,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 21.858434,
+          "rankingQuality": 1.858434,
+          "rankingValue": 25,
+          "scoreRange": {
+            "lower": 1.858434,
+            "upper": 48.921378
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-27b",
+              "nemotron-3-5-super-vl"
+            ],
+            "sources": [
+              {
+                "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+                "summary": "Developer-reported TerminalBench 2.1, SWE-bench and SciCode comparisons; CyberGym is not Cyber Index and is never transferred.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 20,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 100
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 22.5283,
+          "rankingQuality": 2.5283,
+          "rankingValue": 25,
+          "scoreRange": {
+            "lower": 2.5283,
+            "upper": 54.521725
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-27b",
+              "nemotron-3-5-super-vl"
+            ],
+            "sources": [
+              {
+                "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+                "summary": "Developer-reported TerminalBench 2.1, SWE-bench and SciCode comparisons; CyberGym is not Cyber Index and is never transferred.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 20,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 100
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 35.425278,
+          "rankingQuality": 15.425278,
+          "rankingValue": 25,
+          "scoreRange": {
+            "lower": 15.425278,
+            "upper": 59.36
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-27b",
+              "nemotron-3-5-super-vl"
+            ],
+            "sources": [
+              {
+                "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+                "summary": "Developer-reported TerminalBench 2.1, SWE-bench and SciCode comparisons; CyberGym is not Cyber Index and is never transferred.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 20,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 100
+        }
+      }
+    },
+    {
+      "model": "Qwen 3.8 Omni Flash",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "related-architecture",
+      "anchors": [
+        "qwen3-8-flash-next"
+      ],
+      "evidenceIds": [
+        "aa:qwen3-8-flash-next"
+      ],
+      "margin": 15,
+      "sources": [
+        {
+          "url": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+          "summary": "Official model is built on Qwen3.8 Flash Next architecture; this does not establish identical evaluation results.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-27",
+      "scope": [
+        "implementer",
+        "implementer-heavy"
+      ],
+      "reason": "Official related architecture supports a conservative coding analogy; multimodal transfer and exact serving weights remain uncertain.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "unavailable",
+        "referenceVersion": "5.0",
+        "estimate": null,
+        "cutoffLowerBound": null,
+        "reason": "All anchor Intelligence observations must be available; no residual estimator or cross-version substitution"
+      },
+      "roles": {
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 40.774855,
+          "rankingQuality": 25.774855,
+          "rankingValue": 31.944444444444443,
+          "scoreRange": {
+            "lower": 25.774855,
+            "upper": 55.774855
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-flash-next"
+            ],
+            "sources": [
+              {
+                "url": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+                "summary": "Official model is built on Qwen3.8 Flash Next architecture; this does not establish identical evaluation results.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 15,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 12.962962962962962,
+          "balancedAffordabilityPercentile": 88.88888888888889
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 46.092845,
+          "rankingQuality": 31.092845,
+          "rankingValue": 37.5,
+          "scoreRange": {
+            "lower": 31.092845,
+            "upper": 61.092845
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-flash-next"
+            ],
+            "sources": [
+              {
+                "url": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+                "summary": "Official model is built on Qwen3.8 Flash Next architecture; this does not establish identical evaluation results.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 15,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 20.37037037037037,
+          "balancedAffordabilityPercentile": 88.88888888888889
+        }
+      }
+    },
+    {
+      "model": "Qwen 3.8 Max Prime",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "serving-variant",
+      "anchors": [
+        "qwen3-8-max"
+      ],
+      "evidenceIds": [
+        "aa:qwen3-8-max"
+      ],
+      "margin": 5,
+      "sources": [
+        {
+          "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+          "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-27",
+      "scope": [
+        "architect",
+        "strategist",
+        "code-reviewer",
+        "implementer",
+        "implementer-heavy",
+        "synthesizer",
+        "researcher"
+      ],
+      "reason": "Catalog describes a high-speed Qwen 3.8 Max offering; capacity equivalence is a heuristic until exact serving identity is verified.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 33.554563,
+        "cutoffLowerBound": 28.554563,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 50.999463,
+          "rankingQuality": 45.999463,
+          "rankingValue": 48.14814814814815,
+          "scoreRange": {
+            "lower": 45.999463,
+            "upper": 55.999463
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-max"
+            ],
+            "sources": [
+              {
+                "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+                "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 5,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 55.55555555555556,
+          "balancedAffordabilityPercentile": 25.92592592592593
+        },
+        "strategist": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 48.958497,
+          "rankingQuality": 43.958497,
+          "rankingValue": 41.91176470588235,
+          "scoreRange": {
+            "lower": 43.958497,
+            "upper": 53.958497
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-max"
+            ],
+            "sources": [
+              {
+                "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+                "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 5,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 44.11764705882353,
+          "balancedAffordabilityPercentile": 35.29411764705882
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 53.587778,
+          "rankingQuality": 48.587778,
+          "rankingValue": 35.294117647058826,
+          "scoreRange": {
+            "lower": 48.587778,
+            "upper": 58.587778
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-max"
+            ],
+            "sources": [
+              {
+                "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+                "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 5,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 35.294117647058826,
+          "balancedAffordabilityPercentile": 35.29411764705882
+        },
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 49.880985,
+          "rankingQuality": 44.880985,
+          "rankingValue": 52.31481481481482,
+          "scoreRange": {
+            "lower": 44.880985,
+            "upper": 54.880985
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-max"
+            ],
+            "sources": [
+              {
+                "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+                "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 5,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 61.111111111111114,
+          "balancedAffordabilityPercentile": 25.92592592592593
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 52.951417,
+          "rankingQuality": 47.951417,
+          "rankingValue": 56.481481481481474,
+          "scoreRange": {
+            "lower": 47.951417,
+            "upper": 57.951417
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-max"
+            ],
+            "sources": [
+              {
+                "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+                "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 5,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 66.66666666666666,
+          "balancedAffordabilityPercentile": 25.92592592592593
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 46.913333,
+          "rankingQuality": 41.913333,
+          "rankingValue": 28.676470588235297,
+          "scoreRange": {
+            "lower": 41.913333,
+            "upper": 51.913333
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-max"
+            ],
+            "sources": [
+              {
+                "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+                "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 5,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 26.47058823529412,
+          "balancedAffordabilityPercentile": 35.29411764705882
+        },
+        "researcher": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 49.350758,
+          "rankingQuality": 44.350758,
+          "rankingValue": 28.676470588235297,
+          "scoreRange": {
+            "lower": 44.350758,
+            "upper": 54.350758
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "qwen3-8-max"
+            ],
+            "sources": [
+              {
+                "url": "https://commandcode.ai/models/qwen3-8-max-prime",
+                "summary": "Catalog identifies Prime as high-speed Qwen 3.8 Max, without observed Intelligence or Coding scores.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 5,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 26.47058823529412,
+          "balancedAffordabilityPercentile": 35.29411764705882
+        }
+      }
+    }
+  ],
+  "remainingGaps": [
+    {
+      "model": "Glyph Cluster",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified AA benchmark identity; experimental proxies disabled",
+        "identityStatus": "stealth_unverified",
+        "externalSource": {
+          "label": "Vercel AI Gateway — Glyph Cluster",
+          "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway"
+        },
+        "externalEvidence": {
+          "label": "External GPQA Diamond subset",
+          "url": "https://stealthmodels.com/glyph-cluster",
+          "method": "Independent 55-question subset (31/55), not a full standardized GPQA Diamond run and not an AA score.",
+          "metrics": [
+            {
+              "name": "GPQA Diamond (55-question subset)",
+              "score": "56.4%"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "model": "Beam 1.0",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified AA benchmark identity; experimental proxies disabled",
+        "identityStatus": "stealth_unverified",
+        "externalSource": null,
+        "externalEvidence": null
+      }
+    },
+    {
+      "model": "Qwen 3.7 Flash",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified AA benchmark identity; experimental proxies disabled",
+        "identityStatus": "external_verified",
+        "externalSource": {
+          "label": "Alibaba Cloud Model Studio — qwen3.7-flash",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash"
+        },
+        "externalEvidence": null
+      }
+    },
+    {
+      "model": "Step 3.7 Flash",
+      "mapping": {
+        "slug": "step-3-7-flash",
+        "status": "source_incomplete",
+        "identityStatus": null
+      }
+    },
+    {
+      "model": "Claude Haiku 4.5",
+      "mapping": {
+        "slug": "claude-4-5-haiku",
+        "status": "source_incomplete",
+        "identityStatus": null
+      }
+    },
+    {
+      "model": "Fugu Ultra",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified AA benchmark identity; experimental proxies disabled",
+        "identityStatus": "external_verified",
+        "externalSource": {
+          "label": "OpenRouter — Sakana Fugu Ultra",
+          "url": "https://openrouter.ai/sakana/fugu-ultra"
+        },
+        "externalEvidence": null
+      }
+    },
+    {
+      "model": "Jev",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified AA benchmark identity; experimental proxies disabled",
+        "identityStatus": "external_verified_noncomparable",
+        "externalSource": {
+          "label": "OpenRouter — TypeSafe Jev",
+          "url": "https://openrouter.ai/typesafe"
+        },
+        "externalEvidence": null
+      }
+    },
+    {
+      "model": "Jev 1.14.0",
+      "mapping": {
+        "status": "unscored",
+        "reason": "No verified AA benchmark identity; experimental proxies disabled",
+        "identityStatus": "external_verified_noncomparable",
+        "externalSource": {
+          "label": "OpenRouter — TypeSafe Jev",
+          "url": "https://openrouter.ai/typesafe"
+        },
+        "externalEvidence": null
+      }
+    }
+  ],
   "roleCoverage": {
     "architect": {
-      "total": 76,
-      "present": 64,
-      "offers": 73,
-      "observedIntelligence": 29
+      "total": 49,
+      "present": 47,
+      "offers": 55,
+      "observedIntelligence": 28,
+      "estimatedOffers": 1
     },
     "strategist": {
-      "total": 76,
-      "present": 33,
-      "offers": 37,
-      "observedIntelligence": 29
+      "total": 49,
+      "present": 31,
+      "offers": 35,
+      "observedIntelligence": 28,
+      "estimatedOffers": 1
     },
     "security-reviewer": {
-      "total": 76,
+      "total": 49,
       "present": 19,
       "offers": 23,
-      "observedIntelligence": 14
+      "observedIntelligence": 14,
+      "estimatedOffers": 0
     },
     "code-reviewer": {
-      "total": 76,
-      "present": 33,
-      "offers": 37,
-      "observedIntelligence": 29
+      "total": 49,
+      "present": 31,
+      "offers": 35,
+      "observedIntelligence": 28,
+      "estimatedOffers": 2
     },
     "implementer": {
-      "total": 76,
-      "present": 64,
-      "offers": 73,
-      "observedIntelligence": 29
+      "total": 49,
+      "present": 47,
+      "offers": 55,
+      "observedIntelligence": 28,
+      "estimatedOffers": 5
     },
     "implementer-heavy": {
-      "total": 76,
-      "present": 64,
-      "offers": 73,
-      "observedIntelligence": 29
+      "total": 49,
+      "present": 47,
+      "offers": 55,
+      "observedIntelligence": 28,
+      "estimatedOffers": 5
     },
     "synthesizer": {
-      "total": 76,
-      "present": 33,
-      "offers": 37,
-      "observedIntelligence": 29
+      "total": 49,
+      "present": 31,
+      "offers": 35,
+      "observedIntelligence": 28,
+      "estimatedOffers": 1
     },
     "researcher": {
-      "total": 76,
-      "present": 33,
-      "offers": 37,
-      "observedIntelligence": 29
+      "total": 49,
+      "present": 31,
+      "offers": 35,
+      "observedIntelligence": 28,
+      "estimatedOffers": 1
     }
   },
   "rankings": {
     "architect": {
       "sameObservedCohort": {
-        "oldIdentities": 29,
-        "newIdentities": 29,
-        "commonIdentities": 29,
-        "spearman": 0.8735065961071532,
-        "kendallTauB": 0.7422940291508947,
+        "oldIdentities": 28,
+        "newIdentities": 28,
+        "commonIdentities": 28,
+        "spearman": 0.868208575257886,
+        "kendallTauB": 0.7284774601796234,
         "top5Overlap": 1,
         "top10Overlap": 0.7,
         "entered": [],
@@ -293,16 +1687,8 @@
             "oldStatus": "valid"
           },
           {
-            "slug": "gemini-3-5-flash-lite",
-            "from": 28,
-            "to": 29,
-            "oldQuality": 39.36,
-            "newQuality": 23.880222,
-            "oldStatus": "valid"
-          },
-          {
             "slug": "gpt-6-1-terra",
-            "from": 29,
+            "from": 28,
             "to": 13,
             "oldQuality": 34.505,
             "newQuality": 48.595786,
@@ -312,58 +1698,46 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 64,
-        "commonIdentities": 33,
-        "spearman": 0.7025988158565788,
-        "kendallTauB": 0.5706163700799615,
+        "newIdentities": 48,
+        "commonIdentities": 31,
+        "spearman": 0.7343482243187066,
+        "kendallTauB": 0.5941876424108556,
         "top5Overlap": 1,
         "top10Overlap": 0.7,
         "entered": [
           "claude-opus-5",
           "claude-fable-5",
-          "gpt-5-6-sol",
           "kimi-k3",
           "gpt-6-sol",
           "grok-4-6",
-          "gpt-5-6-luna",
+          "estimated:Qwen 3.8 Max Prime",
           "deepseek-v4-1-flash",
-          "claude-opus-4-8",
           "deepseek-v4-flash-vision",
           "ling-3-1-flash",
           "muse-spark-1-2",
           "claude-sonnet-5",
-          "grok-4-5",
-          "gpt-5-5",
-          "gemini-3-7-flash",
           "deepseek-v4-flash",
           "glm-5-2",
-          "gemini-3-6-flash",
-          "gemini-3-5-flash",
           "hy3",
-          "muse-spark-1-1",
           "qwen3-7-max",
           "qwen3-7-plus",
-          "kimi-k2-6",
-          "glm-5-1",
-          "kimi-k2-7-code",
-          "gpt-5-4-mini",
-          "minimax-m2-7",
-          "longcat-2-0",
-          "gemini-3-1-flash-lite-preview"
+          "longcat-2-0"
         ],
         "exited": [
           "experimental:qwen38maxprime",
-          "experimental:qwen38omniflash"
+          "experimental:qwen38omniflash",
+          "gemini-3-5-flash-lite",
+          "gpt-5-6-terra"
         ]
       },
       "byMode": {
         "balanced": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8240946045824095,
-            "kendallTauB": 0.6765432098765433,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8156057571287025,
+            "kendallTauB": 0.6560430751922496,
             "top5Overlap": 0.6,
             "top10Overlap": 0.8,
             "entered": [],
@@ -371,58 +1745,46 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 64,
-            "commonIdentities": 33,
-            "spearman": 0.53551730649394,
-            "kendallTauB": 0.4250482035519988,
-            "top5Overlap": 0.4,
-            "top10Overlap": 0.6,
+            "newIdentities": 48,
+            "commonIdentities": 31,
+            "spearman": 0.6116769215327031,
+            "kendallTauB": 0.47464968286292036,
+            "top5Overlap": 0.6,
+            "top10Overlap": 0.7,
             "entered": [
               "claude-opus-5",
               "kimi-k3",
-              "gpt-5-6-sol",
               "claude-fable-5",
-              "gpt-5-6-luna",
               "gpt-6-sol",
               "deepseek-v4-1-flash",
-              "deepseek-v4-flash-vision",
               "grok-4-6",
+              "deepseek-v4-flash-vision",
               "muse-spark-1-2",
+              "estimated:Qwen 3.8 Max Prime",
               "ling-3-1-flash",
               "deepseek-v4-flash",
-              "claude-opus-4-8",
-              "gemini-3-7-flash",
               "claude-sonnet-5",
-              "grok-4-5",
               "hy3",
               "glm-5-2",
-              "gpt-5-5",
               "qwen3-7-plus",
-              "gemini-3-6-flash",
-              "gemini-3-5-flash",
-              "muse-spark-1-1",
-              "kimi-k2-6",
-              "glm-5-1",
-              "kimi-k2-7-code",
               "longcat-2-0",
-              "minimax-m2-7",
-              "qwen3-7-max",
-              "gpt-5-4-mini",
-              "gemini-3-1-flash-lite-preview"
+              "qwen3-7-max"
             ],
             "exited": [
               "experimental:qwen38maxprime",
-              "experimental:qwen38omniflash"
+              "experimental:qwen38omniflash",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         },
         "budget": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8862600728843646,
-            "kendallTauB": 0.757428062901992,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8921140439654832,
+            "kendallTauB": 0.7569781192451159,
             "top5Overlap": 1,
             "top10Overlap": 0.9,
             "entered": [],
@@ -430,48 +1792,36 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 64,
-            "commonIdentities": 33,
-            "spearman": 0.8117372698105653,
-            "kendallTauB": 0.629883436270204,
+            "newIdentities": 48,
+            "commonIdentities": 31,
+            "spearman": 0.7894312864960642,
+            "kendallTauB": 0.5982777200109243,
             "top5Overlap": 0.6,
             "top10Overlap": 0.7,
             "entered": [
               "deepseek-v4-1-flash",
               "muse-spark-1-2",
               "deepseek-v4-flash-vision",
-              "gpt-5-6-luna",
               "deepseek-v4-flash",
               "ling-3-1-flash",
-              "hy3",
               "kimi-k3",
-              "gemini-3-7-flash",
+              "hy3",
               "longcat-2-0",
               "gpt-6-sol",
-              "qwen3-7-plus",
               "grok-4-6",
-              "gpt-5-6-sol",
-              "minimax-m2-7",
               "claude-opus-5",
-              "kimi-k2-6",
-              "gemini-3-1-flash-lite-preview",
+              "qwen3-7-plus",
               "glm-5-2",
-              "gpt-5-4-mini",
-              "kimi-k2-7-code",
-              "grok-4-5",
+              "estimated:Qwen 3.8 Max Prime",
               "claude-fable-5",
-              "gemini-3-6-flash",
-              "muse-spark-1-1",
-              "glm-5-1",
-              "gemini-3-5-flash",
               "claude-sonnet-5",
-              "claude-opus-4-8",
-              "qwen3-7-max",
-              "gpt-5-5"
+              "qwen3-7-max"
             ],
             "exited": [
               "experimental:qwen38omniflash",
-              "experimental:qwen38maxprime"
+              "experimental:qwen38maxprime",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         }
@@ -479,11 +1829,11 @@
     },
     "strategist": {
       "sameObservedCohort": {
-        "oldIdentities": 29,
-        "newIdentities": 29,
-        "commonIdentities": 29,
-        "spearman": 0.870935960591133,
-        "kendallTauB": 0.7438423645320197,
+        "oldIdentities": 28,
+        "newIdentities": 28,
+        "commonIdentities": 28,
+        "spearman": 0.8680897646414888,
+        "kendallTauB": 0.7354497354497355,
         "top5Overlap": 0.8,
         "top10Overlap": 0.9,
         "entered": [],
@@ -684,7 +2034,7 @@
           {
             "slug": "nvidia-nemotron-3-ultra-550b-a55b",
             "from": 25,
-            "to": 29,
+            "to": 28,
             "oldQuality": 46.274,
             "newQuality": 20.283236,
             "oldStatus": "valid"
@@ -706,16 +2056,8 @@
             "oldStatus": "valid"
           },
           {
-            "slug": "gemini-3-5-flash-lite",
-            "from": 28,
-            "to": 28,
-            "oldQuality": 45.44,
-            "newQuality": 20.557207,
-            "oldStatus": "valid"
-          },
-          {
             "slug": "gpt-6-1-terra",
-            "from": 29,
+            "from": 28,
             "to": 11,
             "oldQuality": 39.965,
             "newQuality": 47.98961,
@@ -725,26 +2067,30 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 33,
-        "commonIdentities": 33,
-        "spearman": 0.7082219251336899,
-        "kendallTauB": 0.5795454545454546,
+        "newIdentities": 32,
+        "commonIdentities": 31,
+        "spearman": 0.7274193548387097,
+        "kendallTauB": 0.5956989247311828,
         "top5Overlap": 0.8,
         "top10Overlap": 0.9,
-        "entered": [],
+        "entered": [
+          "estimated:Qwen 3.8 Max Prime"
+        ],
         "exited": [
           "experimental:qwen38maxprime",
-          "experimental:qwen38omniflash"
+          "experimental:qwen38omniflash",
+          "gemini-3-5-flash-lite",
+          "gpt-5-6-terra"
         ]
       },
       "byMode": {
         "balanced": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8194256692354299,
-            "kendallTauB": 0.6650144542958764,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.806902248837108,
+            "kendallTauB": 0.6631164334076777,
             "top5Overlap": 0.8,
             "top10Overlap": 0.7,
             "entered": [],
@@ -752,43 +2098,51 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.6141628006023192,
-            "kendallTauB": 0.4647694928972027,
+            "newIdentities": 32,
+            "commonIdentities": 31,
+            "spearman": 0.609121256002315,
+            "kendallTauB": 0.47072026503244374,
             "top5Overlap": 0.8,
             "top10Overlap": 0.7,
-            "entered": [],
+            "entered": [
+              "estimated:Qwen 3.8 Max Prime"
+            ],
             "exited": [
               "experimental:qwen38maxprime",
-              "experimental:qwen38omniflash"
+              "experimental:qwen38omniflash",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         },
         "budget": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8863972669334715,
-            "kendallTauB": 0.7871311241922663,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.9094644654545343,
+            "kendallTauB": 0.8090794927993474,
             "top5Overlap": 1,
-            "top10Overlap": 0.9,
+            "top10Overlap": 0.8,
             "entered": [],
             "exited": []
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.8436272726523735,
-            "kendallTauB": 0.6704680581708699,
+            "newIdentities": 32,
+            "commonIdentities": 31,
+            "spearman": 0.8178243816135843,
+            "kendallTauB": 0.6458561330552779,
             "top5Overlap": 0.6,
             "top10Overlap": 0.7,
-            "entered": [],
+            "entered": [
+              "estimated:Qwen 3.8 Max Prime"
+            ],
             "exited": [
               "experimental:qwen38omniflash",
-              "experimental:qwen38maxprime"
+              "experimental:qwen38maxprime",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         }
@@ -996,11 +2350,11 @@
     },
     "code-reviewer": {
       "sameObservedCohort": {
-        "oldIdentities": 29,
-        "newIdentities": 29,
-        "commonIdentities": 29,
-        "spearman": 0.8763546798029557,
-        "kendallTauB": 0.7980295566502463,
+        "oldIdentities": 28,
+        "newIdentities": 28,
+        "commonIdentities": 28,
+        "spearman": 0.8653530377668309,
+        "kendallTauB": 0.7936507936507936,
         "top5Overlap": 0.8,
         "top10Overlap": 0.9,
         "entered": [],
@@ -1209,7 +2563,7 @@
           {
             "slug": "nemotron-3-5-super-vl",
             "from": 26,
-            "to": 29,
+            "to": 28,
             "oldQuality": 42.446,
             "newQuality": 35.425278,
             "oldStatus": "valid"
@@ -1217,7 +2571,7 @@
           {
             "slug": "nvidia-nemotron-3-ultra-550b-a55b",
             "from": 27,
-            "to": 28,
+            "to": 27,
             "oldQuality": 40.837,
             "newQuality": 35.884268,
             "oldStatus": "valid"
@@ -1229,39 +2583,36 @@
             "oldQuality": 40.245,
             "newQuality": 62.223056,
             "oldStatus": "partial"
-          },
-          {
-            "slug": "gemini-3-5-flash-lite",
-            "from": 29,
-            "to": 27,
-            "oldQuality": 39.713,
-            "newQuality": 35.964369,
-            "oldStatus": "valid"
           }
         ]
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
         "newIdentities": 33,
-        "commonIdentities": 33,
-        "spearman": 0.7443181818181818,
-        "kendallTauB": 0.6363636363636364,
+        "commonIdentities": 31,
+        "spearman": 0.7774193548387097,
+        "kendallTauB": 0.6731182795698925,
         "top5Overlap": 0.8,
         "top10Overlap": 0.9,
-        "entered": [],
+        "entered": [
+          "estimated:Qwen 3.8 Max Prime",
+          "estimated:Ornith 1.5 122B"
+        ],
         "exited": [
           "experimental:qwen38maxprime",
+          "gemini-3-5-flash-lite",
+          "gpt-5-6-terra",
           "experimental:qwen38omniflash"
         ]
       },
       "byMode": {
         "balanced": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.83503763249208,
-            "kendallTauB": 0.7490780799793247,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8288140546439542,
+            "kendallTauB": 0.7466693214956406,
             "top5Overlap": 0.6,
             "top10Overlap": 0.8,
             "entered": [],
@@ -1270,42 +2621,52 @@
           "publishedToExpanded": {
             "oldIdentities": 35,
             "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.7005016820351798,
-            "kendallTauB": 0.5853196177210629,
+            "commonIdentities": 31,
+            "spearman": 0.734187464267521,
+            "kendallTauB": 0.6197215833179646,
             "top5Overlap": 0.8,
             "top10Overlap": 0.8,
-            "entered": [],
+            "entered": [
+              "estimated:Qwen 3.8 Max Prime",
+              "estimated:Ornith 1.5 122B"
+            ],
             "exited": [
               "experimental:qwen38maxprime",
-              "experimental:qwen38omniflash"
+              "gemini-3-5-flash-lite",
+              "experimental:qwen38omniflash",
+              "gpt-5-6-terra"
             ]
           }
         },
         "budget": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8950222055886485,
-            "kendallTauB": 0.8217846956975862,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8727572302324841,
+            "kendallTauB": 0.8010745165334506,
             "top5Overlap": 0.8,
-            "top10Overlap": 0.9,
+            "top10Overlap": 0.8,
             "entered": [],
             "exited": []
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
             "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.8098262032085561,
-            "kendallTauB": 0.6704545454545454,
+            "commonIdentities": 31,
+            "spearman": 0.8231498453308226,
+            "kendallTauB": 0.6831912418067106,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
-            "entered": [],
+            "entered": [
+              "estimated:Ornith 1.5 122B",
+              "estimated:Qwen 3.8 Max Prime"
+            ],
             "exited": [
               "experimental:qwen38omniflash",
-              "experimental:qwen38maxprime"
+              "experimental:qwen38maxprime",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         }
@@ -1313,11 +2674,11 @@
     },
     "implementer": {
       "sameObservedCohort": {
-        "oldIdentities": 29,
-        "newIdentities": 29,
-        "commonIdentities": 29,
-        "spearman": 0.8512315270935961,
-        "kendallTauB": 0.7339901477832512,
+        "oldIdentities": 28,
+        "newIdentities": 28,
+        "commonIdentities": 28,
+        "spearman": 0.836343732895457,
+        "kendallTauB": 0.7195767195767195,
         "top5Overlap": 0.6,
         "top10Overlap": 0.9,
         "entered": [],
@@ -1526,7 +2887,7 @@
           {
             "slug": "nemotron-3-5-super-vl",
             "from": 26,
-            "to": 29,
+            "to": 28,
             "oldQuality": 42.31,
             "newQuality": 21.858434,
             "oldStatus": "valid"
@@ -1546,71 +2907,55 @@
             "oldQuality": 39.279,
             "newQuality": 60.936979,
             "oldStatus": "partial"
-          },
-          {
-            "slug": "gemini-3-5-flash-lite",
-            "from": 29,
-            "to": 28,
-            "oldQuality": 38.559,
-            "newQuality": 22.428118,
-            "oldStatus": "valid"
           }
         ]
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 64,
-        "commonIdentities": 33,
-        "spearman": 0.7232620320855615,
-        "kendallTauB": 0.5871212121212122,
+        "newIdentities": 52,
+        "commonIdentities": 31,
+        "spearman": 0.7540322580645161,
+        "kendallTauB": 0.6129032258064516,
         "top5Overlap": 0.6,
         "top10Overlap": 0.9,
         "entered": [
           "claude-opus-5",
           "gpt-6-sol",
           "claude-fable-5",
-          "gpt-5-6-sol",
           "ling-3-1-flash",
+          "estimated:Qwen 3.8 Max Prime",
           "deepseek-v4-1-flash",
-          "claude-opus-4-8",
           "grok-4-6",
           "kimi-k3",
-          "gpt-5-5",
-          "gemini-3-7-flash",
           "claude-sonnet-5",
-          "gpt-5-6-luna",
           "deepseek-v4-flash",
           "deepseek-v4-flash-vision",
-          "grok-4-5",
+          "estimated:Tencent Hy4 Preview",
           "muse-spark-1-2",
-          "gemini-3-6-flash",
-          "muse-spark-1-1",
-          "gemini-3-5-flash",
           "qwen3-7-max",
           "glm-5-2",
-          "kimi-k2-6",
-          "kimi-k2-7-code",
+          "estimated:Qwen 3.8 Omni Flash",
           "hy3",
-          "gpt-5-4-mini",
           "qwen3-7-plus",
-          "glm-5-1",
-          "minimax-m2-7",
-          "gemini-3-1-flash-lite-preview",
-          "longcat-2-0"
+          "longcat-2-0",
+          "estimated:Laguna S 2.1",
+          "estimated:Ornith 1.5 122B"
         ],
         "exited": [
           "experimental:qwen38maxprime",
+          "gpt-5-6-terra",
+          "gemini-3-5-flash-lite",
           "experimental:qwen38omniflash"
         ]
       },
       "byMode": {
         "balanced": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.7769287650973625,
-            "kendallTauB": 0.6600496277915633,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.7681139641971428,
+            "kendallTauB": 0.6488657318489816,
             "top5Overlap": 0.2,
             "top10Overlap": 0.8,
             "entered": [],
@@ -1618,58 +2963,50 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 64,
-            "commonIdentities": 33,
-            "spearman": 0.6448809229032806,
-            "kendallTauB": 0.5299166805373164,
+            "newIdentities": 52,
+            "commonIdentities": 31,
+            "spearman": 0.6598083745106648,
+            "kendallTauB": 0.5405408564154941,
             "top5Overlap": 0.4,
-            "top10Overlap": 0.7,
+            "top10Overlap": 0.8,
             "entered": [
-              "deepseek-v4-1-flash",
-              "ling-3-1-flash",
               "gpt-6-sol",
               "claude-opus-5",
-              "gpt-5-6-sol",
+              "ling-3-1-flash",
+              "deepseek-v4-1-flash",
               "claude-fable-5",
+              "estimated:Qwen 3.8 Max Prime",
               "deepseek-v4-flash",
-              "deepseek-v4-flash-vision",
-              "gemini-3-7-flash",
-              "gpt-5-6-luna",
               "grok-4-6",
+              "deepseek-v4-flash-vision",
               "muse-spark-1-2",
-              "claude-opus-4-8",
               "kimi-k3",
+              "estimated:Tencent Hy4 Preview",
               "claude-sonnet-5",
-              "gpt-5-5",
-              "grok-4-5",
-              "gemini-3-6-flash",
-              "muse-spark-1-1",
+              "estimated:Qwen 3.8 Omni Flash",
               "hy3",
-              "gemini-3-5-flash",
-              "kimi-k2-6",
+              "estimated:Laguna S 2.1",
+              "estimated:Ornith 1.5 122B",
               "glm-5-2",
-              "kimi-k2-7-code",
-              "gpt-5-4-mini",
-              "qwen3-7-max",
-              "qwen3-7-plus",
-              "minimax-m2-7",
               "longcat-2-0",
-              "gemini-3-1-flash-lite-preview",
-              "glm-5-1"
+              "qwen3-7-max",
+              "qwen3-7-plus"
             ],
             "exited": [
               "experimental:qwen38maxprime",
-              "experimental:qwen38omniflash"
+              "experimental:qwen38omniflash",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         },
         "budget": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8730745599253079,
-            "kendallTauB": 0.7558865778579836,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.862970576189886,
+            "kendallTauB": 0.7463485997126401,
             "top5Overlap": 0.8,
             "top10Overlap": 0.9,
             "entered": [],
@@ -1677,10 +3014,10 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 64,
-            "commonIdentities": 33,
-            "spearman": 0.8220643572380173,
-            "kendallTauB": 0.6742643116463086,
+            "newIdentities": 52,
+            "commonIdentities": 31,
+            "spearman": 0.8176043557168784,
+            "kendallTauB": 0.6573275862068966,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
             "entered": [
@@ -1689,36 +3026,28 @@
               "deepseek-v4-flash",
               "muse-spark-1-2",
               "deepseek-v4-flash-vision",
-              "gpt-5-6-luna",
-              "gemini-3-7-flash",
+              "estimated:Laguna S 2.1",
+              "estimated:Ornith 1.5 122B",
+              "estimated:Qwen 3.8 Omni Flash",
+              "gpt-6-sol",
               "hy3",
               "longcat-2-0",
-              "gpt-6-sol",
-              "minimax-m2-7",
-              "gpt-5-6-sol",
-              "kimi-k2-6",
-              "qwen3-7-plus",
-              "gemini-3-1-flash-lite-preview",
-              "grok-4-6",
+              "estimated:Tencent Hy4 Preview",
               "claude-opus-5",
-              "gpt-5-4-mini",
-              "kimi-k2-7-code",
-              "muse-spark-1-1",
+              "grok-4-6",
+              "qwen3-7-plus",
+              "estimated:Qwen 3.8 Max Prime",
               "kimi-k3",
               "glm-5-2",
-              "gemini-3-6-flash",
-              "grok-4-5",
               "claude-fable-5",
-              "gemini-3-5-flash",
               "claude-sonnet-5",
-              "glm-5-1",
-              "claude-opus-4-8",
-              "gpt-5-5",
               "qwen3-7-max"
             ],
             "exited": [
               "experimental:qwen38omniflash",
-              "experimental:qwen38maxprime"
+              "experimental:qwen38maxprime",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         }
@@ -1726,11 +3055,11 @@
     },
     "implementer-heavy": {
       "sameObservedCohort": {
-        "oldIdentities": 29,
-        "newIdentities": 29,
-        "commonIdentities": 29,
-        "spearman": 0.8610837438423645,
-        "kendallTauB": 0.7586206896551724,
+        "oldIdentities": 28,
+        "newIdentities": 28,
+        "commonIdentities": 28,
+        "spearman": 0.8565955117679256,
+        "kendallTauB": 0.746031746031746,
         "top5Overlap": 0.8,
         "top10Overlap": 0.8,
         "entered": [],
@@ -1953,16 +3282,8 @@
             "oldStatus": "valid"
           },
           {
-            "slug": "gemini-3-5-flash-lite",
-            "from": 28,
-            "to": 29,
-            "oldQuality": 38.205,
-            "newQuality": 18.298095,
-            "oldStatus": "valid"
-          },
-          {
             "slug": "gpt-6-1-terra",
-            "from": 29,
+            "from": 28,
             "to": 9,
             "oldQuality": 30.611,
             "newQuality": 57.312734,
@@ -1972,58 +3293,50 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 64,
-        "commonIdentities": 33,
-        "spearman": 0.7092245989304813,
-        "kendallTauB": 0.5833333333333334,
+        "newIdentities": 52,
+        "commonIdentities": 31,
+        "spearman": 0.7540322580645161,
+        "kendallTauB": 0.621505376344086,
         "top5Overlap": 0.8,
         "top10Overlap": 0.8,
         "entered": [
           "claude-opus-5",
           "claude-fable-5",
           "gpt-6-sol",
-          "gpt-5-6-sol",
+          "estimated:Qwen 3.8 Max Prime",
           "ling-3-1-flash",
           "deepseek-v4-1-flash",
           "grok-4-6",
           "kimi-k3",
-          "claude-opus-4-8",
           "deepseek-v4-flash-vision",
           "claude-sonnet-5",
-          "gpt-5-6-luna",
           "deepseek-v4-flash",
-          "gpt-5-5",
-          "grok-4-5",
           "muse-spark-1-2",
-          "gemini-3-7-flash",
+          "estimated:Tencent Hy4 Preview",
+          "estimated:Qwen 3.8 Omni Flash",
           "glm-5-2",
-          "gemini-3-6-flash",
-          "muse-spark-1-1",
-          "gemini-3-5-flash",
           "hy3",
           "qwen3-7-max",
-          "glm-5-1",
-          "kimi-k2-7-code",
           "qwen3-7-plus",
-          "kimi-k2-6",
-          "gpt-5-4-mini",
-          "minimax-m2-7",
           "longcat-2-0",
-          "gemini-3-1-flash-lite-preview"
+          "estimated:Ornith 1.5 122B",
+          "estimated:Laguna S 2.1"
         ],
         "exited": [
           "experimental:qwen38maxprime",
-          "experimental:qwen38omniflash"
+          "gemini-3-5-flash-lite",
+          "experimental:qwen38omniflash",
+          "gpt-5-6-terra"
         ]
       },
       "byMode": {
         "balanced": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8068251878403001,
-            "kendallTauB": 0.7144628449589201,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8082979673202975,
+            "kendallTauB": 0.7004000882980692,
             "top5Overlap": 0.4,
             "top10Overlap": 0.9,
             "entered": [],
@@ -2031,107 +3344,91 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 64,
-            "commonIdentities": 33,
-            "spearman": 0.522157256342429,
-            "kendallTauB": 0.4404244501203612,
-            "top5Overlap": 0.4,
-            "top10Overlap": 0.7,
+            "newIdentities": 52,
+            "commonIdentities": 31,
+            "spearman": 0.6119855842770447,
+            "kendallTauB": 0.5070496933050352,
+            "top5Overlap": 0.2,
+            "top10Overlap": 0.8,
             "entered": [
+              "claude-opus-5",
+              "gpt-6-sol",
               "ling-3-1-flash",
               "deepseek-v4-1-flash",
-              "gpt-6-sol",
-              "claude-opus-5",
               "claude-fable-5",
-              "gpt-5-6-sol",
+              "estimated:Qwen 3.8 Max Prime",
               "deepseek-v4-flash-vision",
-              "deepseek-v4-flash",
-              "gpt-5-6-luna",
               "grok-4-6",
+              "deepseek-v4-flash",
               "muse-spark-1-2",
               "kimi-k3",
+              "estimated:Qwen 3.8 Omni Flash",
               "claude-sonnet-5",
-              "claude-opus-4-8",
-              "gemini-3-7-flash",
+              "estimated:Tencent Hy4 Preview",
               "hy3",
-              "grok-4-5",
               "glm-5-2",
-              "gpt-5-5",
-              "gemini-3-6-flash",
-              "muse-spark-1-1",
-              "gemini-3-5-flash",
-              "glm-5-1",
-              "qwen3-7-plus",
-              "kimi-k2-7-code",
+              "estimated:Laguna S 2.1",
+              "estimated:Ornith 1.5 122B",
               "longcat-2-0",
-              "kimi-k2-6",
-              "minimax-m2-7",
-              "qwen3-7-max",
-              "gpt-5-4-mini",
-              "gemini-3-1-flash-lite-preview"
+              "qwen3-7-plus",
+              "qwen3-7-max"
             ],
             "exited": [
               "experimental:qwen38maxprime",
-              "experimental:qwen38omniflash"
+              "experimental:qwen38omniflash",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         },
         "budget": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8962288493513774,
-            "kendallTauB": 0.7990172837983566,
-            "top5Overlap": 1,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8805807949542325,
+            "kendallTauB": 0.7840111504600993,
+            "top5Overlap": 0.8,
             "top10Overlap": 0.9,
             "entered": [],
             "exited": []
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 64,
-            "commonIdentities": 33,
-            "spearman": 0.781315286424716,
-            "kendallTauB": 0.6085310790553742,
+            "newIdentities": 52,
+            "commonIdentities": 31,
+            "spearman": 0.7809255004904861,
+            "kendallTauB": 0.6071047650719612,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
             "entered": [
               "deepseek-v4-1-flash",
               "deepseek-v4-flash-vision",
               "ling-3-1-flash",
-              "deepseek-v4-flash",
               "muse-spark-1-2",
-              "gpt-5-6-luna",
+              "deepseek-v4-flash",
+              "estimated:Qwen 3.8 Omni Flash",
+              "estimated:Laguna S 2.1",
+              "estimated:Ornith 1.5 122B",
               "hy3",
-              "longcat-2-0",
-              "gemini-3-7-flash",
               "gpt-6-sol",
-              "minimax-m2-7",
-              "qwen3-7-plus",
-              "grok-4-6",
-              "gpt-5-6-sol",
+              "longcat-2-0",
+              "estimated:Tencent Hy4 Preview",
               "claude-opus-5",
-              "gemini-3-1-flash-lite-preview",
-              "glm-5-2",
-              "kimi-k2-6",
+              "grok-4-6",
+              "estimated:Qwen 3.8 Max Prime",
+              "qwen3-7-plus",
               "kimi-k3",
-              "kimi-k2-7-code",
-              "gpt-5-4-mini",
-              "muse-spark-1-1",
-              "glm-5-1",
-              "gemini-3-6-flash",
-              "claude-sonnet-5",
+              "glm-5-2",
               "claude-fable-5",
-              "grok-4-5",
-              "gemini-3-5-flash",
-              "claude-opus-4-8",
-              "gpt-5-5",
+              "claude-sonnet-5",
               "qwen3-7-max"
             ],
             "exited": [
               "experimental:qwen38omniflash",
-              "experimental:qwen38maxprime"
+              "gemini-3-5-flash-lite",
+              "experimental:qwen38maxprime",
+              "gpt-5-6-terra"
             ]
           }
         }
@@ -2139,11 +3436,11 @@
     },
     "synthesizer": {
       "sameObservedCohort": {
-        "oldIdentities": 29,
-        "newIdentities": 29,
-        "commonIdentities": 29,
-        "spearman": 0.9014778325123153,
-        "kendallTauB": 0.7339901477832512,
+        "oldIdentities": 28,
+        "newIdentities": 28,
+        "commonIdentities": 28,
+        "spearman": 0.9053092501368364,
+        "kendallTauB": 0.7407407407407407,
         "top5Overlap": 0.8,
         "top10Overlap": 0.8,
         "entered": [],
@@ -2272,7 +3569,7 @@
           {
             "slug": "glm-5-3",
             "from": 16,
-            "to": 22,
+            "to": 21,
             "oldQuality": 65.684,
             "newQuality": 40.861667,
             "oldStatus": "valid"
@@ -2312,7 +3609,7 @@
           {
             "slug": "deepseek-v4-pro",
             "from": 21,
-            "to": 25,
+            "to": 24,
             "oldQuality": 62.005,
             "newQuality": 39.258333,
             "oldStatus": "valid"
@@ -2320,7 +3617,7 @@
           {
             "slug": "minimax-m3",
             "from": 22,
-            "to": 24,
+            "to": 23,
             "oldQuality": 61.819,
             "newQuality": 39.335,
             "oldStatus": "valid"
@@ -2336,7 +3633,7 @@
           {
             "slug": "nvidia-nemotron-3-ultra-550b-a55b",
             "from": 24,
-            "to": 26,
+            "to": 25,
             "oldQuality": 60.236,
             "newQuality": 37.598333,
             "oldStatus": "valid"
@@ -2344,39 +3641,31 @@
           {
             "slug": "mimo-v2-6-flash",
             "from": 25,
-            "to": 28,
+            "to": 27,
             "oldQuality": 59.59,
             "newQuality": 36.008333,
             "oldStatus": "valid"
           },
           {
-            "slug": "gemini-3-5-flash-lite",
-            "from": 26,
-            "to": 21,
-            "oldQuality": 59.198,
-            "newQuality": 41.15,
-            "oldStatus": "valid"
-          },
-          {
             "slug": "inkling",
-            "from": 27,
-            "to": 23,
+            "from": 26,
+            "to": 22,
             "oldQuality": 58.821,
             "newQuality": 39.868333,
             "oldStatus": "valid"
           },
           {
             "slug": "inkling-small",
-            "from": 28,
-            "to": 27,
+            "from": 27,
+            "to": 26,
             "oldQuality": 56.836,
             "newQuality": 37.536667,
             "oldStatus": "valid"
           },
           {
             "slug": "nemotron-3-5-super-vl",
-            "from": 29,
-            "to": 29,
+            "from": 28,
+            "to": 28,
             "oldQuality": 55.445,
             "newQuality": 35.42,
             "oldStatus": "valid"
@@ -2385,26 +3674,30 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 33,
-        "commonIdentities": 33,
-        "spearman": 0.8392379679144385,
-        "kendallTauB": 0.6439393939393939,
+        "newIdentities": 32,
+        "commonIdentities": 31,
+        "spearman": 0.869758064516129,
+        "kendallTauB": 0.6817204301075269,
         "top5Overlap": 0.8,
         "top10Overlap": 0.8,
-        "entered": [],
+        "entered": [
+          "estimated:Qwen 3.8 Max Prime"
+        ],
         "exited": [
           "experimental:qwen38maxprime",
-          "experimental:qwen38omniflash"
+          "gemini-3-5-flash-lite",
+          "experimental:qwen38omniflash",
+          "gpt-5-6-terra"
         ]
       },
       "byMode": {
         "balanced": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8544109160246662,
-            "kendallTauB": 0.6883653027717375,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8615068816478475,
+            "kendallTauB": 0.7022703188324368,
             "top5Overlap": 0.6,
             "top10Overlap": 0.8,
             "entered": [],
@@ -2412,43 +3705,51 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.7809261225799058,
-            "kendallTauB": 0.5589363713095395,
+            "newIdentities": 32,
+            "commonIdentities": 31,
+            "spearman": 0.8027032642660158,
+            "kendallTauB": 0.6125555474884864,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
-            "entered": [],
+            "entered": [
+              "estimated:Qwen 3.8 Max Prime"
+            ],
             "exited": [
               "experimental:qwen38maxprime",
-              "experimental:qwen38omniflash"
+              "gemini-3-5-flash-lite",
+              "experimental:qwen38omniflash",
+              "gpt-5-6-terra"
             ]
           }
         },
         "budget": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.9360129999390562,
-            "kendallTauB": 0.7811041943148415,
-            "top5Overlap": 0.8,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.9319086992674182,
+            "kendallTauB": 0.7914551668738772,
+            "top5Overlap": 0.6,
             "top10Overlap": 0.8,
             "entered": [],
             "exited": []
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.9241057019328199,
-            "kendallTauB": 0.7604617709126885,
-            "top5Overlap": 0.8,
+            "newIdentities": 32,
+            "commonIdentities": 31,
+            "spearman": 0.9329166050343595,
+            "kendallTauB": 0.7814017557062662,
+            "top5Overlap": 0.6,
             "top10Overlap": 0.8,
-            "entered": [],
+            "entered": [
+              "estimated:Qwen 3.8 Max Prime"
+            ],
             "exited": [
               "experimental:qwen38omniflash",
-              "experimental:qwen38maxprime"
+              "experimental:qwen38maxprime",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         }
@@ -2456,11 +3757,11 @@
     },
     "researcher": {
       "sameObservedCohort": {
-        "oldIdentities": 29,
-        "newIdentities": 29,
-        "commonIdentities": 29,
-        "spearman": 0.8768472906403941,
-        "kendallTauB": 0.7586206896551724,
+        "oldIdentities": 28,
+        "newIdentities": 28,
+        "commonIdentities": 28,
+        "spearman": 0.8697318007662835,
+        "kendallTauB": 0.7566137566137566,
         "top5Overlap": 0.6,
         "top10Overlap": 0.8,
         "entered": [],
@@ -2637,7 +3938,7 @@
           {
             "slug": "mimo-v2-6-flash",
             "from": 22,
-            "to": 28,
+            "to": 27,
             "oldQuality": 57.139,
             "newQuality": 39.444922,
             "oldStatus": "valid"
@@ -2661,7 +3962,7 @@
           {
             "slug": "nvidia-nemotron-3-ultra-550b-a55b",
             "from": 25,
-            "to": 27,
+            "to": 26,
             "oldQuality": 51.058,
             "newQuality": 39.943686,
             "oldStatus": "valid"
@@ -2685,70 +3986,70 @@
           {
             "slug": "nemotron-3-5-super-vl",
             "from": 28,
-            "to": 29,
+            "to": 28,
             "oldQuality": 49.136,
             "newQuality": 37.936245,
-            "oldStatus": "valid"
-          },
-          {
-            "slug": "gemini-3-5-flash-lite",
-            "from": 29,
-            "to": 26,
-            "oldQuality": 48.716,
-            "newQuality": 40.201076,
             "oldStatus": "valid"
           }
         ]
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 33,
-        "commonIdentities": 33,
-        "spearman": 0.7677139037433155,
-        "kendallTauB": 0.6325757575757576,
+        "newIdentities": 32,
+        "commonIdentities": 31,
+        "spearman": 0.785483870967742,
+        "kendallTauB": 0.6602150537634408,
         "top5Overlap": 0.6,
         "top10Overlap": 0.8,
-        "entered": [],
+        "entered": [
+          "estimated:Qwen 3.8 Max Prime"
+        ],
         "exited": [
           "experimental:qwen38maxprime",
-          "experimental:qwen38omniflash"
+          "experimental:qwen38omniflash",
+          "gemini-3-5-flash-lite",
+          "gpt-5-6-terra"
         ]
       },
       "byMode": {
         "balanced": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.8236165745071766,
-            "kendallTauB": 0.7146489991736854,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.8048213253054106,
+            "kendallTauB": 0.7040025031244611,
             "top5Overlap": 0.8,
-            "top10Overlap": 0.8,
+            "top10Overlap": 0.9,
             "entered": [],
             "exited": []
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.692082720308467,
-            "kendallTauB": 0.567628315095764,
+            "newIdentities": 32,
+            "commonIdentities": 31,
+            "spearman": 0.6778978790907111,
+            "kendallTauB": 0.569276071331712,
             "top5Overlap": 0.6,
             "top10Overlap": 0.8,
-            "entered": [],
+            "entered": [
+              "estimated:Qwen 3.8 Max Prime"
+            ],
             "exited": [
               "experimental:qwen38maxprime",
-              "experimental:qwen38omniflash"
+              "experimental:qwen38omniflash",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         },
         "budget": {
           "sameObservedCohort": {
-            "oldIdentities": 29,
-            "newIdentities": 29,
-            "commonIdentities": 29,
-            "spearman": 0.9112644811437023,
-            "kendallTauB": 0.8188585607940446,
+            "oldIdentities": 28,
+            "newIdentities": 28,
+            "commonIdentities": 28,
+            "spearman": 0.9151033907507281,
+            "kendallTauB": 0.8175772893821569,
             "top5Overlap": 1,
             "top10Overlap": 0.9,
             "entered": [],
@@ -2756,16 +4057,20 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
-            "commonIdentities": 33,
-            "spearman": 0.8899289625732419,
-            "kendallTauB": 0.7464390830338008,
-            "top5Overlap": 0.8,
+            "newIdentities": 32,
+            "commonIdentities": 31,
+            "spearman": 0.8843827286140084,
+            "kendallTauB": 0.7324051125517175,
+            "top5Overlap": 0.6,
             "top10Overlap": 0.7,
-            "entered": [],
+            "entered": [
+              "estimated:Qwen 3.8 Max Prime"
+            ],
             "exited": [
               "experimental:qwen38omniflash",
-              "experimental:qwen38maxprime"
+              "experimental:qwen38maxprime",
+              "gemini-3-5-flash-lite",
+              "gpt-5-6-terra"
             ]
           }
         }
@@ -2898,6 +4203,128 @@
       },
       "expandedRankingCohort": {
         "from": "aligned-v10",
+        "to": "observed-v10",
+        "oldFloor": 0.74,
+        "newFloor": 0.74,
+        "oldIntelligenceBaseline": 58.406,
+        "newIntelligenceBaseline": 58.406,
+        "oldCost": 34.962383,
+        "newCost": 34.962383,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": null,
+        "newPriceFilter": null,
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Muse Wonder",
+            "to": "Muse Wonder",
+            "changed": false,
+            "oldQuality": 54.862,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Opus 5.5",
+            "to": "Claude Opus 5.5",
+            "changed": false,
+            "oldQuality": 59.726,
+            "newQuality": 59.726,
+            "intelligence": 58.406,
+            "cost": 10.036204,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 65.407,
+            "newQuality": 65.407,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 67.092,
+            "newQuality": 67.092,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 68.105,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 56.005,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 58.388,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "approximation": {
+        "from": "observed-v10",
         "to": "expanded-v10",
         "oldFloor": 0.74,
         "newFloor": 0.74,
@@ -3336,6 +4763,198 @@
       },
       "expandedRankingCohort": {
         "from": "aligned-v10",
+        "to": "observed-v10",
+        "oldFloor": 0.79,
+        "newFloor": 0.79,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 31.606593,
+        "newCost": 31.606593,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Muse Wonder",
+            "to": "Muse Wonder",
+            "changed": false,
+            "oldQuality": 54.862,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 58.488,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 66.89,
+            "newQuality": 66.89,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 62.723,
+            "newQuality": 62.723,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 68.105,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 56.005,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 58.388,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "approximation": {
+        "from": "observed-v10",
         "to": "expanded-v10",
         "oldFloor": 0.79,
         "newFloor": 0.79,
@@ -3914,13 +5533,13 @@
       },
       "expandedRankingCohort": {
         "from": "aligned-v10",
-        "to": "expanded-v10",
+        "to": "observed-v10",
         "oldFloor": 0.75,
         "newFloor": 0.75,
         "oldIntelligenceBaseline": 54.5087,
         "newIntelligenceBaseline": 54.5087,
         "oldCost": 31.606593,
-        "newCost": 28.45656,
+        "newCost": 31.606593,
         "oldFamilies": 5,
         "newFamilies": 5,
         "oldPriceFilter": {
@@ -4010,12 +5629,12 @@
           {
             "role": "strategist",
             "from": "Claude Sonnet 5.5",
-            "to": "Kimi K3.1 Pro",
-            "changed": true,
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
             "oldQuality": 58.488,
-            "newQuality": 56.762,
-            "intelligence": 46.0026,
-            "cost": 2.454133,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
             "provenance": null
           },
           {
@@ -4050,23 +5669,23 @@
           {
             "role": "code-reviewer",
             "from": "Gemini 4 Argon",
-            "to": "Gemini 4 Argon",
-            "changed": false,
+            "to": "Kimi K3.1 Pro",
+            "changed": true,
             "oldQuality": 65.407,
-            "newQuality": 65.407,
-            "intelligence": 50.4122,
-            "cost": 3.841336,
+            "newQuality": 68.746,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
             "provenance": null
           },
           {
             "role": "implementer",
             "from": "Claude Sonnet 5.5",
-            "to": "GPT-6.1 Terra",
+            "to": "Gemini 4 Argon",
             "changed": true,
             "oldQuality": 67.092,
-            "newQuality": 60.937,
-            "intelligence": 50.9765,
-            "cost": 0.961108,
+            "newQuality": 62.723,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
             "provenance": null
           },
           {
@@ -4094,12 +5713,204 @@
           {
             "role": "researcher",
             "from": "GPT-6.1 Sol",
-            "to": "Gemini 4 Argon",
-            "changed": true,
+            "to": "GPT-6.1 Sol",
+            "changed": false,
             "oldQuality": 58.388,
-            "newQuality": 56.137,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "approximation": {
+        "from": "observed-v10",
+        "to": "expanded-v10",
+        "oldFloor": 0.75,
+        "newFloor": 0.75,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 31.606593,
+        "newCost": 31.606593,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Muse Wonder",
+            "to": "Muse Wonder",
+            "changed": false,
+            "oldQuality": 54.862,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 58.488,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 68.746,
+            "newQuality": 68.746,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 62.723,
+            "newQuality": 62.723,
             "intelligence": 50.4122,
             "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 68.127,
+            "newQuality": 68.127,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 56.005,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 58.388,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
             "provenance": null
           }
         ]
@@ -4112,7 +5923,7 @@
         "oldIntelligenceBaseline": 54.5087,
         "newIntelligenceBaseline": 54.5087,
         "oldCost": 28.767515,
-        "newCost": 28.45656,
+        "newCost": 31.606593,
         "oldFamilies": 5,
         "newFamilies": 5,
         "oldPriceFilter": {
@@ -4202,12 +6013,12 @@
           {
             "role": "strategist",
             "from": "Kimi K3.1 Pro",
-            "to": "Kimi K3.1 Pro",
-            "changed": false,
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
             "oldQuality": 70.736,
-            "newQuality": 56.762,
-            "intelligence": 46.0026,
-            "cost": 2.454133,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
             "provenance": null
           },
           {
@@ -4242,23 +6053,23 @@
           {
             "role": "code-reviewer",
             "from": "Gemini 4 Argon",
-            "to": "Gemini 4 Argon",
-            "changed": false,
+            "to": "Kimi K3.1 Pro",
+            "changed": true,
             "oldQuality": 61.729,
-            "newQuality": 65.407,
-            "intelligence": 50.4122,
-            "cost": 3.841336,
+            "newQuality": 68.746,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
             "provenance": null
           },
           {
             "role": "implementer",
             "from": "GPT-6.1 Sol",
-            "to": "GPT-6.1 Terra",
+            "to": "Gemini 4 Argon",
             "changed": true,
             "oldQuality": 57.448,
-            "newQuality": 60.937,
-            "intelligence": 50.9765,
-            "cost": 0.961108,
+            "newQuality": 62.723,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
             "provenance": null
           },
           {
@@ -4286,12 +6097,12 @@
           {
             "role": "researcher",
             "from": "Gemini 4 Argon",
-            "to": "Gemini 4 Argon",
-            "changed": false,
+            "to": "GPT-6.1 Sol",
+            "changed": true,
             "oldQuality": 68.552,
-            "newQuality": 56.137,
-            "intelligence": 50.4122,
-            "cost": 3.841336,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
             "provenance": null
           }
         ]
@@ -4918,7 +6729,7 @@
     "architect": [
       {
         "removed": "briefcase",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 0.6,
         "top5": [
           "kimi-k3-1-pro",
@@ -4930,7 +6741,7 @@
       },
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 66,
+        "completeIdentities": 47,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -4942,7 +6753,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -4954,7 +6765,7 @@
       },
       {
         "removed": "hle",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -4968,7 +6779,7 @@
     "strategist": [
       {
         "removed": "briefcase",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 0.4,
         "top5": [
           "gpt-6-astra",
@@ -4980,7 +6791,7 @@
       },
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -4992,7 +6803,7 @@
       },
       {
         "removed": "automationBenchPartialScore",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -5004,7 +6815,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 0.8,
         "top5": [
           "claude-sonnet-5-5",
@@ -5018,7 +6829,7 @@
     "code-reviewer": [
       {
         "removed": "terminalBench40",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -5030,7 +6841,7 @@
       },
       {
         "removed": "scicode",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 0.6,
         "top5": [
           "kimi-k3-1-pro",
@@ -5042,7 +6853,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -5054,7 +6865,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 1,
         "top5": [
           "kimi-k3-1-pro",
@@ -5068,7 +6879,7 @@
     "implementer": [
       {
         "removed": "terminalBench40",
-        "completeIdentities": 76,
+        "completeIdentities": 49,
         "top5Overlap": 0.4,
         "top5": [
           "claude-opus-5-5",
@@ -5080,7 +6891,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 1,
         "top5": [
           "kimi-k3-1-pro",
@@ -5092,7 +6903,7 @@
       },
       {
         "removed": "hle",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 0.8,
         "top5": [
           "kimi-k3-1-pro",
@@ -5106,7 +6917,7 @@
     "implementer-heavy": [
       {
         "removed": "terminalBench40",
-        "completeIdentities": 66,
+        "completeIdentities": 47,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -5118,7 +6929,7 @@
       },
       {
         "removed": "briefcase",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 0.8,
         "top5": [
           "kimi-k3-1-pro",
@@ -5130,7 +6941,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 1,
         "top5": [
           "claude-sonnet-5-5",
@@ -5144,7 +6955,7 @@
     "synthesizer": [
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -5156,7 +6967,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 1,
         "top5": [
           "gpt-6-astra",
@@ -5168,7 +6979,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 0.6,
         "top5": [
           "kimi-k3-1-pro",
@@ -5182,7 +6993,7 @@
     "researcher": [
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -5194,7 +7005,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -5206,7 +7017,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 64,
+        "completeIdentities": 47,
         "top5Overlap": 1,
         "top5": [
           "kimi-k3-1-pro",
@@ -5218,7 +7029,7 @@
       },
       {
         "removed": "hle",
-        "completeIdentities": 33,
+        "completeIdentities": 31,
         "top5Overlap": 1,
         "top5": [
           "gpt-6-1-sol",
@@ -5232,116 +7043,116 @@
   },
   "correlations": {
     "briefcase / gdpPdfAllPass": {
-      "n": 64,
-      "spearman": 0.6502931453743327
+      "n": 47,
+      "spearman": 0.7236134707717456
     },
     "briefcase / lcr": {
-      "n": 66,
-      "spearman": 0.5350201861446489
+      "n": 47,
+      "spearman": 0.4745090722824174
     },
     "briefcase / hle": {
-      "n": 66,
-      "spearman": 0.6967758100423472
+      "n": 47,
+      "spearman": 0.7334643848288621
     },
     "briefcase / automationBenchPartialScore": {
-      "n": 64,
-      "spearman": 0.7796245421245421
+      "n": 47,
+      "spearman": 0.7216697502312673
     },
     "briefcase / omniscience": {
-      "n": 33,
-      "spearman": 0.5159187784370264
+      "n": 31,
+      "spearman": 0.535134592900013
     },
     "briefcase / terminalBench40": {
-      "n": 64,
-      "spearman": 0.8779584793421538
+      "n": 47,
+      "spearman": 0.8476803454777055
     },
     "briefcase / scicode": {
-      "n": 64,
-      "spearman": 0.6752759142352721
+      "n": 47,
+      "spearman": 0.7243183930891397
     },
     "gdpPdfAllPass / lcr": {
-      "n": 64,
-      "spearman": 0.5883014718417934
+      "n": 47,
+      "spearman": 0.556341071547176
     },
     "gdpPdfAllPass / hle": {
-      "n": 64,
-      "spearman": 0.8116290754836817
+      "n": 47,
+      "spearman": 0.8024406095714491
     },
     "gdpPdfAllPass / automationBenchPartialScore": {
-      "n": 64,
-      "spearman": 0.6519648501182256
+      "n": 47,
+      "spearman": 0.6145393814274752
     },
     "gdpPdfAllPass / omniscience": {
-      "n": 33,
-      "spearman": 0.6250314065042473
+      "n": 31,
+      "spearman": 0.6768890198261981
     },
     "gdpPdfAllPass / terminalBench40": {
-      "n": 64,
-      "spearman": 0.7528359675053131
+      "n": 47,
+      "spearman": 0.765725395166837
     },
     "gdpPdfAllPass / scicode": {
-      "n": 64,
-      "spearman": 0.7457285581840598
+      "n": 47,
+      "spearman": 0.7419672113899426
     },
     "lcr / hle": {
-      "n": 76,
-      "spearman": 0.6522828691513305
+      "n": 49,
+      "spearman": 0.5645104281747929
     },
     "lcr / automationBenchPartialScore": {
-      "n": 64,
-      "spearman": 0.512820717594827
+      "n": 47,
+      "spearman": 0.4167226105206294
     },
     "lcr / omniscience": {
-      "n": 33,
-      "spearman": 0.28536801343096424
+      "n": 31,
+      "spearman": 0.32848411826443674
     },
     "lcr / terminalBench40": {
-      "n": 64,
-      "spearman": 0.6154322506670449
+      "n": 47,
+      "spearman": 0.5669305029154256
     },
     "lcr / scicode": {
-      "n": 65,
-      "spearman": 0.5768083885871095
+      "n": 48,
+      "spearman": 0.573277247372012
     },
     "hle / automationBenchPartialScore": {
-      "n": 64,
-      "spearman": 0.6910493725242152
+      "n": 47,
+      "spearman": 0.656567992599445
     },
     "hle / omniscience": {
-      "n": 33,
-      "spearman": 0.7375282051320368
+      "n": 31,
+      "spearman": 0.7772961023472307
     },
     "hle / terminalBench40": {
-      "n": 64,
-      "spearman": 0.8001147368440585
+      "n": 47,
+      "spearman": 0.8042926256177261
     },
     "hle / scicode": {
-      "n": 65,
-      "spearman": 0.8756352154259884
+      "n": 48,
+      "spearman": 0.876801571464838
     },
     "automationBenchPartialScore / omniscience": {
-      "n": 33,
-      "spearman": 0.4739700860535817
+      "n": 31,
+      "spearman": 0.5093255394368624
     },
     "automationBenchPartialScore / terminalBench40": {
-      "n": 64,
-      "spearman": 0.8626316638659285
+      "n": 47,
+      "spearman": 0.8187551989043859
     },
     "automationBenchPartialScore / scicode": {
-      "n": 64,
-      "spearman": 0.679488947200798
+      "n": 47,
+      "spearman": 0.6523838504575822
     },
     "omniscience / terminalBench40": {
-      "n": 33,
-      "spearman": 0.6080268323654354
+      "n": 31,
+      "spearman": 0.6686838430143599
     },
     "omniscience / scicode": {
-      "n": 33,
-      "spearman": 0.6605933997162758
+      "n": 31,
+      "spearman": 0.7037709215567655
     },
     "terminalBench40 / scicode": {
-      "n": 64,
-      "spearman": 0.7479092948538651
+      "n": 47,
+      "spearman": 0.7530882764186337
     }
   }
 }
