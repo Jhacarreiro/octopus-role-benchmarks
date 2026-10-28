@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {parseModelObservations} from './lib/aa-observations.mjs';
-import {buildRoleSnapshot,validateRoleSnapshot} from './lib/role-scoring.mjs';
+import {buildRoleSnapshot,validateRoleSnapshot,selectiveMapping} from './lib/role-scoring.mjs';
 import {fetchArtificialAnalysisCyberIndex} from './aa-cyber-index.mjs';
 import {caiIndexPercent,detectCodingAgentVersionFromRows} from './lib/cai-version-fallback.mjs';
 
@@ -15,7 +15,7 @@ export function isolatedOutput(root,output){
   }
   return resolved;
 }
-async function collect(root){
+async function collect(root,config){
   const bin=path.join(root,'node_modules','.bin',process.platform==='win32'?'opencli.cmd':'opencli');
   const run=(args)=>{const r=spawnSync(bin,args,{cwd:root,encoding:'utf8',shell:process.platform==='win32',env:{...process.env,HOME:path.join(root,'.opencli-home')},maxBuffer:40*1024*1024});if(r.status!==0)throw new Error(`Source extraction failed: ${args[0]}/${args[1]}`);return JSON.parse(r.stdout);};
   const install=spawnSync(process.execPath,[path.join(root,'scripts/install-opencli-adapters.mjs')],{cwd:root,encoding:'utf8'});
@@ -25,6 +25,8 @@ async function collect(root){
   const norm=x=>String(x).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/\s+\((latest|exp)\)$/,'').replace(/\s+(contributor|highspeed|fast)$/,'').replace(/[^a-z0-9]+/g,'');
   const byNorm=new Map();for(const row of catalog){const k=norm(row.slug);byNorm.set(k,[...(byNorm.get(k)??[]),row.slug]);}
   const offers=maxRows.map(offer=>{
+    const verified=selectiveMapping(offer,config);
+    if(verified.verifiedModelUuid)return {...offer,mapping:verified};
     const override=aliases[offer.name];
     if(override)return {...offer,mapping:override.slug?override:{...override,status:override.status==='outdated_unscored'?'outdated_unscored':'unscored'}};
     const candidates=byNorm.get(norm(offer.name.replace(/\s+preview$/i,'')))??[];
@@ -54,8 +56,8 @@ async function collect(root){
 export async function runSelectiveUpdate(root,args){
   const arg=name=>{const index=args.indexOf(name);return index<0?null:args[index+1];};
   const output=isolatedOutput(root,arg('--output-dir'));
-  const inputs=arg('--inputs')?JSON.parse(fs.readFileSync(path.resolve(arg('--inputs')))):await collect(root);
   const config=JSON.parse(fs.readFileSync(path.join(root,'config/roles-v10.json')));
+  const inputs=arg('--inputs')?JSON.parse(fs.readFileSync(path.resolve(arg('--inputs')))):await collect(root,config);
   const policy=JSON.parse(fs.readFileSync(path.join(root,'config/lineup-policy.json')));
   const snapshot=buildRoleSnapshot({...inputs,config,policy});
   validateRoleSnapshot(snapshot,config);

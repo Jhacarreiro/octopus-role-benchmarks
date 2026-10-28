@@ -6756,6 +6756,99 @@
         "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
         "capturedAt": "2026-10-28T10:38:28.840Z"
       }
+    },
+    {
+      "slug": "reflection-beam",
+      "id": "69468cce-7b5c-414a-b498-41df4c34df85",
+      "name": "Beam 1.0",
+      "release": "reflection-beam",
+      "effort": null,
+      "deprecated": false,
+      "intelligenceIndex": 17.7307282547205,
+      "intelligenceIndexIsEstimated": false,
+      "scicode": 0.484953703703704,
+      "hle": 0.346617238183503,
+      "gpqa": null,
+      "lcr": 0.78,
+      "gdpval": 1177.08,
+      "briefcaseElo": 976.2,
+      "automationBenchPartialScore": 0.4845786522065588,
+      "gdpPdfAllPass": 0.116,
+      "terminalBench40": 0.0303030303030303,
+      "frontierCode20": 0.0553143939393939,
+      "hleDiamond": 0.128,
+      "terminalBenchScience": 0.00476190476190476,
+      "critptAgenticHard": 0.265,
+      "omniscience": 2.3333333333333335,
+      "intelligenceIndexEvaluations": [
+        {
+          "costPerTask": 0.0016130688,
+          "outputTokensPerTask": 1288.7943333333333,
+          "score": 2.3333333333333335,
+          "slug": "omniscience",
+          "timePerTask": 2.287430107713503
+        },
+        {
+          "costPerTask": 0.018471071599999996,
+          "outputTokensPerTask": 15284.254,
+          "score": 0.128,
+          "slug": "hle-diamond",
+          "timePerTask": 27.127418137474127
+        },
+        {
+          "costPerTask": 0.028136308,
+          "outputTokensPerTask": 11109.35,
+          "score": 0.116,
+          "slug": "gdp-pdf",
+          "timePerTask": 19.71754608929871
+        },
+        {
+          "costPerTask": 0.0886739862044005,
+          "outputTokensPerTask": 43581.7,
+          "score": 0.265,
+          "slug": "critpt-v2-hard",
+          "timePerTask": 77.35143625864606
+        },
+        {
+          "costPerTask": 0.09231162590615374,
+          "outputTokensPerTask": 23485.768645357686,
+          "score": 0.4845786522065588,
+          "slug": "automationbench-aa",
+          "timePerTask": 41.68396222168234
+        },
+        {
+          "costPerTask": 0.20231430395894506,
+          "outputTokensPerTask": 34082.406593406595,
+          "score": 976.2,
+          "slug": "aa-briefcase",
+          "timePerTask": 60.491515960853945
+        },
+        {
+          "costPerTask": 0.29629183804993736,
+          "outputTokensPerTask": 30806.81818181818,
+          "score": 0.0553143939393939,
+          "slug": "frontiercode-2-0",
+          "timePerTask": 54.67780359468785
+        },
+        {
+          "costPerTask": 0.6254337496447717,
+          "outputTokensPerTask": 69384.59090909091,
+          "score": 0.0303030303030303,
+          "slug": "terminalbench-4-0",
+          "timePerTask": 123.14796717513954
+        },
+        {
+          "costPerTask": 0.8672903630873035,
+          "outputTokensPerTask": 65071.114285714284,
+          "score": 0.00476190476190476,
+          "slug": "terminal-bench-science",
+          "timePerTask": 115.4921480564205
+        }
+      ],
+      "intelligenceIndexVersion": "5.0",
+      "sourceUrl": "https://artificialanalysis.ai/models/reflection-beam",
+      "cyberIndex": null,
+      "recordRetrievedFromUrl": "https://artificialanalysis.ai/models/claude-fable-5"
     }
   ],
   "sourceHashes": [

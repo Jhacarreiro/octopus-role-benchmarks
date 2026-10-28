@@ -83,7 +83,7 @@ const base=latest.models.filter(m=>
   Number.isFinite(intelligence(m)) &&
   m.roleScores
 );
-const referenceBase=base.filter(m=>!m.approximation);
+const referenceBase=base.filter(m=>!m.approximation||Number.isFinite(m.aaModel?.intelligenceIndex));
 const generationEligible=policy.latestGenerationOnly
   ? referenceBase.filter(m=>isLatestGenerationModel(m,referenceBase,{scoredOnly:true}))
   : referenceBase.slice();

@@ -28,11 +28,19 @@ export function validateRoleConfig(config){
   if(config.schemaVersion!==10||config.roles?.length!==8)throw new Error('Expected eight v10 roles');
   if(config.intelligenceEstimator?.enabled!==false||config.ranking?.codingAgentWeight!==0)throw new Error('v10 estimators and CAI overlay must remain disabled');
   validateApproximationPolicy(config.approximations,config.roles);
+  const identityNames=new Set();
+  for(const v of config.verifiedIdentities??[]){if(identityNames.has(v.model)||!v.slug||!v.id||!/^https:\/\//.test(v.sourceUrl))throw new Error('Invalid verified selective identity');identityNames.add(v.model);}
   for(const r of config.roles){
     const weights=r.externalBenchmark?{[r.externalBenchmark]:1}:r.weights;
     if(!weights||Math.abs(Object.values(weights).reduce((a,b)=>a+b,0)-1)>1e-9||Object.values(weights).some(w=>!finite(w)||w<=0))throw new Error(`Invalid weights for ${r.id}`);
     for(const key of Object.keys(weights))if(!config.benchmarks[key])throw new Error(`Unknown benchmark ${key}`);
   }
+}
+export function selectiveMapping(offer,config){
+  const verified=config.verifiedIdentities?.find(v=>v.model===offer.name);
+  if(!verified)return {...offer.mapping};
+  if(offer.mapping?.slug&&offer.mapping.slug!==verified.slug)throw new Error('Conflicting selective identity');
+  return {slug:verified.slug,status:'exact',identityStatus:'public_verified',verifiedModelUuid:verified.id,externalSource:{label:verified.label,url:verified.sourceUrl},reason:verified.reason};
 }
 export function buildRoleSnapshot({offers,observations,config,policy,generatedAt,rawOfferCount=offers.length,frozenCosts=null}){
   validateRoleConfig(config);
@@ -45,7 +53,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
   const windows=config.generationPolicy?.enabled?generationWindows(retained,config.generationPolicy):null;
   const validationIssues=[];
   const models=retained.map(offer=>{
-    const mapping={...offer.mapping};
+    const mapping=selectiveMapping(offer,config);
     const generation=windows?generationEligibility(offer,windows,config.generationPolicy):null;
     const source=mapping.slug?sources.get(mapping.slug):null;
     const m={...offer,mapping,aaModel:source&&!source.sourceUnavailableReason?{slug:source.slug,id:source.id,variantName:source.name,release:source.release,effort:source.effort,intelligenceIndex:null,intelligenceIndexVersion:null}:null,benchmarks:{},benchmarkProvenance:{},roleScores:{},experimentalBenchmarks:{},diagnostics:{codingAgent:source?.codingAgentObserved?.status==='observed'?source.codingAgentObserved:null},taskEfficiency:null,caiStar:null,codingAgent:null};
@@ -54,7 +62,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
       m.mapping.status=mapping.status==='outdated_unscored'?'outdated_unscored':mapping.slug?'source_incomplete':'unscored';
       if(generation?.eligible!==false)validationIssues.push({targetModel:m.name,benchmark:'identity',status:'unavailable',reason:source?.sourceUnavailableReason??mapping.reason??'No verified AA identity'});return m;
     }
-    if(!source.id||source.slug!==mapping.slug)throw new Error(`Unverified source identity for ${m.name}`);
+    if(!source.id||source.slug!==mapping.slug||mapping.verifiedModelUuid&&source.id!==mapping.verifiedModelUuid)throw new Error(`Unverified source identity for ${m.name}`);
     for(const [key,spec]of Object.entries(config.benchmarks)){
       const raw=source[spec.sourceField]??null,value=normalizeObservation(raw,spec);
       const provenance={status:value==null?'unavailable':spec.lifecycle==='legacy'?'legacy':'observed',measurementKind:value==null?'unavailable':'observed',lifecycle:spec.lifecycle,metricVersion:spec.version,implementation:spec.implementation,rawValue:raw,rawScale:spec.rawRange,normalization:spec.normalization??'linear',sourceField:spec.sourceField,sourceUrl:spec.external?spec.sourceUrl:source.sourceUrl,modelUuid:source.id,effort:source.effort,capturedAt:generatedAt,evaluatedAt:null};
@@ -80,7 +88,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
     m.mapping.status=Object.values(m.roleScores).every(s=>s.status==='valid')?'exact':Object.values(m.roleScores).some(s=>s.status==='valid')?'partial_scored':'source_incomplete';
     return m;
   });
-  applyRoleApproximations(models,config.approximations,generatedAt);
+  applyRoleApproximations(models,config.approximations,generatedAt,config.roles);
   for(const m of models.filter(m=>m.approximation)){
     const burn=round((profile.nonCacheInput*m.inputPerM+profile.cacheRead*(m.cacheReadPerM??m.inputPerM)+profile.cacheWrite*(m.cacheWritePerM??m.inputPerM)+profile.output*m.outputPerM)/1e6);
     if(!finite(burn)||burn<0)throw new Error('Invalid approximation pricing');
@@ -94,7 +102,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
   for(const c of Object.values(coverage))c.ratio=c.total?c.present/c.total:0;
   return {schemaVersion:7,methodologyVersion:10,date:generatedAt.slice(0,10),generatedAt,benchmarkGeneratedAt:generatedAt,benchmarkDate:generatedAt.slice(0,10),lineupInputsRefreshedAt:generatedAt,validationStatus:validationIssues.length?'partial':'valid',validationIssues,coveragePolicy:1,coverageScope:'per-role',intelligenceEstimator:{enabled:false},generationPolicy:config.generationPolicy,approximationPolicy:config.approximations?.enabled?{enabled:true,method:config.approximations.method,maxSeatsPerPortfolio:1}: {enabled:false},costBasis:{id:frozenCosts?'frozen-comparison':'normalized_reference_v1'},benchmarks:config.benchmarks,roles:config.roles,models,roleCoverage,coverage,
     sources:{commandCodeMax:{rows:rawOfferCount,url:'https://commandcode.ai/docs/plans/max'},artificialAnalysis:{parserVersion:3,intelligenceIndexVersion:'5.0',url:'https://artificialanalysis.ai/'}},
-    counts:{commandCodeRows:rawOfferCount,retainedRows:models.length,activeRows:models.filter(m=>m.generationEligibility?.eligible!==false).length,historicalRows:models.filter(m=>m.generationEligibility?.eligible===false).length,approximatedRows:models.filter(m=>m.approximation).length,approximationPortfolioCandidates:models.filter(m=>m.approximation?.intelligence.status==='estimated').length,mappedRows:mapped.length,mappedFamilies:unique(mapped),scoredRows:scored.length,scoredFamilies:unique(scored),partialScoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='partial_scored').length,partialRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status!=='exact').length,sourceIncompleteRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='source_incomplete').length,unmatchedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel).length,unscoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel&&!m.approximation).length,unrankedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!Object.values(m.roleScores).some(s=>Number.isFinite(s.rankingQuality))).length},
+    counts:{commandCodeRows:rawOfferCount,retainedRows:models.length,activeRows:models.filter(m=>m.generationEligibility?.eligible!==false).length,historicalRows:models.filter(m=>m.generationEligibility?.eligible===false).length,approximatedRows:models.filter(m=>m.approximation).length,approximationPortfolioCandidates:models.filter(m=>m.approximation?.intelligence.status==='estimated').length,mappedRows:mapped.length,mappedFamilies:unique(mapped),observedOnlyRows:scored.filter(m=>!m.approximation).length,hybridRows:models.filter(m=>m.aaModel&&m.approximation).length,scoredRows:scored.length,scoredFamilies:unique(scored),partialScoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='partial_scored').length,partialRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status!=='exact').length,sourceIncompleteRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='source_incomplete').length,unmatchedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel).length,unscoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel&&!m.approximation).length,unrankedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!Object.values(m.roleScores).some(s=>Number.isFinite(s.rankingQuality))).length},
     efficiencyCoverage:{total:unique(mapped),present:unique(mapped.filter(m=>m.taskEfficiency)),ratio:1},caiStarCoverage:{total:unique(mapped),present:0,observed:0,estimated:0,historicalCalibrated:0,ratio:0,required:false},caiEstimator:{enabled:false},benchmarkFallbacksApplied:[]};
 }
 export function validateRoleSnapshot(snapshot,config){
@@ -103,32 +111,36 @@ export function validateRoleSnapshot(snapshot,config){
   const expectedApproximationPolicy=config.approximations?.enabled?{enabled:true,method:config.approximations.method,maxSeatsPerPortfolio:1}:{enabled:false};
   if(JSON.stringify(snapshot.approximationPolicy)!==JSON.stringify(expectedApproximationPolicy))throw new Error('Inconsistent approximation policy');
   const windows=config.generationPolicy?.enabled?generationWindows(snapshot.models,config.generationPolicy):null;
-  for(const m of snapshot.models){
+  const expected=snapshot.models.map(m=>{
+    const copy=structuredClone(m);delete copy.approximation;
+    copy.roleScores=copy.aaModel?Object.fromEntries(config.roles.map(r=>[r.id,scoreRole(r,copy.benchmarks)])):{};
+    return copy;
+  });
+  applyRoleApproximations(expected,config.approximations,snapshot.generatedAt,config.roles);
+  for(const [index,m]of snapshot.models.entries()){
+    const projected=expected[index];
     if(windows&&JSON.stringify(m.generationEligibility)!==JSON.stringify(generationEligibility(m,windows,config.generationPolicy)))throw new Error('Invalid catalog generation eligibility');
+    if(JSON.stringify(m.approximation)!==JSON.stringify(projected.approximation))throw new Error('Invalid approximation identity or policy');
     if(!m.aaModel){
-      if(m.approximation){
-        const expected=structuredClone(m);expected.roleScores={};delete expected.approximation;
-        applyRoleApproximations([expected,...snapshot.models.filter(a=>a.aaModel)],config.approximations,snapshot.generatedAt);
-        if(!expected.approximation||JSON.stringify(expected.approximation)!==JSON.stringify(m.approximation)||Object.keys(m.benchmarks).length||Object.keys(m.benchmarkProvenance).length||m.mapping.slug)throw new Error('Invalid approximation identity or policy');
-        const actualRoles=Object.keys(m.roleScores),expectedRoles=Object.keys(expected.roleScores);
-        if(actualRoles.length!==expectedRoles.length||actualRoles.some(role=>m.roleScores[role].rankingQuality!==expected.roleScores[role]?.rankingQuality||m.roleScores[role].status!=='estimated'||m.roleScores[role].measurementKind!=='estimated'||JSON.stringify(m.roleScores[role].provenance)!==JSON.stringify(expected.roleScores[role].provenance)||JSON.stringify(m.roleScores[role].scoreRange)!==JSON.stringify(expected.roleScores[role].scoreRange)))throw new Error('Invalid conservative role approximation');
-        if(!finite(m.taskEfficiency?.planAdjustedCostPerTaskUsd)||m.taskEfficiency.planAdjustedCostPerTaskUsd<0)throw new Error('Invalid approximation cost');
-      }else if(Object.keys(m.roleScores).length)throw new Error('Unmapped score');
-      continue;
-    }
-    if(m.approximation)throw new Error('An observed AA identity cannot also be an approximation');
-    if(!finite(m.taskEfficiency?.planAdjustedCostPerTaskUsd)||m.taskEfficiency.planAdjustedCostPerTaskUsd<0||!finite(m.taskEfficiency?.commandCodeCostPerTaskUsd)||m.taskEfficiency.commandCodeCostPerTaskUsd<0)throw new Error(`Invalid cost for ${m.name}`);
-    if(m.mapping.slug!==m.aaModel.slug)throw new Error('Snapshot identity mismatch');
-    if(m.aaModel.estimated||finite(m.aaModel.intelligenceIndex)&&m.aaModel.intelligenceIndexVersion!=='5.0')throw new Error('Mixed Intelligence versions');
-    for(const role of config.roles){
-      const expected=scoreRole(role,m.benchmarks),actual=m.roleScores[role.id];
-      if(!actual||actual.status!==expected.status||actual.rankingQuality!==expected.rankingQuality)throw new Error(`Incorrect role score ${m.name}/${role.id}`);
-      if(actual.status!=='valid'&&(actual.rankingValue!=null||actual.balancedQualityPercentile!=null))throw new Error('Partial role entered percentile ranking');
-      for(const key of Object.keys(role.weights??{[role.externalBenchmark]:1}))if(finite(m.benchmarks[key])){
-        const p=m.benchmarkProvenance[key];
-        if(p?.measurementKind!=='observed'||p.metricVersion!==config.benchmarks[key].version||!p.sourceUrl||p.modelUuid!==m.aaModel.id)throw new Error(`Missing versioned provenance ${m.name}/${key}`);
-        if(normalizeObservation(p.rawValue,config.benchmarks[key])!==m.benchmarks[key])throw new Error('Incorrect normalization');
+      if(Object.keys(m.benchmarks).length||Object.keys(m.benchmarkProvenance).length)throw new Error('Invalid approximation observations');
+      if(m.approximation&&m.mapping.slug)throw new Error('Invalid approximation identity');
+    }else{
+      if(m.mapping.slug!==m.aaModel.slug||m.mapping.verifiedModelUuid&&m.mapping.verifiedModelUuid!==m.aaModel.id)throw new Error('Snapshot identity mismatch');
+      if(m.aaModel.estimated||finite(m.aaModel.intelligenceIndex)&&m.aaModel.intelligenceIndexVersion!=='5.0')throw new Error('Mixed Intelligence versions');
+      for(const [key,value]of Object.entries(m.benchmarks)){
+        const p=m.benchmarkProvenance[key],spec=config.benchmarks[key];
+        if(!spec||p?.measurementKind!=='observed'||p.metricVersion!==spec.version||!p.sourceUrl||p.modelUuid!==m.aaModel.id)throw new Error(`Missing versioned provenance ${m.name}/${key}`);
+        if(normalizeObservation(p.rawValue,spec)!==value)throw new Error('Incorrect normalization');
       }
+    }
+    if(m.aaModel||m.approximation){
+      if(!finite(m.taskEfficiency?.planAdjustedCostPerTaskUsd)||m.taskEfficiency.planAdjustedCostPerTaskUsd<0||!finite(m.taskEfficiency?.commandCodeCostPerTaskUsd)||m.taskEfficiency.commandCodeCostPerTaskUsd<0)throw new Error(`Invalid cost for ${m.name}`);
+    }
+    if(Object.keys(m.roleScores).length!==Object.keys(projected.roleScores).length)throw new Error('Invalid approximation role scope');
+    for(const [role,wanted]of Object.entries(projected.roleScores)){
+      const actual=m.roleScores[role];
+      if(!actual||actual.status!==wanted.status||actual.completeness!==wanted.completeness||actual.measurementKind!==wanted.measurementKind||actual.coverageWeight!==wanted.coverageWeight||JSON.stringify(actual.missingComponents)!==JSON.stringify(wanted.missingComponents)||actual.score!==wanted.score||actual.rankingQuality!==wanted.rankingQuality||JSON.stringify(actual.scoreRange)!==JSON.stringify(wanted.scoreRange)||JSON.stringify(actual.provenance)!==JSON.stringify(wanted.provenance)||JSON.stringify(actual.observedRole)!==JSON.stringify(wanted.observedRole))throw new Error(`Incorrect role score or approximation ${m.name}/${role}`);
+      if(actual.status!=='valid'&&actual.status!=='estimated'&&(actual.rankingValue!=null||actual.balancedQualityPercentile!=null))throw new Error('Partial role entered percentile ranking');
     }
   }
   return true;

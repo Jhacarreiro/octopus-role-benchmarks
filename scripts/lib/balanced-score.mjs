@@ -14,7 +14,7 @@ export function applyBalancedScores(models,roleIds,{qualityWeight=0.75,costWeigh
   for(const roleId of roleIds){
     const eligible=models.filter(m=>m.generationEligibility?.eligible!==false&&Number.isFinite(m.roleScores?.[roleId]?.rankingQuality)&&Number.isFinite(m.taskEfficiency?.planAdjustedCostPerTaskUsd));
     // Proxies are placed against the observed cohort; they cannot move observed percentiles.
-    const reference=eligible.filter(m=>!m.approximation);
+    const reference=eligible.filter(m=>m.roleScores[roleId].status!=='estimated');
     const qualities=reference.map(m=>m.roleScores[roleId].rankingQuality);
     const costs=reference.map(m=>m.taskEfficiency.planAdjustedCostPerTaskUsd);
     for(const m of eligible){

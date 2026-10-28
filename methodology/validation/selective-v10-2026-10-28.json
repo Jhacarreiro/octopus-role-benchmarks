@@ -8,7 +8,7 @@
   "policySha256": "cfc64d57f82f9a5d25fc6f1c52bfc95d9a620a7ab892b19715f163eca7e4f34b",
   "baselineSha256": "9a3c3181fad2aae4bb7900d805a6e1c9dd2340b29b3f0fc9564618a3efedb451",
   "comparisonDesign": {
-    "methodology": "aligned-v9 versus aligned-v10: same 28 active observed v5 identities, exact existing task costs, unchanged base policy",
+    "methodology": "aligned-v9 versus aligned-v10: same 28 active observed v5 identities with prior v9 role scores, exact existing task costs, unchanged base policy",
     "coverage": "aligned-v10 versus observed-v10: expanded active observed role scoring universe; unknown Intelligence remains excluded from portfolios",
     "approximation": "observed-v10 versus expanded-v10: separately labeled role analogies, conservative role/Intelligence values, one estimated seat maximum. Proxies do not define observed percentiles, Intelligence references or cost cutoffs",
     "price": "Existing per-offer task cost copied exactly. Newly scored offers use the frozen reference workload and frozen rates; no new task telemetry.",
@@ -19,18 +19,20 @@
     "retainedRows": 97,
     "activeRows": 68,
     "historicalRows": 29,
-    "approximatedRows": 5,
-    "approximationPortfolioCandidates": 4,
-    "mappedRows": 57,
-    "mappedFamilies": 49,
-    "scoredRows": 55,
-    "scoredFamilies": 47,
-    "partialScoredRows": 36,
+    "approximatedRows": 10,
+    "approximationPortfolioCandidates": 8,
+    "mappedRows": 58,
+    "mappedFamilies": 50,
+    "observedOnlyRows": 56,
+    "hybridRows": 2,
+    "scoredRows": 56,
+    "scoredFamilies": 48,
+    "partialScoredRows": 37,
     "partialRows": 49,
-    "sourceIncompleteRows": 2,
-    "unmatchedRows": 11,
-    "unscoredRows": 6,
-    "unrankedRows": 8
+    "sourceIncompleteRows": 0,
+    "unmatchedRows": 10,
+    "unscoredRows": 2,
+    "unrankedRows": 2
   },
   "generationPolicy": {
     "enabled": true,
@@ -591,37 +593,182 @@
             "capturedAt": "2026-10-28"
           }
         ]
-      }
-    ],
-    "pending": [
+      },
       {
-        "model": "Qwen 3.7 Flash",
-        "reason": "Public identity verified; sibling branding and a qualitative improvement claim do not establish a numeric coding reference. Await comparable public results.",
+        "model": "Step 3.7 Flash",
+        "targetSlug": "step-3-7-flash",
+        "requiredObserved": [
+          "lcr",
+          "hle",
+          "scicode"
+        ],
+        "kind": "partial-observed-profile",
+        "anchors": [
+          "inkling",
+          "nvidia-nemotron-3-ultra-550b-a55b"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy",
+          "code-reviewer"
+        ],
+        "margin": 25,
+        "reviewAfter": "2026-11-27",
+        "reason": "Preserve exact AA target LCR/HLE/SciCode contributions. Only missing role contributions use low-capability observed coding anchors with a wide policy margin; vendor TB2.1 is never substituted for AA TB4.",
         "sources": [
           {
-            "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash",
-            "summary": "Official successor to Qwen3.6 Flash; no numerical benchmark comparison retrieved.",
+            "url": "https://artificialanalysis.ai/models/step-3-7-flash",
+            "summary": "Exact high-effort target has observed LCR, HLE, SciCode and legacy Terminal-Bench; no v5 Intelligence.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+            "summary": "Vendor reports SWE-bench Pro 56.3 and Terminal-Bench 2.1 at 59.5. These establish coding relevance, not metric equivalence.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+            "summary": "Low-tier coding reference table includes Inkling TB2.1 63.8 and Nemotron 3 Ultra 56.4. Harness differences require a wide policy range.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Claude Haiku 4.5",
+        "targetSlug": "claude-4-5-haiku",
+        "requiredObserved": [
+          "lcr",
+          "hle"
+        ],
+        "kind": "partial-observed-profile",
+        "anchors": [
+          "claude-haiku-5-5"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 45,
+        "reviewAfter": "2026-11-27",
+        "reason": "Exact non-reasoning AA target measurements stay intact. Later Haiku is only a same-line upper reference with a 45-point haircut for missing contributions; no reasoning-effort score is copied into the non-reasoning row.",
+        "sources": [
+          {
+            "url": "https://artificialanalysis.ai/models/claude-4-5-haiku",
+            "summary": "Exact non-reasoning target has observed HLE and LCR; other core fields and Intelligence v5 remain absent.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+            "summary": "Official Terminal-Bench footnote distinguishes no-thinking 40.21 and thinking 41.75, with 11 runs in total. Other coding headlines use extended thinking and cannot be transferred as observations.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Qwen 3.7 Flash",
+        "kind": "external-reasoning",
+        "anchors": [
+          "inkling",
+          "nvidia-nemotron-3-ultra-550b-a55b"
+        ],
+        "roles": [
+          "researcher"
+        ],
+        "margin": 25,
+        "reviewAfter": "2026-11-04",
+        "reason": "Independent mathematics/science evaluations support a narrow hard-question-answering analogy only. Lower-scoring target GPQA and unvalidated cross-task transfer receive a wide haircut; no coding or professional-deliverable score is inferred.",
+        "sources": [
+          {
+            "url": "https://epoch.ai/models/qwen3-7-flash",
+            "summary": "Epoch publishes GPQA 82.323% thinking and 80.808% no-thinking, FrontierMath tiers1-3 v2 19.298%, OTIS mock AIME and game results, with execution logs.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://playground.roboflow.com/models/qwen/qwen3-7-flash",
+            "summary": "Independent ground-truth vision tests: 52.4 overall, reasoning low/high 34.4/61.6. Single run per task; these remain diagnostics rather than AA role observations.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://commandcode.ai/models/qwen3-7-flash",
+            "summary": "Exact catalog route qwen/qwen3.7-flash; no AA score is asserted.",
+            "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "Glyph Cluster",
+        "kind": "external-task-suite",
+        "anchors": [
+          "nvidia-nemotron-3-ultra-550b-a55b",
+          "inkling-small"
+        ],
+        "roles": [
+          "implementer"
+        ],
+        "margin": 30,
+        "reviewAfter": "2026-11-04",
+        "reason": "Nine published task results include SVG construction and sequential games. Only a weak normal-implementation analogy is permitted; hidden provider identity is not guessed, and no broad intelligence, heavy-agent or security measurement is asserted.",
+        "sources": [
+          {
+            "url": "https://stealthmodels.com/benchmarks/models/glyph-cluster",
+            "summary": "StealthMark 18.9, General12.0, Visual29.8 across 7 SVG tasks and 2 games, with per-task artifacts. Small task suite and evaluator subjectivity limit transfer.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://stealthmodels.com/benchmarks",
+            "summary": "Same benchmark scores Nemotron3Ultra16.7 and InklingSmall27.6. They are conservative reference points, not equivalent AA measurements.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway",
+            "summary": "Published stable route stealth/glyph-cluster; underlying provider remains unverified.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://commandcode.ai/models/glyph-cluster-free",
+            "summary": "Catalog route stealth/glyph-cluster:free matches the evaluated named product.",
             "capturedAt": "2026-10-28"
           }
         ]
       },
       {
         "model": "Fugu Ultra",
-        "reason": "The catalog route is unversioned multi-agent orchestration; current Fugu v2 results cannot be bound to that route or its underlying model pool. Await version binding.",
+        "kind": "external-launch-version",
+        "anchors": [
+          "claude-fable-5"
+        ],
+        "roles": [
+          "implementer",
+          "implementer-heavy"
+        ],
+        "margin": 30,
+        "reviewAfter": "2026-11-04",
+        "evidenceFamilies": [
+          "Claude",
+          "GPT",
+          "Gemini"
+        ],
+        "reason": "Use the original June launch technical report as an explicitly uncertain coding analogy to its frontier reference class. The unversioned catalog route is verified, but the current revision is unconfirmed; v2 results are not imported. Anchor Intelligence v5 is unavailable, so portfolios remain blocked.",
         "sources": [
           {
-            "url": "https://commandcode.ai/models/fugu-ultra",
-            "summary": "Unversioned sakana/fugu-ultra route; no observed scores.",
+            "url": "https://arxiv.org/html/2606.21228v1",
+            "summary": "Original report: Ultra SWE-bench Pro73.7, TB2.1 82.1, SciCode58.7, HLE50.0 and LCR73.3; comparisons include Fable5/Mythos and an Opus4.8/GPT5.5/Gemini3.1 worker pool. Preserve that revision.",
             "capturedAt": "2026-10-28"
           },
           {
-            "url": "https://sakana.ai/fugu/",
-            "summary": "Current product documents v2; no verified equivalence to the catalog route.",
+            "url": "https://commandcode.ai/blog/fugu-ultra-by-sakana-ai-is-live-in-command-code",
+            "summary": "June23 catalog launch establishes sakana/fugu-ultra route and 1M context. It does not verify the current serving revision.",
+            "capturedAt": "2026-10-28"
+          },
+          {
+            "url": "https://sakana.ai/fugu-1-1-claude-code-interface/",
+            "summary": "Later official v1.1 improves coding benchmarks by up to7.9 points. This verifies version drift rather than equivalence to the unversioned route.",
             "capturedAt": "2026-10-28"
           }
         ]
       }
-    ]
+    ],
+    "pending": []
   },
   "approximations": [
     {
@@ -664,7 +811,7 @@
           "measurementKind": "estimated",
           "score": 24.7216,
           "rankingQuality": 4.7216,
-          "rankingValue": 25,
+          "rankingValue": 24.772727272727273,
           "scoreRange": {
             "lower": 4.7216,
             "upper": 44.7216
@@ -686,7 +833,7 @@
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
           "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 100
+          "balancedAffordabilityPercentile": 99.0909090909091
         },
         "implementer-heavy": {
           "status": "estimated",
@@ -694,7 +841,7 @@
           "measurementKind": "estimated",
           "score": 21.749762,
           "rankingQuality": 1.749762,
-          "rankingValue": 25,
+          "rankingValue": 24.772727272727273,
           "scoreRange": {
             "lower": 1.749762,
             "upper": 41.749762
@@ -716,7 +863,105 @@
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
           "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 100
+          "balancedAffordabilityPercentile": 99.0909090909091
+        }
+      }
+    },
+    {
+      "model": "Glyph Cluster",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "external-task-suite",
+      "anchors": [
+        "nvidia-nemotron-3-ultra-550b-a55b",
+        "inkling-small"
+      ],
+      "evidenceIds": [
+        "aa:nvidia-nemotron-3-ultra-550b-a55b",
+        "aa:inkling-small"
+      ],
+      "margin": 30,
+      "sources": [
+        {
+          "url": "https://stealthmodels.com/benchmarks/models/glyph-cluster",
+          "summary": "StealthMark 18.9, General12.0, Visual29.8 across 7 SVG tasks and 2 games, with per-task artifacts. Small task suite and evaluator subjectivity limit transfer.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://stealthmodels.com/benchmarks",
+          "summary": "Same benchmark scores Nemotron3Ultra16.7 and InklingSmall27.6. They are conservative reference points, not equivalent AA measurements.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway",
+          "summary": "Published stable route stealth/glyph-cluster; underlying provider remains unverified.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://commandcode.ai/models/glyph-cluster-free",
+          "summary": "Catalog route stealth/glyph-cluster:free matches the evaluated named product.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-04",
+      "scope": [
+        "implementer"
+      ],
+      "reason": "Nine published task results include SVG construction and sequential games. Only a weak normal-implementation analogy is permitted; hidden provider identity is not guessed, and no broad intelligence, heavy-agent or security measurement is asserted.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 11.759273,
+        "cutoffLowerBound": 0,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 24.397253,
+          "rankingQuality": 0,
+          "rankingValue": 24.772727272727273,
+          "scoreRange": {
+            "lower": 0,
+            "upper": 54.52041
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "nvidia-nemotron-3-ultra-550b-a55b",
+              "inkling-small"
+            ],
+            "sources": [
+              {
+                "url": "https://stealthmodels.com/benchmarks/models/glyph-cluster",
+                "summary": "StealthMark 18.9, General12.0, Visual29.8 across 7 SVG tasks and 2 games, with per-task artifacts. Small task suite and evaluator subjectivity limit transfer.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://stealthmodels.com/benchmarks",
+                "summary": "Same benchmark scores Nemotron3Ultra16.7 and InklingSmall27.6. They are conservative reference points, not equivalent AA measurements.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway",
+                "summary": "Published stable route stealth/glyph-cluster; underlying provider remains unverified.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://commandcode.ai/models/glyph-cluster-free",
+                "summary": "Catalog route stealth/glyph-cluster:free matches the evaluated named product.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 30,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 99.0909090909091
         }
       }
     },
@@ -760,7 +1005,7 @@
           "measurementKind": "estimated",
           "score": 51.407385,
           "rankingQuality": 31.407385,
-          "rankingValue": 36.574074074074076,
+          "rankingValue": 37.272727272727266,
           "scoreRange": {
             "lower": 31.407385,
             "upper": 71.407385
@@ -781,8 +1026,8 @@
             "margin": 20,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 27.77777777777778,
-          "balancedAffordabilityPercentile": 62.96296296296296
+          "balancedQualityPercentile": 29.09090909090909,
+          "balancedAffordabilityPercentile": 61.81818181818181
         },
         "implementer-heavy": {
           "status": "estimated",
@@ -790,7 +1035,7 @@
           "measurementKind": "estimated",
           "score": 52.366795,
           "rankingQuality": 32.366795,
-          "rankingValue": 31.01851851851852,
+          "rankingValue": 31.818181818181817,
           "scoreRange": {
             "lower": 32.366795,
             "upper": 72.366795
@@ -811,8 +1056,8 @@
             "margin": 20,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 20.37037037037037,
-          "balancedAffordabilityPercentile": 62.96296296296296
+          "balancedQualityPercentile": 21.818181818181817,
+          "balancedAffordabilityPercentile": 61.81818181818181
         }
       }
     },
@@ -859,7 +1104,7 @@
           "measurementKind": "estimated",
           "score": 21.858434,
           "rankingQuality": 1.858434,
-          "rankingValue": 25,
+          "rankingValue": 24.772727272727273,
           "scoreRange": {
             "lower": 1.858434,
             "upper": 48.921378
@@ -882,7 +1127,7 @@
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
           "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 100
+          "balancedAffordabilityPercentile": 99.0909090909091
         },
         "implementer-heavy": {
           "status": "estimated",
@@ -890,7 +1135,7 @@
           "measurementKind": "estimated",
           "score": 22.5283,
           "rankingQuality": 2.5283,
-          "rankingValue": 25,
+          "rankingValue": 24.772727272727273,
           "scoreRange": {
             "lower": 2.5283,
             "upper": 54.521725
@@ -913,7 +1158,7 @@
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
           "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 100
+          "balancedAffordabilityPercentile": 99.0909090909091
         },
         "code-reviewer": {
           "status": "estimated",
@@ -921,7 +1166,7 @@
           "measurementKind": "estimated",
           "score": 35.425278,
           "rankingQuality": 15.425278,
-          "rankingValue": 25,
+          "rankingValue": 24.642857142857146,
           "scoreRange": {
             "lower": 15.425278,
             "upper": 59.36
@@ -944,7 +1189,7 @@
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
           "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 100
+          "balancedAffordabilityPercentile": 98.57142857142858
         }
       }
     },
@@ -988,7 +1233,7 @@
           "measurementKind": "estimated",
           "score": 40.774855,
           "rankingQuality": 25.774855,
-          "rankingValue": 31.944444444444443,
+          "rankingValue": 31.363636363636367,
           "scoreRange": {
             "lower": 25.774855,
             "upper": 55.774855
@@ -1009,8 +1254,8 @@
             "margin": 15,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 12.962962962962962,
-          "balancedAffordabilityPercentile": 88.88888888888889
+          "balancedQualityPercentile": 12.727272727272727,
+          "balancedAffordabilityPercentile": 87.27272727272728
         },
         "implementer-heavy": {
           "status": "estimated",
@@ -1018,7 +1263,7 @@
           "measurementKind": "estimated",
           "score": 46.092845,
           "rankingQuality": 31.092845,
-          "rankingValue": 37.5,
+          "rankingValue": 38.18181818181819,
           "scoreRange": {
             "lower": 31.092845,
             "upper": 61.092845
@@ -1039,8 +1284,8 @@
             "margin": 15,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 20.37037037037037,
-          "balancedAffordabilityPercentile": 88.88888888888889
+          "balancedQualityPercentile": 21.818181818181817,
+          "balancedAffordabilityPercentile": 87.27272727272728
         }
       }
     },
@@ -1089,7 +1334,7 @@
           "measurementKind": "estimated",
           "score": 50.999463,
           "rankingQuality": 45.999463,
-          "rankingValue": 48.14814814814815,
+          "rankingValue": 48.636363636363626,
           "scoreRange": {
             "lower": 45.999463,
             "upper": 55.999463
@@ -1110,8 +1355,8 @@
             "margin": 5,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 55.55555555555556,
-          "balancedAffordabilityPercentile": 25.92592592592593
+          "balancedQualityPercentile": 56.36363636363636,
+          "balancedAffordabilityPercentile": 25.454545454545453
         },
         "strategist": {
           "status": "estimated",
@@ -1119,7 +1364,7 @@
           "measurementKind": "estimated",
           "score": 48.958497,
           "rankingQuality": 43.958497,
-          "rankingValue": 41.91176470588235,
+          "rankingValue": 42.857142857142854,
           "scoreRange": {
             "lower": 43.958497,
             "upper": 53.958497
@@ -1140,8 +1385,8 @@
             "margin": 5,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 44.11764705882353,
-          "balancedAffordabilityPercentile": 35.29411764705882
+          "balancedQualityPercentile": 45.714285714285715,
+          "balancedAffordabilityPercentile": 34.285714285714285
         },
         "code-reviewer": {
           "status": "estimated",
@@ -1149,7 +1394,7 @@
           "measurementKind": "estimated",
           "score": 53.587778,
           "rankingQuality": 48.587778,
-          "rankingValue": 35.294117647058826,
+          "rankingValue": 36.42857142857143,
           "scoreRange": {
             "lower": 48.587778,
             "upper": 58.587778
@@ -1170,8 +1415,8 @@
             "margin": 5,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 35.294117647058826,
-          "balancedAffordabilityPercentile": 35.29411764705882
+          "balancedQualityPercentile": 37.142857142857146,
+          "balancedAffordabilityPercentile": 34.285714285714285
         },
         "implementer": {
           "status": "estimated",
@@ -1179,7 +1424,7 @@
           "measurementKind": "estimated",
           "score": 49.880985,
           "rankingQuality": 44.880985,
-          "rankingValue": 52.31481481481482,
+          "rankingValue": 52.72727272727272,
           "scoreRange": {
             "lower": 44.880985,
             "upper": 54.880985
@@ -1200,8 +1445,8 @@
             "margin": 5,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 61.111111111111114,
-          "balancedAffordabilityPercentile": 25.92592592592593
+          "balancedQualityPercentile": 61.81818181818181,
+          "balancedAffordabilityPercentile": 25.454545454545453
         },
         "implementer-heavy": {
           "status": "estimated",
@@ -1209,7 +1454,7 @@
           "measurementKind": "estimated",
           "score": 52.951417,
           "rankingQuality": 47.951417,
-          "rankingValue": 56.481481481481474,
+          "rankingValue": 56.81818181818181,
           "scoreRange": {
             "lower": 47.951417,
             "upper": 57.951417
@@ -1230,8 +1475,8 @@
             "margin": 5,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 66.66666666666666,
-          "balancedAffordabilityPercentile": 25.92592592592593
+          "balancedQualityPercentile": 67.27272727272727,
+          "balancedAffordabilityPercentile": 25.454545454545453
         },
         "synthesizer": {
           "status": "estimated",
@@ -1239,7 +1484,7 @@
           "measurementKind": "estimated",
           "score": 46.913333,
           "rankingQuality": 41.913333,
-          "rankingValue": 28.676470588235297,
+          "rankingValue": 30,
           "scoreRange": {
             "lower": 41.913333,
             "upper": 51.913333
@@ -1260,8 +1505,8 @@
             "margin": 5,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 26.47058823529412,
-          "balancedAffordabilityPercentile": 35.29411764705882
+          "balancedQualityPercentile": 28.57142857142857,
+          "balancedAffordabilityPercentile": 34.285714285714285
         },
         "researcher": {
           "status": "estimated",
@@ -1269,7 +1514,7 @@
           "measurementKind": "estimated",
           "score": 49.350758,
           "rankingQuality": 44.350758,
-          "rankingValue": 28.676470588235297,
+          "rankingValue": 30,
           "scoreRange": {
             "lower": 44.350758,
             "upper": 54.350758
@@ -1290,88 +1535,868 @@
             "margin": 5,
             "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
           },
-          "balancedQualityPercentile": 26.47058823529412,
-          "balancedAffordabilityPercentile": 35.29411764705882
+          "balancedQualityPercentile": 28.57142857142857,
+          "balancedAffordabilityPercentile": 34.285714285714285
+        }
+      }
+    },
+    {
+      "model": "Qwen 3.7 Flash",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "external-reasoning",
+      "anchors": [
+        "inkling",
+        "nvidia-nemotron-3-ultra-550b-a55b"
+      ],
+      "evidenceIds": [
+        "aa:inkling",
+        "aa:nvidia-nemotron-3-ultra-550b-a55b"
+      ],
+      "margin": 25,
+      "sources": [
+        {
+          "url": "https://epoch.ai/models/qwen3-7-flash",
+          "summary": "Epoch publishes GPQA 82.323% thinking and 80.808% no-thinking, FrontierMath tiers1-3 v2 19.298%, OTIS mock AIME and game results, with execution logs.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://playground.roboflow.com/models/qwen/qwen3-7-flash",
+          "summary": "Independent ground-truth vision tests: 52.4 overall, reasoning low/high 34.4/61.6. Single run per task; these remain diagnostics rather than AA role observations.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://commandcode.ai/models/qwen3-7-flash",
+          "summary": "Exact catalog route qwen/qwen3.7-flash; no AA score is asserted.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-04",
+      "scope": [
+        "researcher"
+      ],
+      "reason": "Independent mathematics/science evaluations support a narrow hard-question-answering analogy only. Lower-scoring target GPQA and unvalidated cross-task transfer receive a wide haircut; no coding or professional-deliverable score is inferred.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 11.759273,
+        "cutoffLowerBound": 0,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "researcher": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 39.943686,
+          "rankingQuality": 14.943686,
+          "rankingValue": 23.57142857142857,
+          "scoreRange": {
+            "lower": 14.943686,
+            "upper": 66.862108
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "inkling",
+              "nvidia-nemotron-3-ultra-550b-a55b"
+            ],
+            "sources": [
+              {
+                "url": "https://epoch.ai/models/qwen3-7-flash",
+                "summary": "Epoch publishes GPQA 82.323% thinking and 80.808% no-thinking, FrontierMath tiers1-3 v2 19.298%, OTIS mock AIME and game results, with execution logs.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://playground.roboflow.com/models/qwen/qwen3-7-flash",
+                "summary": "Independent ground-truth vision tests: 52.4 overall, reasoning low/high 34.4/61.6. Single run per task; these remain diagnostics rather than AA role observations.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://commandcode.ai/models/qwen3-7-flash",
+                "summary": "Exact catalog route qwen/qwen3.7-flash; no AA score is asserted.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 25,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 94.28571428571428
+        }
+      }
+    },
+    {
+      "model": "Step 3.7 Flash",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "partial-observed-profile",
+      "anchors": [
+        "inkling",
+        "nvidia-nemotron-3-ultra-550b-a55b"
+      ],
+      "evidenceIds": [
+        "aa:step-3-7-flash",
+        "aa:inkling",
+        "aa:nvidia-nemotron-3-ultra-550b-a55b"
+      ],
+      "margin": 25,
+      "sources": [
+        {
+          "url": "https://artificialanalysis.ai/models/step-3-7-flash",
+          "summary": "Exact high-effort target has observed LCR, HLE, SciCode and legacy Terminal-Bench; no v5 Intelligence.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+          "summary": "Vendor reports SWE-bench Pro 56.3 and Terminal-Bench 2.1 at 59.5. These establish coding relevance, not metric equivalence.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+          "summary": "Low-tier coding reference table includes Inkling TB2.1 63.8 and Nemotron 3 Ultra 56.4. Harness differences require a wide policy range.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-27",
+      "scope": [
+        "implementer",
+        "implementer-heavy",
+        "code-reviewer"
+      ],
+      "reason": "Preserve exact AA target LCR/HLE/SciCode contributions. Only missing role contributions use low-capability observed coding anchors with a wide policy margin; vendor TB2.1 is never substituted for AA TB4.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 11.759273,
+        "cutoffLowerBound": 0,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "architect": {
+          "status": "partial",
+          "completeness": "partial",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0.3,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ],
+          "scoreRange": {
+            "lower": 16.874205,
+            "upper": 86.874205
+          }
+        },
+        "strategist": {
+          "status": "partial",
+          "completeness": "unavailable",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 0,
+            "upper": 100
+          }
+        },
+        "security-reviewer": {
+          "status": "partial",
+          "completeness": "unavailable",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0,
+          "missingComponents": [
+            "cyberIndex"
+          ],
+          "scoreRange": {
+            "lower": 0,
+            "upper": 100
+          }
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 35.457324,
+          "rankingQuality": 31.530556,
+          "rankingValue": 20,
+          "coverageWeight": 0.5,
+          "missingComponents": [
+            "terminalBench40",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 31.530556,
+            "upper": 48.504091
+          },
+          "observedRole": {
+            "status": "partial",
+            "completeness": "partial",
+            "score": null,
+            "rankingQuality": null,
+            "rankingValue": null,
+            "coverageWeight": 0.5,
+            "missingComponents": [
+              "terminalBench40",
+              "omniscience"
+            ],
+            "scoreRange": {
+              "lower": 27.893056,
+              "upper": 77.893056
+            }
+          },
+          "provenance": {
+            "method": "observed-plus-anchor-envelope-v1",
+            "anchors": [
+              "inkling",
+              "nvidia-nemotron-3-ultra-550b-a55b"
+            ],
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/step-3-7-flash",
+                "summary": "Exact high-effort target has observed LCR, HLE, SciCode and legacy Terminal-Bench; no v5 Intelligence.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+                "summary": "Vendor reports SWE-bench Pro 56.3 and Terminal-Bench 2.1 at 59.5. These establish coding relevance, not metric equivalence.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+                "summary": "Low-tier coding reference table includes Inkling TB2.1 63.8 and Nemotron 3 Ultra 56.4. Harness differences require a wide policy range.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 25,
+            "observedComponents": [
+              "scicode",
+              "lcr"
+            ],
+            "estimatedComponents": {
+              "terminalBench40": {
+                "reference": 0.505051,
+                "lower": 0,
+                "upper": 26.010101,
+                "weight": 0.35
+              },
+              "omniscience": {
+                "reference": 49.25,
+                "lower": 24.25,
+                "upper": 76.716667,
+                "weight": 0.15
+              }
+            },
+            "interpretation": "Observed contributions are preserved exactly; only missing contributions use heuristic anchor values. No raw benchmark is imputed and the range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 80
+        },
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 21.931004,
+          "rankingQuality": 21.627974,
+          "rankingValue": 20,
+          "coverageWeight": 0.4,
+          "missingComponents": [
+            "terminalBench40"
+          ],
+          "scoreRange": {
+            "lower": 21.627974,
+            "upper": 37.234034
+          },
+          "observedRole": {
+            "status": "partial",
+            "completeness": "partial",
+            "score": null,
+            "rankingQuality": null,
+            "rankingValue": null,
+            "coverageWeight": 0.4,
+            "missingComponents": [
+              "terminalBench40"
+            ],
+            "scoreRange": {
+              "lower": 21.627974,
+              "upper": 81.627974
+            }
+          },
+          "provenance": {
+            "method": "observed-plus-anchor-envelope-v1",
+            "anchors": [
+              "inkling",
+              "nvidia-nemotron-3-ultra-550b-a55b"
+            ],
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/step-3-7-flash",
+                "summary": "Exact high-effort target has observed LCR, HLE, SciCode and legacy Terminal-Bench; no v5 Intelligence.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+                "summary": "Vendor reports SWE-bench Pro 56.3 and Terminal-Bench 2.1 at 59.5. These establish coding relevance, not metric equivalence.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+                "summary": "Low-tier coding reference table includes Inkling TB2.1 63.8 and Nemotron 3 Ultra 56.4. Harness differences require a wide policy range.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 25,
+            "observedComponents": [
+              "lcr",
+              "hle"
+            ],
+            "estimatedComponents": {
+              "terminalBench40": {
+                "reference": 0.505051,
+                "lower": 0,
+                "upper": 26.010101,
+                "weight": 0.6
+              }
+            },
+            "interpretation": "Observed contributions are preserved exactly; only missing contributions use heuristic anchor values. No raw benchmark is imputed and the range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 1.8181818181818181,
+          "balancedAffordabilityPercentile": 74.54545454545455
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 20.789156,
+          "rankingQuality": 14.733333,
+          "rankingValue": 18.636363636363637,
+          "coverageWeight": 0.2,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ],
+          "scoreRange": {
+            "lower": 14.733333,
+            "upper": 41.792729
+          },
+          "observedRole": {
+            "status": "partial",
+            "completeness": "partial",
+            "score": null,
+            "rankingQuality": null,
+            "rankingValue": null,
+            "coverageWeight": 0.2,
+            "missingComponents": [
+              "terminalBench40",
+              "briefcase"
+            ],
+            "scoreRange": {
+              "lower": 14.733333,
+              "upper": 94.733333
+            }
+          },
+          "provenance": {
+            "method": "observed-plus-anchor-envelope-v1",
+            "anchors": [
+              "inkling",
+              "nvidia-nemotron-3-ultra-550b-a55b"
+            ],
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/step-3-7-flash",
+                "summary": "Exact high-effort target has observed LCR, HLE, SciCode and legacy Terminal-Bench; no v5 Intelligence.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+                "summary": "Vendor reports SWE-bench Pro 56.3 and Terminal-Bench 2.1 at 59.5. These establish coding relevance, not metric equivalence.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://huggingface.co/poolside/Laguna-S-2.1",
+                "summary": "Low-tier coding reference table includes Inkling TB2.1 63.8 and Nemotron 3 Ultra 56.4. Harness differences require a wide policy range.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 25,
+            "observedComponents": [
+              "lcr"
+            ],
+            "estimatedComponents": {
+              "terminalBench40": {
+                "reference": 0.505051,
+                "lower": 0,
+                "upper": 26.010101,
+                "weight": 0.45
+              },
+              "briefcase": {
+                "reference": 16.653,
+                "lower": 0,
+                "upper": 43.870999999999995,
+                "weight": 0.35
+              }
+            },
+            "interpretation": "Observed contributions are preserved exactly; only missing contributions use heuristic anchor values. No raw benchmark is imputed and the range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 74.54545454545455
+        },
+        "synthesizer": {
+          "status": "partial",
+          "completeness": "partial",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0.25,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 18.416667,
+            "upper": 93.416667
+          }
+        },
+        "researcher": {
+          "status": "partial",
+          "completeness": "partial",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0.45,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 22.698409,
+            "upper": 77.698409
+          }
+        }
+      }
+    },
+    {
+      "model": "Claude Haiku 4.5",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "partial-observed-profile",
+      "anchors": [
+        "claude-haiku-5-5"
+      ],
+      "evidenceIds": [
+        "aa:claude-4-5-haiku",
+        "aa:claude-haiku-5-5"
+      ],
+      "margin": 45,
+      "sources": [
+        {
+          "url": "https://artificialanalysis.ai/models/claude-4-5-haiku",
+          "summary": "Exact non-reasoning target has observed HLE and LCR; other core fields and Intelligence v5 remain absent.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+          "summary": "Official Terminal-Bench footnote distinguishes no-thinking 40.21 and thinking 41.75, with 11 runs in total. Other coding headlines use extended thinking and cannot be transferred as observations.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-27",
+      "scope": [
+        "implementer",
+        "implementer-heavy"
+      ],
+      "reason": "Exact non-reasoning AA target measurements stay intact. Later Haiku is only a same-line upper reference with a 45-point haircut for missing contributions; no reasoning-effort score is copied into the non-reasoning row.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "estimated",
+        "referenceVersion": "5.0",
+        "estimate": 36.234544,
+        "cutoffLowerBound": 0,
+        "reason": "Minimum observed anchor Intelligence minus policy margin; heuristic, not a confidence bound"
+      },
+      "roles": {
+        "architect": {
+          "status": "partial",
+          "completeness": "partial",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0.3,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ],
+          "scoreRange": {
+            "lower": 10.35502,
+            "upper": 80.35502
+          }
+        },
+        "strategist": {
+          "status": "partial",
+          "completeness": "unavailable",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 0,
+            "upper": 100
+          }
+        },
+        "security-reviewer": {
+          "status": "partial",
+          "completeness": "unavailable",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0,
+          "missingComponents": [
+            "cyberIndex"
+          ],
+          "scoreRange": {
+            "lower": 0,
+            "upper": 100
+          }
+        },
+        "code-reviewer": {
+          "status": "partial",
+          "completeness": "partial",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0.2,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 9.933333,
+            "upper": 89.933333
+          }
+        },
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 32.746167,
+          "rankingQuality": 13.049197,
+          "rankingValue": 13.181818181818183,
+          "coverageWeight": 0.4,
+          "missingComponents": [
+            "terminalBench40"
+          ],
+          "scoreRange": {
+            "lower": 13.049197,
+            "upper": 59.746167
+          },
+          "observedRole": {
+            "status": "partial",
+            "completeness": "partial",
+            "score": null,
+            "rankingQuality": null,
+            "rankingValue": null,
+            "coverageWeight": 0.4,
+            "missingComponents": [
+              "terminalBench40"
+            ],
+            "scoreRange": {
+              "lower": 13.049197,
+              "upper": 73.049197
+            }
+          },
+          "provenance": {
+            "method": "observed-plus-anchor-envelope-v1",
+            "anchors": [
+              "claude-haiku-5-5"
+            ],
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/claude-4-5-haiku",
+                "summary": "Exact non-reasoning target has observed HLE and LCR; other core fields and Intelligence v5 remain absent.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+                "summary": "Official Terminal-Bench footnote distinguishes no-thinking 40.21 and thinking 41.75, with 11 runs in total. Other coding headlines use extended thinking and cannot be transferred as observations.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 45,
+            "observedComponents": [
+              "lcr",
+              "hle"
+            ],
+            "estimatedComponents": {
+              "terminalBench40": {
+                "reference": 32.828283,
+                "lower": 0,
+                "upper": 77.828283,
+                "weight": 0.6
+              }
+            },
+            "interpretation": "Observed contributions are preserved exactly; only missing contributions use heuristic anchor values. No raw benchmark is imputed and the range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 52.727272727272734
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 43.525036,
+          "rankingQuality": 13.002308,
+          "rankingValue": 13.181818181818183,
+          "coverageWeight": 0.2,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ],
+          "scoreRange": {
+            "lower": 13.002308,
+            "upper": 79.525036
+          },
+          "observedRole": {
+            "status": "partial",
+            "completeness": "partial",
+            "score": null,
+            "rankingQuality": null,
+            "rankingValue": null,
+            "coverageWeight": 0.2,
+            "missingComponents": [
+              "terminalBench40",
+              "briefcase"
+            ],
+            "scoreRange": {
+              "lower": 9.933333,
+              "upper": 89.933333
+            }
+          },
+          "provenance": {
+            "method": "observed-plus-anchor-envelope-v1",
+            "anchors": [
+              "claude-haiku-5-5"
+            ],
+            "sources": [
+              {
+                "url": "https://artificialanalysis.ai/models/claude-4-5-haiku",
+                "summary": "Exact non-reasoning target has observed HLE and LCR; other core fields and Intelligence v5 remain absent.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://www.anthropic.com/news/claude-haiku-4-5",
+                "summary": "Official Terminal-Bench footnote distinguishes no-thinking 40.21 and thinking 41.75, with 11 runs in total. Other coding headlines use extended thinking and cannot be transferred as observations.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 45,
+            "observedComponents": [
+              "lcr"
+            ],
+            "estimatedComponents": {
+              "terminalBench40": {
+                "reference": 32.828283,
+                "lower": 0,
+                "upper": 77.828283,
+                "weight": 0.45
+              },
+              "briefcase": {
+                "reference": 53.7685,
+                "lower": 8.768500000000003,
+                "upper": 98.7685,
+                "weight": 0.35
+              }
+            },
+            "interpretation": "Observed contributions are preserved exactly; only missing contributions use heuristic anchor values. No raw benchmark is imputed and the range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 52.727272727272734
+        },
+        "synthesizer": {
+          "status": "partial",
+          "completeness": "partial",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0.25,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 12.416667,
+            "upper": 87.416667
+          }
+        },
+        "researcher": {
+          "status": "partial",
+          "completeness": "partial",
+          "score": null,
+          "rankingQuality": null,
+          "rankingValue": null,
+          "coverageWeight": 0.45,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ],
+          "scoreRange": {
+            "lower": 13.26004,
+            "upper": 68.26004
+          }
+        }
+      }
+    },
+    {
+      "model": "Fugu Ultra",
+      "status": "estimated",
+      "method": "anchor-envelope-v1",
+      "kind": "external-launch-version",
+      "anchors": [
+        "claude-fable-5"
+      ],
+      "evidenceIds": [
+        "aa:claude-fable-5"
+      ],
+      "evidenceFamilies": [
+        "Claude",
+        "GPT",
+        "Gemini"
+      ],
+      "margin": 30,
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2606.21228v1",
+          "summary": "Original report: Ultra SWE-bench Pro73.7, TB2.1 82.1, SciCode58.7, HLE50.0 and LCR73.3; comparisons include Fable5/Mythos and an Opus4.8/GPT5.5/Gemini3.1 worker pool. Preserve that revision.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://commandcode.ai/blog/fugu-ultra-by-sakana-ai-is-live-in-command-code",
+          "summary": "June23 catalog launch establishes sakana/fugu-ultra route and 1M context. It does not verify the current serving revision.",
+          "capturedAt": "2026-10-28"
+        },
+        {
+          "url": "https://sakana.ai/fugu-1-1-claude-code-interface/",
+          "summary": "Later official v1.1 improves coding benchmarks by up to7.9 points. This verifies version drift rather than equivalence to the unversioned route.",
+          "capturedAt": "2026-10-28"
+        }
+      ],
+      "reviewAfter": "2026-11-04",
+      "scope": [
+        "implementer",
+        "implementer-heavy"
+      ],
+      "reason": "Use the original June launch technical report as an explicitly uncertain coding analogy to its frontier reference class. The unversioned catalog route is verified, but the current revision is unconfirmed; v2 results are not imported. Anchor Intelligence v5 is unavailable, so portfolios remain blocked.",
+      "portfolioAllowed": true,
+      "intelligence": {
+        "status": "unavailable",
+        "referenceVersion": "5.0",
+        "estimate": null,
+        "cutoffLowerBound": null,
+        "reason": "All anchor Intelligence observations must be available; no residual estimator or cross-version substitution"
+      },
+      "roles": {
+        "implementer": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 54.358082,
+          "rankingQuality": 24.358082,
+          "rankingValue": 8.636363636363635,
+          "scoreRange": {
+            "lower": 24.358082,
+            "upper": 84.358082
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "claude-fable-5"
+            ],
+            "sources": [
+              {
+                "url": "https://arxiv.org/html/2606.21228v1",
+                "summary": "Original report: Ultra SWE-bench Pro73.7, TB2.1 82.1, SciCode58.7, HLE50.0 and LCR73.3; comparisons include Fable5/Mythos and an Opus4.8/GPT5.5/Gemini3.1 worker pool. Preserve that revision.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://commandcode.ai/blog/fugu-ultra-by-sakana-ai-is-live-in-command-code",
+                "summary": "June23 catalog launch establishes sakana/fugu-ultra route and 1M context. It does not verify the current serving revision.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://sakana.ai/fugu-1-1-claude-code-interface/",
+                "summary": "Later official v1.1 improves coding benchmarks by up to7.9 points. This verifies version drift rather than equivalence to the unversioned route.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 30,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 5.454545454545454,
+          "balancedAffordabilityPercentile": 18.181818181818176
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "completeness": "estimated",
+          "measurementKind": "estimated",
+          "score": 53.676725,
+          "rankingQuality": 23.676725,
+          "rankingValue": 12.727272727272727,
+          "scoreRange": {
+            "lower": 23.676725,
+            "upper": 83.676725
+          },
+          "missingComponents": [],
+          "provenance": {
+            "method": "anchor-envelope-v1",
+            "anchors": [
+              "claude-fable-5"
+            ],
+            "sources": [
+              {
+                "url": "https://arxiv.org/html/2606.21228v1",
+                "summary": "Original report: Ultra SWE-bench Pro73.7, TB2.1 82.1, SciCode58.7, HLE50.0 and LCR73.3; comparisons include Fable5/Mythos and an Opus4.8/GPT5.5/Gemini3.1 worker pool. Preserve that revision.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://commandcode.ai/blog/fugu-ultra-by-sakana-ai-is-live-in-command-code",
+                "summary": "June23 catalog launch establishes sakana/fugu-ultra route and 1M context. It does not verify the current serving revision.",
+                "capturedAt": "2026-10-28"
+              },
+              {
+                "url": "https://sakana.ai/fugu-1-1-claude-code-interface/",
+                "summary": "Later official v1.1 improves coding benchmarks by up to7.9 points. This verifies version drift rather than equivalence to the unversioned route.",
+                "capturedAt": "2026-10-28"
+              }
+            ],
+            "margin": 30,
+            "interpretation": "Heuristic role analogy. Ranking uses the lower policy value. No raw benchmark is imputed; range is not a confidence interval."
+          },
+          "balancedQualityPercentile": 10.909090909090908,
+          "balancedAffordabilityPercentile": 18.181818181818176
         }
       }
     }
   ],
   "remainingGaps": [
-    {
-      "model": "Glyph Cluster",
-      "mapping": {
-        "status": "unscored",
-        "reason": "No verified AA benchmark identity; experimental proxies disabled",
-        "identityStatus": "stealth_unverified",
-        "externalSource": {
-          "label": "Vercel AI Gateway — Glyph Cluster",
-          "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway"
-        },
-        "externalEvidence": {
-          "label": "External GPQA Diamond subset",
-          "url": "https://stealthmodels.com/glyph-cluster",
-          "method": "Independent 55-question subset (31/55), not a full standardized GPQA Diamond run and not an AA score.",
-          "metrics": [
-            {
-              "name": "GPQA Diamond (55-question subset)",
-              "score": "56.4%"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "model": "Beam 1.0",
-      "mapping": {
-        "status": "unscored",
-        "reason": "No verified AA benchmark identity; experimental proxies disabled",
-        "identityStatus": "stealth_unverified",
-        "externalSource": null,
-        "externalEvidence": null
-      }
-    },
-    {
-      "model": "Qwen 3.7 Flash",
-      "mapping": {
-        "status": "unscored",
-        "reason": "No verified AA benchmark identity; experimental proxies disabled",
-        "identityStatus": "external_verified",
-        "externalSource": {
-          "label": "Alibaba Cloud Model Studio — qwen3.7-flash",
-          "url": "https://www.alibabacloud.com/help/en/model-studio/qwen3-7-flash"
-        },
-        "externalEvidence": null
-      }
-    },
-    {
-      "model": "Step 3.7 Flash",
-      "mapping": {
-        "slug": "step-3-7-flash",
-        "status": "source_incomplete",
-        "identityStatus": null
-      }
-    },
-    {
-      "model": "Claude Haiku 4.5",
-      "mapping": {
-        "slug": "claude-4-5-haiku",
-        "status": "source_incomplete",
-        "identityStatus": null
-      }
-    },
-    {
-      "model": "Fugu Ultra",
-      "mapping": {
-        "status": "unscored",
-        "reason": "No verified AA benchmark identity; experimental proxies disabled",
-        "identityStatus": "external_verified",
-        "externalSource": {
-          "label": "OpenRouter — Sakana Fugu Ultra",
-          "url": "https://openrouter.ai/sakana/fugu-ultra"
-        },
-        "externalEvidence": null
-      }
-    },
     {
       "model": "Jev",
       "mapping": {
@@ -1401,60 +2426,60 @@
   ],
   "roleCoverage": {
     "architect": {
-      "total": 49,
-      "present": 47,
-      "offers": 55,
-      "observedIntelligence": 28,
+      "total": 50,
+      "present": 48,
+      "offers": 56,
+      "observedIntelligence": 29,
       "estimatedOffers": 1
     },
     "strategist": {
-      "total": 49,
-      "present": 31,
-      "offers": 35,
-      "observedIntelligence": 28,
+      "total": 50,
+      "present": 32,
+      "offers": 36,
+      "observedIntelligence": 29,
       "estimatedOffers": 1
     },
     "security-reviewer": {
-      "total": 49,
+      "total": 50,
       "present": 19,
       "offers": 23,
       "observedIntelligence": 14,
       "estimatedOffers": 0
     },
     "code-reviewer": {
-      "total": 49,
-      "present": 31,
-      "offers": 35,
-      "observedIntelligence": 28,
-      "estimatedOffers": 2
+      "total": 50,
+      "present": 32,
+      "offers": 36,
+      "observedIntelligence": 29,
+      "estimatedOffers": 3
     },
     "implementer": {
-      "total": 49,
-      "present": 47,
-      "offers": 55,
-      "observedIntelligence": 28,
-      "estimatedOffers": 5
+      "total": 50,
+      "present": 48,
+      "offers": 56,
+      "observedIntelligence": 29,
+      "estimatedOffers": 9
     },
     "implementer-heavy": {
-      "total": 49,
-      "present": 47,
-      "offers": 55,
-      "observedIntelligence": 28,
-      "estimatedOffers": 5
+      "total": 50,
+      "present": 48,
+      "offers": 56,
+      "observedIntelligence": 29,
+      "estimatedOffers": 8
     },
     "synthesizer": {
-      "total": 49,
-      "present": 31,
-      "offers": 35,
-      "observedIntelligence": 28,
+      "total": 50,
+      "present": 32,
+      "offers": 36,
+      "observedIntelligence": 29,
       "estimatedOffers": 1
     },
     "researcher": {
-      "total": 49,
-      "present": 31,
-      "offers": 35,
-      "observedIntelligence": 28,
-      "estimatedOffers": 1
+      "total": 50,
+      "present": 32,
+      "offers": 36,
+      "observedIntelligence": 29,
+      "estimatedOffers": 2
     }
   },
   "rankings": {
@@ -1698,7 +2723,7 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 48,
+        "newIdentities": 49,
         "commonIdentities": 31,
         "spearman": 0.7343482243187066,
         "kendallTauB": 0.5941876424108556,
@@ -1718,6 +2743,7 @@
           "claude-sonnet-5",
           "deepseek-v4-flash",
           "glm-5-2",
+          "reflection-beam",
           "hy3",
           "qwen3-7-max",
           "qwen3-7-plus",
@@ -1745,10 +2771,10 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 48,
+            "newIdentities": 49,
             "commonIdentities": 31,
-            "spearman": 0.6116769215327031,
-            "kendallTauB": 0.47464968286292036,
+            "spearman": 0.6108086431913429,
+            "kendallTauB": 0.47198385474974647,
             "top5Overlap": 0.6,
             "top10Overlap": 0.7,
             "entered": [
@@ -1763,6 +2789,7 @@
               "estimated:Qwen 3.8 Max Prime",
               "ling-3-1-flash",
               "deepseek-v4-flash",
+              "reflection-beam",
               "claude-sonnet-5",
               "hy3",
               "glm-5-2",
@@ -1792,16 +2819,17 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 48,
+            "newIdentities": 49,
             "commonIdentities": 31,
-            "spearman": 0.7894312864960642,
-            "kendallTauB": 0.5982777200109243,
+            "spearman": 0.7787414913544466,
+            "kendallTauB": 0.5896383305522828,
             "top5Overlap": 0.6,
             "top10Overlap": 0.7,
             "entered": [
               "deepseek-v4-1-flash",
               "muse-spark-1-2",
               "deepseek-v4-flash-vision",
+              "reflection-beam",
               "deepseek-v4-flash",
               "ling-3-1-flash",
               "kimi-k3",
@@ -2067,14 +3095,15 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 32,
+        "newIdentities": 33,
         "commonIdentities": 31,
         "spearman": 0.7274193548387097,
         "kendallTauB": 0.5956989247311828,
         "top5Overlap": 0.8,
         "top10Overlap": 0.9,
         "entered": [
-          "estimated:Qwen 3.8 Max Prime"
+          "estimated:Qwen 3.8 Max Prime",
+          "reflection-beam"
         ],
         "exited": [
           "experimental:qwen38maxprime",
@@ -2098,14 +3127,15 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 32,
+            "newIdentities": 33,
             "commonIdentities": 31,
-            "spearman": 0.609121256002315,
-            "kendallTauB": 0.47072026503244374,
+            "spearman": 0.6161219853577172,
+            "kendallTauB": 0.4853809029928542,
             "top5Overlap": 0.8,
             "top10Overlap": 0.7,
             "entered": [
-              "estimated:Qwen 3.8 Max Prime"
+              "estimated:Qwen 3.8 Max Prime",
+              "reflection-beam"
             ],
             "exited": [
               "experimental:qwen38maxprime",
@@ -2129,13 +3159,14 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 32,
+            "newIdentities": 33,
             "commonIdentities": 31,
-            "spearman": 0.8178243816135843,
-            "kendallTauB": 0.6458561330552779,
+            "spearman": 0.8084291352109916,
+            "kendallTauB": 0.6357773385898411,
             "top5Overlap": 0.6,
             "top10Overlap": 0.7,
             "entered": [
+              "reflection-beam",
               "estimated:Qwen 3.8 Max Prime"
             ],
             "exited": [
@@ -2588,7 +3619,7 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 33,
+        "newIdentities": 35,
         "commonIdentities": 31,
         "spearman": 0.7774193548387097,
         "kendallTauB": 0.6731182795698925,
@@ -2596,6 +3627,8 @@
         "top10Overlap": 0.9,
         "entered": [
           "estimated:Qwen 3.8 Max Prime",
+          "reflection-beam",
+          "step-3-7-flash",
           "estimated:Ornith 1.5 122B"
         ],
         "exited": [
@@ -2620,15 +3653,17 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
+            "newIdentities": 35,
             "commonIdentities": 31,
-            "spearman": 0.734187464267521,
-            "kendallTauB": 0.6197215833179646,
+            "spearman": 0.7365607702615996,
+            "kendallTauB": 0.6270273934419732,
             "top5Overlap": 0.8,
             "top10Overlap": 0.8,
             "entered": [
               "estimated:Qwen 3.8 Max Prime",
-              "estimated:Ornith 1.5 122B"
+              "reflection-beam",
+              "estimated:Ornith 1.5 122B",
+              "step-3-7-flash"
             ],
             "exited": [
               "experimental:qwen38maxprime",
@@ -2652,14 +3687,16 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 33,
+            "newIdentities": 35,
             "commonIdentities": 31,
-            "spearman": 0.8231498453308226,
+            "spearman": 0.8223432310776811,
             "kendallTauB": 0.6831912418067106,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
             "entered": [
+              "reflection-beam",
               "estimated:Ornith 1.5 122B",
+              "step-3-7-flash",
               "estimated:Qwen 3.8 Max Prime"
             ],
             "exited": [
@@ -2912,7 +3949,7 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 52,
+        "newIdentities": 57,
         "commonIdentities": 31,
         "spearman": 0.7540322580645161,
         "kendallTauB": 0.6129032258064516,
@@ -2933,13 +3970,18 @@
           "estimated:Tencent Hy4 Preview",
           "muse-spark-1-2",
           "qwen3-7-max",
+          "reflection-beam",
           "glm-5-2",
           "estimated:Qwen 3.8 Omni Flash",
           "hy3",
+          "estimated:Fugu Ultra",
           "qwen3-7-plus",
+          "step-3-7-flash",
           "longcat-2-0",
+          "claude-4-5-haiku",
           "estimated:Laguna S 2.1",
-          "estimated:Ornith 1.5 122B"
+          "estimated:Ornith 1.5 122B",
+          "estimated:Glyph Cluster"
         ],
         "exited": [
           "experimental:qwen38maxprime",
@@ -2963,16 +4005,16 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 52,
+            "newIdentities": 57,
             "commonIdentities": 31,
-            "spearman": 0.6598083745106648,
-            "kendallTauB": 0.5405408564154941,
+            "spearman": 0.6585316793890725,
+            "kendallTauB": 0.537798230618368,
             "top5Overlap": 0.4,
             "top10Overlap": 0.8,
             "entered": [
               "gpt-6-sol",
-              "claude-opus-5",
               "ling-3-1-flash",
+              "claude-opus-5",
               "deepseek-v4-1-flash",
               "claude-fable-5",
               "estimated:Qwen 3.8 Max Prime",
@@ -2982,15 +4024,20 @@
               "muse-spark-1-2",
               "kimi-k3",
               "estimated:Tencent Hy4 Preview",
+              "reflection-beam",
               "claude-sonnet-5",
               "estimated:Qwen 3.8 Omni Flash",
               "hy3",
+              "estimated:Glyph Cluster",
               "estimated:Laguna S 2.1",
               "estimated:Ornith 1.5 122B",
               "glm-5-2",
-              "longcat-2-0",
               "qwen3-7-max",
-              "qwen3-7-plus"
+              "longcat-2-0",
+              "step-3-7-flash",
+              "qwen3-7-plus",
+              "claude-4-5-haiku",
+              "estimated:Fugu Ultra"
             ],
             "exited": [
               "experimental:qwen38maxprime",
@@ -3014,10 +4061,10 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 52,
+            "newIdentities": 57,
             "commonIdentities": 31,
-            "spearman": 0.8176043557168784,
-            "kendallTauB": 0.6573275862068966,
+            "spearman": 0.809355785945988,
+            "kendallTauB": 0.6458561330552779,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
             "entered": [
@@ -3026,6 +4073,8 @@
               "deepseek-v4-flash",
               "muse-spark-1-2",
               "deepseek-v4-flash-vision",
+              "reflection-beam",
+              "estimated:Glyph Cluster",
               "estimated:Laguna S 2.1",
               "estimated:Ornith 1.5 122B",
               "estimated:Qwen 3.8 Omni Flash",
@@ -3033,15 +4082,18 @@
               "hy3",
               "longcat-2-0",
               "estimated:Tencent Hy4 Preview",
+              "step-3-7-flash",
               "claude-opus-5",
               "grok-4-6",
-              "qwen3-7-plus",
               "estimated:Qwen 3.8 Max Prime",
+              "qwen3-7-plus",
               "kimi-k3",
               "glm-5-2",
               "claude-fable-5",
               "claude-sonnet-5",
-              "qwen3-7-max"
+              "claude-4-5-haiku",
+              "qwen3-7-max",
+              "estimated:Fugu Ultra"
             ],
             "exited": [
               "experimental:qwen38omniflash",
@@ -3293,7 +4345,7 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 52,
+        "newIdentities": 56,
         "commonIdentities": 31,
         "spearman": 0.7540322580645161,
         "kendallTauB": 0.621505376344086,
@@ -3315,10 +4367,14 @@
           "estimated:Tencent Hy4 Preview",
           "estimated:Qwen 3.8 Omni Flash",
           "glm-5-2",
+          "reflection-beam",
           "hy3",
           "qwen3-7-max",
+          "estimated:Fugu Ultra",
           "qwen3-7-plus",
           "longcat-2-0",
+          "step-3-7-flash",
+          "claude-4-5-haiku",
           "estimated:Ornith 1.5 122B",
           "estimated:Laguna S 2.1"
         ],
@@ -3344,10 +4400,10 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 52,
+            "newIdentities": 56,
             "commonIdentities": 31,
-            "spearman": 0.6119855842770447,
-            "kendallTauB": 0.5070496933050352,
+            "spearman": 0.6113186231085876,
+            "kendallTauB": 0.5043396373395015,
             "top5Overlap": 0.2,
             "top10Overlap": 0.8,
             "entered": [
@@ -3364,6 +4420,7 @@
               "kimi-k3",
               "estimated:Qwen 3.8 Omni Flash",
               "claude-sonnet-5",
+              "reflection-beam",
               "estimated:Tencent Hy4 Preview",
               "hy3",
               "glm-5-2",
@@ -3371,7 +4428,10 @@
               "estimated:Ornith 1.5 122B",
               "longcat-2-0",
               "qwen3-7-plus",
-              "qwen3-7-max"
+              "step-3-7-flash",
+              "qwen3-7-max",
+              "claude-4-5-haiku",
+              "estimated:Fugu Ultra"
             ],
             "exited": [
               "experimental:qwen38maxprime",
@@ -3395,10 +4455,10 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 52,
+            "newIdentities": 56,
             "commonIdentities": 31,
-            "spearman": 0.7809255004904861,
-            "kendallTauB": 0.6071047650719612,
+            "spearman": 0.7745513365790518,
+            "kendallTauB": 0.6012944998866633,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
             "entered": [
@@ -3407,14 +4467,16 @@
               "ling-3-1-flash",
               "muse-spark-1-2",
               "deepseek-v4-flash",
+              "reflection-beam",
               "estimated:Qwen 3.8 Omni Flash",
               "estimated:Laguna S 2.1",
               "estimated:Ornith 1.5 122B",
-              "hy3",
               "gpt-6-sol",
+              "hy3",
               "longcat-2-0",
               "estimated:Tencent Hy4 Preview",
               "claude-opus-5",
+              "step-3-7-flash",
               "grok-4-6",
               "estimated:Qwen 3.8 Max Prime",
               "qwen3-7-plus",
@@ -3422,7 +4484,9 @@
               "glm-5-2",
               "claude-fable-5",
               "claude-sonnet-5",
-              "qwen3-7-max"
+              "claude-4-5-haiku",
+              "qwen3-7-max",
+              "estimated:Fugu Ultra"
             ],
             "exited": [
               "experimental:qwen38omniflash",
@@ -3674,14 +4738,15 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 32,
+        "newIdentities": 33,
         "commonIdentities": 31,
         "spearman": 0.869758064516129,
         "kendallTauB": 0.6817204301075269,
         "top5Overlap": 0.8,
         "top10Overlap": 0.8,
         "entered": [
-          "estimated:Qwen 3.8 Max Prime"
+          "estimated:Qwen 3.8 Max Prime",
+          "reflection-beam"
         ],
         "exited": [
           "experimental:qwen38maxprime",
@@ -3705,13 +4770,14 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 32,
+            "newIdentities": 33,
             "commonIdentities": 31,
-            "spearman": 0.8027032642660158,
-            "kendallTauB": 0.6125555474884864,
+            "spearman": 0.8088947156111336,
+            "kendallTauB": 0.6241900647948164,
             "top5Overlap": 0.4,
             "top10Overlap": 0.7,
             "entered": [
+              "reflection-beam",
               "estimated:Qwen 3.8 Max Prime"
             ],
             "exited": [
@@ -3736,13 +4802,14 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 32,
+            "newIdentities": 33,
             "commonIdentities": 31,
-            "spearman": 0.9329166050343595,
-            "kendallTauB": 0.7814017557062662,
+            "spearman": 0.9320291198002844,
+            "kendallTauB": 0.7753852039130751,
             "top5Overlap": 0.6,
             "top10Overlap": 0.8,
             "entered": [
+              "reflection-beam",
               "estimated:Qwen 3.8 Max Prime"
             ],
             "exited": [
@@ -3995,14 +5062,16 @@
       },
       "publishedToExpanded": {
         "oldIdentities": 35,
-        "newIdentities": 32,
+        "newIdentities": 34,
         "commonIdentities": 31,
         "spearman": 0.785483870967742,
         "kendallTauB": 0.6602150537634408,
         "top5Overlap": 0.6,
         "top10Overlap": 0.8,
         "entered": [
-          "estimated:Qwen 3.8 Max Prime"
+          "estimated:Qwen 3.8 Max Prime",
+          "reflection-beam",
+          "estimated:Qwen 3.7 Flash"
         ],
         "exited": [
           "experimental:qwen38maxprime",
@@ -4026,14 +5095,16 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 32,
+            "newIdentities": 34,
             "commonIdentities": 31,
-            "spearman": 0.6778978790907111,
-            "kendallTauB": 0.569276071331712,
+            "spearman": 0.6776635624116237,
+            "kendallTauB": 0.567722306179142,
             "top5Overlap": 0.6,
             "top10Overlap": 0.8,
             "entered": [
-              "estimated:Qwen 3.8 Max Prime"
+              "reflection-beam",
+              "estimated:Qwen 3.8 Max Prime",
+              "estimated:Qwen 3.7 Flash"
             ],
             "exited": [
               "experimental:qwen38maxprime",
@@ -4057,13 +5128,15 @@
           },
           "publishedToExpanded": {
             "oldIdentities": 35,
-            "newIdentities": 32,
+            "newIdentities": 34,
             "commonIdentities": 31,
-            "spearman": 0.8843827286140084,
-            "kendallTauB": 0.7324051125517175,
+            "spearman": 0.8714690862158115,
+            "kendallTauB": 0.7107363222395365,
             "top5Overlap": 0.6,
             "top10Overlap": 0.7,
             "entered": [
+              "reflection-beam",
+              "estimated:Qwen 3.7 Flash",
               "estimated:Qwen 3.8 Max Prime"
             ],
             "exited": [
@@ -4813,12 +5886,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -4969,12 +6042,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -5005,12 +6078,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -5197,12 +6270,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -5583,12 +6656,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -5739,12 +6812,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -5775,12 +6848,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -5967,12 +7040,12 @@
           "costMetric": "planAdjustedCostPerTaskUsd",
           "standardDeviations": 2,
           "referencePopulation": "latest-generation-scored-universe",
-          "referenceModels": 25,
-          "referenceFamilies": 16,
+          "referenceModels": 26,
+          "referenceFamilies": 17,
           "preFilterBestEligibleIntelligenceIndex": 58.406,
-          "meanCostPerTaskUsd": 3.180284,
-          "populationStdDevCostPerTaskUsd": 3.418283,
-          "cutoffCostPerTaskUsd": 10.016849,
+          "meanCostPerTaskUsd": 3.057966,
+          "populationStdDevCostPerTaskUsd": 3.407241,
+          "cutoffCostPerTaskUsd": 9.872448,
           "postFilterBestEligibleIntelligenceIndex": 54.5087,
           "excluded": [
             {
@@ -6729,7 +7802,7 @@
     "architect": [
       {
         "removed": "briefcase",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 0.6,
         "top5": [
           "kimi-k3-1-pro",
@@ -6741,7 +7814,7 @@
       },
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -6753,7 +7826,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -6765,7 +7838,7 @@
       },
       {
         "removed": "hle",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -6779,7 +7852,7 @@
     "strategist": [
       {
         "removed": "briefcase",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 0.4,
         "top5": [
           "gpt-6-astra",
@@ -6791,7 +7864,7 @@
       },
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -6803,7 +7876,7 @@
       },
       {
         "removed": "automationBenchPartialScore",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -6815,7 +7888,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 0.8,
         "top5": [
           "claude-sonnet-5-5",
@@ -6829,7 +7902,7 @@
     "code-reviewer": [
       {
         "removed": "terminalBench40",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 1,
         "top5": [
           "claude-opus-5-5",
@@ -6841,7 +7914,7 @@
       },
       {
         "removed": "scicode",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 0.6,
         "top5": [
           "kimi-k3-1-pro",
@@ -6853,7 +7926,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -6865,7 +7938,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 1,
         "top5": [
           "kimi-k3-1-pro",
@@ -6879,7 +7952,7 @@
     "implementer": [
       {
         "removed": "terminalBench40",
-        "completeIdentities": 49,
+        "completeIdentities": 50,
         "top5Overlap": 0.4,
         "top5": [
           "claude-opus-5-5",
@@ -6891,7 +7964,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 1,
         "top5": [
           "kimi-k3-1-pro",
@@ -6903,7 +7976,7 @@
       },
       {
         "removed": "hle",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 0.8,
         "top5": [
           "kimi-k3-1-pro",
@@ -6917,7 +7990,7 @@
     "implementer-heavy": [
       {
         "removed": "terminalBench40",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -6929,7 +8002,7 @@
       },
       {
         "removed": "briefcase",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 0.8,
         "top5": [
           "kimi-k3-1-pro",
@@ -6941,7 +8014,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 1,
         "top5": [
           "claude-sonnet-5-5",
@@ -6955,7 +8028,7 @@
     "synthesizer": [
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -6967,7 +8040,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 1,
         "top5": [
           "gpt-6-astra",
@@ -6979,7 +8052,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 0.6,
         "top5": [
           "kimi-k3-1-pro",
@@ -6993,7 +8066,7 @@
     "researcher": [
       {
         "removed": "gdpPdfAllPass",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -7005,7 +8078,7 @@
       },
       {
         "removed": "lcr",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 0.8,
         "top5": [
           "claude-opus-5-5",
@@ -7017,7 +8090,7 @@
       },
       {
         "removed": "omniscience",
-        "completeIdentities": 47,
+        "completeIdentities": 48,
         "top5Overlap": 1,
         "top5": [
           "kimi-k3-1-pro",
@@ -7029,7 +8102,7 @@
       },
       {
         "removed": "hle",
-        "completeIdentities": 31,
+        "completeIdentities": 32,
         "top5Overlap": 1,
         "top5": [
           "gpt-6-1-sol",
@@ -7043,116 +8116,116 @@
   },
   "correlations": {
     "briefcase / gdpPdfAllPass": {
-      "n": 47,
-      "spearman": 0.7236134707717456
+      "n": 48,
+      "spearman": 0.7274553718272138
     },
     "briefcase / lcr": {
-      "n": 47,
-      "spearman": 0.4745090722824174
+      "n": 48,
+      "spearman": 0.4969975151553252
     },
     "briefcase / hle": {
-      "n": 47,
-      "spearman": 0.7334643848288621
+      "n": 48,
+      "spearman": 0.743812418584455
     },
     "briefcase / automationBenchPartialScore": {
-      "n": 47,
-      "spearman": 0.7216697502312673
+      "n": 48,
+      "spearman": 0.7290490664350847
     },
     "briefcase / omniscience": {
-      "n": 31,
-      "spearman": 0.535134592900013
+      "n": 32,
+      "spearman": 0.5304738359737082
     },
     "briefcase / terminalBench40": {
-      "n": 47,
-      "spearman": 0.8476803454777055
+      "n": 48,
+      "spearman": 0.8552732878432369
     },
     "briefcase / scicode": {
-      "n": 47,
-      "spearman": 0.7243183930891397
+      "n": 48,
+      "spearman": 0.7376706633627836
     },
     "gdpPdfAllPass / lcr": {
-      "n": 47,
-      "spearman": 0.556341071547176
+      "n": 48,
+      "spearman": 0.5650097292304972
     },
     "gdpPdfAllPass / hle": {
-      "n": 47,
-      "spearman": 0.8024406095714491
+      "n": 48,
+      "spearman": 0.8005863805481077
     },
     "gdpPdfAllPass / automationBenchPartialScore": {
-      "n": 47,
-      "spearman": 0.6145393814274752
+      "n": 48,
+      "spearman": 0.6191432987773375
     },
     "gdpPdfAllPass / omniscience": {
-      "n": 31,
-      "spearman": 0.6768890198261981
+      "n": 32,
+      "spearman": 0.6712517899524304
     },
     "gdpPdfAllPass / terminalBench40": {
-      "n": 47,
-      "spearman": 0.765725395166837
+      "n": 48,
+      "spearman": 0.7687816025864951
     },
     "gdpPdfAllPass / scicode": {
-      "n": 47,
-      "spearman": 0.7419672113899426
+      "n": 48,
+      "spearman": 0.7437623938427589
     },
     "lcr / hle": {
-      "n": 49,
-      "spearman": 0.5645104281747929
+      "n": 50,
+      "spearman": 0.5806393940335844
     },
     "lcr / automationBenchPartialScore": {
-      "n": 47,
-      "spearman": 0.4167226105206294
+      "n": 48,
+      "spearman": 0.42938324253358146
     },
     "lcr / omniscience": {
-      "n": 31,
-      "spearman": 0.32848411826443674
+      "n": 32,
+      "spearman": 0.33217069762092427
     },
     "lcr / terminalBench40": {
-      "n": 47,
-      "spearman": 0.5669305029154256
+      "n": 48,
+      "spearman": 0.583217979168474
     },
     "lcr / scicode": {
-      "n": 48,
-      "spearman": 0.573277247372012
+      "n": 49,
+      "spearman": 0.5871146502345121
     },
     "hle / automationBenchPartialScore": {
-      "n": 47,
-      "spearman": 0.656567992599445
+      "n": 48,
+      "spearman": 0.6663048198002606
     },
     "hle / omniscience": {
-      "n": 31,
-      "spearman": 0.7772961023472307
+      "n": 32,
+      "spearman": 0.7607002139913231
     },
     "hle / terminalBench40": {
-      "n": 47,
-      "spearman": 0.8042926256177261
+      "n": 48,
+      "spearman": 0.8109048659645193
     },
     "hle / scicode": {
-      "n": 48,
-      "spearman": 0.876801571464838
+      "n": 49,
+      "spearman": 0.8809286970517725
     },
     "automationBenchPartialScore / omniscience": {
-      "n": 31,
-      "spearman": 0.5093255394368624
+      "n": 32,
+      "spearman": 0.5042617563108747
     },
     "automationBenchPartialScore / terminalBench40": {
-      "n": 47,
-      "spearman": 0.8187551989043859
+      "n": 48,
+      "spearman": 0.8260020768363473
     },
     "automationBenchPartialScore / scicode": {
-      "n": 47,
-      "spearman": 0.6523838504575822
+      "n": 48,
+      "spearman": 0.663626746604609
     },
     "omniscience / terminalBench40": {
-      "n": 31,
-      "spearman": 0.6686838430143599
+      "n": 32,
+      "spearman": 0.6588429698198249
     },
     "omniscience / scicode": {
-      "n": 31,
-      "spearman": 0.7037709215567655
+      "n": 32,
+      "spearman": 0.6918423464711274
     },
     "terminalBench40 / scicode": {
-      "n": 47,
-      "spearman": 0.7530882764186337
+      "n": 48,
+      "spearman": 0.7648481203793887
     }
   }
 }

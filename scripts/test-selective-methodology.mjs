@@ -88,7 +88,35 @@ const omni=snapshot.models.find(m=>m.name==='Qwen 3.8 Omni Flash');
 assert.ok(Number.isNaN(portfolioIntelligence(omni)),'Missing anchor Intelligence cannot become zero or use the residual estimator');
 const withoutApproximations=structuredClone(config);withoutApproximations.approximations.enabled=false;
 const measuredOnly=build(inputs,withoutApproximations);
-assert.deepEqual(snapshot.models.filter(m=>m.aaModel).map(m=>m.roleScores),measuredOnly.models.filter(m=>m.aaModel).map(m=>m.roleScores),'Adding proxies must not move observed percentiles');
+for(const model of measuredOnly.models.filter(m=>m.aaModel)){
+  const actual=snapshot.models.find(m=>m.name===model.name);
+  assert.deepEqual(actual.benchmarks,model.benchmarks,'Analogies must preserve observed raw components');
+  assert.deepEqual(actual.benchmarkProvenance,model.benchmarkProvenance,'Analogies must preserve measurement provenance');
+  for(const [role,score]of Object.entries(model.roleScores))if(score.completeness==='complete')assert.deepEqual(actual.roleScores[role],score,'Adding analogies must not move complete measured scores or percentiles');
+}
+for(const name of ['Step 3.7 Flash','Claude Haiku 4.5']){
+  const hybrid=snapshot.models.find(m=>m.name===name),measured=measuredOnly.models.find(m=>m.name===name);
+  assert.ok(hybrid.aaModel,'Partial measured identity must remain intact');
+  assert.equal(hybrid.aaModel.intelligenceIndex,null,'Analogy Intelligence must not be stored as an AA observation');
+  assert.equal(hybrid.benchmarks.terminalBench40,undefined,'Missing observed benchmark stays missing');
+  assert.deepEqual(hybrid.roleScores.implementer.observedRole,measured.roleScores.implementer,'Original partial score remains recoverable');
+  assert.ok(hybrid.roleScores.implementer.rankingQuality>=measured.roleScores.implementer.scoreRange.lower,'Known observed contribution cannot be erased by the haircut');
+}
+const completedTarget=structuredClone(inputs);completedTarget.observations.find(r=>r.slug==='step-3-7-flash').terminalBench40=.2;
+assert.equal(build(completedTarget).models.find(m=>m.name==='Step 3.7 Flash').roleScores.implementer.status,'valid','A new complete observed role supersedes its analogy');
+const failedPartial=structuredClone(inputs);failedPartial.observations.find(r=>r.slug==='step-3-7-flash').hle=null;
+assert.equal(build(failedPartial).models.find(m=>m.name==='Step 3.7 Flash').approximation,undefined,'Loss of required target evidence blocks the partial analogy');
+const beam=snapshot.models.find(m=>m.name==='Beam 1.0');
+assert.equal(beam.aaModel.slug,'reflection-beam');
+assert.equal(beam.mapping.identityStatus,'public_verified');
+assert.equal(beam.approximation,undefined,'Exact verified Beam observations take priority over analogies');
+assert.equal(beam.roleScores.implementer.status,'valid');
+const wrongBeam=structuredClone(inputs);wrongBeam.observations.find(r=>r.slug==='reflection-beam').id='wrong-source-uuid';
+assert.throws(()=>build(wrongBeam),/Unverified source identity/,'A verified catalog alias must bind the exact AA UUID');
+const unavailableBeam=structuredClone(inputs);unavailableBeam.observations=unavailableBeam.observations.filter(r=>r.slug!=='reflection-beam');
+assert.equal(build(unavailableBeam).models.find(m=>m.name==='Beam 1.0').approximation,undefined,'Source failures must not turn a verified identity into a proxy');
+assert.ok(Number.isNaN(portfolioIntelligence(snapshot.models.find(m=>m.name==='Fugu Ultra'))),'Unverified Fugu revision cannot invent Intelligence');
+assert.equal(independentEvidence(snapshot.models.find(m=>m.name==='Fugu Ultra'),snapshot.models.find(m=>m.name==='Claude Sonnet 5.5')),false,'A multi-agent worker family is not independent coding evidence');
 const expired=build({...inputs,generatedAt:'2026-11-28T00:00:00.000Z'});
 assert.equal(expired.models.find(m=>m.name===prime.name).approximation,undefined,'Expired evidence fails closed');
 const missingAnchor=structuredClone(inputs);missingAnchor.observations=missingAnchor.observations.filter(r=>r.slug!=='qwen3-8-max');
