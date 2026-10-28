@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "snapshotDate": "2026-10-26",
-  "generatedAt": "2026-10-26T10:32:48.627Z",
+  "snapshotDate": "2026-10-28",
+  "generatedAt": "2026-10-28T09:14:50.337Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -12,9 +12,9 @@
       "classification": "review-only",
       "objective": "maximize-role-quality",
       "minimumFamilies": 4,
-      "currentFamilyCount": 4,
-      "requestedIntelligenceFloor": 0.9,
-      "effectiveIntelligenceFloor": 0.9,
+      "currentFamilyCount": 5,
+      "requestedIntelligenceFloor": 0.85,
+      "effectiveIntelligenceFloor": 0.74,
       "priceFilter": null,
       "autoSafeCandidateCount": 0,
       "reviewOnlyCandidateCount": 0,
@@ -27,55 +27,41 @@
       "objective": "maximize-relative-quality-and-affordability",
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
-      "requestedIntelligenceFloor": 0.85,
-      "effectiveIntelligenceFloor": 0.85,
+      "requestedIntelligenceFloor": 0.8,
+      "effectiveIntelligenceFloor": 0.79,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 38,
-        "referenceFamilies": 21,
-        "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.356501,
-        "populationStdDevCostPerTaskUsd": 1.83867,
-        "cutoffCostPerTaskUsd": 5.033841,
-        "postFilterBestEligibleIntelligenceIndex": 56.0001,
+        "referenceModels": 27,
+        "referenceFamilies": 16,
+        "preFilterBestEligibleIntelligenceIndex": 58.406,
+        "meanCostPerTaskUsd": 3.039467,
+        "populationStdDevCostPerTaskUsd": 3.336783,
+        "cutoffCostPerTaskUsd": 9.713033,
+        "postFilterBestEligibleIntelligenceIndex": 54.5087,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 7.631889,
-            "planAdjustedCostPerTaskUsd": 7.631889
-          },
-          {
-            "model": "Claude Fable 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 8.778535,
-            "planAdjustedCostPerTaskUsd": 8.778535
+            "creditBurnPerTaskUsd": 13.085676,
+            "planAdjustedCostPerTaskUsd": 13.085676
           },
           {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.982012,
-            "planAdjustedCostPerTaskUsd": 5.982012
+            "creditBurnPerTaskUsd": 10.036204,
+            "planAdjustedCostPerTaskUsd": 10.036204
           },
           {
-            "model": "Claude Opus 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.858396,
-            "planAdjustedCostPerTaskUsd": 5.858396
-          },
-          {
-            "model": "Claude Sonnet 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.091164,
-            "planAdjustedCostPerTaskUsd": 5.091164
+            "model": "Gemini 3.8 Flash",
+            "family": "Gemini",
+            "billingCategory": "standard",
+            "creditBurnPerTaskUsd": 15.532012,
+            "planAdjustedCostPerTaskUsd": 10.354675
           }
         ]
       },
@@ -90,55 +76,41 @@
       "objective": "maximize-role-budget-score-40-quality-60-affordability",
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
-      "requestedIntelligenceFloor": 0.8,
-      "effectiveIntelligenceFloor": 0.8,
+      "requestedIntelligenceFloor": 0.75,
+      "effectiveIntelligenceFloor": 0.75,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 38,
-        "referenceFamilies": 21,
-        "preFilterBestEligibleIntelligenceIndex": 57.6224,
-        "meanCostPerTaskUsd": 1.356501,
-        "populationStdDevCostPerTaskUsd": 1.83867,
-        "cutoffCostPerTaskUsd": 5.033841,
-        "postFilterBestEligibleIntelligenceIndex": 56.0001,
+        "referenceModels": 27,
+        "referenceFamilies": 16,
+        "preFilterBestEligibleIntelligenceIndex": 58.406,
+        "meanCostPerTaskUsd": 3.039467,
+        "populationStdDevCostPerTaskUsd": 3.336783,
+        "cutoffCostPerTaskUsd": 9.713033,
+        "postFilterBestEligibleIntelligenceIndex": 54.5087,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 7.631889,
-            "planAdjustedCostPerTaskUsd": 7.631889
-          },
-          {
-            "model": "Claude Fable 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 8.778535,
-            "planAdjustedCostPerTaskUsd": 8.778535
+            "creditBurnPerTaskUsd": 13.085676,
+            "planAdjustedCostPerTaskUsd": 13.085676
           },
           {
             "model": "Claude Opus 5.5",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.982012,
-            "planAdjustedCostPerTaskUsd": 5.982012
+            "creditBurnPerTaskUsd": 10.036204,
+            "planAdjustedCostPerTaskUsd": 10.036204
           },
           {
-            "model": "Claude Opus 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.858396,
-            "planAdjustedCostPerTaskUsd": 5.858396
-          },
-          {
-            "model": "Claude Sonnet 5",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 5.091164,
-            "planAdjustedCostPerTaskUsd": 5.091164
+            "model": "Gemini 3.8 Flash",
+            "family": "Gemini",
+            "billingCategory": "standard",
+            "creditBurnPerTaskUsd": 15.532012,
+            "planAdjustedCostPerTaskUsd": 10.354675
           }
         ]
       },

@@ -1,26 +1,117 @@
 {
   "schemaVersion": 3,
-  "status": "error",
-  "attemptedAt": "2026-10-28T09:13:25.236Z",
+  "status": "partial",
+  "attemptedAt": "2026-10-28T09:14:51.975Z",
   "lastSuccessfulSnapshot": {
-    "date": "2026-10-26",
-    "generatedAt": "2026-10-26T10:32:48.627Z"
+    "date": "2026-10-28",
+    "generatedAt": "2026-10-28T09:14:50.337Z"
   },
   "lastPublishedSnapshot": {
-    "date": "2026-10-26",
-    "generatedAt": "2026-10-26T10:32:48.627Z",
-    "benchmarkDate": "2026-10-26",
-    "benchmarkGeneratedAt": "2026-10-26T10:32:48.627Z",
-    "lineupInputsRefreshedAt": "2026-10-26T10:32:48.627Z"
+    "date": "2026-10-28",
+    "generatedAt": "2026-10-28T09:14:50.337Z",
+    "benchmarkDate": "2026-10-28",
+    "benchmarkGeneratedAt": "2026-10-28T09:14:50.337Z",
+    "lineupInputsRefreshedAt": "2026-10-28T09:14:50.337Z"
   },
   "lastValidatedBenchmark": {
-    "date": "2026-10-26",
-    "generatedAt": "2026-10-26T10:32:48.627Z"
+    "date": "2026-10-28",
+    "generatedAt": "2026-10-28T09:14:50.337Z"
   },
-  "mode": null,
-  "message": null,
-  "stage": "validation",
-  "errorSummary": "Error: Scored model lacks AA Intelligence Index: GLM-5.3 Flash",
-  "validationIssues": [],
+  "mode": "full",
+  "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
+  "stage": null,
+  "errorSummary": null,
+  "validationIssues": [
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Claude Sonnet 5.5 (Max, Default Fallback)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Claude Opus 5.5 (Max, Default Fallback)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "GPT-6.1 Terra (Non-reasoning)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "coding-agent-host",
+      "targetSlug": "Claude Fable 5.1 (Max, Default Fallback)",
+      "status": "unresolved",
+      "reason": "no_exact_identity"
+    },
+    {
+      "benchmark": "experimental_proxy",
+      "targetModel": "Laguna S 2.1",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+    },
+    {
+      "benchmark": "experimental_proxy",
+      "targetModel": "Tencent Hy4 Preview",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+    },
+    {
+      "benchmark": "experimental_proxy",
+      "targetModel": "Qwen 3.8 Omni Flash",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
+    },
+    {
+      "benchmark": "experimental_proxy",
+      "targetModel": "Qwen 3.7 Flash",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.7 Plus."
+    },
+    {
+      "benchmark": "experimental_proxy",
+      "targetModel": "Fugu Ultra",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Claude Opus 4.8."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Laguna S 2.1",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Tencent Hy4 Preview",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Qwen 3.8 Omni Flash",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Qwen 3.7 Flash",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.7 Plus."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Fugu Ultra",
+      "status": "unavailable",
+      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Claude Opus 4.8."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "gpt-6-1-terra",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    }
+  ],
   "runUrl": null
 }

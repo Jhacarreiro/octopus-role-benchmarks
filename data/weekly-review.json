@@ -1,33 +1,124 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T09:13:25.341Z",
+  "generatedAt": "2026-10-28T09:14:52.064Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
-    "status": "error",
-    "attemptedAt": "2026-10-28T09:13:25.236Z",
+    "status": "partial",
+    "attemptedAt": "2026-10-28T09:14:51.975Z",
     "lastSuccessfulSnapshot": {
-      "date": "2026-10-26",
-      "generatedAt": "2026-10-26T10:32:48.627Z"
+      "date": "2026-10-28",
+      "generatedAt": "2026-10-28T09:14:50.337Z"
     },
     "lastPublishedSnapshot": {
-      "date": "2026-10-26",
-      "generatedAt": "2026-10-26T10:32:48.627Z",
-      "benchmarkDate": "2026-10-26",
-      "benchmarkGeneratedAt": "2026-10-26T10:32:48.627Z",
-      "lineupInputsRefreshedAt": "2026-10-26T10:32:48.627Z"
+      "date": "2026-10-28",
+      "generatedAt": "2026-10-28T09:14:50.337Z",
+      "benchmarkDate": "2026-10-28",
+      "benchmarkGeneratedAt": "2026-10-28T09:14:50.337Z",
+      "lineupInputsRefreshedAt": "2026-10-28T09:14:50.337Z"
     },
     "lastValidatedBenchmark": {
-      "date": "2026-10-26",
-      "generatedAt": "2026-10-26T10:32:48.627Z"
+      "date": "2026-10-28",
+      "generatedAt": "2026-10-28T09:14:50.337Z"
     },
-    "mode": null,
-    "message": null,
-    "stage": "validation",
-    "errorSummary": "Error: Scored model lacks AA Intelligence Index: GLM-5.3 Flash",
-    "validationIssues": [],
+    "mode": "full",
+    "message": "Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.",
+    "stage": null,
+    "errorSummary": null,
+    "validationIssues": [
+      {
+        "benchmark": "coding-agent-host",
+        "targetSlug": "Claude Sonnet 5.5 (Max, Default Fallback)",
+        "status": "unresolved",
+        "reason": "no_exact_identity"
+      },
+      {
+        "benchmark": "coding-agent-host",
+        "targetSlug": "Claude Opus 5.5 (Max, Default Fallback)",
+        "status": "unresolved",
+        "reason": "no_exact_identity"
+      },
+      {
+        "benchmark": "coding-agent-host",
+        "targetSlug": "GPT-6.1 Terra (Non-reasoning)",
+        "status": "unresolved",
+        "reason": "no_exact_identity"
+      },
+      {
+        "benchmark": "coding-agent-host",
+        "targetSlug": "Claude Fable 5.1 (Max, Default Fallback)",
+        "status": "unresolved",
+        "reason": "no_exact_identity"
+      },
+      {
+        "benchmark": "experimental_proxy",
+        "targetModel": "Laguna S 2.1",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+      },
+      {
+        "benchmark": "experimental_proxy",
+        "targetModel": "Tencent Hy4 Preview",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+      },
+      {
+        "benchmark": "experimental_proxy",
+        "targetModel": "Qwen 3.8 Omni Flash",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
+      },
+      {
+        "benchmark": "experimental_proxy",
+        "targetModel": "Qwen 3.7 Flash",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.7 Plus."
+      },
+      {
+        "benchmark": "experimental_proxy",
+        "targetModel": "Fugu Ultra",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Claude Opus 4.8."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Laguna S 2.1",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Tencent Hy4 Preview",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Tencent Hy3."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Qwen 3.8 Omni Flash",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Qwen 3.7 Flash",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.7 Plus."
+      },
+      {
+        "benchmark": "mapping",
+        "targetModel": "Fugu Ultra",
+        "status": "unavailable",
+        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Claude Opus 4.8."
+      },
+      {
+        "benchmark": "gdpval",
+        "targetSlug": "gpt-6-1-terra",
+        "status": "unavailable",
+        "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+      }
+    ],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-26 → 2026-10-28\n❌ Refresh: error\n\nMODELOS\nEntraram:\n+ GPT-6.1 Terra\n\nPREÇOS / CRÉDITOS\n• Claude Fable 5.1: créditos/task $7.63→$13.09 (+71%); custo ajustado $7.63→$13.09 (+71%)\n• Claude Haiku 5.5: créditos/task $0.21→$0.41 (+93%); custo ajustado $0.14→$0.27 (+93%)\n• Claude Opus 5.5: créditos/task $5.98→$10.04 (+68%); custo ajustado $5.98→$10.04 (+68%)\n• Claude Sonnet 5.5: créditos/task $5.46→$10.02 (+83%); custo ajustado $3.64→$6.68 (+83%)\n• DeepSeek V4 Pro (latest): créditos/task $0.34→$0.88 (+162%); custo ajustado $0.22→$0.59 (+162%)\n• GLM-5.3: créditos/task $2.01→$5.01 (+150%); custo ajustado $1.34→$3.34 (+150%)\n• GLM-5.3 Flash: créditos/task $0.28→$0.16 (-45%); custo ajustado $0.19→$0.10 (-45%)\n• GLM-5.3 FlashX: créditos/task $0.71→$0.39 (-45%); custo ajustado $0.47→$0.26 (-45%)\n• GPT-5.6 Terra: créditos/task $1.40→$1.82 (+30%); custo ajustado $1.40→$1.82 (+30%)\n• GPT-6 Astra: créditos/task $3.26→$6.24 (+92%); custo ajustado $3.26→$6.24 (+92%)\n• GPT-6 Luna: créditos/task $0.0678→$0.15 (+124%); custo ajustado $0.0452→$0.10 (+124%)\n• GPT-6.1 Sol: créditos/task $0.72→$1.27 (+76%); custo ajustado $0.72→$1.27 (+76%)\n… +24 alterações adicionais\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n⚠️ Refresh: partial · full — Published with partial validation; affected benchmark results are explicitly marked stale or unavailable.\n\nLINEUPS\n• quality/strategist: Muse Wonder → Claude Opus 5.5\n• quality/synthesizer: Gemini 4 Argon → GPT-6.1 Sol\n• quality/researcher: Claude Opus 5.5 → Gemini 4 Argon\n• balanced/architect: Claude Sonnet 5.5 → Muse Wonder\n• balanced/code-reviewer: Muse Wonder → Claude Sonnet 5.5\n• balanced/synthesizer: GPT-6.1 Sol → Gemini 4 Argon\n• balanced/researcher: Gemini 4 Argon → GPT-6.1 Sol\n• budget/architect: MiMo V2.6 Pro → Kimi K3.1 Pro\n• budget/strategist: Muse Spark 1.3 Contributor → Gemini 4 Argon\n• budget/security-reviewer: MiMo V2.6 Pro → Kimi K3.1 Pro\n• budget/code-reviewer: Gemini 4 Argon → Claude Sonnet 5.5\n• budget/implementer: Muse Spark 1.3 Contributor → GPT-6.1 Sol\n• budget/implementer-heavy: Kimi K3.1 Pro → Muse Wonder\n• budget/researcher: GPT-6.1 Sol → Gemini 4 Argon"
 }
