@@ -585,6 +585,10 @@ for(const proxy of proxyStudy.models){
     const quality=role.codingAdjusted?round((1-CODING_ROLE_CAI_WEIGHT)*score+CODING_ROLE_CAI_WEIGHT*(proxyCai??0),3):score;
     target.roleScores[role.id]={score,rankingQuality:quality,rankingValue:null,status:'estimated',coverageWeight:round(role.codingAdjusted&&proxyCai==null?(1-CODING_ROLE_CAI_WEIGHT)*weight:weight,4),missingComponents:proxyCai==null&&role.codingAdjusted?['caiStar']:[]};
   }
+  if(!target.caiStar){
+    target.mapping={...target.mapping,originalStatus:'estimated',status:'partial_scored',missingBenchmarks:['caiStar'],reason:`Experimental benchmark proxy from ${proxy.reference}; CAI* unavailable, coding scores conservatively partial.`};
+    target.benchmarkProvenance.caiStar={status:'unavailable',benchmark:'caiStar',reason:'No independently validated Coding Agent Index or conservative proxy for this experimental model.'};
+  }
 }
 applyBalancedScores(models,roles.roles.map(r=>r.id),{qualityWeight:Number(balancedWeights.quality),costWeight:Number(balancedWeights.affordability)});
 for(const m of models){for(const score of Object.values(m.roleScores||{})){if(Number.isFinite(score.rankingValue))score.rankingValue=round(score.rankingValue,3);if(Number.isFinite(score.balancedQualityPercentile))score.balancedQualityPercentile=round(score.balancedQualityPercentile,3);if(Number.isFinite(score.balancedAffordabilityPercentile))score.balancedAffordabilityPercentile=round(score.balancedAffordabilityPercentile,3);}}
