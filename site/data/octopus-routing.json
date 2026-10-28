@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "snapshotDate": "2026-10-28",
-  "generatedAt": "2026-10-28T15:13:24.390Z",
+  "generatedAt": "2026-10-28T18:47:36.906Z",
   "mode": "balanced",
   "roles": {
     "architect": {
       "provider": "commandcode",
-      "model": "minimax/minimax-m3.1-flash",
-      "benchmarkModel": "MiniMax M3.1 Flash"
+      "model": "deepseek/deepseek-v4.1-flash",
+      "benchmarkModel": "DeepSeek V4.1 Flash (latest)"
     },
     "strategist": {
       "provider": "claude",
@@ -20,19 +20,19 @@
       "benchmarkModel": "MiMo V2.6 Pro"
     },
     "code-reviewer": {
-      "provider": "codex",
-      "model": "gpt-6.1-terra",
-      "benchmarkModel": "GPT-6.1 Terra"
-    },
-    "implementer": {
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
-      "benchmarkModel": "Claude Sonnet 5.5"
-    },
-    "implementer-heavy": {
       "provider": "commandcode",
       "model": "moonshotai/kimi-k3.1-pro",
       "benchmarkModel": "Kimi K3.1 Pro"
+    },
+    "implementer": {
+      "provider": "commandcode",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "benchmarkModel": "MiMo V2.6 Pro"
+    },
+    "implementer-heavy": {
+      "provider": "codex",
+      "model": "gpt-6.1-terra",
+      "benchmarkModel": "GPT-6.1 Terra"
     },
     "synthesizer": {
       "provider": "codex",
@@ -40,9 +40,9 @@
       "benchmarkModel": "GPT-6.1 Terra"
     },
     "researcher": {
-      "provider": "commandcode",
-      "model": "xiaomi/mimo-v2.6-pro",
-      "benchmarkModel": "MiMo V2.6 Pro"
+      "provider": "claude",
+      "model": "claude-haiku-5-5",
+      "benchmarkModel": "Claude Haiku 5.5"
     }
   }
 }

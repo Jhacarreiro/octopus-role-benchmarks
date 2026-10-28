@@ -680,5 +680,19 @@
     "externalMargin": 40,
     "reviewDays": 30,
     "note": "Every eligible model has all eight roles. Preserve measured contributions; fill only missing contributions with conservative analogies to fully measured profiles. Security analogies are labeled estimates, never Cyber Index observations. Missing Intelligence remains unavailable; the statistical estimator stays disabled."
-  }
+  },
+  "latestCatalogAliases": [
+    {
+      "model": "DeepSeek V4.1 Flash (latest)",
+      "baseSlug": "deepseek-v4-1-flash",
+      "fallbackSlug": "deepseek-v4-1-flash-1017",
+      "reason": "CommandCode latest follows the latest dated AA release in this series, per owner policy; serving equivalence is assumed, not independently attested."
+    },
+    {
+      "model": "DeepSeek V4.1 Flash Fast (latest)",
+      "baseSlug": "deepseek-v4-1-flash",
+      "fallbackSlug": "deepseek-v4-1-flash-1017",
+      "reason": "CommandCode latest follows the latest dated AA release in this series, per owner policy; serving equivalence is assumed, not independently attested."
+    }
+  ]
 }

@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {parseModelObservations} from './lib/aa-observations.mjs';
-import {buildRoleSnapshot,validateRoleSnapshot,selectiveMapping} from './lib/role-scoring.mjs';
+import {buildRoleSnapshot,validateRoleSnapshot,selectiveMapping,latestCatalogMapping} from './lib/role-scoring.mjs';
 import {fetchArtificialAnalysisCyberIndex} from './aa-cyber-index.mjs';
 import {caiIndexPercent,detectCodingAgentVersionFromRows} from './lib/cai-version-fallback.mjs';
 
@@ -27,6 +27,8 @@ async function collect(root,config){
   const norm=x=>String(x).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/\s+\((latest|exp)\)$/,'').replace(/\s+(contributor|highspeed|fast)$/,'').replace(/[^a-z0-9]+/g,'');
   const byNorm=new Map();for(const row of catalog){const k=norm(row.slug);byNorm.set(k,[...(byNorm.get(k)??[]),row.slug]);}
   const offers=maxRows.map(offer=>{
+    const current=latestCatalogMapping(offer,catalog,config);
+    if(current)return {...offer,mapping:current};
     const verified=selectiveMapping(offer,config);
     if(verified.verifiedModelUuid)return {...offer,mapping:verified};
     const override=aliases[offer.name];

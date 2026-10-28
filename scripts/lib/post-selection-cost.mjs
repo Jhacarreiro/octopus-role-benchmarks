@@ -1,4 +1,4 @@
-import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independentEvidence} from './role-approximations.mjs';
+import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independentEvidence,reviewerQualityPasses} from './role-approximations.mjs';
 
 const EPS=1e-9;
 const round=n=>Math.round(n*1e6)/1e6;
@@ -35,6 +35,7 @@ export function optimizePostSelectionCost({roles,initial,pool,policy,modeId,inte
       const upper=impl.approximation?impl.roleScores.implementer.scoreRange.upper:portfolioRoleQuality(impl,'implementer');
       if(!(portfolioRoleQuality(heavy,'implementer')+EPS>=upper+constraints.heavyMinimumImplementerQualityDelta))return false;
     }
+    if(reviewer&&!reviewerQualityPasses(reviewer,[impl,heavy],constraints.reviewerMinimumReviewerQualityDelta))return false;
     for(const [other,role,flag]of [[impl,'implementer','reviewerDifferentFromImplementer'],[heavy,'implementer-heavy','reviewerDifferentFromHeavy']])if(reviewer&&other){
       if(!independentEvidence(reviewer,other,'code-reviewer',role))return false;
       if(constraints[flag]!==false&&familyOf(reviewer)===familyOf(other))return false;

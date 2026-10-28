@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {parseModelObservations} from './lib/aa-observations.mjs';
-import {buildRoleSnapshot,normalizeObservation,validateRoleSnapshot} from './lib/role-scoring.mjs';
+import {buildRoleSnapshot,normalizeObservation,validateRoleSnapshot,latestCatalogMapping} from './lib/role-scoring.mjs';
 import {isolatedOutput} from './selective-update.mjs';
 import {generationWindows,generationEligibility} from './lib/generation-window.mjs';
 import {portfolioIntelligence,portfolioRoleQuality,independentEvidence} from './lib/role-approximations.mjs';
@@ -184,6 +184,8 @@ try{
     assert.notEqual(picks['code-reviewer'].family,picks['implementer-heavy'].family);
     assert.notEqual(picks.implementer.benchmarkIdentity,picks['implementer-heavy'].benchmarkIdentity);
     const impl=snapshot.models.find(m=>m.name===picks.implementer.model),heavy=snapshot.models.find(m=>m.name===picks['implementer-heavy'].model);
+    const reviewer=snapshot.models.find(m=>m.name===picks['code-reviewer'].model);
+    for(const worker of [impl,heavy])assert.ok(portfolioRoleQuality(reviewer,'code-reviewer')+1e-6>=worker.roleScores['code-reviewer'].scoreRange.upper+2,'Reviewer must exceed both workers on the same reviewer metric');
     assert.ok(heavy.roleScores.implementer.rankingQuality+1e-6>=impl.roleScores.implementer.rankingQuality+2,'Heavy must improve the Implementer score by two points');
     for(const [role,p]of Object.entries(picks)){
       if(p.intelligenceIndex+1e-4>=mode.intelligenceThreshold)continue;
@@ -227,3 +229,6 @@ try{
   }
 }finally{assert.equal(path.dirname(path.resolve(temp)),path.resolve(os.tmpdir()));fs.rmSync(temp,{recursive:true,force:true});}
 console.log('ok: complete model profiles, versions, scales, identity, disabled estimators, free offers, isolated output and portfolio eligibility');
+
+const latestOffer={name:'DeepSeek V4.1 Flash (latest)'};
+assert.equal(latestCatalogMapping(latestOffer,[{slug:'deepseek-v4-1-flash'},{slug:'deepseek-v4-1-flash-1017'},{slug:'deepseek-v4-1-flash-1102'},{slug:'deepseek-v4-1-flash-non-reasoning'}],config).slug,'deepseek-v4-1-flash-1102','Latest aliases advance to newer dated releases without selecting another effort or generation');
