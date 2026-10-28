@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-10-28",
-  "generatedAt": "2026-10-28T10:35:54.242Z",
+  "generatedAt": "2026-10-28T10:37:12.852Z",
   "benchmarkDate": "2026-10-28",
-  "benchmarkGeneratedAt": "2026-10-28T10:35:54.242Z",
-  "lineupInputsRefreshedAt": "2026-10-28T10:35:54.242Z",
+  "benchmarkGeneratedAt": "2026-10-28T10:37:12.852Z",
+  "lineupInputsRefreshedAt": "2026-10-28T10:37:12.852Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -99,10 +99,22 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     },
     {
+      "benchmark": "caiStar",
+      "targetSlug": "glm-5-3-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current caiStar value; affected role scores are conservative partial scores."
+    },
+    {
       "benchmark": "gdpval",
       "targetSlug": "glm-5-3-flash",
       "status": "unavailable",
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "caiStar",
+      "targetSlug": "glm-5-3-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current caiStar value; affected role scores are conservative partial scores."
     },
     {
       "benchmark": "gdpval",
@@ -111,10 +123,22 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     },
     {
+      "benchmark": "caiStar",
+      "targetSlug": "qwen3-8-flash-next",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current caiStar value; affected role scores are conservative partial scores."
+    },
+    {
       "benchmark": "gdpval",
       "targetSlug": "gpt-6-1-terra",
       "status": "unavailable",
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "caiStar",
+      "targetSlug": "gpt-6-1-terra",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current caiStar value; affected role scores are conservative partial scores."
     },
     {
       "benchmark": "gdpval",
@@ -123,16 +147,34 @@
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     },
     {
-      "benchmark": "gdpval",
-      "targetSlug": "muse-spark-1-3-xhigh",
+      "benchmark": "caiStar",
+      "targetSlug": "gpt-5-6-terra",
       "status": "unavailable",
-      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+      "reason": "Artificial Analysis publishes no current caiStar value; affected role scores are conservative partial scores."
     },
     {
       "benchmark": "gdpval",
       "targetSlug": "muse-spark-1-3-xhigh",
       "status": "unavailable",
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "caiStar",
+      "targetSlug": "muse-spark-1-3-xhigh",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current caiStar value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "muse-spark-1-3-xhigh",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "caiStar",
+      "targetSlug": "muse-spark-1-3-xhigh",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current caiStar value; affected role scores are conservative partial scores."
     }
   ],
   "costBasis": {
@@ -177,7 +219,7 @@
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-10-28T10:35:53.976Z",
+      "fetchedAt": "2026-10-28T10:37:12.613Z",
       "version": "v1",
       "directFamilies": 19,
       "availableRows": 23,
@@ -734,8 +776,8 @@
     "observedFamilies": 17,
     "historicalCalibratedFamilies": 0,
     "estimatedFamilies": 11,
-    "validatedAt": "2026-10-28T10:35:54.242Z",
-    "sourceSnapshotGeneratedAt": "2026-10-28T10:35:54.242Z",
+    "validatedAt": "2026-10-28T10:37:12.852Z",
+    "sourceSnapshotGeneratedAt": "2026-10-28T10:37:12.852Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -743,11 +785,11 @@
         "method": "median_overlap_ratio_capped_at_1",
         "factor": 1,
         "rawMedianRatio": 1,
-        "overlap": 13,
+        "overlap": 17,
         "mae": 0,
         "maxError": 0.0001,
         "failures": [
-          "overlap 13 < 20"
+          "overlap 17 < 20"
         ]
       }
     },
@@ -2147,10 +2189,12 @@
       "mapping": {
         "status": "partial_scored",
         "slug": "glm-5-3-flash",
-        "reason": "Scored conservatively with unavailable benchmark: gdpval",
+        "reason": "Partial role scores: gdpval, caiStar unavailable; coding scores use a conservative missing-component contribution.",
         "missingBenchmarks": [
-          "gdpval"
-        ]
+          "gdpval",
+          "caiStar"
+        ],
+        "originalStatus": "partial_scored"
       },
       "benchmarkProvenance": {
         "gdpval": {
@@ -2169,6 +2213,12 @@
           "estimate": 25.6917,
           "cutoffLowerBound": 16.0652,
           "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "caiStar": {
+          "status": "unavailable",
+          "benchmark": "caiStar",
+          "targetSlug": "glm-5-3-flash",
+          "reason": "No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution."
         },
         "cyberIndex": {
           "status": "observed",
@@ -2358,13 +2408,15 @@
       "mapping": {
         "status": "partial_scored",
         "slug": "glm-5-3-flash",
-        "reason": "Scored conservatively with unavailable benchmark: gdpval",
+        "reason": "Partial role scores: gdpval, caiStar unavailable; coding scores use a conservative missing-component contribution.",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "gdpval"
-        ]
+          "gdpval",
+          "caiStar"
+        ],
+        "originalStatus": "partial_scored"
       },
       "benchmarkProvenance": {
         "gdpval": {
@@ -2383,6 +2435,12 @@
           "estimate": 25.6917,
           "cutoffLowerBound": 16.0652,
           "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "caiStar": {
+          "status": "unavailable",
+          "benchmark": "caiStar",
+          "targetSlug": "glm-5-3-flash",
+          "reason": "No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution."
         },
         "cyberIndex": {
           "status": "observed",
@@ -5284,13 +5342,15 @@
       "mapping": {
         "status": "partial_scored",
         "slug": "qwen3-8-flash-next",
-        "reason": "Scored conservatively with unavailable benchmark: gdpval",
+        "reason": "Partial role scores: gdpval, caiStar unavailable; coding scores use a conservative missing-component contribution.",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "gdpval"
-        ]
+          "gdpval",
+          "caiStar"
+        ],
+        "originalStatus": "partial_scored"
       },
       "benchmarkProvenance": {
         "gdpval": {
@@ -5309,6 +5369,12 @@
           "estimate": 20.523,
           "cutoffLowerBound": 10.8965,
           "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "caiStar": {
+          "status": "unavailable",
+          "benchmark": "caiStar",
+          "targetSlug": "qwen3-8-flash-next",
+          "reason": "No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution."
         }
       },
       "tokenPrices": {
@@ -8600,10 +8666,12 @@
       "mapping": {
         "status": "partial_scored",
         "slug": "gpt-6-1-terra",
-        "reason": "Scored conservatively with unavailable benchmark: gdpval",
+        "reason": "Partial role scores: gdpval, caiStar unavailable; coding scores use a conservative missing-component contribution.",
         "missingBenchmarks": [
-          "gdpval"
-        ]
+          "gdpval",
+          "caiStar"
+        ],
+        "originalStatus": "partial_scored"
       },
       "benchmarkProvenance": {
         "gdpval": {
@@ -8611,6 +8679,12 @@
           "benchmark": "gdpval",
           "targetSlug": "gpt-6-1-terra",
           "reason": "Artificial Analysis publishes no current gdpval value for this mapped model; role scores use a conservative zero contribution for this component."
+        },
+        "caiStar": {
+          "status": "unavailable",
+          "benchmark": "caiStar",
+          "targetSlug": "gpt-6-1-terra",
+          "reason": "No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution."
         }
       },
       "tokenPrices": {
@@ -9138,10 +9212,12 @@
       "mapping": {
         "status": "partial_scored",
         "slug": "gpt-5-6-terra",
-        "reason": "Scored conservatively with unavailable benchmark: gdpval",
+        "reason": "Partial role scores: gdpval, caiStar unavailable; coding scores use a conservative missing-component contribution.",
         "missingBenchmarks": [
-          "gdpval"
-        ]
+          "gdpval",
+          "caiStar"
+        ],
+        "originalStatus": "partial_scored"
       },
       "benchmarkProvenance": {
         "gdpval": {
@@ -9160,6 +9236,12 @@
           "estimate": 25.6032,
           "cutoffLowerBound": 15.9767,
           "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "caiStar": {
+          "status": "unavailable",
+          "benchmark": "caiStar",
+          "targetSlug": "gpt-5-6-terra",
+          "reason": "No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution."
         }
       },
       "tokenPrices": {
@@ -10686,13 +10768,15 @@
       "mapping": {
         "status": "partial_scored",
         "slug": "muse-spark-1-3-xhigh",
-        "reason": "Scored conservatively with unavailable benchmark: gdpval",
+        "reason": "Partial role scores: gdpval, caiStar unavailable; coding scores use a conservative missing-component contribution.",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "gdpval"
-        ]
+          "gdpval",
+          "caiStar"
+        ],
+        "originalStatus": "partial_scored"
       },
       "benchmarkProvenance": {
         "gdpval": {
@@ -10711,6 +10795,12 @@
           "estimate": 38.6116,
           "cutoffLowerBound": 28.9851,
           "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "caiStar": {
+          "status": "unavailable",
+          "benchmark": "caiStar",
+          "targetSlug": "muse-spark-1-3-xhigh",
+          "reason": "No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution."
         },
         "cyberIndex": {
           "status": "observed",
@@ -10931,13 +11021,15 @@
       "mapping": {
         "status": "partial_scored",
         "slug": "muse-spark-1-3-xhigh",
-        "reason": "Scored conservatively with unavailable benchmark: gdpval",
+        "reason": "Partial role scores: gdpval, caiStar unavailable; coding scores use a conservative missing-component contribution.",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "gdpval"
-        ]
+          "gdpval",
+          "caiStar"
+        ],
+        "originalStatus": "partial_scored"
       },
       "benchmarkProvenance": {
         "gdpval": {
@@ -10956,6 +11048,12 @@
           "estimate": 38.6116,
           "cutoffLowerBound": 28.9851,
           "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "caiStar": {
+          "status": "unavailable",
+          "benchmark": "caiStar",
+          "targetSlug": "muse-spark-1-3-xhigh",
+          "reason": "No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution."
         },
         "cyberIndex": {
           "status": "observed",

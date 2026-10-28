@@ -1,21 +1,21 @@
 {
   "schemaVersion": 3,
   "status": "error",
-  "attemptedAt": "2026-10-28T10:35:54.713Z",
+  "attemptedAt": "2026-10-28T10:37:13.328Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T10:32:54.494Z"
+    "generatedAt": "2026-10-28T10:35:54.242Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T10:32:54.494Z",
+    "generatedAt": "2026-10-28T10:35:54.242Z",
     "benchmarkDate": "2026-10-28",
-    "benchmarkGeneratedAt": "2026-10-28T10:32:54.494Z",
-    "lineupInputsRefreshedAt": "2026-10-28T10:32:54.494Z"
+    "benchmarkGeneratedAt": "2026-10-28T10:35:54.242Z",
+    "lineupInputsRefreshedAt": "2026-10-28T10:35:54.242Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T10:32:54.494Z"
+    "generatedAt": "2026-10-28T10:35:54.242Z"
   },
   "mode": null,
   "message": null,
@@ -60,12 +60,6 @@
     },
     {
       "benchmark": "experimental_proxy",
-      "targetModel": "Qwen 3.8 Omni Flash",
-      "status": "unavailable",
-      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
-    },
-    {
-      "benchmark": "experimental_proxy",
       "targetModel": "Qwen 3.7 Flash",
       "status": "unavailable",
       "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.7 Plus."
@@ -90,9 +84,15 @@
     },
     {
       "benchmark": "mapping",
-      "targetModel": "Qwen 3.8 Omni Flash",
+      "targetModel": "Ornith 1.5 122B",
       "status": "unavailable",
-      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
+      "reason": "Publicly documented open-weight model; primary developer reports task benchmarks, but no matching AA intelligence record. Do not treat it as anonymous stealth or directly comparable AA role scores."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Qwen 3.6 Max Preview",
+      "status": "unavailable",
+      "reason": "Superseded by Qwen 3.7/3.8 Max generations; no verified AA 3.6 Max identity or current benchmark. Excluded from scoring; retained in historical catalog."
     },
     {
       "benchmark": "mapping",
@@ -108,7 +108,43 @@
     },
     {
       "benchmark": "gdpval",
+      "targetSlug": "glm-5-3-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "glm-5-3-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "qwen3-8-flash-next",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
       "targetSlug": "gpt-6-1-terra",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "gpt-5-6-terra",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "muse-spark-1-3-xhigh",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "muse-spark-1-3-xhigh",
       "status": "unavailable",
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
