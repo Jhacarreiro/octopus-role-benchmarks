@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 15,
+  "schemaVersion": 16,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -26,9 +26,9 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Balances role quality (75%) and affordability (25%). Excludes the highest task-price level, including ties, before recalculating the mean + 2 standard-deviation cutoff.",
+      "description": "Starts with 75% role quality and 25% affordability. Then each quality point lost requires at least 10% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
       "requestedIntelligenceFloor": 0.8,
-      "objective": "maximize-relative-quality-and-affordability",
+      "objective": "initial-balanced-score-then-score-price-exchange",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
@@ -43,13 +43,23 @@
         "method": "highest-distinct-cost-levels",
         "excludeHighestPriceLevels": 1,
         "costMetric": "planAdjustedCostPerTaskUsd"
+      },
+      "postSelectionOptimization": {
+        "enabled": true,
+        "objective": "minimize-plan-adjusted-cost",
+        "exchangeRule": "price-saving-percent-per-quality-point",
+        "savingPercentPerPoint": 10,
+        "measuredReplacementsOnly": true,
+        "maxIntelligenceExceptions": null,
+        "maxSwaps": null,
+        "maxSearchNodes": 1000000
       }
     },
     "budget": {
       "label": "Budget",
-      "description": "Starts with 40% role quality and 60% affordability, then reduces cost with at most 1 point loss per role. Measured specialists may fall below the initial Intelligence cutoff. Price exclusions and the statistical cutoff remain enforced.",
+      "description": "Starts with 40% role quality and 60% affordability. Then each quality point lost requires at least 5% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
       "requestedIntelligenceFloor": 0.75,
-      "objective": "initial-role-budget-score-then-bounded-cost-minimization",
+      "objective": "initial-role-budget-score-then-score-price-exchange",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
@@ -64,11 +74,11 @@
       "postSelectionOptimization": {
         "enabled": true,
         "objective": "minimize-plan-adjusted-cost",
-        "maxRolePointLoss": 1,
-        "maxMeanPointLoss": 0.25,
-        "minSavingsPercent": 10,
+        "exchangeRule": "price-saving-percent-per-quality-point",
+        "savingPercentPerPoint": 5,
         "measuredReplacementsOnly": true,
         "maxIntelligenceExceptions": null,
+        "maxSwaps": null,
         "maxSearchNodes": 1000000
       }
     }

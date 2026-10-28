@@ -6,5 +6,6 @@ for(const [mode,p] of Object.entries(d.modes||{})){
 }
 const b=d.modes?.balanced;
 if(!b||!Number.isFinite(b.pureBalancedOptimum)||!Number.isFinite(b.balancedObjectiveLossPercent))throw new Error('balanced placement metadata missing');
-if(b.balancedObjectiveLossPercent>1+1e-6)throw new Error(`balanced placement exceeds 1% objective tolerance: ${b.balancedObjectiveLossPercent}`);
-console.log('ok: premium placement metadata and Balanced tolerance');
+const initialLoss=b.postSelectionOptimization?.initialBalancedObjectiveLossPercent??b.balancedObjectiveLossPercent;
+if(initialLoss>1+1e-6)throw new Error(`initial balanced placement exceeds 1% objective tolerance: ${initialLoss}`);
+console.log('ok: premium placement metadata and initial Balanced tolerance before price exchanges');

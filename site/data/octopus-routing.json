@@ -6,8 +6,8 @@
   "roles": {
     "architect": {
       "provider": "commandcode",
-      "model": "meta/muse-wonder-1.0",
-      "benchmarkModel": "Muse Wonder"
+      "model": "minimax/minimax-m3.1-flash",
+      "benchmarkModel": "MiniMax M3.1 Flash"
     },
     "strategist": {
       "provider": "claude",
@@ -16,13 +16,13 @@
     },
     "security-reviewer": {
       "provider": "commandcode",
-      "model": "moonshotai/kimi-k3.1-pro",
-      "benchmarkModel": "Kimi K3.1 Pro"
+      "model": "xiaomi/mimo-v2.6-pro",
+      "benchmarkModel": "MiMo V2.6 Pro"
     },
     "code-reviewer": {
-      "provider": "commandcode",
-      "model": "google/gemini-4-argon",
-      "benchmarkModel": "Gemini 4 Argon"
+      "provider": "codex",
+      "model": "gpt-6.1-terra",
+      "benchmarkModel": "GPT-6.1 Terra"
     },
     "implementer": {
       "provider": "claude",
@@ -36,13 +36,13 @@
     },
     "synthesizer": {
       "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "benchmarkModel": "GPT-6.1 Sol"
+      "model": "gpt-6.1-terra",
+      "benchmarkModel": "GPT-6.1 Terra"
     },
     "researcher": {
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "benchmarkModel": "GPT-6.1 Sol"
+      "provider": "commandcode",
+      "model": "xiaomi/mimo-v2.6-pro",
+      "benchmarkModel": "MiMo V2.6 Pro"
     }
   }
 }

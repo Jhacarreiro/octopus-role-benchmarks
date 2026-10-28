@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "methodologyVersion": 10,
   "snapshotGeneratedAt": "2026-10-28T15:13:24.390Z",
-  "sourceBaseRevision": "aa8dda8a4f0da7b0800148459adad799f702f1a9",
+  "sourceBaseRevision": "befee99e1fabf7f2294ee8b5160538310f815cf9",
   "sourceSha256": {
     "scripts/refresh.mjs": "7a1330d6dc2fc42344939ceb19f997efb50469a7cee0b1d7baf5e978ccb87266",
     "scripts/update.mjs": "d0b66d76fa532ce23a20ea8217b8bc98bb89151295d9663b81a80395e159cb1f",
@@ -12,14 +12,14 @@
     "scripts/lib/model-profile.mjs": "eac0e340fdd0f4a73126dda785d09c5211690aef13635d3c59a78891c087a53a",
     "scripts/lib/balanced-score.mjs": "d9e896da4918e50c08da587cb059d44c3b9bc906da9f55c85dff57418f3517ec",
     "scripts/lib/portfolio-price-filter.mjs": "abf4bae5dfe6febc0bd9ff9e4be4303ad6091c625b33e25c4a2f3e88209ba447",
-    "scripts/lib/post-selection-cost.mjs": "062bdef7f3ad02cfc92f249cebede018d5e95544d1a59e1dd044e46e24d063fb",
+    "scripts/lib/post-selection-cost.mjs": "b9a564d8b9c214f1b71e8cccd37ea98ec172e4612d41a3583b238f285cc35e67",
     "scripts/build-lineups.mjs": "bf05d601d4159f95cb54ca6642f77fd53de8e419cbea188d8d52f8ed101d42a8",
     "scripts/evaluate-lineup-swaps.mjs": "b56e1c90eec0ef9878877d68a4d79d60bec915c6426daf963de578ff951fad52",
     "scripts/build-octopus-routing.mjs": "87a84da93d4f194bb752bd4a411a08e4fa98aeb77577c1d5193531f306535b1e",
     "config/roles-v10.json": "4335ca4986c4f769fc688797e9a21f8bb789d12afecc3905587f60a1df53ffec",
     "config/active-methodology.json": "1f7f8e8452bcf8d5fa2e8fe9b3a32a7ae1770ad51f37c791efe2218c5fa480f4",
-    "config/lineup-policy.json": "e6de6c92d20218665c96edc7d169bf52d71f804db4287a652a6bc52c08447841",
-    "config/octopus-routing-models.json": "87179509b2ababdb3c47d934ca67459b58ff7259c398a2a9b3aa43048cef7cae",
+    "config/lineup-policy.json": "07b4c0be4d54321d0689f231495228337895cdaa342793f9090fbd17e9d62e49",
+    "config/octopus-routing-models.json": "783c44a9247af2a3f45b68ec942c41dd85032c869b666c865163ea177881db53",
     "package.json": "a5b55917a85b3c848b70412d92f4cf23163e03c3a6dbb5d59e54203350e8d1ae"
   },
   "statisticalIntelligenceEstimator": false,
@@ -28,9 +28,9 @@
     "data/2026-10-28.json": "d1a6473a3a32e833ea823b632447dbf6e8f4d29e29e59431dfad2a0f049ec878",
     "data/latest.json": "d1a6473a3a32e833ea823b632447dbf6e8f4d29e29e59431dfad2a0f049ec878",
     "site/data/latest.json": "d1a6473a3a32e833ea823b632447dbf6e8f4d29e29e59431dfad2a0f049ec878",
-    "site/data/lineups.json": "1c87e086af6867e31f454933250dd3407eedfe1e67d8e2d623757a925d7fcf5e",
-    "data/lineup-opportunities.json": "e18428f2a65729d397f76ba2d9ae431aeabb943cb6029fdaf56ade4e849cf8ee",
-    "site/data/octopus-routing.json": "1ba3ed3a767405ff8593fabde94abfa6126b2db5dd4812b3c8c05f8148d9a64e"
+    "site/data/lineups.json": "66fe42a3e3d74fe1e139d2df99259de9e4343b7c6bcdd21de001aca197fa0eb2",
+    "data/lineup-opportunities.json": "768ee8e5c4b660462116b2761f79a1f9a2d2feabadc8ac8984d5ef9a64830773",
+    "site/data/octopus-routing.json": "c9f09a8e3eb857ca18b9eb21c8bae2b5851fa0cd48364292f8dd141c0ab12d6c"
   },
   "counts": {
     "commandCodeRows": 99,
