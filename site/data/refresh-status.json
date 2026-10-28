@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "error",
-  "attemptedAt": "2026-10-28T09:07:49.930Z",
+  "attemptedAt": "2026-10-28T09:13:25.236Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-26",
     "generatedAt": "2026-10-26T10:32:48.627Z"
@@ -19,8 +19,8 @@
   },
   "mode": null,
   "message": null,
-  "stage": "update",
-  "errorSummary": "Error: Experimental proxy missing valid target/reference: Laguna S 2.1",
+  "stage": "validation",
+  "errorSummary": "Error: Scored model lacks AA Intelligence Index: GLM-5.3 Flash",
   "validationIssues": [],
   "runUrl": null
 }
