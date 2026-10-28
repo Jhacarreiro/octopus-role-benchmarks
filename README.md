@@ -156,3 +156,6 @@ When AA temporarily omits SciCode for a mapped model, the pipeline first uses th
 
 
 CommandCode pricing stores base Max credits separately from model deal multipliers/effective usage. Effective token prices already include the deal rate, so plan-adjusted task cost applies the deal exactly once.
+# Opt-in selective methodology comparison
+
+The selective v10 implementation is available for isolated review through `npm run compare:methodologies -- --output-dir tmp/migration-comparison`. The default refresh, current configuration and published data remain on v9; Intelligence estimation is disabled in v10. See [methodology](methodology/selective-v10.md) and [validation](methodology/migration-validation-2026-10-28.md).

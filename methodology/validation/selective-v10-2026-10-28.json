@@ -1,0 +1,5347 @@
+{
+  "sourceCommit": "24b7d71fd27df2fe1428207bc153bab35b5f7aa6",
+  "date": "2026-10-28T11:18:32.000Z",
+  "activation": "not activated; published artifacts unchanged",
+  "intelligenceEstimator": {
+    "enabled": false
+  },
+  "policySha256": "cfc64d57f82f9a5d25fc6f1c52bfc95d9a620a7ab892b19715f163eca7e4f34b",
+  "baselineSha256": "9a3c3181fad2aae4bb7900d805a6e1c9dd2340b29b3f0fc9564618a3efedb451",
+  "comparisonDesign": {
+    "methodology": "aligned-v9 versus aligned-v10: same 29 observed v5 identities, exact existing task costs, unchanged policy",
+    "coverage": "aligned-v10 versus expanded-v10: expanded role scoring universe; unknown Intelligence remains excluded from portfolios",
+    "price": "Existing per-offer task cost copied exactly. Newly scored offers use the frozen reference workload and frozen rates; no new task telemetry.",
+    "baseline": "Published v9 scores retain their existing historical/proxy provenance; partial old scores are labeled in rank moves."
+  },
+  "roleCoverage": {
+    "architect": {
+      "total": 76,
+      "present": 64,
+      "offers": 73,
+      "observedIntelligence": 29
+    },
+    "strategist": {
+      "total": 76,
+      "present": 33,
+      "offers": 37,
+      "observedIntelligence": 29
+    },
+    "security-reviewer": {
+      "total": 76,
+      "present": 19,
+      "offers": 23,
+      "observedIntelligence": 14
+    },
+    "code-reviewer": {
+      "total": 76,
+      "present": 33,
+      "offers": 37,
+      "observedIntelligence": 29
+    },
+    "implementer": {
+      "total": 76,
+      "present": 64,
+      "offers": 73,
+      "observedIntelligence": 29
+    },
+    "implementer-heavy": {
+      "total": 76,
+      "present": 64,
+      "offers": 73,
+      "observedIntelligence": 29
+    },
+    "synthesizer": {
+      "total": 76,
+      "present": 33,
+      "offers": 37,
+      "observedIntelligence": 29
+    },
+    "researcher": {
+      "total": 76,
+      "present": 33,
+      "offers": 37,
+      "observedIntelligence": 29
+    }
+  },
+  "rankings": {
+    "architect": {
+      "sameObservedCohort": {
+        "oldIdentities": 29,
+        "newIdentities": 29,
+        "commonIdentities": 29,
+        "spearman": 0.8735065961071532,
+        "kendallTauB": 0.7422940291508947,
+        "top5Overlap": 1,
+        "top10Overlap": 0.7,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "claude-opus-5-5",
+            "from": 1,
+            "to": 1,
+            "oldQuality": 72.119,
+            "newQuality": 58.860769,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 2,
+            "to": 3,
+            "oldQuality": 70.46,
+            "newQuality": 56.862539,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-sonnet-5-5",
+            "from": 3,
+            "to": 2,
+            "oldQuality": 69.584,
+            "newQuality": 57.995113,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 4,
+            "to": 4,
+            "oldQuality": 69.105,
+            "newQuality": 55.841724,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-wonder",
+            "from": 5,
+            "to": 5,
+            "oldQuality": 66.359,
+            "newQuality": 54.862226,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 6,
+            "to": 11,
+            "oldQuality": 65.841,
+            "newQuality": 49.741867,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-4-argon",
+            "from": 7,
+            "to": 12,
+            "oldQuality": 63.7,
+            "newQuality": 49.216123,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 8,
+            "to": 15,
+            "oldQuality": 63.485,
+            "newQuality": 46.778839,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-sol",
+            "from": 9,
+            "to": 7,
+            "oldQuality": 63.206,
+            "newQuality": 53.381687,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 10,
+            "to": 10,
+            "oldQuality": 62.324,
+            "newQuality": 50.248913,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-max",
+            "from": 11,
+            "to": 8,
+            "oldQuality": 62.324,
+            "newQuality": 50.999463,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 12,
+            "to": 6,
+            "oldQuality": 62.282,
+            "newQuality": 53.384509,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-haiku-5-5",
+            "from": 13,
+            "to": 9,
+            "oldQuality": 62.115,
+            "newQuality": 50.368454,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 14,
+            "to": 16,
+            "oldQuality": 61.578,
+            "newQuality": 45.549244,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3-1-flash",
+            "from": 15,
+            "to": 14,
+            "oldQuality": 57.829,
+            "newQuality": 47.830266,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 16,
+            "to": 22,
+            "oldQuality": 57.791,
+            "newQuality": 42.099497,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-flash",
+            "from": 17,
+            "to": 20,
+            "oldQuality": 57.494,
+            "newQuality": 42.810894,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 18,
+            "to": 17,
+            "oldQuality": 56.558,
+            "newQuality": 45.031729,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "deepseek-v4-pro",
+            "from": 19,
+            "to": 23,
+            "oldQuality": 56.555,
+            "newQuality": 39.994386,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-spark-open",
+            "from": 20,
+            "to": 21,
+            "oldQuality": 55.235,
+            "newQuality": 42.218539,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 21,
+            "to": 18,
+            "oldQuality": 55.039,
+            "newQuality": 44.46291,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 22,
+            "to": 19,
+            "oldQuality": 54.982,
+            "newQuality": 43.977105,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 23,
+            "to": 24,
+            "oldQuality": 51.806,
+            "newQuality": 36.210652,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling-small",
+            "from": 24,
+            "to": 25,
+            "oldQuality": 45.49,
+            "newQuality": 30.537822,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling",
+            "from": 25,
+            "to": 27,
+            "oldQuality": 44.549,
+            "newQuality": 29.348654,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nemotron-3-5-super-vl",
+            "from": 26,
+            "to": 26,
+            "oldQuality": 43.883,
+            "newQuality": 30.094389,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 27,
+            "to": 28,
+            "oldQuality": 42.949,
+            "newQuality": 28.44921,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-5-flash-lite",
+            "from": 28,
+            "to": 29,
+            "oldQuality": 39.36,
+            "newQuality": 23.880222,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-terra",
+            "from": 29,
+            "to": 13,
+            "oldQuality": 34.505,
+            "newQuality": 48.595786,
+            "oldStatus": "partial"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 35,
+        "newIdentities": 64,
+        "commonIdentities": 33,
+        "spearman": 0.7025988158565788,
+        "kendallTauB": 0.5706163700799615,
+        "top5Overlap": 1,
+        "top10Overlap": 0.7,
+        "entered": [
+          "claude-opus-5",
+          "claude-fable-5",
+          "gpt-5-6-sol",
+          "kimi-k3",
+          "gpt-6-sol",
+          "grok-4-6",
+          "gpt-5-6-luna",
+          "deepseek-v4-1-flash",
+          "claude-opus-4-8",
+          "deepseek-v4-flash-vision",
+          "ling-3-1-flash",
+          "muse-spark-1-2",
+          "claude-sonnet-5",
+          "grok-4-5",
+          "gpt-5-5",
+          "gemini-3-7-flash",
+          "deepseek-v4-flash",
+          "glm-5-2",
+          "gemini-3-6-flash",
+          "gemini-3-5-flash",
+          "hy3",
+          "muse-spark-1-1",
+          "qwen3-7-max",
+          "qwen3-7-plus",
+          "kimi-k2-6",
+          "glm-5-1",
+          "kimi-k2-7-code",
+          "gpt-5-4-mini",
+          "minimax-m2-7",
+          "longcat-2-0",
+          "gemini-3-1-flash-lite-preview"
+        ],
+        "exited": [
+          "experimental:qwen38maxprime",
+          "experimental:qwen38omniflash"
+        ]
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8240946045824095,
+            "kendallTauB": 0.6765432098765433,
+            "top5Overlap": 0.6,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 64,
+            "commonIdentities": 33,
+            "spearman": 0.53551730649394,
+            "kendallTauB": 0.4250482035519988,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.6,
+            "entered": [
+              "claude-opus-5",
+              "kimi-k3",
+              "gpt-5-6-sol",
+              "claude-fable-5",
+              "gpt-5-6-luna",
+              "gpt-6-sol",
+              "deepseek-v4-1-flash",
+              "deepseek-v4-flash-vision",
+              "grok-4-6",
+              "muse-spark-1-2",
+              "ling-3-1-flash",
+              "deepseek-v4-flash",
+              "claude-opus-4-8",
+              "gemini-3-7-flash",
+              "claude-sonnet-5",
+              "grok-4-5",
+              "hy3",
+              "glm-5-2",
+              "gpt-5-5",
+              "qwen3-7-plus",
+              "gemini-3-6-flash",
+              "gemini-3-5-flash",
+              "muse-spark-1-1",
+              "kimi-k2-6",
+              "glm-5-1",
+              "kimi-k2-7-code",
+              "longcat-2-0",
+              "minimax-m2-7",
+              "qwen3-7-max",
+              "gpt-5-4-mini",
+              "gemini-3-1-flash-lite-preview"
+            ],
+            "exited": [
+              "experimental:qwen38maxprime",
+              "experimental:qwen38omniflash"
+            ]
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8862600728843646,
+            "kendallTauB": 0.757428062901992,
+            "top5Overlap": 1,
+            "top10Overlap": 0.9,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 64,
+            "commonIdentities": 33,
+            "spearman": 0.8117372698105653,
+            "kendallTauB": 0.629883436270204,
+            "top5Overlap": 0.6,
+            "top10Overlap": 0.7,
+            "entered": [
+              "deepseek-v4-1-flash",
+              "muse-spark-1-2",
+              "deepseek-v4-flash-vision",
+              "gpt-5-6-luna",
+              "deepseek-v4-flash",
+              "ling-3-1-flash",
+              "hy3",
+              "kimi-k3",
+              "gemini-3-7-flash",
+              "longcat-2-0",
+              "gpt-6-sol",
+              "qwen3-7-plus",
+              "grok-4-6",
+              "gpt-5-6-sol",
+              "minimax-m2-7",
+              "claude-opus-5",
+              "kimi-k2-6",
+              "gemini-3-1-flash-lite-preview",
+              "glm-5-2",
+              "gpt-5-4-mini",
+              "kimi-k2-7-code",
+              "grok-4-5",
+              "claude-fable-5",
+              "gemini-3-6-flash",
+              "muse-spark-1-1",
+              "glm-5-1",
+              "gemini-3-5-flash",
+              "claude-sonnet-5",
+              "claude-opus-4-8",
+              "qwen3-7-max",
+              "gpt-5-5"
+            ],
+            "exited": [
+              "experimental:qwen38omniflash",
+              "experimental:qwen38maxprime"
+            ]
+          }
+        }
+      }
+    },
+    "strategist": {
+      "sameObservedCohort": {
+        "oldIdentities": 29,
+        "newIdentities": 29,
+        "commonIdentities": 29,
+        "spearman": 0.870935960591133,
+        "kendallTauB": 0.7438423645320197,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.9,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "claude-opus-5-5",
+            "from": 1,
+            "to": 1,
+            "oldQuality": 73.865,
+            "newQuality": 59.726261,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 2,
+            "to": 4,
+            "oldQuality": 71.209,
+            "newQuality": 55.085229,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 3,
+            "to": 3,
+            "oldQuality": 70.736,
+            "newQuality": 56.761598,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-sonnet-5-5",
+            "from": 4,
+            "to": 2,
+            "oldQuality": 69.844,
+            "newQuality": 58.48794,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-4-argon",
+            "from": 5,
+            "to": 8,
+            "oldQuality": 67.031,
+            "newQuality": 52.72082,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-wonder",
+            "from": 6,
+            "to": 5,
+            "oldQuality": 67.006,
+            "newQuality": 54.913808,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-sol",
+            "from": 7,
+            "to": 7,
+            "oldQuality": 66.424,
+            "newQuality": 53.873351,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 8,
+            "to": 9,
+            "oldQuality": 65.822,
+            "newQuality": 52.558486,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 9,
+            "to": 6,
+            "oldQuality": 65.506,
+            "newQuality": 54.750246,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 10,
+            "to": 16,
+            "oldQuality": 63.183,
+            "newQuality": 43.011173,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-max",
+            "from": 11,
+            "to": 10,
+            "oldQuality": 62.165,
+            "newQuality": 48.958497,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-haiku-5-5",
+            "from": 12,
+            "to": 14,
+            "oldQuality": 61.939,
+            "newQuality": 44.897477,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 13,
+            "to": 13,
+            "oldQuality": 61.426,
+            "newQuality": 44.92692,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 14,
+            "to": 15,
+            "oldQuality": 60.938,
+            "newQuality": 44.763538,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 15,
+            "to": 19,
+            "oldQuality": 59.425,
+            "newQuality": 41.316806,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-spark-open",
+            "from": 16,
+            "to": 20,
+            "oldQuality": 58.399,
+            "newQuality": 41.269768,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-flash",
+            "from": 17,
+            "to": 17,
+            "oldQuality": 55.991,
+            "newQuality": 42.510769,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3-1-flash",
+            "from": 18,
+            "to": 12,
+            "oldQuality": 54.584,
+            "newQuality": 46.299097,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "deepseek-v4-pro",
+            "from": 19,
+            "to": 23,
+            "oldQuality": 54.579,
+            "newQuality": 37.126782,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 20,
+            "to": 21,
+            "oldQuality": 54.515,
+            "newQuality": 40.522829,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 21,
+            "to": 22,
+            "oldQuality": 54.27,
+            "newQuality": 39.964775,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 22,
+            "to": 18,
+            "oldQuality": 53.983,
+            "newQuality": 41.998204,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 23,
+            "to": 24,
+            "oldQuality": 50.694,
+            "newQuality": 27.861214,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling",
+            "from": 24,
+            "to": 27,
+            "oldQuality": 46.406,
+            "newQuality": 20.651584,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 25,
+            "to": 29,
+            "oldQuality": 46.274,
+            "newQuality": 20.283236,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nemotron-3-5-super-vl",
+            "from": 26,
+            "to": 25,
+            "oldQuality": 46.242,
+            "newQuality": 24.758185,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling-small",
+            "from": 27,
+            "to": 26,
+            "oldQuality": 45.768,
+            "newQuality": 21.288168,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-5-flash-lite",
+            "from": 28,
+            "to": 28,
+            "oldQuality": 45.44,
+            "newQuality": 20.557207,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-terra",
+            "from": 29,
+            "to": 11,
+            "oldQuality": 39.965,
+            "newQuality": 47.98961,
+            "oldStatus": "partial"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 35,
+        "newIdentities": 33,
+        "commonIdentities": 33,
+        "spearman": 0.7082219251336899,
+        "kendallTauB": 0.5795454545454546,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.9,
+        "entered": [],
+        "exited": [
+          "experimental:qwen38maxprime",
+          "experimental:qwen38omniflash"
+        ]
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8194256692354299,
+            "kendallTauB": 0.6650144542958764,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.7,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.6141628006023192,
+            "kendallTauB": 0.4647694928972027,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.7,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38maxprime",
+              "experimental:qwen38omniflash"
+            ]
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8863972669334715,
+            "kendallTauB": 0.7871311241922663,
+            "top5Overlap": 1,
+            "top10Overlap": 0.9,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.8436272726523735,
+            "kendallTauB": 0.6704680581708699,
+            "top5Overlap": 0.6,
+            "top10Overlap": 0.7,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38omniflash",
+              "experimental:qwen38maxprime"
+            ]
+          }
+        }
+      }
+    },
+    "security-reviewer": {
+      "sameObservedCohort": {
+        "oldIdentities": 14,
+        "newIdentities": 14,
+        "commonIdentities": 14,
+        "spearman": 1,
+        "kendallTauB": 1,
+        "top5Overlap": 1,
+        "top10Overlap": 1,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 1,
+            "to": 1,
+            "oldQuality": 64.065,
+            "newQuality": 64.065108,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 2,
+            "to": 2,
+            "oldQuality": 56.432,
+            "newQuality": 56.432341,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 3,
+            "to": 3,
+            "oldQuality": 56.066,
+            "newQuality": 56.065602,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 4,
+            "to": 4,
+            "oldQuality": 52.685,
+            "newQuality": 52.685359,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 5,
+            "to": 5,
+            "oldQuality": 49.511,
+            "newQuality": 49.511382,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 6,
+            "to": 6,
+            "oldQuality": 47.707,
+            "newQuality": 47.706815,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 7,
+            "to": 7,
+            "oldQuality": 36.376,
+            "newQuality": 36.375701,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 8,
+            "to": 8,
+            "oldQuality": 33.42,
+            "newQuality": 33.419827,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-opus-5-5",
+            "from": 9,
+            "to": 9,
+            "oldQuality": 28.664,
+            "newQuality": 28.663615,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 10,
+            "to": 10,
+            "oldQuality": 25.145,
+            "newQuality": 25.14495,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 11,
+            "to": 11,
+            "oldQuality": 25.02,
+            "newQuality": 25.019523,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 12,
+            "to": 12,
+            "oldQuality": 22.388,
+            "newQuality": 22.388016,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 13,
+            "to": 13,
+            "oldQuality": 13.078,
+            "newQuality": 13.078414,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 14,
+            "to": 14,
+            "oldQuality": 12.724,
+            "newQuality": 12.724314,
+            "oldStatus": "valid"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 16,
+        "newIdentities": 19,
+        "commonIdentities": 16,
+        "spearman": 1,
+        "kendallTauB": 1,
+        "top5Overlap": 1,
+        "top10Overlap": 1,
+        "entered": [
+          "kimi-k3",
+          "deepseek-v4-1-flash",
+          "gpt-6-sol"
+        ],
+        "exited": []
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 14,
+            "newIdentities": 14,
+            "commonIdentities": 14,
+            "spearman": 1,
+            "kendallTauB": 1,
+            "top5Overlap": 1,
+            "top10Overlap": 1,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 16,
+            "newIdentities": 19,
+            "commonIdentities": 16,
+            "spearman": 0.9926373062676037,
+            "kendallTauB": 0.9580170197702604,
+            "top5Overlap": 1,
+            "top10Overlap": 1,
+            "entered": [
+              "deepseek-v4-1-flash",
+              "kimi-k3",
+              "gpt-6-sol"
+            ],
+            "exited": []
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 14,
+            "newIdentities": 14,
+            "commonIdentities": 14,
+            "spearman": 1,
+            "kendallTauB": 1,
+            "top5Overlap": 1,
+            "top10Overlap": 1,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 16,
+            "newIdentities": 19,
+            "commonIdentities": 16,
+            "spearman": 0.9852941176470589,
+            "kendallTauB": 0.9333333333333333,
+            "top5Overlap": 0.8,
+            "top10Overlap": 1,
+            "entered": [
+              "deepseek-v4-1-flash",
+              "kimi-k3",
+              "gpt-6-sol"
+            ],
+            "exited": []
+          }
+        }
+      }
+    },
+    "code-reviewer": {
+      "sameObservedCohort": {
+        "oldIdentities": 29,
+        "newIdentities": 29,
+        "commonIdentities": 29,
+        "spearman": 0.8763546798029557,
+        "kendallTauB": 0.7980295566502463,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.9,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "claude-opus-5-5",
+            "from": 1,
+            "to": 1,
+            "oldQuality": 65.757,
+            "newQuality": 68.971364,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 2,
+            "to": 5,
+            "oldQuality": 63.84,
+            "newQuality": 65.167348,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 3,
+            "to": 2,
+            "oldQuality": 61.997,
+            "newQuality": 68.745934,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-4-argon",
+            "from": 4,
+            "to": 4,
+            "oldQuality": 61.729,
+            "newQuality": 65.407248,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-wonder",
+            "from": 5,
+            "to": 9,
+            "oldQuality": 61.71,
+            "newQuality": 61.813182,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-sonnet-5-5",
+            "from": 6,
+            "to": 3,
+            "oldQuality": 60.342,
+            "newQuality": 66.889672,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 7,
+            "to": 6,
+            "oldQuality": 59.977,
+            "newQuality": 64.442096,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-sol",
+            "from": 8,
+            "to": 7,
+            "oldQuality": 59.058,
+            "newQuality": 63.123712,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 9,
+            "to": 12,
+            "oldQuality": 57.101,
+            "newQuality": 54.892525,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 10,
+            "to": 10,
+            "oldQuality": 56.339,
+            "newQuality": 56.265884,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 11,
+            "to": 11,
+            "oldQuality": 56.234,
+            "newQuality": 55.739444,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 12,
+            "to": 15,
+            "oldQuality": 55.706,
+            "newQuality": 51.413207,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-haiku-5-5",
+            "from": 13,
+            "to": 14,
+            "oldQuality": 51.778,
+            "newQuality": 52.938788,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 14,
+            "to": 16,
+            "oldQuality": 51.603,
+            "newQuality": 49.384773,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-max",
+            "from": 15,
+            "to": 13,
+            "oldQuality": 50.84,
+            "newQuality": 53.587778,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3-1-flash",
+            "from": 16,
+            "to": 18,
+            "oldQuality": 50.054,
+            "newQuality": 47.975429,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-spark-open",
+            "from": 17,
+            "to": 19,
+            "oldQuality": 49.376,
+            "newQuality": 45.464672,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 18,
+            "to": 17,
+            "oldQuality": 48.573,
+            "newQuality": 48.822854,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 19,
+            "to": 21,
+            "oldQuality": 48.309,
+            "newQuality": 44.354748,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "deepseek-v4-pro",
+            "from": 20,
+            "to": 22,
+            "oldQuality": 48.24,
+            "newQuality": 43.351162,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-flash",
+            "from": 21,
+            "to": 20,
+            "oldQuality": 47.949,
+            "newQuality": 44.890657,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 22,
+            "to": 23,
+            "oldQuality": 45.711,
+            "newQuality": 39.36,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 23,
+            "to": 24,
+            "oldQuality": 45.073,
+            "newQuality": 38.526515,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling-small",
+            "from": 24,
+            "to": 26,
+            "oldQuality": 44.3,
+            "newQuality": 37.172702,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling",
+            "from": 25,
+            "to": 25,
+            "oldQuality": 43.369,
+            "newQuality": 37.304924,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nemotron-3-5-super-vl",
+            "from": 26,
+            "to": 29,
+            "oldQuality": 42.446,
+            "newQuality": 35.425278,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 27,
+            "to": 28,
+            "oldQuality": 40.837,
+            "newQuality": 35.884268,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-terra",
+            "from": 28,
+            "to": 8,
+            "oldQuality": 40.245,
+            "newQuality": 62.223056,
+            "oldStatus": "partial"
+          },
+          {
+            "slug": "gemini-3-5-flash-lite",
+            "from": 29,
+            "to": 27,
+            "oldQuality": 39.713,
+            "newQuality": 35.964369,
+            "oldStatus": "valid"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 35,
+        "newIdentities": 33,
+        "commonIdentities": 33,
+        "spearman": 0.7443181818181818,
+        "kendallTauB": 0.6363636363636364,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.9,
+        "entered": [],
+        "exited": [
+          "experimental:qwen38maxprime",
+          "experimental:qwen38omniflash"
+        ]
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.83503763249208,
+            "kendallTauB": 0.7490780799793247,
+            "top5Overlap": 0.6,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.7005016820351798,
+            "kendallTauB": 0.5853196177210629,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38maxprime",
+              "experimental:qwen38omniflash"
+            ]
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8950222055886485,
+            "kendallTauB": 0.8217846956975862,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.9,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.8098262032085561,
+            "kendallTauB": 0.6704545454545454,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.7,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38omniflash",
+              "experimental:qwen38maxprime"
+            ]
+          }
+        }
+      }
+    },
+    "implementer": {
+      "sameObservedCohort": {
+        "oldIdentities": 29,
+        "newIdentities": 29,
+        "commonIdentities": 29,
+        "spearman": 0.8512315270935961,
+        "kendallTauB": 0.7339901477832512,
+        "top5Overlap": 0.6,
+        "top10Overlap": 0.9,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "claude-opus-5-5",
+            "from": 1,
+            "to": 3,
+            "oldQuality": 65.056,
+            "newQuality": 66.127209,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 2,
+            "to": 7,
+            "oldQuality": 62.857,
+            "newQuality": 61.414778,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 3,
+            "to": 1,
+            "oldQuality": 61.503,
+            "newQuality": 69.75476,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-wonder",
+            "from": 4,
+            "to": 9,
+            "oldQuality": 61.423,
+            "newQuality": 58.89269,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-4-argon",
+            "from": 5,
+            "to": 5,
+            "oldQuality": 60.684,
+            "newQuality": 62.722576,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-sonnet-5-5",
+            "from": 6,
+            "to": 2,
+            "oldQuality": 59.86,
+            "newQuality": 67.092229,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 7,
+            "to": 4,
+            "oldQuality": 58.58,
+            "newQuality": 63.823251,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 8,
+            "to": 11,
+            "oldQuality": 58.063,
+            "newQuality": 49.895112,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-sol",
+            "from": 9,
+            "to": 6,
+            "oldQuality": 57.448,
+            "newQuality": 62.324269,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 10,
+            "to": 10,
+            "oldQuality": 56.77,
+            "newQuality": 51.407385,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 11,
+            "to": 13,
+            "oldQuality": 56.136,
+            "newQuality": 49.055066,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 12,
+            "to": 17,
+            "oldQuality": 54.951,
+            "newQuality": 41.092482,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-haiku-5-5",
+            "from": 13,
+            "to": 14,
+            "oldQuality": 51.529,
+            "newQuality": 47.02258,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 14,
+            "to": 18,
+            "oldQuality": 51.044,
+            "newQuality": 39.324824,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3-1-flash",
+            "from": 15,
+            "to": 15,
+            "oldQuality": 50.433,
+            "newQuality": 42.565374,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-max",
+            "from": 16,
+            "to": 12,
+            "oldQuality": 50.414,
+            "newQuality": 49.880985,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 17,
+            "to": 16,
+            "oldQuality": 49.127,
+            "newQuality": 41.648805,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-spark-open",
+            "from": 18,
+            "to": 22,
+            "oldQuality": 48.93,
+            "newQuality": 31.014302,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 19,
+            "to": 21,
+            "oldQuality": 48.907,
+            "newQuality": 34.185273,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "deepseek-v4-pro",
+            "from": 20,
+            "to": 20,
+            "oldQuality": 48.426,
+            "newQuality": 34.719711,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-flash",
+            "from": 21,
+            "to": 19,
+            "oldQuality": 48.417,
+            "newQuality": 37.481514,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 22,
+            "to": 23,
+            "oldQuality": 45.499,
+            "newQuality": 28.921378,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 23,
+            "to": 24,
+            "oldQuality": 44.837,
+            "newQuality": 27.807812,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling-small",
+            "from": 24,
+            "to": 26,
+            "oldQuality": 44.555,
+            "newQuality": 24.52041,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling",
+            "from": 25,
+            "to": 25,
+            "oldQuality": 43.032,
+            "newQuality": 24.7216,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nemotron-3-5-super-vl",
+            "from": 26,
+            "to": 29,
+            "oldQuality": 42.31,
+            "newQuality": 21.858434,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 27,
+            "to": 27,
+            "oldQuality": 39.654,
+            "newQuality": 24.397253,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-terra",
+            "from": 28,
+            "to": 8,
+            "oldQuality": 39.279,
+            "newQuality": 60.936979,
+            "oldStatus": "partial"
+          },
+          {
+            "slug": "gemini-3-5-flash-lite",
+            "from": 29,
+            "to": 28,
+            "oldQuality": 38.559,
+            "newQuality": 22.428118,
+            "oldStatus": "valid"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 35,
+        "newIdentities": 64,
+        "commonIdentities": 33,
+        "spearman": 0.7232620320855615,
+        "kendallTauB": 0.5871212121212122,
+        "top5Overlap": 0.6,
+        "top10Overlap": 0.9,
+        "entered": [
+          "claude-opus-5",
+          "gpt-6-sol",
+          "claude-fable-5",
+          "gpt-5-6-sol",
+          "ling-3-1-flash",
+          "deepseek-v4-1-flash",
+          "claude-opus-4-8",
+          "grok-4-6",
+          "kimi-k3",
+          "gpt-5-5",
+          "gemini-3-7-flash",
+          "claude-sonnet-5",
+          "gpt-5-6-luna",
+          "deepseek-v4-flash",
+          "deepseek-v4-flash-vision",
+          "grok-4-5",
+          "muse-spark-1-2",
+          "gemini-3-6-flash",
+          "muse-spark-1-1",
+          "gemini-3-5-flash",
+          "qwen3-7-max",
+          "glm-5-2",
+          "kimi-k2-6",
+          "kimi-k2-7-code",
+          "hy3",
+          "gpt-5-4-mini",
+          "qwen3-7-plus",
+          "glm-5-1",
+          "minimax-m2-7",
+          "gemini-3-1-flash-lite-preview",
+          "longcat-2-0"
+        ],
+        "exited": [
+          "experimental:qwen38maxprime",
+          "experimental:qwen38omniflash"
+        ]
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.7769287650973625,
+            "kendallTauB": 0.6600496277915633,
+            "top5Overlap": 0.2,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 64,
+            "commonIdentities": 33,
+            "spearman": 0.6448809229032806,
+            "kendallTauB": 0.5299166805373164,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.7,
+            "entered": [
+              "deepseek-v4-1-flash",
+              "ling-3-1-flash",
+              "gpt-6-sol",
+              "claude-opus-5",
+              "gpt-5-6-sol",
+              "claude-fable-5",
+              "deepseek-v4-flash",
+              "deepseek-v4-flash-vision",
+              "gemini-3-7-flash",
+              "gpt-5-6-luna",
+              "grok-4-6",
+              "muse-spark-1-2",
+              "claude-opus-4-8",
+              "kimi-k3",
+              "claude-sonnet-5",
+              "gpt-5-5",
+              "grok-4-5",
+              "gemini-3-6-flash",
+              "muse-spark-1-1",
+              "hy3",
+              "gemini-3-5-flash",
+              "kimi-k2-6",
+              "glm-5-2",
+              "kimi-k2-7-code",
+              "gpt-5-4-mini",
+              "qwen3-7-max",
+              "qwen3-7-plus",
+              "minimax-m2-7",
+              "longcat-2-0",
+              "gemini-3-1-flash-lite-preview",
+              "glm-5-1"
+            ],
+            "exited": [
+              "experimental:qwen38maxprime",
+              "experimental:qwen38omniflash"
+            ]
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8730745599253079,
+            "kendallTauB": 0.7558865778579836,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.9,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 64,
+            "commonIdentities": 33,
+            "spearman": 0.8220643572380173,
+            "kendallTauB": 0.6742643116463086,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.7,
+            "entered": [
+              "deepseek-v4-1-flash",
+              "ling-3-1-flash",
+              "deepseek-v4-flash",
+              "muse-spark-1-2",
+              "deepseek-v4-flash-vision",
+              "gpt-5-6-luna",
+              "gemini-3-7-flash",
+              "hy3",
+              "longcat-2-0",
+              "gpt-6-sol",
+              "minimax-m2-7",
+              "gpt-5-6-sol",
+              "kimi-k2-6",
+              "qwen3-7-plus",
+              "gemini-3-1-flash-lite-preview",
+              "grok-4-6",
+              "claude-opus-5",
+              "gpt-5-4-mini",
+              "kimi-k2-7-code",
+              "muse-spark-1-1",
+              "kimi-k3",
+              "glm-5-2",
+              "gemini-3-6-flash",
+              "grok-4-5",
+              "claude-fable-5",
+              "gemini-3-5-flash",
+              "claude-sonnet-5",
+              "glm-5-1",
+              "claude-opus-4-8",
+              "gpt-5-5",
+              "qwen3-7-max"
+            ],
+            "exited": [
+              "experimental:qwen38omniflash",
+              "experimental:qwen38maxprime"
+            ]
+          }
+        }
+      }
+    },
+    "implementer-heavy": {
+      "sameObservedCohort": {
+        "oldIdentities": 29,
+        "newIdentities": 29,
+        "commonIdentities": 29,
+        "spearman": 0.8610837438423645,
+        "kendallTauB": 0.7586206896551724,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.8,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "claude-opus-5-5",
+            "from": 1,
+            "to": 3,
+            "oldQuality": 66.295,
+            "newQuality": 66.49539,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 2,
+            "to": 2,
+            "oldQuality": 64.143,
+            "newQuality": 68.105264,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 3,
+            "to": 5,
+            "oldQuality": 63.777,
+            "newQuality": 60.940783,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-wonder",
+            "from": 4,
+            "to": 7,
+            "oldQuality": 63.44,
+            "newQuality": 59.818799,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-sonnet-5-5",
+            "from": 5,
+            "to": 1,
+            "oldQuality": 62.086,
+            "newQuality": 68.126547,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-4-argon",
+            "from": 6,
+            "to": 8,
+            "oldQuality": 60.56,
+            "newQuality": 58.822552,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 7,
+            "to": 12,
+            "oldQuality": 59.436,
+            "newQuality": 50.63521,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 8,
+            "to": 4,
+            "oldQuality": 58.933,
+            "newQuality": 61.416692,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-sol",
+            "from": 9,
+            "to": 6,
+            "oldQuality": 58.523,
+            "newQuality": 60.291523,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 10,
+            "to": 11,
+            "oldQuality": 58.435,
+            "newQuality": 52.366795,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 11,
+            "to": 15,
+            "oldQuality": 57.24,
+            "newQuality": 46.836443,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 12,
+            "to": 14,
+            "oldQuality": 57.161,
+            "newQuality": 48.816716,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-haiku-5-5",
+            "from": 13,
+            "to": 13,
+            "oldQuality": 53.377,
+            "newQuality": 50.125036,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-max",
+            "from": 14,
+            "to": 10,
+            "oldQuality": 53.128,
+            "newQuality": 52.951417,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-flash",
+            "from": 15,
+            "to": 18,
+            "oldQuality": 51.15,
+            "newQuality": 42.349989,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 16,
+            "to": 19,
+            "oldQuality": 50.675,
+            "newQuality": 37.419678,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3-1-flash",
+            "from": 17,
+            "to": 16,
+            "oldQuality": 50.644,
+            "newQuality": 44.558218,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 18,
+            "to": 17,
+            "oldQuality": 49.963,
+            "newQuality": 43.901121,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 19,
+            "to": 20,
+            "oldQuality": 49.559,
+            "newQuality": 36.98181,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "deepseek-v4-pro",
+            "from": 20,
+            "to": 21,
+            "oldQuality": 49.455,
+            "newQuality": 35.634403,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-spark-open",
+            "from": 21,
+            "to": 23,
+            "oldQuality": 48.198,
+            "newQuality": 32.92468,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 22,
+            "to": 22,
+            "oldQuality": 47.455,
+            "newQuality": 34.521725,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 23,
+            "to": 24,
+            "oldQuality": 44.721,
+            "newQuality": 27.825166,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling-small",
+            "from": 24,
+            "to": 25,
+            "oldQuality": 43.211,
+            "newQuality": 22.799979,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling",
+            "from": 25,
+            "to": 28,
+            "oldQuality": 41.775,
+            "newQuality": 21.749762,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nemotron-3-5-super-vl",
+            "from": 26,
+            "to": 27,
+            "oldQuality": 41.577,
+            "newQuality": 22.5283,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 27,
+            "to": 26,
+            "oldQuality": 39.07,
+            "newQuality": 22.69879,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-5-flash-lite",
+            "from": 28,
+            "to": 29,
+            "oldQuality": 38.205,
+            "newQuality": 18.298095,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-terra",
+            "from": 29,
+            "to": 9,
+            "oldQuality": 30.611,
+            "newQuality": 57.312734,
+            "oldStatus": "partial"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 35,
+        "newIdentities": 64,
+        "commonIdentities": 33,
+        "spearman": 0.7092245989304813,
+        "kendallTauB": 0.5833333333333334,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.8,
+        "entered": [
+          "claude-opus-5",
+          "claude-fable-5",
+          "gpt-6-sol",
+          "gpt-5-6-sol",
+          "ling-3-1-flash",
+          "deepseek-v4-1-flash",
+          "grok-4-6",
+          "kimi-k3",
+          "claude-opus-4-8",
+          "deepseek-v4-flash-vision",
+          "claude-sonnet-5",
+          "gpt-5-6-luna",
+          "deepseek-v4-flash",
+          "gpt-5-5",
+          "grok-4-5",
+          "muse-spark-1-2",
+          "gemini-3-7-flash",
+          "glm-5-2",
+          "gemini-3-6-flash",
+          "muse-spark-1-1",
+          "gemini-3-5-flash",
+          "hy3",
+          "qwen3-7-max",
+          "glm-5-1",
+          "kimi-k2-7-code",
+          "qwen3-7-plus",
+          "kimi-k2-6",
+          "gpt-5-4-mini",
+          "minimax-m2-7",
+          "longcat-2-0",
+          "gemini-3-1-flash-lite-preview"
+        ],
+        "exited": [
+          "experimental:qwen38maxprime",
+          "experimental:qwen38omniflash"
+        ]
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8068251878403001,
+            "kendallTauB": 0.7144628449589201,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.9,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 64,
+            "commonIdentities": 33,
+            "spearman": 0.522157256342429,
+            "kendallTauB": 0.4404244501203612,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.7,
+            "entered": [
+              "ling-3-1-flash",
+              "deepseek-v4-1-flash",
+              "gpt-6-sol",
+              "claude-opus-5",
+              "claude-fable-5",
+              "gpt-5-6-sol",
+              "deepseek-v4-flash-vision",
+              "deepseek-v4-flash",
+              "gpt-5-6-luna",
+              "grok-4-6",
+              "muse-spark-1-2",
+              "kimi-k3",
+              "claude-sonnet-5",
+              "claude-opus-4-8",
+              "gemini-3-7-flash",
+              "hy3",
+              "grok-4-5",
+              "glm-5-2",
+              "gpt-5-5",
+              "gemini-3-6-flash",
+              "muse-spark-1-1",
+              "gemini-3-5-flash",
+              "glm-5-1",
+              "qwen3-7-plus",
+              "kimi-k2-7-code",
+              "longcat-2-0",
+              "kimi-k2-6",
+              "minimax-m2-7",
+              "qwen3-7-max",
+              "gpt-5-4-mini",
+              "gemini-3-1-flash-lite-preview"
+            ],
+            "exited": [
+              "experimental:qwen38maxprime",
+              "experimental:qwen38omniflash"
+            ]
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8962288493513774,
+            "kendallTauB": 0.7990172837983566,
+            "top5Overlap": 1,
+            "top10Overlap": 0.9,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 64,
+            "commonIdentities": 33,
+            "spearman": 0.781315286424716,
+            "kendallTauB": 0.6085310790553742,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.7,
+            "entered": [
+              "deepseek-v4-1-flash",
+              "deepseek-v4-flash-vision",
+              "ling-3-1-flash",
+              "deepseek-v4-flash",
+              "muse-spark-1-2",
+              "gpt-5-6-luna",
+              "hy3",
+              "longcat-2-0",
+              "gemini-3-7-flash",
+              "gpt-6-sol",
+              "minimax-m2-7",
+              "qwen3-7-plus",
+              "grok-4-6",
+              "gpt-5-6-sol",
+              "claude-opus-5",
+              "gemini-3-1-flash-lite-preview",
+              "glm-5-2",
+              "kimi-k2-6",
+              "kimi-k3",
+              "kimi-k2-7-code",
+              "gpt-5-4-mini",
+              "muse-spark-1-1",
+              "glm-5-1",
+              "gemini-3-6-flash",
+              "claude-sonnet-5",
+              "claude-fable-5",
+              "grok-4-5",
+              "gemini-3-5-flash",
+              "claude-opus-4-8",
+              "gpt-5-5",
+              "qwen3-7-max"
+            ],
+            "exited": [
+              "experimental:qwen38omniflash",
+              "experimental:qwen38maxprime"
+            ]
+          }
+        }
+      }
+    },
+    "synthesizer": {
+      "sameObservedCohort": {
+        "oldIdentities": 29,
+        "newIdentities": 29,
+        "commonIdentities": 29,
+        "spearman": 0.9014778325123153,
+        "kendallTauB": 0.7339901477832512,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.8,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "claude-opus-5-5",
+            "from": 1,
+            "to": 4,
+            "oldQuality": 77.974,
+            "newQuality": 55.176667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 2,
+            "to": 5,
+            "oldQuality": 77.059,
+            "newQuality": 55.063333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 3,
+            "to": 3,
+            "oldQuality": 74.917,
+            "newQuality": 55.193333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-sol",
+            "from": 4,
+            "to": 1,
+            "oldQuality": 73.961,
+            "newQuality": 56.005,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-4-argon",
+            "from": 5,
+            "to": 9,
+            "oldQuality": 73.5,
+            "newQuality": 51.641667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-sonnet-5-5",
+            "from": 6,
+            "to": 8,
+            "oldQuality": 73.327,
+            "newQuality": 51.846667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 7,
+            "to": 2,
+            "oldQuality": 72.833,
+            "newQuality": 55.481667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 8,
+            "to": 15,
+            "oldQuality": 71.186,
+            "newQuality": 46.208333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-wonder",
+            "from": 9,
+            "to": 7,
+            "oldQuality": 70.848,
+            "newQuality": 52.701667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 10,
+            "to": 11,
+            "oldQuality": 69.83,
+            "newQuality": 47.851667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 11,
+            "to": 10,
+            "oldQuality": 68.276,
+            "newQuality": 48.273333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-haiku-5-5",
+            "from": 12,
+            "to": 13,
+            "oldQuality": 68.047,
+            "newQuality": 46.871667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-spark-open",
+            "from": 13,
+            "to": 14,
+            "oldQuality": 67.168,
+            "newQuality": 46.823333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-max",
+            "from": 14,
+            "to": 12,
+            "oldQuality": 66.985,
+            "newQuality": 46.913333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 15,
+            "to": 17,
+            "oldQuality": 66.839,
+            "newQuality": 44.553333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 16,
+            "to": 22,
+            "oldQuality": 65.684,
+            "newQuality": 40.861667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-terra",
+            "from": 17,
+            "to": 6,
+            "oldQuality": 63.113,
+            "newQuality": 52.971667,
+            "oldStatus": "partial"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 18,
+            "to": 16,
+            "oldQuality": 62.836,
+            "newQuality": 44.853333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 19,
+            "to": 20,
+            "oldQuality": 62.526,
+            "newQuality": 41.925,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 20,
+            "to": 19,
+            "oldQuality": 62.016,
+            "newQuality": 42.578333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "deepseek-v4-pro",
+            "from": 21,
+            "to": 25,
+            "oldQuality": 62.005,
+            "newQuality": 39.258333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 22,
+            "to": 24,
+            "oldQuality": 61.819,
+            "newQuality": 39.335,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3-1-flash",
+            "from": 23,
+            "to": 18,
+            "oldQuality": 61.752,
+            "newQuality": 43.316667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 24,
+            "to": 26,
+            "oldQuality": 60.236,
+            "newQuality": 37.598333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-flash",
+            "from": 25,
+            "to": 28,
+            "oldQuality": 59.59,
+            "newQuality": 36.008333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-5-flash-lite",
+            "from": 26,
+            "to": 21,
+            "oldQuality": 59.198,
+            "newQuality": 41.15,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling",
+            "from": 27,
+            "to": 23,
+            "oldQuality": 58.821,
+            "newQuality": 39.868333,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling-small",
+            "from": 28,
+            "to": 27,
+            "oldQuality": 56.836,
+            "newQuality": 37.536667,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nemotron-3-5-super-vl",
+            "from": 29,
+            "to": 29,
+            "oldQuality": 55.445,
+            "newQuality": 35.42,
+            "oldStatus": "valid"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 35,
+        "newIdentities": 33,
+        "commonIdentities": 33,
+        "spearman": 0.8392379679144385,
+        "kendallTauB": 0.6439393939393939,
+        "top5Overlap": 0.8,
+        "top10Overlap": 0.8,
+        "entered": [],
+        "exited": [
+          "experimental:qwen38maxprime",
+          "experimental:qwen38omniflash"
+        ]
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8544109160246662,
+            "kendallTauB": 0.6883653027717375,
+            "top5Overlap": 0.6,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.7809261225799058,
+            "kendallTauB": 0.5589363713095395,
+            "top5Overlap": 0.4,
+            "top10Overlap": 0.7,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38maxprime",
+              "experimental:qwen38omniflash"
+            ]
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.9360129999390562,
+            "kendallTauB": 0.7811041943148415,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.9241057019328199,
+            "kendallTauB": 0.7604617709126885,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38omniflash",
+              "experimental:qwen38maxprime"
+            ]
+          }
+        }
+      }
+    },
+    "researcher": {
+      "sameObservedCohort": {
+        "oldIdentities": 29,
+        "newIdentities": 29,
+        "commonIdentities": 29,
+        "spearman": 0.8768472906403941,
+        "kendallTauB": 0.7586206896551724,
+        "top5Overlap": 0.6,
+        "top10Overlap": 0.8,
+        "entered": [],
+        "exited": [],
+        "moves": [
+          {
+            "slug": "claude-opus-5-5",
+            "from": 1,
+            "to": 1,
+            "oldQuality": 74.62,
+            "newQuality": 59.813955,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-fable-5-1",
+            "from": 2,
+            "to": 2,
+            "oldQuality": 72.724,
+            "newQuality": 59.302431,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "kimi-k3-1-pro",
+            "from": 3,
+            "to": 5,
+            "oldQuality": 71.711,
+            "newQuality": 57.727862,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-sonnet-5-5",
+            "from": 4,
+            "to": 7,
+            "oldQuality": 70.665,
+            "newQuality": 55.706659,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-4-argon",
+            "from": 5,
+            "to": 6,
+            "oldQuality": 68.552,
+            "newQuality": 56.137146,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-sol",
+            "from": 6,
+            "to": 3,
+            "oldQuality": 68.316,
+            "newQuality": 58.388041,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-wonder",
+            "from": 7,
+            "to": 8,
+            "oldQuality": 67.763,
+            "newQuality": 55.002702,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-astra",
+            "from": 8,
+            "to": 4,
+            "oldQuality": 67.437,
+            "newQuality": 58.206885,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "step-5",
+            "from": 9,
+            "to": 11,
+            "oldQuality": 66.322,
+            "newQuality": 50.373144,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "grok-4-7",
+            "from": 10,
+            "to": 12,
+            "oldQuality": 65.383,
+            "newQuality": 50.199193,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-pro",
+            "from": 11,
+            "to": 16,
+            "oldQuality": 64.933,
+            "newQuality": 49.15525,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "claude-haiku-5-5",
+            "from": 12,
+            "to": 13,
+            "oldQuality": 64.057,
+            "newQuality": 49.822758,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-max",
+            "from": 13,
+            "to": 15,
+            "oldQuality": 63.56,
+            "newQuality": 49.350758,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-8-flash",
+            "from": 14,
+            "to": 10,
+            "oldQuality": 62.603,
+            "newQuality": 51.606078,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "glm-5-3",
+            "from": 15,
+            "to": 19,
+            "oldQuality": 62.48,
+            "newQuality": 44.983104,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "muse-spark-open",
+            "from": 16,
+            "to": 14,
+            "oldQuality": 60.862,
+            "newQuality": 49.664978,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3-1-flash",
+            "from": 17,
+            "to": 17,
+            "oldQuality": 58.854,
+            "newQuality": 47.448882,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-luna",
+            "from": 18,
+            "to": 18,
+            "oldQuality": 58.438,
+            "newQuality": 46.841576,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "deepseek-v4-pro",
+            "from": 19,
+            "to": 22,
+            "oldQuality": 58.171,
+            "newQuality": 43.409539,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "qwen3-8-27b",
+            "from": 20,
+            "to": 21,
+            "oldQuality": 57.475,
+            "newQuality": 43.908226,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mistral-large-4",
+            "from": 21,
+            "to": 20,
+            "oldQuality": 57.271,
+            "newQuality": 44.482321,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "mimo-v2-6-flash",
+            "from": 22,
+            "to": 28,
+            "oldQuality": 57.139,
+            "newQuality": 39.444922,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "minimax-m3",
+            "from": 23,
+            "to": 23,
+            "oldQuality": 55.915,
+            "newQuality": 43.296754,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling",
+            "from": 24,
+            "to": 24,
+            "oldQuality": 51.106,
+            "newQuality": 41.862108,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "nvidia-nemotron-3-ultra-550b-a55b",
+            "from": 25,
+            "to": 27,
+            "oldQuality": 51.058,
+            "newQuality": 39.943686,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "inkling-small",
+            "from": 26,
+            "to": 25,
+            "oldQuality": 50.452,
+            "newQuality": 40.256911,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gpt-6-1-terra",
+            "from": 27,
+            "to": 9,
+            "oldQuality": 49.86,
+            "newQuality": 54.691805,
+            "oldStatus": "partial"
+          },
+          {
+            "slug": "nemotron-3-5-super-vl",
+            "from": 28,
+            "to": 29,
+            "oldQuality": 49.136,
+            "newQuality": 37.936245,
+            "oldStatus": "valid"
+          },
+          {
+            "slug": "gemini-3-5-flash-lite",
+            "from": 29,
+            "to": 26,
+            "oldQuality": 48.716,
+            "newQuality": 40.201076,
+            "oldStatus": "valid"
+          }
+        ]
+      },
+      "publishedToExpanded": {
+        "oldIdentities": 35,
+        "newIdentities": 33,
+        "commonIdentities": 33,
+        "spearman": 0.7677139037433155,
+        "kendallTauB": 0.6325757575757576,
+        "top5Overlap": 0.6,
+        "top10Overlap": 0.8,
+        "entered": [],
+        "exited": [
+          "experimental:qwen38maxprime",
+          "experimental:qwen38omniflash"
+        ]
+      },
+      "byMode": {
+        "balanced": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.8236165745071766,
+            "kendallTauB": 0.7146489991736854,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.692082720308467,
+            "kendallTauB": 0.567628315095764,
+            "top5Overlap": 0.6,
+            "top10Overlap": 0.8,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38maxprime",
+              "experimental:qwen38omniflash"
+            ]
+          }
+        },
+        "budget": {
+          "sameObservedCohort": {
+            "oldIdentities": 29,
+            "newIdentities": 29,
+            "commonIdentities": 29,
+            "spearman": 0.9112644811437023,
+            "kendallTauB": 0.8188585607940446,
+            "top5Overlap": 1,
+            "top10Overlap": 0.9,
+            "entered": [],
+            "exited": []
+          },
+          "publishedToExpanded": {
+            "oldIdentities": 35,
+            "newIdentities": 33,
+            "commonIdentities": 33,
+            "spearman": 0.8899289625732419,
+            "kendallTauB": 0.7464390830338008,
+            "top5Overlap": 0.8,
+            "top10Overlap": 0.7,
+            "entered": [],
+            "exited": [
+              "experimental:qwen38omniflash",
+              "experimental:qwen38maxprime"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "portfolioChanges": {
+    "quality": {
+      "methodology": {
+        "from": "aligned-v9",
+        "to": "aligned-v10",
+        "oldFloor": 0.74,
+        "newFloor": 0.74,
+        "oldIntelligenceBaseline": 58.406,
+        "newIntelligenceBaseline": 58.406,
+        "oldCost": 43.290777,
+        "newCost": 34.962383,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": null,
+        "newPriceFilter": null,
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Kimi K3.1 Pro",
+            "to": "Muse Wonder",
+            "changed": true,
+            "oldQuality": 70.46,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Opus 5.5",
+            "to": "Claude Opus 5.5",
+            "changed": false,
+            "oldQuality": 73.865,
+            "newQuality": 59.726,
+            "intelligence": 58.406,
+            "cost": 10.036204,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 61.729,
+            "newQuality": 65.407,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "GPT-6 Astra",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 58.58,
+            "newQuality": 67.092,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Muse Wonder",
+            "to": "Kimi K3.1 Pro",
+            "changed": true,
+            "oldQuality": 63.44,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 73.961,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "Claude Opus 5.5",
+            "to": "GPT-6.1 Sol",
+            "changed": true,
+            "oldQuality": 74.62,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "expandedRankingCohort": {
+        "from": "aligned-v10",
+        "to": "expanded-v10",
+        "oldFloor": 0.74,
+        "newFloor": 0.74,
+        "oldIntelligenceBaseline": 58.406,
+        "newIntelligenceBaseline": 58.406,
+        "oldCost": 34.962383,
+        "newCost": 34.962383,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": null,
+        "newPriceFilter": null,
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Muse Wonder",
+            "to": "Muse Wonder",
+            "changed": false,
+            "oldQuality": 54.862,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Opus 5.5",
+            "to": "Claude Opus 5.5",
+            "changed": false,
+            "oldQuality": 59.726,
+            "newQuality": 59.726,
+            "intelligence": 58.406,
+            "cost": 10.036204,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 65.407,
+            "newQuality": 65.407,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 67.092,
+            "newQuality": 67.092,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 68.105,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 56.005,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 58.388,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "publishedToCandidate": {
+        "from": "published",
+        "to": "expanded-v10",
+        "oldFloor": 0.74,
+        "newFloor": 0.74,
+        "oldIntelligenceBaseline": 58.406,
+        "newIntelligenceBaseline": 58.406,
+        "oldCost": 43.290777,
+        "newCost": 34.962383,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": null,
+        "newPriceFilter": null,
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Kimi K3.1 Pro",
+            "to": "Muse Wonder",
+            "changed": true,
+            "oldQuality": 70.46,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Opus 5.5",
+            "to": "Claude Opus 5.5",
+            "changed": false,
+            "oldQuality": 73.865,
+            "newQuality": 59.726,
+            "intelligence": 58.406,
+            "cost": 10.036204,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 61.729,
+            "newQuality": 65.407,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "GPT-6 Astra",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 58.58,
+            "newQuality": 67.092,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Muse Wonder",
+            "to": "Kimi K3.1 Pro",
+            "changed": true,
+            "oldQuality": 63.44,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 73.961,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "Claude Opus 5.5",
+            "to": "GPT-6.1 Sol",
+            "changed": true,
+            "oldQuality": 74.62,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      }
+    },
+    "balanced": {
+      "methodology": {
+        "from": "aligned-v9",
+        "to": "aligned-v10",
+        "oldFloor": 0.79,
+        "newFloor": 0.79,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 28.767515,
+        "newCost": 31.606593,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Claude Sonnet 5.5",
+            "to": "Muse Wonder",
+            "changed": true,
+            "oldQuality": 69.584,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Gemini 4 Argon",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 67.031,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Muse Wonder",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 61.71,
+            "newQuality": 66.89,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "GPT-6.1 Sol",
+            "to": "Gemini 4 Argon",
+            "changed": true,
+            "oldQuality": 57.448,
+            "newQuality": 62.723,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.143,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 73.961,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "Gemini 4 Argon",
+            "to": "GPT-6.1 Sol",
+            "changed": true,
+            "oldQuality": 68.552,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "expandedRankingCohort": {
+        "from": "aligned-v10",
+        "to": "expanded-v10",
+        "oldFloor": 0.79,
+        "newFloor": 0.79,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 31.606593,
+        "newCost": 31.606593,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Muse Wonder",
+            "to": "Muse Wonder",
+            "changed": false,
+            "oldQuality": 54.862,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 58.488,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Claude Sonnet 5.5",
+            "to": "Claude Sonnet 5.5",
+            "changed": false,
+            "oldQuality": 66.89,
+            "newQuality": 66.89,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 62.723,
+            "newQuality": 62.723,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 68.105,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 56.005,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 58.388,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "publishedToCandidate": {
+        "from": "published",
+        "to": "expanded-v10",
+        "oldFloor": 0.79,
+        "newFloor": 0.79,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 28.767515,
+        "newCost": 31.606593,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 30,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 2.687591,
+          "populationStdDevCostPerTaskUsd": 3.310551,
+          "cutoffCostPerTaskUsd": 9.308693,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Claude Sonnet 5.5",
+            "to": "Muse Wonder",
+            "changed": true,
+            "oldQuality": 69.584,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Gemini 4 Argon",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 67.031,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Muse Wonder",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 61.71,
+            "newQuality": 66.89,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "GPT-6.1 Sol",
+            "to": "Gemini 4 Argon",
+            "changed": true,
+            "oldQuality": 57.448,
+            "newQuality": 62.723,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.143,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "Gemini 4 Argon",
+            "to": "GPT-6.1 Sol",
+            "changed": true,
+            "oldQuality": 73.5,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 68.316,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      }
+    },
+    "budget": {
+      "methodology": {
+        "from": "aligned-v9",
+        "to": "aligned-v10",
+        "oldFloor": 0.75,
+        "newFloor": 0.75,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 28.767515,
+        "newCost": 31.606593,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Claude Sonnet 5.5",
+            "to": "Muse Wonder",
+            "changed": true,
+            "oldQuality": 69.584,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Kimi K3.1 Pro",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 70.736,
+            "newQuality": 58.488,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 61.729,
+            "newQuality": 65.407,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "GPT-6.1 Sol",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 57.448,
+            "newQuality": 67.092,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Muse Wonder",
+            "to": "Kimi K3.1 Pro",
+            "changed": true,
+            "oldQuality": 63.44,
+            "newQuality": 68.105,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 73.961,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "Gemini 4 Argon",
+            "to": "GPT-6.1 Sol",
+            "changed": true,
+            "oldQuality": 68.552,
+            "newQuality": 58.388,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          }
+        ]
+      },
+      "expandedRankingCohort": {
+        "from": "aligned-v10",
+        "to": "expanded-v10",
+        "oldFloor": 0.75,
+        "newFloor": 0.75,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 31.606593,
+        "newCost": 28.45656,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Muse Wonder",
+            "to": "Muse Wonder",
+            "changed": false,
+            "oldQuality": 54.862,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Claude Sonnet 5.5",
+            "to": "Kimi K3.1 Pro",
+            "changed": true,
+            "oldQuality": 58.488,
+            "newQuality": 56.762,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 65.407,
+            "newQuality": 65.407,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "Claude Sonnet 5.5",
+            "to": "GPT-6.1 Terra",
+            "changed": true,
+            "oldQuality": 67.092,
+            "newQuality": 60.937,
+            "intelligence": 50.9765,
+            "cost": 0.961108,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Kimi K3.1 Pro",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 68.105,
+            "newQuality": 68.127,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 56.005,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "GPT-6.1 Sol",
+            "to": "Gemini 4 Argon",
+            "changed": true,
+            "oldQuality": 58.388,
+            "newQuality": 56.137,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          }
+        ]
+      },
+      "publishedToCandidate": {
+        "from": "published",
+        "to": "expanded-v10",
+        "oldFloor": 0.75,
+        "newFloor": 0.75,
+        "oldIntelligenceBaseline": 54.5087,
+        "newIntelligenceBaseline": 54.5087,
+        "oldCost": 28.767515,
+        "newCost": 28.45656,
+        "oldFamilies": 5,
+        "newFamilies": 5,
+        "oldPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 30,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 2.687591,
+          "populationStdDevCostPerTaskUsd": 3.310551,
+          "cutoffCostPerTaskUsd": 9.308693,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "newPriceFilter": {
+          "method": "mean-plus-population-standard-deviations",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "standardDeviations": 2,
+          "referencePopulation": "latest-generation-scored-universe",
+          "referenceModels": 25,
+          "referenceFamilies": 16,
+          "preFilterBestEligibleIntelligenceIndex": 58.406,
+          "meanCostPerTaskUsd": 3.180284,
+          "populationStdDevCostPerTaskUsd": 3.418283,
+          "cutoffCostPerTaskUsd": 10.016849,
+          "postFilterBestEligibleIntelligenceIndex": 54.5087,
+          "excluded": [
+            {
+              "model": "Claude Fable 5.1",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 13.085676,
+              "planAdjustedCostPerTaskUsd": 13.085676
+            },
+            {
+              "model": "Claude Opus 5.5",
+              "family": "Claude",
+              "billingCategory": "premium",
+              "creditBurnPerTaskUsd": 10.036204,
+              "planAdjustedCostPerTaskUsd": 10.036204
+            },
+            {
+              "model": "Gemini 3.8 Flash",
+              "family": "Gemini",
+              "billingCategory": "standard",
+              "creditBurnPerTaskUsd": 15.532012,
+              "planAdjustedCostPerTaskUsd": 10.354675
+            }
+          ]
+        },
+        "selections": [
+          {
+            "role": "architect",
+            "from": "Claude Sonnet 5.5",
+            "to": "Muse Wonder",
+            "changed": true,
+            "oldQuality": 69.584,
+            "newQuality": 54.862,
+            "intelligence": 43.3248,
+            "cost": 6.952036,
+            "provenance": null
+          },
+          {
+            "role": "strategist",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 70.736,
+            "newQuality": 56.762,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": null
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Kimi K3.1 Pro",
+            "to": "Kimi K3.1 Pro",
+            "changed": false,
+            "oldQuality": 64.065,
+            "newQuality": 64.065,
+            "intelligence": 46.0026,
+            "cost": 2.454133,
+            "provenance": {
+              "status": "observed",
+              "measurementKind": "observed",
+              "lifecycle": "current",
+              "metricVersion": "1",
+              "implementation": "Artificial Analysis",
+              "rawValue": 64.0651080825665,
+              "rawScale": [
+                0,
+                100
+              ],
+              "normalization": "linear",
+              "sourceField": "cyberIndex",
+              "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+              "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
+              "effort": null,
+              "capturedAt": "2026-10-28T11:18:32.000Z",
+              "evaluatedAt": null
+            }
+          },
+          {
+            "role": "code-reviewer",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 61.729,
+            "newQuality": 65.407,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          },
+          {
+            "role": "implementer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Terra",
+            "changed": true,
+            "oldQuality": 57.448,
+            "newQuality": 60.937,
+            "intelligence": 50.9765,
+            "cost": 0.961108,
+            "provenance": null
+          },
+          {
+            "role": "implementer-heavy",
+            "from": "Muse Wonder",
+            "to": "Claude Sonnet 5.5",
+            "changed": true,
+            "oldQuality": 63.44,
+            "newQuality": 68.127,
+            "intelligence": 54.2413,
+            "cost": 6.680414,
+            "provenance": null
+          },
+          {
+            "role": "synthesizer",
+            "from": "GPT-6.1 Sol",
+            "to": "GPT-6.1 Sol",
+            "changed": false,
+            "oldQuality": 73.961,
+            "newQuality": 56.005,
+            "intelligence": 54.5087,
+            "cost": 1.272063,
+            "provenance": null
+          },
+          {
+            "role": "researcher",
+            "from": "Gemini 4 Argon",
+            "to": "Gemini 4 Argon",
+            "changed": false,
+            "oldQuality": 68.552,
+            "newQuality": 56.137,
+            "intelligence": 50.4122,
+            "cost": 3.841336,
+            "provenance": null
+          }
+        ]
+      }
+    }
+  },
+  "sensitivity": {
+    "architect": [
+      {
+        "component": "briefcase",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "briefcase",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "gdpPdfAllPass",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "gdpPdfAllPass",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "hle",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "hle",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      }
+    ],
+    "strategist": [
+      {
+        "component": "briefcase",
+        "delta": -0.05,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "gpt-6-astra",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "briefcase",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "gdpPdfAllPass",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "gdpPdfAllPass",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "muse-wonder",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "automationBenchPartialScore",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "component": "automationBenchPartialScore",
+        "delta": 0.05,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "muse-wonder",
+          "gpt-6-astra"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "muse-wonder",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": 0.05,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "gpt-6-astra"
+        ]
+      }
+    ],
+    "code-reviewer": [
+      {
+        "component": "terminalBench40",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-fable-5-1",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "component": "terminalBench40",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "scicode",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "scicode",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-fable-5-1",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "claude-fable-5-1"
+        ]
+      }
+    ],
+    "implementer": [
+      {
+        "component": "terminalBench40",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "component": "terminalBench40",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "component": "hle",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "component": "hle",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gemini-4-argon"
+        ]
+      }
+    ],
+    "implementer-heavy": [
+      {
+        "component": "terminalBench40",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-astra"
+        ]
+      },
+      {
+        "component": "terminalBench40",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "briefcase",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "briefcase",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1"
+        ]
+      }
+    ],
+    "synthesizer": [
+      {
+        "component": "gdpPdfAllPass",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-1-sol",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "gdpPdfAllPass",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-1-sol",
+          "kimi-k3-1-pro",
+          "gpt-6-astra",
+          "claude-opus-5-5",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-1-sol",
+          "kimi-k3-1-pro",
+          "gpt-6-astra",
+          "claude-opus-5-5",
+          "claude-fable-5-1"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "kimi-k3-1-pro"
+        ]
+      }
+    ],
+    "researcher": [
+      {
+        "component": "gdpPdfAllPass",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "gdpPdfAllPass",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "lcr",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "omniscience",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "hle",
+        "delta": -0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "component": "hle",
+        "delta": 0.05,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      }
+    ]
+  },
+  "ablations": {
+    "architect": [
+      {
+        "removed": "briefcase",
+        "completeIdentities": 64,
+        "top5Overlap": 0.6,
+        "top5": [
+          "kimi-k3-1-pro",
+          "gpt-6-1-sol",
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-astra"
+        ]
+      },
+      {
+        "removed": "gdpPdfAllPass",
+        "completeIdentities": 66,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "claude-fable-5-1",
+          "kimi-k3-1-pro",
+          "claude-opus-5"
+        ]
+      },
+      {
+        "removed": "lcr",
+        "completeIdentities": 64,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "removed": "hle",
+        "completeIdentities": 64,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      }
+    ],
+    "strategist": [
+      {
+        "removed": "briefcase",
+        "completeIdentities": 33,
+        "top5Overlap": 0.4,
+        "top5": [
+          "gpt-6-astra",
+          "gemini-4-argon",
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "gpt-6-1-sol"
+        ]
+      },
+      {
+        "removed": "gdpPdfAllPass",
+        "completeIdentities": 33,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "removed": "automationBenchPartialScore",
+        "completeIdentities": 33,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "claude-fable-5-1",
+          "kimi-k3-1-pro",
+          "muse-wonder"
+        ]
+      },
+      {
+        "removed": "omniscience",
+        "completeIdentities": 64,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "muse-wonder",
+          "gpt-6-astra"
+        ]
+      }
+    ],
+    "code-reviewer": [
+      {
+        "removed": "terminalBench40",
+        "completeIdentities": 33,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gemini-4-argon",
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5"
+        ]
+      },
+      {
+        "removed": "scicode",
+        "completeIdentities": 33,
+        "top5Overlap": 0.6,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "gpt-6-astra",
+          "gpt-6-1-sol"
+        ]
+      },
+      {
+        "removed": "lcr",
+        "completeIdentities": 33,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "gpt-6-astra"
+        ]
+      },
+      {
+        "removed": "omniscience",
+        "completeIdentities": 64,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "gemini-4-argon",
+          "claude-fable-5-1"
+        ]
+      }
+    ],
+    "implementer": [
+      {
+        "removed": "terminalBench40",
+        "completeIdentities": 76,
+        "top5Overlap": 0.4,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "kimi-k3-1-pro",
+          "kimi-k3",
+          "step-5"
+        ]
+      },
+      {
+        "removed": "lcr",
+        "completeIdentities": 64,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "removed": "hle",
+        "completeIdentities": 64,
+        "top5Overlap": 0.8,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gpt-6-1-sol"
+        ]
+      }
+    ],
+    "implementer-heavy": [
+      {
+        "removed": "terminalBench40",
+        "completeIdentities": 66,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-fable-5-1",
+          "muse-wonder"
+        ]
+      },
+      {
+        "removed": "briefcase",
+        "completeIdentities": 64,
+        "top5Overlap": 0.8,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-sonnet-5-5",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "gpt-6-1-sol"
+        ]
+      },
+      {
+        "removed": "lcr",
+        "completeIdentities": 64,
+        "top5Overlap": 1,
+        "top5": [
+          "claude-sonnet-5-5",
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1"
+        ]
+      }
+    ],
+    "synthesizer": [
+      {
+        "removed": "gdpPdfAllPass",
+        "completeIdentities": 33,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gemini-4-argon",
+          "gpt-6-astra"
+        ]
+      },
+      {
+        "removed": "lcr",
+        "completeIdentities": 33,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-astra",
+          "gpt-6-1-sol",
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "kimi-k3-1-pro"
+        ]
+      },
+      {
+        "removed": "omniscience",
+        "completeIdentities": 64,
+        "top5Overlap": 0.6,
+        "top5": [
+          "kimi-k3-1-pro",
+          "gpt-6-1-sol",
+          "gpt-6-astra",
+          "muse-wonder",
+          "gpt-6-1-terra"
+        ]
+      }
+    ],
+    "researcher": [
+      {
+        "removed": "gdpPdfAllPass",
+        "completeIdentities": 33,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gemini-4-argon",
+          "gpt-6-1-sol",
+          "gpt-6-astra"
+        ]
+      },
+      {
+        "removed": "lcr",
+        "completeIdentities": 33,
+        "top5Overlap": 0.8,
+        "top5": [
+          "claude-opus-5-5",
+          "gpt-6-astra",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gemini-4-argon"
+        ]
+      },
+      {
+        "removed": "omniscience",
+        "completeIdentities": 64,
+        "top5Overlap": 1,
+        "top5": [
+          "kimi-k3-1-pro",
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-1-sol",
+          "gpt-6-astra"
+        ]
+      },
+      {
+        "removed": "hle",
+        "completeIdentities": 33,
+        "top5Overlap": 1,
+        "top5": [
+          "gpt-6-1-sol",
+          "claude-opus-5-5",
+          "claude-fable-5-1",
+          "gpt-6-astra",
+          "kimi-k3-1-pro"
+        ]
+      }
+    ]
+  },
+  "correlations": {
+    "briefcase / gdpPdfAllPass": {
+      "n": 64,
+      "spearman": 0.6502931453743327
+    },
+    "briefcase / lcr": {
+      "n": 66,
+      "spearman": 0.5350201861446489
+    },
+    "briefcase / hle": {
+      "n": 66,
+      "spearman": 0.6967758100423472
+    },
+    "briefcase / automationBenchPartialScore": {
+      "n": 64,
+      "spearman": 0.7796245421245421
+    },
+    "briefcase / omniscience": {
+      "n": 33,
+      "spearman": 0.5159187784370264
+    },
+    "briefcase / terminalBench40": {
+      "n": 64,
+      "spearman": 0.8779584793421538
+    },
+    "briefcase / scicode": {
+      "n": 64,
+      "spearman": 0.6752759142352721
+    },
+    "gdpPdfAllPass / lcr": {
+      "n": 64,
+      "spearman": 0.5883014718417934
+    },
+    "gdpPdfAllPass / hle": {
+      "n": 64,
+      "spearman": 0.8116290754836817
+    },
+    "gdpPdfAllPass / automationBenchPartialScore": {
+      "n": 64,
+      "spearman": 0.6519648501182256
+    },
+    "gdpPdfAllPass / omniscience": {
+      "n": 33,
+      "spearman": 0.6250314065042473
+    },
+    "gdpPdfAllPass / terminalBench40": {
+      "n": 64,
+      "spearman": 0.7528359675053131
+    },
+    "gdpPdfAllPass / scicode": {
+      "n": 64,
+      "spearman": 0.7457285581840598
+    },
+    "lcr / hle": {
+      "n": 76,
+      "spearman": 0.6522828691513305
+    },
+    "lcr / automationBenchPartialScore": {
+      "n": 64,
+      "spearman": 0.512820717594827
+    },
+    "lcr / omniscience": {
+      "n": 33,
+      "spearman": 0.28536801343096424
+    },
+    "lcr / terminalBench40": {
+      "n": 64,
+      "spearman": 0.6154322506670449
+    },
+    "lcr / scicode": {
+      "n": 65,
+      "spearman": 0.5768083885871095
+    },
+    "hle / automationBenchPartialScore": {
+      "n": 64,
+      "spearman": 0.6910493725242152
+    },
+    "hle / omniscience": {
+      "n": 33,
+      "spearman": 0.7375282051320368
+    },
+    "hle / terminalBench40": {
+      "n": 64,
+      "spearman": 0.8001147368440585
+    },
+    "hle / scicode": {
+      "n": 65,
+      "spearman": 0.8756352154259884
+    },
+    "automationBenchPartialScore / omniscience": {
+      "n": 33,
+      "spearman": 0.4739700860535817
+    },
+    "automationBenchPartialScore / terminalBench40": {
+      "n": 64,
+      "spearman": 0.8626316638659285
+    },
+    "automationBenchPartialScore / scicode": {
+      "n": 64,
+      "spearman": 0.679488947200798
+    },
+    "omniscience / terminalBench40": {
+      "n": 33,
+      "spearman": 0.6080268323654354
+    },
+    "omniscience / scicode": {
+      "n": 33,
+      "spearman": 0.6605933997162758
+    },
+    "terminalBench40 / scicode": {
+      "n": 64,
+      "spearman": 0.7479092948538651
+    }
+  }
+}

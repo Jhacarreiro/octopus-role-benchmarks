@@ -14,6 +14,11 @@ import { secondaryGdpvalObservations } from './lib/gdpval-secondary.mjs';
 import { calibrateIntelligenceProxy, estimateIntelligence } from './lib/intelligence-proxy.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+if(process.argv.includes('--methodology-v10')){
+  const {runSelectiveUpdate}=await import('./selective-update.mjs');
+  await runSelectiveUpdate(root,process.argv.slice(2));
+  process.exit(0);
+}
 const opencliHome=path.join(root,'.opencli-home');
 const bin=path.join(root,'node_modules','.bin','opencli');
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));

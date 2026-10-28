@@ -2,6 +2,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const inputIndex=process.argv.indexOf('--snapshot');
+if(inputIndex>=0){
+  const snapshot=JSON.parse(fs.readFileSync(process.argv[inputIndex+1],'utf8'));
+  const config=JSON.parse(fs.readFileSync(path.join(root,'config/roles-v10.json'),'utf8'));
+  const {validateRoleSnapshot}=await import('./lib/role-scoring.mjs');
+  validateRoleSnapshot(snapshot,config);
+  console.log(`ok: v10 role completeness/provenance validated; estimators disabled; ${snapshot.counts.scoredFamilies} identities`);
+  process.exit(0);
+}
 const roles=JSON.parse(fs.readFileSync(path.join(root,'config','roles.json'),'utf8'));
 if(roles.schemaVersion<6) throw new Error('Expected methodology schema >=6');
 if(roles.coveragePolicy!==1) throw new Error('coveragePolicy must remain 1.0');

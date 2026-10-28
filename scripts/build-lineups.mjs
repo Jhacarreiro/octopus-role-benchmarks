@@ -6,7 +6,11 @@ import { planEconomics, billingCategory as validatedBillingCategory, planAdjuste
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const check=process.argv.includes('--check');
-const latest=JSON.parse(fs.readFileSync(path.join(root,'data','latest.json'),'utf8'));
+const option=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1]};
+const snapshotPath=option('--snapshot');
+const outputPath=option('--output');
+if(snapshotPath&&!outputPath)throw new Error('--snapshot requires --output for an isolated comparison');
+const latest=JSON.parse(fs.readFileSync(snapshotPath??path.join(root,'data','latest.json'),'utf8'));
 const policy=JSON.parse(fs.readFileSync(path.join(root,'config','lineup-policy.json'),'utf8'));
 const roles=latest.roles.map(r=>r.id);
 const EPS=1e-12;
@@ -14,10 +18,10 @@ const EPS=1e-12;
 function fail(msg){throw new Error(`lineup policy: ${msg}`)}
 function round(n,d=6){const p=10**d;return Math.round((n+Number.EPSILON)*p)/p}
 function benchmarkIdentity(m){return m.aaModel?.slug?`aa:${m.aaModel.slug}`:`model:${m.name}`}
-function intelligence(m){return Number(m.aaModel?.estimated?m.aaModel.cutoffLowerBound:m.aaModel?.intelligenceIndex)}
+function intelligence(m){const n=m.aaModel?.estimated?m.aaModel.cutoffLowerBound:m.aaModel?.intelligenceIndex;return Number.isFinite(n)?n:NaN}
 function creditBurn(m){return Number(m.taskEfficiency?.commandCodeCostPerTaskUsd)}
-function roleQuality(m,role){return Number(m.roleScores?.[role]?.rankingQuality)}
-function roleBalanced(m,role){return Number(m.roleScores?.[role]?.rankingValue)}
+function roleQuality(m,role){const s=m.roleScores?.[role];return s?.completeness&&s.completeness!=='complete'?NaN:Number.isFinite(s?.rankingQuality)?s.rankingQuality:NaN}
+function roleBalanced(m,role){const n=m.roleScores?.[role]?.rankingValue;return Number.isFinite(n)?n:NaN}
 function roleBudget(m,role){const s=m.roleScores?.[role];return Number.isFinite(s?.balancedQualityPercentile)&&Number.isFinite(s?.balancedAffordabilityPercentile)?0.4*s.balancedQualityPercentile+0.6*s.balancedAffordabilityPercentile:NaN}
 function familyOf(m){return modelFamily(m,policy)}
 function familyCount(models){return new Set(models.map(familyOf).filter(Boolean)).size}
@@ -463,8 +467,8 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
       max10MonthlyUsageLimitUsd:m.max10MonthlyUsageLimitUsd??null,
       max20MonthlyUsageLimitUsd:m.max20MonthlyUsageLimitUsd??null,
       intelligenceIndex:round(intelligence(m),4),
-      source:role==='security-reviewer'?'cyberbench':'scored',
-      benchmarkProvenance:role==='security-reviewer'?(m.benchmarkProvenance?.cyberbench??null):null,
+      source:role==='security-reviewer'?(latest.methodologyVersion>=10?'cyberIndex':'cyberbench'):'scored',
+      benchmarkProvenance:role==='security-reviewer'?(latest.methodologyVersion>=10?m.benchmarkProvenance?.cyberIndex??null:m.benchmarkProvenance?.cyberbench??null):null,
       free:m.free===true,
       discountPercent:m.discountPercent??null,
       dealDiscountPercent:m.dealDiscountPercent??null,
@@ -508,7 +512,8 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
 }
 
 const text=JSON.stringify(out,null,2)+'\n';
-const target=path.join(root,'site','data','lineups.json');
+const target=outputPath?path.resolve(outputPath):path.join(root,'site','data','lineups.json');
+if(outputPath)for(const dir of ['site','data','config','.git']){const relative=path.relative(path.join(root,dir),target);if(relative===''||!relative.startsWith('..')&&!path.isAbsolute(relative))throw new Error('Comparison output cannot overwrite published/configuration files');}
 if(check){
   const current=fs.existsSync(target)?fs.readFileSync(target,'utf8'):'';
   if(current!==text)fail('site/data/lineups.json is stale; run node scripts/build-lineups.mjs');

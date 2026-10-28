@@ -4,8 +4,17 @@ const f=(n,d=2)=>Number(n).toFixed(d);
 async function fetchFirst(paths){let err;for(const p of paths){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),4000);try{const r=await fetch(p,{cache:'no-store',signal:controller.signal});if(!r.ok)throw new Error(String(r.status));return await r.json()}catch(e){err=e}finally{clearTimeout(timer)}}throw err}
 async function load(){
   try{
-    const [d,v]=await Promise.all([fetchFirst(['./data/latest.json',RAW+'data/latest.json']),fetchFirst(['./data/cai-validation.json',RAW+'data/cai-validation.json'])]);
+    const d=await fetchFirst(['./data/latest.json',RAW+'data/latest.json']);
+    const v=d.methodologyVersion>=10?null:await fetchFirst(['./data/cai-validation.json',RAW+'data/cai-validation.json']);
     document.querySelector('#methodStatus').innerHTML=`Snapshot <strong>${esc(d.date)}</strong> · methodology v${d.methodologyVersion}`;
+    if(d.methodologyVersion>=10){
+      document.querySelector('#coverage').innerHTML='<h2>Coverage by role</h2><div class="table-wrap"><table><thead><tr><th>Role</th><th>Complete identities</th><th>Also observed Intelligence v5</th></tr></thead><tbody>'+d.roles.map(r=>`<tr><td>${esc(r.label)}</td><td>${d.roleCoverage[r.id].present}/${d.roleCoverage[r.id].total}</td><td>${d.roleCoverage[r.id].observedIntelligence}</td></tr>`).join('')+'</tbody></table></div>';
+      document.querySelector('#caiCounts').textContent='CAI is not part of v10 role scores. Intelligence and benchmark estimators are disabled. FrontierCode 2.0, HLE-Diamond and Terminal-Bench-Science are separate diagnostic panels.';
+      document.querySelector('#validation').innerHTML='<h2>Versioned role observations</h2><p>Missing core inputs exclude only the affected role from complete rankings. Partial roles show a score range without filling missing values or renormalizing weights. Legacy observations keep their version and lifecycle. Portfolio eligibility requires observed Intelligence v5.</p>';
+      document.querySelector('#rolesMethod').innerHTML='<h2>Selective role scores</h2>'+d.roles.map(r=>`<div class="role-method"><h3>${esc(r.label)}</h3><p>${esc(r.purpose)}</p><div class="weights">${Object.entries(r.weights??{[r.externalBenchmark]:1}).map(([key,w])=>`<span class="weight">${esc(d.benchmarks[key].label)} <strong>${Math.round(w*100)}%</strong></span>`).join('')}</div></div>`).join('');
+      document.querySelectorAll('[data-legacy-methodology]').forEach(el=>{el.hidden=true;});
+      return;
+    }
     document.querySelector('#coverage').innerHTML=`<h2>Coverage</h2><div class="metric-grid"><div><strong>${d.counts.scoredFamilies}</strong><span>scored model families</span></div><div><strong>${d.efficiencyCoverage.present}/${d.efficiencyCoverage.total}</strong><span>task-cost coverage</span></div><div><strong>${d.caiStarCoverage.observed}</strong><span>CAI current observed</span></div><div><strong>${d.caiStarCoverage.historicalCalibrated??0}</strong><span>CAI historical calibrated</span></div><div><strong>${d.caiStarCoverage.estimated}</strong><span>CAI estimated</span></div><div><strong>${d.caiStarCoverage.present}/${d.caiStarCoverage.total}</strong><span>final CAI* coverage</span></div></div>`;
     document.querySelector('#caiCounts').innerHTML=`Current scored universe: <strong>${d.caiStarCoverage.observed}</strong> families use current-version observed CAI, <strong>${d.caiStarCoverage.historicalCalibrated??0}</strong> use prior-version CAI calibrated onto the current scale, and <strong>${d.caiStarCoverage.estimated}</strong> use the estimator. Together CAI* covers <strong>${d.caiStarCoverage.present}/${d.caiStarCoverage.total}</strong>.`;
     const vh=v.vendorHoldout,ens=vh.ensemble,rr=v.randomHoldout;
