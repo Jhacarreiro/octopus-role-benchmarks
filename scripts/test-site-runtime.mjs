@@ -77,10 +77,9 @@ if(!one('#lineup').innerHTML.includes(expectedBalanced)) throw new Error('defaul
 if(one('#rows').innerHTML.length<100) throw new Error('ranking table did not render');
 if(isSelective){
   if(!one('#status').innerHTML.includes('estimators disabled'))throw new Error('v10 status/provenance not shown');
-  if(!one('#rows').innerHTML.includes('Benchmark provenance'))throw new Error('v10 observation provenance missing');
   const snapshot=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT??new URL('../site/data/latest.json',import.meta.url),'utf8'));
   for(const m of snapshot.models.filter(m=>m.generationEligibility?.eligible===false))if(one('#rows').innerHTML.includes(`>${m.name}</span>`))throw new Error('Historical model leaked into current ranking');
-  if(snapshot.models.some(m=>m.roleScores.implementer?.status==='estimated')&&!one('#rows').innerHTML.includes('ESTIMATED'))throw new Error('Role approximations must be visibly labeled');
+  if(snapshot.models.some(m=>m.roleScores.implementer?.status==='estimated')&&(!one('#rows').innerHTML.includes('ESTIMATED')||!one('#rows').innerHTML.includes('Benchmark provenance: estimated role analogy')))throw new Error('Role approximations must retain their label and explanation');
   if(snapshot.coverageScope==='all-roles'){
     const expected=snapshot.models.filter(m=>m.modelEligibility?.eligible).length;
     for(const role of snapshot.roles){
