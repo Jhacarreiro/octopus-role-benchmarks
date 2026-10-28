@@ -20,14 +20,14 @@
     "quality": {
       "label": "Quality",
       "description": "Highest role quality inside the Intelligence-qualified pool. Price does not affect selection.",
-      "requestedIntelligenceFloor": 0.9,
+      "requestedIntelligenceFloor": 0.85,
       "objective": "maximize-role-quality",
       "minFamilies": 4
     },
     "balanced": {
       "label": "Balanced",
       "description": "Balances relative role quality against relative affordability within the current eligible cohort. Both inputs are percentile scores, so the formula adapts automatically as model quality and prices evolve.",
-      "requestedIntelligenceFloor": 0.85,
+      "requestedIntelligenceFloor": 0.8,
       "objective": "maximize-relative-quality-and-affordability",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
@@ -43,7 +43,7 @@
     "budget": {
       "label": "Budget",
       "description": "Maximizes total role-specific Budget Score (40% quality percentile / 60% affordability percentile), while retaining the Intelligence floor, cost-outlier filter, and family/coding constraints.",
-      "requestedIntelligenceFloor": 0.8,
+      "requestedIntelligenceFloor": 0.75,
       "objective": "maximize-role-budget-score-40-quality-60-affordability",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
