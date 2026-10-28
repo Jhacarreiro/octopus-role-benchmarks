@@ -180,6 +180,23 @@
       "status": "unscored",
       "identityStatus": "stealth_unverified",
       "reason": "Stealth model; identity unverified. Not comparable to the AA ranking."
+    },
+    "Qwen 3.6 Max Preview": {
+      "status": "outdated_unscored",
+      "reason": "Superseded by Qwen 3.7/3.8 Max generations; no verified AA 3.6 Max identity or current benchmark. Excluded from scoring; retained in historical catalog."
+    },
+    "Glyph Cluster": {
+      "status": "unscored",
+      "identityStatus": "stealth_unverified",
+      "reason": "Anonymous stealth reasoning model; verified external evaluations exist, but no comparable AA role benchmark identity.",
+      "externalSource": {
+        "label": "Vercel AI Gateway — Glyph Cluster",
+        "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway"
+      },
+      "externalEvidence": {
+        "label": "StealthMark / GPQA Diamond independent evaluation",
+        "url": "https://stealthmodels.com/glyph-cluster"
+      }
     }
   }
 }
