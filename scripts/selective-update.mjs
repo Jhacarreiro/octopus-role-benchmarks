@@ -16,9 +16,11 @@ export function isolatedOutput(root,output){
   return resolved;
 }
 async function collect(root,config){
-  const bin=path.join(root,'node_modules','.bin',process.platform==='win32'?'opencli.cmd':'opencli');
-  const run=(args)=>{const r=spawnSync(bin,args,{cwd:root,encoding:'utf8',shell:process.platform==='win32',env:{...process.env,HOME:path.join(root,'.opencli-home')},maxBuffer:40*1024*1024});if(r.status!==0)throw new Error(`Source extraction failed: ${args[0]}/${args[1]}`);return JSON.parse(r.stdout);};
-  const install=spawnSync(process.execPath,[path.join(root,'scripts/install-opencli-adapters.mjs')],{cwd:root,encoding:'utf8'});
+  const home=path.join(root,'.opencli-home');
+  const bin=path.join(root,'node_modules/@jackwener/opencli/dist/src/main.js');
+  const environment={...process.env,HOME:home,...(process.platform==='win32'?{USERPROFILE:home}:{})};
+  const run=(args)=>{const r=spawnSync(process.execPath,[bin,...args],{cwd:root,encoding:'utf8',env:environment,maxBuffer:40*1024*1024,timeout:45000});if(r.status!==0)throw new Error(`Source extraction failed: ${args[0]}/${args[1]}`);return JSON.parse(r.stdout);};
+  const install=spawnSync(process.execPath,[path.join(root,'scripts/install-opencli-adapters.mjs')],{cwd:root,encoding:'utf8',env:{...environment,OPENCLI_HOME:home}});
   if(install.status!==0)throw new Error('Adapter installation failed');
   const maxRows=run(['commandcode','max','-f','json']),catalog=run(['artificial-analysis','catalog','-f','json']);
   const aliases=JSON.parse(fs.readFileSync(path.join(root,'config/model-aliases.json'))).aliases;
@@ -65,4 +67,5 @@ export async function runSelectiveUpdate(root,args){
   fs.writeFileSync(path.join(output,'inputs.json'),JSON.stringify(inputs,null,2)+'\n');
   fs.writeFileSync(path.join(output,'latest.json'),JSON.stringify(snapshot,null,2)+'\n');
   console.log(JSON.stringify({methodologyVersion:10,output,statisticalEstimatorsEnabled:false,roleApproximationsEnabled:snapshot.approximationPolicy.enabled,counts:snapshot.counts,roleCoverage:snapshot.roleCoverage},null,2));
+  return {snapshot,output};
 }

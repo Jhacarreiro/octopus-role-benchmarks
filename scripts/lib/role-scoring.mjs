@@ -89,6 +89,13 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
     return m;
   });
   applyRoleApproximations(models,config.approximations,generatedAt,config.roles);
+  for(const issue of validationIssues){
+    const model=models.find(m=>issue.targetModel&&m.name===issue.targetModel||issue.targetSlug&&m.aaModel?.slug===issue.targetSlug);
+    if(!model?.approximation)continue;
+    const estimatedRoles=Object.entries(model.roleScores).filter(([,score])=>score.status==='estimated').map(([role])=>role);
+    if(issue.benchmark==='identity')issue.reason=`Direct AA identity unavailable; documented role analogies cover: ${estimatedRoles.join(', ')}`;
+    else if(model.roleScores[issue.benchmark]?.status==='estimated'){issue.status='estimated';issue.reason='Missing observed components remain absent; this role uses a documented conservative analogy';}
+  }
   for(const m of models.filter(m=>m.approximation)){
     const burn=round((profile.nonCacheInput*m.inputPerM+profile.cacheRead*(m.cacheReadPerM??m.inputPerM)+profile.cacheWrite*(m.cacheWritePerM??m.inputPerM)+profile.output*m.outputPerM)/1e6);
     if(!finite(burn)||burn<0)throw new Error('Invalid approximation pricing');

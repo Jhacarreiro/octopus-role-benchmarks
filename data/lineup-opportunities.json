@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-10-28",
-  "generatedAt": "2026-10-28T10:38:28.840Z",
+  "generatedAt": "2026-10-28T14:35:30.344Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -20,7 +20,7 @@
       "reviewOnlyCandidateCount": 0,
       "lockedRoles": [],
       "opportunities": [],
-      "note": "v6 regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled."
+      "note": "v10 regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled."
     },
     "balanced": {
       "classification": "review-only",
@@ -28,40 +28,33 @@
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.8,
-      "effectiveIntelligenceFloor": 0.79,
+      "effectiveIntelligenceFloor": 0.74,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 30,
-        "referenceFamilies": 16,
+        "referenceModels": 26,
+        "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
-        "meanCostPerTaskUsd": 2.687591,
-        "populationStdDevCostPerTaskUsd": 3.310551,
-        "cutoffCostPerTaskUsd": 9.308693,
-        "postFilterBestEligibleIntelligenceIndex": 54.5087,
+        "meanCostPerTaskUsd": 1.00654,
+        "populationStdDevCostPerTaskUsd": 1.263942,
+        "cutoffCostPerTaskUsd": 3.534424,
+        "postFilterBestEligibleIntelligenceIndex": 58.406,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 13.085676,
-            "planAdjustedCostPerTaskUsd": 13.085676
+            "creditBurnPerTaskUsd": 6.221286,
+            "planAdjustedCostPerTaskUsd": 6.221286
           },
           {
-            "model": "Claude Opus 5.5",
-            "family": "Claude",
+            "model": "GPT-6 Astra",
+            "family": "GPT",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 10.036204,
-            "planAdjustedCostPerTaskUsd": 10.036204
-          },
-          {
-            "model": "Gemini 3.8 Flash",
-            "family": "Gemini",
-            "billingCategory": "standard",
-            "creditBurnPerTaskUsd": 15.532012,
-            "planAdjustedCostPerTaskUsd": 10.354675
+            "creditBurnPerTaskUsd": 8.605424,
+            "planAdjustedCostPerTaskUsd": 8.605424
           }
         ]
       },
@@ -69,7 +62,7 @@
       "reviewOnlyCandidateCount": 0,
       "lockedRoles": [],
       "opportunities": [],
-      "note": "v6 regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled."
+      "note": "v10 regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled."
     },
     "budget": {
       "classification": "review-only",
@@ -77,40 +70,33 @@
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.75,
-      "effectiveIntelligenceFloor": 0.75,
+      "effectiveIntelligenceFloor": 0.74,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 30,
-        "referenceFamilies": 16,
+        "referenceModels": 26,
+        "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
-        "meanCostPerTaskUsd": 2.687591,
-        "populationStdDevCostPerTaskUsd": 3.310551,
-        "cutoffCostPerTaskUsd": 9.308693,
-        "postFilterBestEligibleIntelligenceIndex": 54.5087,
+        "meanCostPerTaskUsd": 1.00654,
+        "populationStdDevCostPerTaskUsd": 1.263942,
+        "cutoffCostPerTaskUsd": 3.534424,
+        "postFilterBestEligibleIntelligenceIndex": 58.406,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
             "family": "Claude",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 13.085676,
-            "planAdjustedCostPerTaskUsd": 13.085676
+            "creditBurnPerTaskUsd": 6.221286,
+            "planAdjustedCostPerTaskUsd": 6.221286
           },
           {
-            "model": "Claude Opus 5.5",
-            "family": "Claude",
+            "model": "GPT-6 Astra",
+            "family": "GPT",
             "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 10.036204,
-            "planAdjustedCostPerTaskUsd": 10.036204
-          },
-          {
-            "model": "Gemini 3.8 Flash",
-            "family": "Gemini",
-            "billingCategory": "standard",
-            "creditBurnPerTaskUsd": 15.532012,
-            "planAdjustedCostPerTaskUsd": 10.354675
+            "creditBurnPerTaskUsd": 8.605424,
+            "planAdjustedCostPerTaskUsd": 8.605424
           }
         ]
       },
@@ -118,7 +104,7 @@
       "reviewOnlyCandidateCount": 0,
       "lockedRoles": [],
       "opportunities": [],
-      "note": "v6 regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled."
+      "note": "v10 regenerates the full constrained portfolio from current benchmark data; static single-seat swap suggestions are intentionally disabled."
     }
   }
 }

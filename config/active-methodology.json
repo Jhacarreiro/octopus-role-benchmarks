@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "version": 10,
+  "config": "roles-v10.json",
+  "statisticalIntelligenceEstimator": false
+}

@@ -39,8 +39,8 @@
 <section id="coverage" class="methodology"></section>
 <section class="methodology prose">
   <h2>CommandCode credit burn and normalized reference workload</h2>
-  <p>When Artificial Analysis publishes a complete task-token profile for a model, that observed workload is repriced with the model’s current CommandCode rates. If the profile is unavailable, the benchmark falls back to a versioned normalized reference workload. All token prices, discounts, billing categories and Max allowances come exclusively from CommandCode.</p>
-  <code class="formula-code">task cost = selected token profile × CommandCode input/cache/output prices</code>
+  <p>Every model is repriced on the same versioned normalized reference workload. Model-specific task-token telemetry remains diagnostic and does not change this workload. All token prices, discounts, billing categories and Max allowances come exclusively from CommandCode.</p>
+  <code class="formula-code">task cost = fixed reference token profile × CommandCode input/cache/output prices</code>
   <p>If CommandCode exposes no separate cache rate, normal input price is used. Active CommandCode promotions are retained.</p>
 </section>
 <section class="methodology prose" data-legacy-methodology>
@@ -63,4 +63,4 @@
   <p>After refreshes, Octopus regenerates the complete Quality, Balanced and Budget portfolios under the current deterministic policy. Review data records portfolio-level changes rather than evaluating independent hand-picked seat swaps.</p>
   <p>The policy file contains rules, not selected model names. Generated selections and their requested/effective Intelligence floors, pre/post-filter Intelligence baselines, family counts, costs and Balanced/Budget outlier statistics are published in <code>site/data/lineups.json</code>.</p>
 </section>
-</main><script src="./methodology.js?v=20260916a" defer></script></body></html>
+</main><script src="./methodology.js?v=20261028-selective-v10" defer></script></body></html>

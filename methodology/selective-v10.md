@@ -1,6 +1,6 @@
 # Selective role methodology v10
 
-Status: implemented for isolated comparison only. The default `config/roles.json`, published snapshots, production portfolios and refresh workflow remain on v9. Statistical Intelligence and CAI estimators remain disabled. Explicit role analogies are enabled only in the isolated v10 candidate, including conservative portfolio eligibility authorized by the user.
+Status: activated on 2026-10-28 after explicit deployment approval. `config/active-methodology.json` selects v10 for the default public refresh. The legacy `config/roles.json` remains available for historical inspection. Statistical Intelligence and CAI estimators remain disabled. Explicit role analogies are enabled with conservative portfolio eligibility authorized by the user.
 
 ## Entry points and activation boundary
 
@@ -21,7 +21,7 @@ For an explicitly requested source-only collection into an isolated directory:
 node scripts/update.mjs --methodology-v10 --output-dir tmp/selective-collection
 ```
 
-This reads existing public evaluations; it does not execute model benchmarks. `--inputs methodology/fixtures/2026-10-28-selective-inputs.json` avoids all network collection. The output directory is mandatory. Published `data/`, `site/`, configuration and Git directories are rejected as output targets. There is no default activation, publication, routing update or new scheduled job.
+This reads existing public evaluations; it does not execute model benchmarks. `--inputs methodology/fixtures/2026-10-28-selective-inputs.json` avoids all network collection. The output directory is mandatory. Published `data/`, `site/`, configuration and Git directories are rejected as output targets. This explicit collection command does not publish. The default `npm run update` uses the active v10 publisher; it stages and validates all artifacts before promotion. No new scheduled job is introduced.
 
 ## Source contract
 
@@ -86,4 +86,4 @@ Existing task costs are copied exactly in comparisons. Newly scoreable offers us
 
 The checked-in validation report records the current comparison. Large rank movements and top-k changes are reviewed against component contributions. Weight sensitivity and component ablations are diagnostics, not permission to change weights automatically.
 
-Before any future activation, require a reviewed publication change, a supervised refresh, public sanitization, fresh source-version checks and rendered browser verification. Preserve the previous code/data hashes and restore the whole coherent snapshot/portfolio/frontend set on integrity, provenance, policy or rendering failure. No production refresh or deployment is authorized by this implementation PR.
+Before any future activation, require a reviewed publication change, a supervised refresh, public sanitization, fresh source-version checks and rendered browser verification. Preserve the previous code/data hashes and restore the whole coherent snapshot/portfolio/frontend set on integrity, provenance, policy or rendering failure. Production refresh and deployment were subsequently authorized on 2026-10-28; see the activation report.

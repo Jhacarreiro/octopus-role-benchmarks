@@ -1,161 +1,67 @@
 # Octopus Role Benchmarks
 
-Compare model quality and estimated cost for different Claude Octopus agent roles. Explore transparent role rankings and Quality, Balanced and Budget portfolios, then inspect the methodology and inputs below.
+Compare current CommandCode Max offers across eight Octopus roles, with Quality, Balanced and Budget rankings and constrained eight-seat portfolio recommendations.
 
-Transparent role rankings for Claude Octopus roles using the current CommandCode Max catalogue, plus deterministic Quality/Balanced/Budget portfolio recommendations.
+Public site: [benchmark.gallivanter.biz](https://benchmark.gallivanter.biz/). This repository owns the static site, source data and GitHub Pages deployment. It does not require private infrastructure.
 
-The detailed table exposes **Quality** and cost-adjusted **Balanced** ranking views. Separately, the recommendation cards are generated as constrained **Quality**, **Balanced** and **Budget** portfolios under config/lineup-policy.json.
+## Active methodology
 
-## Public site
+Methodology **v10** is active through `config/active-methodology.json` and `config/roles-v10.json`.
 
-The static UI is deployed directly from this repository by `.github/workflows/pages.yml`. It does not depend on private operator repositories.
+- Complete measured roles use versioned AA-Briefcase, GDP.pdf, Terminal-Bench 4.0 and explicitly labeled legacy evidence.
+- Missing inputs affect only the corresponding role. Raw missing measurements remain absent.
+- Documented analogies have separate provenance, conservative policy values and evidence expiry; partially measured targets keep every observed contribution.
+- Only the two newest distinct catalog generations per series enter active rankings. Claude tiers are separate series, and unscored new releases still advance the window.
+- Statistical Intelligence and CAI estimators remain disabled. Security requires direct AA Cyber Index.
+- Portfolio analogies use conservative role and Intelligence values, with at most one estimated seat and shared-anchor/worker independence rules.
 
-Current native GitHub Pages URL:
+[Full methodology](methodology/selective-v10.md), [migration comparison](methodology/migration-validation-2026-10-28.md), [six-model source investigation](methodology/coverage-followup-2026-10-28.md), and [activation validation](methodology/activation-2026-10-28.md).
 
-```text
-https://benchmark.gallivanter.biz/
-```
+## Quality and cost
 
-Target branded URL after DNS cutover:
+Quality uses only role capability. Balanced combines 75% role-quality percentile and 25% affordability percentile; Budget uses 40% and 60%. Estimated rows do not change measured percentile reference populations.
 
-```text
-https://getrad.ar/whipit/benchmark/ (compatibility redirect)
-```
+All current offers are repriced on the same fixed reference token workload. CommandCode supplies effective prices, discounts, billing categories and included credits. Actual task cost varies with task size and usage; these comparative estimates are not invoices or subscription prices. Historical comparison reports freeze existing costs explicitly and must not be confused with a fresh common-workload refresh.
 
-`getrad.ar` is only the shared domain namespace; benchmark source, deployment and history remain owned by this repository.
+## Portfolios
 
-## Ranking formula
+The unchanged base rules live in `config/lineup-policy.json`: requested Intelligence floors 85/80/75%, adaptive descent by 0.005 to a feasible pool, at least four families for Quality and five for Balanced/Budget, at most two seats per family, a statistical cost-outlier filter for Balanced/Budget, independent reviewer families, and a Heavy model that improves the same Implementer quality metric by at least two points. Conservative analogies also enforce a one-estimated-seat maximum and cannot replace security evidence.
 
-For non-coding roles:
+Recommendations are published in `site/data/lineups.json`. The machine-readable intended Balanced identities are in `site/data/octopus-routing.json`; generating that artifact does not apply runtime configuration or execute any models.
 
-```text
-Balanced Score = 75% role-quality percentile + 25% affordability percentile
-```
+## Refresh and validate
 
-For `implementer`, `implementer-heavy` and `code-reviewer`:
-
-```text
-Balanced Score = 75% role-quality percentile + 25% affordability percentile
-```
-
-`CAI*` uses the current Artificial Analysis Coding Agent Index when observed. If the current CAI version has not yet re-evaluated a family, the last observed prior-version CAI is mapped onto the current scale with a validated overlap-derived degradation factor. Only families with neither observation use the reverse-validated 50/50 Ridge + inverse-distance 5NN estimator.
-
-## Why plan-adjusted normalized workload cost
-
-Economic comparison uses one fixed, versioned reference token workload for every model. That workload is repriced with each model’s current effective CommandCode Max input/output/cache prices. Artificial Analysis task-token telemetry is retained only as observational metadata and never determines eligibility or price.
-
-The raw normalized-workload credit burn uses CommandCode effective prices after any published discount. The plan-adjusted denominator then converts that credit burn into subscription economics: standard Max credits use the 100/150 ratio, premium credits use 100/100, and free models remain zero. Max 20× has the same ratios, so ordering is unchanged. Discounts are not applied twice.
-
-Plan-adjusted task cost has **100% coverage** of the scored model-family universe and is converted to an affordability percentile inside each role for Balanced scoring.
-
-## CAI coverage and estimation
-
-The current pipeline preserves CAI provenance in the raw data, but combines three supported sources into one `CAI*` for ranking:
-
-- current-version observed CAI where Artificial Analysis has a mapped Coding Agent result;
-- prior-version observed CAI calibrated onto the current version using validated overlapping families;
-- Ridge + 5NN estimated CAI only where neither observation exists;
-- commercial CommandCode variants never count as extra training examples.
-
-The estimator is rerun and reverse-validated every day. The daily job fails closed if the estimator or final-ranking guardrails are breached.
-
-See:
-
-- [`methodology/methodology.md`](methodology/methodology.md) — full methodology;
-- [`methodology/cai-estimation-validation.md`](methodology/cai-estimation-validation.md) — current reverse validation;
-- [`config/roles.json`](config/roles.json) — machine-readable role weights and ranking parameters;
-- [`data/latest.json`](data/latest.json) — current scored snapshot;
-- [`data/cai-validation.json`](data/cai-validation.json) — current validation metrics.
-
-## Sources
-
-- **CommandCode Max** — current model catalogue, effective pricing, discounts and standard/premium/free monthly credit allowances;
-- **Artificial Analysis** — model benchmarks and per-task efficiency telemetry;
-- **Artificial Analysis Coding Agent Index** — observed agentic coding outcomes;
-- **OpenCLI 1.8.6** — read-only structured extraction layer.
-
-## Pipeline
-
-```text
-External weekly scheduler
-  -> scripts/run-scheduled-weekly.sh
-  -> OpenCLI CommandCode Max
-  -> OpenCLI Artificial Analysis models
-  -> OpenCLI Coding Agent Index
-  -> AA Intelligence Index refresh
-  -> Artificial Analysis Cyber Index refresh
-  -> verified model-family mapping
-  -> universal benchmark coverage gate
-  -> CommandCode plan-adjusted Cost-per-Task coverage gate
-  -> fit/validate CAI* and SciCode estimators
-  -> role-quality scores
-  -> deterministic Quality / Balanced / Budget portfolio optimizer
-  -> generate site/data/lineups.json
-  -> dated JSON snapshot + public site data
-```
-
-`Security Reviewer` is the exception to the universal weighted role-score formula: it uses the external **Artificial Analysis Cyber Index v1** score directly. If a model has no direct Cyber Index result, that model is simply ineligible for the Security Reviewer seat; other roles remain usable.
-
-## Recommended lineup policy
-
-The eight recommendation cards are selected as one constrained portfolio rather than eight independent winners. The machine-readable policy is [`config/lineup-policy.json`](config/lineup-policy.json); [`scripts/build-lineups.mjs`](scripts/build-lineups.mjs) deterministically optimizes the portfolio from the current snapshot.
-
-Shared rules:
-
-- `latestGenerationOnly = true`, with a per-role exception when an older generation has higher absolute Role Quality than the best latest-generation peer in the same series;
-- requested Intelligence floors are **Quality 0.90**, **Balanced 0.85**, **Budget 0.80** of the best eligible AA Intelligence Index;
-- before optimization, the floor is lowered in **0.005** steps only if needed until the eligible pool contains at least **5 model families**;
-- Quality requires at least **4 families**; Balanced and Budget require at least **5 families**; all modes allow at most 8;
-- each family may occupy at most **2 seats**;
-- there are **no mandatory models** and no manual Fable blacklist;
-- there is **no per-role quality floor**;
-- Code Reviewer must use a different model family from both Implementer and Implementer Heavy;
-- Implementer Heavy must differ from Implementer and must have AA Intelligence Index at least **2.0 points higher**.
-
-Mode objectives:
-
-- **Quality**: maximize total Role Quality. Price does not affect ranking or tie-breaking.
-- **Balanced**: apply the cost-outlier filter and 0.85 Intelligence floor, maximize the cohort-relative 75% quality / 25% affordability score, then allow at most **1%** loss from that optimum to improve premium placement (expensive models in planning/review; cheaper models in execution).
-- **Budget**: apply the same cost-outlier cutoff and recomputed Intelligence baseline, then apply the 0.80 floor and minimize total plan-adjusted task cost while preserving the diversity and coding constraints.
-
-Balanced and Budget publish the cost reference population, mean, sigma, cutoff, excluded models, pre-filter best Intelligence and post-filter best Intelligence in `site/data/lineups.json`. Quality does not use the cost filter.
-
-Quality uses premium placement only as an exact-objective tie-break. Balanced may trade up to 1% of its optimum for better placement. Budget uses placement only after exact cost/quality ties.
-
-The rationale and operating rules are documented in [`methodology/lineup-selection.md`](methodology/lineup-selection.md).
-
-The current Balanced portfolio is also published as [`site/data/octopus-routing.json`](site/data/octopus-routing.json), which resolves each human-facing model name to the exact Octopus `{provider, model}` execution identity. `npm run check:octopus-routing-drift -- --providers <providers.json>` verifies that an Octopus config matches that published routing, and `npm run sync:checkout` safely fast-forwards a clean local checkout to `origin/main` while refusing dirty or locally-ahead trees.
-
-After each refresh, `scripts/evaluate-lineup-swaps.mjs` regenerates the entire portfolio under the current rules and records portfolio-level opportunities in `data/lineup-opportunities.json`. It no longer proposes single-seat swaps against static hand-picked selections.
-
-## Run locally
-
-```bash
+```sh
 npm ci
 npm run update
-npm run check:snapshot
-# optional strict portfolio audit:
 npm run update-lineups
+npm run check:all
+npm run build:octopus-routing
+npm run check:octopus-routing
 ```
 
-No login cookies, API keys or browser profile are required for the current public extraction path.
+`npm run update` follows the active v10 configuration, collects public sources, builds the complete snapshot/portfolios/routing in ignored staging storage, validates them, and then promotes the coherent artifact set with backups. Infrastructure-wide extraction failures or infeasible portfolios preserve the preceding publication. Core artifact and source hashes are saved in `data/deployment-validation.json`. No model inference is involved.
 
-## License
+The existing deterministic scheduler invokes `scripts/run-scheduled-weekly.sh`. The manual GitHub Actions fallback is `.github/workflows/weekly.yml`; Pages deploys `site/` after eligible pushes to main. Refresh status and weekly-review artifacts distinguish partial evidence coverage from a terminal collection failure. No new scheduled job is introduced by v10.
 
-MIT.
+For a source collection without publication:
 
-### Weekly refresh
+```sh
+node scripts/update.mjs --methodology-v10 --output-dir tmp/selective-collection
+```
 
-CommandCode is the sole source for model pricing, billing category and Max plan allowances. Economic comparisons use each model’s observed Artificial Analysis task-token profile when available, repriced entirely with CommandCode rates. If AA does not publish a complete task-token profile, the model falls back to the versioned normalized reference workload; missing AA token telemetry never excludes a model.
+For reproducible historical comparisons:
 
-The benchmark refresh is designed to be invoked once per week by an external scheduler through `scripts/run-scheduled-weekly.sh`. The repository-owned runner performs the refresh, validation, public-state generation and commit/push as one bounded operation. `.github/workflows/weekly.yml` is retained only as a manual `workflow_dispatch` fallback; GitHub Actions is not the scheduler. Deployment-specific scheduling, credentials and notification targets remain outside this public repository.
+```sh
+npm run compare:methodologies -- --output-dir tmp/migration-comparison
+```
 
-Mapped AA families with a missing active benchmark are retained for audit as `source_incomplete` but excluded from the scored universe until complete source coverage returns. Newly discovered CommandCode models without a verified benchmark identity are published as `unscored` rather than aborting the refresh, and the public validation status records the mapping issue. The 100% coverage rule applies to the scored universe. Benchmark fallbacks are never silent: every estimated, historical, stale or unavailable value carries explicit provenance in the public snapshot.
+That comparison reads the frozen v9 baseline in `methodology/fixtures/` and separates methodology, observed coverage and analogy effects. `config/roles.json` and legacy estimator-validation artifacts are retained for historical inspection; they are not the active v10 configuration.
 
-When AA temporarily omits SciCode for a mapped model, the pipeline first uses the last observed SciCode only when it is at most 14 days old and when an overlap calibration against current observed families passes the published MAE/max-error guardrails. The overlap-derived factor is capped at 1, so the calibrated historical fallback never inflates a prior observation. If no fresh calibrated LKG exists, the Ridge estimator may be used only when its leave-one-out guardrails pass. If those guardrails fail, the refresh no longer aborts globally: an older observed SciCode is carried only as explicitly `stale`, preserving its original observation timestamp and failure reason; if no prior observation exists, SciCode is marked `unavailable` and that family may become `source_incomplete`. The snapshot and public status become `partial`, while unaffected models continue through the refresh. Intelligence Index remains excluded from the Ridge features to avoid circularity.
+## Integrity and rollback
 
+Versioned source provenance records exact AA identity, effort, raw scale, implementation and metric version. Missing evidence is never silently relabeled observed. Published snapshot/portfolio generations must match; mixed versions are hidden by the UI.
 
-CommandCode pricing stores base Max credits separately from model deal multipliers/effective usage. Effective token prices already include the deal rate, so plan-adjusted task cost applies the deal exactly once.
-# Opt-in selective methodology comparison
+Before publication run `npm run check:all`, `npm run audit:public` and `git diff --check`. Revert an activation publication as one coherent code/data/frontend change and redeploy Pages; preserve the prior revision and manifest hashes. Do not repair a failed refresh by weakening estimator, identity or portfolio constraints.
 
-The selective v10 implementation is available for isolated review through `npm run compare:methodologies -- --output-dir tmp/migration-comparison`. The default refresh, current configuration and published data remain on v9; Statistical Intelligence estimation is disabled in v10; separately labeled role analogies use conservative values, including a one-seat portfolio limit. Active rankings retain only the two newest catalog generations per series. See [methodology](methodology/selective-v10.md) and [validation](methodology/migration-validation-2026-10-28.md).
+See [the data contract](docs/data-contract.md) and [architecture](docs/architecture.md).

@@ -37,7 +37,7 @@ Rows with `mapping.status = "unscored"` must not contain fabricated scores or ra
 `data/cai-validation.json` stores the current reverse-validation metrics and fail-closed guardrails. `methodology/cai-estimation-validation.md` is generated from the same run for human-readable auditability.
 # Opt-in snapshot schema 7
 
-The isolated v10 pipeline emits `schemaVersion: 7`, `methodologyVersion: 10` and `coverageScope: "per-role"`. The currently published snapshot stays on its previous schema.
+The active v10 pipeline emits `schemaVersion: 7`, `methodologyVersion: 10` and `coverageScope: "per-role"`. The active configuration is selected through `config/active-methodology.json`; legacy role configuration and historical snapshots remain available.
 
 Each mapped model retains its observed benchmark components even when Intelligence or another role's inputs are missing. `roleScores[role]` has `completeness`, `coverageWeight`, `missingComponents`, and `scoreRange`. `score`, `rankingQuality` and `rankingValue` are null for incomplete roles. Complete roles use observed normalized components only. `experimentalBenchmarks` is a separate diagnostic namespace and has no scoring weight.
 

@@ -1,48 +1,48 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-16",
-  "generatedAt": "2026-10-16T09:12:52.129Z",
+  "snapshotDate": "2026-10-28",
+  "generatedAt": "2026-10-28T14:35:30.344Z",
   "mode": "balanced",
   "roles": {
     "architect": {
+      "provider": "commandcode",
+      "model": "meta/muse-wonder-1.0",
+      "benchmarkModel": "Muse Wonder"
+    },
+    "strategist": {
       "provider": "claude",
       "model": "claude-sonnet-5-5",
       "benchmarkModel": "Claude Sonnet 5.5"
-    },
-    "strategist": {
-      "provider": "codex",
-      "model": "gpt-6.1-sol",
-      "benchmarkModel": "GPT-6.1 Sol"
     },
     "security-reviewer": {
       "provider": "commandcode",
-      "model": "xiaomi/mimo-v2.6-pro",
-      "benchmarkModel": "MiMo V2.6 Pro"
+      "model": "moonshotai/kimi-k3.1-pro",
+      "benchmarkModel": "Kimi K3.1 Pro"
     },
     "code-reviewer": {
       "provider": "commandcode",
-      "model": "xai/grok-4.7",
-      "benchmarkModel": "Grok 4.7"
+      "model": "google/gemini-4-argon",
+      "benchmarkModel": "Gemini 4 Argon"
     },
     "implementer": {
-      "provider": "commandcode",
-      "model": "xiaomi/mimo-v2.6-pro",
-      "benchmarkModel": "MiMo V2.6 Pro"
+      "provider": "claude",
+      "model": "claude-sonnet-5-5",
+      "benchmarkModel": "Claude Sonnet 5.5"
     },
     "implementer-heavy": {
+      "provider": "commandcode",
+      "model": "moonshotai/kimi-k3.1-pro",
+      "benchmarkModel": "Kimi K3.1 Pro"
+    },
+    "synthesizer": {
       "provider": "codex",
       "model": "gpt-6.1-sol",
       "benchmarkModel": "GPT-6.1 Sol"
     },
-    "synthesizer": {
-      "provider": "commandcode",
-      "model": "qwen/qwen3.8-max-0902",
-      "benchmarkModel": "Qwen 3.8 Max 0902"
-    },
     "researcher": {
-      "provider": "claude",
-      "model": "claude-sonnet-5-5",
-      "benchmarkModel": "Claude Sonnet 5.5"
+      "provider": "codex",
+      "model": "gpt-6.1-sol",
+      "benchmarkModel": "GPT-6.1 Sol"
     }
   }
 }

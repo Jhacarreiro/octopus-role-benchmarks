@@ -42,7 +42,7 @@ globalThis.fetch=async (url)=>{
   const p=new URL(`../site/${rel}`,import.meta.url);
   const body=fs.readFileSync(p,'utf8');
   let payload=JSON.parse(body);
-  if(process.env.SELECTIVE_SNAPSHOT&&rel==='data/latest.json')payload=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT,'utf8'));
+  if(process.env.SELECTIVE_SNAPSHOT&&rel==='data/latest.json')payload=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT??new URL('../site/data/latest.json',import.meta.url),'utf8'));
   if(process.env.SELECTIVE_LINEUPS&&rel==='data/lineups.json')payload=JSON.parse(fs.readFileSync(process.env.SELECTIVE_LINEUPS,'utf8'));
   if(process.env.SELECTIVE_MISMATCH&&rel==='data/lineups.json')payload.methodologyVersion=9;
   if(rel==='data/latest.json'){
@@ -58,6 +58,7 @@ globalThis.fetch=async (url)=>{
   return {ok:true,status:200,json:async()=>payload};
 };
 
+const isSelective=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT??new URL('../site/data/latest.json',import.meta.url),'utf8')).methodologyVersion>=10;
 const expectedLineups=JSON.parse(fs.readFileSync(process.env.SELECTIVE_LINEUPS??new URL('../site/data/lineups.json',import.meta.url),'utf8'));
 const code=fs.readFileSync(new URL('../site/app.js',import.meta.url),'utf8');
 eval(code);
@@ -74,10 +75,10 @@ if(process.env.SELECTIVE_MISMATCH){
 const expectedBalanced=expectedLineups.modes.balanced.selections.architect.model;
 if(!one('#lineup').innerHTML.includes(expectedBalanced)) throw new Error('default Balanced lineup did not render expected model: '+expectedBalanced);
 if(one('#rows').innerHTML.length<100) throw new Error('ranking table did not render');
-if(process.env.SELECTIVE_SNAPSHOT){
+if(isSelective){
   if(!one('#status').innerHTML.includes('estimators disabled'))throw new Error('v10 status/provenance not shown');
   if(!one('#rows').innerHTML.includes('Benchmark provenance'))throw new Error('v10 observation provenance missing');
-  const snapshot=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT,'utf8'));
+  const snapshot=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT??new URL('../site/data/latest.json',import.meta.url),'utf8'));
   for(const m of snapshot.models.filter(m=>m.generationEligibility?.eligible===false))if(one('#rows').innerHTML.includes(`>${m.name}</span>`))throw new Error('Historical model leaked into current ranking');
   if(snapshot.models.some(m=>m.roleScores.implementer?.status==='estimated')&&!one('#rows').innerHTML.includes('ESTIMATED'))throw new Error('Role approximations must be visibly labeled');
 }else if(!one('#status').innerHTML.includes('Benchmark partially validated')) throw new Error('partial validation state not shown in status');
@@ -99,7 +100,7 @@ one('.ranking-modes').trigger('click',{target:{closest:()=>budgetButton}});
 if(one('#metricHeading').textContent!=='Budget Role Score ↑') throw new Error('ranking mode button did not switch to Budget');
 const budgetRows=one('#rows').innerHTML;
 
-if(process.env.SELECTIVE_SNAPSHOT){
+if(isSelective){
   eval(fs.readFileSync(new URL('../site/methodology.js',import.meta.url),'utf8'));
   await new Promise(r=>setTimeout(r,25));
   if(!one('#coverage').innerHTML.includes('Estimated offers'))throw new Error('Measured and estimated coverage must remain separate');

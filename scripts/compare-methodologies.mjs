@@ -9,7 +9,7 @@ const root=path.resolve(import.meta.dirname,'..');
 const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1]};
 const output=isolatedOutput(root,arg('--output-dir'));
 const inputPath=arg('--inputs')??path.join(root,'methodology/fixtures/2026-10-28-selective-inputs.json');
-const baselinePath=arg('--baseline')??path.join(root,'data/2026-10-28.json');
+const baselinePath=arg('--baseline')??path.join(root,'methodology/fixtures/2026-10-28-v9-baseline.json');
 const inputs=JSON.parse(fs.readFileSync(inputPath)),baseline=JSON.parse(fs.readFileSync(baselinePath));
 const config=JSON.parse(fs.readFileSync(path.join(root,'config/roles-v10.json')));
 const policyFile=path.join(root,'config/lineup-policy.json'),policy=JSON.parse(fs.readFileSync(policyFile));

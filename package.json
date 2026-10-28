@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "install-adapters": "node scripts/install-opencli-adapters.mjs",
-    "update": "node scripts/update.mjs && node scripts/reverse-validate-cai.mjs",
+    "update": "node scripts/update.mjs",
     "check": "npm run check:snapshot",
     "test": "npm run test:commandcode && npm run check:snapshot",
     "build-lineups": "node scripts/build-lineups.mjs",
     "evaluate-lineups": "node scripts/evaluate-lineup-swaps.mjs",
     "weekly-report": "node scripts/weekly-change-report.mjs",
     "update-lineups": "node scripts/build-lineups.mjs && node scripts/evaluate-lineup-swaps.mjs",
-    "check:snapshot": "node scripts/validate.mjs && npm run test:selective",
+    "check:snapshot": "node scripts/validate.mjs && npm run test:selective && npm run test:publication",
     "check:lineups": "node scripts/build-lineups.mjs --check && node scripts/evaluate-lineup-swaps.mjs --check",
     "check:all": "npm run test:commandcode && npm run test:model-generation && npm run test:aa-parser && npm run test:aa-cyber && npm run test:balanced-score && npm run test:cai-version-fallback && npm run test:scicode-lkg && npm run test:scicode-estimator && npm run test:site && npm run check:snapshot && npm run check:lineups && npm run test:lineup-family-separation && npm run test:premium-placement && npm run audit:public",
     "test:commandcode": "node scripts/test-commandcode-max.mjs",
@@ -33,7 +33,8 @@
     "test:octopus-routing-drift": "node scripts/test-octopus-routing-drift.mjs",
     "audit:public": "node scripts/audit-public.mjs",
     "test:selective": "node scripts/test-selective-methodology.mjs",
-    "compare:methodologies": "node scripts/compare-methodologies.mjs"
+    "compare:methodologies": "node scripts/compare-methodologies.mjs",
+    "test:publication": "node scripts/test-publication.mjs"
   },
   "dependencies": {
     "@jackwener/opencli": "1.8.6",
