@@ -228,7 +228,61 @@ function insertBudgetState(list,state){
   return [...list.filter(existing=>!budgetDominates(state,existing)),state];
 }
 
+// Exact quality-first search. The optimistic remaining-role bound only prunes
+// branches that cannot match the best complete portfolio's quality.
+function optimizePureQuality(modeId,pool,{allowNoFeasible=false}={}){
+  const mode=policy.modes[modeId],constraints=policy.codingConstraints;
+  const min=mode.minFamilies??policy.minFamilies,max=policy.maxFamilies,seats=policy.maxSeatsPerFamily;
+  const coding=['code-reviewer','implementer-heavy','implementer'];
+  const order=[...coding,...roles.filter(role=>!coding.includes(role))];
+  const choices=Object.fromEntries(order.map(role=>[role,pool.filter(model=>
+    generationEligibleForRole(model,role)&&Number.isFinite(roleQuality(model,role))
+  ).sort((a,b)=>roleQuality(b,role)-roleQuality(a,role)||planAdjustedCost(a)-planAdjustedCost(b)||a.name.localeCompare(b.name))]));
+  const tail=Array.from({length:order.length+1},()=>Array(estimatedLimit+1).fill(0));
+  for(let i=order.length-1;i>=0;i--)for(let remaining=0;remaining<=estimatedLimit;remaining++){
+    const role=order[i];
+    tail[i][remaining]=Math.max(...choices[role].map(model=>{
+      const used=approximationSeats(new Map([[role,model]]));
+      return used>remaining?-Infinity:roleQuality(model,role)+tail[i+1][remaining-used];
+    }));
+  }
+  const assign=new Map(),counts=new Map();let best=null;
+  function validCoding(){
+    const reviewer=assign.get('code-reviewer'),heavy=assign.get('implementer-heavy'),impl=assign.get('implementer');
+    if(heavy&&impl){
+      if(constraints.heavyDifferentFromImplementer!==false&&!independentEvidence(heavy,impl,'implementer-heavy','implementer'))return false;
+      if(roleQuality(heavy,'implementer')+EPS<implementerUpper(impl)+constraints.heavyMinimumImplementerQualityDelta)return false;
+    }
+    for(const [worker,role,flag]of [[impl,'implementer','reviewerDifferentFromImplementer'],[heavy,'implementer-heavy','reviewerDifferentFromHeavy']])if(reviewer&&worker){
+      if(!independentEvidence(reviewer,worker,'code-reviewer',role))return false;
+      if(constraints[flag]!==false&&familyOf(reviewer)===familyOf(worker))return false;
+    }
+    return !reviewer||reviewerQualityPasses(reviewer,[impl,heavy],constraints.reviewerMinimumReviewerQualityDelta);
+  }
+  function search(index,quality){
+    if(best&&quality+tail[index][estimatedLimit-approximationSeats(assign)]<best.totalQuality-1e-9||counts.size+order.length-index<min)return;
+    if(index===order.length){
+      if(counts.size<min)return;
+      const candidate={...summarizeAssign(assign),assign:new Map(assign),familyCount:counts.size,signature:signature(assign)};
+      if(betterCandidate('quality',candidate,best))best=candidate;
+      return;
+    }
+    const role=order[index];
+    for(const model of choices[role]){
+      const family=familyOf(model),count=counts.get(family)??0;
+      if(count>=seats)continue;
+      assign.set(role,model);counts.set(family,count+1);
+      if(counts.size<=max&&withinApproximationLimit(assign)&&validCoding())search(index+1,quality+roleQuality(model,role));
+      assign.delete(role);if(count)counts.set(family,count);else counts.delete(family);
+    }
+  }
+  search(0,0);
+  if(!best&&!allowNoFeasible)fail('No feasible quality-first portfolio');
+  return best;
+}
+
 function optimize(modeId,pool,{allowNoFeasible=false}={}){
+  if(policy.modes[modeId].initialSelection==='quality')return optimizePureQuality(modeId,pool,{allowNoFeasible});
   const minFamilies=Number(policy.modes?.[modeId]?.minFamilies??policy.minFamilies??1);
   const maxFamilies=Number(policy.maxFamilies??roles.length);
   const maxSeats=Number(policy.maxSeatsPerFamily??roles.length);
@@ -426,9 +480,10 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
 
 function solveMode(modeId,mode){
   const requested=Number(mode.requestedIntelligenceFloor);
+  if(mode.initialSelection==='quality'&&requested!==0)fail('Quality-first Balanced/Budget requires no relative Intelligence floor');
   const step=Number(policy.poolPrecheck?.floorStep??0.005);
   const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
-  if(!Number.isFinite(requested)||requested<=0||requested>1)fail(`${modeId}: invalid requestedIntelligenceFloor`);
+  if(!Number.isFinite(requested)||requested<0||requested>1||requested===0&&mode.initialSelection!=='quality')fail(`${modeId}: invalid requestedIntelligenceFloor`);
   if(!Number.isFinite(step)||step<=0)fail('invalid poolPrecheck.floorStep');
 
   const prepared=prepareModeUniverse(modeId,mode,requested);
@@ -515,6 +570,7 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
     label:mode.label??modeId,
     description:mode.description,
     objective:mode.objective,
+    initialSelection:mode.initialSelection??(modeId==='quality'?'quality':'weighted'),
     minFamilies:Number(mode.minFamilies??policy.minFamilies??1),
     requestedIntelligenceFloor:poolInfo.requested,
     effectiveIntelligenceFloor:poolInfo.effective,

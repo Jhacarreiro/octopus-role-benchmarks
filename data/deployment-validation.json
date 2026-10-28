@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "methodologyVersion": 10,
   "snapshotGeneratedAt": "2026-10-28T18:47:36.906Z",
-  "sourceBaseRevision": "cb21c487a4d72df2ed29ff8cd3fa3828b679e8e9",
+  "sourceBaseRevision": "9d32b2f1d64b790f25e0ec63aa7b324ea1b20ae1",
   "sourceSha256": {
     "scripts/refresh.mjs": "7a1330d6dc2fc42344939ceb19f997efb50469a7cee0b1d7baf5e978ccb87266",
     "scripts/update.mjs": "d0b66d76fa532ce23a20ea8217b8bc98bb89151295d9663b81a80395e159cb1f",
@@ -13,12 +13,12 @@
     "scripts/lib/balanced-score.mjs": "d9e896da4918e50c08da587cb059d44c3b9bc906da9f55c85dff57418f3517ec",
     "scripts/lib/portfolio-price-filter.mjs": "abf4bae5dfe6febc0bd9ff9e4be4303ad6091c625b33e25c4a2f3e88209ba447",
     "scripts/lib/post-selection-cost.mjs": "504fecedf894d7ac52964d28bb5fd772119ef6e6cbc0f965391569aa9c048eea",
-    "scripts/build-lineups.mjs": "0a89dd45ee430774f870ab91014245116ddb19364439d1c2ca8f9958a9f07965",
+    "scripts/build-lineups.mjs": "ae10696599e0eee1c7a707dc9567fe92f5178d3cfce74d99e6daac5262026ec0",
     "scripts/evaluate-lineup-swaps.mjs": "b56e1c90eec0ef9878877d68a4d79d60bec915c6426daf963de578ff951fad52",
     "scripts/build-octopus-routing.mjs": "87a84da93d4f194bb752bd4a411a08e4fa98aeb77577c1d5193531f306535b1e",
     "config/roles-v10.json": "b0df91f4fa460918739f4c92364405fd32e6dfe0df1edab3adf87341c56d30e6",
     "config/active-methodology.json": "1f7f8e8452bcf8d5fa2e8fe9b3a32a7ae1770ad51f37c791efe2218c5fa480f4",
-    "config/lineup-policy.json": "26edba574a6b887690d5f4dfb0f4477fad08bcd81bd1bb52188f71c9bef27ed0",
+    "config/lineup-policy.json": "9374936b98d5cff3ba92def9c915b5beb3494d6368ae34fa956b3318cc2c2d31",
     "config/octopus-routing-models.json": "7de65578ed537e6070d5b1f3e6a43d10f262241fe4b1850ad58dc0e5150d8744",
     "package.json": "a5b55917a85b3c848b70412d92f4cf23163e03c3a6dbb5d59e54203350e8d1ae"
   },
@@ -28,9 +28,9 @@
     "data/2026-10-28.json": "ae01890aa0686dc47c1c49bbb6af449a1409c7099036a0a1b2785e399a0298cd",
     "data/latest.json": "ae01890aa0686dc47c1c49bbb6af449a1409c7099036a0a1b2785e399a0298cd",
     "site/data/latest.json": "ae01890aa0686dc47c1c49bbb6af449a1409c7099036a0a1b2785e399a0298cd",
-    "site/data/lineups.json": "1d404ebfbf2f6826331fa5895c06a1cbb0ecfc477b30be66769195d76b7b2cf7",
-    "data/lineup-opportunities.json": "7450a146d9584774d46b6a236914c7f3fa80331704359127492f8982fcc68879",
-    "site/data/octopus-routing.json": "86dc8aaef5dc99a5cee4a3fd762dcfface2e7c3e715218ee051c8b1adac67712"
+    "site/data/lineups.json": "d2b07ac65251934e20f7b102fb20c125a1ffb506f2edbb8c49f0d88cd04c4d8b",
+    "data/lineup-opportunities.json": "358022d98f1039b75e61b456e463c37bf1e923a48274762e3619fdc616005bc7",
+    "site/data/octopus-routing.json": "b5c85697999b96a8251a52a78c254dcbfd862c22c58dc36dc6cac9633b3be9f8"
   },
   "counts": {
     "commandCodeRows": 99,

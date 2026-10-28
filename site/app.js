@@ -78,7 +78,7 @@ function render(){
     const coverage=d.roleCoverage?.[state.role];
     const complete=d.modelCoverage;
     $('#status').innerHTML=`Methodology v10 · ${esc(benchmarkAt)} · ${complete?.completeOffers??0}/${complete?.activeOffers??0} offers evaluated for all 8 roles · ${coverage?.offers??0} observed + ${coverage?.estimatedOffers??0} estimated for ${esc(state.role)} · statistical estimators disabled`;
-    const modeDescription=state.mode==='quality'?'Quality ignores price.':state.mode==='budget'?'Budget uses 40% role-quality percentile and 60% affordability percentile.':'Balanced uses 75% role-quality percentile and 25% affordability percentile.';
+    const modeDescription=state.mode==='quality'?'Quality ignores price.':state.mode==='budget'?'Budget uses 40% role-quality percentile and 60% affordability percentile.':'Table rankings: Balanced uses 75% role-quality percentile and 25% affordability percentile. Recommended portfolios start from pure role quality; Balanced/Budget have no relative Intelligence floor.';
     $('#modeNote').innerHTML=modeDescription+' Every eligible model is evaluated for all eight roles. Missing contributions use labeled conservative analogies to fully measured profiles; security analogies are not observed Cyber Index scores. At most one estimated seat per portfolio. Unknown Intelligence stays ineligible. Only the two latest catalog generations per series are active; Claude tiers are separate series. Coding scores have no CAI* overlay.';
   }
   const globalRank=new Map(state.data.models.filter(m=>metricValue(m)!=null).sort((a,b)=>metricValue(b)-metricValue(a)).map((m,i)=>[m,i+1]));

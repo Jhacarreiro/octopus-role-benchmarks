@@ -227,6 +227,29 @@ try{
     assert.equal(picks[0].intelligenceIndex,58,'Portfolio uses the conservative value');
     assert.ok(mode.selections['security-reviewer'].measurementKind!=='estimated');
   }
+  // A low-Intelligence specialist with stronger quality must seed both modes,
+  // even against a free competitor with higher price-weighted ranking values.
+  const qualityFirstStress=structuredClone(snapshot);
+  const seed=snapshot.models.find(m=>Number.isFinite(m.aaModel?.intelligenceIndex)&&snapshot.roles.every(r=>m.roleScores[r.id]?.status==='valid'));
+  for(const [name,iq,quality,cost,weighted]of [['Low Intelligence quality specialist',1,99,.01,0],['Free weaker quality specialist',1,90,0,100],['Unknown Intelligence specialist',null,100,0,100]]){
+    const m=structuredClone(seed);m.name=name;delete m.approximation;
+    m.aaModel.slug=name;m.aaModel.intelligenceIndex=iq;m.aaModel.intelligenceIndexVersion=iq===null?null:'5.0';
+    m.benchmarkProvenance.intelligenceIndex={status:iq===null?'unavailable':'observed'};
+    m.free=cost===0;m.billingCategory=cost===0?'free':'standard';m.max10MonthlyUsageLimitUsd=cost===0?0:150;m.max20MonthlyUsageLimitUsd=cost===0?0:300;m.max10EffectiveUsageUsd=m.max10MonthlyUsageLimitUsd;m.max20EffectiveUsageUsd=m.max20MonthlyUsageLimitUsd;m.taskEfficiency.commandCodeCostPerTaskUsd=cost;m.taskEfficiency.planAdjustedCostPerTaskUsd=cost/1.5;
+    for(const role of snapshot.roles){const q=role.id==='architect'?quality:0;m.roleScores[role.id]={status:'valid',completeness:'complete',rankingQuality:q,rankingValue:weighted,balancedQualityPercentile:weighted,balancedAffordabilityPercentile:weighted,scoreRange:{lower:q,upper:q}};}
+    qualityFirstStress.models.push(m);
+  }
+  const lowFile=path.join(temp,'quality-first.json'),lowOutput=path.join(temp,'quality-first-lineups.json');
+  fs.writeFileSync(lowFile,JSON.stringify(qualityFirstStress));
+  const lowRun=spawnSync(process.execPath,[path.join(root,'scripts/build-lineups.mjs'),'--snapshot',lowFile,'--output',lowOutput],{encoding:'utf8',timeout:45000});
+  assert.equal(lowRun.status,0,lowRun.stderr);
+  const lowModes=JSON.parse(fs.readFileSync(lowOutput)).modes;
+  for(const id of ['balanced','budget']){
+    assert.equal(lowModes[id].intelligenceThreshold,0);
+    assert.equal(lowModes[id].postSelectionOptimization.initialSelections.architect.model,'Low Intelligence quality specialist','Initial selection must maximize quality without the old Intelligence floor or price weights');
+    assert.ok(Object.values(lowModes[id].selections).every(p=>p.model!=='Unknown Intelligence specialist'),'Known Intelligence remains required');
+  }
+  assert.notEqual(lowModes.quality.selections.architect.model,'Low Intelligence quality specialist','Quality retains its original Intelligence eligibility');
 }finally{assert.equal(path.dirname(path.resolve(temp)),path.resolve(os.tmpdir()));fs.rmSync(temp,{recursive:true,force:true});}
 console.log('ok: complete model profiles, versions, scales, identity, disabled estimators, free offers, isolated output and portfolio eligibility');
 
