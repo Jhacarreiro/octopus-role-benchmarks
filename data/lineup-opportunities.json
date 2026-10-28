@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "snapshotDate": "2026-10-28",
   "generatedAt": "2026-10-28T15:13:24.390Z",
-  "policySchemaVersion": 14,
+  "policySchemaVersion": 15,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
   "repetitionRule": "models and benchmark identities may repeat subject to family seat limits and coding-independence rules",
@@ -87,7 +87,7 @@
     },
     "budget": {
       "classification": "review-only",
-      "objective": "maximize-role-budget-score-40-quality-60-affordability",
+      "objective": "initial-role-budget-score-then-bounded-cost-minimization",
       "minimumFamilies": 5,
       "currentFamilyCount": 5,
       "requestedIntelligenceFloor": 0.75,
@@ -159,6 +159,142 @@
             "planAdjustedCostPerTaskUsd": 2.592154
           }
         ]
+      },
+      "postSelectionOptimization": {
+        "enabled": true,
+        "status": "applied",
+        "reference": "fixed-initial-portfolio-per-snapshot",
+        "maxRolePointLoss": 1,
+        "maxMeanPointLoss": 0.25,
+        "minSavingsPercent": 10,
+        "measuredReplacementsOnly": true,
+        "maxIntelligenceExceptions": null,
+        "searchCompleted": true,
+        "visitedNodes": 90,
+        "initialCostUsd": 6.539957,
+        "optimizedCostUsd": 4.911977,
+        "savingPercent": 24.892829,
+        "positivePointLoss": 0.993326,
+        "meanPositivePointLoss": 0.124166,
+        "intelligenceExceptions": [
+          {
+            "role": "architect",
+            "model": "MiMo V2.6 Pro",
+            "observedIntelligence": 29.8897833093321,
+            "initialThreshold": 34.067959
+          },
+          {
+            "role": "security-reviewer",
+            "model": "MiMo V2.6 Pro",
+            "observedIntelligence": 29.8897833093321,
+            "initialThreshold": 34.067959
+          },
+          {
+            "role": "researcher",
+            "model": "Step 5 Preview",
+            "observedIntelligence": 28.5283090216016,
+            "initialThreshold": 34.067959
+          }
+        ],
+        "changes": [
+          {
+            "role": "architect",
+            "from": "Claude Haiku 5.5",
+            "to": "MiMo V2.6 Pro",
+            "initialQuality": 50.368454,
+            "quality": 49.741867,
+            "pointLoss": 0.626587,
+            "initialCostUsd": 0.057369,
+            "costUsd": 0.104525,
+            "observedIntelligence": 29.8897833093321
+          },
+          {
+            "role": "strategist",
+            "from": "Kimi K3.1 Pro",
+            "to": "Claude Sonnet 5.5",
+            "initialQuality": 56.761598,
+            "quality": 58.48794,
+            "pointLoss": 0,
+            "initialCostUsd": 1.075975,
+            "costUsd": 0.935467,
+            "observedIntelligence": 54.24133407109
+          },
+          {
+            "role": "security-reviewer",
+            "from": "Grok 4.7",
+            "to": "MiMo V2.6 Pro",
+            "initialQuality": 56.432341,
+            "quality": 56.065602,
+            "pointLoss": 0.366739,
+            "initialCostUsd": 1.573992,
+            "costUsd": 0.104525,
+            "observedIntelligence": 29.8897833093321
+          },
+          {
+            "role": "implementer",
+            "from": "Gemini 4 Argon",
+            "to": "Claude Sonnet 5.5",
+            "initialQuality": 62.722576,
+            "quality": 67.092229,
+            "pointLoss": 0,
+            "initialCostUsd": 1.296077,
+            "costUsd": 0.935467,
+            "observedIntelligence": 54.24133407109
+          },
+          {
+            "role": "researcher",
+            "from": "Claude Haiku 5.5",
+            "to": "Step 5 Preview",
+            "initialQuality": 49.822758,
+            "quality": 50.373144,
+            "pointLoss": 0,
+            "initialCostUsd": 0.057369,
+            "costUsd": 0.352818,
+            "observedIntelligence": 28.5283090216016
+          }
+        ],
+        "initialSelections": {
+          "architect": {
+            "model": "Claude Haiku 5.5",
+            "quality": 50.368454,
+            "costUsd": 0.057369
+          },
+          "strategist": {
+            "model": "Kimi K3.1 Pro",
+            "quality": 56.761598,
+            "costUsd": 1.075975
+          },
+          "security-reviewer": {
+            "model": "Grok 4.7",
+            "quality": 56.432341,
+            "costUsd": 1.573992
+          },
+          "code-reviewer": {
+            "model": "GPT-6.1 Terra",
+            "quality": 62.223056,
+            "costUsd": 0.7016
+          },
+          "implementer": {
+            "model": "Gemini 4 Argon",
+            "quality": 62.722576,
+            "costUsd": 1.296077
+          },
+          "implementer-heavy": {
+            "model": "Kimi K3.1 Pro",
+            "quality": 68.105264,
+            "costUsd": 1.075975
+          },
+          "synthesizer": {
+            "model": "GPT-6.1 Terra",
+            "quality": 52.971667,
+            "costUsd": 0.7016
+          },
+          "researcher": {
+            "model": "Claude Haiku 5.5",
+            "quality": 49.822758,
+            "costUsd": 0.057369
+          }
+        }
       },
       "autoSafeCandidateCount": 0,
       "reviewOnlyCandidateCount": 0,

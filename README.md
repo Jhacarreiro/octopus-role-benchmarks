@@ -29,6 +29,8 @@ The rules live in `config/lineup-policy.json`: requested Intelligence floors 85/
 
 Recommendations are published in `site/data/lineups.json`. The machine-readable intended Balanced identities are in `site/data/octopus-routing.json`; generating that artifact does not apply runtime configuration or execute any models.
 
+Budget then minimizes cost against its fixed initial selection, allowing at most 1 point of loss per role on the 0-100 role-quality scale and 0.25 points of average positive loss, with at least 10% total savings. Any number of measured replacements may fall below the initial Intelligence cutoff. New replacements require observed role scores and observed Intelligence v5; every price, generation, family, coding and estimated-seat constraint remains enforced. Gains never cancel losses and repeated optimization cannot move the initial reference. A bounded search falls back to the initial portfolio if it cannot finish. Quality and Balanced retain their original selection policy. The public lineup includes the initial selections and full optimization report.
+
 ## Refresh and validate
 
 ```sh

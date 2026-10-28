@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 14,
+  "schemaVersion": 15,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -47,9 +47,9 @@
     },
     "budget": {
       "label": "Budget",
-      "description": "Maximizes 40% role quality and 60% affordability. Excludes the two highest distinct task-price levels, including all ties, before recalculating the mean + 2 standard-deviation cutoff.",
+      "description": "Starts with 40% role quality and 60% affordability, then reduces cost with at most 1 point loss per role. Measured specialists may fall below the initial Intelligence cutoff. Price exclusions and the statistical cutoff remain enforced.",
       "requestedIntelligenceFloor": 0.75,
-      "objective": "maximize-role-budget-score-40-quality-60-affordability",
+      "objective": "initial-role-budget-score-then-bounded-cost-minimization",
       "priceOutlierFilter": {
         "method": "mean-plus-population-standard-deviations",
         "standardDeviations": 2,
@@ -60,6 +60,16 @@
         "method": "highest-distinct-cost-levels",
         "excludeHighestPriceLevels": 2,
         "costMetric": "planAdjustedCostPerTaskUsd"
+      },
+      "postSelectionOptimization": {
+        "enabled": true,
+        "objective": "minimize-plan-adjusted-cost",
+        "maxRolePointLoss": 1,
+        "maxMeanPointLoss": 0.25,
+        "minSavingsPercent": 10,
+        "measuredReplacementsOnly": true,
+        "maxIntelligenceExceptions": null,
+        "maxSearchNodes": 1000000
       }
     }
   },

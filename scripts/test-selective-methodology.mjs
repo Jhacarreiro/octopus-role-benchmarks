@@ -185,7 +185,17 @@ try{
     assert.notEqual(picks.implementer.benchmarkIdentity,picks['implementer-heavy'].benchmarkIdentity);
     const impl=snapshot.models.find(m=>m.name===picks.implementer.model),heavy=snapshot.models.find(m=>m.name===picks['implementer-heavy'].model);
     assert.ok(heavy.roleScores.implementer.rankingQuality+1e-6>=impl.roleScores.implementer.rankingQuality+2,'Heavy must improve the Implementer score by two points');
-    for(const p of Object.values(picks))assert.ok(p.intelligenceIndex+1e-4>=mode.intelligenceThreshold);
+    for(const [role,p]of Object.entries(picks)){
+      if(p.intelligenceIndex+1e-4>=mode.intelligenceThreshold)continue;
+      const refinement=mode.postSelectionOptimization;
+      assert.equal(refinement?.status,'applied','Only the second cost pass can admit an Intelligence exception');
+      assert.ok(refinement.intelligenceExceptions.some(e=>e.role===role&&e.model===p.model));
+      const model=snapshot.models.find(m=>m.name===p.model),before=refinement.initialSelections[role];
+      assert.equal(model.roleScores[role].status,'valid');
+      assert.equal(model.aaModel.intelligenceIndexVersion,'5.0');
+      assert.ok(before.quality-model.roleScores[role].rankingQuality<=refinement.maxRolePointLoss+1e-5);
+      assert.ok(!mode.priceFilter.excluded.some(e=>e.model===p.model),'An Intelligence exception cannot bypass price exclusions');
+    }
   }
   // A deliberately strong hypothetical candidate proves that estimates can
   // actually be selected, while a second attractive estimate cannot take a
