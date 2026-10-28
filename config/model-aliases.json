@@ -1,5 +1,4 @@
 {
-  "schemaVersion": 1,
   "aliases": {
     "Tencent Hy3": {
       "status": "exact_alias",
@@ -185,8 +184,27 @@
         "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
       },
       "externalEvidence": {
-        "label": "Developer-reported TerminalBench 2.1, CyberGym, SWE-bench, BrowseComp and other results",
-        "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+        "label": "Developer-reported benchmark results",
+        "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+        "method": "Creator-reported; TerminalBench 2.1 run with Claude Code; SWE-bench Pro with OpenHands and anti-hacking safeguards. Not independently standardized against AA.",
+        "metrics": [
+          {
+            "name": "TerminalBench 2.1",
+            "score": "81.2%"
+          },
+          {
+            "name": "SWE-bench Pro",
+            "score": "76.9%"
+          },
+          {
+            "name": "CyberGym",
+            "score": "80.0%"
+          },
+          {
+            "name": "BrowseComp",
+            "score": "78.5%"
+          }
+        ]
       }
     },
     "Qwen 3.6 Max Preview": {
@@ -202,8 +220,15 @@
         "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway"
       },
       "externalEvidence": {
-        "label": "StealthMark / GPQA Diamond independent evaluation",
-        "url": "https://stealthmodels.com/glyph-cluster"
+        "label": "External GPQA Diamond subset",
+        "url": "https://stealthmodels.com/glyph-cluster",
+        "method": "Independent 55-question subset (31/55), not a full standardized GPQA Diamond run and not an AA score.",
+        "metrics": [
+          {
+            "name": "GPQA Diamond (55-question subset)",
+            "score": "56.4%"
+          }
+        ]
       }
     }
   }
