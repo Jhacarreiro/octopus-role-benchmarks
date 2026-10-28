@@ -480,7 +480,7 @@ const models=mapped.map(row=>{
   const incomplete=row.mapping.slug?(hardIncompleteBySlug.get(row.mapping.slug)??(rawSource&&!Number.isFinite(rawSource.intelligenceIndex)?{missingBenchmarks:['intelligenceIndex']}:null)):null;
   const partial=row.mapping.slug?partialScoredBySlug.get(row.mapping.slug):null;
   const source=incomplete?null:rawSource;
-  const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:rawSource?.sourceUnavailableReason??`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:partial?{...row.mapping,status:'partial_scored',reason:`Scored conservatively with unavailable benchmark: ${partial.missingBenchmarks.join(', ')}`,missingBenchmarks:partial.missingBenchmarks}:row.mapping;
+  let mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:rawSource?.sourceUnavailableReason??`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:partial?{...row.mapping,status:'partial_scored',reason:`Scored conservatively with unavailable benchmark: ${partial.missingBenchmarks.join(', ')}`,missingBenchmarks:partial.missingBenchmarks}:row.mapping;
   const benchmarks=source?benchmarksForSource(source):{};
   const cyberIndex=source?cyberIndexBySlug.get(source.slug):null;
   if(cyberIndex)benchmarks.cyberIndex=round(cyberIndex.value,3);
@@ -535,6 +535,11 @@ const models=mapped.map(row=>{
   for(const [key,fallback] of Object.entries(benchmarkFallback))benchmarkProvenance[key]={status:fallback.provenanceStatus??'estimated',...fallback};
   if(partial){for(const key of partial.missingBenchmarks)benchmarkProvenance[key]={status:'unavailable',benchmark:key,targetSlug:row.mapping.slug,reason:`Artificial Analysis publishes no current ${key} value for this mapped model; role scores use a conservative zero contribution for this component.`};}
   if(estimatedIntelligenceBySlug.has(row.mapping.slug))benchmarkProvenance.intelligenceIndex=estimatedIntelligenceBySlug.get(row.mapping.slug);
+  if(source&&!caiStar){
+    const missing=[...new Set([...(mapping.missingBenchmarks||[]),'caiStar'])];
+    mapping={...mapping,originalStatus:mapping.status,status:'partial_scored',missingBenchmarks:missing,reason:`Partial role scores: ${missing.join(', ')} unavailable; coding scores use a conservative missing-component contribution.`};
+    benchmarkProvenance.caiStar={status:'unavailable',benchmark:'caiStar',targetSlug:row.mapping.slug,reason:'No validated observed or estimated Coding Agent Index for this family; coding-role adjustment uses a conservative missing contribution.'};
+  }
   if(cyberIndex)benchmarkProvenance.cyberIndex={status:'observed',source:'Artificial Analysis Cyber Index v1',sourceUrl:cyberIndexDataset.sourceUrl,value:round(cyberIndex.value,3),components:Object.fromEntries(Object.entries(cyberIndex.components).map(([k,v])=>[k,v==null?null:round(v*100,3)])),safetyBlocks:Object.fromEntries(Object.entries(cyberIndex.safetyBlocks).map(([k,v])=>[k,v==null?null:round(v*100,3)]))};
   return{...row,mapping,benchmarkProvenance,tokenPrices,taskEfficiency:source?{commandCodeCostPerTaskUsd:taskCostUsd,planAdjustedCostPerTaskUsd:planAdjustedCostUsd,costBasis,costTokenProfile,normalizedTokenProfile:normalizedTaskProfile,observedTaskTokenProfile}:null,benchmarks,roleScores,caiStar,codingAgent,aaModel:rawSource?{slug:rawSource.slug,sourceUrl:rawSource.sourceUrl,intelligenceIndex:rawSource.intelligenceIndex??null,...(estimatedIntelligenceBySlug.has(row.mapping.slug)?{estimated:true,cutoffLowerBound:estimatedIntelligenceBySlug.get(row.mapping.slug).cutoffLowerBound}:{} )}:null};
 });
