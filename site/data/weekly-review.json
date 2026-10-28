@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T08:59:01.563Z",
+  "generatedAt": "2026-10-28T09:07:50.037Z",
   "snapshotDate": "2026-10-26",
   "refresh": {
     "schemaVersion": 3,
     "status": "error",
-    "attemptedAt": "2026-10-28T08:59:01.452Z",
+    "attemptedAt": "2026-10-28T09:07:49.930Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-26",
       "generatedAt": "2026-10-26T10:32:48.627Z"
@@ -24,7 +24,7 @@
     "mode": null,
     "message": null,
     "stage": "update",
-    "errorSummary": "Error: CAI* coverage failure: 33/32",
+    "errorSummary": "Error: Experimental proxy missing valid target/reference: Laguna S 2.1",
     "validationIssues": [],
     "runUrl": null
   },
