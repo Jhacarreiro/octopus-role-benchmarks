@@ -255,7 +255,7 @@
         "lcr": 0.2,
         "hle": 0.1
       },
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false
     },
@@ -269,7 +269,7 @@
         "automationBenchPartialScore": 0.15,
         "omniscience": 0.2
       },
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false
     },
@@ -277,7 +277,7 @@
       "id": "security-reviewer",
       "label": "Security Reviewer",
       "purpose": "Adversarial review of implementation risks, unsafe assumptions and failure modes.",
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false,
       "externalBenchmark": "cyberIndex"
@@ -292,7 +292,7 @@
         "lcr": 0.2,
         "omniscience": 0.15
       },
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false
     },
@@ -305,7 +305,7 @@
         "lcr": 0.25,
         "hle": 0.15
       },
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false
     },
@@ -318,7 +318,7 @@
         "briefcase": 0.35,
         "lcr": 0.2
       },
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false
     },
@@ -331,7 +331,7 @@
         "lcr": 0.25,
         "omniscience": 0.3
       },
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false
     },
@@ -345,7 +345,7 @@
         "omniscience": 0.25,
         "hle": 0.2
       },
-      "note": "Complete versioned core observations only; missing inputs affect this role, without imputation or reweighting.",
+      "note": "Observed contributions remain exact; missing contributions use explicitly labeled conservative profile analogies. A model is eligible for all eight roles or excluded entirely.",
       "codingAgentEvidence": false,
       "codingAdjusted": false
     }
@@ -355,7 +355,7 @@
     "baseRoleWeight": 1,
     "codingAgentWeight": 0
   },
-  "coverageScope": "per-role",
+  "coverageScope": "all-roles",
   "intelligenceEstimator": {
     "enabled": false,
     "targetVersion": "5.0"
@@ -668,5 +668,17 @@
       "sourceUrl": "https://commandcode.ai/models/beam-free",
       "reason": "CommandCode serves reflection/beam:free, released 2026-10-16. AA reflection-beam and Reflection model card confirm the public 501B/23B model; previous stealth classification was incorrect."
     }
-  ]
+  ],
+  "profileCompletion": {
+    "enabled": true,
+    "method": "observed-profile-envelope-v1",
+    "minSharedBenchmarks": 2,
+    "minAnchors": 2,
+    "maxAnchors": 3,
+    "margin": 25,
+    "securityMargin": 35,
+    "externalMargin": 40,
+    "reviewDays": 30,
+    "note": "Every eligible model has all eight roles. Preserve measured contributions; fill only missing contributions with conservative analogies to fully measured profiles. Security analogies are labeled estimates, never Cyber Index observations. Missing Intelligence remains unavailable; the statistical estimator stays disabled."
+  }
 }

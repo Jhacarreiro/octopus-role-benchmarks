@@ -12,7 +12,7 @@ export function percentileScore(values,value,{higherIsBetter=true}={}){
 export function applyBalancedScores(models,roleIds,{qualityWeight=0.75,costWeight=0.25}={}){
   if(!Number.isFinite(qualityWeight)||!Number.isFinite(costWeight)||qualityWeight<0||costWeight<0||Math.abs(qualityWeight+costWeight-1)>1e-9)throw new Error('Balanced percentile weights must be finite, non-negative and sum to 1');
   for(const roleId of roleIds){
-    const eligible=models.filter(m=>m.generationEligibility?.eligible!==false&&Number.isFinite(m.roleScores?.[roleId]?.rankingQuality)&&Number.isFinite(m.taskEfficiency?.planAdjustedCostPerTaskUsd));
+    const eligible=models.filter(m=>m.generationEligibility?.eligible!==false&&m.modelEligibility?.eligible!==false&&Number.isFinite(m.roleScores?.[roleId]?.rankingQuality)&&Number.isFinite(m.taskEfficiency?.planAdjustedCostPerTaskUsd));
     // Proxies are placed against the observed cohort; they cannot move observed percentiles.
     const reference=eligible.filter(m=>m.roleScores[roleId].status!=='estimated');
     const qualities=reference.map(m=>m.roleScores[roleId].rankingQuality);

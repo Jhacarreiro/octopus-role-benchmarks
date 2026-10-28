@@ -78,6 +78,7 @@ function portfolioUtilization(standardBurn,premiumBurn){
 
 const base=latest.models.filter(m=>
   m.generationEligibility?.eligible!==false &&
+  m.modelEligibility?.eligible!==false &&
   m.mapping?.status!=='unscored' &&
   m.mapping?.status!=='source_incomplete' &&
   Number.isFinite(intelligence(m)) &&
@@ -342,10 +343,10 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
 
   for(const impl of implementers){
     for(const heavy of heavies){
-      if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl))continue;
+      if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl,'implementer-heavy','implementer'))continue;
       if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<implementerUpper(impl)+heavyDelta)continue;
       for(const reviewer of reviewers){
-        if(!independentEvidence(reviewer,impl)||!independentEvidence(reviewer,heavy))continue;
+        if(!independentEvidence(reviewer,impl,'code-reviewer','implementer')||!independentEvidence(reviewer,heavy,'code-reviewer','implementer-heavy'))continue;
         if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
         if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
         const counts=Array(families.length).fill(0);
@@ -396,10 +397,10 @@ function optimize(modeId,pool,{allowNoFeasible=false}={}){
     }
     for(const impl of implementers){
       for(const heavy of heavies){
-        if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl))continue;
+        if(policy.codingConstraints?.heavyDifferentFromImplementer!==false && !independentEvidence(heavy,impl,'implementer-heavy','implementer'))continue;
         if(!Number.isFinite(roleQuality(heavy,'implementer'))||roleQuality(heavy,'implementer')+EPS<implementerUpper(impl)+heavyDelta)continue;
         for(const reviewer of reviewers){
-          if(!independentEvidence(reviewer,impl)||!independentEvidence(reviewer,heavy))continue;
+          if(!independentEvidence(reviewer,impl,'code-reviewer','implementer')||!independentEvidence(reviewer,heavy,'code-reviewer','implementer-heavy'))continue;
           if(policy.codingConstraints?.reviewerDifferentFromImplementer!==false && familyOf(reviewer)===familyOf(impl))continue;
           if(policy.codingConstraints?.reviewerDifferentFromHeavy!==false && familyOf(reviewer)===familyOf(heavy))continue;
           const counts=Array(families.length).fill(0);let valid=true;
@@ -483,8 +484,8 @@ for(const [modeId,mode] of Object.entries(policy.modes)){
       max10MonthlyUsageLimitUsd:m.max10MonthlyUsageLimitUsd??null,
       max20MonthlyUsageLimitUsd:m.max20MonthlyUsageLimitUsd??null,
       intelligenceIndex:round(intelligence(m),4),
-      ...(m.approximation?{measurementKind:'estimated',approximation:m.approximation,roleEstimate:m.roleScores[role]}:{}),
-      source:role==='security-reviewer'?(latest.methodologyVersion>=10?'cyberIndex':'cyberbench'):(m.approximation?'conservative-role-approximation':'scored'),
+      ...(m.approximation?{measurementKind:m.roleScores[role].status==='estimated'?'estimated':'observed',approximation:m.approximation,roleEstimate:m.roleScores[role]}:{}),
+      source:m.roleScores[role]?.status==='estimated'?'conservative-role-approximation':role==='security-reviewer'?(latest.methodologyVersion>=10?'cyberIndex':'cyberbench'):'scored',
       benchmarkProvenance:role==='security-reviewer'?(latest.methodologyVersion>=10?m.benchmarkProvenance?.cyberIndex??null:m.benchmarkProvenance?.cyberbench??null):null,
       free:m.free===true,
       discountPercent:m.discountPercent??null,

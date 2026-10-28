@@ -9,13 +9,13 @@ Public site: [benchmark.gallivanter.biz](https://benchmark.gallivanter.biz/). Th
 Methodology **v10** is active through `config/active-methodology.json` and `config/roles-v10.json`.
 
 - Complete measured roles use versioned AA-Briefcase, GDP.pdf, Terminal-Bench 4.0 and explicitly labeled legacy evidence.
-- Missing inputs affect only the corresponding role. Raw missing measurements remain absent.
+- Every eligible model has all eight role scores. Missing contributions use labeled conservative profile analogies; a model that cannot be completed is excluded entirely with one issue. Raw missing measurements remain absent.
 - Documented analogies have separate provenance, conservative policy values and evidence expiry; partially measured targets keep every observed contribution.
 - Only the two newest distinct catalog generations per series enter active rankings. Claude tiers are separate series, and unscored new releases still advance the window.
-- Statistical Intelligence and CAI estimators remain disabled. Security requires direct AA Cyber Index.
+- Statistical Intelligence and CAI estimators remain disabled. Observed security uses direct AA Cyber Index; missing security is an explicitly labeled role analogy, never a measured Cyber Index.
 - Portfolio analogies use conservative role and Intelligence values, with at most one estimated seat and shared-anchor/worker independence rules.
 
-[Full methodology](methodology/selective-v10.md), [migration comparison](methodology/migration-validation-2026-10-28.md), [six-model source investigation](methodology/coverage-followup-2026-10-28.md), and [activation validation](methodology/activation-2026-10-28.md).
+[Complete profile policy](methodology/complete-profiles-2026-10-28.md), [initial v10 design](methodology/selective-v10.md), [migration comparison](methodology/migration-validation-2026-10-28.md), [six-model source investigation](methodology/coverage-followup-2026-10-28.md), and [activation validation](methodology/activation-2026-10-28.md).
 
 ## Quality and cost
 
@@ -25,7 +25,7 @@ All current offers are repriced on the same fixed reference token workload. Comm
 
 ## Portfolios
 
-The unchanged base rules live in `config/lineup-policy.json`: requested Intelligence floors 85/80/75%, adaptive descent by 0.005 to a feasible pool, at least four families for Quality and five for Balanced/Budget, at most two seats per family, a statistical cost-outlier filter for Balanced/Budget, independent reviewer families, and a Heavy model that improves the same Implementer quality metric by at least two points. Conservative analogies also enforce a one-estimated-seat maximum and cannot replace security evidence.
+The unchanged base rules live in `config/lineup-policy.json`: requested Intelligence floors 85/80/75%, adaptive descent by 0.005 to a feasible pool, at least four families for Quality and five for Balanced/Budget, at most two seats per family, a statistical cost-outlier filter for Balanced/Budget, independent reviewer families, and a Heavy model that improves the same Implementer quality metric by at least two points. Conservative analogies also enforce a one-estimated-seat maximum and keep estimated security distinct from direct security measurements.
 
 Recommendations are published in `site/data/lineups.json`. The machine-readable intended Balanced identities are in `site/data/octopus-routing.json`; generating that artifact does not apply runtime configuration or execute any models.
 
