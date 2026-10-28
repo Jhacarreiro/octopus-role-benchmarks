@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 17,
+  "schemaVersion": 18,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -27,7 +27,7 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Starts with 75% role quality and 25% affordability. Then each quality point lost requires at least 10% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
+      "description": "Starts with 75% role quality and 25% affordability. Then each quality point lost requires at least 15% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
       "requestedIntelligenceFloor": 0.8,
       "objective": "initial-balanced-score-then-score-price-exchange",
       "priceOutlierFilter": {
@@ -49,7 +49,7 @@
         "enabled": true,
         "objective": "minimize-plan-adjusted-cost",
         "exchangeRule": "price-saving-percent-per-quality-point",
-        "savingPercentPerPoint": 10,
+        "savingPercentPerPoint": 15,
         "measuredReplacementsOnly": true,
         "maxIntelligenceExceptions": null,
         "maxSwaps": null,
@@ -58,7 +58,7 @@
     },
     "budget": {
       "label": "Budget",
-      "description": "Starts with 40% role quality and 60% affordability. Then each quality point lost requires at least 5% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
+      "description": "Starts with 40% role quality and 60% affordability. Then each quality point lost requires at least 10% lower cost for that role, compared with the fixed initial selection. No limit on qualifying swaps; price and diversity rules remain enforced.",
       "requestedIntelligenceFloor": 0.75,
       "objective": "initial-role-budget-score-then-score-price-exchange",
       "priceOutlierFilter": {
@@ -76,7 +76,7 @@
         "enabled": true,
         "objective": "minimize-plan-adjusted-cost",
         "exchangeRule": "price-saving-percent-per-quality-point",
-        "savingPercentPerPoint": 5,
+        "savingPercentPerPoint": 10,
         "measuredReplacementsOnly": true,
         "maxIntelligenceExceptions": null,
         "maxSwaps": null,

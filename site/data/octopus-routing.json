@@ -5,9 +5,9 @@
   "mode": "balanced",
   "roles": {
     "architect": {
-      "provider": "commandcode",
-      "model": "deepseek/deepseek-v4.1-flash",
-      "benchmarkModel": "DeepSeek V4.1 Flash (latest)"
+      "provider": "claude",
+      "model": "claude-sonnet-5-5",
+      "benchmarkModel": "Claude Sonnet 5.5"
     },
     "strategist": {
       "provider": "claude",
@@ -16,18 +16,18 @@
     },
     "security-reviewer": {
       "provider": "commandcode",
-      "model": "xiaomi/mimo-v2.6-pro",
-      "benchmarkModel": "MiMo V2.6 Pro"
-    },
-    "code-reviewer": {
-      "provider": "commandcode",
       "model": "moonshotai/kimi-k3.1-pro",
       "benchmarkModel": "Kimi K3.1 Pro"
     },
+    "code-reviewer": {
+      "provider": "commandcode",
+      "model": "google/gemini-4-argon",
+      "benchmarkModel": "Gemini 4 Argon"
+    },
     "implementer": {
       "provider": "commandcode",
-      "model": "xiaomi/mimo-v2.6-pro",
-      "benchmarkModel": "MiMo V2.6 Pro"
+      "model": "meta/muse-wonder-1.0",
+      "benchmarkModel": "Muse Wonder"
     },
     "implementer-heavy": {
       "provider": "codex",
@@ -40,9 +40,9 @@
       "benchmarkModel": "GPT-6.1 Terra"
     },
     "researcher": {
-      "provider": "claude",
-      "model": "claude-haiku-5-5",
-      "benchmarkModel": "Claude Haiku 5.5"
+      "provider": "commandcode",
+      "model": "moonshotai/kimi-k3.1-pro",
+      "benchmarkModel": "Kimi K3.1 Pro"
     }
   }
 }

@@ -12,14 +12,14 @@ function setup(modeId='budget'){
   const originals=roles.map(r=>model('initial-'+r,r));
   const assign=new Map(roles.map((r,i)=>[r,originals[i]]));
   const summarizeAssign=assign=>({totalPlanAdjustedCost:[...assign.values()].reduce((sum,m)=>sum+m.cost,0),totalQuality:[...assign].reduce((sum,[r,m])=>sum+portfolioRoleQuality(m,r),0),placementInversionCost:0,signature:roles.map(r=>assign.get(r)?.name??'').join('|')});
-  const settings={enabled:true,objective:'minimize-plan-adjusted-cost',exchangeRule:'price-saving-percent-per-quality-point',savingPercentPerPoint:modeId==='budget'?5:10,measuredReplacementsOnly:true,maxIntelligenceExceptions:null,maxSwaps:null,maxSearchNodes:100000};
+  const settings={enabled:true,objective:'minimize-plan-adjusted-cost',exchangeRule:'price-saving-percent-per-quality-point',savingPercentPerPoint:modeId==='budget'?10:15,measuredReplacementsOnly:true,maxIntelligenceExceptions:null,maxSwaps:null,maxSearchNodes:100000};
   const policy={minFamilies:5,maxFamilies:8,maxSeatsPerFamily:2,codingConstraints:{heavyDifferentFromImplementer:true,reviewerDifferentFromImplementer:true,reviewerDifferentFromHeavy:true,heavyMinimumImplementerQualityDelta:2,reviewerMinimumReviewerQualityDelta:2},modes:{[modeId]:{minFamilies:5,postSelectionOptimization:settings}}};
   return {roles,originals,initial:{...summarizeAssign(assign),assign,familyCount:8},pool:originals.slice(),policy,modeId,intelligenceThreshold:60,generationEligibleForRole:()=>true,costOf:m=>m.cost,familyOf:m=>m.family,summarizeAssign,estimatedLimit:1};
 }
 
 // Points are absolute role-score points, with continuous proportional savings.
-for(const rate of [5,10]){
-  for(const loss of [.5,1,10]){
+for(const rate of [10,15]){
+  for(const loss of [.5,1,5]){
     const minimum=rate*loss;
     assert.equal(scorePriceExchange(80,80-loss,100,100-minimum,rate).allowed,true);
     assert.equal(scorePriceExchange(80,80-loss,100,100-minimum+.001,rate).allowed,false);
@@ -30,13 +30,13 @@ for(const rate of [5,10]){
   assert.equal(scorePriceExchange(80,79,0,0,rate).allowed,false,'A free initial role cannot finance a quality loss');
   assert.equal(scorePriceExchange(80,90,0,.01,rate).allowed,false);
 }
-assert.equal(scorePriceExchange(80,60,1,0,5).allowed,true);
-assert.equal(scorePriceExchange(80,59.99,1,0,5).allowed,false);
+assert.equal(scorePriceExchange(80,80-100/15,1,0,15).allowed,true);
+assert.equal(scorePriceExchange(80,80-100/15-.001,1,0,15).allowed,false);
 assert.equal(scorePriceExchange(80,70,1,0,10).allowed,true);
 assert.equal(scorePriceExchange(80,69.99,1,0,10).allowed,false);
 
 for(const mode of ['budget','balanced']){
-  const input=setup(mode),rate=mode==='budget'?5:10;
+  const input=setup(mode),rate=mode==='budget'?10:15;
   input.pool.push(model('just-short','architect',{cost:1-(rate-.1)/100,quality:79,intelligence:20}));
   assert.equal(optimizePostSelectionCost(input).result,input.initial,'A near miss cannot pass the mode-specific exchange rate');
   input.pool.push(model('exact-exchange','architect',{cost:1-rate/100,quality:79,intelligence:20}));
@@ -44,20 +44,20 @@ for(const mode of ['budget','balanced']){
 }
 
 const input=setup();
-for(const role of roles)input.pool.push(model('cheap-'+role,role,{cost:.05,quality:70,intelligence:20,family:'initial-'+role}));
+for(const role of roles)input.pool.push(model('cheap-'+role,role,{cost:.05,quality:71,intelligence:20,family:'initial-'+role}));
 const actual=optimizePostSelectionCost(input);
 assert.equal(actual.report.status,'applied');
 assert.equal(actual.report.intelligenceExceptions.length,8,'All eight measured seats can pass below the initial cutoff');
 assert.equal(actual.report.changes.length,8,'There is no swap-count ceiling');
 assert.equal(actual.report.optimizedCostUsd,.4);
-assert.equal(actual.report.positivePointLoss,80,'Losses beyond the old per-role and mean caps are permitted when paid for');
+assert.equal(actual.report.positivePointLoss,72,'Losses beyond the old per-role and mean caps are permitted when paid for');
 assert.deepEqual([...input.initial.assign.values()].map(m=>m.name),roles.map(r=>'initial-'+r),'Optimization must not move its initial reference');
 assert.deepEqual(optimizePostSelectionCost(input).report,actual.report,'Repeating against the same initial reference must not accumulate losses');
 
-const tiny=setup();tiny.pool.push(model('tiny-saving','architect',{cost:.975,quality:79.5,intelligence:20}));
+const tiny=setup();tiny.pool.push(model('tiny-saving','architect',{cost:.95,quality:79.5,intelligence:20}));
 const small=optimizePostSelectionCost(tiny);
 assert.equal(small.report.status,'applied','The per-role exchange can qualify below the old total-savings threshold');
-assert.equal(small.report.optimizedCostUsd,7.975);
+assert.equal(small.report.optimizedCostUsd,7.95);
 
 const unmeasured=setup();
 const estimate=model('estimated-specialist','architect',{cost:0,intelligence:20});estimate.roleScores.architect.status='estimated';
@@ -85,7 +85,7 @@ structural.pool.push(weakHeavy,model('dependent-reviewer','code-reviewer',{cost:
 assert.equal(optimizePostSelectionCost(structural).result,structural.initial,'Cost cannot bypass coding independence or the Heavy improvement rule');
 const historical=setup();historical.pool.push(model('old-generation','architect',{cost:0}));historical.generationEligibleForRole=m=>m.name!=='old-generation';
 assert.equal(optimizePostSelectionCost(historical).result,historical.initial,'Cheap historical generations remain excluded');
-console.log('ok: proportional 5%/10% exchanges, fractional and free-price boundaries, unlimited swaps, measured exceptions, joint family constraints and fixed-reference fallback');
+console.log('ok: proportional 10%/15% exchanges, fractional and free-price boundaries, unlimited swaps, measured exceptions, joint family constraints and fixed-reference fallback');
 
 const reviewGuard=setup();
 reviewGuard.originals[4].roleScores['code-reviewer'].rankingQuality=70;
