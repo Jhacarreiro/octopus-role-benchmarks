@@ -457,7 +457,7 @@ if(caiStarCoverage.present!==caiStarCoverage.total) throw new Error(`CAI* covera
 
 const models=mapped.map(row=>{
   const rawSource=row.mapping.slug?aa.get(row.mapping.slug):null;
-  const incomplete=row.mapping.slug?hardIncompleteBySlug.get(row.mapping.slug):null;
+  const incomplete=row.mapping.slug?(hardIncompleteBySlug.get(row.mapping.slug)??(rawSource&&!Number.isFinite(rawSource.intelligenceIndex)?{missingBenchmarks:['intelligenceIndex']}:null)):null;
   const partial=row.mapping.slug?partialScoredBySlug.get(row.mapping.slug):null;
   const source=incomplete?null:rawSource;
   const mapping=incomplete?{...row.mapping,status:'source_incomplete',reason:rawSource?.sourceUnavailableReason??`AA source incomplete for active methodology: ${incomplete.missingBenchmarks.join(', ')}`,missingBenchmarks:incomplete.missingBenchmarks}:partial?{...row.mapping,status:'partial_scored',reason:`Scored conservatively with unavailable benchmark: ${partial.missingBenchmarks.join(', ')}`,missingBenchmarks:partial.missingBenchmarks}:row.mapping;
