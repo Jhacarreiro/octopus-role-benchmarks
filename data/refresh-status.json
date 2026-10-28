@@ -1,23 +1,23 @@
 {
   "schemaVersion": 3,
   "status": "partial",
-  "attemptedAt": "2026-10-28T14:49:59.049Z",
+  "attemptedAt": "2026-10-28T14:53:39.941Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T14:35:30.344Z"
+    "generatedAt": "2026-10-28T14:53:36.163Z"
   },
   "lastPublishedSnapshot": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T14:35:30.344Z",
+    "generatedAt": "2026-10-28T14:53:36.163Z",
     "benchmarkDate": "2026-10-28",
-    "benchmarkGeneratedAt": "2026-10-28T14:35:30.344Z",
-    "lineupInputsRefreshedAt": "2026-10-28T14:35:30.344Z"
+    "benchmarkGeneratedAt": "2026-10-28T14:53:36.163Z",
+    "lineupInputsRefreshedAt": "2026-10-28T14:53:36.163Z"
   },
   "lastValidatedBenchmark": {
     "date": "2026-10-28",
-    "generatedAt": "2026-10-28T14:35:30.344Z"
+    "generatedAt": "2026-10-28T14:53:36.163Z"
   },
-  "mode": "full-v10",
+  "mode": "full",
   "message": "Published v10 with explicit per-role coverage gaps and labeled conservative analogies. Statistical estimators disabled.",
   "stage": null,
   "errorSummary": null,
@@ -1414,5 +1414,5 @@
       "reason": "Decision model; not comparable to the AA ranking."
     }
   ],
-  "runUrl": null
+  "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/40710388737"
 }

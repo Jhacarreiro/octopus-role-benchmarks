@@ -1,7 +1,7 @@
 {
   "schemaVersion": 13,
   "snapshotDate": "2026-10-28",
-  "generatedAt": "2026-10-28T14:35:30.344Z",
+  "generatedAt": "2026-10-28T14:53:36.163Z",
   "policy": {
     "latestGenerationOnly": true,
     "previousGenerationRoleException": "allow when absolute role quality exceeds the best latest-generation peer in the same series",
@@ -137,7 +137,7 @@
             "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
             "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
             "effort": null,
-            "capturedAt": "2026-10-28T14:35:30.344Z",
+            "capturedAt": "2026-10-28T14:53:36.163Z",
             "evaluatedAt": null
           },
           "free": false,
@@ -389,7 +389,7 @@
             "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
             "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
             "effort": null,
-            "capturedAt": "2026-10-28T14:35:30.344Z",
+            "capturedAt": "2026-10-28T14:53:36.163Z",
             "evaluatedAt": null
           },
           "free": false,
@@ -641,7 +641,7 @@
             "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
             "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
             "effort": null,
-            "capturedAt": "2026-10-28T14:35:30.344Z",
+            "capturedAt": "2026-10-28T14:53:36.163Z",
             "evaluatedAt": null
           },
           "free": false,
@@ -766,7 +766,7 @@
     }
   },
   "methodologyVersion": 10,
-  "snapshotGeneratedAt": "2026-10-28T14:35:30.344Z",
+  "snapshotGeneratedAt": "2026-10-28T14:53:36.163Z",
   "intelligenceIndexVersion": "5.0",
   "approximationPolicy": {
     "enabled": true,

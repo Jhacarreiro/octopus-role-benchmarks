@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T14:49:59.219Z",
+  "generatedAt": "2026-10-28T14:53:40.005Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "partial",
-    "attemptedAt": "2026-10-28T14:49:59.049Z",
+    "attemptedAt": "2026-10-28T14:53:39.941Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T14:35:30.344Z"
+      "generatedAt": "2026-10-28T14:53:36.163Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T14:35:30.344Z",
+      "generatedAt": "2026-10-28T14:53:36.163Z",
       "benchmarkDate": "2026-10-28",
-      "benchmarkGeneratedAt": "2026-10-28T14:35:30.344Z",
-      "lineupInputsRefreshedAt": "2026-10-28T14:35:30.344Z"
+      "benchmarkGeneratedAt": "2026-10-28T14:53:36.163Z",
+      "lineupInputsRefreshedAt": "2026-10-28T14:53:36.163Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T14:35:30.344Z"
+      "generatedAt": "2026-10-28T14:53:36.163Z"
     },
-    "mode": "full-v10",
+    "mode": "full",
     "message": "Published v10 with explicit per-role coverage gaps and labeled conservative analogies. Statistical estimators disabled.",
     "stage": null,
     "errorSummary": null,
@@ -1418,8 +1418,8 @@
         "reason": "Decision model; not comparable to the AA ranking."
       }
     ],
-    "runUrl": null
+    "runUrl": "https://github.com/Jhacarreiro/octopus-role-benchmarks/actions/runs/40710388737"
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n⚠️ Refresh: partial · full-v10 — Published v10 with explicit per-role coverage gaps and labeled conservative analogies. Statistical estimators disabled.\n\nPREÇOS / CRÉDITOS\n• Claude Fable 5.1: créditos/task $13.09→$6.22 (-52%); custo ajustado $13.09→$6.22 (-52%)\n• Claude Haiku 5.5: créditos/task $0.41→$0.0861 (-79%); custo ajustado $0.27→$0.0574 (-79%)\n• Claude Opus 5.5: créditos/task $10.04→$2.81 (-72%); custo ajustado $10.04→$2.81 (-72%)\n• Claude Sonnet 5.5: créditos/task $10.02→$1.40 (-86%); custo ajustado $6.68→$0.94 (-86%)\n• DeepSeek V4 Pro (latest): créditos/task $0.88→$0.32 (-63%); custo ajustado $0.59→$0.22 (-63%)\n• GLM-5.3: créditos/task $5.01→$1.38 (-73%); custo ajustado $3.34→$0.92 (-73%)\n• GPT-6 Astra: créditos/task $6.24→$8.61 (+38%); custo ajustado $6.24→$8.61 (+38%)\n• GPT-6 Luna: créditos/task $0.15→$0.0861 (-43%); custo ajustado $0.10→$0.0574 (-43%)\n• GPT-6.1 Sol: créditos/task $1.27→$1.40 (+10%); custo ajustado $1.27→$1.40 (+10%)\n• GPT-6.1 Terra: créditos/task $0.96→$0.70 (-27%); custo ajustado $0.96→$0.70 (-27%)\n• Gemini 3.5 Flash Lite: créditos/task $0.69→$0.29 (-58%); custo ajustado $0.69→$0.29 (-58%)\n• Gemini 3.8 Flash: créditos/task $15.53→$1.21 (-92%); custo ajustado $10.35→$0.81 (-92%)\n… +18 alterações adicionais\n\nLINEUPS\n• quality/architect: Kimi K3.1 Pro → Muse Wonder\n• quality/implementer: GPT-6 Astra → Claude Sonnet 5.5\n• quality/implementer-heavy: Muse Wonder → Kimi K3.1 Pro\n• quality/researcher: Claude Opus 5.5 → GPT-6.1 Sol\n• balanced/architect: Claude Sonnet 5.5 → Muse Wonder\n• balanced/strategist: Gemini 4 Argon → Claude Sonnet 5.5\n• balanced/code-reviewer: Muse Wonder → Gemini 4 Argon\n• balanced/implementer: GPT-6.1 Sol → Claude Sonnet 5.5\n• balanced/synthesizer: Gemini 4 Argon → GPT-6.1 Sol\n• budget/strategist: Kimi K3.1 Pro → Muse Wonder\n• budget/code-reviewer: Gemini 4 Argon → Kimi K3.1 Pro\n• budget/implementer: GPT-6.1 Sol → Gemini 4 Argon\n• budget/implementer-heavy: Muse Wonder → Claude Sonnet 5.5\n• budget/synthesizer: GPT-6.1 Sol → GPT-6.1 Terra\n• budget/researcher: Gemini 4 Argon → GPT-6.1 Terra"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: — → 2026-10-28\n⚠️ Refresh: partial · full — Published v10 with explicit per-role coverage gaps and labeled conservative analogies. Statistical estimators disabled.\n\nMODELOS\nEntraram:\n+ Beam 1.0\n+ Claude Fable 5\n+ Claude Fable 5.1\n+ Claude Haiku 4.5\n+ Claude Haiku 5.5\n+ Claude Opus 4.6\n+ Claude Opus 4.7\n+ Claude Opus 4.8\n+ Claude Opus 5\n+ Claude Opus 5.5\n… +87 adicionais\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
