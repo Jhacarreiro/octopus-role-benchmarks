@@ -44,6 +44,7 @@ globalThis.fetch=async (url)=>{
   let payload=JSON.parse(body);
   if(process.env.SELECTIVE_SNAPSHOT&&rel==='data/latest.json')payload=JSON.parse(fs.readFileSync(process.env.SELECTIVE_SNAPSHOT,'utf8'));
   if(process.env.SELECTIVE_LINEUPS&&rel==='data/lineups.json')payload=JSON.parse(fs.readFileSync(process.env.SELECTIVE_LINEUPS,'utf8'));
+  if(process.env.SELECTIVE_MISMATCH&&rel==='data/lineups.json')payload.methodologyVersion=9;
   if(rel==='data/latest.json'){
     payload.validationStatus='partial';
     payload.validationIssues=[{benchmark:'scicode',targetSlug:'fixture-model',status:'stale',reason:'fixture validation failure',lastObserved:{observedAt:'2026-09-16T12:39:00.000Z'}}];
@@ -64,6 +65,12 @@ eval(code);
 await new Promise(r=>setTimeout(r,25));
 
 if(rawCalls!==0) throw new Error(`same-origin was not preferred; raw calls=${rawCalls}`);
+if(process.env.SELECTIVE_MISMATCH){
+  if(!one('#lineupNote').textContent.includes('do not match'))throw new Error('Mixed methodology portfolios were not rejected');
+  if(one('#lineup').innerHTML)throw new Error('Mixed methodology portfolio rendered');
+  console.log('ok: mismatched methodology portfolios rejected while role rankings remain available');
+  process.exit(0);
+}
 const expectedBalanced=expectedLineups.modes.balanced.selections.architect.model;
 if(!one('#lineup').innerHTML.includes(expectedBalanced)) throw new Error('default Balanced lineup did not render expected model: '+expectedBalanced);
 if(one('#rows').innerHTML.length<100) throw new Error('ranking table did not render');

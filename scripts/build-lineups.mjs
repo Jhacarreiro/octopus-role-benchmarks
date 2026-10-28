@@ -449,6 +449,7 @@ const out={
   },
   modes:{}
 };
+if(latest.methodologyVersion>=10){out.methodologyVersion=latest.methodologyVersion;out.snapshotGeneratedAt=latest.generatedAt;out.intelligenceIndexVersion='5.0';}
 
 for(const [modeId,mode] of Object.entries(policy.modes)){
   const {poolInfo,result}=solveMode(modeId,mode);

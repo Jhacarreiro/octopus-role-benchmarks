@@ -61,6 +61,14 @@ try{
   const run=spawnSync(process.execPath,[path.join(root,'scripts/build-lineups.mjs'),'--snapshot',file,'--output',output],{encoding:'utf8',timeout:45000});
   assert.equal(run.status,0,run.stderr);
   const lineups=JSON.parse(fs.readFileSync(output));
+  assert.equal(lineups.methodologyVersion,10);
+  assert.equal(lineups.snapshotGeneratedAt,snapshot.generatedAt);
+  for(const mismatch of [false,true]){
+    const env={...process.env,SELECTIVE_SNAPSHOT:file,SELECTIVE_LINEUPS:output};
+    if(mismatch)env.SELECTIVE_MISMATCH='1';else delete env.SELECTIVE_MISMATCH;
+    const site=spawnSync(process.execPath,[path.join(root,'scripts/test-site-runtime.mjs')],{encoding:'utf8',timeout:15000,env});
+    assert.equal(site.status,0,site.stderr);
+  }
   for(const mode of Object.values(lineups.modes)){
     assert.equal(Object.keys(mode.selections).length,8);
     for(const [role,pick]of Object.entries(mode.selections)){

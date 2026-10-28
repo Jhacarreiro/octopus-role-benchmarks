@@ -45,4 +45,6 @@ Each mapped model retains its observed benchmark components even when Intelligen
 
 `roleCoverage` reports complete identities and offers for each role, with a separate observed-Intelligence count. Aggregate `scoredFamilies` means identities with at least one complete role, not identities complete in every role. `caiStarCoverage.required` is false and all v10 estimator-enabled flags are false.
 
+V10 portfolio artifacts also bind `methodologyVersion`, `snapshotGeneratedAt` and `intelligenceIndexVersion`. The frontend refuses mismatched methodology/generation pairs, including a legacy portfolio served alongside a v10 snapshot from the same calendar date.
+
 See [selective methodology v10](../methodology/selective-v10.md) for the opt-in commands and activation boundary.

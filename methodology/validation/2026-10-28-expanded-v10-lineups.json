@@ -778,5 +778,8 @@
         }
       }
     }
-  }
+  },
+  "methodologyVersion": 10,
+  "snapshotGeneratedAt": "2026-10-28T11:18:32.000Z",
+  "intelligenceIndexVersion": "5.0"
 }

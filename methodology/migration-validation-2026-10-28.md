@@ -80,6 +80,8 @@ Checks cover scale/version integrity, exact effort isolation, missing-role indep
 
 The local dependency audit returned zero vulnerabilities. Public sanitization runs over every staged implementation/report/fixture file before branch publication. Published `data/**`, `site/data/**`, default `config/roles.json`, policy, routing mappings and workflow files are unchanged. The compact report and two lineup artifacts live only under `methodology/validation/`.
 
+Portfolio artifacts bind their methodology and snapshot-generation timestamp. Positive v10 rendering and deliberate same-date v9/v10 mismatch rejection both pass in the focused behavior checks; mismatched portfolios are hidden while role rankings remain available.
+
 ## Remaining activation work
 
 Production activation is intentionally withheld. A later approved activation must recheck source-version bindings, run the supervised refresh, verify rendered pages with real browser inputs, and publish the snapshot/portfolios/frontend as a coherent version with rollback hashes. The existing refresh command remains v9. The new residual Intelligence estimator is neither enabled nor included in the code path.
