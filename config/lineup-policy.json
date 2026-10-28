@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 13,
+  "schemaVersion": 14,
   "latestGenerationOnly": true,
   "poolPrecheck": {
     "minFamilies": 5,
@@ -26,7 +26,7 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Balances relative role quality against relative affordability within the current eligible cohort. Both inputs are percentile scores, so the formula adapts automatically as model quality and prices evolve.",
+      "description": "Balances role quality (75%) and affordability (25%). Excludes the highest task-price level, including ties, before recalculating the mean + 2 standard-deviation cutoff.",
       "requestedIntelligenceFloor": 0.8,
       "objective": "maximize-relative-quality-and-affordability",
       "priceOutlierFilter": {
@@ -38,11 +38,16 @@
         "quality": 0.75,
         "affordability": 0.25
       },
-      "minFamilies": 5
+      "minFamilies": 5,
+      "priceRankFilter": {
+        "method": "highest-distinct-cost-levels",
+        "excludeHighestPriceLevels": 1,
+        "costMetric": "planAdjustedCostPerTaskUsd"
+      }
     },
     "budget": {
       "label": "Budget",
-      "description": "Maximizes total role-specific Budget Score (40% quality percentile / 60% affordability percentile), while retaining the Intelligence floor, cost-outlier filter, and family/coding constraints.",
+      "description": "Maximizes 40% role quality and 60% affordability. Excludes the two highest distinct task-price levels, including all ties, before recalculating the mean + 2 standard-deviation cutoff.",
       "requestedIntelligenceFloor": 0.75,
       "objective": "maximize-role-budget-score-40-quality-60-affordability",
       "priceOutlierFilter": {
@@ -50,7 +55,12 @@
         "standardDeviations": 2,
         "costMetric": "planAdjustedCostPerTaskUsd"
       },
-      "minFamilies": 5
+      "minFamilies": 5,
+      "priceRankFilter": {
+        "method": "highest-distinct-cost-levels",
+        "excludeHighestPriceLevels": 2,
+        "costMetric": "planAdjustedCostPerTaskUsd"
+      }
     }
   },
   "swapEvaluation": {

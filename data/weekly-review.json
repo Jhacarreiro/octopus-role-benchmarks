@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T15:16:08.720Z",
+  "generatedAt": "2026-10-28T16:22:59.402Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "success",
-    "attemptedAt": "2026-10-28T15:15:10.406Z",
+    "attemptedAt": "2026-10-28T16:22:59.227Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-28",
       "generatedAt": "2026-10-28T15:13:24.390Z"
@@ -22,12 +22,12 @@
       "generatedAt": "2026-10-28T15:13:24.390Z"
     },
     "mode": "full",
-    "message": "Every eligible model has all eight role scores; measured results and conservative analogies are labeled separately. Statistical Intelligence estimator disabled.",
+    "message": "Portfolio price exclusions applied before the statistical cutoff, including all ties: Balanced removes one highest price level and Budget removes two. Intelligence estimator remains disabled.",
     "stage": null,
     "errorSummary": null,
     "validationIssues": [],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n✅ Refresh: success · full — Every eligible model has all eight role scores; measured results and conservative analogies are labeled separately. Statistical Intelligence estimator disabled.\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n✅ Refresh: success · full — Portfolio price exclusions applied before the statistical cutoff, including all ties: Balanced removes one highest price level and Budget removes two. Intelligence estimator remains disabled.\n\nLINEUPS\n• budget/architect: Claude Sonnet 5.5 → Claude Haiku 5.5\n• budget/strategist: Muse Wonder → Kimi K3.1 Pro\n• budget/security-reviewer: Kimi K3.1 Pro → Grok 4.7\n• budget/code-reviewer: Kimi K3.1 Pro → GPT-6.1 Terra\n• budget/implementer-heavy: Claude Sonnet 5.5 → Kimi K3.1 Pro\n• budget/researcher: GPT-6.1 Terra → Claude Haiku 5.5"
 }

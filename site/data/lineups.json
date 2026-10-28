@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 13,
+  "schemaVersion": 14,
   "snapshotDate": "2026-10-28",
   "generatedAt": "2026-10-28T15:13:24.390Z",
   "policy": {
@@ -912,7 +912,7 @@
     },
     "balanced": {
       "label": "Balanced",
-      "description": "Balances relative role quality against relative affordability within the current eligible cohort. Both inputs are percentile scores, so the formula adapts automatically as model quality and prices evolve.",
+      "description": "Balances role quality (75%) and affordability (25%). Excludes the highest task-price level, including ties, before recalculating the mean + 2 standard-deviation cutoff.",
       "objective": "maximize-relative-quality-and-affordability",
       "minFamilies": 5,
       "requestedIntelligenceFloor": 0.8,
@@ -925,7 +925,26 @@
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
-        "referencePopulation": "latest-generation-scored-universe",
+        "filterOrder": [
+          "highest-price-levels",
+          "mean-plus-population-standard-deviations"
+        ],
+        "rankFilter": {
+          "method": "highest-distinct-cost-levels",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "requestedPriceLevels": 1,
+          "tiePrecisionDecimals": 6,
+          "referencePopulation": "portfolio-candidates-before-intelligence-floor",
+          "referenceModels": 39,
+          "referencePriceLevels": 34,
+          "excludedPriceLevels": [
+            8.605424
+          ],
+          "excluded": [
+            "GPT-6 Astra"
+          ]
+        },
+        "referencePopulation": "latest-generation-scored-universe-after-ranked-price-exclusions",
         "referenceModels": 26,
         "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
@@ -935,18 +954,20 @@
         "postFilterBestEligibleIntelligenceIndex": 58.406,
         "excluded": [
           {
-            "model": "Claude Fable 5.1",
-            "family": "Claude",
-            "billingCategory": "premium",
-            "creditBurnPerTaskUsd": 6.221286,
-            "planAdjustedCostPerTaskUsd": 6.221286
-          },
-          {
             "model": "GPT-6 Astra",
+            "reason": "highest-price-level",
             "family": "GPT",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 8.605424,
             "planAdjustedCostPerTaskUsd": 8.605424
+          },
+          {
+            "model": "Claude Fable 5.1",
+            "reason": "statistical-outlier",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 6.221286,
+            "planAdjustedCostPerTaskUsd": 6.221286
           }
         ]
       },
@@ -1944,30 +1965,52 @@
     },
     "budget": {
       "label": "Budget",
-      "description": "Maximizes total role-specific Budget Score (40% quality percentile / 60% affordability percentile), while retaining the Intelligence floor, cost-outlier filter, and family/coding constraints.",
+      "description": "Maximizes 40% role quality and 60% affordability. Excludes the two highest distinct task-price levels, including all ties, before recalculating the mean + 2 standard-deviation cutoff.",
       "objective": "maximize-role-budget-score-40-quality-60-affordability",
       "minFamilies": 5,
       "requestedIntelligenceFloor": 0.75,
-      "effectiveIntelligenceFloor": 0.74,
-      "bestEligibleIntelligenceIndex": 58.406,
-      "intelligenceThreshold": 43.220465,
+      "effectiveIntelligenceFloor": 0.625,
+      "bestEligibleIntelligenceIndex": 54.5087,
+      "intelligenceThreshold": 34.067959,
       "candidateModels": 7,
       "candidateFamilies": 5,
       "priceFilter": {
         "method": "mean-plus-population-standard-deviations",
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
-        "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 26,
+        "filterOrder": [
+          "highest-price-levels",
+          "mean-plus-population-standard-deviations"
+        ],
+        "rankFilter": {
+          "method": "highest-distinct-cost-levels",
+          "costMetric": "planAdjustedCostPerTaskUsd",
+          "requestedPriceLevels": 2,
+          "tiePrecisionDecimals": 6,
+          "referencePopulation": "portfolio-candidates-before-intelligence-floor",
+          "referenceModels": 39,
+          "referencePriceLevels": 34,
+          "excludedPriceLevels": [
+            8.605424,
+            6.221286
+          ],
+          "excluded": [
+            "Claude Fable 5.1",
+            "GPT-6 Astra"
+          ]
+        },
+        "referencePopulation": "latest-generation-scored-universe-after-ranked-price-exclusions",
+        "referenceModels": 25,
         "referenceFamilies": 17,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
-        "meanCostPerTaskUsd": 1.00654,
-        "populationStdDevCostPerTaskUsd": 1.263942,
-        "cutoffCostPerTaskUsd": 3.534424,
-        "postFilterBestEligibleIntelligenceIndex": 58.406,
+        "meanCostPerTaskUsd": 0.79795,
+        "populationStdDevCostPerTaskUsd": 0.728148,
+        "cutoffCostPerTaskUsd": 2.254245,
+        "postFilterBestEligibleIntelligenceIndex": 54.5087,
         "excluded": [
           {
             "model": "Claude Fable 5.1",
+            "reason": "highest-price-level",
             "family": "Claude",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 6.221286,
@@ -1975,71 +2018,88 @@
           },
           {
             "model": "GPT-6 Astra",
+            "reason": "highest-price-level",
             "family": "GPT",
             "billingCategory": "premium",
             "creditBurnPerTaskUsd": 8.605424,
             "planAdjustedCostPerTaskUsd": 8.605424
+          },
+          {
+            "model": "Claude Opus 5.5",
+            "reason": "statistical-outlier",
+            "family": "Claude",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 2.8064,
+            "planAdjustedCostPerTaskUsd": 2.8064
+          },
+          {
+            "model": "Muse Wonder",
+            "reason": "statistical-outlier",
+            "family": "AA:muse-wonder",
+            "billingCategory": "premium",
+            "creditBurnPerTaskUsd": 2.592154,
+            "planAdjustedCostPerTaskUsd": 2.592154
           }
         ]
       },
       "familyCount": 5,
-      "totalRoleQuality": 484.233,
-      "totalBalanced": 612.626,
-      "placementInversionCost": 7.146548,
-      "placementInversionCount": 10,
+      "totalRoleQuality": 459.408,
+      "totalBalanced": 601.265,
+      "placementInversionCost": 8.709642,
+      "placementInversionCount": 12,
       "pureBalancedOptimum": null,
       "balancedObjectiveLossPercent": null,
-      "totalCostPerTaskUsd": 11.325755,
-      "totalCreditBurnPerPortfolioUsd": 11.325755,
-      "totalPlanAdjustedCostPerPortfolioUsd": 9.314314,
-      "standardCreditBurnPerPortfolioUsd": 6.034324,
-      "premiumCreditBurnPerPortfolioUsd": 5.291431,
-      "max10MonthlyIncludedUtilization": 0.052914,
-      "max10EstimatedCompletePortfoliosPerMonth": 18.898,
-      "max20EstimatedCompletePortfoliosPerMonth": 37.797,
+      "totalCostPerTaskUsd": 8.460297,
+      "totalCreditBurnPerPortfolioUsd": 8.460297,
+      "totalPlanAdjustedCostPerPortfolioUsd": 6.539957,
+      "standardCreditBurnPerPortfolioUsd": 5.76102,
+      "premiumCreditBurnPerPortfolioUsd": 2.699277,
+      "max10MonthlyIncludedUtilization": 0.038407,
+      "max10EstimatedCompletePortfoliosPerMonth": 26.037,
+      "max20EstimatedCompletePortfoliosPerMonth": 52.074,
       "selections": {
         "architect": {
-          "model": "Claude Sonnet 5.5",
+          "model": "Claude Haiku 5.5",
           "family": "Claude",
-          "benchmarkIdentity": "aa:claude-sonnet-5-5",
-          "quality": 57.995,
-          "costPerTaskUsd": 1.4032,
-          "creditBurnPerTaskUsd": 1.4032,
-          "planAdjustedCostPerTaskUsd": 0.935467,
+          "benchmarkIdentity": "aa:claude-haiku-5-5",
+          "quality": 50.368,
+          "costPerTaskUsd": 0.086054,
+          "creditBurnPerTaskUsd": 0.086054,
+          "planAdjustedCostPerTaskUsd": 0.057369,
           "billingCategory": "standard",
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
-          "intelligenceIndex": 54.2413,
+          "intelligenceIndex": 36.2345,
           "measurementKind": "observed",
           "approximation": {
             "status": "estimated",
             "method": "observed-profile-envelope-v1",
             "kind": "partial-observed-profile",
             "anchors": [
-              "kimi-k3-1-pro",
-              "claude-opus-5-5",
-              "gpt-6-astra"
+              "step-5",
+              "mimo-v2-6-pro",
+              "glm-5-3-flash"
             ],
             "evidenceIds": [
-              "aa:claude-sonnet-5-5",
-              "aa:kimi-k3-1-pro",
-              "aa:claude-opus-5-5",
-              "aa:gpt-6-astra"
+              "aa:claude-haiku-5-5",
+              "aa:step-5",
+              "aa:mimo-v2-6-pro",
+              "aa:glm-5-3-flash"
             ],
             "margin": 25,
             "sources": [
               {
-                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "url": "https://artificialanalysis.ai/models/step-5",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               },
               {
-                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
+                "url": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               },
               {
-                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "url": "https://artificialanalysis.ai/models/glm-5-3-flash",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               }
@@ -2060,22 +2120,22 @@
             "profileCompletion": {
               "method": "observed-profile-envelope-v1",
               "features": {
-                "briefcase": 65.591,
-                "gdpPdfAllPass": 25.8,
-                "automationBenchPartialScore": 71.768821,
-                "terminalBench40": 63.636364,
+                "briefcase": 53.7685,
+                "gdpPdfAllPass": 20.8,
+                "automationBenchPartialScore": 35.411015,
+                "terminalBench40": 32.828283,
                 "lcr": 82.666667,
-                "hle": 54.958295,
-                "scicode": 60.99537,
-                "omniscience": 65.233333
+                "hle": 44.392956,
+                "scicode": 54.976852,
+                "omniscience": 56.15
               },
               "seedIdentities": [
-                "claude-sonnet-5-5"
+                "claude-haiku-5-5"
               ],
               "anchors": [
                 {
-                  "slug": "kimi-k3-1-pro",
-                  "distance": 3.008276,
+                  "slug": "step-5",
+                  "distance": 5.428739,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2088,8 +2148,8 @@
                   ]
                 },
                 {
-                  "slug": "claude-opus-5-5",
-                  "distance": 3.801246,
+                  "slug": "mimo-v2-6-pro",
+                  "distance": 6.622334,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2102,8 +2162,8 @@
                   ]
                 },
                 {
-                  "slug": "gpt-6-astra",
-                  "distance": 4.747723,
+                  "slug": "glm-5-3-flash",
+                  "distance": 6.624146,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2128,17 +2188,17 @@
           "roleEstimate": {
             "status": "valid",
             "completeness": "complete",
-            "score": 57.995113,
-            "rankingQuality": 57.995113,
-            "rankingValue": 82.27272727272728,
+            "score": 50.368454,
+            "rankingQuality": 50.368454,
+            "rankingValue": 79.77272727272728,
             "coverageWeight": 1,
             "missingComponents": [],
             "scoreRange": {
-              "lower": 57.995113,
-              "upper": 57.995113
+              "lower": 50.368454,
+              "upper": 50.368454
             },
-            "balancedQualityPercentile": 98.18181818181819,
-            "balancedAffordabilityPercentile": 34.54545454545455
+            "balancedQualityPercentile": 78.18181818181819,
+            "balancedAffordabilityPercentile": 84.54545454545455
           },
           "source": "scored",
           "benchmarkProvenance": null,
@@ -2151,17 +2211,79 @@
           "mappingStatus": "partial_approximated"
         },
         "strategist": {
-          "model": "Muse Wonder",
-          "family": "AA:muse-wonder",
-          "benchmarkIdentity": "aa:muse-wonder",
-          "quality": 54.914,
-          "costPerTaskUsd": 2.592154,
-          "creditBurnPerTaskUsd": 2.592154,
-          "planAdjustedCostPerTaskUsd": 2.592154,
+          "model": "Kimi K3.1 Pro",
+          "family": "Kimi",
+          "benchmarkIdentity": "aa:kimi-k3-1-pro",
+          "quality": 56.762,
+          "costPerTaskUsd": 1.613962,
+          "creditBurnPerTaskUsd": 1.613962,
+          "planAdjustedCostPerTaskUsd": 1.075975,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
+          "intelligenceIndex": 46.0026,
+          "source": "scored",
+          "benchmarkProvenance": null,
+          "free": false,
+          "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
+          "mappingStatus": "exact"
+        },
+        "security-reviewer": {
+          "model": "Grok 4.7",
+          "family": "Grok",
+          "benchmarkIdentity": "aa:grok-4-7",
+          "quality": 56.432,
+          "costPerTaskUsd": 2.360988,
+          "creditBurnPerTaskUsd": 2.360988,
+          "planAdjustedCostPerTaskUsd": 1.573992,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
+          "intelligenceIndex": 34.335,
+          "source": "cyberIndex",
+          "benchmarkProvenance": {
+            "status": "observed",
+            "measurementKind": "observed",
+            "lifecycle": "current",
+            "metricVersion": "1",
+            "implementation": "Artificial Analysis",
+            "rawValue": 56.432341352642,
+            "rawScale": [
+              0,
+              100
+            ],
+            "normalization": "linear",
+            "sourceField": "cyberIndex",
+            "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+            "modelUuid": "59627802-1546-422c-9a65-65b61c022d36",
+            "effort": "xhigh",
+            "capturedAt": "2026-10-28T15:13:24.390Z",
+            "evaluatedAt": null
+          },
+          "free": false,
+          "discountPercent": null,
+          "dealDiscountPercent": null,
+          "dealMultiplier": 1,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
+          "mappingStatus": "exact"
+        },
+        "code-reviewer": {
+          "model": "GPT-6.1 Terra",
+          "family": "GPT",
+          "benchmarkIdentity": "aa:gpt-6-1-terra",
+          "quality": 62.223,
+          "costPerTaskUsd": 0.7016,
+          "creditBurnPerTaskUsd": 0.7016,
+          "planAdjustedCostPerTaskUsd": 0.7016,
           "billingCategory": "premium",
           "max10MonthlyUsageLimitUsd": 100,
           "max20MonthlyUsageLimitUsd": 200,
-          "intelligenceIndex": 43.3248,
+          "intelligenceIndex": 50.9765,
           "measurementKind": "observed",
           "approximation": {
             "status": "estimated",
@@ -2169,14 +2291,14 @@
             "kind": "partial-observed-profile",
             "anchors": [
               "gpt-6-astra",
-              "kimi-k3-1-pro",
-              "claude-fable-5-1"
+              "claude-fable-5-1",
+              "kimi-k3-1-pro"
             ],
             "evidenceIds": [
-              "aa:muse-wonder",
+              "aa:gpt-6-1-terra",
               "aa:gpt-6-astra",
-              "aa:kimi-k3-1-pro",
-              "aa:claude-fable-5-1"
+              "aa:claude-fable-5-1",
+              "aa:kimi-k3-1-pro"
             ],
             "margin": 25,
             "sources": [
@@ -2186,12 +2308,12 @@
                 "capturedAt": "2026-10-28"
               },
               {
-                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               },
               {
-                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               }
@@ -2212,36 +2334,22 @@
             "profileCompletion": {
               "method": "observed-profile-envelope-v1",
               "features": {
-                "briefcase": 57.9325,
-                "gdpPdfAllPass": 30.6,
-                "automationBenchPartialScore": 68.094551,
-                "terminalBench40": 52.020202,
-                "lcr": 80.666667,
-                "hle": 50.092678,
-                "scicode": 60.300926,
-                "omniscience": 62.55
+                "briefcase": 45.084,
+                "gdpPdfAllPass": 28.6,
+                "automationBenchPartialScore": 60.167623,
+                "terminalBench40": 55.555556,
+                "lcr": 82.666667,
+                "hle": 46.246525,
+                "scicode": 55.092593,
+                "omniscience": 64.783333
               },
               "seedIdentities": [
-                "muse-wonder"
+                "gpt-6-1-terra"
               ],
               "anchors": [
                 {
                   "slug": "gpt-6-astra",
-                  "distance": 3.683387,
-                  "sharedBenchmarks": [
-                    "briefcase",
-                    "gdpPdfAllPass",
-                    "automationBenchPartialScore",
-                    "terminalBench40",
-                    "lcr",
-                    "hle",
-                    "scicode",
-                    "omniscience"
-                  ]
-                },
-                {
-                  "slug": "kimi-k3-1-pro",
-                  "distance": 4.123492,
+                  "distance": 5.104804,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2255,7 +2363,21 @@
                 },
                 {
                   "slug": "claude-fable-5-1",
-                  "distance": 5.090194,
+                  "distance": 6.499954,
+                  "sharedBenchmarks": [
+                    "briefcase",
+                    "gdpPdfAllPass",
+                    "automationBenchPartialScore",
+                    "terminalBench40",
+                    "lcr",
+                    "hle",
+                    "scicode",
+                    "omniscience"
+                  ]
+                },
+                {
+                  "slug": "kimi-k3-1-pro",
+                  "distance": 7.131146,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2280,17 +2402,17 @@
           "roleEstimate": {
             "status": "valid",
             "completeness": "complete",
-            "score": 54.913808,
-            "rankingQuality": 54.913808,
-            "rankingValue": 68.57142857142857,
+            "score": 62.223056,
+            "rankingQuality": 62.223056,
+            "rankingValue": 70,
             "coverageWeight": 1,
             "missingComponents": [],
             "scoreRange": {
-              "lower": 54.913808,
-              "upper": 54.913808
+              "lower": 62.223056,
+              "upper": 62.223056
             },
-            "balancedQualityPercentile": 88.57142857142857,
-            "balancedAffordabilityPercentile": 8.571428571428575
+            "balancedQualityPercentile": 80,
+            "balancedAffordabilityPercentile": 40
           },
           "source": "scored",
           "benchmarkProvenance": null,
@@ -2301,68 +2423,6 @@
           "max10EffectiveUsageUsd": 100,
           "max20EffectiveUsageUsd": 200,
           "mappingStatus": "partial_approximated"
-        },
-        "security-reviewer": {
-          "model": "Kimi K3.1 Pro",
-          "family": "Kimi",
-          "benchmarkIdentity": "aa:kimi-k3-1-pro",
-          "quality": 64.065,
-          "costPerTaskUsd": 1.613962,
-          "creditBurnPerTaskUsd": 1.613962,
-          "planAdjustedCostPerTaskUsd": 1.075975,
-          "billingCategory": "standard",
-          "max10MonthlyUsageLimitUsd": 150,
-          "max20MonthlyUsageLimitUsd": 300,
-          "intelligenceIndex": 46.0026,
-          "source": "cyberIndex",
-          "benchmarkProvenance": {
-            "status": "observed",
-            "measurementKind": "observed",
-            "lifecycle": "current",
-            "metricVersion": "1",
-            "implementation": "Artificial Analysis",
-            "rawValue": 64.0651080825665,
-            "rawScale": [
-              0,
-              100
-            ],
-            "normalization": "linear",
-            "sourceField": "cyberIndex",
-            "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-            "modelUuid": "665c67ca-09eb-48f0-a7a3-0096e1d5de51",
-            "effort": null,
-            "capturedAt": "2026-10-28T15:13:24.390Z",
-            "evaluatedAt": null
-          },
-          "free": false,
-          "discountPercent": null,
-          "dealDiscountPercent": null,
-          "dealMultiplier": 1,
-          "max10EffectiveUsageUsd": 150,
-          "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "exact"
-        },
-        "code-reviewer": {
-          "model": "Kimi K3.1 Pro",
-          "family": "Kimi",
-          "benchmarkIdentity": "aa:kimi-k3-1-pro",
-          "quality": 68.746,
-          "costPerTaskUsd": 1.613962,
-          "creditBurnPerTaskUsd": 1.613962,
-          "planAdjustedCostPerTaskUsd": 1.075975,
-          "billingCategory": "standard",
-          "max10MonthlyUsageLimitUsd": 150,
-          "max20MonthlyUsageLimitUsd": 300,
-          "intelligenceIndex": 46.0026,
-          "source": "scored",
-          "benchmarkProvenance": null,
-          "free": false,
-          "discountPercent": null,
-          "dealDiscountPercent": null,
-          "dealMultiplier": 1,
-          "max10EffectiveUsageUsd": 150,
-          "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "exact"
         },
         "implementer": {
           "model": "Gemini 4 Argon",
@@ -2517,147 +2577,17 @@
           "mappingStatus": "partial_approximated"
         },
         "implementer-heavy": {
-          "model": "Claude Sonnet 5.5",
-          "family": "Claude",
-          "benchmarkIdentity": "aa:claude-sonnet-5-5",
-          "quality": 68.127,
-          "costPerTaskUsd": 1.4032,
-          "creditBurnPerTaskUsd": 1.4032,
-          "planAdjustedCostPerTaskUsd": 0.935467,
+          "model": "Kimi K3.1 Pro",
+          "family": "Kimi",
+          "benchmarkIdentity": "aa:kimi-k3-1-pro",
+          "quality": 68.105,
+          "costPerTaskUsd": 1.613962,
+          "creditBurnPerTaskUsd": 1.613962,
+          "planAdjustedCostPerTaskUsd": 1.075975,
           "billingCategory": "standard",
           "max10MonthlyUsageLimitUsd": 150,
           "max20MonthlyUsageLimitUsd": 300,
-          "intelligenceIndex": 54.2413,
-          "measurementKind": "observed",
-          "approximation": {
-            "status": "estimated",
-            "method": "observed-profile-envelope-v1",
-            "kind": "partial-observed-profile",
-            "anchors": [
-              "kimi-k3-1-pro",
-              "claude-opus-5-5",
-              "gpt-6-astra"
-            ],
-            "evidenceIds": [
-              "aa:claude-sonnet-5-5",
-              "aa:kimi-k3-1-pro",
-              "aa:claude-opus-5-5",
-              "aa:gpt-6-astra"
-            ],
-            "margin": 25,
-            "sources": [
-              {
-                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
-                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
-                "capturedAt": "2026-10-28"
-              },
-              {
-                "url": "https://artificialanalysis.ai/models/claude-opus-5-5",
-                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
-                "capturedAt": "2026-10-28"
-              },
-              {
-                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
-                "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
-                "capturedAt": "2026-10-28"
-              }
-            ],
-            "reviewAfter": "2026-11-27",
-            "scope": [
-              "security-reviewer"
-            ],
-            "reason": "Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.",
-            "portfolioAllowed": true,
-            "intelligence": {
-              "status": "unavailable",
-              "referenceVersion": "5.0",
-              "estimate": null,
-              "cutoffLowerBound": null,
-              "reason": "Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative."
-            },
-            "profileCompletion": {
-              "method": "observed-profile-envelope-v1",
-              "features": {
-                "briefcase": 65.591,
-                "gdpPdfAllPass": 25.8,
-                "automationBenchPartialScore": 71.768821,
-                "terminalBench40": 63.636364,
-                "lcr": 82.666667,
-                "hle": 54.958295,
-                "scicode": 60.99537,
-                "omniscience": 65.233333
-              },
-              "seedIdentities": [
-                "claude-sonnet-5-5"
-              ],
-              "anchors": [
-                {
-                  "slug": "kimi-k3-1-pro",
-                  "distance": 3.008276,
-                  "sharedBenchmarks": [
-                    "briefcase",
-                    "gdpPdfAllPass",
-                    "automationBenchPartialScore",
-                    "terminalBench40",
-                    "lcr",
-                    "hle",
-                    "scicode",
-                    "omniscience"
-                  ]
-                },
-                {
-                  "slug": "claude-opus-5-5",
-                  "distance": 3.801246,
-                  "sharedBenchmarks": [
-                    "briefcase",
-                    "gdpPdfAllPass",
-                    "automationBenchPartialScore",
-                    "terminalBench40",
-                    "lcr",
-                    "hle",
-                    "scicode",
-                    "omniscience"
-                  ]
-                },
-                {
-                  "slug": "gpt-6-astra",
-                  "distance": 4.747723,
-                  "sharedBenchmarks": [
-                    "briefcase",
-                    "gdpPdfAllPass",
-                    "automationBenchPartialScore",
-                    "terminalBench40",
-                    "lcr",
-                    "hle",
-                    "scicode",
-                    "omniscience"
-                  ]
-                }
-              ],
-              "scope": [
-                "security-reviewer"
-              ],
-              "margin": 25,
-              "securityMargin": 35,
-              "externalMargin": 40,
-              "interpretation": "Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval."
-            }
-          },
-          "roleEstimate": {
-            "status": "valid",
-            "completeness": "complete",
-            "score": 68.126547,
-            "rankingQuality": 68.126547,
-            "rankingValue": 83.63636363636364,
-            "coverageWeight": 1,
-            "missingComponents": [],
-            "scoreRange": {
-              "lower": 68.126547,
-              "upper": 68.126547
-            },
-            "balancedQualityPercentile": 100,
-            "balancedAffordabilityPercentile": 34.54545454545455
-          },
+          "intelligenceIndex": 46.0026,
           "source": "scored",
           "benchmarkProvenance": null,
           "free": false,
@@ -2666,7 +2596,7 @@
           "dealMultiplier": 1,
           "max10EffectiveUsageUsd": 150,
           "max20EffectiveUsageUsd": 300,
-          "mappingStatus": "partial_approximated"
+          "mappingStatus": "exact"
         },
         "synthesizer": {
           "model": "GPT-6.1 Terra",
@@ -2821,47 +2751,47 @@
           "mappingStatus": "partial_approximated"
         },
         "researcher": {
-          "model": "GPT-6.1 Terra",
-          "family": "GPT",
-          "benchmarkIdentity": "aa:gpt-6-1-terra",
-          "quality": 54.692,
-          "costPerTaskUsd": 0.7016,
-          "creditBurnPerTaskUsd": 0.7016,
-          "planAdjustedCostPerTaskUsd": 0.7016,
-          "billingCategory": "premium",
-          "max10MonthlyUsageLimitUsd": 100,
-          "max20MonthlyUsageLimitUsd": 200,
-          "intelligenceIndex": 50.9765,
+          "model": "Claude Haiku 5.5",
+          "family": "Claude",
+          "benchmarkIdentity": "aa:claude-haiku-5-5",
+          "quality": 49.823,
+          "costPerTaskUsd": 0.086054,
+          "creditBurnPerTaskUsd": 0.086054,
+          "planAdjustedCostPerTaskUsd": 0.057369,
+          "billingCategory": "standard",
+          "max10MonthlyUsageLimitUsd": 150,
+          "max20MonthlyUsageLimitUsd": 300,
+          "intelligenceIndex": 36.2345,
           "measurementKind": "observed",
           "approximation": {
             "status": "estimated",
             "method": "observed-profile-envelope-v1",
             "kind": "partial-observed-profile",
             "anchors": [
-              "gpt-6-astra",
-              "claude-fable-5-1",
-              "kimi-k3-1-pro"
+              "step-5",
+              "mimo-v2-6-pro",
+              "glm-5-3-flash"
             ],
             "evidenceIds": [
-              "aa:gpt-6-1-terra",
-              "aa:gpt-6-astra",
-              "aa:claude-fable-5-1",
-              "aa:kimi-k3-1-pro"
+              "aa:claude-haiku-5-5",
+              "aa:step-5",
+              "aa:mimo-v2-6-pro",
+              "aa:glm-5-3-flash"
             ],
             "margin": 25,
             "sources": [
               {
-                "url": "https://artificialanalysis.ai/models/gpt-6-astra",
+                "url": "https://artificialanalysis.ai/models/step-5",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               },
               {
-                "url": "https://artificialanalysis.ai/models/claude-fable-5-1",
+                "url": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               },
               {
-                "url": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+                "url": "https://artificialanalysis.ai/models/glm-5-3-flash",
                 "summary": "Observed complete eight-role anchor; scores are not claims about the target.",
                 "capturedAt": "2026-10-28"
               }
@@ -2882,22 +2812,22 @@
             "profileCompletion": {
               "method": "observed-profile-envelope-v1",
               "features": {
-                "briefcase": 45.084,
-                "gdpPdfAllPass": 28.6,
-                "automationBenchPartialScore": 60.167623,
-                "terminalBench40": 55.555556,
+                "briefcase": 53.7685,
+                "gdpPdfAllPass": 20.8,
+                "automationBenchPartialScore": 35.411015,
+                "terminalBench40": 32.828283,
                 "lcr": 82.666667,
-                "hle": 46.246525,
-                "scicode": 55.092593,
-                "omniscience": 64.783333
+                "hle": 44.392956,
+                "scicode": 54.976852,
+                "omniscience": 56.15
               },
               "seedIdentities": [
-                "gpt-6-1-terra"
+                "claude-haiku-5-5"
               ],
               "anchors": [
                 {
-                  "slug": "gpt-6-astra",
-                  "distance": 5.104804,
+                  "slug": "step-5",
+                  "distance": 5.428739,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2910,8 +2840,8 @@
                   ]
                 },
                 {
-                  "slug": "claude-fable-5-1",
-                  "distance": 6.499954,
+                  "slug": "mimo-v2-6-pro",
+                  "distance": 6.622334,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2924,8 +2854,8 @@
                   ]
                 },
                 {
-                  "slug": "kimi-k3-1-pro",
-                  "distance": 7.131146,
+                  "slug": "glm-5-3-flash",
+                  "distance": 6.624146,
                   "sharedBenchmarks": [
                     "briefcase",
                     "gdpPdfAllPass",
@@ -2950,17 +2880,17 @@
           "roleEstimate": {
             "status": "valid",
             "completeness": "complete",
-            "score": 54.691805,
-            "rankingQuality": 54.691805,
-            "rankingValue": 67.85714285714286,
+            "score": 49.822758,
+            "rankingQuality": 49.822758,
+            "rankingValue": 66.78571428571428,
             "coverageWeight": 1,
             "missingComponents": [],
             "scoreRange": {
-              "lower": 54.691805,
-              "upper": 54.691805
+              "lower": 49.822758,
+              "upper": 49.822758
             },
-            "balancedQualityPercentile": 77.14285714285715,
-            "balancedAffordabilityPercentile": 40
+            "balancedQualityPercentile": 60,
+            "balancedAffordabilityPercentile": 87.14285714285714
           },
           "source": "scored",
           "benchmarkProvenance": null,
@@ -2968,8 +2898,8 @@
           "discountPercent": null,
           "dealDiscountPercent": null,
           "dealMultiplier": 1,
-          "max10EffectiveUsageUsd": 100,
-          "max20EffectiveUsageUsd": 200,
+          "max10EffectiveUsageUsd": 150,
+          "max20EffectiveUsageUsd": 300,
           "mappingStatus": "partial_approximated"
         }
       }
