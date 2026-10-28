@@ -523,11 +523,21 @@ const proxyStudy=JSON.parse(fs.readFileSync(path.join(root,'site/data/experiment
 for(const proxy of proxyStudy.models){
   const target=models.find(m=>m.name===proxy.name);
   const reference=models.find(m=>m.name===proxy.reference);
-  if(!target||!reference||target.mapping?.status!=='unscored'||!Object.keys(reference.roleScores||{}).length)throw new Error(`Experimental proxy missing valid target/reference: ${proxy.name}`);
-  if(!Number.isFinite(proxy.factor)||proxy.factor<=0)throw new Error(`Invalid factor for ${proxy.name}`);
-  const values=proxy.benchmarksEstimated;
+  const values=proxy.benchmarksEstimated||{};
   const missing=activeBenchmarks.filter(key=>!Number.isFinite(values[key]));
-  if(missing.length)throw new Error(`Incomplete proxy ${proxy.name}: ${missing.join(', ')}`);
+  const proxyFailure=!target?'target absent from current CommandCode catalog':
+    target.mapping?.status!=='unscored'?`target mapping is ${target.mapping?.status}`:
+    !reference?'reference absent from current CommandCode catalog':
+    !Object.keys(reference.roleScores||{}).length?'reference has no usable current role scores':
+    !Number.isFinite(proxy.factor)||proxy.factor<=0?'invalid reference factor':
+    missing.length?`missing estimated benchmarks: ${missing.join(', ')}`:null;
+  if(proxyFailure){
+    const reason=`Experimental proxy unavailable: ${proxyFailure}; reference ${proxy.reference}.`;
+    console.warn(`${proxy.name}: ${reason}`);
+    validationIssues.push({benchmark:'experimental_proxy',targetModel:proxy.name,status:'unavailable',reason});
+    if(target&&target.mapping?.status==='unscored')target.mapping={...target.mapping,reason};
+    continue;
+  }
   target.mapping={...target.mapping,status:'estimated',reason:`Experimental proxy of ${proxy.reference} (factor ${proxy.factor}); not an observed AA evaluation.`};
   target.benchmarks={...values};
   target.benchmarkProvenance=Object.fromEntries(Object.keys(values).map(key=>[key,{status:'estimated',strategy:'reference_ratio',reference:proxy.reference,factor:proxy.factor,evidence:proxy.evidence,sourceUrl:proxy.sourceUrl,value:values[key],factorType:proxy.factorType}]));
