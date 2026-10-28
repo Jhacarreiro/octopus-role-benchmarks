@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independentEvidence} from './lib/role-approximations.mjs';
 import { isLatestGenerationModel, isLatestGenerationOrBeatsLatest, modelFamily } from './lib/model-family.mjs';
 import { planEconomics, billingCategory as validatedBillingCategory, planAdjustedTaskCost, monthlyUtilization as planMonthlyUtilization } from './lib/plan-economics.mjs';
+import {filterPortfolioPrices} from './lib/portfolio-price-filter.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const check=process.argv.includes('--check');
@@ -101,29 +102,19 @@ for(const m of base){
 }
 const bestIntelligence=Math.max(...generationEligible.map(intelligence));
 
-function populationStats(values){
-  const mean=values.reduce((a,b)=>a+b,0)/values.length;
-  const variance=values.reduce((sum,x)=>sum+(x-mean)**2,0)/values.length;
-  return {mean,sd:Math.sqrt(variance)};
-}
-
 function prepareModeUniverse(modeId,mode,requested){
   let universe=base.slice();
   let modeBestIntelligence=bestIntelligence;
   let priceFilter=null;
+  if(mode.priceRankFilter&&!mode.priceOutlierFilter)fail(`${modeId}: ranked exclusions require the subsequent statistical price filter`);
   if(mode.priceOutlierFilter){
-    const referencePool=generationEligible;
     const metric=mode.priceOutlierFilter.costMetric??'commandCodeCostPerTaskUsd';
+    if(mode.priceRankFilter&&(mode.priceRankFilter.method!=='highest-distinct-cost-levels'||mode.priceRankFilter.costMetric!==metric||!Number.isInteger(mode.priceRankFilter.excludeHighestPriceLevels)||mode.priceRankFilter.excludeHighestPriceLevels<1))fail(`${modeId}: ranked price filter requires a positive level count and the same cost metric as the statistical filter`);
     const costFn=metric==='planAdjustedCostPerTaskUsd'?planAdjustedCost:creditBurn;
-    const values=referencePool.map(costFn).filter(x=>Number.isFinite(x)&&x>=0);
-    if(values.length!==referencePool.length)fail(`${modeId}: price filter requires ${metric} for every latest-generation scored model`);
-    const {mean,sd}=populationStats(values);
     const sigma=Number(mode.priceOutlierFilter.standardDeviations);
-    if(!Number.isFinite(sigma)||sigma<0)fail(`${modeId}: invalid price filter standardDeviations`);
-    const cutoff=mean+sigma*sd;
-    const excluded=universe.filter(m=>costFn(m)>cutoff+EPS);
-    universe=universe.filter(m=>costFn(m)<=cutoff+EPS);
-    const latestSurvivors=generationEligible.filter(m=>costFn(m)<=cutoff+EPS);
+    const filtered=filterPortfolioPrices(universe,generationEligible,{highestPriceLevels:mode.priceRankFilter?.excludeHighestPriceLevels??0,standardDeviations:sigma},costFn);
+    const {mean,sd,cutoff,referencePool,latestSurvivors}=filtered;
+    universe=filtered.models;
     const requiredFamilies=Number(policy.poolPrecheck?.minFamilies??5);
     if(familyCount(latestSurvivors)<requiredFamilies)fail(`${modeId}: price filter leaves only ${familyCount(latestSurvivors)} latest-generation families (precheck requires ${requiredFamilies})`);
     modeBestIntelligence=Math.max(...latestSurvivors.map(intelligence));
@@ -131,7 +122,19 @@ function prepareModeUniverse(modeId,mode,requested){
       method:mode.priceOutlierFilter.method,
       costMetric:metric,
       standardDeviations:sigma,
-      referencePopulation:'latest-generation-scored-universe',
+      filterOrder:['highest-price-levels','mean-plus-population-standard-deviations'],
+      rankFilter:{
+        method:'highest-distinct-cost-levels',
+        costMetric:metric,
+        requestedPriceLevels:mode.priceRankFilter?.excludeHighestPriceLevels??0,
+        tiePrecisionDecimals:6,
+        referencePopulation:'portfolio-candidates-before-intelligence-floor',
+        referenceModels:base.length,
+        referencePriceLevels:filtered.referencePriceLevels,
+        excludedPriceLevels:filtered.excludedPriceLevels,
+        excluded:filtered.rankedOut.map(m=>m.name)
+      },
+      referencePopulation:'latest-generation-scored-universe-after-ranked-price-exclusions',
       referenceModels:referencePool.length,
       referenceFamilies:familyCount(referencePool),
       preFilterBestEligibleIntelligenceIndex:round(bestIntelligence,4),
@@ -139,8 +142,9 @@ function prepareModeUniverse(modeId,mode,requested){
       populationStdDevCostPerTaskUsd:round(sd,6),
       cutoffCostPerTaskUsd:round(cutoff,6),
       postFilterBestEligibleIntelligenceIndex:round(modeBestIntelligence,4),
-      excluded:excluded.map(m=>({
+      excluded:[...filtered.rankedOut,...filtered.outliers].map(m=>({
         model:m.name,
+        reason:filtered.rankedOut.includes(m)?'highest-price-level':'statistical-outlier',
         family:familyOf(m),
         billingCategory:billingCategory(m),
         creditBurnPerTaskUsd:round(creditBurn(m),6),

@@ -25,7 +25,7 @@ All current offers are repriced on the same fixed reference token workload. Comm
 
 ## Portfolios
 
-The unchanged base rules live in `config/lineup-policy.json`: requested Intelligence floors 85/80/75%, adaptive descent by 0.005 to a feasible pool, at least four families for Quality and five for Balanced/Budget, at most two seats per family, a statistical cost-outlier filter for Balanced/Budget, independent reviewer families, and a Heavy model that improves the same Implementer quality metric by at least two points. Conservative analogies also enforce a one-estimated-seat maximum and keep estimated security distinct from direct security measurements.
+The rules live in `config/lineup-policy.json`: requested Intelligence floors 85/80/75%, adaptive descent by 0.005 to a feasible pool, at least four families for Quality and five for Balanced/Budget, at most two seats per family, independent reviewer families, and a Heavy model that improves the same Implementer quality metric by at least two points. Balanced excludes the highest distinct plan-adjusted task-price level; Budget excludes the two highest levels, including every tie at six-decimal USD precision. Each mode then recalculates mean + 2 population standard deviations on its remaining latest-generation reference models and excludes further price outliers. Price exclusions cannot be relaxed by the Intelligence adjustment. Conservative analogies enforce a one-estimated-seat maximum and keep estimated security distinct from direct security measurements.
 
 Recommendations are published in `site/data/lineups.json`. The machine-readable intended Balanced identities are in `site/data/octopus-routing.json`; generating that artifact does not apply runtime configuration or execute any models.
 
