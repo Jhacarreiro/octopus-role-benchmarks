@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "snapshotDate": "2026-10-28",
-  "generatedAt": "2026-10-28T09:14:50.337Z",
+  "generatedAt": "2026-10-28T10:38:28.840Z",
   "policySchemaVersion": 13,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -34,12 +34,12 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 27,
+        "referenceModels": 30,
         "referenceFamilies": 16,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
-        "meanCostPerTaskUsd": 3.039467,
-        "populationStdDevCostPerTaskUsd": 3.336783,
-        "cutoffCostPerTaskUsd": 9.713033,
+        "meanCostPerTaskUsd": 2.687591,
+        "populationStdDevCostPerTaskUsd": 3.310551,
+        "cutoffCostPerTaskUsd": 9.308693,
         "postFilterBestEligibleIntelligenceIndex": 54.5087,
         "excluded": [
           {
@@ -83,12 +83,12 @@
         "costMetric": "planAdjustedCostPerTaskUsd",
         "standardDeviations": 2,
         "referencePopulation": "latest-generation-scored-universe",
-        "referenceModels": 27,
+        "referenceModels": 30,
         "referenceFamilies": 16,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
-        "meanCostPerTaskUsd": 3.039467,
-        "populationStdDevCostPerTaskUsd": 3.336783,
-        "cutoffCostPerTaskUsd": 9.713033,
+        "meanCostPerTaskUsd": 2.687591,
+        "populationStdDevCostPerTaskUsd": 3.310551,
+        "cutoffCostPerTaskUsd": 9.308693,
         "postFilterBestEligibleIntelligenceIndex": 54.5087,
         "excluded": [
           {
