@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T10:32:55.082Z",
+  "generatedAt": "2026-10-28T10:34:37.575Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "error",
-    "attemptedAt": "2026-10-28T10:32:54.981Z",
+    "attemptedAt": "2026-10-28T10:34:37.471Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T10:21:28.467Z"
+      "generatedAt": "2026-10-28T10:32:54.494Z"
     },
     "lastPublishedSnapshot": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T10:21:28.467Z",
+      "generatedAt": "2026-10-28T10:32:54.494Z",
       "benchmarkDate": "2026-10-28",
-      "benchmarkGeneratedAt": "2026-10-28T10:21:28.467Z",
-      "lineupInputsRefreshedAt": "2026-10-28T10:21:28.467Z"
+      "benchmarkGeneratedAt": "2026-10-28T10:32:54.494Z",
+      "lineupInputsRefreshedAt": "2026-10-28T10:32:54.494Z"
     },
     "lastValidatedBenchmark": {
       "date": "2026-10-28",
-      "generatedAt": "2026-10-28T10:21:28.467Z"
+      "generatedAt": "2026-10-28T10:32:54.494Z"
     },
     "mode": null,
     "message": null,
-    "stage": "validation",
-    "errorSummary": "Error: Unapproved coverage gap for gdpval/glm-5-3-flash",
+    "stage": "update",
+    "errorSummary": "Node.js v26.12.1",
     "validationIssues": [
       {
         "benchmark": "coding-agent-host",
