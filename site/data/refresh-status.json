@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "success",
-  "attemptedAt": "2026-10-28T18:49:34.008Z",
+  "attemptedAt": "2026-10-28T18:56:03.314Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
     "generatedAt": "2026-10-28T18:47:36.906Z"
@@ -18,7 +18,7 @@
     "generatedAt": "2026-10-28T18:47:36.906Z"
   },
   "mode": "full",
-  "message": "Reviewer exceeds both workers by 2 points; DeepSeek latest resolves to AA 1017 under owner-authorized latest-serving assumption. Other observations retained; estimators disabled.",
+  "message": "Policy v18: Balanced requires 15% and Budget 10% role-cost savings per quality point lost. Heavy and Reviewer +2 guards retained; source observations and prices unchanged; estimators disabled.",
   "stage": null,
   "errorSummary": null,
   "validationIssues": [],

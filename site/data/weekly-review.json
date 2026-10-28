@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T18:49:34.183Z",
+  "generatedAt": "2026-10-28T18:56:03.492Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "success",
-    "attemptedAt": "2026-10-28T18:49:34.008Z",
+    "attemptedAt": "2026-10-28T18:56:03.314Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-28",
       "generatedAt": "2026-10-28T18:47:36.906Z"
@@ -22,12 +22,12 @@
       "generatedAt": "2026-10-28T18:47:36.906Z"
     },
     "mode": "full",
-    "message": "Reviewer exceeds both workers by 2 points; DeepSeek latest resolves to AA 1017 under owner-authorized latest-serving assumption. Other observations retained; estimators disabled.",
+    "message": "Policy v18: Balanced requires 15% and Budget 10% role-cost savings per quality point lost. Heavy and Reviewer +2 guards retained; source observations and prices unchanged; estimators disabled.",
     "stage": null,
     "errorSummary": null,
     "validationIssues": [],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n✅ Refresh: success · full — Reviewer exceeds both workers by 2 points; DeepSeek latest resolves to AA 1017 under owner-authorized latest-serving assumption. Other observations retained; estimators disabled.\n\nLINEUPS\n• quality/architect: Muse Wonder → Claude Opus 5.5\n• quality/code-reviewer: Gemini 4 Argon → Kimi K3.1 Pro\n• quality/implementer: Claude Sonnet 5.5 → Muse Wonder\n• quality/implementer-heavy: Kimi K3.1 Pro → GPT-6 Astra\n• quality/researcher: GPT-6.1 Sol → Gemini 4 Argon\n• balanced/architect: MiniMax M3.1 Flash → DeepSeek V4.1 Flash (latest)\n• balanced/code-reviewer: GPT-6.1 Terra → Kimi K3.1 Pro\n• balanced/implementer: Claude Sonnet 5.5 → MiMo V2.6 Pro\n• balanced/implementer-heavy: Kimi K3.1 Pro → GPT-6.1 Terra\n• balanced/researcher: MiMo V2.6 Pro → Claude Haiku 5.5\n• budget/code-reviewer: MiniMax M3.1 Flash → MiMo V2.6 Pro\n• budget/implementer: Claude Haiku 5.5 → MiniMax M3.1 Flash\n• budget/implementer-heavy: MiMo V2.6 Pro → DeepSeek V4.1 Flash (latest)"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n✅ Refresh: success · full — Policy v18: Balanced requires 15% and Budget 10% role-cost savings per quality point lost. Heavy and Reviewer +2 guards retained; source observations and prices unchanged; estimators disabled.\n\nLINEUPS\n• balanced/architect: DeepSeek V4.1 Flash (latest) → Claude Sonnet 5.5\n• balanced/security-reviewer: MiMo V2.6 Pro → Kimi K3.1 Pro\n• balanced/code-reviewer: Kimi K3.1 Pro → Gemini 4 Argon\n• balanced/implementer: MiMo V2.6 Pro → Muse Wonder\n• balanced/researcher: Claude Haiku 5.5 → Kimi K3.1 Pro\n• budget/architect: MiniMax M3.1 Flash → Claude Haiku 5.5\n• budget/strategist: MiMo V2.6 Flash → DeepSeek V4.1 Flash (latest)\n• budget/code-reviewer: MiMo V2.6 Pro → Kimi K3.1 Pro\n• budget/synthesizer: Beam 1.0 → Claude Haiku 5.5\n• budget/researcher: Beam 1.0 → MiniMax M3.1 Flash"
 }
