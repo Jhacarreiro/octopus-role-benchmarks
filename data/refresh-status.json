@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "status": "error",
-  "attemptedAt": "2026-10-28T10:34:37.471Z",
+  "attemptedAt": "2026-10-28T10:35:54.713Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-10-28",
     "generatedAt": "2026-10-28T10:32:54.494Z"
@@ -19,8 +19,8 @@
   },
   "mode": null,
   "message": null,
-  "stage": "update",
-  "errorSummary": "Node.js v26.12.1",
+  "stage": "validation",
+  "errorSummary": "Error: Scored model lacks CAI*: Qwen 3.8 Omni Flash",
   "validationIssues": [
     {
       "benchmark": "coding-agent-host",

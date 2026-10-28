@@ -2,10 +2,10 @@
   "schemaVersion": 6,
   "methodologyVersion": 9,
   "date": "2026-10-28",
-  "generatedAt": "2026-10-28T10:32:54.494Z",
+  "generatedAt": "2026-10-28T10:35:54.242Z",
   "benchmarkDate": "2026-10-28",
-  "benchmarkGeneratedAt": "2026-10-28T10:32:54.494Z",
-  "lineupInputsRefreshedAt": "2026-10-28T10:32:54.494Z",
+  "benchmarkGeneratedAt": "2026-10-28T10:35:54.242Z",
+  "lineupInputsRefreshedAt": "2026-10-28T10:35:54.242Z",
   "validationStatus": "partial",
   "validationIssues": [
     {
@@ -46,12 +46,6 @@
     },
     {
       "benchmark": "experimental_proxy",
-      "targetModel": "Qwen 3.8 Omni Flash",
-      "status": "unavailable",
-      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
-    },
-    {
-      "benchmark": "experimental_proxy",
       "targetModel": "Qwen 3.7 Flash",
       "status": "unavailable",
       "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.7 Plus."
@@ -76,9 +70,15 @@
     },
     {
       "benchmark": "mapping",
-      "targetModel": "Qwen 3.8 Omni Flash",
+      "targetModel": "Ornith 1.5 122B",
       "status": "unavailable",
-      "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash."
+      "reason": "Publicly documented open-weight model; primary developer reports task benchmarks, but no matching AA intelligence record. Do not treat it as anonymous stealth or directly comparable AA role scores."
+    },
+    {
+      "benchmark": "mapping",
+      "targetModel": "Qwen 3.6 Max Preview",
+      "status": "unavailable",
+      "reason": "Superseded by Qwen 3.7/3.8 Max generations; no verified AA 3.6 Max identity or current benchmark. Excluded from scoring; retained in historical catalog."
     },
     {
       "benchmark": "mapping",
@@ -94,7 +94,43 @@
     },
     {
       "benchmark": "gdpval",
+      "targetSlug": "glm-5-3-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "glm-5-3-flash",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "qwen3-8-flash-next",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
       "targetSlug": "gpt-6-1-terra",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "gpt-5-6-terra",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "muse-spark-1-3-xhigh",
+      "status": "unavailable",
+      "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
+    },
+    {
+      "benchmark": "gdpval",
+      "targetSlug": "muse-spark-1-3-xhigh",
       "status": "unavailable",
       "reason": "Artificial Analysis publishes no current gdpval value; affected role scores are conservative partial scores."
     }
@@ -135,13 +171,13 @@
     "artificialAnalysis": {
       "url": "https://artificialanalysis.ai/",
       "parserVersion": 2,
-      "mappedFamilies": 77,
+      "mappedFamilies": 76,
       "scoredFamilies": 33,
-      "sourceIncompleteFamilies": 49
+      "sourceIncompleteFamilies": 48
     },
     "artificialAnalysisCyberIndex": {
       "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
-      "fetchedAt": "2026-10-28T10:32:54.065Z",
+      "fetchedAt": "2026-10-28T10:35:53.976Z",
       "version": "v1",
       "directFamilies": 19,
       "availableRows": 23,
@@ -341,20 +377,6 @@
     },
     {
       "benchmark": "scicode",
-      "targetSlug": "qwen3-max-preview",
-      "strategy": "validated_hle_lcr_ridge",
-      "provenanceStatus": "estimated",
-      "value": 32.0239,
-      "sourceUrl": "https://artificialanalysis.ai/evaluations/scicode",
-      "calibration": {
-        "method": "ridge_lambda_1_hle_lcr",
-        "observed": 28,
-        "looMae": 2.5263,
-        "looMaxError": 6.8403
-      }
-    },
-    {
-      "benchmark": "scicode",
       "targetSlug": "step-3-5-flash",
       "strategy": "validated_hle_lcr_ridge",
       "provenanceStatus": "estimated",
@@ -396,7 +418,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 62.7035
     },
     {
@@ -408,7 +430,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 55.9165
     },
     {
@@ -420,7 +442,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 68.3135
     },
     {
@@ -432,7 +454,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 66.891
     },
     {
@@ -444,7 +466,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 47.5235
     },
     {
@@ -456,7 +478,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 24.164
     },
     {
@@ -468,7 +490,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 46.815
     },
     {
@@ -480,7 +502,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 56.1995
     },
     {
@@ -492,7 +514,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 57.5155
     },
     {
@@ -504,7 +526,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 54.6925
     },
     {
@@ -516,7 +538,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 53.642
     },
     {
@@ -528,7 +550,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 46.593
     },
     {
@@ -540,7 +562,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 60.5535
     },
     {
@@ -552,7 +574,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 28.8095
     },
     {
@@ -564,7 +586,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 31.195
     },
     {
@@ -576,7 +598,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 55.3755
     },
     {
@@ -588,7 +610,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 59.217
     },
     {
@@ -600,7 +622,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 37.1235
     },
     {
@@ -612,7 +634,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 46.1085
     },
     {
@@ -624,7 +646,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 45.056
     },
     {
@@ -636,7 +658,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 63.517
     },
     {
@@ -648,7 +670,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 33.1205
     },
     {
@@ -660,7 +682,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 25.6625
     },
     {
@@ -672,7 +694,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 45.994
     },
     {
@@ -684,7 +706,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 58.279
     },
     {
@@ -696,7 +718,7 @@
       "targetMetricVersion": "GDPval-AA v2.1",
       "versionComparable": false,
       "observedAt": "2026-10-19T06:17:18.481Z",
-      "ageDays": 9.177,
+      "ageDays": 9.18,
       "value": 54.3315
     }
   ],
@@ -711,9 +733,9 @@
     ],
     "observedFamilies": 17,
     "historicalCalibratedFamilies": 0,
-    "estimatedFamilies": 12,
-    "validatedAt": "2026-10-28T10:32:54.494Z",
-    "sourceSnapshotGeneratedAt": "2026-10-28T10:32:54.494Z",
+    "estimatedFamilies": 11,
+    "validatedAt": "2026-10-28T10:35:54.242Z",
+    "sourceSnapshotGeneratedAt": "2026-10-28T10:35:54.242Z",
     "lkg": {
       "maxAgeDays": 14,
       "calibration": {
@@ -1061,13 +1083,6 @@
       ]
     },
     {
-      "slug": "qwen3-max-preview",
-      "missingBenchmarks": [
-        "gdpval",
-        "omniscienceIndex"
-      ]
-    },
-    {
       "slug": "step-3-5-flash",
       "missingBenchmarks": [
         "gdpval",
@@ -1201,16 +1216,16 @@
   },
   "counts": {
     "commandCodeRows": 99,
-    "mappedRows": 88,
-    "scoredRows": 33,
-    "partialRows": 67,
-    "partialScoredRows": 1,
-    "sourceIncompleteRows": 55,
-    "unscoredRows": 11,
-    "mappedFamilies": 77,
+    "mappedRows": 87,
+    "scoredRows": 39,
+    "partialRows": 64,
+    "partialScoredRows": 7,
+    "sourceIncompleteRows": 48,
+    "unscoredRows": 10,
+    "mappedFamilies": 76,
     "scoredFamilies": 33,
     "partialScoredFamilies": 5,
-    "sourceIncompleteFamilies": 44,
+    "sourceIncompleteFamilies": 43,
     "codingAgentFamilies": 14,
     "caiObservedFamilies": 12,
     "caiHistoricalCalibratedFamilies": 0,
@@ -1440,7 +1455,23 @@
       "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
-        "reason": "No verified AA identity."
+        "reason": "Anonymous stealth reasoning model; verified external evaluations exist, but no comparable AA role benchmark identity.",
+        "identityStatus": "stealth_unverified",
+        "externalSource": {
+          "label": "Vercel AI Gateway — Glyph Cluster",
+          "url": "https://vercel.com/changelog/glyph-cluster-is-now-available-in-stealth-for-free-on-ai-gateway"
+        },
+        "externalEvidence": {
+          "label": "External GPQA Diamond subset",
+          "url": "https://stealthmodels.com/glyph-cluster",
+          "method": "Independent 55-question subset (31/55), not a full standardized GPQA Diamond run and not an AA score.",
+          "metrics": [
+            {
+              "name": "GPQA Diamond (55-question subset)",
+              "score": "56.4%"
+            }
+          ]
+        }
       },
       "benchmarkProvenance": {},
       "tokenPrices": {
@@ -1715,79 +1746,79 @@
         "architect": {
           "score": 70.46,
           "rankingQuality": 70.46,
-          "rankingValue": 82.031,
+          "rankingValue": 80.921,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.875,
-          "balancedAffordabilityPercentile": 37.5
+          "balancedQualityPercentile": 97.368,
+          "balancedAffordabilityPercentile": 31.579
         },
         "strategist": {
           "score": 70.736,
           "rankingQuality": 70.736,
-          "rankingValue": 79.688,
+          "rankingValue": 78.947,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.75,
-          "balancedAffordabilityPercentile": 37.5
+          "balancedQualityPercentile": 94.737,
+          "balancedAffordabilityPercentile": 31.579
         },
         "security-reviewer": {
           "score": 64.065,
           "rankingQuality": 64.065,
-          "rankingValue": 87.5,
+          "rankingValue": 84.722,
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 50
+          "balancedAffordabilityPercentile": 38.889
         },
         "code-reviewer": {
           "score": 65.041,
           "rankingQuality": 61.997,
-          "rankingValue": 79.688,
+          "rankingValue": 78.947,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.75,
-          "balancedAffordabilityPercentile": 37.5
+          "balancedQualityPercentile": 94.737,
+          "balancedAffordabilityPercentile": 31.579
         },
         "implementer": {
           "score": 64.299,
           "rankingQuality": 61.503,
-          "rankingValue": 79.688,
+          "rankingValue": 78.947,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.75,
-          "balancedAffordabilityPercentile": 37.5
+          "balancedQualityPercentile": 94.737,
+          "balancedAffordabilityPercentile": 31.579
         },
         "implementer-heavy": {
           "score": 68.259,
           "rankingQuality": 64.143,
-          "rankingValue": 82.031,
+          "rankingValue": 80.921,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.875,
-          "balancedAffordabilityPercentile": 37.5
+          "balancedQualityPercentile": 97.368,
+          "balancedAffordabilityPercentile": 31.579
         },
         "synthesizer": {
           "score": 74.917,
           "rankingQuality": 74.917,
-          "rankingValue": 79.688,
+          "rankingValue": 78.947,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.75,
-          "balancedAffordabilityPercentile": 37.5
+          "balancedQualityPercentile": 94.737,
+          "balancedAffordabilityPercentile": 31.579
         },
         "researcher": {
           "score": 71.711,
           "rankingQuality": 71.711,
-          "rankingValue": 79.688,
+          "rankingValue": 78.947,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.75,
-          "balancedAffordabilityPercentile": 37.5
+          "balancedQualityPercentile": 94.737,
+          "balancedAffordabilityPercentile": 31.579
         }
       },
       "caiStar": {
@@ -2114,11 +2145,11 @@
       "max20EffectiveUsageUsd": 300,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "source_incomplete",
+        "status": "partial_scored",
         "slug": "glm-5-3-flash",
-        "reason": "AA source incomplete for active methodology: intelligenceIndex",
+        "reason": "Scored conservatively with unavailable benchmark: gdpval",
         "missingBenchmarks": [
-          "intelligenceIndex"
+          "gdpval"
         ]
       },
       "benchmarkProvenance": {
@@ -2127,6 +2158,33 @@
           "benchmark": "gdpval",
           "targetSlug": "glm-5-3-flash",
           "reason": "Artificial Analysis publishes no current gdpval value for this mapped model; role scores use a conservative zero contribution for this component."
+        },
+        "intelligenceIndex": {
+          "status": "estimated",
+          "strategy": "held_out_calibrated_hle_scicode_omniscience",
+          "source": "Artificial Analysis current benchmark fields",
+          "trainingFamilies": 29,
+          "loocvMae": 5.409,
+          "loocvP90": 9.626,
+          "estimate": 25.6917,
+          "cutoffLowerBound": 16.0652,
+          "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "cyberIndex": {
+          "status": "observed",
+          "source": "Artificial Analysis Cyber Index v1",
+          "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+          "value": 49.924,
+          "components": {
+            "cweBench": 55.833,
+            "deepsecBench": 19.892,
+            "cybergymE2e": 74.046
+          },
+          "safetyBlocks": {
+            "cweBench": 0,
+            "deepsecBench": 0,
+            "cybergymE2e": 0
+          }
         }
       },
       "tokenPrices": {
@@ -2136,15 +2194,140 @@
         "cacheWrite": null,
         "blended50": 0.325
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.155816,
+        "planAdjustedCostPerTaskUsd": 0.103877,
+        "costBasis": "normalized_reference_v1",
+        "costTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "normalizedTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "observedTaskTokenProfile": {
+          "nonCacheInput": null,
+          "cacheRead": null,
+          "cacheWrite": null,
+          "reasoning": null,
+          "answer": null,
+          "output": null
+        }
+      },
+      "benchmarks": {
+        "gdpval": null,
+        "lcr": 80,
+        "hle": 39.8517,
+        "omniscienceIndex": 50.3333,
+        "scicode": 51.6204,
+        "cyberIndex": 49.924
+      },
+      "roleScores": {
+        "architect": {
+          "score": 32.472,
+          "rankingQuality": 32.472,
+          "rankingValue": 24.013,
+          "status": "partial",
+          "coverageWeight": 0.5,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 3.947,
+          "balancedAffordabilityPercentile": 84.211
+        },
+        "strategist": {
+          "score": 34.556,
+          "rankingQuality": 34.556,
+          "rankingValue": 25.987,
+          "status": "partial",
+          "coverageWeight": 0.5556,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 6.579,
+          "balancedAffordabilityPercentile": 84.211
+        },
+        "security-reviewer": {
+          "score": 49.924,
+          "rankingQuality": 49.924,
+          "rankingValue": 74.306,
+          "balancedQualityPercentile": 69.444,
+          "balancedAffordabilityPercentile": 88.889
+        },
+        "code-reviewer": {
+          "score": 55.31,
+          "rankingQuality": 36.873,
+          "rankingValue": 25.987,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 6.579,
+          "balancedAffordabilityPercentile": 84.211
+        },
+        "implementer": {
+          "score": 55.244,
+          "rankingQuality": 36.829,
+          "rankingValue": 25.987,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 6.579,
+          "balancedAffordabilityPercentile": 84.211
+        },
+        "implementer-heavy": {
+          "score": 43.588,
+          "rankingQuality": 29.059,
+          "rankingValue": 24.013,
+          "status": "partial",
+          "coverageWeight": 0.4815,
+          "missingComponents": [
+            "gdpval",
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 3.947,
+          "balancedAffordabilityPercentile": 84.211
+        },
+        "synthesizer": {
+          "score": 56.133,
+          "rankingQuality": 56.133,
+          "rankingValue": 29.934,
+          "status": "partial",
+          "coverageWeight": 0.85,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 11.842,
+          "balancedAffordabilityPercentile": 84.211
+        },
+        "researcher": {
+          "score": 44.767,
+          "rankingQuality": 44.767,
+          "rankingValue": 24.013,
+          "status": "partial",
+          "coverageWeight": 0.7059,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 3.947,
+          "balancedAffordabilityPercentile": 84.211
+        }
+      },
       "codingAgent": null,
       "aaModel": {
         "slug": "glm-5-3-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-flash",
-        "intelligenceIndex": null
+        "intelligenceIndex": 25.6917,
+        "estimated": true,
+        "cutoffLowerBound": 16.0652
       }
     },
     {
@@ -2173,14 +2356,14 @@
       "max20EffectiveUsageUsd": 300,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "source_incomplete",
+        "status": "partial_scored",
         "slug": "glm-5-3-flash",
-        "reason": "AA source incomplete for active methodology: intelligenceIndex",
+        "reason": "Scored conservatively with unavailable benchmark: gdpval",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "intelligenceIndex"
+          "gdpval"
         ]
       },
       "benchmarkProvenance": {
@@ -2189,6 +2372,33 @@
           "benchmark": "gdpval",
           "targetSlug": "glm-5-3-flash",
           "reason": "Artificial Analysis publishes no current gdpval value for this mapped model; role scores use a conservative zero contribution for this component."
+        },
+        "intelligenceIndex": {
+          "status": "estimated",
+          "strategy": "held_out_calibrated_hle_scicode_omniscience",
+          "source": "Artificial Analysis current benchmark fields",
+          "trainingFamilies": 29,
+          "loocvMae": 5.409,
+          "loocvP90": 9.626,
+          "estimate": 25.6917,
+          "cutoffLowerBound": 16.0652,
+          "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "cyberIndex": {
+          "status": "observed",
+          "source": "Artificial Analysis Cyber Index v1",
+          "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+          "value": 49.924,
+          "components": {
+            "cweBench": 55.833,
+            "deepsecBench": 19.892,
+            "cybergymE2e": 74.046
+          },
+          "safetyBlocks": {
+            "cweBench": 0,
+            "deepsecBench": 0,
+            "cybergymE2e": 0
+          }
         }
       },
       "tokenPrices": {
@@ -2198,15 +2408,140 @@
         "cacheWrite": null,
         "blended50": 0.81
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.388385,
+        "planAdjustedCostPerTaskUsd": 0.258923,
+        "costBasis": "normalized_reference_v1",
+        "costTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "normalizedTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "observedTaskTokenProfile": {
+          "nonCacheInput": null,
+          "cacheRead": null,
+          "cacheWrite": null,
+          "reasoning": null,
+          "answer": null,
+          "output": null
+        }
+      },
+      "benchmarks": {
+        "gdpval": null,
+        "lcr": 80,
+        "hle": 39.8517,
+        "omniscienceIndex": 50.3333,
+        "scicode": 51.6204,
+        "cyberIndex": 49.924
+      },
+      "roleScores": {
+        "architect": {
+          "score": 32.472,
+          "rankingQuality": 32.472,
+          "rankingValue": 22.039,
+          "status": "partial",
+          "coverageWeight": 0.5,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 3.947,
+          "balancedAffordabilityPercentile": 76.316
+        },
+        "strategist": {
+          "score": 34.556,
+          "rankingQuality": 34.556,
+          "rankingValue": 24.013,
+          "status": "partial",
+          "coverageWeight": 0.5556,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 6.579,
+          "balancedAffordabilityPercentile": 76.316
+        },
+        "security-reviewer": {
+          "score": 49.924,
+          "rankingQuality": 49.924,
+          "rankingValue": 71.528,
+          "balancedQualityPercentile": 69.444,
+          "balancedAffordabilityPercentile": 77.778
+        },
+        "code-reviewer": {
+          "score": 55.31,
+          "rankingQuality": 36.873,
+          "rankingValue": 24.013,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 6.579,
+          "balancedAffordabilityPercentile": 76.316
+        },
+        "implementer": {
+          "score": 55.244,
+          "rankingQuality": 36.829,
+          "rankingValue": 24.013,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 6.579,
+          "balancedAffordabilityPercentile": 76.316
+        },
+        "implementer-heavy": {
+          "score": 43.588,
+          "rankingQuality": 29.059,
+          "rankingValue": 22.039,
+          "status": "partial",
+          "coverageWeight": 0.4815,
+          "missingComponents": [
+            "gdpval",
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 3.947,
+          "balancedAffordabilityPercentile": 76.316
+        },
+        "synthesizer": {
+          "score": 56.133,
+          "rankingQuality": 56.133,
+          "rankingValue": 27.961,
+          "status": "partial",
+          "coverageWeight": 0.85,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 11.842,
+          "balancedAffordabilityPercentile": 76.316
+        },
+        "researcher": {
+          "score": 44.767,
+          "rankingQuality": 44.767,
+          "rankingValue": 22.039,
+          "status": "partial",
+          "coverageWeight": 0.7059,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 3.947,
+          "balancedAffordabilityPercentile": 76.316
+        }
+      },
       "codingAgent": null,
       "aaModel": {
         "slug": "glm-5-3-flash",
         "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-flash",
-        "intelligenceIndex": null
+        "intelligenceIndex": 25.6917,
+        "estimated": true,
+        "cutoffLowerBound": 16.0652
       }
     },
     {
@@ -2250,7 +2585,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 57.5155
         },
         "cyberIndex": {
@@ -2316,79 +2651,79 @@
         "architect": {
           "score": 61.578,
           "rankingQuality": 61.578,
-          "rankingValue": 46.094,
+          "rankingValue": 50.658,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 50,
-          "balancedAffordabilityPercentile": 34.375
+          "balancedQualityPercentile": 57.895,
+          "balancedAffordabilityPercentile": 28.947
         },
         "strategist": {
           "score": 60.938,
           "rankingQuality": 60.938,
-          "rankingValue": 46.094,
+          "rankingValue": 50.658,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 50,
-          "balancedAffordabilityPercentile": 34.375
+          "balancedQualityPercentile": 57.895,
+          "balancedAffordabilityPercentile": 28.947
         },
         "security-reviewer": {
           "score": 36.376,
           "rankingQuality": 36.376,
-          "rankingValue": 48.214,
-          "balancedQualityPercentile": 50,
-          "balancedAffordabilityPercentile": 42.857
+          "rankingValue": 37.5,
+          "balancedQualityPercentile": 38.889,
+          "balancedAffordabilityPercentile": 33.333
         },
         "code-reviewer": {
           "score": 60.05,
           "rankingQuality": 56.339,
-          "rankingValue": 60.156,
+          "rankingValue": 62.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 68.75,
-          "balancedAffordabilityPercentile": 34.375
+          "balancedQualityPercentile": 73.684,
+          "balancedAffordabilityPercentile": 28.947
         },
         "implementer": {
           "score": 60.697,
           "rankingQuality": 56.77,
-          "rankingValue": 60.156,
+          "rankingValue": 62.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 68.75,
-          "balancedAffordabilityPercentile": 34.375
+          "balancedQualityPercentile": 73.684,
+          "balancedAffordabilityPercentile": 28.947
         },
         "implementer-heavy": {
           "score": 63.194,
           "rankingQuality": 58.435,
-          "rankingValue": 60.156,
+          "rankingValue": 62.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 68.75,
-          "balancedAffordabilityPercentile": 34.375
+          "balancedQualityPercentile": 73.684,
+          "balancedAffordabilityPercentile": 28.947
         },
         "synthesizer": {
           "score": 65.684,
           "rankingQuality": 65.684,
-          "rankingValue": 41.406,
+          "rankingValue": 46.711,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.75,
-          "balancedAffordabilityPercentile": 34.375
+          "balancedQualityPercentile": 52.632,
+          "balancedAffordabilityPercentile": 28.947
         },
         "researcher": {
           "score": 62.48,
           "rankingQuality": 62.48,
-          "rankingValue": 43.75,
+          "rankingValue": 48.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 46.875,
-          "balancedAffordabilityPercentile": 34.375
+          "balancedQualityPercentile": 55.263,
+          "balancedAffordabilityPercentile": 28.947
         }
       },
       "caiStar": {
@@ -2753,242 +3088,72 @@
         "architect": {
           "score": 57.829,
           "rankingQuality": 57.829,
-          "rankingValue": 58.984,
+          "rankingValue": 66.447,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 45.313,
+          "balancedQualityPercentile": 55.263,
           "balancedAffordabilityPercentile": 100
         },
         "strategist": {
           "score": 54.584,
           "rankingQuality": 54.584,
-          "rankingValue": 51.953,
+          "rankingValue": 60.526,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 35.938,
+          "balancedQualityPercentile": 47.368,
           "balancedAffordabilityPercentile": 100
         },
         "code-reviewer": {
           "score": 56.796,
           "rankingQuality": 50.054,
-          "rankingValue": 56.641,
+          "rankingValue": 64.474,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 42.188,
+          "balancedQualityPercentile": 52.632,
           "balancedAffordabilityPercentile": 100
         },
         "implementer": {
           "score": 57.365,
           "rankingQuality": 50.433,
-          "rankingValue": 63.672,
+          "rankingValue": 70.395,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 51.563,
+          "balancedQualityPercentile": 60.526,
           "balancedAffordabilityPercentile": 100
         },
         "implementer-heavy": {
           "score": 57.682,
           "rankingQuality": 50.644,
-          "rankingValue": 54.297,
+          "rankingValue": 62.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 39.063,
+          "balancedQualityPercentile": 50,
           "balancedAffordabilityPercentile": 100
         },
         "synthesizer": {
           "score": 61.752,
           "rankingQuality": 61.752,
-          "rankingValue": 40.234,
+          "rankingValue": 46.711,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 20.313,
+          "balancedQualityPercentile": 28.947,
           "balancedAffordabilityPercentile": 100
         },
         "researcher": {
           "score": 58.854,
           "rankingQuality": 58.854,
-          "rankingValue": 54.297,
+          "rankingValue": 62.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 39.063,
+          "balancedQualityPercentile": 50,
           "balancedAffordabilityPercentile": 100
-        }
-      },
-      "caiStar": {
-        "value": 36.569,
-        "source": "estimated",
-        "version": "v1.5",
-        "ridge": 33.288,
-        "knn": 37.663
-      },
-      "codingAgent": null,
-      "aaModel": {
-        "slug": "minimax-m3-1-flash",
-        "sourceUrl": "https://artificialanalysis.ai/models/minimax-m3-1-flash",
-        "intelligenceIndex": 28.9095214290458
-      }
-    },
-    {
-      "name": "MiniMax M3.1 Flash",
-      "rawName": "MiniMax M3.1 Flash",
-      "context": null,
-      "inputPerM": 0.15,
-      "outputPerM": 0.6,
-      "cacheReadPerM": 0.015,
-      "cacheWritePerM": null,
-      "inputListPerM": 0.15,
-      "outputListPerM": 0.6,
-      "cacheReadListPerM": 0.015,
-      "cacheWriteListPerM": null,
-      "discountPercent": null,
-      "free": false,
-      "billingCategory": "standard",
-      "max10MonthlyUsageLimitUsd": 150,
-      "max20MonthlyUsageLimitUsd": 300,
-      "dataTraining": false,
-      "offPeakShown": false,
-      "sourceUrl": "https://commandcode.ai/docs/plans/max",
-      "dealMultiplier": 1,
-      "dealDiscountPercent": null,
-      "max10EffectiveUsageUsd": 150,
-      "max20EffectiveUsageUsd": 300,
-      "dealSourceUrl": null,
-      "mapping": {
-        "status": "exact",
-        "slug": "minimax-m3-1-flash",
-        "reason": "Unique normalized match to AA canonical slug."
-      },
-      "benchmarkProvenance": {
-        "gdpval": {
-          "status": "observed",
-          "benchmark": "gdpval",
-          "targetSlug": "minimax-m3-1-flash",
-          "strategy": "observed_v2_1_secondary",
-          "provenanceStatus": "observed",
-          "metricVersion": "GDPval-AA v2.1",
-          "configuration": "minimax-m3-1-flash",
-          "sourceUrl": "https://www.benchleader.com/benchmarks/aa_gdpval",
-          "value": 47.88
-        }
-      },
-      "tokenPrices": {
-        "input": 0.15,
-        "output": 0.6,
-        "cacheRead": 0.015,
-        "cacheWrite": null,
-        "blended50": 0.375
-      },
-      "taskEfficiency": {
-        "commandCodeCostPerTaskUsd": 0.490971,
-        "planAdjustedCostPerTaskUsd": 0.327314,
-        "costBasis": "observed_aa_task_profile",
-        "costTokenProfile": {
-          "nonCacheInput": 8080.11835,
-          "cacheRead": 19682882.9668884,
-          "cacheWrite": 744063.9750024662,
-          "reasoning": 102940.58190337746,
-          "answer": 35235.7763938493,
-          "output": 138176.35829722678
-        },
-        "normalizedTokenProfile": {
-          "nonCacheInput": 16564.39,
-          "cacheRead": 3178851.04,
-          "cacheWrite": 214245.16,
-          "output": 51657.3
-        },
-        "observedTaskTokenProfile": {
-          "nonCacheInput": 8080.11835,
-          "cacheRead": 19682882.9668884,
-          "cacheWrite": 744063.9750024662,
-          "reasoning": 102940.58190337746,
-          "answer": 35235.7763938493,
-          "output": 138176.35829722678
-        }
-      },
-      "benchmarks": {
-        "gdpval": 47.88,
-        "lcr": 79.6667,
-        "hle": 47.9611,
-        "omniscienceIndex": 46.8,
-        "scicode": 53.3565
-      },
-      "roleScores": {
-        "architect": {
-          "score": 57.829,
-          "rankingQuality": 57.829,
-          "rankingValue": 53.516,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 45.313,
-          "balancedAffordabilityPercentile": 78.125
-        },
-        "strategist": {
-          "score": 54.584,
-          "rankingQuality": 54.584,
-          "rankingValue": 46.484,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 35.938,
-          "balancedAffordabilityPercentile": 78.125
-        },
-        "code-reviewer": {
-          "score": 56.796,
-          "rankingQuality": 50.054,
-          "rankingValue": 51.172,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 42.188,
-          "balancedAffordabilityPercentile": 78.125
-        },
-        "implementer": {
-          "score": 57.365,
-          "rankingQuality": 50.433,
-          "rankingValue": 58.203,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 51.563,
-          "balancedAffordabilityPercentile": 78.125
-        },
-        "implementer-heavy": {
-          "score": 57.682,
-          "rankingQuality": 50.644,
-          "rankingValue": 48.828,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 39.063,
-          "balancedAffordabilityPercentile": 78.125
-        },
-        "synthesizer": {
-          "score": 61.752,
-          "rankingQuality": 61.752,
-          "rankingValue": 34.766,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 20.313,
-          "balancedAffordabilityPercentile": 78.125
-        },
-        "researcher": {
-          "score": 58.854,
-          "rankingQuality": 58.854,
-          "rankingValue": 48.828,
-          "status": "valid",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 39.063,
-          "balancedAffordabilityPercentile": 78.125
         }
       },
       "caiStar": {
@@ -3046,7 +3211,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 37.1235
         },
         "cyberIndex": {
@@ -3112,79 +3277,79 @@
         "architect": {
           "score": 51.806,
           "rankingQuality": 51.806,
-          "rankingValue": 31.25,
+          "rankingValue": 38.816,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 18.75,
-          "balancedAffordabilityPercentile": 68.75
+          "balancedQualityPercentile": 31.579,
+          "balancedAffordabilityPercentile": 60.526
         },
         "strategist": {
           "score": 50.694,
           "rankingQuality": 50.694,
-          "rankingValue": 31.25,
+          "rankingValue": 38.816,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 18.75,
-          "balancedAffordabilityPercentile": 68.75
+          "balancedQualityPercentile": 31.579,
+          "balancedAffordabilityPercentile": 60.526
         },
         "security-reviewer": {
           "score": 22.388,
           "rankingQuality": 22.388,
-          "rankingValue": 32.143,
-          "balancedQualityPercentile": 14.286,
-          "balancedAffordabilityPercentile": 85.714
+          "rankingValue": 25,
+          "balancedQualityPercentile": 11.111,
+          "balancedAffordabilityPercentile": 66.667
         },
         "code-reviewer": {
           "score": 52.838,
           "rankingQuality": 45.073,
-          "rankingValue": 31.25,
+          "rankingValue": 40.789,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 18.75,
-          "balancedAffordabilityPercentile": 68.75
+          "balancedQualityPercentile": 34.211,
+          "balancedAffordabilityPercentile": 60.526
         },
         "implementer": {
           "score": 52.484,
           "rankingQuality": 44.837,
-          "rankingValue": 31.25,
+          "rankingValue": 40.789,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 18.75,
-          "balancedAffordabilityPercentile": 68.75
+          "balancedQualityPercentile": 34.211,
+          "balancedAffordabilityPercentile": 60.526
         },
         "implementer-heavy": {
           "score": 52.31,
           "rankingQuality": 44.721,
-          "rankingValue": 31.25,
+          "rankingValue": 40.789,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 18.75,
-          "balancedAffordabilityPercentile": 68.75
+          "balancedQualityPercentile": 34.211,
+          "balancedAffordabilityPercentile": 60.526
         },
         "synthesizer": {
           "score": 61.819,
           "rankingQuality": 61.819,
-          "rankingValue": 35.938,
+          "rankingValue": 38.816,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25,
-          "balancedAffordabilityPercentile": 68.75
+          "balancedQualityPercentile": 31.579,
+          "balancedAffordabilityPercentile": 60.526
         },
         "researcher": {
           "score": 55.915,
           "rankingQuality": 55.915,
-          "rankingValue": 31.25,
+          "rankingValue": 40.789,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 18.75,
-          "balancedAffordabilityPercentile": 68.75
+          "balancedQualityPercentile": 34.211,
+          "balancedAffordabilityPercentile": 60.526
         }
       },
       "caiStar": {
@@ -3350,10 +3515,35 @@
       "dealSourceUrl": null,
       "mapping": {
         "status": "unscored",
-        "reason": "Stealth model; identity unverified. Not comparable to the AA ranking.",
-        "identityStatus": "stealth_unverified",
-        "externalSource": null,
-        "externalEvidence": null
+        "reason": "Publicly documented open-weight model; primary developer reports task benchmarks, but no matching AA intelligence record. Do not treat it as anonymous stealth or directly comparable AA role scores.",
+        "identityStatus": "public_model_unmatched",
+        "externalSource": {
+          "label": "Ornith 1.5 122B official model card",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B"
+        },
+        "externalEvidence": {
+          "label": "Developer-reported benchmark results",
+          "url": "https://huggingface.co/ornith-ai/Ornith-1.5-122B",
+          "method": "Creator-reported; TerminalBench 2.1 run with Claude Code; SWE-bench Pro with OpenHands and anti-hacking safeguards. Not independently standardized against AA.",
+          "metrics": [
+            {
+              "name": "TerminalBench 2.1",
+              "score": "81.2%"
+            },
+            {
+              "name": "SWE-bench Pro",
+              "score": "76.9%"
+            },
+            {
+              "name": "CyberGym",
+              "score": "80.0%"
+            },
+            {
+              "name": "BrowseComp",
+              "score": "78.5%"
+            }
+          ]
+        }
       },
       "benchmarkProvenance": {},
       "tokenPrices": {
@@ -3362,53 +3552,6 @@
         "cacheRead": 0,
         "cacheWrite": null,
         "blended50": 0
-      },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
-      "codingAgent": null,
-      "aaModel": null
-    },
-    {
-      "name": "Ornith 1.5 122B",
-      "rawName": "Ornith 1.5 122B",
-      "context": null,
-      "inputPerM": 0.16,
-      "outputPerM": 0.64,
-      "cacheReadPerM": 0.02,
-      "cacheWritePerM": null,
-      "inputListPerM": 0.16,
-      "outputListPerM": 0.64,
-      "cacheReadListPerM": 0.02,
-      "cacheWriteListPerM": null,
-      "discountPercent": null,
-      "free": false,
-      "billingCategory": "standard",
-      "max10MonthlyUsageLimitUsd": 150,
-      "max20MonthlyUsageLimitUsd": 300,
-      "dataTraining": false,
-      "offPeakShown": false,
-      "sourceUrl": "https://commandcode.ai/docs/plans/max",
-      "dealMultiplier": 1,
-      "dealDiscountPercent": null,
-      "max10EffectiveUsageUsd": 150,
-      "max20EffectiveUsageUsd": 300,
-      "dealSourceUrl": null,
-      "mapping": {
-        "status": "unscored",
-        "reason": "Stealth model; identity unverified. Not comparable to the AA ranking.",
-        "identityStatus": "stealth_unverified",
-        "externalSource": null,
-        "externalEvidence": null
-      },
-      "benchmarkProvenance": {},
-      "tokenPrices": {
-        "input": 0.16,
-        "output": 0.64,
-        "cacheRead": 0.02,
-        "cacheWrite": null,
-        "blended50": 0.4
       },
       "taskEfficiency": null,
       "benchmarks": {},
@@ -3458,7 +3601,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 47.5235
         }
       },
@@ -3507,72 +3650,72 @@
         "architect": {
           "score": 56.555,
           "rankingQuality": 56.555,
-          "rankingValue": 42.188,
+          "rankingValue": 50.658,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.25,
-          "balancedAffordabilityPercentile": 75
+          "balancedQualityPercentile": 44.737,
+          "balancedAffordabilityPercentile": 68.421
         },
         "strategist": {
           "score": 54.579,
           "rankingQuality": 54.579,
-          "rankingValue": 42.188,
+          "rankingValue": 50.658,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.25,
-          "balancedAffordabilityPercentile": 75
+          "balancedQualityPercentile": 44.737,
+          "balancedAffordabilityPercentile": 68.421
         },
         "code-reviewer": {
           "score": 54.752,
           "rankingQuality": 48.24,
-          "rankingValue": 39.844,
+          "rankingValue": 48.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.125,
-          "balancedAffordabilityPercentile": 75
+          "balancedQualityPercentile": 42.105,
+          "balancedAffordabilityPercentile": 68.421
         },
         "implementer": {
           "score": 55.031,
           "rankingQuality": 48.426,
-          "rankingValue": 39.844,
+          "rankingValue": 48.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.125,
-          "balancedAffordabilityPercentile": 75
+          "balancedQualityPercentile": 42.105,
+          "balancedAffordabilityPercentile": 68.421
         },
         "implementer-heavy": {
           "score": 56.574,
           "rankingQuality": 49.455,
-          "rankingValue": 39.844,
+          "rankingValue": 48.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.125,
-          "balancedAffordabilityPercentile": 75
+          "balancedQualityPercentile": 42.105,
+          "balancedAffordabilityPercentile": 68.421
         },
         "synthesizer": {
           "score": 62.005,
           "rankingQuality": 62.005,
-          "rankingValue": 39.844,
+          "rankingValue": 42.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.125,
-          "balancedAffordabilityPercentile": 75
+          "balancedQualityPercentile": 34.211,
+          "balancedAffordabilityPercentile": 68.421
         },
         "researcher": {
           "score": 58.171,
           "rankingQuality": 58.171,
-          "rankingValue": 42.188,
+          "rankingValue": 50.658,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.25,
-          "balancedAffordabilityPercentile": 75
+          "balancedQualityPercentile": 44.737,
+          "balancedAffordabilityPercentile": 68.421
         }
       },
       "caiStar": {
@@ -3883,8 +4026,8 @@
       "max20EffectiveUsageUsd": 300,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "unscored",
-        "reason": "Experimental proxy unavailable: reference has no usable current role scores; reference Qwen 3.8 Flash.",
+        "status": "estimated",
+        "reason": "Experimental proxy of Qwen 3.8 Flash (factor 0.9); not an observed AA evaluation.",
         "identityStatus": "external_verified",
         "externalSource": {
           "label": "Qwen3.8-Omni-Flash",
@@ -3892,7 +4035,58 @@
         },
         "externalEvidence": null
       },
-      "benchmarkProvenance": {},
+      "benchmarkProvenance": {
+        "gdpval": {
+          "status": "estimated",
+          "strategy": "reference_ratio",
+          "reference": "Qwen 3.8 Flash",
+          "factor": 0.9,
+          "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+          "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+          "value": 50.754,
+          "factorType": "unvalidated assumption"
+        },
+        "lcr": {
+          "status": "estimated",
+          "strategy": "reference_ratio",
+          "reference": "Qwen 3.8 Flash",
+          "factor": 0.9,
+          "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+          "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+          "value": 71.7,
+          "factorType": "unvalidated assumption"
+        },
+        "hle": {
+          "status": "estimated",
+          "strategy": "reference_ratio",
+          "reference": "Qwen 3.8 Flash",
+          "factor": 0.9,
+          "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+          "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+          "value": 34.24,
+          "factorType": "unvalidated assumption"
+        },
+        "omniscienceIndex": {
+          "status": "estimated",
+          "strategy": "reference_ratio",
+          "reference": "Qwen 3.8 Flash",
+          "factor": 0.9,
+          "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+          "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+          "value": 40.628,
+          "factorType": "unvalidated assumption"
+        },
+        "scicode": {
+          "status": "estimated",
+          "strategy": "reference_ratio",
+          "reference": "Qwen 3.8 Flash",
+          "factor": 0.9,
+          "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+          "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+          "value": 45.521,
+          "factorType": "unvalidated assumption"
+        }
+      },
       "tokenPrices": {
         "input": 0.15,
         "output": 0.47,
@@ -3900,12 +4094,131 @@
         "cacheWrite": null,
         "blended50": 0.31
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.109762,
+        "planAdjustedCostPerTaskUsd": 0.073175,
+        "costBasis": "normalized_reference_v1",
+        "costTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "normalizedTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "observedTaskTokenProfile": null
+      },
+      "benchmarks": {
+        "gdpval": 50.754,
+        "lcr": 71.7,
+        "hle": 34.24,
+        "omniscienceIndex": 40.628,
+        "scicode": 45.521
+      },
+      "roleScores": {
+        "architect": {
+          "score": 54.203,
+          "rankingQuality": 54.203,
+          "rankingValue": 49.342,
+          "status": "estimated",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 34.211,
+          "balancedAffordabilityPercentile": 94.737
+        },
+        "strategist": {
+          "score": 52.033,
+          "rankingQuality": 52.033,
+          "rankingValue": 49.342,
+          "status": "estimated",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 34.211,
+          "balancedAffordabilityPercentile": 94.737
+        },
+        "code-reviewer": {
+          "score": 48.408,
+          "rankingQuality": 32.272,
+          "rankingValue": 23.684,
+          "status": "estimated",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 94.737
+        },
+        "implementer": {
+          "score": 48.814,
+          "rankingQuality": 32.543,
+          "rankingValue": 23.684,
+          "status": "estimated",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 94.737
+        },
+        "implementer-heavy": {
+          "score": 52.792,
+          "rankingQuality": 35.195,
+          "rankingValue": 37.5,
+          "status": "estimated",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 18.421,
+          "balancedAffordabilityPercentile": 94.737
+        },
+        "synthesizer": {
+          "score": 56.129,
+          "rankingQuality": 56.129,
+          "rankingValue": 29.605,
+          "status": "estimated",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 7.895,
+          "balancedAffordabilityPercentile": 94.737
+        },
+        "researcher": {
+          "score": 53.821,
+          "rankingQuality": 53.821,
+          "rankingValue": 47.368,
+          "status": "estimated",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 31.579,
+          "balancedAffordabilityPercentile": 94.737
+        }
+      },
       "caiStar": null,
       "codingAgent": null,
-      "aaModel": null
+      "aaModel": {
+        "slug": "experimental:qwen38omniflash",
+        "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+        "intelligenceIndex": 18.4707,
+        "estimated": true
+      },
+      "estimatedBenchmarks": {
+        "reference": "Qwen 3.8 Flash",
+        "factor": 0.9,
+        "method": "unvalidated assumption",
+        "evidence": "No matched benchmark ratio; illustrative 10% haircut",
+        "sourceUrl": "https://www.qwencloud.com/models/qwen3.8-omni-flash",
+        "metrics": [
+          "gdpval",
+          "lcr",
+          "hle",
+          "omniscienceIndex",
+          "scicode"
+        ]
+      }
     },
     {
       "name": "Qwen 3.8 Max Prime",
@@ -4024,72 +4337,72 @@
         "architect": {
           "score": 62.324,
           "rankingQuality": 62.324,
-          "rankingValue": 58.203,
+          "rankingValue": 60.855,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.063,
-          "balancedAffordabilityPercentile": 40.625
+          "balancedQualityPercentile": 69.737,
+          "balancedAffordabilityPercentile": 34.211
         },
         "strategist": {
           "score": 62.418,
           "rankingQuality": 62.418,
-          "rankingValue": 61.719,
+          "rankingValue": 63.816,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 68.75,
-          "balancedAffordabilityPercentile": 40.625
+          "balancedQualityPercentile": 73.684,
+          "balancedAffordabilityPercentile": 34.211
         },
         "code-reviewer": {
           "score": 56.745,
           "rankingQuality": 50.903,
-          "rankingValue": 50,
+          "rankingValue": 53.947,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.125,
-          "balancedAffordabilityPercentile": 40.625
+          "balancedQualityPercentile": 60.526,
+          "balancedAffordabilityPercentile": 34.211
         },
         "implementer": {
           "score": 56.011,
           "rankingQuality": 50.414,
-          "rankingValue": 42.969,
-          "status": "estimated",
-          "coverageWeight": 1,
-          "missingComponents": [],
-          "balancedQualityPercentile": 43.75,
-          "balancedAffordabilityPercentile": 40.625
-        },
-        "implementer-heavy": {
-          "score": 60.082,
-          "rankingQuality": 53.128,
           "rankingValue": 50,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.125,
-          "balancedAffordabilityPercentile": 40.625
+          "balancedQualityPercentile": 55.263,
+          "balancedAffordabilityPercentile": 34.211
+        },
+        "implementer-heavy": {
+          "score": 60.082,
+          "rankingQuality": 53.128,
+          "rankingValue": 53.947,
+          "status": "estimated",
+          "coverageWeight": 1,
+          "missingComponents": [],
+          "balancedQualityPercentile": 60.526,
+          "balancedAffordabilityPercentile": 34.211
         },
         "synthesizer": {
           "score": 67.289,
           "rankingQuality": 67.289,
-          "rankingValue": 57.031,
+          "rankingValue": 59.868,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 62.5,
-          "balancedAffordabilityPercentile": 40.625
+          "balancedQualityPercentile": 68.421,
+          "balancedAffordabilityPercentile": 34.211
         },
         "researcher": {
           "score": 63.738,
           "rankingQuality": 63.738,
-          "rankingValue": 54.688,
+          "rankingValue": 57.895,
           "status": "estimated",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 59.375,
-          "balancedAffordabilityPercentile": 40.625
+          "balancedQualityPercentile": 65.789,
+          "balancedAffordabilityPercentile": 34.211
         }
       },
       "caiStar": {
@@ -4164,7 +4477,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 58.279
         }
       },
@@ -4213,72 +4526,72 @@
         "architect": {
           "score": 62.324,
           "rankingQuality": 62.324,
-          "rankingValue": 51.953,
+          "rankingValue": 55.592,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.063,
-          "balancedAffordabilityPercentile": 15.625
+          "balancedQualityPercentile": 69.737,
+          "balancedAffordabilityPercentile": 13.158
         },
         "strategist": {
           "score": 62.165,
           "rankingQuality": 62.165,
-          "rankingValue": 51.953,
+          "rankingValue": 55.592,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.063,
-          "balancedAffordabilityPercentile": 15.625
+          "balancedQualityPercentile": 69.737,
+          "balancedAffordabilityPercentile": 13.158
         },
         "code-reviewer": {
           "score": 56.65,
           "rankingQuality": 50.84,
-          "rankingValue": 40.234,
+          "rankingValue": 45.724,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 48.438,
-          "balancedAffordabilityPercentile": 15.625
+          "balancedQualityPercentile": 56.579,
+          "balancedAffordabilityPercentile": 13.158
         },
         "implementer": {
           "score": 56.011,
           "rankingQuality": 50.414,
-          "rankingValue": 36.719,
+          "rankingValue": 44.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.75,
-          "balancedAffordabilityPercentile": 15.625
+          "balancedQualityPercentile": 55.263,
+          "balancedAffordabilityPercentile": 13.158
         },
         "implementer-heavy": {
           "score": 60.082,
           "rankingQuality": 53.128,
-          "rankingValue": 43.75,
+          "rankingValue": 48.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.125,
-          "balancedAffordabilityPercentile": 15.625
+          "balancedQualityPercentile": 60.526,
+          "balancedAffordabilityPercentile": 13.158
         },
         "synthesizer": {
           "score": 66.985,
           "rankingQuality": 66.985,
-          "rankingValue": 44.922,
+          "rankingValue": 49.671,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 54.688,
-          "balancedAffordabilityPercentile": 15.625
+          "balancedQualityPercentile": 61.842,
+          "balancedAffordabilityPercentile": 13.158
         },
         "researcher": {
           "score": 63.56,
           "rankingQuality": 63.56,
-          "rankingValue": 44.922,
+          "rankingValue": 49.671,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 54.688,
-          "balancedAffordabilityPercentile": 15.625
+          "balancedQualityPercentile": 61.842,
+          "balancedAffordabilityPercentile": 13.158
         }
       },
       "caiStar": {
@@ -4365,7 +4678,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 58.279
         }
       },
@@ -4414,72 +4727,72 @@
         "architect": {
           "score": 62.324,
           "rankingQuality": 62.324,
-          "rankingValue": 50.391,
+          "rankingValue": 54.276,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.063,
-          "balancedAffordabilityPercentile": 9.375
+          "balancedQualityPercentile": 69.737,
+          "balancedAffordabilityPercentile": 7.895
         },
         "strategist": {
           "score": 62.165,
           "rankingQuality": 62.165,
-          "rankingValue": 50.391,
+          "rankingValue": 54.276,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.063,
-          "balancedAffordabilityPercentile": 9.375
+          "balancedQualityPercentile": 69.737,
+          "balancedAffordabilityPercentile": 7.895
         },
         "code-reviewer": {
           "score": 56.65,
           "rankingQuality": 50.84,
-          "rankingValue": 38.672,
+          "rankingValue": 44.408,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 48.438,
-          "balancedAffordabilityPercentile": 9.375
+          "balancedQualityPercentile": 56.579,
+          "balancedAffordabilityPercentile": 7.895
         },
         "implementer": {
           "score": 56.011,
           "rankingQuality": 50.414,
-          "rankingValue": 35.156,
+          "rankingValue": 43.421,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.75,
-          "balancedAffordabilityPercentile": 9.375
+          "balancedQualityPercentile": 55.263,
+          "balancedAffordabilityPercentile": 7.895
         },
         "implementer-heavy": {
           "score": 60.082,
           "rankingQuality": 53.128,
-          "rankingValue": 42.188,
+          "rankingValue": 47.368,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.125,
-          "balancedAffordabilityPercentile": 9.375
+          "balancedQualityPercentile": 60.526,
+          "balancedAffordabilityPercentile": 7.895
         },
         "synthesizer": {
           "score": 66.985,
           "rankingQuality": 66.985,
-          "rankingValue": 43.359,
+          "rankingValue": 48.355,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 54.688,
-          "balancedAffordabilityPercentile": 9.375
+          "balancedQualityPercentile": 61.842,
+          "balancedAffordabilityPercentile": 7.895
         },
         "researcher": {
           "score": 63.56,
           "rankingQuality": 63.56,
-          "rankingValue": 43.359,
+          "rankingValue": 48.355,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 54.688,
-          "balancedAffordabilityPercentile": 9.375
+          "balancedQualityPercentile": 61.842,
+          "balancedAffordabilityPercentile": 7.895
         }
       },
       "caiStar": {
@@ -4566,7 +4879,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 45.994
         },
         "cyberIndex": {
@@ -4632,79 +4945,79 @@
         "architect": {
           "score": 54.982,
           "rankingQuality": 54.982,
-          "rankingValue": 28.125,
+          "rankingValue": 38.158,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.875,
-          "balancedAffordabilityPercentile": 46.875
+          "balancedQualityPercentile": 36.842,
+          "balancedAffordabilityPercentile": 42.105
         },
         "strategist": {
           "score": 54.27,
           "rankingQuality": 54.27,
-          "rankingValue": 30.469,
+          "rankingValue": 40.132,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25,
-          "balancedAffordabilityPercentile": 46.875
+          "balancedQualityPercentile": 39.474,
+          "balancedAffordabilityPercentile": 42.105
         },
         "security-reviewer": {
           "score": 12.724,
           "rankingQuality": 12.724,
-          "rankingValue": 16.071,
+          "rankingValue": 12.5,
           "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 64.286
+          "balancedAffordabilityPercentile": 50
         },
         "code-reviewer": {
           "score": 51.704,
           "rankingQuality": 45.711,
-          "rankingValue": 28.125,
+          "rankingValue": 38.158,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.875,
-          "balancedAffordabilityPercentile": 46.875
+          "balancedQualityPercentile": 36.842,
+          "balancedAffordabilityPercentile": 42.105
         },
         "implementer": {
           "score": 51.386,
           "rankingQuality": 45.499,
-          "rankingValue": 28.125,
+          "rankingValue": 38.158,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.875,
-          "balancedAffordabilityPercentile": 46.875
+          "balancedQualityPercentile": 36.842,
+          "balancedAffordabilityPercentile": 42.105
         },
         "implementer-heavy": {
           "score": 54.32,
           "rankingQuality": 47.455,
-          "rankingValue": 28.125,
+          "rankingValue": 38.158,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.875,
-          "balancedAffordabilityPercentile": 46.875
+          "balancedQualityPercentile": 36.842,
+          "balancedAffordabilityPercentile": 42.105
         },
         "synthesizer": {
           "score": 62.526,
           "rankingQuality": 62.526,
-          "rankingValue": 37.5,
+          "rankingValue": 44.079,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 34.375,
-          "balancedAffordabilityPercentile": 46.875
+          "balancedQualityPercentile": 44.737,
+          "balancedAffordabilityPercentile": 42.105
         },
         "researcher": {
           "score": 57.475,
           "rankingQuality": 57.475,
-          "rankingValue": 32.813,
+          "rankingValue": 42.105,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.125,
-          "balancedAffordabilityPercentile": 46.875
+          "balancedQualityPercentile": 42.105,
+          "balancedAffordabilityPercentile": 42.105
         }
       },
       "caiStar": {
@@ -4747,34 +5060,13 @@
       "max20EffectiveUsageUsd": 300,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "source_incomplete",
-        "slug": "qwen3-max-preview",
-        "reason": "AA source incomplete for active methodology: gdpval, omniscienceIndex",
+        "status": "outdated_unscored",
+        "reason": "Superseded by Qwen 3.7/3.8 Max generations; no verified AA 3.6 Max identity or current benchmark. Excluded from scoring; retained in historical catalog.",
         "identityStatus": null,
         "externalSource": null,
-        "externalEvidence": null,
-        "missingBenchmarks": [
-          "gdpval",
-          "omniscienceIndex"
-        ]
+        "externalEvidence": null
       },
-      "benchmarkProvenance": {
-        "scicode": {
-          "status": "estimated",
-          "benchmark": "scicode",
-          "targetSlug": "qwen3-max-preview",
-          "strategy": "validated_hle_lcr_ridge",
-          "provenanceStatus": "estimated",
-          "value": 32.0239,
-          "sourceUrl": "https://artificialanalysis.ai/evaluations/scicode",
-          "calibration": {
-            "method": "ridge_lambda_1_hle_lcr",
-            "observed": 28,
-            "looMae": 2.5263,
-            "looMaxError": 6.8403
-          }
-        }
-      },
+      "benchmarkProvenance": {},
       "tokenPrices": {
         "input": 1.3,
         "output": 7.8,
@@ -4787,11 +5079,7 @@
       "roleScores": {},
       "caiStar": null,
       "codingAgent": null,
-      "aaModel": {
-        "slug": "qwen3-max-preview",
-        "sourceUrl": "https://artificialanalysis.ai/models/qwen3-max-preview",
-        "intelligenceIndex": null
-      }
+      "aaModel": null
     },
     {
       "name": "Qwen 3.6 Plus",
@@ -4994,14 +5282,14 @@
       "max20EffectiveUsageUsd": 300,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "source_incomplete",
+        "status": "partial_scored",
         "slug": "qwen3-8-flash-next",
-        "reason": "AA source incomplete for active methodology: intelligenceIndex",
+        "reason": "Scored conservatively with unavailable benchmark: gdpval",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "intelligenceIndex"
+          "gdpval"
         ]
       },
       "benchmarkProvenance": {
@@ -5010,6 +5298,17 @@
           "benchmark": "gdpval",
           "targetSlug": "qwen3-8-flash-next",
           "reason": "Artificial Analysis publishes no current gdpval value for this mapped model; role scores use a conservative zero contribution for this component."
+        },
+        "intelligenceIndex": {
+          "status": "estimated",
+          "strategy": "held_out_calibrated_hle_scicode_omniscience",
+          "source": "Artificial Analysis current benchmark fields",
+          "trainingFamilies": 29,
+          "loocvMae": 5.409,
+          "loocvP90": 9.626,
+          "estimate": 20.523,
+          "cutoffLowerBound": 10.8965,
+          "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
         }
       },
       "tokenPrices": {
@@ -5019,15 +5318,132 @@
         "cacheWrite": null,
         "blended50": 0.315
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.11207,
+        "planAdjustedCostPerTaskUsd": 0.074713,
+        "costBasis": "normalized_reference_v1",
+        "costTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "normalizedTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "observedTaskTokenProfile": {
+          "nonCacheInput": null,
+          "cacheRead": null,
+          "cacheWrite": null,
+          "reasoning": null,
+          "answer": null,
+          "output": null
+        }
+      },
+      "benchmarks": {
+        "gdpval": null,
+        "lcr": 79.6667,
+        "hle": 38.0445,
+        "omniscienceIndex": 43.8833,
+        "scicode": 50.5787
+      },
+      "roleScores": {
+        "architect": {
+          "score": 32.029,
+          "rankingQuality": 32.029,
+          "rankingValue": 23.026,
+          "status": "partial",
+          "coverageWeight": 0.5,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 92.105
+        },
+        "strategist": {
+          "score": 32.331,
+          "rankingQuality": 32.331,
+          "rankingValue": 23.026,
+          "status": "partial",
+          "coverageWeight": 0.5556,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 92.105
+        },
+        "code-reviewer": {
+          "score": 53.629,
+          "rankingQuality": 35.753,
+          "rankingValue": 25,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 2.632,
+          "balancedAffordabilityPercentile": 92.105
+        },
+        "implementer": {
+          "score": 54.237,
+          "rankingQuality": 36.158,
+          "rankingValue": 25,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 2.632,
+          "balancedAffordabilityPercentile": 92.105
+        },
+        "implementer-heavy": {
+          "score": 42.993,
+          "rankingQuality": 28.662,
+          "rankingValue": 23.026,
+          "status": "partial",
+          "coverageWeight": 0.4815,
+          "missingComponents": [
+            "gdpval",
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 92.105
+        },
+        "synthesizer": {
+          "score": 53.403,
+          "rankingQuality": 53.403,
+          "rankingValue": 23.026,
+          "status": "partial",
+          "coverageWeight": 0.85,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 92.105
+        },
+        "researcher": {
+          "score": 42.919,
+          "rankingQuality": 42.919,
+          "rankingValue": 23.026,
+          "status": "partial",
+          "coverageWeight": 0.7059,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 0,
+          "balancedAffordabilityPercentile": 92.105
+        }
+      },
       "codingAgent": null,
       "aaModel": {
         "slug": "qwen3-8-flash-next",
         "sourceUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
-        "intelligenceIndex": null
+        "intelligenceIndex": 20.523,
+        "estimated": true,
+        "cutoffLowerBound": 10.8965
       }
     },
     {
@@ -5230,7 +5646,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 54.3315
         },
         "cyberIndex": {
@@ -5296,79 +5712,79 @@
         "architect": {
           "score": 63.485,
           "rankingQuality": 63.485,
-          "rankingValue": 71.094,
+          "rankingValue": 72.368,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75,
-          "balancedAffordabilityPercentile": 59.375
+          "balancedQualityPercentile": 78.947,
+          "balancedAffordabilityPercentile": 52.632
         },
         "strategist": {
           "score": 63.183,
           "rankingQuality": 63.183,
-          "rankingValue": 68.75,
+          "rankingValue": 70.395,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.875,
-          "balancedAffordabilityPercentile": 59.375
+          "balancedQualityPercentile": 76.316,
+          "balancedAffordabilityPercentile": 52.632
         },
         "security-reviewer": {
           "score": 47.707,
           "rankingQuality": 47.707,
-          "rankingValue": 62.5,
-          "balancedQualityPercentile": 57.143,
-          "balancedAffordabilityPercentile": 78.571
+          "rankingValue": 56.944,
+          "balancedQualityPercentile": 55.556,
+          "balancedAffordabilityPercentile": 61.111
         },
         "code-reviewer": {
           "score": 62.787,
           "rankingQuality": 56.234,
-          "rankingValue": 64.063,
+          "rankingValue": 66.447,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 65.625,
-          "balancedAffordabilityPercentile": 59.375
+          "balancedQualityPercentile": 71.053,
+          "balancedAffordabilityPercentile": 52.632
         },
         "implementer": {
           "score": 62.641,
           "rankingQuality": 56.136,
-          "rankingValue": 64.063,
+          "rankingValue": 66.447,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 65.625,
-          "balancedAffordabilityPercentile": 59.375
+          "balancedQualityPercentile": 71.053,
+          "balancedAffordabilityPercentile": 52.632
         },
         "implementer-heavy": {
           "score": 64.178,
           "rankingQuality": 57.161,
-          "rankingValue": 61.719,
+          "rankingValue": 64.474,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 62.5,
-          "balancedAffordabilityPercentile": 59.375
+          "balancedQualityPercentile": 68.421,
+          "balancedAffordabilityPercentile": 52.632
         },
         "synthesizer": {
           "score": 71.186,
           "rankingQuality": 71.186,
-          "rankingValue": 73.438,
+          "rankingValue": 74.342,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.125,
-          "balancedAffordabilityPercentile": 59.375
+          "balancedQualityPercentile": 81.579,
+          "balancedAffordabilityPercentile": 52.632
         },
         "researcher": {
           "score": 66.322,
           "rankingQuality": 66.322,
-          "rankingValue": 71.094,
+          "rankingValue": 72.368,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75,
-          "balancedAffordabilityPercentile": 59.375
+          "balancedQualityPercentile": 78.947,
+          "balancedAffordabilityPercentile": 52.632
         }
       },
       "caiStar": {
@@ -5577,7 +5993,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 59.217
         },
         "cyberIndex": {
@@ -5643,79 +6059,79 @@
         "architect": {
           "score": 65.841,
           "rankingQuality": 65.841,
-          "rankingValue": 84.766,
+          "rankingValue": 84.539,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 82.813,
-          "balancedAffordabilityPercentile": 90.625
+          "balancedQualityPercentile": 85.526,
+          "balancedAffordabilityPercentile": 81.579
         },
         "strategist": {
           "score": 61.426,
           "rankingQuality": 61.426,
-          "rankingValue": 63.672,
+          "rankingValue": 66.776,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 54.688,
-          "balancedAffordabilityPercentile": 90.625
+          "balancedQualityPercentile": 61.842,
+          "balancedAffordabilityPercentile": 81.579
         },
         "security-reviewer": {
           "score": 56.066,
           "rankingQuality": 56.066,
-          "rankingValue": 84.821,
-          "balancedQualityPercentile": 82.143,
-          "balancedAffordabilityPercentile": 92.857
+          "rankingValue": 85.417,
+          "balancedQualityPercentile": 86.111,
+          "balancedAffordabilityPercentile": 83.333
         },
         "code-reviewer": {
           "score": 62.572,
           "rankingQuality": 57.101,
-          "rankingValue": 77.734,
+          "rankingValue": 78.618,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 73.438,
-          "balancedAffordabilityPercentile": 90.625
+          "balancedQualityPercentile": 77.632,
+          "balancedAffordabilityPercentile": 81.579
         },
         "implementer": {
           "score": 64.015,
           "rankingQuality": 58.063,
-          "rankingValue": 80.078,
+          "rankingValue": 80.592,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 76.563,
-          "balancedAffordabilityPercentile": 90.625
+          "balancedQualityPercentile": 80.263,
+          "balancedAffordabilityPercentile": 81.579
         },
         "implementer-heavy": {
           "score": 66.074,
           "rankingQuality": 59.436,
-          "rankingValue": 82.422,
+          "rankingValue": 82.566,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 79.688,
-          "balancedAffordabilityPercentile": 90.625
+          "balancedQualityPercentile": 82.895,
+          "balancedAffordabilityPercentile": 81.579
         },
         "synthesizer": {
           "score": 66.839,
           "rankingQuality": 66.839,
-          "rankingValue": 58.984,
+          "rankingValue": 62.829,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 48.438,
-          "balancedAffordabilityPercentile": 90.625
+          "balancedQualityPercentile": 56.579,
+          "balancedAffordabilityPercentile": 81.579
         },
         "researcher": {
           "score": 64.933,
           "rankingQuality": 64.933,
-          "rankingValue": 73.047,
+          "rankingValue": 74.671,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 67.188,
-          "balancedAffordabilityPercentile": 90.625
+          "balancedQualityPercentile": 72.368,
+          "balancedAffordabilityPercentile": 81.579
         }
       },
       "caiStar": {
@@ -5776,7 +6192,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 59.217
         },
         "cyberIndex": {
@@ -5842,79 +6258,79 @@
         "architect": {
           "score": 65.841,
           "rankingQuality": 65.841,
-          "rankingValue": 73.047,
+          "rankingValue": 74.013,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 82.813,
-          "balancedAffordabilityPercentile": 43.75
+          "balancedQualityPercentile": 85.526,
+          "balancedAffordabilityPercentile": 39.474
         },
         "strategist": {
           "score": 61.426,
           "rankingQuality": 61.426,
-          "rankingValue": 51.953,
+          "rankingValue": 56.25,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 54.688,
-          "balancedAffordabilityPercentile": 43.75
+          "balancedQualityPercentile": 61.842,
+          "balancedAffordabilityPercentile": 39.474
         },
         "security-reviewer": {
           "score": 56.066,
           "rankingQuality": 56.066,
-          "rankingValue": 75.893,
-          "balancedQualityPercentile": 82.143,
-          "balancedAffordabilityPercentile": 57.143
+          "rankingValue": 75.694,
+          "balancedQualityPercentile": 86.111,
+          "balancedAffordabilityPercentile": 44.444
         },
         "code-reviewer": {
           "score": 62.572,
           "rankingQuality": 57.101,
-          "rankingValue": 66.016,
+          "rankingValue": 68.092,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 73.438,
-          "balancedAffordabilityPercentile": 43.75
+          "balancedQualityPercentile": 77.632,
+          "balancedAffordabilityPercentile": 39.474
         },
         "implementer": {
           "score": 64.015,
           "rankingQuality": 58.063,
-          "rankingValue": 68.359,
+          "rankingValue": 70.066,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 76.563,
-          "balancedAffordabilityPercentile": 43.75
+          "balancedQualityPercentile": 80.263,
+          "balancedAffordabilityPercentile": 39.474
         },
         "implementer-heavy": {
           "score": 66.074,
           "rankingQuality": 59.436,
-          "rankingValue": 70.703,
+          "rankingValue": 72.039,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 79.688,
-          "balancedAffordabilityPercentile": 43.75
+          "balancedQualityPercentile": 82.895,
+          "balancedAffordabilityPercentile": 39.474
         },
         "synthesizer": {
           "score": 66.839,
           "rankingQuality": 66.839,
-          "rankingValue": 47.266,
+          "rankingValue": 52.303,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 48.438,
-          "balancedAffordabilityPercentile": 43.75
+          "balancedQualityPercentile": 56.579,
+          "balancedAffordabilityPercentile": 39.474
         },
         "researcher": {
           "score": 64.933,
           "rankingQuality": 64.933,
-          "rankingValue": 61.328,
+          "rankingValue": 64.145,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 67.188,
-          "balancedAffordabilityPercentile": 43.75
+          "balancedQualityPercentile": 72.368,
+          "balancedAffordabilityPercentile": 39.474
         }
       },
       "caiStar": {
@@ -5972,7 +6388,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 55.3755
         }
       },
@@ -6021,72 +6437,72 @@
         "architect": {
           "score": 57.494,
           "rankingQuality": 57.494,
-          "rankingValue": 52.344,
+          "rankingValue": 59.868,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 37.5,
-          "balancedAffordabilityPercentile": 96.875
+          "balancedQualityPercentile": 50,
+          "balancedAffordabilityPercentile": 89.474
         },
         "strategist": {
           "score": 55.991,
           "rankingQuality": 55.991,
-          "rankingValue": 54.688,
+          "rankingValue": 59.868,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.625,
-          "balancedAffordabilityPercentile": 96.875
+          "balancedQualityPercentile": 50,
+          "balancedAffordabilityPercentile": 89.474
         },
         "code-reviewer": {
           "score": 52.736,
           "rankingQuality": 47.949,
-          "rankingValue": 42.969,
+          "rankingValue": 51.974,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25,
-          "balancedAffordabilityPercentile": 96.875
+          "balancedQualityPercentile": 39.474,
+          "balancedAffordabilityPercentile": 89.474
         },
         "implementer": {
           "score": 53.437,
           "rankingQuality": 48.417,
-          "rankingValue": 42.969,
+          "rankingValue": 51.974,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25,
-          "balancedAffordabilityPercentile": 96.875
+          "balancedQualityPercentile": 39.474,
+          "balancedAffordabilityPercentile": 89.474
         },
         "implementer-heavy": {
           "score": 57.537,
           "rankingQuality": 51.15,
-          "rankingValue": 59.375,
+          "rankingValue": 63.816,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 46.875,
-          "balancedAffordabilityPercentile": 96.875
+          "balancedQualityPercentile": 55.263,
+          "balancedAffordabilityPercentile": 89.474
         },
         "synthesizer": {
           "score": 59.59,
           "rankingQuality": 59.59,
-          "rankingValue": 33.594,
+          "rankingValue": 40.132,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.5,
-          "balancedAffordabilityPercentile": 96.875
+          "balancedQualityPercentile": 23.684,
+          "balancedAffordabilityPercentile": 89.474
         },
         "researcher": {
           "score": 57.139,
           "rankingQuality": 57.139,
-          "rankingValue": 40.625,
+          "rankingValue": 50,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.875,
-          "balancedAffordabilityPercentile": 96.875
+          "balancedQualityPercentile": 36.842,
+          "balancedAffordabilityPercentile": 89.474
         }
       },
       "caiStar": {
@@ -6147,7 +6563,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 25.6625
         },
         "cyberIndex": {
@@ -6213,79 +6629,79 @@
         "architect": {
           "score": 42.949,
           "rankingQuality": 42.949,
-          "rankingValue": 17.188,
+          "rankingValue": 26.974,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 6.25,
-          "balancedAffordabilityPercentile": 50
+          "balancedQualityPercentile": 21.053,
+          "balancedAffordabilityPercentile": 44.737
         },
         "strategist": {
           "score": 46.274,
           "rankingQuality": 46.274,
-          "rankingValue": 21.875,
+          "rankingValue": 30.921,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.5,
-          "balancedAffordabilityPercentile": 50
+          "balancedQualityPercentile": 26.316,
+          "balancedAffordabilityPercentile": 44.737
         },
         "security-reviewer": {
           "score": 13.078,
           "rankingQuality": 13.078,
-          "rankingValue": 23.214,
-          "balancedQualityPercentile": 7.143,
-          "balancedAffordabilityPercentile": 71.429
+          "rankingValue": 18.056,
+          "balancedQualityPercentile": 5.556,
+          "balancedAffordabilityPercentile": 55.556
         },
         "code-reviewer": {
           "score": 47.547,
           "rankingQuality": 40.837,
-          "rankingValue": 17.188,
+          "rankingValue": 25,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 6.25,
-          "balancedAffordabilityPercentile": 50
+          "balancedQualityPercentile": 18.421,
+          "balancedAffordabilityPercentile": 44.737
         },
         "implementer": {
           "score": 45.773,
           "rankingQuality": 39.654,
-          "rankingValue": 17.188,
+          "rankingValue": 25,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 6.25,
-          "balancedAffordabilityPercentile": 50
+          "balancedQualityPercentile": 18.421,
+          "balancedAffordabilityPercentile": 44.737
         },
         "implementer-heavy": {
           "score": 44.897,
           "rankingQuality": 39.07,
-          "rankingValue": 17.188,
+          "rankingValue": 28.947,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 6.25,
-          "balancedAffordabilityPercentile": 50
+          "balancedQualityPercentile": 23.684,
+          "balancedAffordabilityPercentile": 44.737
         },
         "synthesizer": {
           "score": 60.236,
           "rankingQuality": 60.236,
-          "rankingValue": 24.219,
+          "rankingValue": 30.921,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.625,
-          "balancedAffordabilityPercentile": 50
+          "balancedQualityPercentile": 26.316,
+          "balancedAffordabilityPercentile": 44.737
         },
         "researcher": {
           "score": 51.058,
           "rankingQuality": 51.058,
-          "rankingValue": 21.875,
+          "rankingValue": 30.921,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.5,
-          "balancedAffordabilityPercentile": 50
+          "balancedQualityPercentile": 26.316,
+          "balancedAffordabilityPercentile": 44.737
         }
       },
       "caiStar": {
@@ -6343,7 +6759,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 33.1205
         }
       },
@@ -6392,72 +6808,72 @@
         "architect": {
           "score": 43.883,
           "rankingQuality": 43.883,
-          "rankingValue": 27.344,
+          "rankingValue": 35.526,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 9.375,
-          "balancedAffordabilityPercentile": 81.25
+          "balancedQualityPercentile": 23.684,
+          "balancedAffordabilityPercentile": 71.053
         },
         "strategist": {
           "score": 46.242,
           "rankingQuality": 46.242,
-          "rankingValue": 27.344,
+          "rankingValue": 35.526,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 9.375,
-          "balancedAffordabilityPercentile": 81.25
+          "balancedQualityPercentile": 23.684,
+          "balancedAffordabilityPercentile": 71.053
         },
         "code-reviewer": {
           "score": 49.737,
           "rankingQuality": 42.446,
-          "rankingValue": 27.344,
+          "rankingValue": 37.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 9.375,
-          "balancedAffordabilityPercentile": 81.25
+          "balancedQualityPercentile": 26.316,
+          "balancedAffordabilityPercentile": 71.053
         },
         "implementer": {
           "score": 49.533,
           "rankingQuality": 42.31,
-          "rankingValue": 27.344,
+          "rankingValue": 37.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 9.375,
-          "balancedAffordabilityPercentile": 81.25
+          "balancedQualityPercentile": 26.316,
+          "balancedAffordabilityPercentile": 71.053
         },
         "implementer-heavy": {
           "score": 48.434,
           "rankingQuality": 41.577,
-          "rankingValue": 27.344,
+          "rankingValue": 37.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 9.375,
-          "balancedAffordabilityPercentile": 81.25
+          "balancedQualityPercentile": 26.316,
+          "balancedAffordabilityPercentile": 71.053
         },
         "synthesizer": {
           "score": 55.445,
           "rankingQuality": 55.445,
-          "rankingValue": 20.313,
+          "rankingValue": 19.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 81.25
+          "balancedQualityPercentile": 2.632,
+          "balancedAffordabilityPercentile": 71.053
         },
         "researcher": {
           "score": 49.136,
           "rankingQuality": 49.136,
-          "rankingValue": 22.656,
+          "rankingValue": 27.632,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 3.125,
-          "balancedAffordabilityPercentile": 81.25
+          "balancedQualityPercentile": 13.158,
+          "balancedAffordabilityPercentile": 71.053
         }
       },
       "caiStar": {
@@ -6515,7 +6931,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 62.7035
         },
         "cyberIndex": {
@@ -6581,78 +6997,78 @@
         "architect": {
           "score": 69.105,
           "rankingQuality": 69.105,
-          "rankingValue": 67.969,
+          "rankingValue": 69.079,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90.625,
+          "balancedQualityPercentile": 92.105,
           "balancedAffordabilityPercentile": 0
         },
         "strategist": {
           "score": 71.209,
           "rankingQuality": 71.209,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.875,
+          "balancedQualityPercentile": 97.368,
           "balancedAffordabilityPercentile": 0
         },
         "security-reviewer": {
           "score": 25.02,
           "rankingQuality": 25.02,
-          "rankingValue": 16.071,
-          "balancedQualityPercentile": 21.429,
+          "rankingValue": 12.5,
+          "balancedQualityPercentile": 16.667,
           "balancedAffordabilityPercentile": 0
         },
         "code-reviewer": {
           "score": 68.015,
           "rankingQuality": 63.84,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.875,
+          "balancedQualityPercentile": 97.368,
           "balancedAffordabilityPercentile": 0
         },
         "implementer": {
           "score": 66.541,
           "rankingQuality": 62.857,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.875,
+          "balancedQualityPercentile": 97.368,
           "balancedAffordabilityPercentile": 0
         },
         "implementer-heavy": {
           "score": 67.92,
           "rankingQuality": 63.777,
-          "rankingValue": 70.313,
+          "rankingValue": 71.053,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.75,
+          "balancedQualityPercentile": 94.737,
           "balancedAffordabilityPercentile": 0
         },
         "synthesizer": {
           "score": 77.059,
           "rankingQuality": 77.059,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.875,
+          "balancedQualityPercentile": 97.368,
           "balancedAffordabilityPercentile": 0
         },
         "researcher": {
           "score": 72.724,
           "rankingQuality": 72.724,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 96.875,
+          "balancedQualityPercentile": 97.368,
           "balancedAffordabilityPercentile": 0
         }
       },
@@ -6764,7 +7180,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 68.3135
         },
         "cyberIndex": {
@@ -6830,79 +7246,79 @@
         "architect": {
           "score": 72.119,
           "rankingQuality": 72.119,
-          "rankingValue": 76.563,
+          "rankingValue": 76.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 6.25
+          "balancedAffordabilityPercentile": 5.263
         },
         "strategist": {
           "score": 73.865,
           "rankingQuality": 73.865,
-          "rankingValue": 76.563,
+          "rankingValue": 76.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 6.25
+          "balancedAffordabilityPercentile": 5.263
         },
         "security-reviewer": {
           "score": 28.664,
           "rankingQuality": 28.664,
-          "rankingValue": 30.357,
-          "balancedQualityPercentile": 35.714,
-          "balancedAffordabilityPercentile": 14.286
+          "rankingValue": 23.611,
+          "balancedQualityPercentile": 27.778,
+          "balancedAffordabilityPercentile": 11.111
         },
         "code-reviewer": {
           "score": 70.433,
           "rankingQuality": 65.757,
-          "rankingValue": 76.563,
+          "rankingValue": 76.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 6.25
+          "balancedAffordabilityPercentile": 5.263
         },
         "implementer": {
           "score": 69.381,
           "rankingQuality": 65.056,
-          "rankingValue": 76.563,
+          "rankingValue": 76.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 6.25
+          "balancedAffordabilityPercentile": 5.263
         },
         "implementer-heavy": {
           "score": 71.24,
           "rankingQuality": 66.295,
-          "rankingValue": 76.563,
+          "rankingValue": 76.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 6.25
+          "balancedAffordabilityPercentile": 5.263
         },
         "synthesizer": {
           "score": 77.974,
           "rankingQuality": 77.974,
-          "rankingValue": 76.563,
+          "rankingValue": 76.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 6.25
+          "balancedAffordabilityPercentile": 5.263
         },
         "researcher": {
           "score": 74.62,
           "rankingQuality": 74.62,
-          "rankingValue": 76.563,
+          "rankingValue": 76.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
           "balancedQualityPercentile": 100,
-          "balancedAffordabilityPercentile": 6.25
+          "balancedAffordabilityPercentile": 5.263
         }
       },
       "caiStar": {
@@ -7204,7 +7620,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 66.891
         }
       },
@@ -7257,68 +7673,68 @@
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 93.75,
-          "balancedAffordabilityPercentile": 18.75
+          "balancedQualityPercentile": 94.737,
+          "balancedAffordabilityPercentile": 15.789
         },
         "strategist": {
           "score": 69.844,
           "rankingQuality": 69.844,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90.625,
-          "balancedAffordabilityPercentile": 18.75
+          "balancedQualityPercentile": 92.105,
+          "balancedAffordabilityPercentile": 15.789
         },
         "code-reviewer": {
           "score": 64.834,
           "rankingQuality": 60.342,
-          "rankingValue": 67.969,
+          "rankingValue": 69.079,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.375,
-          "balancedAffordabilityPercentile": 18.75
+          "balancedQualityPercentile": 86.842,
+          "balancedAffordabilityPercentile": 15.789
         },
         "implementer": {
           "score": 64.11,
           "rankingQuality": 59.86,
-          "rankingValue": 67.969,
+          "rankingValue": 69.079,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.375,
-          "balancedAffordabilityPercentile": 18.75
+          "balancedQualityPercentile": 86.842,
+          "balancedAffordabilityPercentile": 15.789
         },
         "implementer-heavy": {
           "score": 67.449,
           "rankingQuality": 62.086,
-          "rankingValue": 70.313,
+          "rankingValue": 71.053,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.5,
-          "balancedAffordabilityPercentile": 18.75
+          "balancedQualityPercentile": 89.474,
+          "balancedAffordabilityPercentile": 15.789
         },
         "synthesizer": {
           "score": 73.327,
           "rankingQuality": 73.327,
-          "rankingValue": 67.969,
+          "rankingValue": 69.079,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.375,
-          "balancedAffordabilityPercentile": 18.75
+          "balancedQualityPercentile": 86.842,
+          "balancedAffordabilityPercentile": 15.789
         },
         "researcher": {
           "score": 70.665,
           "rankingQuality": 70.665,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90.625,
-          "balancedAffordabilityPercentile": 18.75
+          "balancedQualityPercentile": 92.105,
+          "balancedAffordabilityPercentile": 15.789
         }
       },
       "caiStar": {
@@ -7498,7 +7914,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 55.9165
         }
       },
@@ -7547,72 +7963,72 @@
         "architect": {
           "score": 62.115,
           "rankingQuality": 62.115,
-          "rankingValue": 60.938,
+          "rankingValue": 63.816,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 53.125,
-          "balancedAffordabilityPercentile": 84.375
+          "balancedQualityPercentile": 60.526,
+          "balancedAffordabilityPercentile": 73.684
         },
         "strategist": {
           "score": 61.939,
           "rankingQuality": 61.939,
-          "rankingValue": 65.625,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 59.375,
-          "balancedAffordabilityPercentile": 84.375
+          "balancedQualityPercentile": 65.789,
+          "balancedAffordabilityPercentile": 73.684
         },
         "code-reviewer": {
           "score": 58.992,
           "rankingQuality": 51.778,
-          "rankingValue": 65.625,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 59.375,
-          "balancedAffordabilityPercentile": 84.375
+          "balancedQualityPercentile": 65.789,
+          "balancedAffordabilityPercentile": 73.684
         },
         "implementer": {
           "score": 58.618,
           "rankingQuality": 51.529,
-          "rankingValue": 65.625,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 59.375,
-          "balancedAffordabilityPercentile": 84.375
+          "balancedQualityPercentile": 65.789,
+          "balancedAffordabilityPercentile": 73.684
         },
         "implementer-heavy": {
           "score": 61.391,
           "rankingQuality": 53.377,
-          "rankingValue": 65.625,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 59.375,
-          "balancedAffordabilityPercentile": 84.375
+          "balancedQualityPercentile": 65.789,
+          "balancedAffordabilityPercentile": 73.684
         },
         "synthesizer": {
           "score": 68.047,
           "rankingQuality": 68.047,
-          "rankingValue": 70.313,
+          "rankingValue": 71.711,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 65.625,
-          "balancedAffordabilityPercentile": 84.375
+          "balancedQualityPercentile": 71.053,
+          "balancedAffordabilityPercentile": 73.684
         },
         "researcher": {
           "score": 64.057,
           "rankingQuality": 64.057,
-          "rankingValue": 67.969,
+          "rankingValue": 69.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 62.5,
-          "balancedAffordabilityPercentile": 84.375
+          "balancedQualityPercentile": 68.421,
+          "balancedAffordabilityPercentile": 73.684
         }
       },
       "caiStar": {
@@ -7771,7 +8187,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 53.642
         },
         "cyberIndex": {
@@ -7837,79 +8253,79 @@
         "architect": {
           "score": 62.282,
           "rankingQuality": 62.282,
-          "rankingValue": 47.656,
+          "rankingValue": 51.974,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 56.25,
-          "balancedAffordabilityPercentile": 21.875
+          "balancedQualityPercentile": 63.158,
+          "balancedAffordabilityPercentile": 18.421
         },
         "strategist": {
           "score": 65.506,
           "rankingQuality": 65.506,
-          "rankingValue": 61.719,
+          "rankingValue": 63.816,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75,
-          "balancedAffordabilityPercentile": 21.875
+          "balancedQualityPercentile": 78.947,
+          "balancedAffordabilityPercentile": 18.421
         },
         "security-reviewer": {
           "score": 33.42,
           "rankingQuality": 33.42,
-          "rankingValue": 37.5,
-          "balancedQualityPercentile": 42.857,
-          "balancedAffordabilityPercentile": 21.429
+          "rankingValue": 29.167,
+          "balancedQualityPercentile": 33.333,
+          "balancedAffordabilityPercentile": 16.667
         },
         "code-reviewer": {
           "score": 62.633,
           "rankingQuality": 59.977,
-          "rankingValue": 66.406,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.25,
-          "balancedAffordabilityPercentile": 21.875
+          "balancedQualityPercentile": 84.211,
+          "balancedAffordabilityPercentile": 18.421
         },
         "implementer": {
           "score": 60.538,
           "rankingQuality": 58.58,
-          "rankingValue": 66.406,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.25,
-          "balancedAffordabilityPercentile": 21.875
+          "balancedQualityPercentile": 84.211,
+          "balancedAffordabilityPercentile": 18.421
         },
         "implementer-heavy": {
           "score": 61.067,
           "rankingQuality": 58.933,
-          "rankingValue": 61.719,
+          "rankingValue": 63.816,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75,
-          "balancedAffordabilityPercentile": 21.875
+          "balancedQualityPercentile": 78.947,
+          "balancedAffordabilityPercentile": 18.421
         },
         "synthesizer": {
           "score": 72.833,
           "rankingQuality": 72.833,
-          "rankingValue": 66.406,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.25,
-          "balancedAffordabilityPercentile": 21.875
+          "balancedQualityPercentile": 84.211,
+          "balancedAffordabilityPercentile": 18.421
         },
         "researcher": {
           "score": 67.437,
           "rankingQuality": 67.437,
-          "rankingValue": 64.063,
+          "rankingValue": 65.789,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.125,
-          "balancedAffordabilityPercentile": 21.875
+          "balancedQualityPercentile": 81.579,
+          "balancedAffordabilityPercentile": 18.421
         }
       },
       "caiStar": {
@@ -7996,7 +8412,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 54.6925
         }
       },
@@ -8045,72 +8461,72 @@
         "architect": {
           "score": 63.206,
           "rankingQuality": 63.206,
-          "rankingValue": 67.969,
+          "rankingValue": 69.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.875,
-          "balancedAffordabilityPercentile": 56.25
+          "balancedQualityPercentile": 76.316,
+          "balancedAffordabilityPercentile": 50
         },
         "strategist": {
           "score": 66.424,
           "rankingQuality": 66.424,
-          "rankingValue": 75,
+          "rankingValue": 75.658,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.25,
-          "balancedAffordabilityPercentile": 56.25
+          "balancedQualityPercentile": 84.211,
+          "balancedAffordabilityPercentile": 50
         },
         "code-reviewer": {
           "score": 61.523,
           "rankingQuality": 59.058,
-          "rankingValue": 72.656,
+          "rankingValue": 73.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.125,
-          "balancedAffordabilityPercentile": 56.25
+          "balancedQualityPercentile": 81.579,
+          "balancedAffordabilityPercentile": 50
         },
         "implementer": {
           "score": 59.108,
           "rankingQuality": 57.448,
-          "rankingValue": 67.969,
+          "rankingValue": 69.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.875,
-          "balancedAffordabilityPercentile": 56.25
+          "balancedQualityPercentile": 76.316,
+          "balancedAffordabilityPercentile": 50
         },
         "implementer-heavy": {
           "score": 60.72,
           "rankingQuality": 58.523,
-          "rankingValue": 67.969,
+          "rankingValue": 69.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.875,
-          "balancedAffordabilityPercentile": 56.25
+          "balancedQualityPercentile": 76.316,
+          "balancedAffordabilityPercentile": 50
         },
         "synthesizer": {
           "score": 73.961,
           "rankingQuality": 73.961,
-          "rankingValue": 82.031,
+          "rankingValue": 81.579,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90.625,
-          "balancedAffordabilityPercentile": 56.25
+          "balancedQualityPercentile": 92.105,
+          "balancedAffordabilityPercentile": 50
         },
         "researcher": {
           "score": 68.316,
           "rankingQuality": 68.316,
-          "rankingValue": 77.344,
+          "rankingValue": 77.632,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.375,
-          "balancedAffordabilityPercentile": 56.25
+          "balancedQualityPercentile": 86.842,
+          "balancedAffordabilityPercentile": 50
         }
       },
       "caiStar": {
@@ -8242,87 +8658,87 @@
         "architect": {
           "score": 34.505,
           "rankingQuality": 34.505,
-          "rankingValue": 15.625,
+          "rankingValue": 21.711,
           "status": "partial",
           "coverageWeight": 0.5,
           "missingComponents": [
             "gdpval"
           ],
-          "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 62.5
+          "balancedQualityPercentile": 10.526,
+          "balancedAffordabilityPercentile": 55.263
         },
         "strategist": {
           "score": 39.965,
           "rankingQuality": 39.965,
-          "rankingValue": 15.625,
+          "rankingValue": 25.658,
           "status": "partial",
           "coverageWeight": 0.5556,
           "missingComponents": [
             "gdpval"
           ],
-          "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 62.5
+          "balancedQualityPercentile": 15.789,
+          "balancedAffordabilityPercentile": 55.263
         },
         "code-reviewer": {
           "score": 60.368,
           "rankingQuality": 40.245,
-          "rankingValue": 17.969,
+          "rankingValue": 25.658,
           "status": "partial",
           "coverageWeight": 0.6667,
           "missingComponents": [
             "caiStar"
           ],
-          "balancedQualityPercentile": 3.125,
-          "balancedAffordabilityPercentile": 62.5
+          "balancedQualityPercentile": 15.789,
+          "balancedAffordabilityPercentile": 55.263
         },
         "implementer": {
           "score": 58.918,
           "rankingQuality": 39.279,
-          "rankingValue": 17.969,
+          "rankingValue": 25.658,
           "status": "partial",
           "coverageWeight": 0.6667,
           "missingComponents": [
             "caiStar"
           ],
-          "balancedQualityPercentile": 3.125,
-          "balancedAffordabilityPercentile": 62.5
+          "balancedQualityPercentile": 15.789,
+          "balancedAffordabilityPercentile": 55.263
         },
         "implementer-heavy": {
           "score": 45.917,
           "rankingQuality": 30.611,
-          "rankingValue": 15.625,
+          "rankingValue": 19.737,
           "status": "partial",
           "coverageWeight": 0.4815,
           "missingComponents": [
             "gdpval",
             "caiStar"
           ],
-          "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 62.5
+          "balancedQualityPercentile": 7.895,
+          "balancedAffordabilityPercentile": 55.263
         },
         "synthesizer": {
           "score": 63.113,
           "rankingQuality": 63.113,
-          "rankingValue": 46.094,
+          "rankingValue": 51.316,
           "status": "partial",
           "coverageWeight": 0.85,
           "missingComponents": [
             "gdpval"
           ],
-          "balancedQualityPercentile": 40.625,
-          "balancedAffordabilityPercentile": 62.5
+          "balancedQualityPercentile": 50,
+          "balancedAffordabilityPercentile": 55.263
         },
         "researcher": {
           "score": 49.86,
           "rankingQuality": 49.86,
-          "rankingValue": 20.313,
+          "rankingValue": 29.605,
           "status": "partial",
           "coverageWeight": 0.7059,
           "missingComponents": [
             "gdpval"
           ],
-          "balancedQualityPercentile": 6.25,
-          "balancedAffordabilityPercentile": 62.5
+          "balancedQualityPercentile": 21.053,
+          "balancedAffordabilityPercentile": 55.263
         }
       },
       "codingAgent": {
@@ -8457,7 +8873,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 46.593
         },
         "cyberIndex": {
@@ -8523,79 +8939,79 @@
         "architect": {
           "score": 56.558,
           "rankingQuality": 56.558,
-          "rankingValue": 49.219,
+          "rankingValue": 57.237,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 34.375,
-          "balancedAffordabilityPercentile": 93.75
+          "balancedQualityPercentile": 47.368,
+          "balancedAffordabilityPercentile": 86.842
         },
         "strategist": {
           "score": 54.515,
           "rankingQuality": 54.515,
-          "rankingValue": 44.531,
+          "rankingValue": 53.289,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.125,
-          "balancedAffordabilityPercentile": 93.75
+          "balancedQualityPercentile": 42.105,
+          "balancedAffordabilityPercentile": 86.842
         },
         "security-reviewer": {
           "score": 52.685,
           "rankingQuality": 52.685,
-          "rankingValue": 78.571,
-          "balancedQualityPercentile": 71.429,
-          "balancedAffordabilityPercentile": 100
+          "rankingValue": 81.944,
+          "balancedQualityPercentile": 77.778,
+          "balancedAffordabilityPercentile": 94.444
         },
         "code-reviewer": {
           "score": 56.901,
           "rankingQuality": 48.309,
-          "rankingValue": 46.875,
+          "rankingValue": 55.263,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.25,
-          "balancedAffordabilityPercentile": 93.75
+          "balancedQualityPercentile": 44.737,
+          "balancedAffordabilityPercentile": 86.842
         },
         "implementer": {
           "score": 57.798,
           "rankingQuality": 48.907,
-          "rankingValue": 46.875,
+          "rankingValue": 55.263,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.25,
-          "balancedAffordabilityPercentile": 93.75
+          "balancedQualityPercentile": 44.737,
+          "balancedAffordabilityPercentile": 86.842
         },
         "implementer-heavy": {
           "score": 58.776,
           "rankingQuality": 49.559,
-          "rankingValue": 46.875,
+          "rankingValue": 55.263,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.25,
-          "balancedAffordabilityPercentile": 93.75
+          "balancedQualityPercentile": 44.737,
+          "balancedAffordabilityPercentile": 86.842
         },
         "synthesizer": {
           "score": 62.836,
           "rankingQuality": 62.836,
-          "rankingValue": 51.563,
+          "rankingValue": 57.237,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 37.5,
-          "balancedAffordabilityPercentile": 93.75
+          "balancedQualityPercentile": 47.368,
+          "balancedAffordabilityPercentile": 86.842
         },
         "researcher": {
           "score": 58.438,
           "rankingQuality": 58.438,
-          "rankingValue": 49.219,
+          "rankingValue": 57.237,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 34.375,
-          "balancedAffordabilityPercentile": 93.75
+          "balancedQualityPercentile": 47.368,
+          "balancedAffordabilityPercentile": 86.842
         }
       },
       "caiStar": {
@@ -8720,11 +9136,11 @@
       "max20EffectiveUsageUsd": 200,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "source_incomplete",
+        "status": "partial_scored",
         "slug": "gpt-5-6-terra",
-        "reason": "AA source incomplete for active methodology: intelligenceIndex",
+        "reason": "Scored conservatively with unavailable benchmark: gdpval",
         "missingBenchmarks": [
-          "intelligenceIndex"
+          "gdpval"
         ]
       },
       "benchmarkProvenance": {
@@ -8733,6 +9149,17 @@
           "benchmark": "gdpval",
           "targetSlug": "gpt-5-6-terra",
           "reason": "Artificial Analysis publishes no current gdpval value for this mapped model; role scores use a conservative zero contribution for this component."
+        },
+        "intelligenceIndex": {
+          "status": "estimated",
+          "strategy": "held_out_calibrated_hle_scicode_omniscience",
+          "source": "Artificial Analysis current benchmark fields",
+          "trainingFamilies": 29,
+          "loocvMae": 5.409,
+          "loocvP90": 9.626,
+          "estimate": 25.6032,
+          "cutoffLowerBound": 15.9767,
+          "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
         }
       },
       "tokenPrices": {
@@ -8742,15 +9169,132 @@
         "cacheWrite": 2.5,
         "blended50": 7
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 1.824399,
+        "planAdjustedCostPerTaskUsd": 1.824399,
+        "costBasis": "normalized_reference_v1",
+        "costTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "normalizedTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "observedTaskTokenProfile": {
+          "nonCacheInput": null,
+          "cacheRead": null,
+          "cacheWrite": null,
+          "reasoning": null,
+          "answer": null,
+          "output": null
+        }
+      },
+      "benchmarks": {
+        "gdpval": null,
+        "lcr": 83,
+        "hle": 42.9101,
+        "omniscienceIndex": 45.3667,
+        "scicode": 54.9769
+      },
+      "roleScores": {
+        "architect": {
+          "score": 33.983,
+          "rankingQuality": 33.983,
+          "rankingValue": 15.132,
+          "status": "partial",
+          "coverageWeight": 0.5,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 7.895,
+          "balancedAffordabilityPercentile": 36.842
+        },
+        "strategist": {
+          "score": 33.567,
+          "rankingQuality": 33.567,
+          "rankingValue": 11.184,
+          "status": "partial",
+          "coverageWeight": 0.5556,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 2.632,
+          "balancedAffordabilityPercentile": 36.842
+        },
+        "code-reviewer": {
+          "score": 57.522,
+          "rankingQuality": 38.348,
+          "rankingValue": 17.105,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 10.526,
+          "balancedAffordabilityPercentile": 36.842
+        },
+        "implementer": {
+          "score": 58.503,
+          "rankingQuality": 39.002,
+          "rankingValue": 19.079,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 13.158,
+          "balancedAffordabilityPercentile": 36.842
+        },
+        "implementer-heavy": {
+          "score": 45.933,
+          "rankingQuality": 30.622,
+          "rankingValue": 17.105,
+          "status": "partial",
+          "coverageWeight": 0.4815,
+          "missingComponents": [
+            "gdpval",
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 10.526,
+          "balancedAffordabilityPercentile": 36.842
+        },
+        "synthesizer": {
+          "score": 55.497,
+          "rankingQuality": 55.497,
+          "rankingValue": 13.158,
+          "status": "partial",
+          "coverageWeight": 0.85,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 5.263,
+          "balancedAffordabilityPercentile": 36.842
+        },
+        "researcher": {
+          "score": 45.017,
+          "rankingQuality": 45.017,
+          "rankingValue": 15.132,
+          "status": "partial",
+          "coverageWeight": 0.7059,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 7.895,
+          "balancedAffordabilityPercentile": 36.842
+        }
+      },
       "codingAgent": null,
       "aaModel": {
         "slug": "gpt-5-6-terra",
         "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra",
-        "intelligenceIndex": null
+        "intelligenceIndex": 25.6032,
+        "estimated": true,
+        "cutoffLowerBound": 15.9767
       }
     },
     {
@@ -9091,7 +9635,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 56.1995
         }
       },
@@ -9140,22 +9684,22 @@
         "architect": {
           "score": 63.7,
           "rankingQuality": 63.7,
-          "rankingValue": 65.625,
+          "rankingValue": 67.105,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.125,
-          "balancedAffordabilityPercentile": 28.125
+          "balancedQualityPercentile": 81.579,
+          "balancedAffordabilityPercentile": 23.684
         },
         "strategist": {
           "score": 67.031,
           "rankingQuality": 67.031,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.5,
-          "balancedAffordabilityPercentile": 28.125
+          "balancedQualityPercentile": 89.474,
+          "balancedAffordabilityPercentile": 23.684
         },
         "code-reviewer": {
           "score": 65.971,
@@ -9164,48 +9708,48 @@
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90.625,
-          "balancedAffordabilityPercentile": 28.125
+          "balancedQualityPercentile": 92.105,
+          "balancedAffordabilityPercentile": 23.684
         },
         "implementer": {
           "score": 64.403,
           "rankingQuality": 60.684,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.5,
-          "balancedAffordabilityPercentile": 28.125
+          "balancedQualityPercentile": 89.474,
+          "balancedAffordabilityPercentile": 23.684
         },
         "implementer-heavy": {
           "score": 64.217,
           "rankingQuality": 60.56,
-          "rankingValue": 70.313,
+          "rankingValue": 71.053,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.375,
-          "balancedAffordabilityPercentile": 28.125
+          "balancedQualityPercentile": 86.842,
+          "balancedAffordabilityPercentile": 23.684
         },
         "synthesizer": {
           "score": 73.5,
           "rankingQuality": 73.5,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.5,
-          "balancedAffordabilityPercentile": 28.125
+          "balancedQualityPercentile": 89.474,
+          "balancedAffordabilityPercentile": 23.684
         },
         "researcher": {
           "score": 68.552,
           "rankingQuality": 68.552,
-          "rankingValue": 72.656,
+          "rankingValue": 73.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.5,
-          "balancedAffordabilityPercentile": 28.125
+          "balancedQualityPercentile": 89.474,
+          "balancedAffordabilityPercentile": 23.684
         }
       },
       "caiStar": {
@@ -9292,7 +9836,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 46.815
         },
         "cyberIndex": {
@@ -9358,79 +9902,79 @@
         "architect": {
           "score": 57.791,
           "rankingQuality": 57.791,
-          "rankingValue": 31.25,
+          "rankingValue": 40.132,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 40.625,
-          "balancedAffordabilityPercentile": 3.125
+          "balancedQualityPercentile": 52.632,
+          "balancedAffordabilityPercentile": 2.632
         },
         "strategist": {
           "score": 59.425,
           "rankingQuality": 59.425,
-          "rankingValue": 35.938,
+          "rankingValue": 42.105,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 46.875,
-          "balancedAffordabilityPercentile": 3.125
+          "balancedQualityPercentile": 55.263,
+          "balancedAffordabilityPercentile": 2.632
         },
         "security-reviewer": {
           "score": 25.145,
           "rankingQuality": 25.145,
-          "rankingValue": 23.214,
-          "balancedQualityPercentile": 28.571,
-          "balancedAffordabilityPercentile": 7.143
+          "rankingValue": 18.056,
+          "balancedQualityPercentile": 22.222,
+          "balancedAffordabilityPercentile": 5.556
         },
         "code-reviewer": {
           "score": 60.768,
           "rankingQuality": 51.603,
-          "rankingValue": 42.969,
+          "rankingValue": 48.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 56.25,
-          "balancedAffordabilityPercentile": 3.125
+          "balancedQualityPercentile": 63.158,
+          "balancedAffordabilityPercentile": 2.632
         },
         "implementer": {
           "score": 59.93,
           "rankingQuality": 51.044,
-          "rankingValue": 42.969,
+          "rankingValue": 48.026,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 56.25,
-          "balancedAffordabilityPercentile": 3.125
+          "balancedQualityPercentile": 63.158,
+          "balancedAffordabilityPercentile": 2.632
         },
         "implementer-heavy": {
           "score": 59.377,
           "rankingQuality": 50.675,
-          "rankingValue": 33.594,
+          "rankingValue": 40.132,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.75,
-          "balancedAffordabilityPercentile": 3.125
+          "balancedQualityPercentile": 52.632,
+          "balancedAffordabilityPercentile": 2.632
         },
         "synthesizer": {
           "score": 68.276,
           "rankingQuality": 68.276,
-          "rankingValue": 52.344,
+          "rankingValue": 55.921,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 68.75,
-          "balancedAffordabilityPercentile": 3.125
+          "balancedQualityPercentile": 73.684,
+          "balancedAffordabilityPercentile": 2.632
         },
         "researcher": {
           "score": 62.603,
           "rankingQuality": 62.603,
-          "rankingValue": 38.281,
+          "rankingValue": 44.079,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 50,
-          "balancedAffordabilityPercentile": 3.125
+          "balancedQualityPercentile": 57.895,
+          "balancedAffordabilityPercentile": 2.632
         }
       },
       "caiStar": {
@@ -9676,7 +10220,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 24.164
         }
       },
@@ -9725,72 +10269,72 @@
         "architect": {
           "score": 39.36,
           "rankingQuality": 39.36,
-          "rankingValue": 20.313,
+          "rankingValue": 29.605,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 3.125,
-          "balancedAffordabilityPercentile": 71.875
+          "balancedQualityPercentile": 18.421,
+          "balancedAffordabilityPercentile": 63.158
         },
         "strategist": {
           "score": 45.44,
           "rankingQuality": 45.44,
-          "rankingValue": 20.313,
+          "rankingValue": 29.605,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 3.125,
-          "balancedAffordabilityPercentile": 71.875
+          "balancedQualityPercentile": 18.421,
+          "balancedAffordabilityPercentile": 63.158
         },
         "code-reviewer": {
           "score": 46.523,
           "rankingQuality": 39.713,
-          "rankingValue": 17.969,
+          "rankingValue": 25.658,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 71.875
+          "balancedQualityPercentile": 13.158,
+          "balancedAffordabilityPercentile": 63.158
         },
         "implementer": {
           "score": 44.792,
           "rankingQuality": 38.559,
-          "rankingValue": 17.969,
+          "rankingValue": 23.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 71.875
+          "balancedQualityPercentile": 10.526,
+          "balancedAffordabilityPercentile": 63.158
         },
         "implementer-heavy": {
           "score": 44.261,
           "rankingQuality": 38.205,
-          "rankingValue": 20.313,
+          "rankingValue": 31.579,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 3.125,
-          "balancedAffordabilityPercentile": 71.875
+          "balancedQualityPercentile": 21.053,
+          "balancedAffordabilityPercentile": 63.158
         },
         "synthesizer": {
           "score": 59.198,
           "rankingQuality": 59.198,
-          "rankingValue": 25,
+          "rankingValue": 31.579,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 9.375,
-          "balancedAffordabilityPercentile": 71.875
+          "balancedQualityPercentile": 21.053,
+          "balancedAffordabilityPercentile": 63.158
         },
         "researcher": {
           "score": 48.716,
           "rankingQuality": 48.716,
-          "rankingValue": 17.969,
+          "rankingValue": 23.684,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 0,
-          "balancedAffordabilityPercentile": 71.875
+          "balancedQualityPercentile": 10.526,
+          "balancedAffordabilityPercentile": 63.158
         }
       },
       "caiStar": {
@@ -9954,7 +10498,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 63.517
         }
       },
@@ -10003,72 +10547,72 @@
         "architect": {
           "score": 66.359,
           "rankingQuality": 66.359,
-          "rankingValue": 68.75,
+          "rankingValue": 69.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.5,
-          "balancedAffordabilityPercentile": 12.5
+          "balancedQualityPercentile": 89.474,
+          "balancedAffordabilityPercentile": 10.526
         },
         "strategist": {
           "score": 67.006,
           "rankingQuality": 67.006,
-          "rankingValue": 66.406,
+          "rankingValue": 67.763,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 84.375,
-          "balancedAffordabilityPercentile": 12.5
+          "balancedQualityPercentile": 86.842,
+          "balancedAffordabilityPercentile": 10.526
         },
         "code-reviewer": {
           "score": 63.125,
           "rankingQuality": 61.71,
-          "rankingValue": 68.75,
+          "rankingValue": 69.737,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 87.5,
-          "balancedAffordabilityPercentile": 12.5
+          "balancedQualityPercentile": 89.474,
+          "balancedAffordabilityPercentile": 10.526
         },
         "implementer": {
           "score": 62.694,
           "rankingQuality": 61.423,
-          "rankingValue": 71.094,
+          "rankingValue": 71.711,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90.625,
-          "balancedAffordabilityPercentile": 12.5
+          "balancedQualityPercentile": 92.105,
+          "balancedAffordabilityPercentile": 10.526
         },
         "implementer-heavy": {
           "score": 65.72,
           "rankingQuality": 63.44,
-          "rankingValue": 71.094,
+          "rankingValue": 71.711,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 90.625,
-          "balancedAffordabilityPercentile": 12.5
+          "balancedQualityPercentile": 92.105,
+          "balancedAffordabilityPercentile": 10.526
         },
         "synthesizer": {
           "score": 70.848,
           "rankingQuality": 70.848,
-          "rankingValue": 59.375,
+          "rankingValue": 61.842,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 75,
-          "balancedAffordabilityPercentile": 12.5
+          "balancedQualityPercentile": 78.947,
+          "balancedAffordabilityPercentile": 10.526
         },
         "researcher": {
           "score": 67.763,
           "rankingQuality": 67.763,
-          "rankingValue": 64.063,
+          "rankingValue": 65.789,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 81.25,
-          "balancedAffordabilityPercentile": 12.5
+          "balancedQualityPercentile": 84.211,
+          "balancedAffordabilityPercentile": 10.526
         }
       },
       "caiStar": {
@@ -10140,14 +10684,14 @@
       "max20EffectiveUsageUsd": 300,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "source_incomplete",
+        "status": "partial_scored",
         "slug": "muse-spark-1-3-xhigh",
-        "reason": "AA source incomplete for active methodology: intelligenceIndex",
+        "reason": "Scored conservatively with unavailable benchmark: gdpval",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "intelligenceIndex"
+          "gdpval"
         ]
       },
       "benchmarkProvenance": {
@@ -10156,6 +10700,33 @@
           "benchmark": "gdpval",
           "targetSlug": "muse-spark-1-3-xhigh",
           "reason": "Artificial Analysis publishes no current gdpval value for this mapped model; role scores use a conservative zero contribution for this component."
+        },
+        "intelligenceIndex": {
+          "status": "estimated",
+          "strategy": "held_out_calibrated_hle_scicode_omniscience",
+          "source": "Artificial Analysis current benchmark fields",
+          "trainingFamilies": 29,
+          "loocvMae": 5.409,
+          "loocvP90": 9.626,
+          "estimate": 38.6116,
+          "cutoffLowerBound": 28.9851,
+          "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "cyberIndex": {
+          "status": "observed",
+          "source": "Artificial Analysis Cyber Index v1",
+          "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+          "value": 44.305,
+          "components": {
+            "cweBench": 60.833,
+            "deepsecBench": 12.539,
+            "cybergymE2e": 59.542
+          },
+          "safetyBlocks": {
+            "cweBench": 0,
+            "deepsecBench": 0,
+            "cybergymE2e": 0
+          }
         }
       },
       "tokenPrices": {
@@ -10165,15 +10736,171 @@
         "cacheWrite": null,
         "blended50": 2.75
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
-      "codingAgent": null,
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.984883,
+        "planAdjustedCostPerTaskUsd": 0.656589,
+        "costBasis": "normalized_reference_v1",
+        "costTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "normalizedTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "observedTaskTokenProfile": {
+          "nonCacheInput": null,
+          "cacheRead": null,
+          "cacheWrite": null,
+          "reasoning": null,
+          "answer": null,
+          "output": null
+        }
+      },
+      "benchmarks": {
+        "gdpval": null,
+        "lcr": 83,
+        "hle": 47.4513,
+        "omniscienceIndex": 61.9167,
+        "scicode": 59.7222,
+        "cyberIndex": 44.305
+      },
+      "roleScores": {
+        "architect": {
+          "score": 34.835,
+          "rankingQuality": 34.835,
+          "rankingValue": 27.303,
+          "status": "partial",
+          "coverageWeight": 0.5,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 14.474,
+          "balancedAffordabilityPercentile": 65.789
+        },
+        "strategist": {
+          "score": 39.083,
+          "rankingQuality": 39.083,
+          "rankingValue": 25.329,
+          "status": "partial",
+          "coverageWeight": 0.5556,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 11.842,
+          "balancedAffordabilityPercentile": 65.789
+        },
+        "security-reviewer": {
+          "score": 44.305,
+          "rankingQuality": 44.305,
+          "rankingValue": 53.472,
+          "balancedQualityPercentile": 47.222,
+          "balancedAffordabilityPercentile": 72.222
+        },
+        "code-reviewer": {
+          "score": 62.827,
+          "rankingQuality": 41.885,
+          "rankingValue": 33.224,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 22.368,
+          "balancedAffordabilityPercentile": 65.789
+        },
+        "implementer": {
+          "score": 62.386,
+          "rankingQuality": 41.591,
+          "rankingValue": 33.224,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 22.368,
+          "balancedAffordabilityPercentile": 65.789
+        },
+        "implementer-heavy": {
+          "score": 48.306,
+          "rankingQuality": 32.204,
+          "rankingValue": 27.303,
+          "status": "partial",
+          "coverageWeight": 0.4815,
+          "missingComponents": [
+            "gdpval",
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 14.474,
+          "balancedAffordabilityPercentile": 65.789
+        },
+        "synthesizer": {
+          "score": 62.117,
+          "rankingQuality": 62.117,
+          "rankingValue": 47.039,
+          "status": "partial",
+          "coverageWeight": 0.85,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 40.789,
+          "balancedAffordabilityPercentile": 65.789
+        },
+        "researcher": {
+          "score": 49.445,
+          "rankingQuality": 49.445,
+          "rankingValue": 29.276,
+          "status": "partial",
+          "coverageWeight": 0.7059,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 17.105,
+          "balancedAffordabilityPercentile": 65.789
+        }
+      },
+      "codingAgent": {
+        "hostModelSlug": "muse-spark-1-3-xhigh",
+        "modelLabel": "Muse Spark 1.3 (Max)",
+        "agent": "Muse Code",
+        "displayLabel": "Muse Code - Muse Spark 1.3 (Max)",
+        "indexScore": 45.708,
+        "evaluations": {
+          "frontiercode-v1.1-main": 46.703,
+          "swe-atlas-qna": 58.602,
+          "terminal-bench-v4": 31.818
+        },
+        "tokensPerTask": {
+          "reward": 0.457077885630499,
+          "costUsd": 3.91029139020419,
+          "wallTimeSec": 1398.49826969262,
+          "steps": 208.319377647442,
+          "inputTokens": 17642872.3721332,
+          "cacheWriteTokens": null,
+          "outputTokens": 181468.281245791,
+          "cacheTokens": 17195035.7002335,
+          "cacheHitRate": 0.966617846464586,
+          "totalTokens": 17824340.6533789
+        },
+        "totalTokensPerTask": 17824340.6533789,
+        "timePerTaskSec": 1398.49826969262,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "muse-spark-1-3-xhigh",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
-        "intelligenceIndex": null
+        "intelligenceIndex": 38.6116,
+        "estimated": true,
+        "cutoffLowerBound": 28.9851
       }
     },
     {
@@ -10202,14 +10929,14 @@
       "max20EffectiveUsageUsd": 300,
       "dealSourceUrl": null,
       "mapping": {
-        "status": "source_incomplete",
+        "status": "partial_scored",
         "slug": "muse-spark-1-3-xhigh",
-        "reason": "AA source incomplete for active methodology: intelligenceIndex",
+        "reason": "Scored conservatively with unavailable benchmark: gdpval",
         "identityStatus": null,
         "externalSource": null,
         "externalEvidence": null,
         "missingBenchmarks": [
-          "intelligenceIndex"
+          "gdpval"
         ]
       },
       "benchmarkProvenance": {
@@ -10218,6 +10945,33 @@
           "benchmark": "gdpval",
           "targetSlug": "muse-spark-1-3-xhigh",
           "reason": "Artificial Analysis publishes no current gdpval value for this mapped model; role scores use a conservative zero contribution for this component."
+        },
+        "intelligenceIndex": {
+          "status": "estimated",
+          "strategy": "held_out_calibrated_hle_scicode_omniscience",
+          "source": "Artificial Analysis current benchmark fields",
+          "trainingFamilies": 29,
+          "loocvMae": 5.409,
+          "loocvP90": 9.626,
+          "estimate": 38.6116,
+          "cutoffLowerBound": 28.9851,
+          "notice": "Not an observed AA Intelligence Index; cutoff uses the conservative lower bound."
+        },
+        "cyberIndex": {
+          "status": "observed",
+          "source": "Artificial Analysis Cyber Index v1",
+          "sourceUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+          "value": 44.305,
+          "components": {
+            "cweBench": 60.833,
+            "deepsecBench": 12.539,
+            "cybergymE2e": 59.542
+          },
+          "safetyBlocks": {
+            "cweBench": 0,
+            "deepsecBench": 0,
+            "cybergymE2e": 0
+          }
         }
       },
       "tokenPrices": {
@@ -10227,15 +10981,171 @@
         "cacheWrite": null,
         "blended50": 0.15
       },
-      "taskEfficiency": null,
-      "benchmarks": {},
-      "roleScores": {},
-      "caiStar": null,
-      "codingAgent": null,
+      "taskEfficiency": {
+        "commandCodeCostPerTaskUsd": 0.03977,
+        "planAdjustedCostPerTaskUsd": 0.026513,
+        "costBasis": "normalized_reference_v1",
+        "costTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "normalizedTokenProfile": {
+          "nonCacheInput": 16564.39,
+          "cacheRead": 3178851.04,
+          "cacheWrite": 214245.16,
+          "output": 51657.3
+        },
+        "observedTaskTokenProfile": {
+          "nonCacheInput": null,
+          "cacheRead": null,
+          "cacheWrite": null,
+          "reasoning": null,
+          "answer": null,
+          "output": null
+        }
+      },
+      "benchmarks": {
+        "gdpval": null,
+        "lcr": 83,
+        "hle": 47.4513,
+        "omniscienceIndex": 61.9167,
+        "scicode": 59.7222,
+        "cyberIndex": 44.305
+      },
+      "roleScores": {
+        "architect": {
+          "score": 34.835,
+          "rankingQuality": 34.835,
+          "rankingValue": 35.197,
+          "status": "partial",
+          "coverageWeight": 0.5,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 14.474,
+          "balancedAffordabilityPercentile": 97.368
+        },
+        "strategist": {
+          "score": 39.083,
+          "rankingQuality": 39.083,
+          "rankingValue": 33.224,
+          "status": "partial",
+          "coverageWeight": 0.5556,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 11.842,
+          "balancedAffordabilityPercentile": 97.368
+        },
+        "security-reviewer": {
+          "score": 44.305,
+          "rankingQuality": 44.305,
+          "rankingValue": 60.417,
+          "balancedQualityPercentile": 47.222,
+          "balancedAffordabilityPercentile": 100
+        },
+        "code-reviewer": {
+          "score": 62.827,
+          "rankingQuality": 41.885,
+          "rankingValue": 41.118,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 22.368,
+          "balancedAffordabilityPercentile": 97.368
+        },
+        "implementer": {
+          "score": 62.386,
+          "rankingQuality": 41.591,
+          "rankingValue": 41.118,
+          "status": "partial",
+          "coverageWeight": 0.6667,
+          "missingComponents": [
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 22.368,
+          "balancedAffordabilityPercentile": 97.368
+        },
+        "implementer-heavy": {
+          "score": 48.306,
+          "rankingQuality": 32.204,
+          "rankingValue": 35.197,
+          "status": "partial",
+          "coverageWeight": 0.4815,
+          "missingComponents": [
+            "gdpval",
+            "caiStar"
+          ],
+          "balancedQualityPercentile": 14.474,
+          "balancedAffordabilityPercentile": 97.368
+        },
+        "synthesizer": {
+          "score": 62.117,
+          "rankingQuality": 62.117,
+          "rankingValue": 54.934,
+          "status": "partial",
+          "coverageWeight": 0.85,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 40.789,
+          "balancedAffordabilityPercentile": 97.368
+        },
+        "researcher": {
+          "score": 49.445,
+          "rankingQuality": 49.445,
+          "rankingValue": 37.171,
+          "status": "partial",
+          "coverageWeight": 0.7059,
+          "missingComponents": [
+            "gdpval"
+          ],
+          "balancedQualityPercentile": 17.105,
+          "balancedAffordabilityPercentile": 97.368
+        }
+      },
+      "codingAgent": {
+        "hostModelSlug": "muse-spark-1-3-xhigh",
+        "modelLabel": "Muse Spark 1.3 (Max)",
+        "agent": "Muse Code",
+        "displayLabel": "Muse Code - Muse Spark 1.3 (Max)",
+        "indexScore": 45.708,
+        "evaluations": {
+          "frontiercode-v1.1-main": 46.703,
+          "swe-atlas-qna": 58.602,
+          "terminal-bench-v4": 31.818
+        },
+        "tokensPerTask": {
+          "reward": 0.457077885630499,
+          "costUsd": 3.91029139020419,
+          "wallTimeSec": 1398.49826969262,
+          "steps": 208.319377647442,
+          "inputTokens": 17642872.3721332,
+          "cacheWriteTokens": null,
+          "outputTokens": 181468.281245791,
+          "cacheTokens": 17195035.7002335,
+          "cacheHitRate": 0.966617846464586,
+          "totalTokens": 17824340.6533789
+        },
+        "totalTokensPerTask": 17824340.6533789,
+        "timePerTaskSec": 1398.49826969262,
+        "sourceUrl": "https://artificialanalysis.ai/agents/coding-agents",
+        "selection": {
+          "isHighlighted": false,
+          "isDefault": false,
+          "rule": "highest comparable index score; highlight/default only break ties"
+        }
+      },
       "aaModel": {
         "slug": "muse-spark-1-3-xhigh",
         "sourceUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
-        "intelligenceIndex": null
+        "intelligenceIndex": 38.6116,
+        "estimated": true,
+        "cutoffLowerBound": 28.9851
       }
     },
     {
@@ -10279,7 +11189,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 45.056
         }
       },
@@ -10328,72 +11238,72 @@
         "architect": {
           "score": 55.235,
           "rankingQuality": 55.235,
-          "rankingValue": 34.375,
+          "rankingValue": 43.421,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 28.125,
-          "balancedAffordabilityPercentile": 53.125
+          "balancedQualityPercentile": 42.105,
+          "balancedAffordabilityPercentile": 47.368
         },
         "strategist": {
           "score": 58.399,
           "rankingQuality": 58.399,
-          "rankingValue": 46.094,
+          "rankingValue": 51.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.75,
-          "balancedAffordabilityPercentile": 53.125
+          "balancedQualityPercentile": 52.632,
+          "balancedAffordabilityPercentile": 47.368
         },
         "code-reviewer": {
           "score": 60.913,
           "rankingQuality": 49.376,
-          "rankingValue": 41.406,
+          "rankingValue": 49.342,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 37.5,
-          "balancedAffordabilityPercentile": 53.125
+          "balancedQualityPercentile": 50,
+          "balancedAffordabilityPercentile": 47.368
         },
         "implementer": {
           "score": 60.244,
           "rankingQuality": 48.93,
-          "rankingValue": 39.063,
+          "rankingValue": 47.368,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 34.375,
-          "balancedAffordabilityPercentile": 53.125
+          "balancedQualityPercentile": 47.368,
+          "balancedAffordabilityPercentile": 47.368
         },
         "implementer-heavy": {
           "score": 59.147,
           "rankingQuality": 48.198,
-          "rankingValue": 32.031,
+          "rankingValue": 41.447,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25,
-          "balancedAffordabilityPercentile": 53.125
+          "balancedQualityPercentile": 39.474,
+          "balancedAffordabilityPercentile": 47.368
         },
         "synthesizer": {
           "score": 67.168,
           "rankingQuality": 67.168,
-          "rankingValue": 57.813,
+          "rankingValue": 61.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 59.375,
-          "balancedAffordabilityPercentile": 53.125
+          "balancedQualityPercentile": 65.789,
+          "balancedAffordabilityPercentile": 47.368
         },
         "researcher": {
           "score": 60.862,
           "rankingQuality": 60.862,
-          "rankingValue": 46.094,
+          "rankingValue": 51.316,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 43.75,
-          "balancedAffordabilityPercentile": 53.125
+          "balancedQualityPercentile": 52.632,
+          "balancedAffordabilityPercentile": 47.368
         }
       },
       "caiStar": {
@@ -10642,7 +11552,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 60.5535
         },
         "cyberIndex": {
@@ -10708,79 +11618,79 @@
         "architect": {
           "score": 62.324,
           "rankingQuality": 62.324,
-          "rankingValue": 54.297,
+          "rankingValue": 57.566,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 64.063,
-          "balancedAffordabilityPercentile": 25
+          "balancedQualityPercentile": 69.737,
+          "balancedAffordabilityPercentile": 21.053
         },
         "strategist": {
           "score": 65.822,
           "rankingQuality": 65.822,
-          "rankingValue": 64.844,
+          "rankingValue": 66.447,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 78.125,
-          "balancedAffordabilityPercentile": 25
+          "balancedQualityPercentile": 81.579,
+          "balancedAffordabilityPercentile": 21.053
         },
         "security-reviewer": {
           "score": 56.432,
           "rankingQuality": 56.432,
-          "rankingValue": 76.786,
-          "balancedQualityPercentile": 92.857,
-          "balancedAffordabilityPercentile": 28.571
+          "rankingValue": 76.389,
+          "balancedQualityPercentile": 94.444,
+          "balancedAffordabilityPercentile": 22.222
         },
         "code-reviewer": {
           "score": 60.261,
           "rankingQuality": 55.706,
-          "rankingValue": 53.125,
+          "rankingValue": 56.579,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 62.5,
-          "balancedAffordabilityPercentile": 25
+          "balancedQualityPercentile": 68.421,
+          "balancedAffordabilityPercentile": 21.053
         },
         "implementer": {
           "score": 59.128,
           "rankingQuality": 54.951,
-          "rankingValue": 53.125,
+          "rankingValue": 56.579,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 62.5,
-          "balancedAffordabilityPercentile": 25
+          "balancedQualityPercentile": 68.421,
+          "balancedAffordabilityPercentile": 21.053
         },
         "implementer-heavy": {
           "score": 62.561,
           "rankingQuality": 57.24,
-          "rankingValue": 55.469,
+          "rankingValue": 58.553,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 65.625,
-          "balancedAffordabilityPercentile": 25
+          "balancedQualityPercentile": 71.053,
+          "balancedAffordabilityPercentile": 21.053
         },
         "synthesizer": {
           "score": 69.83,
           "rankingQuality": 69.83,
-          "rankingValue": 60.156,
+          "rankingValue": 62.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.875,
-          "balancedAffordabilityPercentile": 25
+          "balancedQualityPercentile": 76.316,
+          "balancedAffordabilityPercentile": 21.053
         },
         "researcher": {
           "score": 65.383,
           "rankingQuality": 65.383,
-          "rankingValue": 60.156,
+          "rankingValue": 62.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 71.875,
-          "balancedAffordabilityPercentile": 25
+          "balancedQualityPercentile": 76.316,
+          "balancedAffordabilityPercentile": 21.053
         }
       },
       "caiStar": {
@@ -10973,7 +11883,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 46.1085
         },
         "cyberIndex": {
@@ -11039,79 +11949,79 @@
         "architect": {
           "score": 55.039,
           "rankingQuality": 55.039,
-          "rankingValue": 26.563,
+          "rankingValue": 36.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25,
-          "balancedAffordabilityPercentile": 31.25
+          "balancedQualityPercentile": 39.474,
+          "balancedAffordabilityPercentile": 26.316
         },
         "strategist": {
           "score": 53.983,
           "rankingQuality": 53.983,
-          "rankingValue": 24.219,
+          "rankingValue": 34.211,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 21.875,
-          "balancedAffordabilityPercentile": 31.25
+          "balancedQualityPercentile": 36.842,
+          "balancedAffordabilityPercentile": 26.316
         },
         "security-reviewer": {
           "score": 49.511,
           "rankingQuality": 49.511,
-          "rankingValue": 57.143,
-          "balancedQualityPercentile": 64.286,
-          "balancedAffordabilityPercentile": 35.714
+          "rankingValue": 52.778,
+          "balancedQualityPercentile": 61.111,
+          "balancedAffordabilityPercentile": 27.778
         },
         "code-reviewer": {
           "score": 55.879,
           "rankingQuality": 48.573,
-          "rankingValue": 33.594,
+          "rankingValue": 42.105,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 34.375,
-          "balancedAffordabilityPercentile": 31.25
+          "balancedQualityPercentile": 47.368,
+          "balancedAffordabilityPercentile": 26.316
         },
         "implementer": {
           "score": 56.71,
           "rankingQuality": 49.127,
-          "rankingValue": 35.938,
+          "rankingValue": 44.079,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 37.5,
-          "balancedAffordabilityPercentile": 31.25
+          "balancedQualityPercentile": 50,
+          "balancedAffordabilityPercentile": 26.316
         },
         "implementer-heavy": {
           "score": 57.965,
           "rankingQuality": 49.963,
-          "rankingValue": 33.594,
+          "rankingValue": 42.105,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 34.375,
-          "balancedAffordabilityPercentile": 31.25
+          "balancedQualityPercentile": 47.368,
+          "balancedAffordabilityPercentile": 26.316
         },
         "synthesizer": {
           "score": 62.016,
           "rankingQuality": 62.016,
-          "rankingValue": 31.25,
+          "rankingValue": 34.211,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 31.25,
-          "balancedAffordabilityPercentile": 31.25
+          "balancedQualityPercentile": 36.842,
+          "balancedAffordabilityPercentile": 26.316
         },
         "researcher": {
           "score": 57.271,
           "rankingQuality": 57.271,
-          "rankingValue": 26.563,
+          "rankingValue": 36.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 25,
-          "balancedAffordabilityPercentile": 31.25
+          "balancedQualityPercentile": 39.474,
+          "balancedAffordabilityPercentile": 26.316
         }
       },
       "caiStar": {
@@ -11169,7 +12079,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 28.8095
         }
       },
@@ -11218,72 +12128,72 @@
         "architect": {
           "score": 44.549,
           "rankingQuality": 44.549,
-          "rankingValue": 25.781,
+          "rankingValue": 34.211,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.5,
-          "balancedAffordabilityPercentile": 65.625
+          "balancedQualityPercentile": 26.316,
+          "balancedAffordabilityPercentile": 57.895
         },
         "strategist": {
           "score": 46.406,
           "rankingQuality": 46.406,
-          "rankingValue": 28.125,
+          "rankingValue": 36.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.625,
-          "balancedAffordabilityPercentile": 65.625
+          "balancedQualityPercentile": 28.947,
+          "balancedAffordabilityPercentile": 57.895
         },
         "code-reviewer": {
           "score": 51.074,
           "rankingQuality": 43.369,
-          "rankingValue": 25.781,
+          "rankingValue": 36.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.5,
-          "balancedAffordabilityPercentile": 65.625
+          "balancedQualityPercentile": 28.947,
+          "balancedAffordabilityPercentile": 57.895
         },
         "implementer": {
           "score": 50.568,
           "rankingQuality": 43.032,
-          "rankingValue": 25.781,
+          "rankingValue": 36.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.5,
-          "balancedAffordabilityPercentile": 65.625
+          "balancedQualityPercentile": 28.947,
+          "balancedAffordabilityPercentile": 57.895
         },
         "implementer-heavy": {
           "score": 48.683,
           "rankingQuality": 41.775,
-          "rankingValue": 25.781,
+          "rankingValue": 36.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 12.5,
-          "balancedAffordabilityPercentile": 65.625
+          "balancedQualityPercentile": 28.947,
+          "balancedAffordabilityPercentile": 57.895
         },
         "synthesizer": {
           "score": 58.821,
           "rankingQuality": 58.821,
-          "rankingValue": 21.094,
+          "rankingValue": 28.289,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 6.25,
-          "balancedAffordabilityPercentile": 65.625
+          "balancedQualityPercentile": 18.421,
+          "balancedAffordabilityPercentile": 57.895
         },
         "researcher": {
           "score": 51.106,
           "rankingQuality": 51.106,
-          "rankingValue": 28.125,
+          "rankingValue": 36.184,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.625,
-          "balancedAffordabilityPercentile": 65.625
+          "balancedQualityPercentile": 28.947,
+          "balancedAffordabilityPercentile": 57.895
         }
       },
       "caiStar": {
@@ -11341,7 +12251,7 @@
           "targetMetricVersion": "GDPval-AA v2.1",
           "versionComparable": false,
           "observedAt": "2026-10-19T06:17:18.481Z",
-          "ageDays": 9.177,
+          "ageDays": 9.18,
           "value": 31.195
         }
       },
@@ -11390,72 +12300,72 @@
         "architect": {
           "score": 45.49,
           "rankingQuality": 45.49,
-          "rankingValue": 33.594,
+          "rankingValue": 41.447,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.625,
-          "balancedAffordabilityPercentile": 87.5
+          "balancedQualityPercentile": 28.947,
+          "balancedAffordabilityPercentile": 78.947
         },
         "strategist": {
           "score": 45.768,
           "rankingQuality": 45.768,
-          "rankingValue": 26.563,
+          "rankingValue": 35.526,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 6.25,
-          "balancedAffordabilityPercentile": 87.5
+          "balancedQualityPercentile": 21.053,
+          "balancedAffordabilityPercentile": 78.947
         },
         "code-reviewer": {
           "score": 51.94,
           "rankingQuality": 44.3,
-          "rankingValue": 33.594,
+          "rankingValue": 43.421,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.625,
-          "balancedAffordabilityPercentile": 87.5
+          "balancedQualityPercentile": 31.579,
+          "balancedAffordabilityPercentile": 78.947
         },
         "implementer": {
           "score": 52.322,
           "rankingQuality": 44.555,
-          "rankingValue": 33.594,
+          "rankingValue": 43.421,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.625,
-          "balancedAffordabilityPercentile": 87.5
+          "balancedQualityPercentile": 31.579,
+          "balancedAffordabilityPercentile": 78.947
         },
         "implementer-heavy": {
           "score": 50.306,
           "rankingQuality": 43.211,
-          "rankingValue": 33.594,
+          "rankingValue": 43.421,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 15.625,
-          "balancedAffordabilityPercentile": 87.5
+          "balancedQualityPercentile": 31.579,
+          "balancedAffordabilityPercentile": 78.947
         },
         "synthesizer": {
           "score": 56.836,
           "rankingQuality": 56.836,
-          "rankingValue": 24.219,
+          "rankingValue": 31.579,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 3.125,
-          "balancedAffordabilityPercentile": 87.5
+          "balancedQualityPercentile": 15.789,
+          "balancedAffordabilityPercentile": 78.947
         },
         "researcher": {
           "score": 50.452,
           "rankingQuality": 50.452,
-          "rankingValue": 28.906,
+          "rankingValue": 37.5,
           "status": "valid",
           "coverageWeight": 1,
           "missingComponents": [],
-          "balancedQualityPercentile": 9.375,
-          "balancedAffordabilityPercentile": 87.5
+          "balancedQualityPercentile": 23.684,
+          "balancedAffordabilityPercentile": 78.947
         }
       },
       "caiStar": {

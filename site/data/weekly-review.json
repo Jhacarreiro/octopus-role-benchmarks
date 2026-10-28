@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T10:34:37.575Z",
+  "generatedAt": "2026-10-28T10:35:54.833Z",
   "snapshotDate": "2026-10-28",
   "refresh": {
     "schemaVersion": 3,
     "status": "error",
-    "attemptedAt": "2026-10-28T10:34:37.471Z",
+    "attemptedAt": "2026-10-28T10:35:54.713Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-10-28",
       "generatedAt": "2026-10-28T10:32:54.494Z"
@@ -23,8 +23,8 @@
     },
     "mode": null,
     "message": null,
-    "stage": "update",
-    "errorSummary": "Node.js v26.12.1",
+    "stage": "validation",
+    "errorSummary": "Error: Scored model lacks CAI*: Qwen 3.8 Omni Flash",
     "validationIssues": [
       {
         "benchmark": "coding-agent-host",
@@ -120,5 +120,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n❌ Refresh: error\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n❌ Refresh: error\n\nPREÇOS / CRÉDITOS\n• MiniMax M3.1 Flash: créditos/task $0.49→$0 (-100%); custo ajustado $0.33→$0 (-100%); billing standard→free; free não→sim\n• Ornith 1.5 122B: billing standard→free; free não→sim\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }
