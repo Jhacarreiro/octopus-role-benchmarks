@@ -1,33 +1,33 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T19:14:18.299Z",
-  "snapshotDate": "2026-10-28",
+  "generatedAt": "2026-11-02T07:17:27.804Z",
+  "snapshotDate": "2026-11-02",
   "refresh": {
     "schemaVersion": 3,
     "status": "success",
-    "attemptedAt": "2026-10-28T19:14:18.125Z",
+    "attemptedAt": "2026-11-02T07:17:27.658Z",
     "lastSuccessfulSnapshot": {
-      "date": "2026-10-28",
-      "generatedAt": "2026-10-28T18:47:36.906Z"
+      "date": "2026-11-02",
+      "generatedAt": "2026-11-02T07:17:21.019Z"
     },
     "lastPublishedSnapshot": {
-      "date": "2026-10-28",
-      "generatedAt": "2026-10-28T18:47:36.906Z",
-      "benchmarkDate": "2026-10-28",
-      "benchmarkGeneratedAt": "2026-10-28T18:47:36.906Z",
-      "lineupInputsRefreshedAt": "2026-10-28T18:47:36.906Z"
+      "date": "2026-11-02",
+      "generatedAt": "2026-11-02T07:17:21.019Z",
+      "benchmarkDate": "2026-11-02",
+      "benchmarkGeneratedAt": "2026-11-02T07:17:21.019Z",
+      "lineupInputsRefreshedAt": "2026-11-02T07:17:21.019Z"
     },
     "lastValidatedBenchmark": {
-      "date": "2026-10-28",
-      "generatedAt": "2026-10-28T18:47:36.906Z"
+      "date": "2026-11-02",
+      "generatedAt": "2026-11-02T07:17:21.019Z"
     },
     "mode": "full",
-    "message": "Policy v19: quality-first Balanced/Budget with no relative Intelligence floor; known Intelligence required; exchanges remain 15%/10%; coding +2 guards and disabled estimators retained. Source observations unchanged.",
+    "message": null,
     "stage": null,
     "errorSummary": null,
     "validationIssues": [],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-10-28\n✅ Refresh: success · full — Policy v19: quality-first Balanced/Budget with no relative Intelligence floor; known Intelligence required; exchanges remain 15%/10%; coding +2 guards and disabled estimators retained. Source observations unchanged.\n\nLINEUPS\n• balanced/code-reviewer: Gemini 4 Argon → Kimi K3.1 Pro\n• balanced/implementer-heavy: GPT-6.1 Terra → Gemini 4 Argon\n• balanced/researcher: Kimi K3.1 Pro → GPT-6.1 Sol\n• budget/architect: Claude Haiku 5.5 → DeepSeek V4.1 Flash (latest)\n• budget/strategist: DeepSeek V4.1 Flash (latest) → Claude Sonnet 5.5\n• budget/security-reviewer: GPT-6 Luna → MiMo V2.6 Pro\n• budget/researcher: MiniMax M3.1 Flash → MiMo V2.6 Pro"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-11-02\n✅ Refresh: success · full\n\nMODELOS\nEntraram:\n+ Ling 3.1 Flash 1019\n\nLINEUPS\n• budget/security-reviewer: MiMo V2.6 Pro → DeepSeek V4.1 Flash (latest)\n• budget/implementer-heavy: DeepSeek V4.1 Flash (latest) → Ling 3.1 Flash 1019"
 }

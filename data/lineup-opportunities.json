@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "snapshotDate": "2026-10-28",
-  "generatedAt": "2026-10-28T18:47:36.906Z",
+  "snapshotDate": "2026-11-02",
+  "generatedAt": "2026-11-02T07:17:21.019Z",
   "policySchemaVersion": 19,
   "applyAutomatically": false,
   "scope": "regenerate-full-portfolio",
@@ -43,8 +43,8 @@
           "requestedPriceLevels": 1,
           "tiePrecisionDecimals": 6,
           "referencePopulation": "portfolio-candidates-before-intelligence-floor",
-          "referenceModels": 41,
-          "referencePriceLevels": 36,
+          "referenceModels": 44,
+          "referencePriceLevels": 38,
           "excludedPriceLevels": [
             8.605424
           ],
@@ -53,12 +53,12 @@
           ]
         },
         "referencePopulation": "latest-generation-scored-universe-after-ranked-price-exclusions",
-        "referenceModels": 27,
-        "referenceFamilies": 17,
+        "referenceModels": 30,
+        "referenceFamilies": 18,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
-        "meanCostPerTaskUsd": 0.96601,
-        "populationStdDevCostPerTaskUsd": 1.256739,
-        "cutoffCostPerTaskUsd": 3.479488,
+        "meanCostPerTaskUsd": 0.881502,
+        "populationStdDevCostPerTaskUsd": 1.219368,
+        "cutoffCostPerTaskUsd": 3.320239,
         "postFilterBestEligibleIntelligenceIndex": 58.406,
         "excluded": [
           {
@@ -93,34 +93,34 @@
         "initialCostUsd": 14.45938,
         "optimizedCostUsd": 10.015914,
         "savingPercent": 30.730685,
-        "positivePointLoss": 5.13731,
-        "meanPositivePointLoss": 0.642164,
+        "positivePointLoss": 5.09726,
+        "meanPositivePointLoss": 0.637157,
         "intelligenceExceptions": [],
         "changes": [
           {
             "role": "architect",
             "from": "Claude Opus 5.5",
             "to": "Claude Sonnet 5.5",
-            "initialQuality": 58.860769,
-            "quality": 57.995113,
-            "pointLoss": 0.865656,
+            "initialQuality": 58.880119,
+            "quality": 58.034488,
+            "pointLoss": 0.845631,
             "initialCostUsd": 2.8064,
             "costUsd": 0.935467,
             "savingPercent": 66.666667,
-            "requiredSavingPercent": 12.98484,
+            "requiredSavingPercent": 12.684465,
             "observedIntelligence": 54.24133407109
           },
           {
             "role": "strategist",
             "from": "Claude Opus 5.5",
             "to": "Claude Sonnet 5.5",
-            "initialQuality": 59.726261,
-            "quality": 58.48794,
-            "pointLoss": 1.238321,
+            "initialQuality": 59.745611,
+            "quality": 58.527315,
+            "pointLoss": 1.218296,
             "initialCostUsd": 2.8064,
             "costUsd": 0.935467,
             "savingPercent": 66.666667,
-            "requiredSavingPercent": 18.574815,
+            "requiredSavingPercent": 18.27444,
             "observedIntelligence": 54.24133407109
           },
           {
@@ -140,12 +140,12 @@
         "initialSelections": {
           "architect": {
             "model": "Claude Opus 5.5",
-            "quality": 58.860769,
+            "quality": 58.880119,
             "costUsd": 2.8064
           },
           "strategist": {
             "model": "Claude Opus 5.5",
-            "quality": 59.726261,
+            "quality": 59.745611,
             "costUsd": 2.8064
           },
           "security-reviewer": {
@@ -165,7 +165,7 @@
           },
           "implementer-heavy": {
             "model": "Gemini 4 Argon",
-            "quality": 58.822552,
+            "quality": 58.842852,
             "costUsd": 1.296077
           },
           "synthesizer": {
@@ -190,7 +190,7 @@
       "classification": "review-only",
       "objective": "initial-role-quality-then-score-price-exchange",
       "minimumFamilies": 5,
-      "currentFamilyCount": 5,
+      "currentFamilyCount": 6,
       "requestedIntelligenceFloor": 0,
       "effectiveIntelligenceFloor": 0,
       "priceFilter": {
@@ -207,8 +207,8 @@
           "requestedPriceLevels": 2,
           "tiePrecisionDecimals": 6,
           "referencePopulation": "portfolio-candidates-before-intelligence-floor",
-          "referenceModels": 41,
-          "referencePriceLevels": 36,
+          "referenceModels": 44,
+          "referencePriceLevels": 38,
           "excludedPriceLevels": [
             8.605424,
             6.221286
@@ -219,12 +219,12 @@
           ]
         },
         "referencePopulation": "latest-generation-scored-universe-after-ranked-price-exclusions",
-        "referenceModels": 26,
-        "referenceFamilies": 17,
+        "referenceModels": 29,
+        "referenceFamilies": 18,
         "preFilterBestEligibleIntelligenceIndex": 58.406,
-        "meanCostPerTaskUsd": 0.763884,
-        "populationStdDevCostPerTaskUsd": 0.732841,
-        "cutoffCostPerTaskUsd": 2.229566,
+        "meanCostPerTaskUsd": 0.697372,
+        "populationStdDevCostPerTaskUsd": 0.72181,
+        "cutoffCostPerTaskUsd": 2.140991,
         "postFilterBestEligibleIntelligenceIndex": 54.5087,
         "excluded": [
           {
@@ -279,39 +279,39 @@
         "measuredReplacementsOnly": true,
         "maxIntelligenceExceptions": null,
         "searchCompleted": true,
-        "visitedNodes": 58,
+        "visitedNodes": 90,
         "initialCostUsd": 9.043311,
-        "optimizedCostUsd": 2.378064,
-        "savingPercent": 73.703614,
-        "positivePointLoss": 52.281851,
-        "meanPositivePointLoss": 6.535231,
+        "optimizedCostUsd": 2.273539,
+        "savingPercent": 74.859444,
+        "positivePointLoss": 52.969264,
+        "meanPositivePointLoss": 6.621158,
         "intelligenceExceptions": [],
         "changes": [
           {
             "role": "architect",
             "from": "Claude Sonnet 5.5",
             "to": "DeepSeek V4.1 Flash (latest)",
-            "initialQuality": 57.995113,
+            "initialQuality": 58.034488,
             "quality": 49.250499,
-            "pointLoss": 8.744614,
+            "pointLoss": 8.783989,
             "initialCostUsd": 0.935467,
             "costUsd": 0.050101,
             "savingPercent": 94.644242,
-            "requiredSavingPercent": 87.44614,
+            "requiredSavingPercent": 87.83989,
             "observedIntelligence": 32.4896393532027
           },
           {
             "role": "security-reviewer",
             "from": "Kimi K3.1 Pro",
-            "to": "MiMo V2.6 Pro",
+            "to": "DeepSeek V4.1 Flash (latest)",
             "initialQuality": 64.065108,
-            "quality": 56.065602,
-            "pointLoss": 7.999506,
+            "quality": 56.811676,
+            "pointLoss": 7.253432,
             "initialCostUsd": 1.075975,
-            "costUsd": 0.104525,
-            "savingPercent": 90.285521,
-            "requiredSavingPercent": 79.99506,
-            "observedIntelligence": 29.8897833093321
+            "costUsd": 0.050101,
+            "savingPercent": 95.343633,
+            "requiredSavingPercent": 72.53432,
+            "observedIntelligence": 32.4896393532027
           },
           {
             "role": "implementer",
@@ -329,15 +329,15 @@
           {
             "role": "implementer-heavy",
             "from": "Gemini 4 Argon",
-            "to": "DeepSeek V4.1 Flash (latest)",
-            "initialQuality": 58.822552,
-            "quality": 50.492956,
-            "pointLoss": 8.329596,
+            "to": "Ling 3.1 Flash 1019",
+            "initialQuality": 58.842852,
+            "quality": 49.119144,
+            "pointLoss": 9.723708,
             "initialCostUsd": 1.296077,
-            "costUsd": 0.050101,
-            "savingPercent": 96.134386,
-            "requiredSavingPercent": 83.29596,
-            "observedIntelligence": 32.4896393532027
+            "costUsd": 0,
+            "savingPercent": 100,
+            "requiredSavingPercent": 97.23708,
+            "observedIntelligence": 29.470119369837
           },
           {
             "role": "synthesizer",
@@ -369,12 +369,12 @@
         "initialSelections": {
           "architect": {
             "model": "Claude Sonnet 5.5",
-            "quality": 57.995113,
+            "quality": 58.034488,
             "costUsd": 0.935467
           },
           "strategist": {
             "model": "Claude Sonnet 5.5",
-            "quality": 58.48794,
+            "quality": 58.527315,
             "costUsd": 0.935467
           },
           "security-reviewer": {
@@ -394,7 +394,7 @@
           },
           "implementer-heavy": {
             "model": "Gemini 4 Argon",
-            "quality": 58.822552,
+            "quality": 58.842852,
             "costUsd": 1.296077
           },
           "synthesizer": {
