@@ -1,33 +1,21 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-02T07:17:27.804Z",
+  "generatedAt": "2026-11-09T07:17:23.386Z",
   "snapshotDate": "2026-11-02",
   "refresh": {
     "schemaVersion": 3,
-    "status": "success",
-    "attemptedAt": "2026-11-02T07:17:27.658Z",
-    "lastSuccessfulSnapshot": {
-      "date": "2026-11-02",
-      "generatedAt": "2026-11-02T07:17:21.019Z"
-    },
-    "lastPublishedSnapshot": {
-      "date": "2026-11-02",
-      "generatedAt": "2026-11-02T07:17:21.019Z",
-      "benchmarkDate": "2026-11-02",
-      "benchmarkGeneratedAt": "2026-11-02T07:17:21.019Z",
-      "lineupInputsRefreshedAt": "2026-11-02T07:17:21.019Z"
-    },
-    "lastValidatedBenchmark": {
-      "date": "2026-11-02",
-      "generatedAt": "2026-11-02T07:17:21.019Z"
-    },
-    "mode": "full",
+    "status": "error",
+    "attemptedAt": "2026-11-09T07:17:23.229Z",
+    "lastSuccessfulSnapshot": null,
+    "lastPublishedSnapshot": null,
+    "lastValidatedBenchmark": null,
+    "mode": null,
     "message": null,
-    "stage": null,
-    "errorSummary": null,
+    "stage": "update",
+    "errorSummary": "Error: Staged publication failed: build-lineups.mjs",
     "validationIssues": [],
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-10-28 → 2026-11-02\n✅ Refresh: success · full\n\nMODELOS\nEntraram:\n+ Ling 3.1 Flash 1019\n\nLINEUPS\n• budget/security-reviewer: MiMo V2.6 Pro → DeepSeek V4.1 Flash (latest)\n• budget/implementer-heavy: DeepSeek V4.1 Flash (latest) → Ling 3.1 Flash 1019"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-11-02 → 2026-11-02\n❌ Refresh: error\n\nLINEUPS\n• Nenhuma alteração efectiva nas lineups."
 }

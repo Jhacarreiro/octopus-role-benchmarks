@@ -1,26 +1,14 @@
 {
   "schemaVersion": 3,
-  "status": "success",
-  "attemptedAt": "2026-11-02T07:17:27.658Z",
-  "lastSuccessfulSnapshot": {
-    "date": "2026-11-02",
-    "generatedAt": "2026-11-02T07:17:21.019Z"
-  },
-  "lastPublishedSnapshot": {
-    "date": "2026-11-02",
-    "generatedAt": "2026-11-02T07:17:21.019Z",
-    "benchmarkDate": "2026-11-02",
-    "benchmarkGeneratedAt": "2026-11-02T07:17:21.019Z",
-    "lineupInputsRefreshedAt": "2026-11-02T07:17:21.019Z"
-  },
-  "lastValidatedBenchmark": {
-    "date": "2026-11-02",
-    "generatedAt": "2026-11-02T07:17:21.019Z"
-  },
-  "mode": "full",
+  "status": "error",
+  "attemptedAt": "2026-11-09T07:17:23.229Z",
+  "lastSuccessfulSnapshot": null,
+  "lastPublishedSnapshot": null,
+  "lastValidatedBenchmark": null,
+  "mode": null,
   "message": null,
-  "stage": null,
-  "errorSummary": null,
+  "stage": "update",
+  "errorSummary": "Error: Staged publication failed: build-lineups.mjs",
   "validationIssues": [],
   "runUrl": null
 }
