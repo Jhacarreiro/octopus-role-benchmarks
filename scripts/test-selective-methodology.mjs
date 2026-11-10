@@ -27,6 +27,15 @@ assert.ok(Number.isFinite(hy3.roleScores.strategist.rankingValue));
 assert.ok(hy3.roleScores.strategist.observedRole.missingComponents.includes('omniscience'));
 assert.ok(hy3.roleScores.strategist.rankingQuality>=hy3.roleScores.strategist.observedRole.scoreRange.lower,'Completion preserves known contributions');
 assert.equal(hy3.aaModel.intelligenceIndex,null,'No model Intelligence imputation');
+const fugu=snapshot.models.find(m=>m.name==='Fugu Ultra');
+assert.equal(fugu.aaModel,null,'Historical reference evidence cannot become the target identity');
+assert.ok(config.roles.every(r=>Number.isFinite(portfolioRoleQuality(fugu,r.id))),'A reviewed launch reference can complete the target profile');
+
+const historicalReferenceInputs=structuredClone(inputs);
+for(const name of ['Claude Fable 5.1','Claude Fable 5.2'])if(!historicalReferenceInputs.offers.some(o=>o.name===name))historicalReferenceInputs.offers.push({...inputs.offers[0],name,mapping:{status:'unscored'},free:false});
+const historicalReferenceSnapshot=build(historicalReferenceInputs);
+assert.equal(historicalReferenceSnapshot.models.find(m=>m.aaModel?.slug==='claude-fable-5').generationEligibility.eligible,false);
+assert.equal(historicalReferenceSnapshot.models.find(m=>m.name==='Fugu Ultra').modelEligibility.eligible,true,'Historical evidence can support the reviewed target without ranking its anchor');
 const eligible=snapshot.models.filter(m=>m.modelEligibility.eligible);
 assert.ok(eligible.length>0);
 for(const model of eligible)assert.ok(snapshot.roles.every(role=>Number.isFinite(portfolioRoleQuality(model,role.id))),'An admitted model must work in every role');

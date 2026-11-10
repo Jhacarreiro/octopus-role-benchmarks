@@ -637,7 +637,7 @@
           "GPT",
           "Gemini"
         ],
-        "reason": "Use the original June launch technical report as an explicitly uncertain coding analogy to its frontier reference class. The unversioned catalog route is verified, but the current revision is unconfirmed; v2 results are not imported. Portfolio eligibility still requires available anchor Intelligence; no index is invented for this system.",
+        "reason": "Use the original June launch technical report as an explicitly uncertain coding analogy to its frontier reference class. The unversioned catalog route is verified, but the current revision is unconfirmed; v2 results are not imported. Portfolio eligibility still requires available anchor Intelligence; no index is invented for this system. The original Fable5 observation remains admissible as historical reference evidence only; it cannot enter current rankings or supply unavailable Intelligence.",
         "sources": [
           {
             "url": "https://arxiv.org/html/2606.21228v1",
@@ -654,7 +654,8 @@
             "summary": "Later official v1.1 improves coding benchmarks by up to7.9 points. This verifies version drift rather than equivalence to the unversioned route.",
             "capturedAt": "2026-10-28"
           }
-        ]
+        ],
+        "anchorGenerationPolicy": "historical-evidence-only"
       },
       {
         "model": "DeepSeek V4.1 Flash Ultrafast",

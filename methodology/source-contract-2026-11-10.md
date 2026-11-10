@@ -20,11 +20,11 @@ Reviewed coverage on November 10:
 
 - Qwen3.7 Flash: re-read [Epoch](https://epoch.ai/models/qwen3-7-flash); renewed existing narrow reasoning analogy, with no imported AA score.
 - Glyph Cluster: re-read [named task artifacts](https://stealthmodels.com/benchmarks/models/glyph-cluster); renewed existing weak implementation analogy. Anonymous backend identity remains unverified.
-- Fugu Ultra: re-read [original report v1](https://arxiv.org/html/2606.21228v1); renewed launch-version analogy, preserving uncertainty about the current unversioned route. Later revisions are not substituted.
+- Fugu Ultra: re-read [original report v1](https://arxiv.org/html/2606.21228v1); renewed launch-version analogy, preserving uncertainty about the current unversioned route. Later revisions are not substituted. This reviewed launch comparison may use the historical Fable5 observation as evidence: the anchor itself remains excluded from current rankings, and its unavailable Intelligence cannot be estimated or imported from another revision.
 - DeepSeek V4.1 Flash Ultrafast: [exact catalogue route](https://commandcode.ai/models/deepseek-v4-1-flash-ultrafast) describes an accelerated V4.1 Flash. A serving-variant analogy uses the observed October17 reference with a ten-point haircut; date/effort equivalence is not asserted.
 - Crouton Alpha: [nine named-route artifacts](https://stealthmodels.com/benchmarks/models/crouton-alpha) support a weak implementation analogy against lower-scoring measured-profile references, with a thirty-point haircut. The page's later “Muse Ember (early version)” label is not used to infer a current AA/backend identity. The [independent hands-on report](https://www.mindstudio.ai/blog/crouton-alpha-stealth-model-test) is anecdotal corroboration only.
 
-These reviewed recipes expire November17; no automatic evidence renewal is introduced. Cross-role profile completion, including estimated security, remains explicit and heuristic. Portfolio policies, estimated-seat limits and live runtime routing are unchanged.
+These reviewed recipes expire November17; no automatic evidence renewal is introduced. Cross-role profile completion, including estimated security, remains explicit and heuristic. Portfolio constraints, estimated-seat limits and live runtime routing are unchanged. The public execution map adds the verified CommandCode `claude-opus-5-5` identity so a newly selected Balanced model cannot block publication.
 
 ## Operational safeguards
 

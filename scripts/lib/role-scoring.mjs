@@ -11,8 +11,10 @@ const round=(n,d=6)=>Math.round((n+Number.EPSILON)*10**d)/10**d;
 // entries and paid duplicates superseded by a free offer. Assessment is not
 // admission to a portfolio and never manufactures a missing role measurement.
 export function assessCatalogue(snapshot,offers){
+  if(offers.length!==snapshot.counts.commandCodeRows)throw new Error('Catalogue offer accounting mismatch');
   const entries=offers.map((offer,index)=>{
     const m=snapshot.models.find(m=>m.name===offer.name&&!!m.free===!!offer.free);
+    if(!m&&!(offer.free!==true&&snapshot.models.some(m=>m.name===offer.name&&m.free)))throw new Error(`Unaccounted catalogue offer: ${offer.name}`);
     if(!m)return {offer:index+1,name:offer.name,free:!!offer.free,status:'superseded',reason:'Free offer supersedes paid duplicate',roles:null};
     const roles=Object.fromEntries(snapshot.roles.map(r=>{const s=m.roleScores[r.id];return [r.id,{status:s?.status==='valid'?'observed':s?.status==='estimated'?'estimated':'unavailable',score:s?.score??null,missingComponents:s?.missingComponents??Object.keys(r.weights??{[r.externalBenchmark]:1})}];}));
     const statuses=Object.values(roles).map(r=>r.status),complete=statuses.every(s=>s!=='unavailable');

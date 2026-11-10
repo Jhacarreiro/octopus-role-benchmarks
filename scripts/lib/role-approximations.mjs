@@ -8,6 +8,7 @@ export function validateApproximationPolicy(policy,roles){
   const names=new Set();
   for(const recipe of policy.recipes){
     if(names.has(recipe.model)||!recipe.sources?.length||recipe.sources.some(s=>!/^https:\/\//.test(s.url))||!recipe.anchors?.length||!recipe.roles?.length||recipe.roles.some(r=>r==='security-reviewer'||!roles.some(x=>x.id===r)))throw new Error('Invalid approximation evidence or role');
+    if(recipe.anchorGenerationPolicy!=null&&(recipe.anchorGenerationPolicy!=='historical-evidence-only'||recipe.kind!=='external-launch-version'))throw new Error('Historical anchors require a reviewed launch-version comparison');
     names.add(recipe.model);
     const minimum=recipe.kind==='serving-variant'?5:recipe.kind==='related-architecture'?15:20;
     if(!finite(recipe.margin)||recipe.margin<minimum||recipe.margin>100||!/^\d{4}-\d{2}-\d{2}$/.test(recipe.reviewAfter))throw new Error('Insufficient approximation margin or review date');
@@ -25,7 +26,7 @@ export function applyRoleApproximations(models,policy,generatedAt,roles=[]){
       if(m.aaModel?.slug!==recipe.targetSlug||m.mapping?.slug!==recipe.targetSlug||recipe.requiredObserved.some(key=>!finite(m.benchmarks[key])||m.benchmarkProvenance[key]?.measurementKind!=='observed'))continue;
     }else if(m.aaModel||m.mapping?.slug)continue;
     if(generatedAt.slice(0,10)>recipe.reviewAfter){m.approximationUnavailableReason='Evidence review expired';continue;}
-    const anchors=recipe.anchors.map(slug=>models.find(a=>a.aaModel?.slug===slug&&!a.approximation&&a.generationEligibility?.eligible!==false));
+    const anchors=recipe.anchors.map(slug=>models.find(a=>a.aaModel?.slug===slug&&!a.approximation&&(a.generationEligibility?.eligible!==false||recipe.anchorGenerationPolicy==='historical-evidence-only')));
     if(anchors.some(a=>!a)) {m.approximationUnavailableReason='An observed anchor is unavailable or historical';continue;}
     const intel=anchors.map(a=>a.aaModel.intelligenceIndex);
     const completeIntelligence=intel.every(finite);
