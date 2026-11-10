@@ -1,0 +1,6194 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-10T20:57:11.457Z",
+  "methodologyVersion": 10,
+  "rawOffers": 98,
+  "assessedOffers": 98,
+  "counts": {
+    "complete-observed": 21,
+    "complete-with-estimates": 75,
+    "partial": 0,
+    "unavailable": 0,
+    "non-comparable": 2,
+    "superseded": 0
+  },
+  "entries": [
+    {
+      "offer": 1,
+      "name": "Glyph Cluster",
+      "free": true,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 28.441785,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 35.149268,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 24.397253,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 22.693015,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase",
+            "lcr"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 36.128333,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 38.718686,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 2,
+      "name": "Tencent Hy4 Preview",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 44.089905,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 42.733361,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 50.459343,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 51.407385,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 52.34667,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 40.056667,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 43.830343,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 3,
+      "name": "Tencent Hy3",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "hy3",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 32.00859,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 24.427603,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 37.582601,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 25.071566,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 23.853973,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 38.835,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 41.505548,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 4,
+      "name": "Kimi K3.1 Pro",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "kimi-k3-1-pro",
+      "intelligence": 46.4526236744189,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 56.780414,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 56.679473,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 64.065108,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 68.745934,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 69.75476,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 68.041389,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 55.193333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 57.727862,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 5,
+      "name": "Kimi K3",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "kimi-k3",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 50.360761,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 44.75218,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 41.267645,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 46.879748,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 36.776716,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 40.866852,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 45.826667,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 49.612388,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 6,
+      "name": "Kimi K2.7 Code",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "kimi-k2-7-code",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 30.22581,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 23.327379,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 37.58298,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 25.694259,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 22.586912,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 38.918333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 41.903987,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 7,
+      "name": "Kimi K2.7 Code HighSpeed",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "kimi-k2-7-code",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 30.22581,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 23.327379,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 37.58298,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 25.694259,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 22.586912,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 38.918333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 41.903987,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 8,
+      "name": "Kimi K2.6",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "kimi-k2-6",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 30.400192,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 21.117797,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 38.850657,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 26.176293,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 22.028323,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 40.145,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 43.35185,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 9,
+      "name": "Kimi K2.5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "kimi-k2-5",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 28.406814,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 34.882601,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 24.411464,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 22.426348,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 35.795,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 38.848745,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 10,
+      "name": "GLM-5.3 Flash",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "glm-5-3-flash",
+      "intelligence": 27.803889160883,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 45.206572,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 43.573361,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 49.923553,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 50.52601,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 45.674727,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 47.394927,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 42.03,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 45.173676,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 11,
+      "name": "GLM-5.3 FlashX",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "glm-5-3-flash",
+      "intelligence": 27.803889160883,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 45.206572,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 43.573361,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 49.923553,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 50.52601,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 45.674727,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 47.394927,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 42.03,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 45.173676,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 12,
+      "name": "GLM-5.3",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "glm-5-3",
+      "intelligence": 31.653381843882,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 45.523369,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 44.737663,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 36.375701,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 56.265884,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 51.407385,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 52.34667,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 40.861667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 44.983104,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 13,
+      "name": "GLM-5.2",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "glm-5-2",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 38.723113,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 32.744705,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 38.914924,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 26.361776,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 28.831287,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 39.358333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 43.512342,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 14,
+      "name": "GLM-5.2 Fast",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "glm-5-2",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 38.723113,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 32.744705,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 38.914924,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 26.361776,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 28.831287,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 39.358333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 43.512342,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 15,
+      "name": "GLM-5.1",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "glm-5-1",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 30.297398,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 24.546237,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 35.900404,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 24.139909,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 23.775374,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 36.241667,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 38.655662,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 16,
+      "name": "GLM-5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "glm-5",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 27.796496,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 34.415935,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 23.612654,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 21.959681,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 35.211667,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 37.978109,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 17,
+      "name": "MiniMax M3.1 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "minimax-m3-1-flash",
+      "intelligence": 29.0595214290458,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 47.851866,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 46.320697,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 49.923553,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 47.975429,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 42.565374,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 44.575018,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 43.316667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 47.448882,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 18,
+      "name": "MiniMax M3",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "minimax-m3",
+      "intelligence": 18.8789083859255,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 36.201652,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 27.852214,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 22.388016,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 38.526515,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 27.807812,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 27.818166,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 39.335,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 43.296754,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 19,
+      "name": "MiniMax M2.7",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "minimax-m2-7",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 25.061317,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 16.162202,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 37.723889,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 24.024946,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 19.503892,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 36.328333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 39.00965,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 20,
+      "name": "MiniMax M2.5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "minimax-m2-5",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 26.454018,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 33.949268,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 21.715604,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 21.493015,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 34.628333,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 35.643153,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 21,
+      "name": "Ornith 1.5 122B",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 28.441785,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 35.425278,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 21.858434,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 22.5283,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 36.128333,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 38.718686,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 22,
+      "name": "DeepSeek V4 Pro (latest)",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "deepseek-v4-pro",
+      "intelligence": 23.0632981493003,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 39.963786,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 37.096182,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 43.351162,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 34.719711,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 35.610603,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 39.258333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 43.409539,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 23,
+      "name": "DeepSeek V4 Flash (latest)",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "deepseek-v4-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 39.534805,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 36.464541,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.159924,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 32.972527,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 34.607029,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 38.626667,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 42.394177,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 24,
+      "name": "DeepSeek V4 Flash Vision (exp)",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "deepseek-v4-flash-vision",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 43.378303,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 39.357964,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.284924,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 32.777516,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 37.793212,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 39.493333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 42.295273,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 25,
+      "name": "DeepSeek V4 Flash Fast",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "deepseek-v4-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 39.534805,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 36.464541,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.159924,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 32.972527,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 34.607029,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 38.626667,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 42.394177,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 26,
+      "name": "DeepSeek V4.1 Flash (latest)",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "deepseek-v4-1-flash-1017",
+      "intelligence": 32.5896393532027,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.250499,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 47.610593,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 56.811676,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 52.715101,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 47.46877,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 50.492956,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 43.541667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 47.104598,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 27,
+      "name": "DeepSeek V4.1 Flash Fast (latest)",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "deepseek-v4-1-flash-1017",
+      "intelligence": 32.5896393532027,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.250499,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 47.610593,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 56.811676,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 52.715101,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 47.46877,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 50.492956,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 43.541667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 47.104598,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 28,
+      "name": "DeepSeek V4.1 Flash Ultrafast",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 49.250499,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 47.610593,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 49.923553,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 52.715101,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 47.46877,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 50.492956,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 43.541667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 47.104598,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 29,
+      "name": "Qwen 3.8 Omni Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 42.535763,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 39.063529,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 49.923553,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.785303,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 40.774855,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 46.083395,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 40.69,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 43.788242,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 30,
+      "name": "Qwen 3.8 Max Prime",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 50.928588,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 48.887622,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 53.587778,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 49.880985,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 52.896292,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 46.913333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 49.350758,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 31,
+      "name": "Qwen 3.8 Max 0902",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "qwen3-8-max",
+      "intelligence": 33.6545627367888,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 50.928588,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 48.887622,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 53.587778,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 49.880985,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 52.896292,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 46.913333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 49.350758,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 32,
+      "name": "Qwen 3.8 Max",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "qwen3-8-max",
+      "intelligence": 33.6545627367888,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 50.928588,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 48.887622,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 53.587778,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 49.880985,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 52.896292,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 46.913333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 49.350758,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 33,
+      "name": "Qwen 3.8 27B",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "qwen3-8-27b",
+      "intelligence": 20.1068756031705,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 43.94763,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 39.9353,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 12.724314,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 39.36,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 28.921378,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 34.4988,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 41.925,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 43.908226,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 34,
+      "name": "Qwen 3.6 Max Preview",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "qwen3-6-max",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 28.949415,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 35.415935,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 25.092033,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 22.959681,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 36.461667,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 39.533948,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 35,
+      "name": "Qwen 3.6 Plus",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "qwen3-6-plus",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 28.186178,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 34.949268,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 24.063843,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 22.493015,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 35.878333,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 38.357472,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 36,
+      "name": "Qwen 3.7 Max",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "qwen3-7-max",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 31.384121,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 23.913942,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 38.213914,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 26.734161,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 23.780543,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 37.665,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 42.134259,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 37,
+      "name": "Qwen 3.7 Plus",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "qwen3-7-plus",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 30.55886,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 23.757392,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 35.79548,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 24.201288,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 22.32317,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 37.785,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 40.741136,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 38,
+      "name": "Qwen 3.8 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "qwen3-8-flash-next",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 47.791757,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 44.43689,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 49.923553,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 46.527828,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 40.774855,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 46.083395,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 40.101667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 43.176397,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 39,
+      "name": "Qwen 3.7 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 28.441785,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 35.149268,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 24.397253,
+          "missingComponents": [
+            "terminalBench40",
+            "lcr",
+            "hle"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 22.693015,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase",
+            "lcr"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 36.128333,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 39.943686,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 40,
+      "name": "LongCat 2.0",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "longcat-2-0",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 23.362785,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 16.717345,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 30.925278,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 21.30329,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 17.195275,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 33.175,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 36.611887,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 41,
+      "name": "Ling 3.1 Flash 1019",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "ling-3-1-flash-1019",
+      "intelligence": 29.570119369837,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 46.958284,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 45.633658,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 52.495177,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 46.800229,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 49.124394,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 41.233333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 45.539901,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 42,
+      "name": "Ling 3.1 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "ling-3-1-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 43.224616,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 41.509377,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 52.031944,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 46.665199,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 47.29645,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 40.35,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 44.220266,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 43,
+      "name": "Step 5 Preview",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "step-5",
+      "intelligence": 28.5283090216016,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 46.782214,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 43.014548,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 47.706815,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 55.739444,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 49.055066,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 48.819341,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 46.208333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 50.373144,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 44,
+      "name": "Step 3.7 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "step-3-7-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 26.60873,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 35.457324,
+          "missingComponents": [
+            "terminalBench40",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 21.931004,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 20.788981,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 34.711667,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 35.902576,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 45,
+      "name": "Step 3.5 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "step-3-5-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 24.781235,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 31.882601,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 19.723095,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 19.426348,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 32.045,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 33.847587,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 46,
+      "name": "MiMo V2.6 Pro",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "mimo-v2-6-pro",
+      "intelligence": 29.8897833093321,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.764592,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 44.949645,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 56.065602,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 54.892525,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 49.895112,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 50.652885,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 44.553333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 49.15525,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 47,
+      "name": "MiMo V2.6 Pro UltraSpeed",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "mimo-v2-6-pro",
+      "intelligence": 29.8897833093321,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.764592,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 44.949645,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 56.065602,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 54.892525,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 49.895112,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 50.652885,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 44.553333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 49.15525,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 48,
+      "name": "MiMo V2.6 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "mimo-v2-6-flash",
+      "intelligence": 26.7276981444568,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 42.828219,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 42.528094,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 44.890657,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 37.481514,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 42.363464,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 36.008333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 39.444922,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 49,
+      "name": "Nemotron 3 Ultra",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "nvidia-nemotron-3-ultra-550b-a55b",
+      "intelligence": 11.7592726308177,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 28.441785,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 20.275811,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 13.078414,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 35.884268,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 24.397253,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 22.693015,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 37.598333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 39.943686,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 50,
+      "name": "Nemotron 3.5 Super VL",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "nemotron-3-5-super-vl",
+      "intelligence": 13.6203422723141,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 30.094389,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 24.758185,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 35.425278,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 21.858434,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 22.5283,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 35.42,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 37.936245,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 51,
+      "name": "Claude Fable 5.2",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-fable-5-2",
+      "intelligence": 64.563595756626,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 59.064541,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 61.899717,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.019523,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 70.345252,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 67.733171,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 65.977949,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 56.738333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 63.795515,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 52,
+      "name": "Claude Fable 5.1",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-fable-5-1",
+      "intelligence": 49.1602124158081,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 55.843074,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 55.086579,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 25.019523,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 65.167348,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 61.414778,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 60.941833,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 55.063333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 59.302431,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 53,
+      "name": "Claude Fable 5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "claude-fable-5",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 51.296694,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 45.747254,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.019523,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 56.778762,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 54.358082,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 53.66675,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 45.713333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 50.818605,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 54,
+      "name": "Claude Opus 5.5",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-opus-5-5",
+      "intelligence": 59.1060336078904,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 58.881694,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 59.747186,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 28.663615,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 68.971364,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 66.127209,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 66.511665,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 55.176667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 59.813955,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 55,
+      "name": "Claude Opus 5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-opus-5",
+      "intelligence": 44.1646231569372,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 52.733078,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 52.549217,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.019523,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 60.245354,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 57.457115,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 58.118671,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 50.198333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 54.490623,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 56,
+      "name": "Claude Opus 4.8",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "claude-opus-4-8",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 44.5413,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 39.014699,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.14495,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 46.333788,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 39.745394,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 39.650111,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 43.436667,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 47.454566,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 57,
+      "name": "Claude Opus 4.7",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "claude-opus-4-7",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 39.685453,
+          "missingComponents": [
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 36.309904,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.14495,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 43.421415,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 33.588578,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 34.576202,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 38.466667,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 42.954872,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 58,
+      "name": "Claude Sonnet 5.5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-sonnet-5-5",
+      "intelligence": 54.54133407109,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 58.099513,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 58.59234,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 28.663615,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 66.889672,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 67.092229,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 68.207747,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 51.846667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 55.706659,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 59,
+      "name": "Claude Sonnet 5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-sonnet-5",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 43.095123,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 36.556535,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 44.514217,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 35.178083,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 37.748536,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 40.2,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 44.184313,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 60,
+      "name": "Claude Sonnet 4.6",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "claude-sonnet-4-6",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 24.735761,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 32.949268,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 19.388217,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 20.493015,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 33.378333,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 32.956638,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 61,
+      "name": "Claude Haiku 5.5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-haiku-5-5",
+      "intelligence": 36.4845435880142,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 50.307704,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 44.836727,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 47.706815,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 52.938788,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 47.02258,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 50.077786,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 46.871667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 49.822758,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 62,
+      "name": "Claude Haiku 4.5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "claude-4-5-haiku",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 20.089545,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.295811,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 29.215935,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 32.746167,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 43.477786,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 28.711667,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 26.464207,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 63,
+      "name": "GPT-6 Astra",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "gpt-6-astra",
+      "intelligence": 56.8538559596797,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 53.402059,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 54.767796,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 33.419827,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 64.442096,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 63.823251,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 61.430342,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 55.481667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 58.206885,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 64,
+      "name": "GPT-6.1 Sol",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "gpt-6-1-sol",
+      "intelligence": 54.6087338138148,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 53.371787,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 53.863451,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.019523,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 63.123712,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 62.324269,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 60.283823,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 56.005,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 58.388041,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 65,
+      "name": "GPT-6.1 Terra",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "gpt-6-1-terra",
+      "intelligence": 51.3265188577015,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 48.616711,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 48.010535,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.019523,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 62.223056,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 60.936979,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 57.329009,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 52.971667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 54.691805,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 66,
+      "name": "GPT-6 Sol",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "gpt-6-sol",
+      "intelligence": 44.1555010304265,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.795157,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 48.395404,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 36.827495,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 58.508788,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 54.467514,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 53.594111,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 50.466667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 53.234614,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 67,
+      "name": "GPT-6 Luna",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "gpt-6-luna",
+      "intelligence": 27.8552004938153,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 45.052429,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 40.543529,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 52.685359,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 44.354748,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 34.185273,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 36.99791,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 44.853333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 46.841576,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 68,
+      "name": "GPT-5.6 Sol",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gpt-5-6-sol",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 50.569102,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 46.025581,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 55.047702,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 52.362934,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 51.881271,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 47.57,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 50.999721,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 69,
+      "name": "GPT-5.6 Terra",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gpt-5-6-terra",
+      "intelligence": 32.3433563656461,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 45.636435,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 41.566252,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 49.923553,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 52.271793,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 48.398636,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 47.088866,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 45.16,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 47.873687,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 70,
+      "name": "GPT-5.6 Luna",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gpt-5-6-luna",
+      "intelligence": 23.7902433286348,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 45.556909,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 39.500101,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 43.095379,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 33.808514,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 36.641531,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 44.156667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 46.379534,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 71,
+      "name": "GPT-5.5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gpt-5-5",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 41.040355,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 34.803793,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.14495,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 45.609041,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 36.738682,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 34.576201,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 44.383333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 48.066627,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 72,
+      "name": "GPT-5.4",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gpt-5-4",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 45.652771,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 42.933764,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 46.571667,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 37.061631,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 41.07205,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 40.675,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 45.221342,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 73,
+      "name": "GPT-5.4 Mini",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gpt-5-4-mini",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 26.510765,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 20.922041,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 38.754571,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 24.681306,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 20.157516,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 39.325,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 40.599746,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 74,
+      "name": "GPT-5.3 Codex",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gpt-5-3-codex",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 30.449796,
+          "missingComponents": [
+            "gdpPdfAllPass"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 19.181778,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 13.078414,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 36.014268,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 27.510321,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 23.336915,
+          "missingComponents": [
+            "terminalBench40"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 37.258333,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 42.644443,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 75,
+      "name": "Gemini 4 Argon",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "gemini-4-argon",
+      "intelligence": 50.4121935905389,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.240648,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 52.745345,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.019523,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 65.407248,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 62.722576,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 58.841627,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 51.641667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 56.137146,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 76,
+      "name": "Gemini 3.8 Flash",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "gemini-3-8-flash",
+      "intelligence": 30.8468119957291,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 42.116147,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 41.333456,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 25.14495,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 49.384773,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 39.324824,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 37.432628,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 48.273333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 51.606078,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 77,
+      "name": "Gemini 3.7 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gemini-3-7-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 40.818073,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 36.995357,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.14495,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 45.138839,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 35.778745,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 33.201397,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 44.796667,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 48.537013,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 78,
+      "name": "Gemini 3.6 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gemini-3-6-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 34.684834,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 30.858188,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 41.361692,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 30.36615,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 27.155868,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 41.59,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 44.851634,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 79,
+      "name": "Gemini 3.5 Flash",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gemini-3-5-flash",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 32.335732,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 27.896519,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 40.025202,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 28.674488,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 24.194387,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 41.003333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 44.275681,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 80,
+      "name": "Gemini 3.5 Flash Lite",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gemini-3-5-flash-lite",
+      "intelligence": 11.6563462044212,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 23.882697,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 20.559682,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 35.964369,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 22.428118,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 18.30002,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 41.15,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 40.201076,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 81,
+      "name": "Gemini 3.1 Flash Lite",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "gemini-3-1-flash-lite-preview",
+      "intelligence": 6.15684082814488,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 18.535851,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 10.166094,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 33.754268,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 21.46514,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 15.09394,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 33.473333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 33.845035,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 82,
+      "name": "Fugu Ultra",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 48.295157,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 44.157195,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.019523,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 53.38697,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 54.358082,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 53.66675,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 43.886667,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 48.201281,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 83,
+      "name": "Muse Wonder",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "muse-wonder",
+      "intelligence": 43.5748225998431,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 54.862226,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 54.913808,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 33.419827,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 61.813182,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 58.89269,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 59.818799,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 52.701667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 55.002702,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 84,
+      "name": "Muse Ember",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "muse-ember",
+      "intelligence": 36.0212987864912,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 48.830169,
+          "missingComponents": [
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 48.479219,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 36.375701,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 55.074849,
+          "missingComponents": [
+            "scicode",
+            "lcr"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 50.801324,
+          "missingComponents": [
+            "lcr",
+            "hle"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 52.208524,
+          "missingComponents": [
+            "lcr"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 46.281667,
+          "missingComponents": [
+            "lcr"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 48.629771,
+          "missingComponents": [
+            "lcr",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 85,
+      "name": "Muse Spark 1.3",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "muse-spark-1-3-xhigh",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.473484,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 47.827097,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 44.304834,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 49.6375,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 37.867702,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 41.27205,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 50.215,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 52.979436,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 86,
+      "name": "Muse Spark 1.3 Contributor",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "muse-spark-1-3-xhigh",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 49.473484,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 47.827097,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 44.304834,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 49.6375,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 37.867702,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 41.27205,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 50.215,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 52.979436,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 87,
+      "name": "Muse Spark Open",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "muse-spark-open",
+      "intelligence": 24.8815868992913,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 42.225514,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 41.276743,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.14495,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 45.464672,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 31.014302,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 32.930105,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 46.823333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 49.664978,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 88,
+      "name": "Muse Spark 1.2",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "muse-spark-1-2",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 43.227101,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 37.276565,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.37697,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 30.811238,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 33.394993,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 41.34,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 45.528418,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 89,
+      "name": "Muse Spark 1.2 Contributor",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "muse-spark-1-2",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 43.227101,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 37.276565,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.37697,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 30.811238,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 33.394993,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 41.34,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 45.528418,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 90,
+      "name": "Muse Spark 1.1",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "muse-spark-1-1",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 31.644327,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 25.961646,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.315934,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 29.983058,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 24.398031,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 39.941667,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 44.680871,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 91,
+      "name": "Grok 4.7",
+      "free": false,
+      "status": "complete-observed",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "grok-4-7",
+      "intelligence": 35.4850117067196,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 50.198063,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 52.507636,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 56.432341,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 51.413207,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 41.092482,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 46.796893,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 47.851667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 50.199193,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 92,
+      "name": "Grok 4.6",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "grok-4-6",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 47.748027,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 46.608791,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 49.923553,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 47.985353,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 39.247121,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 43.610171,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 42.833333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 46.348687,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 93,
+      "name": "Grok 4.5",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": true,
+      "rankingEligible": false,
+      "reason": "Historical generation",
+      "aaSlug": "grok-4-5",
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 42.329157,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "estimated",
+          "score": 39.118212,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 25.14495,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 42.951844,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 32.598731,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 34.246344,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 42.053333,
+          "missingComponents": [
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 45.475681,
+          "missingComponents": [
+            "omniscience"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 94,
+      "name": "Mistral Large 4",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "mistral-large-4",
+      "intelligence": 26.1249946754784,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "estimated",
+          "score": 43.458872,
+          "missingComponents": [
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 41.781549,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "observed",
+          "score": 50.894679,
+          "missingComponents": []
+        },
+        "code-reviewer": {
+          "status": "estimated",
+          "score": 48.032727,
+          "missingComponents": [
+            "scicode",
+            "lcr"
+          ]
+        },
+        "implementer": {
+          "status": "estimated",
+          "score": 40.826242,
+          "missingComponents": [
+            "lcr",
+            "hle"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "estimated",
+          "score": 41.971464,
+          "missingComponents": [
+            "lcr"
+          ]
+        },
+        "synthesizer": {
+          "status": "estimated",
+          "score": 43.69,
+          "missingComponents": [
+            "lcr"
+          ]
+        },
+        "researcher": {
+          "status": "estimated",
+          "score": 46.39201,
+          "missingComponents": [
+            "lcr",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 95,
+      "name": "Inkling",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "inkling",
+      "intelligence": 12.4781698715401,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 29.348429,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 20.651359,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 37.304924,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 24.7216,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 21.749587,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 39.868333,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 41.862108,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 96,
+      "name": "Inkling Small",
+      "free": false,
+      "status": "complete-with-estimates",
+      "historical": false,
+      "rankingEligible": true,
+      "reason": null,
+      "aaSlug": "inkling-small",
+      "intelligence": 12.9101620926084,
+      "intelligenceVersion": "5.0.1",
+      "roles": {
+        "architect": {
+          "status": "observed",
+          "score": 30.549297,
+          "missingComponents": []
+        },
+        "strategist": {
+          "status": "observed",
+          "score": 21.299643,
+          "missingComponents": []
+        },
+        "security-reviewer": {
+          "status": "estimated",
+          "score": 12.724314,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "observed",
+          "score": 37.172702,
+          "missingComponents": []
+        },
+        "implementer": {
+          "status": "observed",
+          "score": 24.52041,
+          "missingComponents": []
+        },
+        "implementer-heavy": {
+          "status": "observed",
+          "score": 22.808904,
+          "missingComponents": []
+        },
+        "synthesizer": {
+          "status": "observed",
+          "score": 37.536667,
+          "missingComponents": []
+        },
+        "researcher": {
+          "status": "observed",
+          "score": 40.256911,
+          "missingComponents": []
+        }
+      }
+    },
+    {
+      "offer": 97,
+      "name": "Jev",
+      "free": false,
+      "status": "non-comparable",
+      "historical": false,
+      "rankingEligible": false,
+      "reason": "Decision model; not comparable to the eight-role evaluation",
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "terminalBench40",
+            "lcr",
+            "hle"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase",
+            "lcr"
+          ]
+        },
+        "synthesizer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience",
+            "hle"
+          ]
+        }
+      }
+    },
+    {
+      "offer": 98,
+      "name": "Jev 1.14.0",
+      "free": false,
+      "status": "non-comparable",
+      "historical": false,
+      "rankingEligible": false,
+      "reason": "Decision model; not comparable to the eight-role evaluation",
+      "aaSlug": null,
+      "intelligence": null,
+      "intelligenceVersion": null,
+      "roles": {
+        "architect": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "lcr",
+            "hle"
+          ]
+        },
+        "strategist": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "briefcase",
+            "gdpPdfAllPass",
+            "automationBenchPartialScore",
+            "omniscience"
+          ]
+        },
+        "security-reviewer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "cyberIndex"
+          ]
+        },
+        "code-reviewer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "terminalBench40",
+            "scicode",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "implementer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "terminalBench40",
+            "lcr",
+            "hle"
+          ]
+        },
+        "implementer-heavy": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "terminalBench40",
+            "briefcase",
+            "lcr"
+          ]
+        },
+        "synthesizer": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience"
+          ]
+        },
+        "researcher": {
+          "status": "unavailable",
+          "score": null,
+          "missingComponents": [
+            "gdpPdfAllPass",
+            "lcr",
+            "omniscience",
+            "hle"
+          ]
+        }
+      }
+    }
+  ]
+}

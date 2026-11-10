@@ -33,3 +33,11 @@ These reviewed recipes expire November17; no automatic evidence renewal is intro
 All publication artifacts are generated in isolated staging and promoted only after portfolio construction succeeds. Failures now include bounded child stderr, exit status and signal. Error-status snapshot reads accommodate the full committed JSON instead of falling through the default subprocess buffer limit. The source manifest now includes the actual AA parser, identity aliases and extraction dependencies.
 
 Behavior tests cover the retired flag, explicit revision, complete/missing/duplicate/zero components, explicit estimates, unsupported and mixed revisions, corrupted stored provenance, complete offer accounting and preservation of every publication artifact on failure. A fresh complete-source refresh and the full validation suite are required before production publication.
+
+## Validated complete refresh
+
+The final full-source collection was captured at 2026-11-10T20:57:11.457Z. All 98 raw offers are retained and assessed. Exactly 96 have complete eight-role profiles: 21 entirely observed and 75 containing explicitly labeled estimates. The other two entries, Jev and Jev1.14.0, are non-comparable decision models. There are no partial or unavailable catalogue assessments.
+
+There are 69 active offers: 67 comparable complete profiles and two non-comparable entries. All 29 historical offers also have complete labeled assessments while remaining excluded from current rankings. The snapshot contains 43 source-observed Intelligence observations, exclusively v5.0.1; role-profile completion does not fill missing Intelligence.
+
+The supervised complete refresh passed check:all, check:octopus-routing, test:octopus-routing-drift and diff validation. Portfolio construction and all mirrored publication artifacts share the same captured snapshot. Live runtime routing is a separate operational choice and is not changed by publishing these recommendations.
