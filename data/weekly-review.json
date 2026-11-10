@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T20:57:25.065Z",
+  "generatedAt": "2026-11-10T21:11:34.842Z",
   "snapshotDate": "2026-11-10",
   "refresh": {
     "schemaVersion": 3,
     "status": "success",
-    "attemptedAt": "2026-11-10T20:57:24.916Z",
+    "attemptedAt": "2026-11-10T21:11:34.687Z",
     "lastSuccessfulSnapshot": {
       "date": "2026-11-10",
       "generatedAt": "2026-11-10T20:57:11.457Z"
@@ -29,5 +29,5 @@
     "runUrl": null
   },
   "materialChanges": true,
-  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-11-02 → 2026-11-10\n✅ Refresh: success · full\n\nMODELOS\nEntraram:\n+ Claude Fable 5.2\n+ DeepSeek V4.1 Flash Ultrafast\n+ Muse Ember\nSaíram:\n- Beam 1.0\n- Claude Opus 4.6\n- Laguna S 2.1\n\nPREÇOS / CRÉDITOS\n• Ling 3.1 Flash 1019: billing free→standard; free sim→não\n• MiniMax M3.1 Flash: billing free→standard; free sim→não\n• Ornith 1.5 122B: billing free→standard; free sim→não\n\nLINEUPS\n• quality/architect: Claude Opus 5.5 → Muse Wonder\n• quality/strategist: Claude Opus 5.5 → Claude Fable 5.2\n• quality/researcher: Gemini 4 Argon → Claude Fable 5.2\n• balanced/architect: Claude Sonnet 5.5 → Claude Opus 5.5\n• balanced/strategist: Claude Sonnet 5.5 → Claude Opus 5.5\n• balanced/synthesizer: GPT-6.1 Terra → GPT-6.1 Sol\n• budget/architect: DeepSeek V4.1 Flash (latest) → Claude Opus 5.5\n• budget/strategist: Claude Sonnet 5.5 → Claude Opus 5.5\n• budget/security-reviewer: DeepSeek V4.1 Flash (latest) → Kimi K3.1 Pro\n• budget/implementer: MiniMax M3.1 Flash → Muse Wonder\n• budget/implementer-heavy: Ling 3.1 Flash 1019 → Gemini 4 Argon\n• budget/synthesizer: Claude Haiku 5.5 → GPT-6.1 Sol\n• budget/researcher: MiMo V2.6 Pro → GPT-6.1 Sol"
+  "message": "🧭 Octopus benchmark — revisão semanal\nSnapshot: 2026-11-10 → 2026-11-10\n✅ Refresh: success · full\n\nLINEUPS\n• balanced/architect: Claude Opus 5.5 → Claude Sonnet 5.5\n• balanced/strategist: Claude Opus 5.5 → Claude Sonnet 5.5\n• balanced/synthesizer: GPT-6.1 Sol → GPT-6.1 Terra\n• budget/architect: Claude Opus 5.5 → DeepSeek V4.1 Flash (latest)\n• budget/strategist: Claude Opus 5.5 → Claude Sonnet 5.5\n• budget/security-reviewer: Kimi K3.1 Pro → DeepSeek V4.1 Flash (latest)\n• budget/implementer: Muse Wonder → MiMo V2.6 Pro\n• budget/implementer-heavy: Gemini 4 Argon → GPT-6.1 Terra\n• budget/synthesizer: GPT-6.1 Sol → Claude Haiku 5.5\n• budget/researcher: GPT-6.1 Sol → MiMo V2.6 Pro"
 }

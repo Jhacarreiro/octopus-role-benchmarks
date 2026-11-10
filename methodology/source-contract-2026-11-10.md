@@ -41,3 +41,11 @@ The final full-source collection was captured at 2026-11-10T20:57:11.457Z. All 9
 There are 69 active offers: 67 comparable complete profiles and two non-comparable entries. All 29 historical offers also have complete labeled assessments while remaining excluded from current rankings. The snapshot contains 43 source-observed Intelligence observations, exclusively v5.0.1; role-profile completion does not fill missing Intelligence.
 
 The supervised complete refresh passed check:all, check:octopus-routing, test:octopus-routing-drift and diff validation. Portfolio construction and all mirrored publication artifacts share the same captured snapshot. Live runtime routing is a separate operational choice and is not changed by publishing these recommendations.
+
+## Follow-up: cost optimization revision gate
+
+The first publication missed a second hard-coded v5.0 gate in post-selection cost optimization. Although the collector and scorer accepted v5.0.1, the savings step rejected every new measured replacement on that revision and misleadingly reported no qualifying savings. Budget and Balanced therefore retained their quality-first initial portfolios, including Opus5.5.
+
+The optimizer now derives one supported observed Intelligence revision from the candidate pool, rejects mixed revisions and evaluates measured replacements on that revision. End-to-end behavior tests exercise actual cheaper selections on both v5.0 and v5.0.1. The same captured98-offer collection was replayed, without changing prices, quality policy or role evidence. Full validation passed.
+
+Budget removes Opus5.5 and falls from14.459380 to3.079664 normalized plan-adjusted USD per reference portfolio (78.701273% savings). Balanced falls to10.015914 (30.730685% savings). Both searches completed and report applied savings; all96 comparable complete profiles and two non-comparable entries remain unchanged. These are comparative workload costs, not invoices. Live routing remains unchanged.

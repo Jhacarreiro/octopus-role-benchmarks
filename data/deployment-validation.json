@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "methodologyVersion": 10,
   "snapshotGeneratedAt": "2026-11-10T20:57:11.457Z",
-  "sourceBaseRevision": "b72f3c682fc97117fd5fa9c73ae11ac9c5964be0",
+  "sourceBaseRevision": "0c6e4a1bb97006fa4e46ada8cb5d3420fb0c18dc",
   "sourceSha256": {
     "scripts/refresh.mjs": "dea67f2b6de39ce27ff6d28d312ab41305d14d066519f49753b810b7666c954f",
     "scripts/update.mjs": "d0b66d76fa532ce23a20ea8217b8bc98bb89151295d9663b81a80395e159cb1f",
@@ -17,7 +17,7 @@
     "scripts/lib/model-profile.mjs": "b45c5a968d79f56754e7d142987adcb3220e388e2d79bca867e14bc4701fe32a",
     "scripts/lib/balanced-score.mjs": "d9e896da4918e50c08da587cb059d44c3b9bc906da9f55c85dff57418f3517ec",
     "scripts/lib/portfolio-price-filter.mjs": "abf4bae5dfe6febc0bd9ff9e4be4303ad6091c625b33e25c4a2f3e88209ba447",
-    "scripts/lib/post-selection-cost.mjs": "504fecedf894d7ac52964d28bb5fd772119ef6e6cbc0f965391569aa9c048eea",
+    "scripts/lib/post-selection-cost.mjs": "3fe89751399b30be61bd5515de32819125223dc56cb27926c826ec81db15d424",
     "scripts/build-lineups.mjs": "f6ef5b1b0b2e5648d4ad41539969d364bf622aa135a3f3df8cb91e5c9325f4a4",
     "scripts/evaluate-lineup-swaps.mjs": "b56e1c90eec0ef9878877d68a4d79d60bec915c6426daf963de578ff951fad52",
     "scripts/build-octopus-routing.mjs": "87a84da93d4f194bb752bd4a411a08e4fa98aeb77577c1d5193531f306535b1e",
@@ -28,16 +28,16 @@
     "package.json": "a5b55917a85b3c848b70412d92f4cf23163e03c3a6dbb5d59e54203350e8d1ae"
   },
   "statisticalIntelligenceEstimator": false,
-  "previousSnapshotSha256": "4fb3c9657f6eacec8a36b887e2e9092b4e42ed1dbb5ca9def1cc85a6f30a5c24",
+  "previousSnapshotSha256": "34227cc4206190933ad25ef9db3338ca8c53e0f9682f51ab5db36e713933eec6",
   "artifactSha256": {
     "data/catalogue-assessment.json": "6df608b4d453d5565900e2df7b28e0344dda9f52169d7bd4cb30131e97b9f149",
     "site/data/catalogue-assessment.json": "6df608b4d453d5565900e2df7b28e0344dda9f52169d7bd4cb30131e97b9f149",
     "data/2026-11-10.json": "34227cc4206190933ad25ef9db3338ca8c53e0f9682f51ab5db36e713933eec6",
     "data/latest.json": "34227cc4206190933ad25ef9db3338ca8c53e0f9682f51ab5db36e713933eec6",
     "site/data/latest.json": "34227cc4206190933ad25ef9db3338ca8c53e0f9682f51ab5db36e713933eec6",
-    "site/data/lineups.json": "eb1b92f955421b6d74584af2869f0bf5b18b0f1bbcc645f03aaabf65e48d5ad6",
-    "data/lineup-opportunities.json": "2d9e94406f190cdb266d9f97ad95fcfc83000c0f4d632efb1b3b2900bf6f3ccc",
-    "site/data/octopus-routing.json": "95a0ded7bdf716b8ced015a3376c60bc089fb31d2735396cf6f9efb1f0cb8bb1"
+    "site/data/lineups.json": "a2ab41c4b99544f0cf4ab30a59187f8aa3116a5bb9379bd5813c8ad115505340",
+    "data/lineup-opportunities.json": "fcd079e6876fc82e0968f53c193e169b63bece0d3d7dcb1b465985f5a14cd998",
+    "site/data/octopus-routing.json": "773aa41d9962ede2e92fce10228a721594ad4c4f7be6fd90d7137d9987120e12"
   },
   "counts": {
     "commandCodeRows": 98,
