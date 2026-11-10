@@ -13,7 +13,7 @@ export function applyModelProfiles(models,config,generatedAt){
   for(const m of models){
     const active=m.generationEligibility?.eligible!==false;
     let missing=roles.filter(r=>!available(m.roleScores[r.id])).map(r=>r.id);
-    if(active&&missing.length&&(m.aaModel||m.approximation)){
+    if((active||policy.assessHistorical===true)&&missing.length&&(m.aaModel||m.approximation)){
       // External targets must first pass their reviewed evidence recipe. Their
       // observed reference models supply a profile, never fabricated raw data.
       const seeds=m.aaModel?[m]:m.approximation.anchors.map(slug=>models.find(a=>a.aaModel?.slug===slug));
@@ -31,7 +31,7 @@ export function applyModelProfiles(models,config,generatedAt){
         const sources=candidates.map(a=>({url:a.model.benchmarkProvenance.briefcase.sourceUrl,summary:'Observed complete eight-role anchor; scores are not claims about the target.',capturedAt:generatedAt.slice(0,10)}));
         const anchorIds=candidates.map(a=>a.model.aaModel.slug);
         const expires=new Date(Date.parse(generatedAt)+policy.reviewDays*86400000).toISOString().slice(0,10);
-        if(!m.approximation)m.approximation={status:'estimated',method:'observed-profile-envelope-v1',kind:'partial-observed-profile',anchors:[],evidenceIds:['aa:'+m.aaModel.slug],margin:policy.margin,sources:[],reviewAfter:expires,scope:[],reason:'Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.',portfolioAllowed:true,intelligence:{status:'unavailable',referenceVersion:models.find(a=>a.aaModel?.intelligenceIndexVersion)?.aaModel.intelligenceIndexVersion??'5.0',estimate:null,cutoffLowerBound:null,reason:'Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative.'}};
+        if(!m.approximation)m.approximation={status:'estimated',method:'observed-profile-envelope-v1',kind:'partial-observed-profile',anchors:[],evidenceIds:['aa:'+m.aaModel.slug],margin:policy.margin,sources:[],reviewAfter:expires,scope:[],reason:'Missing role contributions use a conservative envelope of nearby, fully measured profiles. Cross-role transfer is heuristic.',portfolioAllowed:active,intelligence:{status:'unavailable',referenceVersion:models.find(a=>a.aaModel?.intelligenceIndexVersion)?.aaModel.intelligenceIndexVersion??'5.0',estimate:null,cutoffLowerBound:null,reason:'Role completion does not estimate Intelligence. Observed target Intelligence remains authoritative.'}};
         const p=m.approximation;
         p.profileCompletion={method:'observed-profile-envelope-v1',features,seedIdentities:seeds.map(a=>a.aaModel.slug),anchors:candidates.map(a=>({slug:a.model.aaModel.slug,distance:a.distance,sharedBenchmarks:a.shared})),scope:missing,margin:policy.margin,securityMargin:policy.securityMargin,externalMargin:policy.externalMargin,interpretation:'Measured-profile similarity is an analogy, not validation of cross-domain transfer or a calibrated confidence interval.'};
         // Keep a reviewed recipe's original anchors, including the provenance

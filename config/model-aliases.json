@@ -208,8 +208,9 @@
       }
     },
     "Qwen 3.6 Max Preview": {
-      "status": "outdated_unscored",
-      "reason": "Superseded by Qwen 3.7/3.8 Max generations; no verified AA 3.6 Max identity or current benchmark. Excluded from scoring; retained in historical catalog."
+      "status": "exact_alias",
+      "slug": "qwen3-6-max",
+      "reason": "Exact AA identity linked from the CommandCode model page and verified by UUID. Historical generation remains excluded from active ranking."
     },
     "Glyph Cluster": {
       "status": "unscored",

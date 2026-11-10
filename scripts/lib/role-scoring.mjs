@@ -88,7 +88,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
   const validationIssues=[];
   const models=retained.map(offer=>{
     const mapping=selectiveMapping(offer,config);
-    const generation=windows?generationEligibility(offer,windows,config.generationPolicy):null;
+    const generation=windows?generationEligibility({...offer,mapping},windows,config.generationPolicy):null;
     const source=mapping.slug?sources.get(mapping.slug):null;
     const m={...offer,mapping,aaModel:source&&!source.sourceUnavailableReason?{slug:source.slug,id:source.id,variantName:source.name,release:source.release,effort:source.effort,intelligenceIndex:null,intelligenceIndexVersion:null}:null,benchmarks:{},benchmarkProvenance:{},roleScores:{},experimentalBenchmarks:{},diagnostics:{codingAgent:source?.codingAgentObserved?.status==='observed'?source.codingAgentObserved:null},taskEfficiency:null,caiStar:null,codingAgent:null};
     if(generation)m.generationEligibility=generation;
@@ -150,7 +150,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
   applyBalancedScores(models,config.roles.map(r=>r.id),{qualityWeight:policy.modes.balanced.percentileWeights.quality,costWeight:policy.modes.balanced.percentileWeights.affordability});
   const mapped=models.filter(m=>m.aaModel&&m.generationEligibility?.eligible!==false),unique=(rows)=>new Set(rows.map(m=>m.aaModel.slug)).size;
   const scored=mapped.filter(m=>Object.values(m.roleScores).some(s=>s.status==='valid'));
-  const roleCoverage=Object.fromEntries(config.roles.map(r=>{const complete=mapped.filter(m=>m.roleScores[r.id].status==='valid');return[r.id,{total:unique(mapped),present:unique(complete),offers:complete.length,observedIntelligence:unique(complete.filter(m=>finite(m.aaModel.intelligenceIndex))),estimatedOffers:models.filter(m=>m.approximation&&m.roleScores[r.id]?.status==='estimated').length}];}));
+  const roleCoverage=Object.fromEntries(config.roles.map(r=>{const complete=mapped.filter(m=>m.roleScores[r.id].status==='valid');return[r.id,{total:unique(mapped),present:unique(complete),offers:complete.length,observedIntelligence:unique(complete.filter(m=>finite(m.aaModel.intelligenceIndex))),estimatedOffers:models.filter(m=>m.generationEligibility?.eligible!==false&&m.approximation&&m.roleScores[r.id]?.status==='estimated').length}];}));
   const coverage=Object.fromEntries(Object.keys(config.benchmarks).filter(k=>!config.benchmarks[k].experimental).map(k=>[k,{total:unique(mapped),present:unique(mapped.filter(m=>finite(m.benchmarks[k]))),missing:[...new Set(mapped.filter(m=>!finite(m.benchmarks[k])).map(m=>m.aaModel.slug))]}]));
   for(const c of Object.values(coverage))c.ratio=c.total?c.present/c.total:0;
   const modelCoverage={policy:'all-eight-roles-v1',activeOffers:models.filter(m=>m.generationEligibility?.eligible!==false).length,completeOffers:models.filter(m=>m.modelEligibility?.eligible).length,observedCompleteOffers:models.filter(m=>m.modelEligibility?.eligible&&config.roles.every(r=>m.roleScores[r.id].status==='valid')).length,excludedOffers:models.filter(m=>m.generationEligibility?.eligible!==false&&m.modelEligibility?.eligible===false).length};

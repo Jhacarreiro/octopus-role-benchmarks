@@ -130,6 +130,9 @@ assert.equal(generationEligibility(catalog[1],generationWindows([...catalog,{nam
 assert.equal(generationEligibility({name:'Unversioned public model'},windows).eligible,true);
 const old=snapshot.models.find(m=>m.name==='GPT-5.4');
 assert.equal(old.generationEligibility.eligible,false);
+assert.ok(config.roles.every(r=>['valid','estimated'].includes(old.roleScores[r.id]?.status)),'Historical models are assessed in every role where profile evidence suffices');
+assert.equal(old.modelEligibility.eligible,false);
+assert.equal(old.approximation?.portfolioAllowed,false,'Historical assessment cannot admit an estimated portfolio seat');
 assert.ok(Object.values(old.roleScores).every(s=>s.rankingValue==null),'Historical scores cannot define active percentiles');
 
 const prime=snapshot.models.find(m=>m.name==='Qwen 3.8 Max Prime');

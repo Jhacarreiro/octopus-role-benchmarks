@@ -725,6 +725,14 @@
       "label": "Reflection Beam 1.0, verified CommandCode route and AA identity",
       "sourceUrl": "https://commandcode.ai/models/beam-free",
       "reason": "CommandCode serves reflection/beam:free, released 2026-10-16. AA reflection-beam and Reflection model card confirm the public 501B/23B model; previous stealth classification was incorrect."
+    },
+    {
+      "model": "Qwen 3.6 Max Preview",
+      "slug": "qwen3-6-max",
+      "id": "6000692c-f9a6-47f8-a5c0-e0874ac488bb",
+      "label": "CommandCode — exact AA model source link",
+      "sourceUrl": "https://commandcode.ai/models/qwen3-6-max-preview",
+      "reason": "CommandCode explicitly links this serving name to AA qwen3-6-max; exact source UUID and Qwen3.6 Max Preview name verified on 2026-11-10. Historical measurements only; missing current Intelligence remains absent."
     }
   ],
   "profileCompletion": {
@@ -737,7 +745,8 @@
     "securityMargin": 35,
     "externalMargin": 40,
     "reviewDays": 30,
-    "note": "Every eligible model has all eight roles. Preserve measured contributions; fill only missing contributions with conservative analogies to fully measured profiles. Security analogies are labeled estimates, never Cyber Index observations. Missing Intelligence remains unavailable; the statistical estimator stays disabled."
+    "note": "Every eligible model has all eight roles. Preserve measured contributions; fill only missing contributions with conservative analogies to fully measured profiles. Security analogies are labeled estimates, never Cyber Index observations. Missing Intelligence remains unavailable; the statistical estimator stays disabled. Historical models receive the same labeled assessment where evidence suffices, but never enter active rankings or anchor completion.",
+    "assessHistorical": true
   },
   "latestCatalogAliases": [
     {
