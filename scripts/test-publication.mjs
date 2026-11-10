@@ -8,17 +8,18 @@ const root=path.resolve(import.meta.dirname,'..');
 const activePath=path.join(root,'config/active-methodology.json');
 if(!fs.existsSync(activePath)){console.log('ok: publication not activated');process.exit(0);}
 const fixture=JSON.parse(fs.readFileSync(path.join(root,'methodology/fixtures/2026-10-28-selective-inputs.json')));
-const files=['data/latest.json',`data/${fixture.generatedAt.slice(0,10)}.json`,'site/data/latest.json','site/data/lineups.json','data/lineup-opportunities.json','site/data/octopus-routing.json','data/deployment-validation.json'];
+const files=['data/catalogue-assessment.json','site/data/catalogue-assessment.json','data/latest.json',`data/${fixture.generatedAt.slice(0,10)}.json`,'site/data/latest.json','site/data/lineups.json','data/lineup-opportunities.json','site/data/octopus-routing.json','data/deployment-validation.json'];
 const hash=rel=>fs.existsSync(path.join(root,rel))?crypto.createHash('sha256').update(fs.readFileSync(path.join(root,rel))).digest('hex'):null;
 const before=files.map(hash),temp=fs.mkdtempSync(path.join(os.tmpdir(),'benchmark-publication-'));
 try{
-  for(const failure of ['global-source-failure','missing-security']){
+  for(const failure of ['global-source-failure','missing-security','missing-intelligence']){
     const data=structuredClone(fixture);
     if(failure==='global-source-failure')data.observations=data.observations.map(r=>({slug:r.slug,sourceUnavailableReason:'test: unavailable'}));
-    else for(const r of data.observations)r.cyberIndex=null;
+    else for(const r of data.observations)if(failure==='missing-security')r.cyberIndex=null;else r.intelligenceIndexIsEstimated=null;
     const input=path.join(temp,failure+'.json');fs.writeFileSync(input,JSON.stringify(data));
     const result=spawnSync(process.execPath,[path.join(root,'scripts/update.mjs'),'--inputs',input],{cwd:root,encoding:'utf8',timeout:45000,maxBuffer:8e6});
     assert.notEqual(result.status,0,`${failure} must reject publication`);
+    if(failure==='missing-intelligence')assert.match(result.stderr,/no scored models with AA Intelligence Index/,'Preserve the underlying child failure diagnostic');
     assert.deepEqual(files.map(hash),before,`${failure} must preserve every current public artifact`);
   }
 }finally{

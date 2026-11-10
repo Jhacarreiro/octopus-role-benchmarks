@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawnSync,execFileSync} from 'node:child_process';
 import {runSelectiveUpdate} from './selective-update.mjs';
-import {validateRoleSnapshot} from './lib/role-scoring.mjs';
+import {validateRoleSnapshot,assessCatalogue} from './lib/role-scoring.mjs';
 
 // Collect and validate an entire coherent publication before replacing any
 // public artifact. Backups remain in ignored staging storage for recovery.
@@ -23,7 +23,7 @@ export async function runPublicRefresh(root,args=[]){
   if(failedSources/collected.observations.length>.2)throw new Error('Widespread source extraction failure; previous publication preserved');
   const run=(script,argv)=>{
     const result=spawnSync(process.execPath,[path.join(root,'scripts',script),...argv],{cwd:root,encoding:'utf8',timeout:45000,maxBuffer:8e6});
-    if(result.status!==0)throw new Error(`Staged publication failed: ${script}`);
+    if(result.status!==0)throw new Error(`Staged publication failed: ${script} (exit ${result.status}, signal ${result.signal??'none'}): ${(result.stderr||result.error?.message||result.stdout||'No child diagnostic').trim().slice(-6000)}`);
     console.log(result.stdout.trim());
   };
   const latest=path.join(stage,'latest.json'),lineups=path.join(stage,'lineups.json');
@@ -32,7 +32,11 @@ export async function runPublicRefresh(root,args=[]){
   run('build-octopus-routing.mjs',['--lineups',lineups,'--output',path.join(stage,'octopus-routing.json')]);
   const assignments=JSON.parse(fs.readFileSync(lineups));
   if(assignments.methodologyVersion!==10||assignments.snapshotGeneratedAt!==snapshot.generatedAt)throw new Error('Staged publication version mismatch');
+  const assessment=path.join(stage,'catalogue-assessment.json');
+  fs.writeFileSync(assessment,JSON.stringify(assessCatalogue(snapshot,collected.offers),null,2)+'\n');
   const files={
+    'data/catalogue-assessment.json':assessment,
+    'site/data/catalogue-assessment.json':assessment,
     [`data/${snapshot.date}.json`]:latest,
     'data/latest.json':latest,
     'site/data/latest.json':latest,
@@ -42,7 +46,7 @@ export async function runPublicRefresh(root,args=[]){
   };
   const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
   const revision=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
-  const sourceFiles=['scripts/refresh.mjs','scripts/update.mjs','scripts/selective-update.mjs','scripts/lib/role-scoring.mjs','scripts/lib/role-approximations.mjs','scripts/lib/model-profile.mjs','scripts/lib/balanced-score.mjs','scripts/lib/portfolio-price-filter.mjs','scripts/lib/post-selection-cost.mjs','scripts/build-lineups.mjs','scripts/evaluate-lineup-swaps.mjs','scripts/build-octopus-routing.mjs','config/roles-v10.json','config/active-methodology.json','config/lineup-policy.json','config/octopus-routing-models.json','package.json'];
+  const sourceFiles=['scripts/refresh.mjs','scripts/update.mjs','scripts/selective-update.mjs','scripts/lib/role-scoring.mjs','scripts/lib/aa-observations.mjs','scripts/aa-cyber-index.mjs','scripts/install-opencli-adapters.mjs','scripts/lib/generation-window.mjs','config/model-aliases.json','scripts/lib/role-approximations.mjs','scripts/lib/model-profile.mjs','scripts/lib/balanced-score.mjs','scripts/lib/portfolio-price-filter.mjs','scripts/lib/post-selection-cost.mjs','scripts/build-lineups.mjs','scripts/evaluate-lineup-swaps.mjs','scripts/build-octopus-routing.mjs','config/roles-v10.json','config/active-methodology.json','config/lineup-policy.json','config/octopus-routing-models.json','package.json'];
   const previous=execFileSync('git',['show','HEAD:data/latest.json'],{cwd:root,maxBuffer:16e6});
   const manifest={schemaVersion:1,methodologyVersion:10,snapshotGeneratedAt:snapshot.generatedAt,sourceBaseRevision:revision,sourceSha256:Object.fromEntries(sourceFiles.map(file=>[file,hash(path.join(root,file))])),statisticalIntelligenceEstimator:false,previousSnapshotSha256:crypto.createHash('sha256').update(previous).digest('hex'),artifactSha256:Object.fromEntries(Object.entries(files).map(([target,file])=>[target,hash(file)])),counts:snapshot.counts};
   const manifestPath=path.join(stage,'deployment-validation.json');fs.writeFileSync(manifestPath,JSON.stringify(manifest,null,2)+'\n');

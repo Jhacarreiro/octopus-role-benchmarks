@@ -17,6 +17,14 @@ Methodology **v10** is active through `config/active-methodology.json` and `conf
 
 [Complete profile policy](methodology/complete-profiles-2026-10-28.md), [initial v10 design](methodology/selective-v10.md), [migration comparison](methodology/migration-validation-2026-10-28.md), [six-model source investigation](methodology/coverage-followup-2026-10-28.md), and [activation validation](methodology/activation-2026-10-28.md).
 
+## Source revision and whole-catalogue coverage
+
+The current collector reads the explicit Intelligence Index revision from each AA model page. Supported revisions are v5.0 and v5.0.1; a snapshot never mixes them. Legacy explicit observed flags remain supported. When the source omits that flag, a source-published index additionally requires all nine scored evaluations, an exact model/effort object and the explicit supported revision. Missing flags remain null. Explicit estimates, incomplete suites, conflicting observations and unsupported revisions remain ineligible. No Intelligence score is recomputed from components.
+
+Every refresh publishes [`catalogue-assessment.json`](https://benchmark.gallivanter.biz/data/catalogue-assessment.json), accounting for every raw offer and all eight roles as observed, estimated or unavailable. Complete profiles with analogies remain distinct from complete observations. Historical generations keep their evidence but remain outside current rankings; decision models are non-comparable; a paid duplicate superseded by a free offer is recorded explicitly. Full catalogue assessment does not mean every offer has eight measured benchmark results.
+
+The source contract and reviewed coverage additions are documented in [the November repair](methodology/source-contract-2026-11-10.md).
+
 ## Quality and cost
 
 The ranking table retains pure Quality, 75%/25% Balanced and 40%/60% Budget views. Recommended portfolios are selected separately: all start from pure role quality. Balanced and Budget then apply their score/price exchanges. Estimated rows do not change measured percentile reference populations.

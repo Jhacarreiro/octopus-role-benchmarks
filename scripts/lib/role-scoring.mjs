@@ -1,3 +1,4 @@
+import {intelligenceEvidence,supportedIntelligenceVersions} from './aa-observations.mjs';
 import {applyBalancedScores} from './balanced-score.mjs';
 import {planEconomics,planAdjustedTaskCost} from './plan-economics.mjs';
 import {applyRoleApproximations,validateApproximationPolicy} from './role-approximations.mjs';
@@ -6,6 +7,21 @@ import {applyModelProfiles} from './model-profile.mjs';
 
 const finite=Number.isFinite;
 const round=(n,d=6)=>Math.round((n+Number.EPSILON)*10**d)/10**d;
+// Account for every commercial offer, including historical/non-comparable
+// entries and paid duplicates superseded by a free offer. Assessment is not
+// admission to a portfolio and never manufactures a missing role measurement.
+export function assessCatalogue(snapshot,offers){
+  const entries=offers.map((offer,index)=>{
+    const m=snapshot.models.find(m=>m.name===offer.name&&!!m.free===!!offer.free);
+    if(!m)return {offer:index+1,name:offer.name,free:!!offer.free,status:'superseded',reason:'Free offer supersedes paid duplicate',roles:null};
+    const roles=Object.fromEntries(snapshot.roles.map(r=>{const s=m.roleScores[r.id];return [r.id,{status:s?.status==='valid'?'observed':s?.status==='estimated'?'estimated':'unavailable',score:s?.score??null,missingComponents:s?.missingComponents??Object.keys(r.weights??{[r.externalBenchmark]:1})}];}));
+    const statuses=Object.values(roles).map(r=>r.status),complete=statuses.every(s=>s!=='unavailable');
+    const status=m.mapping.identityStatus==='external_verified_noncomparable'?'non-comparable':complete?(statuses.includes('estimated')?'complete-with-estimates':'complete-observed'):statuses.some(s=>s!=='unavailable')?'partial':'unavailable';
+    return {offer:index+1,name:m.name,free:!!m.free,status,historical:m.generationEligibility?.eligible===false,rankingEligible:m.modelEligibility?.eligible??false,reason:m.modelEligibility?.reason??null,aaSlug:m.aaModel?.slug??null,intelligence:m.aaModel?.intelligenceIndex??null,intelligenceVersion:m.aaModel?.intelligenceIndexVersion??null,roles};
+  });
+  const counts=Object.fromEntries(['complete-observed','complete-with-estimates','partial','unavailable','non-comparable','superseded'].map(s=>[s,entries.filter(e=>e.status===s).length]));
+  return {schemaVersion:1,generatedAt:snapshot.generatedAt,methodologyVersion:snapshot.methodologyVersion,rawOffers:offers.length,assessedOffers:entries.length,counts,entries};
+}
 export function normalizeObservation(raw,spec){
   if(raw==null)return null;
   if(!finite(raw))throw new Error(`Non-numeric ${spec.label} observation`);
@@ -60,6 +76,9 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
   const sources=new Map();
   for(const row of observations){if(sources.has(row.slug))throw new Error(`Duplicate AA identity ${row.slug}`);sources.set(row.slug,row);}
   if(!observations.length||observations.every(r=>r.sourceUnavailableReason))throw new Error('Global AA extraction failure');
+  const indexVersions=[...new Set(observations.filter(r=>intelligenceEvidence(r)).map(r=>r.intelligenceIndexVersion))];
+  if(indexVersions.length>1)throw new Error('Mixed Intelligence versions in source observations');
+  const indexVersion=indexVersions[0]??null;
   const economics=planEconomics(policy),profile=config.costBasis.normalizedTask.referenceTokenProfile;
   const freeNames=new Set(offers.filter(o=>o.free).map(o=>o.name));
   const retained=offers.filter(o=>o.free||!freeNames.has(o.name));
@@ -84,9 +103,9 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
       if(value!=null)m.benchmarks[key]=value;
       m.benchmarkProvenance[key]=provenance;
     }
-    const validIntelligence=finite(source.intelligenceIndex)&&source.intelligenceIndexVersion==='5.0'&&source.intelligenceIndexIsEstimated===false;
-    if(validIntelligence){if(source.intelligenceIndex<0||source.intelligenceIndex>100)throw new Error(`Invalid Intelligence scale for ${source.slug}`);m.aaModel.intelligenceIndex=source.intelligenceIndex;m.aaModel.intelligenceIndexVersion='5.0';}
-    m.benchmarkProvenance.intelligenceIndex={status:validIntelligence?'observed':'unavailable',metricVersion:'5.0',sourceUrl:source.sourceUrl,reason:validIntelligence?null:'Observed v5 Intelligence required; all intelligence estimators disabled'};
+    const evidence=intelligenceEvidence(source),validIntelligence=!!evidence;
+    if(validIntelligence){if(source.intelligenceIndex<0||source.intelligenceIndex>100)throw new Error(`Invalid Intelligence scale for ${source.slug}`);m.aaModel.intelligenceIndex=source.intelligenceIndex;m.aaModel.intelligenceIndexVersion=source.intelligenceIndexVersion;}
+    m.benchmarkProvenance.intelligenceIndex={status:validIntelligence?'observed':'unavailable',metricVersion:source.intelligenceIndexVersion,evidence,sourceObservation:{intelligenceIndex:source.intelligenceIndex,intelligenceIndexVersion:source.intelligenceIndexVersion,intelligenceIndexIsEstimated:source.intelligenceIndexIsEstimated??null,intelligenceIndexRevisionSource:source.intelligenceIndexRevisionSource??null,intelligenceIndexEvaluations:source.intelligenceIndexEvaluations??[]},sourceEstimatedFlag:source.intelligenceIndexIsEstimated??null,sourceUrl:source.sourceUrl,modelUuid:source.id,reason:validIntelligence?null:'Versioned observed Intelligence evidence required; all intelligence estimators disabled'};
     if(!validIntelligence&&generation?.eligible!==false)validationIssues.push({targetSlug:source.slug,benchmark:'intelligenceIndex',status:'unavailable',reason:m.benchmarkProvenance.intelligenceIndex.reason});
     for(const role of config.roles){
       const score=scoreRole(role,m.benchmarks);m.roleScores[role.id]=score;
@@ -134,7 +153,7 @@ export function buildRoleSnapshot({offers,observations,config,policy,generatedAt
   for(const c of Object.values(coverage))c.ratio=c.total?c.present/c.total:0;
   const modelCoverage={policy:'all-eight-roles-v1',activeOffers:models.filter(m=>m.generationEligibility?.eligible!==false).length,completeOffers:models.filter(m=>m.modelEligibility?.eligible).length,observedCompleteOffers:models.filter(m=>m.modelEligibility?.eligible&&config.roles.every(r=>m.roleScores[r.id].status==='valid')).length,excludedOffers:models.filter(m=>m.generationEligibility?.eligible!==false&&m.modelEligibility?.eligible===false).length};
   return {schemaVersion:7,methodologyVersion:10,date:generatedAt.slice(0,10),generatedAt,benchmarkGeneratedAt:generatedAt,benchmarkDate:generatedAt.slice(0,10),lineupInputsRefreshedAt:generatedAt,validationStatus:validationIssues.length?'partial':'valid',validationIssues,observationGaps,modelCoverage,coveragePolicy:1,coverageScope:config.coverageScope,intelligenceEstimator:{enabled:false},generationPolicy:config.generationPolicy,approximationPolicy:config.approximations?.enabled?{enabled:true,method:config.approximations.method,maxSeatsPerPortfolio:1}: {enabled:false},costBasis:{id:frozenCosts?'frozen-comparison':'normalized_reference_v1'},benchmarks:config.benchmarks,roles:config.roles,models,roleCoverage,coverage,
-    sources:{commandCodeMax:{rows:rawOfferCount,url:'https://commandcode.ai/docs/plans/max'},artificialAnalysis:{parserVersion:3,intelligenceIndexVersion:'5.0',url:'https://artificialanalysis.ai/'}},
+    sources:{commandCodeMax:{rows:rawOfferCount,url:'https://commandcode.ai/docs/plans/max'},artificialAnalysis:{parserVersion:4,intelligenceIndexVersion:indexVersion,url:'https://artificialanalysis.ai/'}},
     counts:{commandCodeRows:rawOfferCount,retainedRows:models.length,activeRows:models.filter(m=>m.generationEligibility?.eligible!==false).length,historicalRows:models.filter(m=>m.generationEligibility?.eligible===false).length,approximatedRows:models.filter(m=>m.approximation).length,approximationPortfolioCandidates:models.filter(m=>m.approximation?.intelligence.status==='estimated').length,mappedRows:mapped.length,mappedFamilies:unique(mapped),observedOnlyRows:scored.filter(m=>!m.approximation).length,hybridRows:models.filter(m=>m.aaModel&&m.approximation).length,scoredRows:scored.length,scoredFamilies:unique(scored),partialScoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='partial_scored').length,partialRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status!=='exact').length,sourceIncompleteRows:models.filter(m=>m.generationEligibility?.eligible!==false&&m.mapping.status==='source_incomplete').length,unmatchedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel).length,unscoredRows:models.filter(m=>m.generationEligibility?.eligible!==false&&!m.aaModel&&!m.approximation).length,unrankedRows:models.filter(m=>m.generationEligibility?.eligible!==false&&(m.modelEligibility?.eligible===false||!Object.values(m.roleScores).some(s=>Number.isFinite(s.rankingQuality)))).length},
     efficiencyCoverage:{total:unique(mapped),present:unique(mapped.filter(m=>m.taskEfficiency)),ratio:1},caiStarCoverage:{total:unique(mapped),present:0,observed:0,estimated:0,historicalCalibrated:0,ratio:0,required:false},caiEstimator:{enabled:false},benchmarkFallbacksApplied:[]};
 }
@@ -162,7 +181,11 @@ export function validateRoleSnapshot(snapshot,config){
       if(m.approximation&&m.mapping.slug)throw new Error('Invalid approximation identity');
     }else{
       if(m.mapping.slug!==m.aaModel.slug||m.mapping.verifiedModelUuid&&m.mapping.verifiedModelUuid!==m.aaModel.id)throw new Error('Snapshot identity mismatch');
-      if(m.aaModel.estimated||finite(m.aaModel.intelligenceIndex)&&m.aaModel.intelligenceIndexVersion!=='5.0')throw new Error('Mixed Intelligence versions');
+      if(m.aaModel.estimated||finite(m.aaModel.intelligenceIndex)&&(!supportedIntelligenceVersions.includes(m.aaModel.intelligenceIndexVersion)||m.aaModel.intelligenceIndexVersion!==snapshot.sources.artificialAnalysis.intelligenceIndexVersion))throw new Error('Mixed Intelligence versions');
+      if(snapshot.sources.artificialAnalysis.parserVersion>=4&&finite(m.aaModel.intelligenceIndex)){
+        const p=m.benchmarkProvenance.intelligenceIndex;
+        if(p?.status!=='observed'||!['explicit-source-observed-flag','versioned-source-complete-suite'].includes(p.evidence)||p.metricVersion!==m.aaModel.intelligenceIndexVersion||p.modelUuid!==m.aaModel.id||p.sourceEstimatedFlag===true||intelligenceEvidence(p.sourceObservation??{})!==p.evidence||p.sourceObservation.intelligenceIndex!==m.aaModel.intelligenceIndex||p.sourceObservation.intelligenceIndexVersion!==p.metricVersion)throw new Error('Missing Intelligence evidence contract');
+      }
       for(const [key,value]of Object.entries(m.benchmarks)){
         const p=m.benchmarkProvenance[key],spec=config.benchmarks[key];
         if(!spec||p?.measurementKind!=='observed'||p.metricVersion!==spec.version||!p.sourceUrl||p.modelUuid!==m.aaModel.id)throw new Error(`Missing versioned provenance ${m.name}/${key}`);

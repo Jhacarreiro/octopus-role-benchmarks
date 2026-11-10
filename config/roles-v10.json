@@ -564,13 +564,13 @@
           "researcher"
         ],
         "margin": 25,
-        "reviewAfter": "2026-11-04",
+        "reviewAfter": "2026-11-17",
         "reason": "Independent mathematics/science evaluations support a narrow hard-question-answering analogy only. Lower-scoring target GPQA and unvalidated cross-task transfer receive a wide haircut; no coding or professional-deliverable score is inferred.",
         "sources": [
           {
             "url": "https://epoch.ai/models/qwen3-7-flash",
-            "summary": "Epoch publishes GPQA 82.323% thinking and 80.808% no-thinking, FrontierMath tiers1-3 v2 19.298%, OTIS mock AIME and game results, with execution logs.",
-            "capturedAt": "2026-10-28"
+            "summary": "Rechecked Epoch model page: GPQA82%, FrontierMath tiers1-3 v2 19%, OTIS mock AIME87%; exact closed-weight Qwen3.7 Flash identity. External measurements remain separate from AA scores.",
+            "capturedAt": "2026-11-10"
           },
           {
             "url": "https://playground.roboflow.com/models/qwen/qwen3-7-flash",
@@ -595,13 +595,13 @@
           "implementer"
         ],
         "margin": 30,
-        "reviewAfter": "2026-11-04",
+        "reviewAfter": "2026-11-17",
         "reason": "Nine published task results include SVG construction and sequential games. Only a weak normal-implementation analogy is permitted; hidden provider identity is not guessed, and no broad intelligence, heavy-agent or security measurement is asserted.",
         "sources": [
           {
             "url": "https://stealthmodels.com/benchmarks/models/glyph-cluster",
-            "summary": "StealthMark 18.9, General12.0, Visual29.8 across 7 SVG tasks and 2 games, with per-task artifacts. Small task suite and evaluator subjectivity limit transfer.",
-            "capturedAt": "2026-10-28"
+            "summary": "Rechecked named task artifacts: StealthMark18.9, General12.0, Visual29.8 across seven SVG tasks and two games. Identity remains anonymous; this is a narrow, low-confidence analogy.",
+            "capturedAt": "2026-11-10"
           },
           {
             "url": "https://stealthmodels.com/benchmarks",
@@ -631,18 +631,18 @@
           "implementer-heavy"
         ],
         "margin": 30,
-        "reviewAfter": "2026-11-04",
+        "reviewAfter": "2026-11-17",
         "evidenceFamilies": [
           "Claude",
           "GPT",
           "Gemini"
         ],
-        "reason": "Use the original June launch technical report as an explicitly uncertain coding analogy to its frontier reference class. The unversioned catalog route is verified, but the current revision is unconfirmed; v2 results are not imported. Anchor Intelligence v5 is unavailable, so portfolios remain blocked.",
+        "reason": "Use the original June launch technical report as an explicitly uncertain coding analogy to its frontier reference class. The unversioned catalog route is verified, but the current revision is unconfirmed; v2 results are not imported. Portfolio eligibility still requires available anchor Intelligence; no index is invented for this system.",
         "sources": [
           {
             "url": "https://arxiv.org/html/2606.21228v1",
-            "summary": "Original report: Ultra SWE-bench Pro73.7, TB2.1 82.1, SciCode58.7, HLE50.0 and LCR73.3; comparisons include Fable5/Mythos and an Opus4.8/GPT5.5/Gemini3.1 worker pool. Preserve that revision.",
-            "capturedAt": "2026-10-28"
+            "summary": "Original report: Ultra SWE-bench Pro73.7, TB2.1 82.1, SciCode58.7, HLE50.0 and LCR73.3; comparisons include Fable5/Mythos and an Opus4.8/GPT5.5/Gemini3.1 worker pool. Preserve that revision. Re-read original report on 2026-11-10; later serving revision remains unverified.",
+            "capturedAt": "2026-11-10"
           },
           {
             "url": "https://commandcode.ai/blog/fugu-ultra-by-sakana-ai-is-live-in-command-code",
@@ -653,6 +653,63 @@
             "url": "https://sakana.ai/fugu-1-1-claude-code-interface/",
             "summary": "Later official v1.1 improves coding benchmarks by up to7.9 points. This verifies version drift rather than equivalence to the unversioned route.",
             "capturedAt": "2026-10-28"
+          }
+        ]
+      },
+      {
+        "model": "DeepSeek V4.1 Flash Ultrafast",
+        "kind": "serving-variant",
+        "anchors": [
+          "deepseek-v4-1-flash-1017"
+        ],
+        "roles": [
+          "architect",
+          "strategist",
+          "code-reviewer",
+          "implementer",
+          "implementer-heavy",
+          "synthesizer",
+          "researcher"
+        ],
+        "margin": 10,
+        "reviewAfter": "2026-11-17",
+        "reason": "CommandCode describes this exact route as accelerated V4.1 Flash. The serving date/effort is unverified, so use a conservative latest-release analogy, not an exact AA identity or latency claim.",
+        "sources": [
+          {
+            "url": "https://commandcode.ai/models/deepseek-v4-1-flash-ultrafast",
+            "summary": "Exact route deepseek/deepseek-v4.1-flash-ultrafast; description: Accelerated V4.1 Flash. No AA score is published for this serving variant.",
+            "capturedAt": "2026-11-10"
+          }
+        ]
+      },
+      {
+        "model": "Crouton Alpha",
+        "kind": "external-task-suite",
+        "anchors": [
+          "nvidia-nemotron-3-ultra-550b-a55b",
+          "inkling-small"
+        ],
+        "roles": [
+          "implementer"
+        ],
+        "margin": 30,
+        "reviewAfter": "2026-11-17",
+        "reason": "Published named-route artifacts cover seven SVG tasks and two games. Only a weak implementation analogy is supported; provider identity is not inferred from the later Muse Ember label, and broad role completion remains explicitly heuristic.",
+        "sources": [
+          {
+            "url": "https://stealthmodels.com/benchmarks/models/crouton-alpha",
+            "summary": "Nine named-route results: StealthMark48.0, General43.5, Visual56.0. The page now labels this Muse Ember (early version); no current backend identity equivalence is asserted.",
+            "capturedAt": "2026-11-10"
+          },
+          {
+            "url": "https://stealthmodels.com/benchmarks",
+            "summary": "Same task suite includes Nemotron3Ultra and InklingSmall below Crouton. Reference values are conservative analogies, never substituted AA observations.",
+            "capturedAt": "2026-11-10"
+          },
+          {
+            "url": "https://www.mindstudio.ai/blog/crouton-alpha-stealth-model-test",
+            "summary": "Independent Nov4 hands-on coding report: generated code passed20 tests. Anecdotal corroboration only; not an AA metric or calibrated capability estimate.",
+            "capturedAt": "2026-11-10"
           }
         ]
       }

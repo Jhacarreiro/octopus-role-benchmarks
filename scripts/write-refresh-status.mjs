@@ -21,7 +21,7 @@ const message=arg('message',null);
 function readLatest({committed=false}={}){
   try{
     const raw=committed
-      ? execFileSync('git',['show','HEAD:data/latest.json'],{cwd:root,encoding:'utf8'})
+      ? execFileSync('git',['show','HEAD:data/latest.json'],{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})
       : fs.readFileSync(path.join(root,'data','latest.json'),'utf8');
     return JSON.parse(raw)
   }

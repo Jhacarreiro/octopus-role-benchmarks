@@ -533,7 +533,7 @@ const out={
   },
   modes:{}
 };
-if(latest.methodologyVersion>=10){out.methodologyVersion=latest.methodologyVersion;out.snapshotGeneratedAt=latest.generatedAt;out.intelligenceIndexVersion='5.0';out.approximationPolicy=latest.approximationPolicy??{enabled:false};}
+if(latest.methodologyVersion>=10){out.methodologyVersion=latest.methodologyVersion;out.snapshotGeneratedAt=latest.generatedAt;out.intelligenceIndexVersion=latest.sources.artificialAnalysis.intelligenceIndexVersion;out.approximationPolicy=latest.approximationPolicy??{enabled:false};}
 
 for(const [modeId,mode] of Object.entries(policy.modes)){
   const {poolInfo,result,postSelectionOptimization}=solveMode(modeId,mode);

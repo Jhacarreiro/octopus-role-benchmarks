@@ -230,6 +230,15 @@
           }
         ]
       }
+    },
+    "Crouton Alpha": {
+      "status": "unscored",
+      "identityStatus": "stealth_unverified",
+      "reason": "Named stealth route with external task artifacts; no verified AA identity or current backend equivalence.",
+      "externalSource": {
+        "label": "Stealth Models — Crouton Alpha task artifacts",
+        "url": "https://stealthmodels.com/benchmarks/models/crouton-alpha"
+      }
     }
   }
 }

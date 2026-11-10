@@ -31,8 +31,23 @@ function resolveMetadata(row,slug){
   const ordered=[...new Map(evaluations.map(e=>{const c=canonical(e);return [JSON.stringify(c),c];})).values()].sort((a,b)=>JSON.stringify(a).localeCompare(JSON.stringify(b)));
   return {briefcaseElo:briefcase[0]??null,intelligenceIndexEvaluations:ordered,release:row.release?.slug??null,effort:row.effort?.slug??null,deprecated:row.deprecated===true};
 }
+export const supportedIntelligenceVersions=['5.0','5.0.1'];
+const v5Suite=['aa-briefcase','automationbench-aa','gdp-pdf','frontiercode-2-0','terminalbench-4-0','terminal-bench-science','critpt-v2-hard','omniscience','hle-diamond'];
+// The current source removed its estimated flag. Accept its published index
+// only with an explicit page revision and the complete, scored nine-test suite.
+// Keep the missing flag null; this is a separate evidence contract.
+export function intelligenceEvidence(source){
+  if(!Number.isFinite(source.intelligenceIndex)||!supportedIntelligenceVersions.includes(source.intelligenceIndexVersion)||source.intelligenceIndexIsEstimated===true)return null;
+  if(source.intelligenceIndexIsEstimated===false)return 'explicit-source-observed-flag';
+  const evaluations=source.intelligenceIndexEvaluations??[];
+  if(source.intelligenceIndexRevisionSource!=='explicit-page-title'||evaluations.length!==v5Suite.length)return null;
+  if(!v5Suite.every(slug=>evaluations.filter(e=>e.slug===slug&&Number.isFinite(e.score)).length===1))return null;
+  return 'versioned-source-complete-suite';
+}
 export function parseModelObservations(html,slug){
   const text=flightText(html);
+  const revisions=[...new Set([...text.matchAll(/Artificial Analysis Intelligence Index v(\d+\.\d+(?:\.\d+)?)(?![\d.])/g)].map(m=>m[1]))];
+  if(revisions.length>1)throw new Error(`Conflicting Intelligence revisions for ${slug}`);
   const quoted=JSON.stringify(slug).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   const pattern=new RegExp('\\{(?:"id":"[^"]+",)?"slug":'+quoted,'g');
   const found=[];
@@ -50,6 +65,7 @@ export function parseModelObservations(html,slug){
   const v5=evaluations.some(e=>e.slug==='frontiercode-2-0')&&evaluations.some(e=>e.slug==='hle-diamond');
   return {slug,id:row.id,name:row.name,release:row.release?.slug??null,effort:row.effort?.slug??null,deprecated:row.deprecated===true,
     ...Object.fromEntries(fields.map(k=>[k,row[k]??null])),...metadata,
-    intelligenceIndexVersion:v5?'5.0':null,intelligenceIndexEvaluations:evaluations,
+    intelligenceIndexVersion:revisions[0]??(v5&&row.intelligenceIndexIsEstimated===false?'5.0':null),
+    intelligenceIndexRevisionSource:revisions.length?'explicit-page-title':null,intelligenceIndexEvaluations:evaluations,
     sourceUrl:`https://artificialanalysis.ai/models/${slug}`};
 }
