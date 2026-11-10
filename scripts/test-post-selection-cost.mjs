@@ -54,6 +54,16 @@ assert.equal(actual.report.positivePointLoss,72,'Losses beyond the old per-role 
 assert.deepEqual([...input.initial.assign.values()].map(m=>m.name),roles.map(r=>'initial-'+r),'Optimization must not move its initial reference');
 assert.deepEqual(optimizePostSelectionCost(input).report,actual.report,'Repeating against the same initial reference must not accumulate losses');
 
+for(const revision of ['5.0','5.0.1']){
+  const migrated=setup();migrated.pool.push(model('current-cheaper','architect',{cost:.05,quality:79}));
+  for(const m of migrated.pool)m.aaModel.intelligenceIndexVersion=revision;
+  const optimized=optimizePostSelectionCost(migrated);
+  assert.equal(optimized.result.assign.get('architect').name,'current-cheaper','A supported revision must retain the savings step');
+  assert.equal(optimized.report.status,'applied');
+  const mixed={...migrated,pool:structuredClone(migrated.pool)};mixed.pool.at(-1).aaModel.intelligenceIndexVersion=revision==='5.0'?'5.0.1':'5.0';
+  assert.throws(()=>optimizePostSelectionCost(mixed),/Mixed Intelligence revisions/);
+}
+
 const tiny=setup();tiny.pool.push(model('tiny-saving','architect',{cost:.95,quality:79.5,intelligence:20}));
 const small=optimizePostSelectionCost(tiny);
 assert.equal(small.report.status,'applied','The per-role exchange can qualify below the old total-savings threshold');

@@ -1,3 +1,4 @@
+import {supportedIntelligenceVersions} from './aa-observations.mjs';
 import {portfolioIntelligence,portfolioRoleQuality,approximationSeats,independentEvidence,reviewerQualityPasses} from './role-approximations.mjs';
 
 const EPS=1e-9;
@@ -12,6 +13,9 @@ export function scorePriceExchange(initialQuality,quality,initialCost,cost,savin
 export function optimizePostSelectionCost({roles,initial,pool,policy,modeId,intelligenceThreshold,generationEligibleForRole,costOf,familyOf,summarizeAssign,estimatedLimit}){
   const settings=policy.modes[modeId].postSelectionOptimization;
   if(!settings?.enabled)return {result:initial,report:null};
+  const versions=[...new Set(pool.filter(m=>m.benchmarkProvenance?.intelligenceIndex?.status==='observed'&&Number.isFinite(m.aaModel?.intelligenceIndex)&&supportedIntelligenceVersions.includes(m.aaModel.intelligenceIndexVersion)).map(m=>m.aaModel.intelligenceIndexVersion))];
+  if(versions.length>1)throw new Error('Mixed Intelligence revisions in cost optimization');
+  const indexVersion=versions[0];
   const {savingPercentPerPoint,maxSearchNodes}=settings;
   if(settings.objective!=='minimize-plan-adjusted-cost'||settings.exchangeRule!=='price-saving-percent-per-quality-point'||settings.measuredReplacementsOnly!==true||settings.maxIntelligenceExceptions!==null||settings.maxSwaps!==null||!Number.isFinite(savingPercentPerPoint)||savingPercentPerPoint<=0||!Number.isInteger(maxSearchNodes)||maxSearchNodes<1)throw new Error('Invalid post-selection cost optimization policy');
   const minFamilies=policy.modes[modeId].minFamilies??policy.minFamilies,maxFamilies=policy.maxFamilies,maxSeats=policy.maxSeatsPerFamily;
@@ -19,7 +23,7 @@ export function optimizePostSelectionCost({roles,initial,pool,policy,modeId,inte
   const reference=new Map(roles.map(role=>[role,{model:initial.assign.get(role),quality:portfolioRoleQuality(initial.assign.get(role),role),cost:costOf(initial.assign.get(role))}]));
   const candidates=Object.fromEntries(roles.map(role=>{
     const baseline=reference.get(role);
-    const rows=pool.filter(m=>m===baseline.model||(m.roleScores[role]?.status==='valid'&&m.benchmarkProvenance?.intelligenceIndex?.status==='observed'&&m.aaModel?.intelligenceIndexVersion==='5.0'&&Number.isFinite(m.aaModel.intelligenceIndex)&&generationEligibleForRole(m,role)));
+    const rows=pool.filter(m=>m===baseline.model||(m.roleScores[role]?.status==='valid'&&m.benchmarkProvenance?.intelligenceIndex?.status==='observed'&&indexVersion!=null&&m.aaModel?.intelligenceIndexVersion===indexVersion&&Number.isFinite(m.aaModel.intelligenceIndex)&&generationEligibleForRole(m,role)));
     if(!rows.includes(baseline.model))rows.push(baseline.model);
     return [role,rows.map(m=>({model:m,cost:costOf(m),quality:portfolioRoleQuality(m,role),loss:Math.max(0,baseline.quality-portfolioRoleQuality(m,role)),changed:m.name!==baseline.model.name})).filter(r=>Number.isFinite(r.cost)&&r.cost>=0&&Number.isFinite(r.quality)&&scorePriceExchange(baseline.quality,r.quality,baseline.cost,r.cost,savingPercentPerPoint).allowed).sort((a,b)=>a.cost-b.cost||a.loss-b.loss||a.model.name.localeCompare(b.model.name,'en'))];
   }));
