@@ -5,12 +5,12 @@
   "mode": "balanced",
   "roles": {
     "architect": {
-      "provider": "claude",
+      "provider": "commandcode",
       "model": "claude-sonnet-5-5",
       "benchmarkModel": "Claude Sonnet 5.5"
     },
     "strategist": {
-      "provider": "claude",
+      "provider": "commandcode",
       "model": "claude-sonnet-5-5",
       "benchmarkModel": "Claude Sonnet 5.5"
     },
