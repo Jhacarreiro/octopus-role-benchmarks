@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
-  "status": "success",
-  "attemptedAt": "2026-11-10T21:11:34.687Z",
+  "status": "error",
+  "attemptedAt": "2026-11-16T07:17:15.295Z",
   "lastSuccessfulSnapshot": {
     "date": "2026-11-10",
     "generatedAt": "2026-11-10T20:57:11.457Z"
@@ -17,10 +17,10 @@
     "date": "2026-11-10",
     "generatedAt": "2026-11-10T20:57:11.457Z"
   },
-  "mode": "full",
+  "mode": null,
   "message": null,
-  "stage": null,
-  "errorSummary": null,
+  "stage": "update",
+  "errorSummary": "Error: lineup policy: no scored models with AA Intelligence Index",
   "validationIssues": [],
   "runUrl": null
 }
